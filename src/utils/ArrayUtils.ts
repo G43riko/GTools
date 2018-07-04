@@ -19,8 +19,8 @@ export class ArrayUtils {
         return result;
     }
 
-    public static subArray(array: any[], from = 0, to = array.length): any[] {
-        const result: any[] = [];
+    public static subArray<T = any>(array: T[], from = 0, to = array.length): T[] {
+        const result: T[] = [];
         const final = array.length < to ? array.length : to;
         for (let i = from; i < final; i++) {
             result[result.length] = array[i];
@@ -57,7 +57,7 @@ export class ArrayUtils {
         return array[array.length - 1];
     }
 
-    public static getRandom<T = any>(args: any[]): T {
+    public static getRandom<T = any>(args: T[]): T {
         return args[(Math.random() * args.length)];
     }
 

@@ -7,7 +7,7 @@ export interface StringMap {
 }
 
 export class MiscUtils {
-    public static getErrorMessage(error: any): string {
+    public static getErrorMessage(error: string | { error: { message?: string }, message: string }): string {
         let textMessageKey = "error.system_error";
 
         if (typeof error === "string") {
@@ -19,10 +19,8 @@ export class MiscUtils {
                 textMessageKey = errorJson.message;
             }
         }
-        else if (typeof error === "object") {
-            if (error.message) {
-                textMessageKey = error.message;
-            }
+        else if (error.message) {
+            textMessageKey = error.message;
         }
 
         // temporary errors
