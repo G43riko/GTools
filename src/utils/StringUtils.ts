@@ -58,11 +58,11 @@ export class StringUtils {
 
     public static count(text: string, key: string): number {
         return (text.match(new RegExp(key, "g")) || []).length;
-    };
+    }
 
     public static repeat(text: string, count: number): string {
         return new Array(count + 1).join(text);
-    };
+    }
 
     public static removeAll(text: string, words: string[]): string {
         return text.replace(new RegExp("(" + words.join("|") + ")", "g"), "");
@@ -74,19 +74,15 @@ export class StringUtils {
         const regexp = new RegExp(start + "(.+?)'" + end, "g");
         const matches = text.match(regexp) || [];
 
-        for(let i = 0 ; i < matches.length ; i++) {
-            const match = matches[i];
+        matches.forEach((match) => {
             const key = match.substring(start.length, match.length - end.length).trim();
             const value = values[key];
             if (value) {
-                console.log("match: ", match);
-                console.log("key: ", key);
-                console.log("value: ", value);
                 text = text.replace(match, value);
             }
-        }
+        });
         return text;
-    };
+    }
 
     public static between(text: string, key1: string, key2: string): string {
         const startPos = text.indexOf(key1);
@@ -115,10 +111,10 @@ export class StringUtils {
 
     public static isEmpty(thisArg: string): boolean {
         return !thisArg || /^[\s\xa0]*$/.test(thisArg);
-    };
+    }
 
     public static swapCase(text: string): string {
-        return text.replace(/\S/g, function(char) {
+        return text.replace(/\S/g, (char) => {
             const lowerCase = char.toLowerCase();
             return lowerCase === char ? char.toUpperCase() : lowerCase;
         });
@@ -137,43 +133,41 @@ export class StringUtils {
 
     public static getAsciiArray(thisArg: string): any {
         const result = [];
-        for(let i = 0 ; i < thisArg.length ; i++) {
-            result[result.length] = thisArg[i].charCodeAt(0);
+        for (const letter of thisArg) {
+            result[result.length] = letter.charCodeAt(0);
         }
         return result;
-    };
-
-    public static isValidPhoneNumber(number: string): boolean {
-        if (!number) {
-            return false;
-        }
-        return validPhoneNumberRegex.test(number.trim());
     }
 
+    public static isValidPhoneNumber(num: string): boolean {
+        if (!num) {
+            return false;
+        }
+        return validPhoneNumberRegex.test(num.trim());
+    }
 
     public static toBasicForm(text: string): string {
         return StringUtils.removeAccentedCharacters(text.toLowerCase());
     }
 
     public static contains(text: string, substring: string): boolean {
-        return typeof text === "string" && StringUtils.removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
+        return !!text && StringUtils.removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
     }
 
-    public static getFormattedNumber(number: string, prefix = "+421"): string {
-        number = number.replace(/[( )/-]/g, "");
-        if (number.startsWith("+")) {
-            return number;
+    public static getFormattedNumber(num: string, prefix = "+421"): string {
+        num = num.replace(/[( )/-]/g, "");
+        if (num.startsWith("+")) {
+            return num;
         }
-        if (number.startsWith("00")) {
-            return number.substring(2);
+        if (num.startsWith("00")) {
+            return num.substring(2);
         }
-        if (number.startsWith("09") || number.startsWith("02")) {
-            return prefix + number.substring(1);
+        if (num.startsWith("09") || num.startsWith("02")) {
+            return prefix + num.substring(1);
         }
-        return number;
+        return num;
     }
 }
-
 
 function fuzzy_match_simple(pattern: string, str: string): boolean {
     let patternIdx = 0;

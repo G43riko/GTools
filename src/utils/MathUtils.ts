@@ -21,10 +21,11 @@ export class MathUtils {
             r /= d;
         }
         return r;
-    };
+    }
+
     public static lerp(a: number, b: number, val: number): number {
         return a * val + (1 - val) * b;
-    };
+    }
 
     public static log2i(value: number) {
         let r = 0;
@@ -32,8 +33,7 @@ export class MathUtils {
             r++;
         }
         return r;
-    };
-
+    }
 
     public static lamp(min: number, max: number, scale: number): number {
         return MathUtils.clamp((max - min) * scale + min, min, max);

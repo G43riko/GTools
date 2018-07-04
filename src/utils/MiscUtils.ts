@@ -1,3 +1,7 @@
+/**
+ * @typedef  {(Object)} any
+ */
+
 export interface StringMap {
     [s: string]: string;
 }
@@ -21,7 +25,7 @@ export class MiscUtils {
             }
         }
 
-        // dočasné chyby
+        // temporary errors
         if (textMessageKey.toLocaleLowerCase() === "timeout") {
             textMessageKey = "error.timeout";
         }
@@ -37,13 +41,14 @@ export class MiscUtils {
      *
      * @param name - class name
      * @param {any[]} args - constructor parameter
-     * @returns {any} - creted object
+     * @returns {any} - created object
      */
     public static createClass(name: any, args: any[]): any {
         const temp = Object.create(name.prototype);
         name.apply(temp, args);
         return temp;
     }
+
     public static parseCookies(cookies: string): StringMap {
         const list: StringMap = {};
         const data = cookies ? cookies.toString().split(";") : [];
@@ -58,21 +63,21 @@ export class MiscUtils {
         return list;
     }
 
-    public static getFormattedNumber(number: string, prefix = "+421"): string {
-        number = number.replace(/[( )/-]/g, "");
-        if (number.startsWith("+")) {
-            return number;
+    public static getFormattedNumber(num: string, prefix = "+421"): string {
+        num = num.replace(/[( )/-]/g, "");
+        if (num.startsWith("+")) {
+            return num;
         }
-        if (number.startsWith("00")) {
-            return number.substring(2);
+        if (num.startsWith("00")) {
+            return num.substring(2);
         }
-        if (number.startsWith("09") || number.startsWith("02")) {
-            return prefix + number.substring(1);
+        if (num.startsWith("09") || num.startsWith("02")) {
+            return prefix + num.substring(1);
         }
-        return number;
-    };
+        return num;
+    }
 
-    public static isIn (obj: any, data: any) {
+    public static isIn(obj: any, data: any) {
         if (Array.isArray(data)) {
             if (data.indexOf(obj) >= 0) {
                 return true;
@@ -106,25 +111,27 @@ export class MiscUtils {
         }
         return "";
     }
+
     public static parseParams(query: string     = window.location.search.substring(1),
                               separator: string = "&",
                               delimiter: string = "="): any {
-        const query_string: any = {};
+        const queryString: any = {};
         const vars: string[]    = query.split(separator);
         for (const key of vars) {
             const pair = key.split(delimiter);
-            if (typeof query_string[pair[0]] === "undefined") {
-                query_string[pair[0]] = decodeURIComponent(pair[1]);
+            if (typeof queryString[pair[0]] === "undefined") {
+                queryString[pair[0]] = decodeURIComponent(pair[1]);
             }
-            else if (typeof query_string[pair[0]] === "string") {
-                query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
+            else if (typeof queryString[pair[0]] === "string") {
+                queryString[pair[0]] = [queryString[pair[0]], decodeURIComponent(pair[1])];
             }
             else {
-                query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                queryString[pair[0]].push(decodeURIComponent(pair[1]));
             }
         }
-        return query_string;
+        return queryString;
     }
+
     public static roughSizeOfObject(object: any): number {
         const objectList = [];
         const stack = [object];
@@ -168,5 +175,5 @@ export class MiscUtils {
         script.type = "text/javascript";
         script.defer = true;
         document.head.appendChild(script);
-    };
+    }
 }

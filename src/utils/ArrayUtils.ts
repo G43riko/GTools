@@ -1,20 +1,20 @@
 export class ArrayUtils {
     public static where<T = any>(array: any[], condition: T[]): T[] {
-        const result = [];
-        for (let i = 0 ; i < array.length ; i++) {
+        const result: T[] = [];
+        array.forEach((e) => {
             let add = true;
             for (const key in condition) {
                 if (condition.hasOwnProperty(key)) {
-                    if (array[i][key] !== condition[key]) {
+                    if (e[key] !== condition[key]) {
                         add = false;
                         break;
                     }
                 }
             }
             if (add) {
-                result[result.length] = array[i];
+                result[result.length] = e;
             }
-        }
+        });
         return result;
     }
 

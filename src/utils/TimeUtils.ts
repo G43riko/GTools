@@ -1,8 +1,12 @@
 import * as moment from "moment";
 
 export class TimeUtils {
-
-    // convert time from HH:mm:ss to HH:mm
+    /**
+     * Convert time from HH:mm:ss to HH:mm
+     *
+     * @param {string} time
+     * @returns {string}
+     */
     public static formatTime(time: string): string {
         const splitTime = time.split(":");
         if (splitTime.length >= 2) {
@@ -12,8 +16,13 @@ export class TimeUtils {
         }
     }
 
+    /**
+     *
+     * @param {string} from - time in string using HH:mm:ss format
+     * @param {string} to - time in string using HH:mm:ss format
+     * @returns {number}
+     */
     public static getDurationInMinutes(from: string, to: string): number {
-        // format HH:mm:ss
         const fromDate = moment("1970-01-01T" + from);
         const toDate = moment("1970-01-01T" + to);
 
@@ -72,10 +81,10 @@ export class TimeUtils {
     }
 
     public static toHHMMSS(time: string, decimals = 0) {
-        const sec_num: number        = parseInt(time, 10) / 1000;
-        let hours: string | number   = Math.floor(sec_num / 3600);
-        let minutes: string | number = Math.floor((sec_num - (hours * 3600)) / 60);
-        let seconds: string | number = sec_num - (hours * 3600) - (minutes * 60);
+        const secNum: number = parseInt(time, 10) / 1000;
+        let hours: string | number = Math.floor(secNum / 3600);
+        let minutes: string | number = Math.floor((secNum - (hours * 3600)) / 60);
+        let seconds: string | number = secNum - (hours * 3600) - (minutes * 60);
 
         if (hours < 10) {
             hours = "0" + hours;
