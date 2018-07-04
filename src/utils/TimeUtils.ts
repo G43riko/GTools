@@ -51,14 +51,14 @@ export class TimeUtils {
 
     public static getStartOfTheDay(date: Date): Date {
         if (date == null) {
-            return null;
+            return new Date("");
         }
         return moment(date).startOf("day").toDate();
     }
 
     public static getEndOfTheDay(date: Date): Date {
         if (date == null) {
-            return null;
+            return new Date("");
         }
         return moment(date).endOf("day").toDate();
     }

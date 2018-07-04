@@ -1,12 +1,17 @@
 {
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts"
+  ],
   "compilerOptions": {
     "declaration": true,
+    "outDir": "out",
     "noImplicitAny": true,
+    "strict": true,
     "target": "es5",
     "lib": [
       "es2016",
       "dom"
     ]
-  }
+  },
+  "jsdoc": "out"
 }

@@ -1,4 +1,6 @@
-interface StringMap {[s: string]: string; }
+export interface StringMap {
+    [s: string]: string;
+}
 
 export class MiscUtils {
     public static getErrorMessage(error: any): string {
@@ -30,6 +32,13 @@ export class MiscUtils {
         return textMessageKey;
     }
 
+    /**
+     * Create class by name and list of parameters
+     *
+     * @param name - class name
+     * @param {any[]} args - constructor parameter
+     * @returns {any} - creted object
+     */
     public static createClass(name: any, args: any[]): any {
         const temp = Object.create(name.prototype);
         name.apply(temp, args);
@@ -39,8 +48,11 @@ export class MiscUtils {
         const list: StringMap = {};
         const data = cookies ? cookies.toString().split(";") : [];
         data.forEach((cookie) => {
-            const parts                = cookie.split("=");
-            list[parts.shift().trim()] = decodeURI(parts.join("="));
+            const parts = cookie.split("=");
+            const shiftPart = parts.shift();
+            if (shiftPart) {
+                list[shiftPart.trim()] = decodeURI(parts.join("="));
+            }
         });
 
         return list;

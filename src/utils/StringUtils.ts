@@ -156,7 +156,7 @@ export class StringUtils {
     }
 
     public static contains(text: string, substring: string): boolean {
-        return text && StringUtils.removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
+        return typeof text === "string" && StringUtils.removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
     }
 
     public static getFormattedNumber(number: string, prefix = "+421"): string {
