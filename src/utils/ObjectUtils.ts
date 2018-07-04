@@ -11,6 +11,15 @@ export class ObjectUtils {
         return result;
     }
 
+    public static byPath(obj: any, path: string, divider = "."): any {
+        const splitPath = path.split(divider);
+
+        for (let i = 0 ; i < splitPath.length && obj ; i++) {
+            obj = obj[splitPath[i]];
+        }
+
+        return obj;
+    };
     public static size(object: any): number {
         let result = 0;
         for (const i in object) {

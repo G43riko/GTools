@@ -45,6 +45,36 @@ export class MiscUtils {
 
         return list;
     }
+
+    public static getFormattedNumber(number: string, prefix = "+421"): string {
+        number = number.replace(/[( )/-]/g, "");
+        if (number.startsWith("+")) {
+            return number;
+        }
+        if (number.startsWith("00")) {
+            return number.substring(2);
+        }
+        if (number.startsWith("09") || number.startsWith("02")) {
+            return prefix + number.substring(1);
+        }
+        return number;
+    };
+
+    public static isIn (obj: any, data: any) {
+        if (Array.isArray(data)) {
+            if (data.indexOf(obj) >= 0) {
+                return true;
+            }
+        } else {
+            for (let i = 1 ; i < arguments.length ; i++) {
+                if (arguments[i] === obj) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static setCookie(name: string, value: string, days: number): void {
         const d: Date = new Date();
         d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));

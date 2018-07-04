@@ -5,7 +5,23 @@ const normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCa
 
 const validEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const validPhoneNumberRegex = /^\+?[0-9]*$/;
-
+/* TODO:
+    static underscore(word) {
+    }
+    static humanize(word) {
+    }
+    static dasherize(word) {
+    }
+    //dashCase = a-b-c-d-e
+    //dotCase a.c.d.v.s.d
+    //pascalCase = FooBarBaz
+    //pathCase = a/b/c/d
+    //snakeCase = a_b_c_d_
+    static isUpper(word) {
+    }
+    static isLower(word) {
+    }
+*/
 export class StringUtils {
     public static removeAccentedCharacters(word: string): string {
         if (!word) {
@@ -40,9 +56,37 @@ export class StringUtils {
         return splitText[splitText.length - 1];
     }
 
+    public static count(text: string, key: string): number {
+        return (text.match(new RegExp(key, "g")) || []).length;
+    };
+
+    public static repeat(text: string, count: number): string {
+        return new Array(count + 1).join(text);
+    };
+
     public static removeAll(text: string, words: string[]): string {
         return text.replace(new RegExp("(" + words.join("|") + ")", "g"), "");
     }
+
+    public static template(text: string, values: any, start = "{{", end = "}}"): string {
+        start = start.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
+        end = end.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
+        const regexp = new RegExp(start + "(.+?)'" + end, "g");
+        const matches = text.match(regexp) || [];
+
+        for(let i = 0 ; i < matches.length ; i++) {
+            const match = matches[i];
+            const key = match.substring(start.length, match.length - end.length).trim();
+            const value = values[key];
+            if (value) {
+                console.log("match: ", match);
+                console.log("key: ", key);
+                console.log("value: ", value);
+                text = text.replace(match, value);
+            }
+        }
+        return text;
+    };
 
     public static between(text: string, key1: string, key2: string): string {
         const startPos = text.indexOf(key1);
@@ -69,6 +113,10 @@ export class StringUtils {
         return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
     }
 
+    public static isEmpty(thisArg: string): boolean {
+        return !thisArg || /^[\s\xa0]*$/.test(thisArg);
+    };
+
     public static swapCase(text: string): string {
         return text.replace(/\S/g, function(char) {
             const lowerCase = char.toLowerCase();
@@ -86,6 +134,14 @@ export class StringUtils {
         }
         return validEmailRegex.test(email.trim());
     }
+
+    public static getAsciiArray(thisArg: string): any {
+        const result = [];
+        for(let i = 0 ; i < thisArg.length ; i++) {
+            result[result.length] = thisArg[i].charCodeAt(0);
+        }
+        return result;
+    };
 
     public static isValidPhoneNumber(number: string): boolean {
         if (!number) {
