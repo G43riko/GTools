@@ -38,28 +38,19 @@ export class TimeUtils {
     }
 
     public static getDateShort(date: Date): string {
-        return moment(date).format("YYYY-MM-DD");
+        return TimeUtils.format(date, "YYY-MM-DD");
     }
 
     public static formatDateAndTime(date: Date): string {
-        return moment(date).format("YYYY-MM-DD[T]HH:mm:ss");
+        return TimeUtils.format(date, "YYY-MM-DDTHH:mm:ss");
     }
 
     public static formatDateUTC(date: Date): string {
         if (!date) {
             return "";
         } else {
-            return moment(date).utc()
-                .format();
+            return date.toUTCString();
         }
-    }
-
-    public static getMilliseconds(time: string): number {
-        if (!time) {
-            return NaN;
-        }
-
-        return moment("2000-01-01T" + time).valueOf();
     }
 
     public static getStartOfTheDay(date: Date): Date {
@@ -83,7 +74,44 @@ export class TimeUtils {
     }
 
     public static getTimeFromDate(date: Date): string {
-        return moment(date).format("HH:mm");
+        return TimeUtils.format(date, "HH:mm");
+    }
+
+    private static format(date: Date, format: string): string {
+        const toString = (time: number): string => time < 10 ? "0" + time : "" + time;
+
+        const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
+        const DD = toString(date.getDay() + 1);
+        const MM = toString(date.getMonth() + 1);
+        const YYYY = date.getFullYear() + "";
+        const YYY = YYYY.substr(1, 4);
+        const YY = YYY.substr(1, 4);
+        const HH = toString(date.getHours());
+        const mm = toString(date.getMinutes());
+        const SS = toString(date.getSeconds());
+
+        return format.replace(regex, (e) => {
+            switch (e) {
+                case "DD":
+                    return DD;
+                case "MM":
+                    return MM;
+                case "YYYY":
+                    return YYYY;
+                case "YYY":
+                    return YYY;
+                case "YY":
+                    return YY;
+                case "HH":
+                    return HH;
+                case "mm":
+                    return mm;
+                case "SS":
+                    return SS;
+                default:
+                    return e;
+            }
+        });
     }
 
     public static toHHMMSS(time: string, decimals = 0): string {
