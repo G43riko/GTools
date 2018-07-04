@@ -1,6 +1,13 @@
 import { Checkers } from "../dom/Checkers";
 import { StringMap } from "./MiscUtils";
 
+interface ObjectCreatorParams {
+    name: string;
+    attr?: StringMap;
+    cont?: string | HTMLElement | HTMLElement[];
+    style?: CSSStyleDeclaration;
+}
+
 /**
  * @typedef {Object} SizeObject
  * @property {number} width
@@ -12,23 +19,25 @@ import { StringMap } from "./MiscUtils";
  */
 export class DomUtils {
     /**
+     * Function returns height of window
      *
      * @returns {number}
      */
-    public static getHeight(): number {
+    public static getWindowHeight(): number {
         return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
 
     /**
+     * Function returns width of window
      *
      * @returns {number}
      */
-    public static getWidth(): number {
+    public static getWindowWidth(): number {
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
 
     /**
-     * Function set or append text to element
+     * Function set, append or returns text of element
      *
      * @param {HTMLElement} element
      * @param {string} text
@@ -47,7 +56,7 @@ export class DomUtils {
     }
 
     /**
-     * Function set or append html content to element
+     * Function set, append or returns html content of element
      *
      * @param {HTMLElement} element
      * @param {string} html
@@ -77,6 +86,7 @@ export class DomUtils {
     }
 
     /**
+     * Function returns, add, remove or toggle elements classes
      *
      * @param {HTMLElement} element
      * @param {string | string[]} name
@@ -127,19 +137,19 @@ export class DomUtils {
      * ElementManager.createElement({name: "div"}) => <div></div>;
      * ElementManager.createElement({name: "div", attr: {id: "ide"}}) => <div id="ide"></div>;
      *
-     * @param name
-     * @param attr
-     * @param cont
-     * @param style
-     * @returns {any}
+     * @param {string | ObjectCreatorParams} name
+     * @param {StringMap} attr
+     * @param {string | HTMLElement | HTMLElement[]} cont
+     * @param {CSSStyleDeclaration} style
+     * @returns {HTMLElement}
      */
-    public static createElement(name: string | { name: string, attr?: any, cont?: any, style?: any },
+    public static createElement(name: string | ObjectCreatorParams,
                                 attr?: StringMap,
                                 cont?: string | HTMLElement | HTMLElement[],
                                 style?: CSSStyleDeclaration): HTMLElement {
         let el: HTMLElement;
         if (typeof name === "object") {
-            return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style || {});
+            return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);
         }
 
         el = document.createElement(name);
@@ -173,6 +183,7 @@ export class DomUtils {
     }
 
     /**
+     * Function remove element
      *
      * @param {Element} element
      * @returns {Element}
@@ -187,6 +198,7 @@ export class DomUtils {
     }
 
     /**
+     * Function returns object with element position
      *
      * @param {HTMLElement} element
      * @returns {PositionObject}
@@ -207,6 +219,7 @@ export class DomUtils {
     }
 
     /**
+     * Function returns order of element between siblings
      *
      * @param {Element} element
      * @returns {number}
@@ -222,6 +235,7 @@ export class DomUtils {
     }
 
     /**
+     * Function returns object with element size
      *
      * @param {HTMLElement} element
      * @returns {SizeObject}

@@ -1,3 +1,5 @@
+import { StringMap } from "./MiscUtils";
+
 const accentedLowerCharacters = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
 const normalLowerCharacters = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 const accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
@@ -74,7 +76,7 @@ export class StringUtils {
         return text.replace(new RegExp("(" + words.join("|") + ")", "g"), "");
     }
 
-    public static template(text: string, values: any, start = "{{", end = "}}"): string {
+    public static template(text: string, values: StringMap, start = "{{", end = "}}"): string {
         start = start.replace(/[-[\]()*\s]/g, "\\$&")
             .replace(/\$/g, "\\$");
         end = end.replace(/[-[\]()*\s]/g, "\\$&")
@@ -146,7 +148,7 @@ export class StringUtils {
         return validEmailRegex.test(email.trim());
     }
 
-    public static getAsciiArray(thisArg: string): any {
+    public static getAsciiArray(thisArg: string): number[] {
         const result = [];
         for (const letter of thisArg) {
             result[result.length] = letter.charCodeAt(0);
