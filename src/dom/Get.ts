@@ -23,7 +23,7 @@ export class Get {
      *
      * @param {string} link
      * @param {Document} context
-     * @returns {NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]>}
+     * @returns {NodeListOf}
      */
     public static byLink(link: string, context = localContext): NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]> {
         return context.querySelectorAll("a[attr='" + link + "']");

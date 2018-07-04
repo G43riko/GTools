@@ -1,21 +1,21 @@
 export class CanvasManager {
-    private localCanvas: HTMLCanvasElement;
-    private localContext: CanvasRenderingContext2D | null;
+    private readonly localCanvas: HTMLCanvasElement;
+    private readonly localContext: CanvasRenderingContext2D | null;
 
-    public constructor(arg1: HTMLCanvasElement | HTMLImageElement, arg2: number, arg3: number) { // ARGUMENT JE CANVAS ELEMENT
+    public constructor(arg1: HTMLCanvasElement | HTMLImageElement, arg2: number, arg3: number) {
         if (arg1 instanceof HTMLCanvasElement) {
             this.localCanvas = arg1;
             if (arg2 && arg3) {
                 this.setCanvasSize(arg2, arg3);
             }
         }
-        else if (arg1 instanceof HTMLImageElement) {// ARGUMENT JE OBRAZOK
+        else if (arg1 instanceof HTMLImageElement) {
             this.localCanvas = CanvasManager.imageToCanvas(arg1);
         }
         else {
             this.localCanvas = document.createElement("canvas");
 
-            if (arg1 && arg2) {// ARGUMENTY SU VELKOST
+            if (arg1 && arg2) {
                 this.setCanvasSize(arg1, arg2);
             }
         }

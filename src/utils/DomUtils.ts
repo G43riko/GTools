@@ -1,6 +1,15 @@
 import { Checkers } from "../dom/Checkers";
 import { StringMap } from "./MiscUtils";
 
+/**
+ * @typedef {Object} SizeObject
+ * @property {number} width
+ * @property {number} height
+ *
+ * @typedef {Object} PositionObject
+ * @property {number} x
+ * @property {number} y
+ */
 export class DomUtils {
     /**
      *
@@ -180,7 +189,7 @@ export class DomUtils {
     /**
      *
      * @param {HTMLElement} element
-     * @returns {{x: number; y: number}}
+     * @returns {PositionObject}
      */
     public static position(element: HTMLElement): { x: number, y: number } {
         let top = 0;
@@ -215,7 +224,7 @@ export class DomUtils {
     /**
      *
      * @param {HTMLElement} element
-     * @returns {{width: number; height: number}}
+     * @returns {SizeObject}
      */
     public static size(element: HTMLElement): { width: number, height: number } {
         return {
