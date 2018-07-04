@@ -50,10 +50,10 @@ export class MiscUtils {
 
     public static parseCookies(cookies: string): StringMap {
         const list: StringMap = {};
-        const data = cookies ? cookies.toString()
-            .split(";") : [];
+        const data            = cookies ? cookies.toString()
+                                                 .split(";") : [];
         data.forEach((cookie) => {
-            const parts = cookie.split("=");
+            const parts     = cookie.split("=");
             const shiftPart = parts.shift();
             if (shiftPart) {
                 list[shiftPart.trim()] = decodeURI(parts.join("="));
@@ -102,7 +102,7 @@ export class MiscUtils {
 
     public static getCookie(cname: string): string {
         const name = cname + "=";
-        const ca = document.cookie.split(";");
+        const ca   = document.cookie.split(";");
         for (let c of ca) {
             while (c.charAt(0) === " ") {
                 c = c.substring(1);
@@ -115,11 +115,11 @@ export class MiscUtils {
         return "";
     }
 
-    public static parseParams(query: string = window.location.search.substring(1),
+    public static parseParams(query: string     = window.location.search.substring(1),
                               separator: string = "&",
                               delimiter: string = "="): any {
         const queryString: any = {};
-        const vars: string[] = query.split(separator);
+        const vars: string[]   = query.split(separator);
         for (const key of vars) {
             const pair = key.split(delimiter);
             if (typeof queryString[pair[0]] === "undefined") {
@@ -138,8 +138,8 @@ export class MiscUtils {
 
     public static roughSizeOfObject(object: any): number {
         const objectList = [];
-        const stack = [object];
-        let bytes = 0;
+        const stack      = [object];
+        let bytes        = 0;
 
         while (stack.length) {
             const value = stack.pop();
@@ -177,8 +177,8 @@ export class MiscUtils {
 
     public static includeFile(file: string): void {
         const script = document.createElement("script");
-        script.src = file;
-        script.type = "text/javascript";
+        script.src   = file;
+        script.type  = "text/javascript";
         script.defer = true;
         document.head.appendChild(script);
     }

@@ -21,7 +21,7 @@ export class ArrayUtils {
 
     public static subArray<T = any>(array: T[], from = 0, to = array.length): T[] {
         const result: T[] = [];
-        const final = array.length < to ? array.length : to;
+        const final       = array.length < to ? array.length : to;
         for (let i = from; i < final; i++) {
             result[result.length] = array[i];
         }

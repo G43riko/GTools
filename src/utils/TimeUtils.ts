@@ -24,7 +24,7 @@ export class TimeUtils {
      */
     public static getDurationInMinutes(from: string, to: string): number {
         const fromDate = moment("1970-01-01T" + from);
-        const toDate = moment("1970-01-01T" + to);
+        const toDate   = moment("1970-01-01T" + to);
 
         const duration = moment.duration(toDate.diff(fromDate));
 
@@ -77,18 +77,40 @@ export class TimeUtils {
         return TimeUtils.format(date, "HH:mm");
     }
 
+    public static toHHMMSS(time: string, decimals = 0): string {
+        const secNum: number         = parseInt(time, 10) / 1000;
+        let hours: string | number   = Math.floor(secNum / 3600);
+        let minutes: string | number = Math.floor((secNum - (hours * 3600)) / 60);
+        let seconds: string | number = secNum - (hours * 3600) - (minutes * 60);
+
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds.toFixed(decimals);
+        }
+        else {
+            seconds = seconds.toFixed(decimals);
+        }
+
+        return hours + ":" + minutes + ":" + seconds;
+    }
+
     private static format(date: Date, format: string): string {
         const toString = (time: number): string => time < 10 ? "0" + time : "" + time;
 
         const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
-        const DD = toString(date.getDay() + 1);
-        const MM = toString(date.getMonth() + 1);
-        const YYYY = date.getFullYear() + "";
-        const YYY = YYYY.substr(1, 4);
-        const YY = YYY.substr(1, 4);
-        const HH = toString(date.getHours());
-        const mm = toString(date.getMinutes());
-        const SS = toString(date.getSeconds());
+        const DD    = toString(date.getDay() + 1);
+        const MM    = toString(date.getMonth() + 1);
+        const YYYY  = date.getFullYear() + "";
+        const YYY   = YYYY.substr(1, 4);
+        const YY    = YYY.substr(1, 4);
+        const HH    = toString(date.getHours());
+        const mm    = toString(date.getMinutes());
+        const SS    = toString(date.getSeconds());
 
         return format.replace(regex, (e) => {
             switch (e) {
@@ -112,27 +134,5 @@ export class TimeUtils {
                     return e;
             }
         });
-    }
-
-    public static toHHMMSS(time: string, decimals = 0): string {
-        const secNum: number = parseInt(time, 10) / 1000;
-        let hours: string | number = Math.floor(secNum / 3600);
-        let minutes: string | number = Math.floor((secNum - (hours * 3600)) / 60);
-        let seconds: string | number = secNum - (hours * 3600) - (minutes * 60);
-
-        if (hours < 10) {
-            hours = "0" + hours;
-        }
-        if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-        if (seconds < 10) {
-            seconds = "0" + seconds.toFixed(decimals);
-        }
-        else {
-            seconds = seconds.toFixed(decimals);
-        }
-
-        return hours + ":" + minutes + ":" + seconds;
     }
 }

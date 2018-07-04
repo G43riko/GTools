@@ -44,12 +44,12 @@ export class StringUtils {
 
     public static toUpperSnakeCase(text: string): string {
         return text.replace(/[A-Z]/g, (e) => "_" + e.toUpperCase())
-            .toUpperCase();
+                   .toUpperCase();
     }
 
     public static toCamelCase(text: string): string {
         return text.trim()
-            .replace(/(-|_|\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "");
+                   .replace(/(-|_|\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "");
     }
 
     public static getLastPart(text: string, divider: string): string {
@@ -78,15 +78,15 @@ export class StringUtils {
 
     public static template(text: string, values: StringMap, start = "{{", end = "}}"): string {
         start = start.replace(/[-[\]()*\s]/g, "\\$&")
-            .replace(/\$/g, "\\$");
+                     .replace(/\$/g, "\\$");
         end = end.replace(/[-[\]()*\s]/g, "\\$&")
-            .replace(/\$/g, "\\$");
+                 .replace(/\$/g, "\\$");
         const regexp = new RegExp(start + "(.+?)'" + end, "g");
         const matches = text.match(regexp) || [];
 
         matches.forEach((match) => {
             const key = match.substring(start.length, match.length - end.length)
-                .trim();
+                             .trim();
             const value = values[key];
             if (value) {
                 text = text.replace(match, value);
@@ -119,7 +119,7 @@ export class StringUtils {
 
     public static capitalize(text: string): string {
         return text.toLowerCase()
-            .replace(/^./, (char) => char.toUpperCase());
+                   .replace(/^./, (char) => char.toUpperCase());
     }
 
     public static isEmpty(thisArg: string): boolean {
@@ -136,8 +136,8 @@ export class StringUtils {
 
     public static transformToBasicFormat(text: string): string {
         return StringUtils.removeAccentedCharacters(text)
-            .toLowerCase()
-            .trim();
+                          .toLowerCase()
+                          .trim();
     }
 
     public static isValidEmail(email: string): boolean {
@@ -171,7 +171,7 @@ export class StringUtils {
 
     public static contains(text: string, substring: string): boolean {
         return !!text && StringUtils.removeAccentedCharacters(text.toLowerCase())
-            .indexOf(substring) >= 0;
+                                    .indexOf(substring) >= 0;
     }
 
     public static getFormattedNumber(num: string, prefix = "+421"): string {
@@ -198,9 +198,9 @@ function fuzzy_match_simple(pattern: string, str: string): boolean {
 
     while (patternIdx !== patternLength && strIdx !== strLength) {
         const patternChar = pattern.charAt(patternIdx)
-            .toLowerCase();
+                                   .toLowerCase();
         const strChar = str.charAt(strIdx)
-            .toLowerCase();
+                           .toLowerCase();
         if (patternChar === strChar) {
             ++patternIdx;
         }

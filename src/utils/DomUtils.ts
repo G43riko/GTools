@@ -204,8 +204,8 @@ export class DomUtils {
      * @returns {PositionObject}
      */
     public static position(element: HTMLElement): { x: number, y: number } {
-        let top = 0;
-        let left = 0;
+        let top                        = 0;
+        let left                       = 0;
         let actElement: Element | null = element;
         do {
             top += element.offsetTop || 0;
@@ -225,7 +225,7 @@ export class DomUtils {
      * @returns {number}
      */
     public static indexOf(element: Element): number {
-        let index = 0;
+        let index                      = 0;
         let actElement: Element | null = element;
         while (actElement = element.previousElementSibling) {
             index++;
