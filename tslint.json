@@ -1,0 +1,56 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "strict-boolean-expressions": true,
+    "strict-type-predicates": true,
+    "interface-name": false,
+    "quotemark": [
+      true,
+      "double"
+    ],
+    "radix": true,
+    "triple-equals": true,
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "prefer-const": true,
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "curly": true,
+    "array-type": [
+      true,
+      "array"
+    ],
+    "newline-before-return": true,
+    // "newline-per-chained-call": true,
+    "no-angle-bracket-type-assertion": true,
+    "number-literal-format": true,
+    "one-variable-per-declaration": true,
+    "no-duplicate-switch-case": true,
+    "no-duplicate-imports": true,
+    "no-duplicate-variable": true,
+    "no-empty": true,
+    "jsdoc-format": true,
+    "max-line-length": [
+      true,
+      180
+    ],
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
+    "no-bitwise": false,
+    "no-conditional-assignment": false,
+    "one-line": false
+  },
+  "rulesDirectory": []
+}

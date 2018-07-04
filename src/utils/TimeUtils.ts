@@ -27,11 +27,13 @@ export class TimeUtils {
         const toDate = moment("1970-01-01T" + to);
 
         const duration = moment.duration(toDate.diff(fromDate));
+
         return duration.asMinutes();
     }
 
     public static getStartOfTheMonthDate(date: Date): string {
         date.setDate(1);
+
         return TimeUtils.getDateShort(date);
     }
 
@@ -44,10 +46,11 @@ export class TimeUtils {
     }
 
     public static formatDateUTC(date: Date): string {
-        if (date == null) {
+        if (!date) {
             return "";
         } else {
-            return moment(date).utc().format();
+            return moment(date).utc()
+                .format();
         }
     }
 
@@ -55,24 +58,27 @@ export class TimeUtils {
         if (!time) {
             return NaN;
         }
+
         return moment("2000-01-01T" + time).valueOf();
     }
 
     public static getStartOfTheDay(date: Date): Date {
-        if (date == null) {
+        if (!date) {
             return new Date("");
         }
+
         return moment(date).startOf("day").toDate();
     }
 
     public static getEndOfTheDay(date: Date): Date {
-        if (date == null) {
+        if (!date) {
             return new Date("");
         }
+
         return moment(date).endOf("day").toDate();
     }
 
-    public static formatDate(date: Date) {
+    public static formatDate(date: Date): string {
         return moment(date).format();
     }
 
@@ -80,7 +86,7 @@ export class TimeUtils {
         return moment(date).format("HH:mm");
     }
 
-    public static toHHMMSS(time: string, decimals = 0) {
+    public static toHHMMSS(time: string, decimals = 0): string {
         const secNum: number = parseInt(time, 10) / 1000;
         let hours: string | number = Math.floor(secNum / 3600);
         let minutes: string | number = Math.floor((secNum - (hours * 3600)) / 60);
@@ -98,6 +104,7 @@ export class TimeUtils {
         else {
             seconds = seconds.toFixed(decimals);
         }
+
         return hours + ":" + minutes + ":" + seconds;
     }
 }

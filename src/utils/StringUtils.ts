@@ -5,6 +5,7 @@ const normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCa
 
 const validEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const validPhoneNumberRegex = /^\+?[0-9]*$/;
+
 /* TODO:
     static underscore(word) {
     }
@@ -27,8 +28,10 @@ export class StringUtils {
         if (!word) {
             return word;
         }
+
         return word.replace(/./g, (e: string) => {
             const index = accentedCharacters.indexOf(e);
+
             return index >= 0 ? normalCharacters[index] : e;
         });
     }
@@ -38,11 +41,13 @@ export class StringUtils {
     }
 
     public static toUpperSnakeCase(text: string): string {
-        return text.replace(/[A-Z]/g, (e) => "_" + e.toUpperCase()).toUpperCase();
+        return text.replace(/[A-Z]/g, (e) => "_" + e.toUpperCase())
+            .toUpperCase();
     }
 
     public static toCamelCase(text: string): string {
-        return text.trim().replace(/(-|_|\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "");
+        return text.trim()
+            .replace(/(-|_|\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "");
     }
 
     public static getLastPart(text: string, divider: string): string {
@@ -53,6 +58,7 @@ export class StringUtils {
         if (splitText.length === 0) {
             return text;
         }
+
         return splitText[splitText.length - 1];
     }
 
@@ -69,18 +75,22 @@ export class StringUtils {
     }
 
     public static template(text: string, values: any, start = "{{", end = "}}"): string {
-        start = start.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
-        end = end.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
+        start = start.replace(/[-[\]()*\s]/g, "\\$&")
+            .replace(/\$/g, "\\$");
+        end = end.replace(/[-[\]()*\s]/g, "\\$&")
+            .replace(/\$/g, "\\$");
         const regexp = new RegExp(start + "(.+?)'" + end, "g");
         const matches = text.match(regexp) || [];
 
         matches.forEach((match) => {
-            const key = match.substring(start.length, match.length - end.length).trim();
+            const key = match.substring(start.length, match.length - end.length)
+                .trim();
             const value = values[key];
             if (value) {
                 text = text.replace(match, value);
             }
         });
+
         return text;
     }
 
@@ -106,7 +116,8 @@ export class StringUtils {
     }
 
     public static capitalize(text: string): string {
-        return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
+        return text.toLowerCase()
+            .replace(/^./, (char) => char.toUpperCase());
     }
 
     public static isEmpty(thisArg: string): boolean {
@@ -116,18 +127,22 @@ export class StringUtils {
     public static swapCase(text: string): string {
         return text.replace(/\S/g, (char) => {
             const lowerCase = char.toLowerCase();
+
             return lowerCase === char ? char.toUpperCase() : lowerCase;
         });
     }
 
     public static transformToBasicFormat(text: string): string {
-        return StringUtils.removeAccentedCharacters(text).toLowerCase().trim();
+        return StringUtils.removeAccentedCharacters(text)
+            .toLowerCase()
+            .trim();
     }
 
     public static isValidEmail(email: string): boolean {
         if (!email) {
             return false;
         }
+
         return validEmailRegex.test(email.trim());
     }
 
@@ -136,6 +151,7 @@ export class StringUtils {
         for (const letter of thisArg) {
             result[result.length] = letter.charCodeAt(0);
         }
+
         return result;
     }
 
@@ -143,6 +159,7 @@ export class StringUtils {
         if (!num) {
             return false;
         }
+
         return validPhoneNumberRegex.test(num.trim());
     }
 
@@ -151,7 +168,8 @@ export class StringUtils {
     }
 
     public static contains(text: string, substring: string): boolean {
-        return !!text && StringUtils.removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
+        return !!text && StringUtils.removeAccentedCharacters(text.toLowerCase())
+            .indexOf(substring) >= 0;
     }
 
     public static getFormattedNumber(num: string, prefix = "+421"): string {
@@ -165,6 +183,7 @@ export class StringUtils {
         if (num.startsWith("09") || num.startsWith("02")) {
             return prefix + num.substring(1);
         }
+
         return num;
     }
 }
@@ -176,8 +195,10 @@ function fuzzy_match_simple(pattern: string, str: string): boolean {
     const strLength = str.length;
 
     while (patternIdx !== patternLength && strIdx !== strLength) {
-        const patternChar = pattern.charAt(patternIdx).toLowerCase();
-        const strChar = str.charAt(strIdx).toLowerCase();
+        const patternChar = pattern.charAt(patternIdx)
+            .toLowerCase();
+        const strChar = str.charAt(strIdx)
+            .toLowerCase();
         if (patternChar === strChar) {
             ++patternIdx;
         }

@@ -5,8 +5,10 @@ export class MathUtils {
 
     public static pad(num: number, size: number): string {
         const s = "00000000000000" + num;
+
         return s.substr(s.length - size);
     }
+
     public static clamp(value: number, min: number, max: number): number {
         return Math.max(min, Math.min(value, max));
     }
@@ -16,10 +18,11 @@ export class MathUtils {
         if (k > n) {
             return 0;
         }
-        for (let d = 1 ; d <= k; d++) {
+        for (let d = 1; d <= k; d++) {
             r *= n--;
             r /= d;
         }
+
         return r;
     }
 
@@ -27,22 +30,25 @@ export class MathUtils {
         return a * val + (1 - val) * b;
     }
 
-    public static log2i(value: number) {
+    public static log2i(value: number): number {
         let r = 0;
         while ((value >>= 1) > 0) {
             r++;
         }
+
         return r;
     }
 
     public static lamp(min: number, max: number, scale: number): number {
         return MathUtils.clamp((max - min) * scale + min, min, max);
     }
+
     public static average(args: number[]): number {
         let sum = 0;
         for (const item of args) {
             sum += item;
         }
+
         return sum / args.length;
     }
 }

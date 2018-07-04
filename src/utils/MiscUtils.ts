@@ -46,12 +46,14 @@ export class MiscUtils {
     public static createClass(name: any, args: any[]): any {
         const temp = Object.create(name.prototype);
         name.apply(temp, args);
+
         return temp;
     }
 
     public static parseCookies(cookies: string): StringMap {
         const list: StringMap = {};
-        const data = cookies ? cookies.toString().split(";") : [];
+        const data = cookies ? cookies.toString()
+            .split(";") : [];
         data.forEach((cookie) => {
             const parts = cookie.split("=");
             const shiftPart = parts.shift();
@@ -74,21 +76,23 @@ export class MiscUtils {
         if (num.startsWith("09") || num.startsWith("02")) {
             return prefix + num.substring(1);
         }
+
         return num;
     }
 
-    public static isIn(obj: any, data: any) {
+    public static isIn(obj: any, data: any): boolean {
         if (Array.isArray(data)) {
             if (data.indexOf(obj) >= 0) {
                 return true;
             }
         } else {
-            for (let i = 1 ; i < arguments.length ; i++) {
+            for (let i = 1; i < arguments.length; i++) {
                 if (arguments[i] === obj) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
@@ -109,14 +113,15 @@ export class MiscUtils {
                 return c.substring(name.length, c.length);
             }
         }
+
         return "";
     }
 
-    public static parseParams(query: string     = window.location.search.substring(1),
+    public static parseParams(query: string = window.location.search.substring(1),
                               separator: string = "&",
                               delimiter: string = "="): any {
         const queryString: any = {};
-        const vars: string[]    = query.split(separator);
+        const vars: string[] = query.split(separator);
         for (const key of vars) {
             const pair = key.split(delimiter);
             if (typeof queryString[pair[0]] === "undefined") {
@@ -129,6 +134,7 @@ export class MiscUtils {
                 queryString[pair[0]].push(decodeURIComponent(pair[1]));
             }
         }
+
         return queryString;
     }
 
@@ -148,13 +154,14 @@ export class MiscUtils {
             else if (typeof value === "number") {
                 bytes += 8;
             }
-            else if (typeof value === "object" && objectList.indexOf( value ) === -1) {
+            else if (typeof value === "object" && objectList.indexOf(value) === -1) {
                 objectList.push(value);
                 for (const item of value) {
                     stack.push(item);
                 }
             }
         }
+
         return bytes;
     }
 
@@ -166,12 +173,13 @@ export class MiscUtils {
                 result += (result.length > 0 ? "&" : "?") + objKey + "=" + obj[objKey];
             }
         }
+
         return result;
     }
 
     public static includeFile(file: string): void {
-        const script  = document.createElement("script");
-        script.src  = file;
+        const script = document.createElement("script");
+        script.src = file;
         script.type = "text/javascript";
         script.defer = true;
         document.head.appendChild(script);

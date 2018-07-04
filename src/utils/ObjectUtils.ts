@@ -8,6 +8,7 @@ export class ObjectUtils {
                 }
             }
         }
+
         return result;
     }
 
@@ -28,6 +29,7 @@ export class ObjectUtils {
                 result++;
             }
         }
+
         return result;
     }
 
@@ -39,6 +41,7 @@ export class ObjectUtils {
                 }
             }
         }
+
         return true;
     }
 }
