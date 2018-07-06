@@ -44,16 +44,14 @@ export class Checkers {
     }
 
     public static isElement(obj: any): boolean {
-        {
-            try {
-                return obj instanceof HTMLElement;
-            }
-            catch (e) {
-                return Checkers.isObject(obj) &&
-                    obj.nodeType === 1 &&
-                    Checkers.isObject(obj.style) &&
-                    Checkers.isObject(obj.ownerDocument);
-            }
+        try {
+            return obj instanceof HTMLElement;
+        }
+        catch (e) {
+            return Checkers.isObject(obj) &&
+                obj.nodeType === 1 &&
+                Checkers.isObject(obj.style) &&
+                Checkers.isObject(obj.ownerDocument);
         }
     }
 }

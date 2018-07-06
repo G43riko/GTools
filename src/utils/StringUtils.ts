@@ -5,7 +5,8 @@ const normalLowerCharacters = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuu
 const accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
 const normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
 
-const validEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+// const validEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const validEmailRegex       = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const validPhoneNumberRegex = /^\+?[0-9]*$/;
 
 /* TODO:
@@ -109,7 +110,7 @@ export class StringUtils {
 
     }
 
-    public static occurences(text: string, key: string): number {
+    public static occurrences(text: string, key: string): number {
         return (text.match(new RegExp(key, "g")) || []).length;
     }
 

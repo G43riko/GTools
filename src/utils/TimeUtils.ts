@@ -103,7 +103,7 @@ export class TimeUtils {
         const toString = (time: number): string => time < 10 ? "0" + time : "" + time;
 
         const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
-        const DD    = toString(date.getDay() + 1);
+        const DD    = toString(date.getDate());
         const MM    = toString(date.getMonth() + 1);
         const YYYY  = date.getFullYear() + "";
         const YYY   = YYYY.substr(1, 4);

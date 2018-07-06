@@ -1,7 +1,7 @@
 import { Checkers } from "../dom/Checkers";
 import { StringMap } from "./MiscUtils";
 
-interface ObjectCreatorParams {
+export interface ObjectCreatorParams {
     name: string;
     attr?: StringMap;
     cont?: string | HTMLElement | HTMLElement[];

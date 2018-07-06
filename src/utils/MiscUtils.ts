@@ -78,16 +78,14 @@ export class MiscUtils {
         return num;
     }
 
-    public static isIn(obj: any, data: any): boolean {
-        if (Array.isArray(data)) {
-            if (data.indexOf(obj) >= 0) {
+    public static isIn(obj: any, ...data: any[]): boolean {
+        if (Array.isArray(data[0])) {
+            if (data[0].indexOf(obj) >= 0) {
                 return true;
             }
         } else {
-            for (let i = 1; i < arguments.length; i++) {
-                if (arguments[i] === obj) {
-                    return true;
-                }
+            if (data.indexOf(obj) >= 0) {
+                return true;
             }
         }
 
