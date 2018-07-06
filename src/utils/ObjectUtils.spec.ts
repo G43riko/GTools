@@ -21,13 +21,24 @@ describe("ObjectUtils", () => {
         });
     });
     describe("Size", () => {
+        const item = {
+            address: {
+                city: "Bratislava",
+                number: "23",
+                street: "uličná",
+            },
+            age: 24,
+            name: "Adam",
+        };
         it("It should return number of attributes", () => {
+            expect(ObjectUtils.size(item)).to.equal(3);
             expect(ObjectUtils.size({})).to.be.equal(0);
             expect(ObjectUtils.size({a: "aa"})).to.be.equal(1);
             expect(ObjectUtils.size({a: "aa", b: "bb"})).to.be.equal(2);
             expect(ObjectUtils.size({a: undefined, b: undefined})).to.be.equal(2);
             expect(ObjectUtils.size([])).to.be.equal(0);
             expect(ObjectUtils.size([0])).to.be.equal(1);
+            expect(ObjectUtils.size(["a", "b", "c"])).to.equal(3);
             expect(ObjectUtils.size([0, "a"])).to.be.equal(2);
         });
     });
