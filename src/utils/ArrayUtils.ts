@@ -4,12 +4,16 @@ export class ArrayUtils {
             return array;
         }
         const result: any[] = [];
+
+        if (typeof condition !== "object" || !condition) {
+            return result;
+        }
         array.forEach((e) => {
-            let add = true;
+            let add = false;
             for (const key in condition) {
                 if (condition.hasOwnProperty(key)) {
-                    if (e[key] !== condition[key]) {
-                        add = false;
+                    if (e[key] === condition[key]) {
+                        add = true;
                         break;
                     }
                 }

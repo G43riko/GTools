@@ -78,7 +78,10 @@ describe("Array utils", () => {
     describe("Where", () => {
         const testArray = [{a: "aa"}, {a: "aa", b: "bbb"}, {b: "bb"}];
         it("It return subArray with element existing in both arrays", () => {
-            expect(ArrayUtils.where(testArray, {b: "bb"})).to.deep.equal([{b: "bb"}]);
+            expect(ArrayUtils.where(notArray, {})).to.deep.equal("gabriel");
+            expect(ArrayUtils.where(notArray, {b: "bb"})).to.be.equal("gabriel");
+            expect(ArrayUtils.where(testArray, {})).to.deep.equal([]);
+            expect(ArrayUtils.where(testArray, null)).to.deep.equal([]);
             expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([{a: "aa"}, {a: "aa", b: "bbb"}]);
             expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([{a: "aa", b: "bbb"}]);
         });

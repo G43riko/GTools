@@ -1,7 +1,7 @@
 {
   "name": "gtools",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small library including utils methods for easier life",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
