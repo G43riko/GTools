@@ -10,4 +10,16 @@ describe("Math utils", () => {
             expect(MathUtils.pad(1234, 3)).to.equal("234");
         });
     });
+    describe("RoundToDecimal", () => {
+        it("test roundToDecimal function", () => {
+            expect(MathUtils.roundToDecimals(1, 5)).to.equal("1.00000");
+            expect(MathUtils.roundToDecimals(1.00000000001, 5)).to.equal("1.00000");
+            expect(MathUtils.roundToDecimals(1.000009, 5, "floor")).to.equal("1.00000");
+            expect(MathUtils.roundToDecimals(1.000009, 4, "floor")).to.equal("1.0000");
+            expect(MathUtils.roundToDecimals(1.000001, 5, "ceil")).to.equal("1.00001");
+            expect(MathUtils.roundToDecimals(1.000001, 4, "ceil")).to.equal("1.0001");
+            expect(MathUtils.roundToDecimals(1.000005, 5)).to.equal("1.00001");
+            expect(MathUtils.roundToDecimals(1.000005, 4)).to.equal("1.0000");
+        });
+    });
 });

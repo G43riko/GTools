@@ -12,9 +12,12 @@ describe("StringUtils", () => {
     const numbers           = "0123456789";
     const testSet: string[] = [
         "Hello world i am computer",
+        "HelloWorldIAmComputer",
+        "hello_world_i_am_computer",
+        "HELLO_WORLD_I_AM_COMPUTER",
         "--------Hello world---i am computer____",
-        "hello_World i aM-computer",
-        "hello_World i aM-computer-------",
+        "hello_World i Am-computer",
+        "hello_World i Am-computer-------",
         "-_Hello___world-i--AM    computer",
     ];
 
@@ -29,7 +32,7 @@ describe("StringUtils", () => {
         it("It should turn string into upper camel case", () => {
             const result = "HelloWorldIAmComputer";
             testSet.forEach((word) => {
-                expect(StringUtils.toUpperCameCase(word)).to.be.equal(result);
+                expect(StringUtils.toUpperCamelCase(word)).to.be.equal(result);
             });
         });
     });

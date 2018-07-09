@@ -1,6 +1,8 @@
 export class MathUtils {
-    public static roundToDecimals(num: number, decimals = 2): string {
-        return (Math.ceil(num * 100) / 100).toFixed(decimals);
+    public static roundToDecimals(num: number, decimals = 2, type: "floor" | "ceil" | "round" = "round"): string {
+        const divider = parseInt(1 + new Array(decimals + 1).join("0"), 10);
+
+        return (Math[type](num * divider) / divider).toFixed(decimals);
     }
 
     public static pad(num: number, size: number): string {

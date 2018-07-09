@@ -1,4 +1,5 @@
 import { StringMap } from "./MiscUtils";
+import { StringCheckers } from "./StringCheckers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
 const normalLowerCharacters   = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
@@ -26,6 +27,7 @@ const validPhoneNumberRegex = /^\+?[0-9]*$/;
     static isLower(word) {
     }
 */
+
 export class StringUtils {
     public static removeAccentedCharacters(word: string): string {
         if (!word || !word.replace) {
@@ -48,25 +50,54 @@ export class StringUtils {
     }
 
     public static toUpperSnakeCase(text: string): string {
+        if (StringCheckers.isCamelCase(text)) {
+            return text.replace(/([a-z])([A-Z])/g, "$1_$2")
+                       .replace(/([A-Z])([A-Z])/g, "$1_$2")
+                       .toUpperCase();
+        }
+
+        if (StringCheckers.isUpperSnakeCase(text)) {
+            return text;
+        }
+
         return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
                    .replace(/^_/, "")
                    .toUpperCase();
     }
 
     public static toLowerSnakeCase(text: string): string {
+        if (StringCheckers.isCamelCase(text)) {
+            return text.replace(/([a-z])([A-Z])/g, "$1_$2")
+                       .replace(/([A-Z])([A-Z])/g, "$1_$2")
+                       .toLowerCase();
+        }
+        if (StringCheckers.isLowerSnakeCase(text)) {
+            return text;
+        }
+
         return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
                    .replace(/^_/, "")
                    .toLowerCase();
     }
 
     public static toLowerCamelCase(text: string): string {
+        if (StringCheckers.isLowerCamelCase(text)) {
+            return text;
+        }
+
         return text.trim()
+                   .replace(/([a-z])([A-Z])([A-Z])/g, "$1$2_$3")
+                   .replace(/([a-z])([A-Z])/g, "$1_$2")
                    .toLowerCase()
                    .replace(/(-|_| |\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "")
                    .replace(/^./, (e) => e.toLowerCase());
     }
 
-    public static toUpperCameCase(text: string): string {
+    public static toUpperCamelCase(text: string): string {
+        if (StringCheckers.isUpperCamelCase(text)) {
+            return text;
+        }
+
         return StringUtils.toCapital(StringUtils.toLowerCamelCase(text));
     }
 
