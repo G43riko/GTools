@@ -2,7 +2,7 @@
   "name": "gtools",
   "version": "1.0.0",
   "description": "Small library including utils methods for easier life",
-  "main": "index.js",
+  "main": "./out/index.js",
   "homepage": "https://github.com/G43riko/GTools#readme",
   "repository": {
     "type": "git",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "preinstall": "tsc"
   },
   "author": "Gabriel Csollei<gcsollei@hotmail.com>",
   "license": "ISC",
