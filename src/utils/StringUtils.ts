@@ -119,6 +119,10 @@ export class StringUtils {
         return text;
     }
 
+    public static removeEmptyLines(content: string): string {
+        return content.replace(/^\s*$(?:\r\n?|\n)/gm, "");
+    }
+
     public static between(text: string, key1: string, key2: string): string {
         const startPos = text.indexOf(key1);
         const endPos   = text.indexOf(key2);

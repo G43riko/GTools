@@ -104,7 +104,25 @@ describe("StringUtils", () => {
             expect(StringUtils.between(numbers, "ab", "67")).to.be.equal("012345");
         });
     });
+    describe("RemoveEmptyLines", () => {
+        it("it should remove empty lines from string", () => {
+            expect(StringUtils.removeEmptyLines(`
 
+
+
+`)).to.be.equal("");
+
+            expect(StringUtils.removeEmptyLines(`
+
+a
+
+b
+
+`)).to.be.equal(`a
+b
+`);
+        });
+    });
     describe.skip("Template", () => {
         it("It should replace placeholders with values", () => {
             const params = {
