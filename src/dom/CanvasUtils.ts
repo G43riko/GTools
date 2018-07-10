@@ -130,36 +130,25 @@ function initDef(obj: any): CanvasConfig {
 
 function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
     const res: CanvasConfig = $.extend(def, obj);
+    const checkAttribute    = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
+        if (typeof res[attrName] !== "undefined") {
+            if (Checkers.isNumber(res[attrName])) {
+                res[partA] = res[attrName] as number;
+                res[partB] = res[attrName] as number;
+            }
+            else if (Array.isArray(res[attrName])) {
+                res[partA] = res[attrName][0];
+                res[partB] = res[attrName][1];
+            }
+            else {
+                res[partA] = (res[attrName] as Vector2f).x;
+                res[partB] = (res[attrName] as Vector2f).y;
+            }
+        }
+    };
 
-    if (typeof res.size !== "undefined") {
-        if (Checkers.isNumber(res.size)) {
-            res.width  = res.size as number;
-            res.height = res.size as number;
-        }
-        else if (Array.isArray(res.size)) {
-            res.width  = res.size[0];
-            res.height = res.size[1];
-        }
-        else {
-            res.width  = (res.size as Vector2f).x;
-            res.height = (res.size as Vector2f).y;
-        }
-    }
-
-    if (typeof res.position !== "undefined") {
-        if (Checkers.isNumber(res.position)) {
-            res.x = res.position as number;
-            res.y = res.position as number;
-        }
-        else if (Array.isArray(res.position)) {
-            res.x = res.position[0];
-            res.y = res.position[1];
-        }
-        else {
-            res.x = (res.position as Vector2f).x;
-            res.y = (res.position as Vector2f).y;
-        }
-    }
+    checkAttribute("size", "width", "size");
+    checkAttribute("position", "x", "y");
 
     if (res.center) {
         res.x -= res.width >> 1;
