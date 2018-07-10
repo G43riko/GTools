@@ -23,7 +23,7 @@
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
     "build": "tsc",
     "lint": "tslint --project .",
-    "preinstall": "tsc"
+    "preinstall": "npm install tsc && tsc"
   },
   "author": "Gabriel Csollei<gcsollei@hotmail.com>",
   "license": "ISC",
