@@ -1,5 +1,5 @@
-import { Checkers } from "../../out/dom/Checkers";
 import { CanvasManager } from "./CanvasManager";
+import { Checkers } from "./Checkers";
 
 declare const $: any;
 
