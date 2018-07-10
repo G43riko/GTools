@@ -22,7 +22,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
     "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
-    "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=lcov",
+    "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test --reporter=lcov",
     "build": "tsc",
     "lint": "tslint --project ."
   },
