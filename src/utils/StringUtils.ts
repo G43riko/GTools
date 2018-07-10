@@ -110,9 +110,6 @@ export class StringUtils {
             return text;
         }
         const splitText = text.split(divider);
-        if (splitText.length === 0) {
-            return text;
-        }
 
         return splitText[splitText.length - 1];
     }

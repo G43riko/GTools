@@ -13,6 +13,7 @@ describe("StringUtils", () => {
     const testSet: string[] = [
         "Hello world i am computer",
         "HelloWorldIAmComputer",
+        "helloWorldIAmComputer",
         "hello_world_i_am_computer",
         "HELLO_WORLD_I_AM_COMPUTER",
         "--------Hello world---i am computer____",
@@ -178,6 +179,17 @@ b
             expect(StringUtils.swapCase("gabo")).to.be.equal("GABO");
             expect(StringUtils.swapCase("GaBo")).to.be.equal("gAbO");
             expect(StringUtils.swapCase("gAbO")).to.be.equal("GaBo");
+        });
+    });
+    describe("GetLastPart", () => {
+        it("It should return last part of string divided by delimiter", () => {
+            expect(StringUtils.getLastPart("ababababa", "b")).to.be.equal("a");
+            expect(StringUtils.getLastPart("ababababaa", "b")).to.be.equal("aa");
+            expect(StringUtils.getLastPart("i am here")).to.be.equal("here");
+            expect(StringUtils.getLastPart("i ambhere", "b")).to.be.equal("here");
+            expect(StringUtils.getLastPart("", "")).to.be.equal("");
+            expect(StringUtils.getLastPart("")).to.be.equal("");
+
         });
     });
 });
