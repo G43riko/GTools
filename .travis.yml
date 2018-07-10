@@ -1,8 +1,15 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=2bb4bb68ea51c23a78d0a366ed141a7c476261723fe2d5b49d16a3511edceb1f
 language: node_js
 node_js:
   - "8"
-
 before_script:
   - npm install -g typings typescript mocha
   - typings install
   - tsc
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

@@ -63,21 +63,6 @@ export class MiscUtils {
         return list;
     }
 
-    public static getFormattedNumber(num: string, prefix = "+421"): string {
-        num = num.replace(/[( )/-]/g, "");
-        if (num.startsWith("+")) {
-            return num;
-        }
-        if (num.startsWith("00")) {
-            return num.substring(2);
-        }
-        if (num.startsWith("09") || num.startsWith("02")) {
-            return prefix + num.substring(1);
-        }
-
-        return num;
-    }
-
     public static isIn(obj: any, ...data: any[]): boolean {
         if (Array.isArray(data[0])) {
             if (data[0].indexOf(obj) >= 0) {
