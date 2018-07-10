@@ -29,7 +29,7 @@ export class MathUtils {
     }
 
     public static lerp(a: number, b: number, val: number): number {
-        return a * val + (1 - val) * b;
+        return b * val + (1 - val) * a;
     }
 
     public static log2i(value: number): number {
@@ -52,5 +52,9 @@ export class MathUtils {
         }
 
         return sum / args.length;
+    }
+
+    public static diff(num1: number, num2: number): number {
+        return Math.abs(num1 - num2);
     }
 }

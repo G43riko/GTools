@@ -22,4 +22,68 @@ describe("Math utils", () => {
             expect(MathUtils.roundToDecimals(1.000005, 4)).to.equal("1.0000");
         });
     });
+    describe("Average", () => {
+        it("test average function", () => {
+            expect(isNaN(MathUtils.average([]))).to.be.true;
+            expect(MathUtils.average([1])).to.equal(1);
+            expect(MathUtils.average([1, 2, 3])).to.equal(2);
+            expect(MathUtils.average([2, 2, 2])).to.equal(2);
+            expect(MathUtils.average([2.5, 8.6, 3.9])).to.equal(5);
+        });
+    });
+    describe("Clamp", () => {
+        it("test clamp function", () => {
+            expect(MathUtils.clamp(15, 10, 20)).to.be.equal(15);
+            expect(MathUtils.clamp(5, 10, 20)).to.be.equal(10);
+            expect(MathUtils.clamp(25, 10, 20)).to.be.equal(20);
+            expect(MathUtils.clamp(10, 10, 20)).to.be.equal(10);
+            expect(MathUtils.clamp(20, 10, 20)).to.be.equal(20);
+        });
+    });
+    describe("Lerp", () => {
+        it("test lerp function", () => {
+            expect(MathUtils.lerp(0, 10, 0)).to.be.equal(0);
+            expect(MathUtils.lerp(0, 10, 1)).to.be.equal(10);
+            expect(MathUtils.lerp(0, 10, 0.5)).to.be.equal(5);
+        });
+    });
+    describe("Lamp", () => {
+        it("test lamp function", () => {
+            expect(MathUtils.lamp(0, 10, 0)).to.be.equal(0);
+            expect(MathUtils.lamp(0, 10, 1)).to.be.equal(10);
+            expect(MathUtils.lamp(0, 10, 0.5)).to.be.equal(5);
+        });
+    });
+    describe("Diff", () => {
+        it("test diff function", () => {
+            expect(MathUtils.diff(0, 10)).to.be.equal(10);
+            expect(MathUtils.diff(10, 0)).to.be.equal(10);
+            expect(MathUtils.diff(10, 10)).to.be.equal(0);
+            expect(MathUtils.diff(0, 0)).to.be.equal(0);
+        });
+    });
+    describe("Log2", () => {
+        it("test log2 function", () => {
+            expect(MathUtils.log2i(1)).to.be.equal(0);
+            expect(MathUtils.log2i(2)).to.be.equal(1);
+            expect(MathUtils.log2i(4)).to.be.equal(2);
+            expect(MathUtils.log2i(8)).to.be.equal(3);
+            expect(MathUtils.log2i(16)).to.be.equal(4);
+            expect(MathUtils.log2i(32)).to.be.equal(5);
+            expect(MathUtils.log2i(64)).to.be.equal(6);
+            expect(MathUtils.log2i(128)).to.be.equal(7);
+        });
+    });
+    describe("BinomialCoefficient", () => {
+        it("test binomialCoefficient function", () => {
+            // expect(MathUtils.binomialCoefficient(0, 1)).to.be.equal(1);
+            expect(MathUtils.binomialCoefficient(1, 5)).to.be.equal(0);
+            expect(MathUtils.binomialCoefficient(1, 1)).to.be.equal(1);
+            expect(MathUtils.binomialCoefficient(2, 1)).to.be.equal(2);
+            expect(MathUtils.binomialCoefficient(2, 2)).to.be.equal(1);
+            expect(MathUtils.binomialCoefficient(3, 1)).to.be.equal(3);
+            expect(MathUtils.binomialCoefficient(3, 2)).to.be.equal(3);
+            expect(MathUtils.binomialCoefficient(3, 3)).to.be.equal(1);
+        });
+    });
 });
