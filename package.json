@@ -22,8 +22,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
     "build": "tsc",
-    "lint": "tslint --project .",
-    "preinstall": "npm install typescript && tsc"
+    "lint": "tslint --project ."
   },
   "author": "Gabriel Csollei<gcsollei@hotmail.com>",
   "license": "ISC",
