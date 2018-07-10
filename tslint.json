@@ -35,6 +35,7 @@
     "number-literal-format": true,
     "no-unused-expression": false,
     "member-ordering": false,
+    "object-literal-sort-keys": false,
     "no-console": false,
     "one-variable-per-declaration": true,
     "no-duplicate-switch-case": true,

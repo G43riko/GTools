@@ -1,16 +1,16 @@
-const HH   = "(2[0-3]|[01]\\d)";
-const H    = "(2[0-3]|[01]\\d|\\d)";
-const mm   = "([0-5]\\d|60)";
-const m    = "([0-5]\\d|\\d)";
-const ss   = mm;
-const s    = m;
-const MM   = "([0-5]\\d|60)";
-const M    = "(0\d|1[0-2]|\\d)";
-const YYYY = "[1-9]\\d{3,3}";
-const YY   = "\\d{2,2}";
-const DD   = "[0-3]\\d";
-
-const timeFormats: any = {HH, H, mm, m, MM, M, ss, s, YYYY, YY, DD};
+const timeFormats: { [key: string]: string } = {
+    HH: "(2[0-3]|[01]\\d)",
+    H: "(2[0-3]|[01]?\\d)",
+    mm: "([0-5]\\d|60)",
+    m: "([0-5]?\\d)",
+    MM: "([0-5]\\d|60)",
+    M: "(0\\d|1[0-2]|\\d)",
+    ss: "([0-5]\\d|60)", // mm
+    s: "([0-5]?\\d)", // ss
+    YYYY: "([1-9]\\d{3,3})",
+    YY: "(\\d{2,2})",
+    DD: "([0-3]\\d)",
+};
 
 export class StringCheckers {
     public static isCamelCase(text: string): boolean {
