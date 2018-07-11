@@ -12,29 +12,33 @@
 
 # GTools
 
+## list of methods
+
+**TODO**
+
 ## structure of src directory
 
-- [index](src/intex.html)
-- TestCase
-- dom
-    - CanvasManager
-    - CanvasUtils
-    - Checkers
-    - Get
-    - [Get](src/dom/Get.ts)
-- errors
-    - GLogger
-    - NullPointerException 
-- utils
-    - ArrayUtils
-    - DomUtils
-    - FileUtils
-    - MathUtils
-    - MiscUtils
-    - ObjectUtils
-    - StringUtils
-    - StringCheckers
-    - TimeUtils
+- [index](src/index.html)
+- [TestCase](src/TestCase.ts)
+- *[dom](dom)*
+    - [CanvasManager](dom/CanvasManager.ts)
+    - [CanvasUtils](dom/CanvasUtils.ts)
+    - [Checkers](dom/Checkers.ts)
+    - [Get](dom/Get.ts)
+    - [Get](dom/dom/Get.ts)
+- *[errors](errors)*
+    - [GLogger](errors/GLogger.ts)
+    - [NullPointerException](errors/NullPointerException.ts)
+- *[utils](utils)*
+    - [ArrayUtils](utils/ArrayUtils.ts)
+    - [DomUtils](utils/DomUtils.ts)
+    - [FileUtils](utils/FileUtils.ts)
+    - [MathUtils](utils/MathUtils.ts)
+    - [MiscUtils](utils/MiscUtils.ts)
+    - [ObjectUtils](utils/ObjectUtils.ts)
+    - [StringUtils](utils/StringUtils.ts)
+    - [StringCheckers](utils/StringCheckers.ts)
+    - [TimeUtils](utils/TimeUtils.ts)
 
     
     
