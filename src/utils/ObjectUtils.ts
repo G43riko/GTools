@@ -36,7 +36,7 @@ export class ObjectUtils {
     public static isPlain(object: any): boolean {
         for (const index in object) {
             if (object.hasOwnProperty(index)) {
-                if (typeof object[index] === "undefined") {
+                if (typeof object[index] === "object") {
                     return false;
                 }
             }

@@ -1,44 +1,20 @@
 import { expect } from "chai";
 import "mocha";
+import { TestCase } from "../TestCase";
 import { StringCheckers } from "./StringCheckers";
 
 describe("StringCheckers", () => {
-    const upperSnakeCase = [
-        "HELLO_WORLD",
-        "HELLO_MY_NAME_IS_CHOSE",
-    ];
-    const lowerSnakeCase = [
-        "hello_world",
-        "hello_my_name_is_chose",
-    ];
-    const upperCamelCase = [
-        "HelloWorld",
-        "HelloMyNameIsChose",
-    ];
-    const lowerCamelCase = [
-        "helloWorld",
-        "helloMyNameIsChose",
-    ];
-    const nothing        = [
-        "",
-        "123",
-        "     ",
-        "\t",
-        "********",
-        "______",
-        "Hello how are you",
-    ];
     describe("IsCamelCase", () => {
         it("It should return true if string is camel case", () => {
             [
-                ...lowerCamelCase,
-                ...upperCamelCase,
+                ...TestCase.lowerCamelCase,
+                ...TestCase.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isCamelCase(text)).to.be.true;
             });
             [
-                ...lowerSnakeCase,
-                ...upperSnakeCase,
+                ...TestCase.lowerSnakeCase,
+                ...TestCase.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isCamelCase(text)).to.be.false;
@@ -47,13 +23,13 @@ describe("StringCheckers", () => {
     });
     describe("IsUpperCamelCase", () => {
         it("It should return true if string is upper camel case", () => {
-            upperCamelCase.forEach((text) => {
+            TestCase.upperCamelCase.forEach((text) => {
                 expect(StringCheckers.isCamelCase(text)).to.be.true;
             });
             [
-                ...lowerCamelCase,
-                ...lowerSnakeCase,
-                ...upperSnakeCase,
+                ...TestCase.lowerCamelCase,
+                ...TestCase.lowerSnakeCase,
+                ...TestCase.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isUpperCamelCase(text)).to.be.false;
@@ -62,13 +38,13 @@ describe("StringCheckers", () => {
     });
     describe("IsLowerCamelCase", () => {
         it("It should return true if string is lower camel case", () => {
-            lowerCamelCase.forEach((text) => {
+            TestCase.lowerCamelCase.forEach((text) => {
                 expect(StringCheckers.isCamelCase(text)).to.be.true;
             });
             [
-                ...upperCamelCase,
-                ...lowerSnakeCase,
-                ...upperSnakeCase,
+                ...TestCase.upperCamelCase,
+                ...TestCase.lowerSnakeCase,
+                ...TestCase.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isLowerCamelCase(text)).to.be.false;
@@ -78,15 +54,15 @@ describe("StringCheckers", () => {
     describe("IsSnakeCase", () => {
         it("It should return true if string is snake case", () => {
             [
-                ...lowerSnakeCase,
-                ...upperSnakeCase,
+                ...TestCase.lowerSnakeCase,
+                ...TestCase.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isSnakeCase(text)).to.be.true;
             });
             [
-                ...lowerCamelCase,
-                ...upperCamelCase,
+                ...TestCase.lowerCamelCase,
+                ...TestCase.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isSnakeCase(text)).to.be.false;
             });
@@ -94,13 +70,13 @@ describe("StringCheckers", () => {
     });
     describe("IsUpperSnakeCase", () => {
         it("It should return true if string is upper snake case", () => {
-            upperSnakeCase.forEach((text) => {
+            TestCase.upperSnakeCase.forEach((text) => {
                 expect(StringCheckers.isUpperSnakeCase(text)).to.be.true;
             });
             [
-                ...lowerSnakeCase,
-                ...lowerCamelCase,
-                ...upperCamelCase,
+                ...TestCase.lowerSnakeCase,
+                ...TestCase.lowerCamelCase,
+                ...TestCase.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isUpperSnakeCase(text)).to.be.false;
             });
@@ -108,13 +84,13 @@ describe("StringCheckers", () => {
     });
     describe("IsLowerSnakeCase", () => {
         it("It should return true if string is lower snake case", () => {
-            lowerSnakeCase.forEach((text) => {
+            TestCase.lowerSnakeCase.forEach((text) => {
                 expect(StringCheckers.isLowerSnakeCase(text)).to.be.true;
             });
             [
-                ...upperSnakeCase,
-                ...lowerCamelCase,
-                ...upperCamelCase,
+                ...TestCase.upperSnakeCase,
+                ...TestCase.lowerCamelCase,
+                ...TestCase.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isLowerSnakeCase(text)).to.be.false;
             });

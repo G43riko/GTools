@@ -77,15 +77,22 @@ export class MiscUtils {
         return false;
     }
 
-    public static setCookie(name: string, value: string, days: number): void {
+    // TODO: should append cookies or add option to appending instead of replace cookies
+    // TODO: expires must be only in the end of cookies
+    public static setCookie(name: string, value: string | number | boolean, days: number): string {
         const d: Date = new Date();
         d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        document.cookie = name + "=" + value + ";expires=" + d.toUTCString();
+        const finalCookies = name + "=" + value + ";expires=" + d.toUTCString();
+        if (typeof document !== "undefined") {
+            document.cookie = finalCookies;
+        }
+
+        return name + "=" + value;
     }
 
-    public static getCookie(cname: string): string {
+    public static getCookie(cname: string, source = typeof document !== null ? document.cookie : ""): string {
         const name = cname + "=";
-        const ca   = document.cookie.split(";");
+        const ca   = source.split(";");
         for (let c of ca) {
             while (c.charAt(0) === " ") {
                 c = c.substring(1);
@@ -98,7 +105,7 @@ export class MiscUtils {
         return "";
     }
 
-    public static parseParams(query: string     = window.location.search.substring(1),
+    public static parseParams(query: string     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
                               separator: string = "&",
                               delimiter: string = "="): any {
         const queryString: any = {};
@@ -123,7 +130,6 @@ export class MiscUtils {
         const objectList = [];
         const stack      = [object];
         let bytes        = 0;
-
         while (stack.length) {
             const value = stack.pop();
             if (typeof value === "boolean") {
@@ -137,8 +143,10 @@ export class MiscUtils {
             }
             else if (typeof value === "object" && objectList.indexOf(value) === -1) {
                 objectList.push(value);
-                for (const item of value) {
-                    stack.push(item);
+                for (const key in value) {
+                    if (value.hasOwnProperty(key)) {
+                        stack.push(value[key]);
+                    }
                 }
             }
         }

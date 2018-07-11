@@ -1,26 +1,16 @@
 import { expect } from "chai";
 import "mocha";
+import { TestCase } from "../TestCase";
 import { StringUtils } from "./StringUtils";
 
 describe("StringUtils", () => {
-    const chars             = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
-    const caseable          = "þÞıŦŧŊEĐđNΩ";
-    const accented          = "ľščťžýáíéäôňŁłŁØÆŁÐø";
-    const testString        = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
-    const resultString      = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
-    const text              = "abcdedabcdedabcdjidABdsdcdsjo";
-    const numbers           = "0123456789";
-    const testSet: string[] = [
-        "Hello world i am computer",
-        "HelloWorldIAmComputer",
-        "helloWorldIAmComputer",
-        "hello_world_i_am_computer",
-        "HELLO_WORLD_I_AM_COMPUTER",
-        "--------Hello world---i am computer____",
-        "hello_World i Am-computer",
-        "hello_World i Am-computer-------",
-        "-_Hello___world-i--AM    computer",
-    ];
+    const chars        = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+    const caseable     = "þÞıŦŧŊEĐđNΩ";
+    const accented     = "ľščťžýáíéäôňŁłŁØÆŁÐø";
+    const testString   = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
+    const resultString = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
+    const text         = "abcdedabcdedabcdjidABdsdcdsjo";
+    const numbers      = "0123456789";
 
     describe("Capitalize", () => {
         it("It should make first letter to upper and other letter to lower", () => {
@@ -32,32 +22,44 @@ describe("StringUtils", () => {
     describe("UpperCamelCase", () => {
         it("It should turn string into upper camel case", () => {
             const result = "HelloWorldIAmComputer";
-            testSet.forEach((word) => {
-                expect(StringUtils.toUpperCamelCase(word)).to.be.equal(result);
+            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+                expect(StringUtils.toUpperCamelCase(word), `'${word}' should be converted to '${result}'`)
+                    .to
+                    .be
+                    .equal(result);
             });
         });
     });
     describe("LowerCamelCase", () => {
         it("It should turn string into lower camel case", () => {
             const result = "helloWorldIAmComputer";
-            testSet.forEach((word) => {
-                expect(StringUtils.toLowerCamelCase(word)).to.be.equal(result);
+            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+                expect(StringUtils.toLowerCamelCase(word), `'${word}' should be converted to '${result}'`)
+                    .to
+                    .be
+                    .equal(result);
             });
         });
     });
     describe("UpperSnakeCase", () => {
         it("It should turn string into upper snake case", () => {
             const result = "HELLO_WORLD_I_AM_COMPUTER";
-            testSet.forEach((word) => {
-                expect(StringUtils.toUpperSnakeCase(word)).to.be.equal(result);
+            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+                expect(StringUtils.toUpperSnakeCase(word), `'${word}' should be converted to '${result}'`)
+                    .to
+                    .be
+                    .equal(result);
             });
         });
     });
     describe("LowerSnakeCase", () => {
         it("It should turn string into lower snake case", () => {
             const result = "hello_world_i_am_computer";
-            testSet.forEach((word) => {
-                expect(StringUtils.toLowerSnakeCase(word)).to.be.equal(result);
+            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+                expect(StringUtils.toLowerSnakeCase(word), `'${word}' should be converted to '${result}'`)
+                    .to
+                    .be
+                    .equal(result);
             });
         });
     });
@@ -190,6 +192,28 @@ b
             expect(StringUtils.getLastPart("", "")).to.be.equal("");
             expect(StringUtils.getLastPart("")).to.be.equal("");
 
+        });
+    });
+    describe("IsValidPhoneNumber", () => {
+        it("It should return true if phone number is valid", () => {
+            [...TestCase.randomStrings, ...TestCase.emails].forEach((num) => {
+                expect(StringUtils.isValidPhoneNumber(num), `'${num}' should not be phone number`).to.be.false;
+            });
+
+            TestCase.phoneNumbers.forEach((num) => {
+                expect(StringUtils.isValidPhoneNumber(num), `'${num}' should be phone number`).to.be.true;
+            });
+        });
+    });
+    describe("IsValidEmail", () => {
+        it("It should return true if email is valid", () => {
+            [...TestCase.randomStrings, ...TestCase.phoneNumbers, ...TestCase.notEmails].forEach((email) => {
+                expect(StringUtils.isValidEmail(email), `'${email}' should not be email`).to.be.false;
+            });
+
+            TestCase.emails.forEach((email) => {
+                expect(StringUtils.isValidEmail(email), `'${email}' should be email`).to.be.true;
+            });
         });
     });
 });
