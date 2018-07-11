@@ -2,8 +2,8 @@ import { expect } from "chai";
 import "mocha";
 import { FileUtils } from "./FileUtils";
 
-describe.skip("File utils", () => {
-    describe("scanDirRecursive", () => {
+describe("File utils", () => {
+    describe.skip("scanDirRecursive", () => {
         it("it should return list of files in folder", (done) => {
             FileUtils.scanDirRecursive("src/utils").then((data) => {
                 const changedData = data.map((e) => e.replace(__dirname, ""));
@@ -40,6 +40,30 @@ describe.skip("File utils", () => {
                 expect(error).to.exist;
                 expect(typeof error.endsWith).to.be.equal("function");
                 expect(error.endsWith("is not directory")).to.be.true;
+                done();
+            });
+        });
+    });
+    describe("File manipulation", () => {
+        const fileName = "tmpFile.txt";
+        const object   = {
+            a: "aa",
+            b: true,
+            c: 23,
+            e: [1, "2", true, {}],
+            f: {
+                a: "aa",
+                b: 12,
+            },
+        };
+        it("It should save file", (done) => {
+            FileUtils.saveJsonFile(object, fileName).then(() => {
+                FileUtils.loadFileJSON(fileName, (data) => {
+                    expect(data).to.deep.equal(object);
+                    done();
+                });
+            }).catch((error) => {
+                console.error(error);
                 done();
             });
         });

@@ -55,4 +55,29 @@ export class FileUtils {
             });
         });
     }
+
+    public static loadFileJSON(url: string, callback: (data: any) => any): void {
+        FileUtils.loadFile(url, (data) => callback(JSON.parse(data)));
+    }
+
+    public static loadFile(url: string, callback: (data: string) => any, encoding: string = "utf8"): void {
+        fs.readFile(url, encoding, (err, data) => {
+            if (err) {
+                throw err;
+            }
+            callback(data);
+        });
+    }
+
+    public static saveJsonFile(data: any, fileName: string): Promise<string> {
+        return FileUtils.saveFile(JSON.stringify(data), fileName);
+    }
+
+    public static saveFile(data: string, fileName: string): Promise<string> {
+        return new Promise((success, reject) => {
+            fs.writeFile(fileName, data, (err) => {
+                err ? reject(err) : success("The file was saved!");
+            });
+        });
+    }
 }
