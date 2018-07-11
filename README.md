@@ -13,27 +13,28 @@
 # GTools
 
 ## structure of src directory
-    - [index](src/intex.html)
-    - TestCase
-    - dom
-        - CanvasManager
-        - CanvasUtils
-        - Checkers
-        - Get
-        - [Get](src/dom/Get.ts)
-    - errors
-        - GLogger
-        - NullPointerException 
-    - utils
-        - ArrayUtils
-        - DomUtils
-        - FileUtils
-        - MathUtils
-        - MiscUtils
-        - ObjectUtils
-        - StringUtils
-        - StringCheckers
-        - TimeUtils
+
+- [index](src/intex.html)
+- TestCase
+- dom
+    - CanvasManager
+    - CanvasUtils
+    - Checkers
+    - Get
+    - [Get](src/dom/Get.ts)
+- errors
+    - GLogger
+    - NullPointerException 
+- utils
+    - ArrayUtils
+    - DomUtils
+    - FileUtils
+    - MathUtils
+    - MiscUtils
+    - ObjectUtils
+    - StringUtils
+    - StringCheckers
+    - TimeUtils
 
     
     
