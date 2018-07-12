@@ -68,7 +68,7 @@ export class DomUtils {
             if (typeof html === "string") {
                 element.innerHTML += html;
             }
-            else {
+            else if (Checkers.isElement(html)) {
                 element.appendChild(html);
             }
         }
@@ -76,7 +76,7 @@ export class DomUtils {
             if (typeof html === "string") {
                 element.innerHTML = html;
             }
-            else {
+            else if (Checkers.isElement(html)) {
                 element.innerHTML = "";
                 element.appendChild(html);
             }

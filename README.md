@@ -15,7 +15,7 @@
 
 ## install
 ### NodeJS
-run `npm install gtools`;
+run `npm install gtools`
 
 ```javascript
 import { ArrayUtils } from "gtools";

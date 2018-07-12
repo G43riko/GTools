@@ -1,4 +1,5 @@
 import { expect } from "chai";
+import * as fs from "fs";
 import "mocha";
 import { FileUtils } from "./FileUtils";
 
@@ -57,10 +58,17 @@ describe("File utils", () => {
             },
         };
         it("It should save file", (done) => {
+            expect(fs.existsSync(fileName)).to.be.false;
             FileUtils.saveJsonFile(object, fileName).then(() => {
+                expect(fs.existsSync(fileName)).to.be.true;
                 FileUtils.loadFileJSON(fileName, (data) => {
-                    expect(data).to.deep.equal(object);
-                    done();
+                    FileUtils.removeFile(fileName).then(() => {
+                        expect(fs.existsSync(fileName)).to.be.false;
+                        expect(data).to.deep.equal(object);
+                    }).catch((error) => {
+                        console.error(error);
+                        done();
+                    });
                 });
             }).catch((error) => {
                 console.error(error);

@@ -80,4 +80,12 @@ export class FileUtils {
             });
         });
     }
+
+    public static removeFile(fileName: string): Promise<string> {
+        return new Promise((success, reject) => {
+            fs.unlink(fileName, (err) => {
+                err ? reject(err) : success("The file was removed!");
+            });
+        });
+    }
 }
