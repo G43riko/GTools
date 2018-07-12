@@ -24,7 +24,9 @@
     "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
     "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
     "build": "tsc",
+    "doc": "typedoc --out doc",
     "pack": "npm run build && webpack",
+    "release": "npm run pack && npm run doc",
     "lint": "tslint --project ."
   },
   "author": "Gabriel Csollei<gcsollei@hotmail.com>",
@@ -44,6 +46,7 @@
     "coveralls": "^3.0.2",
     "mocha-lcov-reporter": "^1.3.0",
     "moment": "^2.22.2",
+    "typedoc": "^0.11.1",
     "typescript": "^2.9.1",
     "webpack": "^4.16.0"
   }

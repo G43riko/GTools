@@ -6,6 +6,7 @@
     "declaration": true,
     "diagnostics": true,
     "outDir": "out",
+    "module": "commonjs",
     "noImplicitAny": true,
     "strict": true,
     "strictNullChecks": true,

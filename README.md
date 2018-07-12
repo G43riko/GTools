@@ -48,25 +48,25 @@ const min = ArrayUtils.min([1, 2, 3]);
 
 - [index](src/index.html)
 - [TestCase](src/TestCase.ts)
-- *[dom](dom)*
-    - [CanvasManager](dom/CanvasManager.ts)
-    - [CanvasUtils](dom/CanvasUtils.ts)
-    - [Checkers](dom/Checkers.ts)
-    - [Get](dom/Get.ts)
-    - [Get](dom/dom/Get.ts)
-- *[errors](errors)*
-    - [GLogger](errors/GLogger.ts)
-    - [NullPointerException](errors/NullPointerException.ts)
-- *[utils](utils)*
-    - [ArrayUtils](utils/ArrayUtils.ts)
-    - [DomUtils](utils/DomUtils.ts)
-    - [FileUtils](utils/FileUtils.ts)
-    - [MathUtils](utils/MathUtils.ts)
-    - [MiscUtils](utils/MiscUtils.ts)
-    - [ObjectUtils](utils/ObjectUtils.ts)
-    - [StringUtils](utils/StringUtils.ts)
-    - [StringCheckers](utils/StringCheckers.ts)
-    - [TimeUtils](utils/TimeUtils.ts)
+- *[dom](src/dom)*
+    - [CanvasManager](src/dom/CanvasManager.ts)
+    - [CanvasUtils](src/dom/CanvasUtils.ts)
+    - [Checkers](src/dom/Checkers.ts)
+    - [Get](src/dom/Get.ts)
+    - [Get](src/dom/dom/Get.ts)
+- *[errors](src/errors)*
+    - [GLogger](src/errors/GLogger.ts)
+    - [NullPointerException](src/errors/NullPointerException.ts)
+- *[utils](src/utils)*
+    - [ArrayUtils](src/utils/ArrayUtils.ts)
+    - [DomUtils](src/utils/DomUtils.ts)
+    - [FileUtils](src/utils/FileUtils.ts)
+    - [MathUtils](src/utils/MathUtils.ts)
+    - [MiscUtils](src/utils/MiscUtils.ts)
+    - [ObjectUtils](src/utils/ObjectUtils.ts)
+    - [StringUtils](src/utils/StringUtils.ts)
+    - [StringCheckers](src/utils/StringCheckers.ts)
+    - [TimeUtils](src/utils/TimeUtils.ts)
 
     
     
