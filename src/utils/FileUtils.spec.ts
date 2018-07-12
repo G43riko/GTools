@@ -65,6 +65,7 @@ describe("File utils", () => {
                     FileUtils.removeFile(fileName).then(() => {
                         expect(fs.existsSync(fileName)).to.be.false;
                         expect(data).to.deep.equal(object);
+                        done();
                     }).catch((error) => {
                         console.error(error);
                         done();
