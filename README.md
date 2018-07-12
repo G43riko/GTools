@@ -11,6 +11,34 @@
 [![HitCount](http://hits.dwyl.io/G43riko/GToools.svg)](http://hits.dwyl.io/G43riko/GToools)
 
 # GTools
+[![NPM](https://nodei.co/npm/gtools.png)](https://www.npmjs.com/package/gtools)
+
+## install
+### NodeJS
+run `npm install gtools`;
+
+```javascript
+import { ArrayUtils } from "gtools";
+
+const min = ArrayUtils.min([1, 2, 3]);
+
+```
+### browser
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <script type="text/javascript" src="gtools.web.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+        const min = G.array.min([1, 2, 3]);
+        </script>
+    </body>
+</html>
+```
 
 ## list of methods
 

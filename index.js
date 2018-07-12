@@ -5,4 +5,6 @@ function __export(m) {
 }
 
 Object.defineProperty(exports, "__esModule", {value: true});
-__export(require("./out/index"));
+let gtools = require("./out/index");
+global.G = gtools;
+__export(gtools);

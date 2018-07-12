@@ -1,10 +1,23 @@
 const path = require("path");
 
-module.exports = {
+const serverConfig = {
     entry: "./index.js",
     target: "node",
     output: {
-        filename: "bundle.js",
+        filename: "gtools.js",
         path: path.resolve(__dirname, "out")
     }
 };
+const webConfig = {
+    entry: "./index.js",
+    target: "web",
+    node: {
+        fs: 'empty'
+    },
+    output: {
+        filename: "gtools.web.js",
+        path: path.resolve(__dirname, "out")
+    }
+};
+
+module.exports = [serverConfig, webConfig];
