@@ -13,6 +13,8 @@
 # GTools
 [![NPM](https://nodei.co/npm/gtools.png)](https://www.npmjs.com/package/gtools)
 
+[Documentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/G43riko/GTools/master/doc/index.html)
+
 ## install
 ### NodeJS
 run `npm install gtools`
@@ -67,6 +69,3 @@ const min = ArrayUtils.min([1, 2, 3]);
     - [StringUtils](src/utils/StringUtils.ts)
     - [StringCheckers](src/utils/StringCheckers.ts)
     - [TimeUtils](src/utils/TimeUtils.ts)
-
-    
-    
