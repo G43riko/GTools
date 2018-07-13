@@ -90,7 +90,7 @@ export class MiscUtils {
         return name + "=" + value;
     }
 
-    public static getCookie(cname: string, source = typeof document !== null ? document.cookie : ""): string {
+    public static getCookie(cname: string, source = typeof document !== "undefined" ? document.cookie : ""): string {
         const name = cname + "=";
         const ca   = source.split(";");
         for (let c of ca) {
