@@ -130,7 +130,7 @@ describe("StringCheckers", () => {
     });
     describe("SsTimeFormat", () => {
         it("It should return true if string time in required format", () => {
-            StringCheckers.isTimeFormat("12:53", "HH:mm");
+            expect(StringCheckers.isTimeFormat("12:53", "HH:mm")).to.be.true;
             expect(StringCheckers.isTimeFormat("12:00", "HH:mm")).to.be.true;
             expect(StringCheckers.isTimeFormat("1:59", "H:mm")).to.be.true;
             expect(StringCheckers.isTimeFormat("01:09", "HH:mm")).to.be.true;

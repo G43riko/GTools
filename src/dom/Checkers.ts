@@ -30,7 +30,10 @@ export class Checkers {
     }
 
     public static isEmpty(arg: any): boolean {
-        return arg === {} || arg === [] || arg === "";
+        return arg &&
+            (Object.keys(arg).length === 0 && arg.constructor === Object) ||
+            (Array.isArray(arg) && arg.length === 0) ||
+            arg === "";
     }
 
     public static isInt(arg: any): boolean {
