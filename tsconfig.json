@@ -2,6 +2,9 @@
   "include": [
     "src/**/*.ts"
   ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ],
   "compilerOptions": {
     "declaration": true,
     "diagnostics": true,

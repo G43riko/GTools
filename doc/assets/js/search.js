@@ -1715,233 +1715,167 @@ typedoc.search.data = {
     }, {
         "id": 245,
         "kind": 1,
-        "name": "\"dom/Checkers.spec\"",
-        "url": "modules/_dom_checkers_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 246,
-        "kind": 1,
         "name": "\"errors/GLogger\"",
         "url": "modules/_errors_glogger_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 247,
+        "id": 246,
         "kind": 128,
         "name": "GLogger",
         "url": "classes/_errors_glogger_.glogger.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"errors/GLogger\""
     }, {
-        "id": 248,
+        "id": 247,
         "kind": 2048,
         "name": "getLine",
         "url": "classes/_errors_glogger_.glogger.html#getline",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"errors/GLogger\".GLogger"
     }, {
-        "id": 249,
-        "kind": 1,
-        "name": "\"errors/Glogger.spec\"",
-        "url": "modules/_errors_glogger_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 250,
-        "kind": 1,
-        "name": "\"utils/ArrayUtils.spec\"",
-        "url": "modules/_utils_arrayutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 251,
-        "kind": 1,
-        "name": "\"utils/FileUtils.spec\"",
-        "url": "modules/_utils_fileutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 252,
-        "kind": 1,
-        "name": "\"utils/MathUtils.spec\"",
-        "url": "modules/_utils_mathutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 253,
-        "kind": 1,
-        "name": "\"utils/MiscUtils.spec\"",
-        "url": "modules/_utils_miscutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 254,
-        "kind": 1,
-        "name": "\"utils/ObjectUtils.spec\"",
-        "url": "modules/_utils_objectutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 255,
+        "id": 248,
         "kind": 1,
         "name": "\"utils/ProcessUtils\"",
         "url": "modules/_utils_processutils_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 256,
+        "id": 249,
         "kind": 256,
         "name": "ProcessData",
         "url": "interfaces/_utils_processutils_.processdata.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"utils/ProcessUtils\""
     }, {
-        "id": 257,
+        "id": 250,
         "kind": 1024,
         "name": "memoryUsage",
         "url": "interfaces/_utils_processutils_.processdata.html#memoryusage",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 258,
+        "id": 251,
         "kind": 1024,
         "name": "cpuUsage",
         "url": "interfaces/_utils_processutils_.processdata.html#cpuusage",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 259,
+        "id": 252,
         "kind": 1024,
         "name": "upTime",
         "url": "interfaces/_utils_processutils_.processdata.html#uptime",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 260,
+        "id": 253,
         "kind": 1024,
         "name": "version",
         "url": "interfaces/_utils_processutils_.processdata.html#version",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 261,
+        "id": 254,
         "kind": 1024,
         "name": "platform",
         "url": "interfaces/_utils_processutils_.processdata.html#platform",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 262,
+        "id": 255,
         "kind": 128,
         "name": "ProcessUtils",
         "url": "classes/_utils_processutils_.processutils.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"utils/ProcessUtils\""
     }, {
-        "id": 263,
+        "id": 256,
         "kind": 2048,
         "name": "isTest",
         "url": "classes/_utils_processutils_.processutils.html#istest",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 264,
+        "id": 257,
         "kind": 2048,
         "name": "isProd",
         "url": "classes/_utils_processutils_.processutils.html#isprod",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 265,
+        "id": 258,
         "kind": 2048,
         "name": "isDev",
         "url": "classes/_utils_processutils_.processutils.html#isdev",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 266,
+        "id": 259,
         "kind": 2048,
         "name": "setEnvironment",
         "url": "classes/_utils_processutils_.processutils.html#setenvironment",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 267,
+        "id": 260,
         "kind": 2048,
         "name": "getProcessData",
         "url": "classes/_utils_processutils_.processutils.html#getprocessdata",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 268,
+        "id": 261,
         "kind": 2048,
         "name": "setDefaultEnvironment",
         "url": "classes/_utils_processutils_.processutils.html#setdefaultenvironment",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 269,
+        "id": 262,
         "kind": 1,
         "name": "\"utils/SlovakStemmer\"",
         "url": "modules/_utils_slovakstemmer_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 270,
+        "id": 263,
         "kind": 128,
         "name": "SlovakStemmer",
         "url": "classes/_utils_slovakstemmer_.slovakstemmer.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"utils/SlovakStemmer\""
     }, {
-        "id": 271,
+        "id": 264,
         "kind": 2048,
         "name": "steme",
         "url": "classes/_utils_slovakstemmer_.slovakstemmer.html#steme",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/SlovakStemmer\".SlovakStemmer"
     }, {
-        "id": 272,
+        "id": 265,
         "kind": 64,
         "name": "removePredpona",
         "url": "modules/_utils_slovakstemmer_.html#removepredpona",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"utils/SlovakStemmer\""
     }, {
-        "id": 273,
+        "id": 266,
         "kind": 64,
         "name": "removeCase",
         "url": "modules/_utils_slovakstemmer_.html#removecase",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"utils/SlovakStemmer\""
     }, {
-        "id": 274,
+        "id": 267,
         "kind": 64,
         "name": "removePossessives",
         "url": "modules/_utils_slovakstemmer_.html#removepossessives",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"utils/SlovakStemmer\""
     }, {
-        "id": 275,
+        "id": 268,
         "kind": 64,
         "name": "normalize",
         "url": "modules/_utils_slovakstemmer_.html#normalize",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"utils/SlovakStemmer\""
-    }, {
-        "id": 276,
-        "kind": 1,
-        "name": "\"utils/SlovakStemmer.spec\"",
-        "url": "modules/_utils_slovakstemmer_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 277,
-        "kind": 1,
-        "name": "\"utils/StringCheckers.spec\"",
-        "url": "modules/_utils_stringcheckers_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 278,
-        "kind": 1,
-        "name": "\"utils/StringUtils.spec\"",
-        "url": "modules/_utils_stringutils_spec_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 279,
-        "kind": 1,
-        "name": "\"utils/TimeUtils.spec\"",
-        "url": "modules/_utils_timeutils_spec_.html",
-        "classes": "tsd-kind-external-module"
     }]
 };
