@@ -63,3 +63,8 @@ typings/
 src
 coverage
 doc
+
+*.yml
+webpack.config.js
+tsconfig.json
+tslint.json
