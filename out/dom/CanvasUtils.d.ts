@@ -1,12 +1,9 @@
+import { Vector2f } from "../math/Vector2f";
 export interface CanvasShadowConfig {
     x: number;
     y: number;
     color: string;
     blur: number;
-}
-export interface Vector2f {
-    x: number;
-    y: number;
 }
 export interface CanvasConfig {
     shadow?: CanvasShadowConfig;

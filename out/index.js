@@ -3,7 +3,6 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-// NODE
 __export(require("./utils/ArrayUtils"));
 // export * from "./utils/DomUtils";
 __export(require("./utils/FileUtils"));
@@ -35,6 +34,14 @@ var CanvasManager_1 = require("./dom/CanvasManager");
 exports.canvas = CanvasManager_1.CanvasManager;
 var Get_1 = require("./dom/Get");
 exports.get = Get_1.Get;
+var gender_model_1 = require("./models/gender.model");
+exports.Gender = gender_model_1.Gender;
+var encodings_enum_1 = require("./enums/encodings.enum");
+exports.Encodings = encodings_enum_1.Encodings;
+var http_status_codes_enum_1 = require("./enums/http-status-codes.enum");
+exports.HttpStatusCodes = http_status_codes_enum_1.HttpStatusCodes;
+var keys_enum_1 = require("./enums/keys.enum");
+exports.Keys = keys_enum_1.Keys;
 /*
 export * from "./dom/Checkers";
 export * from "./dom/CanvasManager";

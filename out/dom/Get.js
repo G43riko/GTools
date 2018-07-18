@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var localContext = document;
+var localContext = typeof document !== "undefined" ? document : null;
 var Get = /** @class */ (function () {
     function Get() {
     }

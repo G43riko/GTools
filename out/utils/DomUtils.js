@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Checkers_1 = require("../dom/Checkers");
+var Get_1 = require("../dom/Get");
 /**
  * @typedef {Object} SizeObject
  * @property {number} width
@@ -220,6 +221,30 @@ var DomUtils = /** @class */ (function () {
             height: element.offsetHeight,
             width: element.offsetWidth,
         };
+    };
+    DomUtils.serialize = function (form) {
+        var result = {};
+        // ak formular nieje element
+        if (!Checkers_1.Checkers.isElement(form)) {
+            return result;
+        }
+        // k formular nieje typu form
+        if (form.tagName.toLowerCase() !== "form") {
+            return result;
+        }
+        // získame všetky input elementy
+        var elements = Get_1.Get.byTag("input");
+        // priradíme hodnoty do výsledného objektu
+        for (var key in elements) {
+            if (elements.hasOwnProperty(key)) {
+                var e = elements[key];
+                var name_2 = e.getAttribute("name");
+                if (name_2) {
+                    result[name_2] = e.getAttribute("value");
+                }
+            }
+        }
+        return result;
     };
     return DomUtils;
 }());

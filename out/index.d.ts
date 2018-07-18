@@ -16,3 +16,7 @@ export { TimeUtils as time } from "./utils/TimeUtils";
 export { Checkers as check } from "./dom/Checkers";
 export { CanvasManager as canvas } from "./dom/CanvasManager";
 export { Get as get } from "./dom/Get";
+export { GenderType, Gender } from "./models/gender.model";
+export { Encodings } from "./enums/encodings.enum";
+export { HttpStatusCodes } from "./enums/http-status-codes.enum";
+export { Keys } from "./enums/keys.enum";

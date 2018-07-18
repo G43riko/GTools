@@ -108,4 +108,5 @@ export declare class DomUtils {
         width: number;
         height: number;
     };
+    static serialize(form: HTMLFormElement): StringMap;
 }
