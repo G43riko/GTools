@@ -1,3 +1,4 @@
+import { Vector2f } from "../math/Vector2f";
 import { CanvasManager } from "./CanvasManager";
 import { Checkers } from "./Checkers";
 
@@ -9,12 +10,6 @@ export interface CanvasShadowConfig {
     color: string;
     blur: number;
 }
-
-export interface Vector2f {
-    x: number;
-    y: number;
-}
-
 export interface CanvasConfig {
     shadow?: CanvasShadowConfig;
     position?: number | Vector2f;
@@ -130,7 +125,7 @@ function initDef(obj: any): CanvasConfig {
 
 function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
     const res: CanvasConfig = $.extend(def, obj);
-    const checkAttribute    = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
+    const checkAttribute = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
         if (typeof res[attrName] !== "undefined") {
             if (Checkers.isNumber(res[attrName])) {
                 res[partA] = res[attrName] as number;

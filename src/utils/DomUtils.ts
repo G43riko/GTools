@@ -1,4 +1,5 @@
 import { Checkers } from "../dom/Checkers";
+import { Get } from "../dom/Get";
 import { StringMap } from "./MiscUtils";
 
 export interface ObjectCreatorParams {
@@ -245,5 +246,35 @@ export class DomUtils {
             height: element.offsetHeight,
             width: element.offsetWidth,
         };
+    }
+
+    public static serialize(form: HTMLFormElement): StringMap {
+        const result: StringMap = {};
+        // ak formular nieje element
+        if (!Checkers.isElement(form)) {
+            return result;
+        }
+
+        // k formular nieje typu form
+        if (form.tagName.toLowerCase() !== "form") {
+            return result;
+        }
+
+        // získame všetky input elementy
+        const elements = Get.byTag("input");
+
+        // priradíme hodnoty do výsledného objektu
+        for (const key in elements) {
+            if (elements.hasOwnProperty(key)) {
+                const e: Element = elements[key];
+
+                const name = e.getAttribute("name");
+                if (name) {
+                    result[name] = e.getAttribute("value") as string;
+                }
+            }
+        }
+
+        return result;
     }
 }
