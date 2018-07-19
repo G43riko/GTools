@@ -1,4 +1,5 @@
 import * as moment from "moment";
+import { MathUtils } from "./MathUtils";
 
 export class TimeUtils {
     /**
@@ -75,6 +76,13 @@ export class TimeUtils {
 
     public static getTimeFromDate(date: Date): string {
         return TimeUtils.format(date, "HH:mm");
+    }
+
+    public static getStringFromSeconds(time: number): string {
+        const minutes = parseInt((time / 60) + "", 10);
+        const seconds = time % 60;
+
+        return MathUtils.pad(minutes, 2) + ":" + MathUtils.pad(seconds, 2);
     }
 
     public static toHHMMSS(time: string, decimals = 0): string {
