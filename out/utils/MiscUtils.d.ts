@@ -21,4 +21,6 @@ export declare class MiscUtils {
     static roughSizeOfObject(object: any): number;
     static objectToQueryParams(obj: StringMap): string;
     static includeFile(file: string): void;
+    static serialize(obj: any): string;
+    static parse(obj: string): any;
 }

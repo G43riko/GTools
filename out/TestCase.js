@@ -70,6 +70,8 @@ var TestCase = /** @class */ (function () {
         "helloMyNameIsChose",
     ];
     TestCase.randomStrings = TestCase.stringHelloWorldIAmComputer.concat(TestCase.upperSnakeCase, TestCase.lowerSnakeCase, TestCase.upperCamelCase, TestCase.lowerCamelCase);
+    TestCase.man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
+    TestCase.woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
     TestCase.nothing = [
         "",
         "123",
@@ -81,6 +83,9 @@ var TestCase = /** @class */ (function () {
         "00000000000000000000",
         "     ",
         "\t",
+        "\n",
+        "\\",
+        "/",
         "********",
         "______"
     ].concat(TestCase.randomStrings);

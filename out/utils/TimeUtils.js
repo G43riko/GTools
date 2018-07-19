@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var moment = require("moment");
+var MathUtils_1 = require("./MathUtils");
 var TimeUtils = /** @class */ (function () {
     function TimeUtils() {
     }
@@ -66,6 +67,11 @@ var TimeUtils = /** @class */ (function () {
     };
     TimeUtils.getTimeFromDate = function (date) {
         return TimeUtils.format(date, "HH:mm");
+    };
+    TimeUtils.getStringFromSeconds = function (time) {
+        var minutes = parseInt((time / 60) + "", 10);
+        var seconds = time % 60;
+        return MathUtils_1.MathUtils.pad(minutes, 2) + ":" + MathUtils_1.MathUtils.pad(seconds, 2);
     };
     TimeUtils.toHHMMSS = function (time, decimals) {
         if (decimals === void 0) { decimals = 0; }

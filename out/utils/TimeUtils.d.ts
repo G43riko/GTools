@@ -21,6 +21,7 @@ export declare class TimeUtils {
     static getEndOfTheDay(date: Date): Date;
     static formatDate(date: Date): string;
     static getTimeFromDate(date: Date): string;
+    static getStringFromSeconds(time: number): string;
     static toHHMMSS(time: string, decimals?: number): string;
     private static format;
 }

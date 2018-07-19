@@ -8,5 +8,7 @@ export declare class TestCase {
     static readonly upperCamelCase: string[];
     static readonly lowerCamelCase: string[];
     static readonly randomStrings: string[];
+    static readonly man: string[];
+    static readonly woman: string[];
     static readonly nothing: string[];
 }

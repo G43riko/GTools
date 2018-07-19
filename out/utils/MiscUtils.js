@@ -138,6 +138,36 @@ var MiscUtils = /** @class */ (function () {
         script.defer = true;
         document.head.appendChild(script);
     };
+    MiscUtils.serialize = function (obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (typeof obj[key] === "function") {
+                    obj[key] = obj[key].toString();
+                }
+            }
+        }
+        return JSON.stringify(obj);
+    };
+    MiscUtils.parse = function (obj) {
+        var result = JSON.parse(obj);
+        for (var i in result) {
+            if (result.hasOwnProperty(i)) {
+                if (typeof result[i] === "string") {
+                    if (result[i].indexOf("function (") === 0 ||
+                        result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/)) {
+                        try {
+                            // tslint:disable-next-line no-eval
+                            eval("result[i] = " + result[i]);
+                        }
+                        catch (e) {
+                            result[i] = e;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    };
     return MiscUtils;
 }());
 exports.MiscUtils = MiscUtils;
