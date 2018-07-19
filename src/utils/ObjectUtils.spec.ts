@@ -25,7 +25,7 @@ describe("ObjectUtils", () => {
             address: {
                 city: "Bratislava",
                 number: "23",
-                street: "uličná",
+                street: "street",
             },
             age: 24,
             name: "Adam",

@@ -2,7 +2,7 @@ export class Paginator<T = any> {
     private static readonly itemsPerPage = 10;
     private actList: T[];
     private actualPage                   = 0;
-    private lastPage: number;
+    private readonly lastPage: number;
 
     public constructor(private allItems: T[]) {
         this.lastPage = allItems ? Math.floor(allItems.length / Paginator.itemsPerPage) : 0;

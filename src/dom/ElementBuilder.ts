@@ -101,14 +101,14 @@ export class ElementBuilder {
     }
 }
 
-ElementBuilder.start("div").addAttribute("class", "trieda").addAttribute("id", "idecko").build();
-ElementBuilder.start("div").clazz("trieda").id("idecko").build();
+ElementBuilder.start("div").addAttribute("class", "main-class").addAttribute("id", "main-id").build();
+ElementBuilder.start("div").clazz("main-class").id("main-id").build();
 
 ElementBuilder.start("table")
               .id("main-table")
               .child("tr").clazz("table-row")
               .child("td").clazz("table-column")
-              .content("nazdar")
+              .content("hello world")
               .finish()
               .finish()
               .buildAndAppendTo(document.body);
