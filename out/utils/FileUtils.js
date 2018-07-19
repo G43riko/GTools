@@ -58,16 +58,11 @@ var FileUtils = /** @class */ (function () {
         });
     };
     FileUtils.loadFileJSON = function (url, callback) {
-        FileUtils.loadFile(url, function (data) { return callback(JSON.parse(data)); });
+        FileUtils.loadFile(url, function (err, data) { return callback(err, JSON.parse(data)); });
     };
     FileUtils.loadFile = function (url, callback, encoding) {
         if (encoding === void 0) { encoding = "utf8"; }
-        fs.readFile(url, encoding, function (err, data) {
-            if (err) {
-                throw err;
-            }
-            callback(data);
-        });
+        fs.readFile(url, encoding, callback);
     };
     FileUtils.saveJsonFile = function (data, fileName) {
         return FileUtils.saveFile(JSON.stringify(data), fileName);

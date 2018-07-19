@@ -1,5 +1,6 @@
 // NODE
-import { GenderType } from "./models/gender.model";
+
+import { SlovakStemmer } from "./utils/SlovakStemmer";
 
 export * from "./utils/ArrayUtils";
 // export * from "./utils/DomUtils";
@@ -9,6 +10,9 @@ export * from "./utils/MiscUtils";
 export * from "./utils/ObjectUtils";
 export * from "./utils/StringUtils";
 export * from "./utils/TimeUtils";
+// export * from "./utils/ProcessUtils";
+
+export { SlovakStemmer } from "./utils/SlovakStemmer";
 
 // WEB
 export { ArrayUtils as arrays } from "./utils/ArrayUtils";
@@ -19,6 +23,8 @@ export { MiscUtils as misc } from "./utils/MiscUtils";
 export { ObjectUtils as object } from "./utils/ObjectUtils";
 export { StringUtils as string } from "./utils/StringUtils";
 export { TimeUtils as time } from "./utils/TimeUtils";
+
+export { SlovakStemmer as stemmer } from "./utils/SlovakStemmer";
 
 export { Checkers as check } from "./dom/Checkers";
 export { CanvasManager as canvas } from "./dom/CanvasManager";

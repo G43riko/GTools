@@ -56,17 +56,12 @@ export class FileUtils {
         });
     }
 
-    public static loadFileJSON(url: string, callback: (data: any) => any): void {
-        FileUtils.loadFile(url, (data) => callback(JSON.parse(data)));
+    public static loadFileJSON(url: string, callback: (err: NodeJS.ErrnoException, data: any) => any): void {
+        FileUtils.loadFile(url, (err, data) => callback(err, JSON.parse(data)));
     }
 
-    public static loadFile(url: string, callback: (data: string) => any, encoding: string = "utf8"): void {
-        fs.readFile(url, encoding, (err, data) => {
-            if (err) {
-                throw err;
-            }
-            callback(data);
-        });
+    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException, data: string) => any, encoding: string = "utf8"): void {
+        fs.readFile(url, encoding, callback);
     }
 
     public static saveJsonFile(data: any, fileName: string): Promise<string> {

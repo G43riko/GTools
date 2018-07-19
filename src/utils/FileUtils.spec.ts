@@ -63,7 +63,7 @@ describe("File utils", () => {
             expect(fs.existsSync(fileName)).to.be.false;
             FileUtils.saveJsonFile(object, fileName).then(() => {
                 expect(fs.existsSync(fileName)).to.be.true;
-                FileUtils.loadFileJSON(fileName, (data) => {
+                FileUtils.loadFileJSON(fileName, (err, data) => {
                     FileUtils.removeFile(fileName).then(() => {
                         expect(fs.existsSync(fileName)).to.be.false;
                         expect(data).to.deep.equal(object);
