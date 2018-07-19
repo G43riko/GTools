@@ -146,4 +146,38 @@ export class MiscUtils {
         script.defer = true;
         document.head.appendChild(script);
     }
+
+    public static serialize(obj: any): string {
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (typeof obj[key] === "function") {
+                    obj[key] = obj[key].toString();
+                }
+            }
+        }
+
+        return JSON.stringify(obj);
+    }
+
+    public static parse(obj: string): any {
+        const result = JSON.parse(obj);
+        for (const i in result) {
+            if (result.hasOwnProperty(i)) {
+                if (typeof result[i] === "string") {
+                    if (result[i].indexOf("function (") === 0 ||
+                        result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/)) {
+                        try {
+                            // tslint:disable-next-line no-eval
+                            eval("result[i] = " + result[i]);
+                        }
+                        catch (e) {
+                            result[i] = e;
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
 }

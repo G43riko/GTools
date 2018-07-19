@@ -12,7 +12,7 @@ export class TestCase {
         "075-63546725",
     ];
 
-    public static readonly emails: string[]    = [
+    public static readonly emails: string[] = [
         "abc@def.com",
         "my@name.is.chorche.com",
         "foo.bar@machine.subdomain.example.museum",
@@ -32,6 +32,7 @@ export class TestCase {
         // "\" \"@example.org\"",
         // "user@[IPv6:2001:DB8::1]",
     ];
+
     public static readonly notEmails: string[] = [
         "Abc.example.com",
         "A@b@c@example.com",
@@ -54,7 +55,8 @@ export class TestCase {
         "hello_World i Am-computer-------",
         "-_Hello___world-i--AM    computer",
     ];
-    public static readonly upperSnakeCase: string[]              = [
+
+    public static readonly upperSnakeCase: string[] = [
         "HELLO_WORLD",
         "HELLO_MY_NAME_IS_CHOSE",
     ];
@@ -82,6 +84,9 @@ export class TestCase {
         ...TestCase.lowerCamelCase,
     ];
 
+    public static readonly man   = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
+    public static readonly woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
+
     public static readonly nothing: string[] = [
         "",
         "123",
@@ -93,6 +98,9 @@ export class TestCase {
         "00000000000000000000",
         "     ",
         "\t",
+        "\n",
+        "\\",
+        "/",
         "********",
         "______",
         ...TestCase.randomStrings,

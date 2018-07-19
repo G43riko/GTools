@@ -96,5 +96,43 @@ describe("Misc utils", () => {
                 empty: "",
             });
         });
+
+        // istanbul ignore next
+        it("It should test serialization and deserialization", () => {
+            const obj = {
+                funcAvg: (a: number, b: number) => {
+                    return (a + b) / 2;
+                },
+                funcSum: (a: number, b: number) => a + b,
+                // tslint:disable-next-line
+                funcMul: function(a: number, b: number) {
+                    return a * b;
+                },
+                stringParam: "name",
+                numberParam: 123465,
+                objParam: {a: "aa"},
+                arrayParam: ["a", true, 12],
+                booleanParam: false,
+            };
+
+            const serializedResult = MiscUtils.serialize(obj);
+            expect(serializedResult).to.be.a("string");
+            const result = MiscUtils.parse(serializedResult);
+
+            expect(Array.isArray(result.arrayParam)).to.be.true;
+            expect(result.arrayParam).to.deep.equal(["a", true, 12]);
+            expect(result.stringParam).to.be.a("string");
+            expect(result.stringParam).to.be.equal("name");
+            expect(result.objParam).to.be.a("object");
+            expect(result.objParam).to.deep.equal({a: "aa"});
+            expect(result.numberParam).to.be.equal(123465);
+            expect(result.booleanParam).to.be.equal(false);
+            expect(typeof result.funcAvg).to.be.equal("function");
+            expect(result.funcAvg(1, 3)).to.be.equal(2);
+            expect(typeof result.funcSum).to.be.equal("function");
+            expect(result.funcSum(2, 4)).to.be.equal(6);
+            expect(typeof result.funcMul).to.be.equal("function");
+            expect(result.funcMul(3, 3)).to.be.equal(9);
+        });
     });
 });
