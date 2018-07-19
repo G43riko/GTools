@@ -1,5 +1,3 @@
-import { NullPointerException } from "../errors/NullPointerException";
-
 function typeOf(arg: any): string {
     return typeof arg;
 }
@@ -58,21 +56,5 @@ export class Checkers {
                 Checkers.isObject(obj.style) &&
                 Checkers.isObject(obj.ownerDocument);
         }
-    }
-
-    public static notNull<T>(obj: T): T {
-        if (obj === null) {
-            throw new NullPointerException();
-        }
-
-        return obj;
-    }
-
-    public static exists<T>(obj: T): T {
-        if (!!obj) {
-            throw new Error("Variable ");
-        }
-
-        return obj;
     }
 }

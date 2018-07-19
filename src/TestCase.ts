@@ -12,6 +12,21 @@ export class TestCase {
         "075-63546725",
     ];
 
+    public static readonly randomArray: any[] = [
+        "a",
+        1,
+        2.32,
+        true,
+        (a: any, b: any) => a + b,
+        {},
+        null,
+        undefined,
+        Infinity,
+        NaN,
+        {a: "aa", b: "bb"},
+        ["a", 1, true],
+    ];
+
     public static readonly emails: string[] = [
         "abc@def.com",
         "my@name.is.chorche.com",
