@@ -197,6 +197,15 @@ var StringUtils = /** @class */ (function () {
         return !!text && StringUtils.removeAccentedCharacters(text.toLowerCase())
             .indexOf(substring) >= 0;
     };
+    StringUtils.joinSingle = function (prefix, divider, postfix) {
+        if (postfix.startsWith(divider) && prefix.endsWith(divider)) {
+            return prefix + postfix.substring(divider.length);
+        }
+        if (postfix.startsWith(divider) || prefix.endsWith(divider)) {
+            return prefix + postfix;
+        }
+        return prefix + divider + postfix;
+    };
     StringUtils.getFormattedNumber = function (num, prefix) {
         if (prefix === void 0) { prefix = "+421"; }
         num = num.replace(/[( )/-]/g, "");

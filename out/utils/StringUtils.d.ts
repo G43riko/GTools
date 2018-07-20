@@ -25,5 +25,6 @@ export declare class StringUtils {
     static isValidPhoneNumber(num: string): boolean;
     static toBasicForm(text: string): string;
     static contains(text: string, substring: string): boolean;
+    static joinSingle(prefix: string, divider: string, postfix: string): string;
     static getFormattedNumber(num: string, prefix?: string): string;
 }

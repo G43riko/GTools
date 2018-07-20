@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+import { StringUtils } from "./StringUtils";
 
 function walk(dir: string, done: (error: any, files?: string[]) => any): void {
     const results: string[] = [];
@@ -82,5 +83,13 @@ export class FileUtils {
                 err ? reject(err) : success("The file was removed!");
             });
         });
+    }
+
+    public static checkExtension(name: string, extension: string): string {
+        if (name.endsWith(extension)) {
+            return name;
+        }
+
+        return StringUtils.joinSingle(name, ".", extension);
     }
 }

@@ -229,6 +229,18 @@ export class StringUtils {
                                     .indexOf(substring) >= 0;
     }
 
+    public static joinSingle(prefix: string, divider: string, postfix: string): string {
+        if (postfix.startsWith(divider) && prefix.endsWith(divider)) {
+            return prefix + postfix.substring(divider.length);
+        }
+
+        if (postfix.startsWith(divider) || prefix.endsWith(divider)) {
+            return prefix + postfix;
+        }
+
+        return prefix + divider + postfix;
+    }
+
     public static getFormattedNumber(num: string, prefix = "+421"): string {
         num = num.replace(/[( )/-]/g, "");
         if (num.startsWith("+")) {

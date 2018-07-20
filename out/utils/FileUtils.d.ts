@@ -6,4 +6,5 @@ export declare class FileUtils {
     static saveJsonFile(data: any, fileName: string): Promise<string>;
     static saveFile(data: string, fileName: string): Promise<string>;
     static removeFile(fileName: string): Promise<string>;
+    static checkExtension(name: string, extension: string): string;
 }

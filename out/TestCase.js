@@ -15,6 +15,20 @@ var TestCase = /** @class */ (function () {
         "+31636363634",
         "075-63546725",
     ];
+    TestCase.randomArray = [
+        "a",
+        1,
+        2.32,
+        true,
+        function (a, b) { return a + b; },
+        {},
+        null,
+        undefined,
+        Infinity,
+        NaN,
+        { a: "aa", b: "bb" },
+        ["a", 1, true],
+    ];
     TestCase.emails = [
         "abc@def.com",
         "my@name.is.chorche.com",

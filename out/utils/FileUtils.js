@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
+var StringUtils_1 = require("./StringUtils");
 function walk(dir, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
@@ -80,6 +81,12 @@ var FileUtils = /** @class */ (function () {
                 err ? reject(err) : success("The file was removed!");
             });
         });
+    };
+    FileUtils.checkExtension = function (name, extension) {
+        if (name.endsWith(extension)) {
+            return name;
+        }
+        return StringUtils_1.StringUtils.joinSingle(name, ".", extension);
     };
     return FileUtils;
 }());

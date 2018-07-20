@@ -1,9 +1,9 @@
 export declare class Paginator<T = any> {
-    private allItems;
+    private readonly allItems;
     private static readonly itemsPerPage;
     private actList;
     private actualPage;
-    private lastPage;
+    private readonly lastPage;
     constructor(allItems: T[]);
     getActualPage(): number;
     getPages(): number;

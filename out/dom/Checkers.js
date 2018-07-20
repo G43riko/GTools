@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var NullPointerException_1 = require("../errors/NullPointerException");
 function typeOf(arg) {
     return typeof arg;
 }
@@ -50,18 +49,6 @@ var Checkers = /** @class */ (function () {
                 Checkers.isObject(obj.style) &&
                 Checkers.isObject(obj.ownerDocument);
         }
-    };
-    Checkers.notNull = function (obj) {
-        if (obj === null) {
-            throw new NullPointerException_1.NullPointerException();
-        }
-        return obj;
-    };
-    Checkers.exists = function (obj) {
-        if (!!obj) {
-            throw new Error("Variable ");
-        }
-        return obj;
     };
     return Checkers;
 }());

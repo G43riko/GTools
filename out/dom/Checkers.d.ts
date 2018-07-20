@@ -10,6 +10,4 @@ export declare class Checkers {
     static isFloat(arg: any): boolean;
     static isUndefined(arg: any): boolean;
     static isElement(obj: any): boolean;
-    static notNull<T>(obj: T): T;
-    static exists<T>(obj: T): T;
 }

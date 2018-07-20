@@ -1,5 +1,6 @@
 export declare class TestCase {
     static readonly phoneNumbers: string[];
+    static readonly randomArray: any[];
     static readonly emails: string[];
     static readonly notEmails: string[];
     static readonly stringHelloWorldIAmComputer: string[];
