@@ -45,6 +45,16 @@ export class MathUtils {
         return MathUtils.clamp((max - min) * scale + min, min, max);
     }
 
+    public static randomInt(min: number, max: number): number {
+        return Math.floor(MathUtils.random(min, max));
+    }
+
+    public static random(min: number, max: number): number {
+        const diff = max - min;
+
+        return min + Math.random() * diff;
+    }
+
     public static average(args: number[]): number {
         let sum = 0;
         for (const item of args) {

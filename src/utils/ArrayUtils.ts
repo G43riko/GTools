@@ -158,6 +158,26 @@ export class ArrayUtils {
         return args[Math.floor(Math.random() * args.length)];
     }
 
+    public static getNRandom<T = any>(args: T[], count: number): T[] {
+        if (!Array.isArray(args)) {
+            return args;
+        }
+        if (args.length === 0) {
+            return [];
+        }
+        if (args.length <= count) {
+            return args;
+        }
+
+        const result = new Set();
+
+        while (result.size <= count) {
+            result.add(ArrayUtils.getRandom(args));
+        }
+
+        return Array.from(result);
+    }
+
     /**
      * Method return copy of array with only distinct elements
      *
