@@ -1,7 +1,7 @@
 import { Checkers } from "../dom/Checkers";
 import { Get } from "../dom/Get";
-import { StringMap } from "./MiscUtils";
 import { NotBrowserException } from "../errors/NotBrowserException";
+import { StringMap } from "./MiscUtils";
 
 export interface ObjectCreatorParams {
     name: string;
@@ -42,6 +42,7 @@ export class DomUtils {
         if (typeof window === "undefined") {
             throw new NotBrowserException();
         }
+
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
 
