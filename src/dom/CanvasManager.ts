@@ -1,3 +1,5 @@
+import { NotBrowserException } from "../errors/NotBrowserException";
+
 export class CanvasManager {
     private readonly localCanvas: HTMLCanvasElement;
     private readonly localContext: CanvasRenderingContext2D | null;
@@ -13,6 +15,9 @@ export class CanvasManager {
             this.localCanvas = CanvasManager.imageToCanvas(arg1);
         }
         else {
+            if (typeof document === "undefined") {
+                throw new NotBrowserException();
+            }
             this.localCanvas = document.createElement("canvas");
 
             if (arg1 && arg2) {
@@ -47,6 +52,9 @@ export class CanvasManager {
     }
 
     public static imageToCanvas(image: HTMLImageElement): HTMLCanvasElement {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException();
+        }
         const canvas  = document.createElement("canvas");
         canvas.width  = image.width;
         canvas.height = image.height;

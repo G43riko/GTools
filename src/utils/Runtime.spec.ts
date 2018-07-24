@@ -31,13 +31,17 @@ describe("Runtime", () => {
 
         it("Check function", () => {
             const funcA = (a: number, b: number) => a + b;
-            // tslint:disable-next-line
-            const funcB = function() {
-                return 23;
-            };
             expect(Runtime.isFunction(funcA)).to.be.equal(funcA);
-            expect(Runtime.isFunction(funcB)).to.be.equal(funcB);
+            expect(Runtime.isFunction(TestCase.functionSum)).to.be.equal(TestCase.functionSum);
             expect(() => Runtime.isFunction("Name" as any)).to.throw(WrongTypeException);
+        });
+        it("Check function validation", () => {
+            expect(Runtime.checkFunction(() => {
+                throw new Error();
+            })).to.be.false;
+            expect(Runtime.checkFunction(() => 23)).to.be.true;
+            expect(Runtime.checkFunction(TestCase.functionSum, [5, 5])).to.be.true;
+            expect(Runtime.checkFunction(TestCase.functionSum, [5, "gabo" as any])).to.be.false;
         });
     });
     describe("Check maths", () => {

@@ -196,7 +196,7 @@ b
     });
     describe("IsValidPhoneNumber", () => {
         it("It should return true if phone number is valid", () => {
-            [...TestCase.randomStrings, ...TestCase.emails].forEach((num) => {
+            [...TestCase.randomStrings, ...TestCase.emails, ""].forEach((num) => {
                 expect(StringUtils.isValidPhoneNumber(num), `'${num}' should not be phone number`).to.be.false;
             });
 
@@ -205,9 +205,14 @@ b
             });
         });
     });
+    describe("GetAsciiArray", () => {
+        it("It should return array of number representing giver string ascii numbers", () => {
+            expect(StringUtils.getAsciiArray("abcdefg")).to.deep.equal([97, 98, 99, 100, 101, 102, 103]);
+        });
+    });
     describe("IsValidEmail", () => {
         it("It should return true if email is valid", () => {
-            [...TestCase.randomStrings, ...TestCase.phoneNumbers, ...TestCase.notEmails].forEach((email) => {
+            [...TestCase.randomStrings, ...TestCase.phoneNumbers, ...TestCase.notEmails, ""].forEach((email) => {
                 expect(StringUtils.isValidEmail(email), `'${email}' should not be email`).to.be.false;
             });
 
@@ -216,4 +221,13 @@ b
             });
         });
     });
+    describe("JoinSingle", () => {
+        it("It should return true if email is valid", () => {
+            expect(StringUtils.joinSingle("result", ".", "js")).to.be.equal("result.js");
+            expect(StringUtils.joinSingle("result.", ".", "js")).to.be.equal("result.js");
+            expect(StringUtils.joinSingle("result", ".", ".js")).to.be.equal("result.js");
+            expect(StringUtils.joinSingle("result.", ".", ".js")).to.be.equal("result.js");
+        });
+    });
+
 });

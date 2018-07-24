@@ -86,4 +86,18 @@ describe("Math utils", () => {
             expect(MathUtils.binomialCoefficient(3, 3)).to.be.equal(1);
         });
     });
+    describe("BinomialCoefficient", () => {
+        it("Should return random value from given interval", () => {
+            for (let i = 0; i < 1000; i++) {
+                const min = MathUtils.randomInt(0, 1000);
+                const max = MathUtils.randomInt(1000, 1000000);
+                expect(min < max).to.be.true;
+
+                const result = MathUtils.random(min, max);
+                expect(min < result).to.be.true;
+                expect(result < max).to.be.true;
+
+            }
+        });
+    });
 });

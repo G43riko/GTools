@@ -1,3 +1,5 @@
+// TODO: need to be checked if app is running in browser
+
 let localContext: Document | null = typeof document !== "undefined" ? document : null;
 
 export class Get {

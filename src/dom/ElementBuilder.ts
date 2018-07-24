@@ -1,5 +1,7 @@
 import { StringMap } from "..";
 
+// TODO: need to be checked if app is running in browser
+
 let localContext: Document = document;
 
 export class ElementBuilder {

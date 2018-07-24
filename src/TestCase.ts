@@ -120,4 +120,12 @@ export class TestCase {
         "______",
         ...TestCase.randomStrings,
     ];
+
+    public static functionSum(a: number, b: any): number {
+        if (isNaN(a) || isNaN(b)) {
+            throw new Error("Wrong params");
+        }
+
+        return a + b;
+    }
 }

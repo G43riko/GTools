@@ -1,6 +1,7 @@
 /**
  * @typedef  {(Object)} any
  */
+import { NotBrowserException } from "../errors/NotBrowserException";
 
 export interface StringMap {
     [s: string]: string;
@@ -140,6 +141,9 @@ export class MiscUtils {
     }
 
     public static includeFile(file: string): void {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException();
+        }
         const script = document.createElement("script");
         script.src   = file;
         script.type  = "text/javascript";

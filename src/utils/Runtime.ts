@@ -59,6 +59,18 @@ export class Runtime {
         return obj;
     }
 
+    // tslint:disable-next-line
+    public static checkFunction(func: Function, args: any[] = [], thisArg = this): boolean {
+        try {
+            func.apply(thisArg, args);
+
+            return true;
+        }
+        catch (e) {
+            return false;
+        }
+    }
+
     public static isBoolean(obj: boolean): boolean {
         if (useRuntimeCheckers && !Checkers.isBoolean(obj)) {
             throw new WrongTypeException("boolean");

@@ -1,6 +1,7 @@
 import { Checkers } from "../dom/Checkers";
 import { Get } from "../dom/Get";
 import { StringMap } from "./MiscUtils";
+import { NotBrowserException } from "../errors/NotBrowserException";
 
 export interface ObjectCreatorParams {
     name: string;
@@ -25,6 +26,10 @@ export class DomUtils {
      * @returns {number}
      */
     public static getWindowHeight(): number {
+        if (typeof window === "undefined") {
+            throw new NotBrowserException();
+        }
+
         return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
 
@@ -34,6 +39,9 @@ export class DomUtils {
      * @returns {number}
      */
     public static getWindowWidth(): number {
+        if (typeof window === "undefined") {
+            throw new NotBrowserException();
+        }
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
 
@@ -148,6 +156,10 @@ export class DomUtils {
                                 attr?: StringMap,
                                 cont?: string | HTMLElement | HTMLElement[],
                                 style?: CSSStyleDeclaration): HTMLElement {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException();
+        }
+
         let el: HTMLElement;
         if (typeof name === "object") {
             return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);

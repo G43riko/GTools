@@ -162,7 +162,7 @@ export class ArrayUtils {
         if (!Array.isArray(args)) {
             return args;
         }
-        if (args.length === 0) {
+        if (args.length === 0 || count === 0) {
             return [];
         }
         if (args.length <= count) {

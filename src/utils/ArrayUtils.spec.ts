@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import { ArrayUtils } from "./ArrayUtils";
+import { MathUtils } from "./MathUtils";
 
 describe("Array utils", () => {
     const numArray: number[]    = [5, 8, 7, 3, 1, 5, 21, 8];
@@ -84,6 +85,25 @@ describe("Array utils", () => {
             expect(ArrayUtils.where(testArray, null)).to.deep.equal([]);
             expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([{a: "aa"}, {a: "aa", b: "bbb"}]);
             expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([{a: "aa", b: "bbb"}]);
+        });
+    });
+    describe("GetNRandom", () => {
+        it("It return random elements from array", () => {
+            for (let i = 0; i < 1000; i++) {
+                expect(ArrayUtils.getNRandom(notArray, 3)).to.deep.equal(notArray);
+                expect(ArrayUtils.getNRandom(numArray, 20)).to.deep.equal(numArray);
+
+                const result = ArrayUtils.getNRandom(numArray, MathUtils.randomInt(1, 6));
+                expect(result).to.be.an("array");
+                result.forEach((item) => {
+                    expect(item).to.be.oneOf([5, 8, 7, 3, 1, 21]);
+                });
+                expect(ArrayUtils.getNRandom(["g"], 0)).to.deep.equal([]);
+                expect(ArrayUtils.getNRandom(["g"], 1)).to.deep.equal(["g"]);
+                expect(ArrayUtils.getNRandom(["g"], 2)).to.deep.equal(["g"]);
+                expect(ArrayUtils.getNRandom(["g"], 2)).to.deep.equal(["g"]);
+            }
+            expect(ArrayUtils.getRandom([])).to.be.null;
         });
     });
 });
