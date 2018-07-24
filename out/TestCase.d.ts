@@ -12,4 +12,5 @@ export declare class TestCase {
     static readonly man: string[];
     static readonly woman: string[];
     static readonly nothing: string[];
+    static functionSum(a: number, b: any): number;
 }

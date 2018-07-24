@@ -1,6 +1,3 @@
-/**
- * @typedef  {(Object)} any
- */
 export interface StringMap {
     [s: string]: string;
 }

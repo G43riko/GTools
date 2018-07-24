@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// TODO: need to be checked if app is running in browser
 var localContext = document;
 var ElementBuilder = /** @class */ (function () {
     function ElementBuilder(elementName, parent) {

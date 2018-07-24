@@ -40,6 +40,13 @@ var MathUtils = /** @class */ (function () {
     MathUtils.lamp = function (min, max, scale) {
         return MathUtils.clamp((max - min) * scale + min, min, max);
     };
+    MathUtils.randomInt = function (min, max) {
+        return Math.floor(MathUtils.random(min, max));
+    };
+    MathUtils.random = function (min, max) {
+        var diff = max - min;
+        return min + Math.random() * diff;
+    };
     MathUtils.average = function (args) {
         var sum = 0;
         for (var _i = 0, args_1 = args; _i < args_1.length; _i++) {

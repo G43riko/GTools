@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Checkers_1 = require("../dom/Checkers");
 var Get_1 = require("../dom/Get");
+var NotBrowserException_1 = require("../errors/NotBrowserException");
 /**
  * @typedef {Object} SizeObject
  * @property {number} width
@@ -20,6 +21,9 @@ var DomUtils = /** @class */ (function () {
      * @returns {number}
      */
     DomUtils.getWindowHeight = function () {
+        if (typeof window === "undefined") {
+            throw new NotBrowserException_1.NotBrowserException();
+        }
         return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     };
     /**
@@ -28,6 +32,9 @@ var DomUtils = /** @class */ (function () {
      * @returns {number}
      */
     DomUtils.getWindowWidth = function () {
+        if (typeof window === "undefined") {
+            throw new NotBrowserException_1.NotBrowserException();
+        }
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     };
     /**
@@ -135,6 +142,9 @@ var DomUtils = /** @class */ (function () {
      * @returns {HTMLElement}
      */
     DomUtils.createElement = function (name, attr, cont, style) {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException_1.NotBrowserException();
+        }
         var el;
         if (typeof name === "object") {
             return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);

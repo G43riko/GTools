@@ -47,6 +47,18 @@ var Runtime = /** @class */ (function () {
         }
         return obj;
     };
+    // tslint:disable-next-line
+    Runtime.checkFunction = function (func, args, thisArg) {
+        if (args === void 0) { args = []; }
+        if (thisArg === void 0) { thisArg = this; }
+        try {
+            func.apply(thisArg, args);
+            return true;
+        }
+        catch (e) {
+            return false;
+        }
+    };
     Runtime.isBoolean = function (obj) {
         if (useRuntimeCheckers && !Checkers_1.Checkers.isBoolean(obj)) {
             throw new WrongTypeException_1.WrongTypeException("boolean");

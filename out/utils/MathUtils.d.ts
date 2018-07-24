@@ -6,6 +6,8 @@ export declare class MathUtils {
     static lerp(a: number, b: number, val: number): number;
     static log2i(value: number): number;
     static lamp(min: number, max: number, scale: number): number;
+    static randomInt(min: number, max: number): number;
+    static random(min: number, max: number): number;
     static average(args: number[]): number;
     static diff(num1: number, num2: number): number;
 }

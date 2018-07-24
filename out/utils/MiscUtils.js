@@ -1,8 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @typedef  {(Object)} any
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+var NotBrowserException_1 = require("../errors/NotBrowserException");
 var MiscUtils = /** @class */ (function () {
     function MiscUtils() {
     }
@@ -132,6 +133,9 @@ var MiscUtils = /** @class */ (function () {
         return result;
     };
     MiscUtils.includeFile = function (file) {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException_1.NotBrowserException();
+        }
         var script = document.createElement("script");
         script.src = file;
         script.type = "text/javascript";

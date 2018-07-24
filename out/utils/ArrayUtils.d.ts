@@ -52,6 +52,7 @@ export declare class ArrayUtils {
      * @returns {T | null}
      */
     static getRandom<T = any>(args: T[]): T | null;
+    static getNRandom<T = any>(args: T[], count: number): T[];
     /**
      * Method return copy of array with only distinct elements
      *

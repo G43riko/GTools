@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var NotBrowserException_1 = require("../errors/NotBrowserException");
 var CanvasManager = /** @class */ (function () {
     function CanvasManager(arg1, arg2, arg3) {
         if (arg1 instanceof HTMLCanvasElement) {
@@ -12,6 +13,9 @@ var CanvasManager = /** @class */ (function () {
             this.localCanvas = CanvasManager.imageToCanvas(arg1);
         }
         else {
+            if (typeof document === "undefined") {
+                throw new NotBrowserException_1.NotBrowserException();
+            }
             this.localCanvas = document.createElement("canvas");
             if (arg1 && arg2) {
                 this.setCanvasSize(arg1, arg2);
@@ -49,6 +53,9 @@ var CanvasManager = /** @class */ (function () {
         ctx.shadowOffsetY = y;
     };
     CanvasManager.imageToCanvas = function (image) {
+        if (typeof document === "undefined") {
+            throw new NotBrowserException_1.NotBrowserException();
+        }
         var canvas = document.createElement("canvas");
         canvas.width = image.width;
         canvas.height = image.height;

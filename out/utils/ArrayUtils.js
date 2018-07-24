@@ -146,6 +146,22 @@ var ArrayUtils = /** @class */ (function () {
         }
         return args[Math.floor(Math.random() * args.length)];
     };
+    ArrayUtils.getNRandom = function (args, count) {
+        if (!Array.isArray(args)) {
+            return args;
+        }
+        if (args.length === 0 || count === 0) {
+            return [];
+        }
+        if (args.length <= count) {
+            return args;
+        }
+        var result = new Set();
+        while (result.size <= count) {
+            result.add(ArrayUtils.getRandom(args));
+        }
+        return Array.from(result);
+    };
     /**
      * Method return copy of array with only distinct elements
      *

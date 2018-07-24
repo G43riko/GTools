@@ -1,4 +1,5 @@
 "use strict";
+// TODO: need to be checked if app is running in browser
 Object.defineProperty(exports, "__esModule", { value: true });
 var localContext = typeof document !== "undefined" ? document : null;
 var Get = /** @class */ (function () {

@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var TestCase = /** @class */ (function () {
     function TestCase() {
     }
+    TestCase.functionSum = function (a, b) {
+        if (isNaN(a) || isNaN(b)) {
+            throw new Error("Wrong params");
+        }
+        return a + b;
+    };
     TestCase.phoneNumbers = [
         "+421905123456",
         "00421905123456",
