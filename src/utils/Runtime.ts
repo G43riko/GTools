@@ -81,7 +81,7 @@ export class Runtime {
 
     public static min(obj: number, value: number): number {
         if (useRuntimeCheckers && obj <= value) {
-            throw new WrongParameterException("Number " + obj + " must be greater than" + value);
+            throw new WrongParameterException(`Number ${obj}  must be greater than ${value}`);
         }
 
         return obj;
@@ -89,7 +89,7 @@ export class Runtime {
 
     public static max(obj: number, value: number): number {
         if (useRuntimeCheckers && obj >= value) {
-            throw new WrongParameterException("Number " + obj + " must be lower than" + value);
+            throw new WrongParameterException(`Number ${obj}  must be lower than ${value}`);
         }
 
         return obj;

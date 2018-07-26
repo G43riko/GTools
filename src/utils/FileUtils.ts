@@ -21,14 +21,16 @@ function walk(dir: string, done: (error: any, files?: string[]) => any): void {
                             return;
                         }
                         results.push(...res);
-                        if (!--pending) {
+                        pending--;
+                        if (!pending) {
                             done(null, results);
                         }
                     });
                 }
                 else {
                     results.push(file);
-                    if (!--pending) {
+                    pending--;
+                    if (!pending) {
                         done(null, results);
                     }
                 }
@@ -61,7 +63,7 @@ export class FileUtils {
         FileUtils.loadFile(url, (err, data) => callback(err, JSON.parse(data)));
     }
 
-    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException, data: string) => any, encoding: string = "utf8"): void {
+    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException, data: string) => any, encoding = "utf8"): void {
         fs.readFile(url, encoding, callback);
     }
 

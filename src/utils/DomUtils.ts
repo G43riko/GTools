@@ -220,11 +220,12 @@ export class DomUtils {
     public static position(element: HTMLElement): { x: number, y: number } {
         let top                        = 0;
         let left                       = 0;
-        let actElement: Element | null = element;
         do {
             top += element.offsetTop || 0;
             left += element.offsetLeft || 0;
-        } while (actElement = element.offsetParent);
+
+            element = element.offsetParent as HTMLElement;
+        } while (element);
 
         return {
             x: left,
@@ -238,10 +239,10 @@ export class DomUtils {
      * @param {Element} element
      * @returns {number}
      */
-    public static indexOf(element: Element): number {
+    public static indexOf(element: Element | null): number {
         let index                      = 0;
-        let actElement: Element | null = element;
-        while (actElement = element.previousElementSibling) {
+        while (element) {
+            element = element.previousElementSibling;
             index++;
         }
 

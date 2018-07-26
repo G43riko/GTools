@@ -11,7 +11,7 @@ export class TimeUtils {
     public static formatTime(time: string): string {
         const splitTime = time.split(":");
         if (splitTime.length >= 2) {
-            return splitTime[0] + ":" + splitTime[1];
+            return `${splitTime[0]}:${splitTime[1]}`;
         } else {
             return "";
         }
@@ -82,7 +82,7 @@ export class TimeUtils {
         const minutes = parseInt((time / 60) + "", 10);
         const seconds = time % 60;
 
-        return MathUtils.pad(minutes, 2) + ":" + MathUtils.pad(seconds, 2);
+        return `${MathUtils.pad(minutes, 2)}:${MathUtils.pad(seconds, 2)}`;
     }
 
     public static toHHMMSS(time: string, decimals = 0): string {
@@ -104,7 +104,7 @@ export class TimeUtils {
             seconds = seconds.toFixed(decimals);
         }
 
-        return hours + ":" + minutes + ":" + seconds;
+        return `${hours}:${minutes}:${seconds}`;
     }
 
     private static format(date: Date, format: string): string {

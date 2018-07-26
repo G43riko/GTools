@@ -5,14 +5,12 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./utils/ArrayUtils"));
-// export * from "./utils/DomUtils";
 __export(require("./utils/FileUtils"));
 __export(require("./utils/MathUtils"));
 __export(require("./utils/MiscUtils"));
 __export(require("./utils/ObjectUtils"));
 __export(require("./utils/StringUtils"));
 __export(require("./utils/TimeUtils"));
-// export * from "./utils/ProcessUtils";
 var SlovakStemmer_1 = require("./utils/SlovakStemmer");
 exports.SlovakStemmer = SlovakStemmer_1.SlovakStemmer;
 // WEB
@@ -48,8 +46,3 @@ var http_status_codes_enum_1 = require("./enums/http-status-codes.enum");
 exports.HttpStatusCodes = http_status_codes_enum_1.HttpStatusCodes;
 var keys_enum_1 = require("./enums/keys.enum");
 exports.Keys = keys_enum_1.Keys;
-/*
-export * from "./dom/Checkers";
-export * from "./dom/CanvasManager";
-export * from "./dom/Get";
-*/

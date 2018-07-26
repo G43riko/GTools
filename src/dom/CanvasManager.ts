@@ -74,7 +74,7 @@ export class CanvasManager {
 
     public static calcTextWidth(ctx: CanvasRenderingContext2D, value: string, font?: string): number {
         if (font) {
-            ctx.font = font as string;
+            ctx.font = font;
         }
 
         return ctx.measureText(value).width;

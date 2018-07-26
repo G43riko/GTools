@@ -11,7 +11,7 @@ describe("Math utils", () => {
         });
     });
     describe("RoundToDecimal", () => {
-        it("test roundToDecimal function", () => {
+        it("Returns decimal number rounded off to N decimal places", () => {
             expect(MathUtils.roundToDecimals(1, 5)).to.equal("1.00000");
             expect(MathUtils.roundToDecimals(1.00000000001, 5)).to.equal("1.00000");
             expect(MathUtils.roundToDecimals(1.000009, 5, "floor")).to.equal("1.00000");

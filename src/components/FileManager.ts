@@ -1,8 +1,8 @@
 import { FileTypes } from "../enums/file-types.enum";
 
 export class FileManager {
-    private input: HTMLInputElement;
-    private link: HTMLAnchorElement;
+    private readonly input: HTMLInputElement;
+    private readonly link: HTMLAnchorElement;
 
     constructor() {
         this.input = document.createElement("input");

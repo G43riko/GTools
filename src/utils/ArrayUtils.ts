@@ -116,7 +116,7 @@ export class ArrayUtils {
      * @param {string} postfix
      * @returns {string}
      */
-    public static join(array: any[], delimiter: string, prefix: string = "", postfix: string = ""): string {
+    public static join(array: any[], delimiter: string, prefix = "", postfix = ""): string {
         if (!Array.isArray(array)) {
             return prefix + array + postfix;
         }

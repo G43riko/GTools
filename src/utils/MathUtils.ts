@@ -21,7 +21,8 @@ export class MathUtils {
             return 0;
         }
         for (let d = 1; d <= k; d++) {
-            r *= n--;
+            r *= n;
+            n--;
             r /= d;
         }
 

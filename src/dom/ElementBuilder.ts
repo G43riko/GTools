@@ -10,7 +10,7 @@ export class ElementBuilder {
     private attributes: StringMap                            = {};
     private readonly contentBuffer: (string | HTMLElement)[] = [];
 
-    private constructor(private elementName: string, private parent?: ElementBuilder) {
+    private constructor(private readonly elementName: string, private readonly parent?: ElementBuilder) {
     }
 
     public static setContext(context: Document): void {

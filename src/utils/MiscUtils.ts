@@ -56,12 +56,12 @@ export class MiscUtils {
     public static setCookie(name: string, value: string | number | boolean, days: number): string {
         const d: Date = new Date();
         d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        const finalCookies = name + "=" + value + ";expires=" + d.toUTCString();
+        const finalCookies = `${name}=${value};expires=${d.toUTCString()}`;
         if (typeof document !== "undefined") {
             document.cookie = finalCookies;
         }
 
-        return name + "=" + value;
+        return `${name}=${value}`;
     }
 
     public static getCookie(cname: string, source = typeof document !== "undefined" ? document.cookie : ""): string {
@@ -79,9 +79,9 @@ export class MiscUtils {
         return "";
     }
 
-    public static parseParams(query: string     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
-                              separator: string = "&",
-                              delimiter: string = "="): any {
+    public static parseParams(query     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
+                              separator = "&",
+                              delimiter = "="): any {
         const queryString: any = {};
         const vars: string[]   = query.split(separator);
         for (const key of vars) {
@@ -133,7 +133,7 @@ export class MiscUtils {
         let result = "";
         for (const objKey in obj) {
             if (obj.hasOwnProperty(objKey)) {
-                result += (result.length > 0 ? "&" : "?") + objKey + "=" + obj[objKey];
+                result += `${result.length > 0 ? "&" : "?"}${objKey}=${obj[objKey]}`;
             }
         }
 
