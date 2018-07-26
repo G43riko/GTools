@@ -1,7 +1,7 @@
 import { FileTypes } from "../enums/file-types.enum";
 export declare class FileManager {
-    private input;
-    private link;
+    private readonly input;
+    private readonly link;
     constructor();
     saveFile(name: string, text: string, type?: FileTypes): void;
     saveImage(name: string, image: string | HTMLImageElement): void;

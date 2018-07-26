@@ -127,7 +127,7 @@ var MiscUtils = /** @class */ (function () {
         var result = "";
         for (var objKey in obj) {
             if (obj.hasOwnProperty(objKey)) {
-                result += (result.length > 0 ? "&" : "?") + objKey + "=" + obj[objKey];
+                result += "" + (result.length > 0 ? "&" : "?") + objKey + "=" + obj[objKey];
             }
         }
         return result;

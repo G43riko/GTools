@@ -97,7 +97,7 @@ export declare class DomUtils {
      * @param {Element} element
      * @returns {number}
      */
-    static indexOf(element: Element): number;
+    static indexOf(element: Element | null): number;
     /**
      * Function returns object with element size
      *

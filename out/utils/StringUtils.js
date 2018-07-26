@@ -5,11 +5,8 @@ var accentedLowerCharacters = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵ�
 var normalLowerCharacters = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 var accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
 var normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
-// const validEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 var validEmailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
-// const validPhoneNumberRegex = /^\+?\d{6,}$/;
-var validPhoneNumberRegex = /^([+]|00)?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
-// const validPhoneNumberRegex = /^\+?\d*(\d\d\d)[ _]?{6,}$/;
+var validPhoneNumberRegex = /^([+]|00)?[(]?[0-9]{3,4}[)]?[-\s.]?[0-9]{2,3}[-\s.]?[0-9]{2,6}([-\s.]?[0-9]{3})?$/im;
 /* TODO:
     static underscore(word) {
     }

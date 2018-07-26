@@ -67,13 +67,13 @@ var Runtime = /** @class */ (function () {
     };
     Runtime.min = function (obj, value) {
         if (useRuntimeCheckers && obj <= value) {
-            throw new WrongParameterException_1.WrongParameterException("Number " + obj + " must be greater than" + value);
+            throw new WrongParameterException_1.WrongParameterException("Number " + obj + "  must be greater than " + value);
         }
         return obj;
     };
     Runtime.max = function (obj, value) {
         if (useRuntimeCheckers && obj >= value) {
-            throw new WrongParameterException_1.WrongParameterException("Number " + obj + " must be lower than" + value);
+            throw new WrongParameterException_1.WrongParameterException("Number " + obj + "  must be lower than " + value);
         }
         return obj;
     };

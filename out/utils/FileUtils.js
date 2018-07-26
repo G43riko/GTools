@@ -22,14 +22,16 @@ function walk(dir, done) {
                             return;
                         }
                         results.push.apply(results, res);
-                        if (!--pending) {
+                        pending--;
+                        if (!pending) {
                             done(null, results);
                         }
                     });
                 }
                 else {
                     results.push(file);
-                    if (!--pending) {
+                    pending--;
+                    if (!pending) {
                         done(null, results);
                     }
                 }

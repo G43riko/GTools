@@ -196,11 +196,11 @@ var DomUtils = /** @class */ (function () {
     DomUtils.position = function (element) {
         var top = 0;
         var left = 0;
-        var actElement = element;
         do {
             top += element.offsetTop || 0;
             left += element.offsetLeft || 0;
-        } while (actElement = element.offsetParent);
+            element = element.offsetParent;
+        } while (element);
         return {
             x: left,
             y: top,
@@ -214,8 +214,8 @@ var DomUtils = /** @class */ (function () {
      */
     DomUtils.indexOf = function (element) {
         var index = 0;
-        var actElement = element;
-        while (actElement = element.previousElementSibling) {
+        while (element) {
+            element = element.previousElementSibling;
             index++;
         }
         return index;

@@ -68,3 +68,6 @@ doc
 webpack.config.js
 tsconfig.json
 tslint.json
+.scannerwork
+.idea
+*.properties

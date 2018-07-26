@@ -30,7 +30,7 @@ var Get = /** @class */ (function () {
      */
     Get.byLink = function (link, context) {
         if (context === void 0) { context = localContext; }
-        return context.querySelectorAll("a[attr='" + link + "']");
+        return context.querySelectorAll("a[attr=\"" + link + "\"]");
     };
     /**
      *

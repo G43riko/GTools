@@ -1,6 +1,6 @@
 export declare class ElementBuilder {
-    private elementName;
-    private parent?;
+    private readonly elementName;
+    private readonly parent?;
     private result?;
     private styles;
     private attributes;

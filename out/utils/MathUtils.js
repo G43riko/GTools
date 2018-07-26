@@ -22,7 +22,8 @@ var MathUtils = /** @class */ (function () {
             return 0;
         }
         for (var d = 1; d <= k; d++) {
-            r *= n--;
+            r *= n;
+            n--;
             r /= d;
         }
         return r;
