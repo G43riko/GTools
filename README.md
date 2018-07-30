@@ -21,9 +21,9 @@
 * [Installation](#installation)
      * [NodeJS](#nodejs)
      * [Browser](#browser)
-* [List of methods](list-of-methods)
-* [Structure of src directory](structure-of-src-directory)
-* [Release steps](release-steps)
+* [List of methods](#list-of-methods)
+* [Structure of src directory](#structure-of-src-directory)
+* [Release steps](#release-steps)
 
 ## Installation
 ### NodeJS
