@@ -2807,14 +2807,14 @@ typedoc.search.data = {
     }, {
         "id": 402,
         "kind": 2048,
-        "name": "addStyle",
+        "name": "style",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#addstyle",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
         "id": 403,
         "kind": 2048,
-        "name": "addAttribute",
+        "name": "attribute",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#addattribute",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"

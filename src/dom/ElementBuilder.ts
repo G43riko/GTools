@@ -33,13 +33,13 @@ export class ElementBuilder {
         return this.clearContent();
     }
 
-    public addStyle(key: CSSStyleDeclaration, value: string): ElementBuilder {
+    public style(key: CSSStyleDeclaration, value: string): ElementBuilder {
         this.styles.key = value;
 
         return this;
     }
 
-    public addAttribute(key: string, value: string): ElementBuilder {
+    public attribute(key: string, value: string): ElementBuilder {
         this.attributes.key = value;
 
         return this;
@@ -85,11 +85,11 @@ export class ElementBuilder {
     }
 
     public id(id: string): ElementBuilder {
-        return this.addAttribute("id", id);
+        return this.attribute("id", id);
     }
 
     public clazz(clazz: string): ElementBuilder {
-        return this.addAttribute("class", clazz);
+        return this.attribute("class", clazz);
     }
 
     public buildAndAppendTo(parent: HTMLElement): ElementBuilder {
@@ -103,7 +103,7 @@ export class ElementBuilder {
     }
 }
 
-ElementBuilder.start("div").addAttribute("class", "main-class").addAttribute("id", "main-id").build();
+ElementBuilder.start("div").attribute("class", "main-class").attribute("id", "main-id").build();
 ElementBuilder.start("div").clazz("main-class").id("main-id").build();
 
 ElementBuilder.start("table")

@@ -4,7 +4,7 @@ export class FileManager {
     private readonly input: HTMLInputElement;
     private readonly link: HTMLAnchorElement;
 
-    constructor() {
+    public constructor() {
         this.input = document.createElement("input");
         this.input.setAttribute("type", "file");
         this.input.setAttribute("value", "files");
