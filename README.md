@@ -62,7 +62,7 @@ const min = ArrayUtils.min([1, 2, 3]);
 - [TestCase](src/TestCase.ts)
 - *[components](src/components)*
     - [FileManager](src/components/FileManager.ts)
-    - [paginator](src/components/paginator.ts)
+    - [paginator](src/components/Paginator.ts)
 - *[dom](src/dom)*
     - [CanvasManager](src/dom/CanvasManager.ts)
     - [CanvasUtils](src/dom/CanvasUtils.ts)
@@ -102,6 +102,6 @@ const min = ArrayUtils.min([1, 2, 3]);
 2. run all tests with `npm test`
 3. run `npm run release`
 4. run `npm publish`
-5. commit and push data to [github](https://github.com/G43riko/GTools);
+5. commit and push data to [github](https://github.com/G43riko/GTools)
 6. wait for the build to complete on [travis](https://travis-ci.org/G43riko/GTools) and check for success
 7. create new release on [github](https://github.com/G43riko/GTools/releases)

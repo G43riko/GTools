@@ -1,4 +1,84 @@
 export class TestCase {
+    public static readonly timesHHmmss: string[] = [
+        "12:00:00",
+        "01:09:09",
+        "23:59:59",
+        "00:59:59",
+        "23:01:01",
+    ];
+
+    public static readonly timesHHmm: string[] = [
+        "12:53",
+        "12:00",
+        "01:09",
+        "23:59",
+        "00:59",
+        "23:01",
+    ];
+
+    public static readonly timesHmm: string[] = [
+        "1:59",
+        "9:09",
+        "9:09",
+    ];
+
+    public static readonly invalidTimes: string[] = [
+        "24:00",
+        "24:13:56",
+        "12:61",
+        "12:60",
+        "12:59:60",
+        "30:61",
+        "12:12:61",
+        "12:61:61",
+        "30:61:61",
+    ];
+
+    public static readonly charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+
+    public static readonly characters = TestCase.charactersString.split("");
+
+    public static readonly charactersCaseAbleString = "þÞıŦŧŊEĐđNΩ";
+
+    public static readonly charactersCaseAble: string[] = TestCase.charactersCaseAbleString.split("");
+
+    public static readonly charactersEmpty: string[] = [
+        "     ",
+        "    ",
+        "",
+        " ",
+        "\t",
+        "\xa0",
+        "\t \xa0\t \xa0",
+        "  ",
+        "\t\t",
+        "\xa0\xa0",
+    ];
+
+    public static readonly charactersNotEmpty: string[] = [
+        " 3 ",
+        "a",
+        "0",
+        "[]",
+        "A",
+        "{}",
+        ".",
+        "123",
+        "gabriel",
+        "Ich bin Hanz",
+        "@",
+        // "123@123.123",
+        "00000000000000000000",
+        "\\",
+        "/",
+        "********",
+        "______",
+    ];
+
+    public static readonly numbersString = "0123456789";
+
+    public static readonly numbers = TestCase.numbersString.split("");
+
     public static readonly phoneNumbers: string[] = [
         "+421905123456",
         "00421905123456",
@@ -103,26 +183,17 @@ export class TestCase {
         ...TestCase.lowerCamelCase,
     ];
 
-    public static readonly man   = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
+    public static readonly man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
+
     public static readonly woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
 
     public static readonly nothing: string[] = [
-        "",
-        "123",
-        "    ",
-        "gabriel",
-        "Ich bin Hanz",
-        "@",
-        // "123@123.123",
-        "00000000000000000000",
-        "     ",
-        "\t",
-        "\n",
-        "\\",
-        "/",
-        "********",
-        "______",
+        ...TestCase.charactersEmpty,
         ...TestCase.randomStrings,
+        ...TestCase.numbers,
+        ...TestCase.characters,
+        ...TestCase.charactersCaseAble,
+        ...TestCase.charactersNotEmpty,
     ];
 
     public static functionSum(a: number, b: any): number {

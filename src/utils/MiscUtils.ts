@@ -102,10 +102,10 @@ export class MiscUtils {
 
     public static roughSizeOfObject(object: any): number {
         const objectList = [];
-        const stack      = [object];
+        const stack: any[] = [object];
         let bytes        = 0;
         while (stack.length) {
-            const value = stack.pop();
+            const value: any = stack.pop();
             if (typeof value === "boolean") {
                 bytes += 4;
             }

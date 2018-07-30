@@ -8,6 +8,7 @@ const normalCharacters        = normalLowerCharacters + normalLowerCharacters.to
 
 const validEmailRegex       = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const validPhoneNumberRegex = /^([+]|00)?[(]?[0-9]{3,4}[)]?[-\s.]?[0-9]{2,3}[-\s.]?[0-9]{2,6}([-\s.]?[0-9]{3})?$/im;
+
 /* TODO:
     static underscore(word) {
     }
@@ -116,6 +117,11 @@ export class StringUtils {
         return (text.match(new RegExp(key, "g")) || []).length;
     }
 
+    /**
+     * @param text
+     * @param count
+     * @deprecated - use {@link String#repeat}
+     */
     public static repeat(text: string, count: number): string {
         return new Array(count + 1).join(text);
     }

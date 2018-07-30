@@ -4,13 +4,9 @@ import { TestCase } from "../TestCase";
 import { StringUtils } from "./StringUtils";
 
 describe("StringUtils", () => {
-    const chars        = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
-    const caseable     = "þÞıŦŧŊEĐđNΩ";
-    const accented     = "ľščťžýáíéäôňŁłŁØÆŁÐø";
     const testString   = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
     const resultString = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
     const text         = "abcdedabcdedabcdjidABdsdcdsjo";
-    const numbers      = "0123456789";
 
     describe("Capitalize", () => {
         it("It should make first letter to upper and other letter to lower", () => {
@@ -77,10 +73,13 @@ describe("StringUtils", () => {
         const notString: string | any = 23;
         const finalTestString         = testString + testString.toUpperCase();
         const finalResultString       = resultString + resultString.toUpperCase();
-        it("It should remove accented characters from string", () => {
+        it("It should remove accented charactersString from string", () => {
             expect(StringUtils.removeAccentedCharacters(finalTestString)).to.be.equal(finalResultString);
             expect(StringUtils.removeAccentedCharacters(finalResultString)).to.be.equal(finalResultString);
-            expect(StringUtils.removeAccentedCharacters(chars)).to.be.equal(chars);
+            expect(StringUtils.removeAccentedCharacters(TestCase.charactersString))
+                .to
+                .be
+                .equal(TestCase.charactersString);
             expect(StringUtils.removeAccentedCharacters(notString)).to.equal(notString);
         });
     });
@@ -105,9 +104,9 @@ describe("StringUtils", () => {
     });
     describe("Between", () => {
         it("It should return substring between two substrings", () => {
-            expect(StringUtils.between(numbers, "34", "67")).to.be.equal("5");
-            expect(StringUtils.between(numbers, "34", "ab")).to.be.equal("56789");
-            expect(StringUtils.between(numbers, "ab", "67")).to.be.equal("012345");
+            expect(StringUtils.between(TestCase.numbersString, "34", "67")).to.be.equal("5");
+            expect(StringUtils.between(TestCase.numbersString, "34", "ab")).to.be.equal("56789");
+            expect(StringUtils.between(TestCase.numbersString, "ab", "67")).to.be.equal("012345");
         });
     });
     describe("RemoveEmptyLines", () => {
@@ -151,17 +150,10 @@ b
         });
     });
     describe("IsEmpty", () => {
-        it("It should check if string contains any not white characters", () => {
-            expect(StringUtils.isEmpty("     ")).to.be.true;
-            expect(StringUtils.isEmpty("    ")).to.be.true;
-            expect(StringUtils.isEmpty("")).to.be.true;
-            expect(StringUtils.isEmpty(" ")).to.be.true;
-            expect(StringUtils.isEmpty("\t")).to.be.true;
-            expect(StringUtils.isEmpty("\xa0")).to.be.true;
-            expect(StringUtils.isEmpty("\t \xa0\t \xa0")).to.be.true;
-            expect(StringUtils.isEmpty("  ")).to.be.true;
-            expect(StringUtils.isEmpty("\t\t")).to.be.true;
-            expect(StringUtils.isEmpty("\xa0\xa0")).to.be.true;
+        it("It should check if string contains any not white charactersString", () => {
+            TestCase.charactersEmpty.forEach((character) => {
+                expect(StringUtils.isEmpty("     "), `'${character}' should be empty`).to.be.true;
+            });
 
             expect(StringUtils.isEmpty(" 3 ")).to.be.false;
             expect(StringUtils.isEmpty("a")).to.be.false;
@@ -174,8 +166,8 @@ b
     });
     describe("SwapCase", () => {
         it("It should swap string case", () => {
-            expect(StringUtils.swapCase(chars)).to.be.equal(chars);
-            expect(StringUtils.swapCase(numbers)).to.be.equal(numbers);
+            expect(StringUtils.swapCase(TestCase.charactersString)).to.be.equal(TestCase.charactersString);
+            expect(StringUtils.swapCase(TestCase.numbersString)).to.be.equal(TestCase.numbersString);
             expect(StringUtils.swapCase(testString)).to.be.equal(testString.toUpperCase());
             expect(StringUtils.swapCase("GABO")).to.be.equal("gabo");
             expect(StringUtils.swapCase("gabo")).to.be.equal("GABO");
@@ -206,7 +198,7 @@ b
         });
     });
     describe("GetAsciiArray", () => {
-        it("It should return array of number representing giver string ascii numbers", () => {
+        it("It should return array of number representing giver string ascii numbersString", () => {
             expect(StringUtils.getAsciiArray("abcdefg")).to.deep.equal([97, 98, 99, 100, 101, 102, 103]);
         });
     });
