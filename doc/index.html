@@ -66,7 +66,10 @@
             <div class="tsd-panel tsd-typography">
                 <p><a href="https://github.com/G43riko/GTools/blob/master/LICENSE"><img
                         src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license"></a>
-                    <img src="https://reposs.herokuapp.com/?path=G43riko/GTools" alt="Size">
+                    <img src="https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square"
+                         alt="REPO SIZE">
+                    <img src="https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square"
+                         alt="CODE SIZE">
                     <a href="https://travis-ci.org/G43riko/GTools"><img
                             src="https://api.travis-ci.org/G43riko/GTools.svg?branch=master" alt="Build Status"></a>
                     <a href="https://coveralls.io/github/G43riko/GTools?branch=master"><img
@@ -93,7 +96,19 @@
                 <p>
                     <a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/G43riko/GTools/master/doc/index.html">Documentation</a>
                 </p>
-                <h2 id="install">install</h2>
+                <h2 id="contents">Contents</h2>
+                <ul>
+                    <li><a href="#installation">Installation</a>
+                        <ul>
+                            <li><a href="#nodejs">NodeJS</a></li>
+                            <li><a href="#browser">Browser</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#list-of-methods">List of methods</a></li>
+                    <li><a href="#structure-of-src-directory">Structure of src directory</a></li>
+                    <li><a href="#release-steps">Release steps</a></li>
+                </ul>
+                <h2 id="installation">Installation</h2>
                 <h3 id="nodejs">NodeJS</h3>
                 <p>run <code>npm install gtools</code></p>
                 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { ArrayUtils } <span
@@ -103,7 +118,7 @@
                             class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
 
 </code></pre>
-                <h3 id="browser">browser</h3>
+                <h3 id="browser">Browser</h3>
                 <pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -124,25 +139,52 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
-                <h2 id="list-of-methods">list of methods</h2>
+                <h2 id="list-of-methods">List of methods</h2>
                 <p><strong>TODO</strong></p>
-                <h2 id="structure-of-src-directory">structure of src directory</h2>
+                <h2 id="structure-of-src-directory">Structure of src directory</h2>
                 <ul>
                     <li><a href="src/index.html">index</a></li>
                     <li><a href="src/TestCase.ts">TestCase</a></li>
+                    <li><em><a href="src/components">components</a></em>
+                        <ul>
+                            <li><a href="src/components/FileManager.ts">FileManager</a></li>
+                            <li><a href="src/components/Paginator.ts">paginator</a></li>
+                        </ul>
+                    </li>
                     <li><em><a href="src/dom">dom</a></em>
                         <ul>
                             <li><a href="src/dom/CanvasManager.ts">CanvasManager</a></li>
                             <li><a href="src/dom/CanvasUtils.ts">CanvasUtils</a></li>
                             <li><a href="src/dom/Checkers.ts">Checkers</a></li>
+                            <li><a href="src/dom/ElementBuilder.ts">ElementBuilder</a></li>
                             <li><a href="src/dom/Get.ts">Get</a></li>
-                            <li><a href="src/dom/dom/Get.ts">Get</a></li>
+                        </ul>
+                    </li>
+                    <li><em><a href="src/enums">enums</a></em>
+                        <ul>
+                            <li><a href="src/enums/enodings.enum.ts">encodings</a></li>
+                            <li><a href="src/enums/file-types.enum.ts">file-types</a></li>
+                            <li><a href="src/enums/http-status-codes.enum.ts">http-status-codes</a></li>
+                            <li><a href="src/enums/keys.enum.ts">keys</a></li>
                         </ul>
                     </li>
                     <li><em><a href="src/errors">errors</a></em>
                         <ul>
                             <li><a href="src/errors/GLogger.ts">GLogger</a></li>
+                            <li><a href="src/errors/NotBrowserException.ts">NotBrowserException</a></li>
                             <li><a href="src/errors/NullPointerException.ts">NullPointerException</a></li>
+                            <li><a href="src/errors/WrongParameterException.ts">WrongParameterException</a></li>
+                            <li><a href="src/errors/WrongTypeException.ts">WrongTypeException</a></li>
+                        </ul>
+                    </li>
+                    <li><em><a href="src/math">math</a></em>
+                        <ul>
+                            <li><a href="src/math/Vector2f.ts">Vector2f</a></li>
+                        </ul>
+                    </li>
+                    <li><em><a href="src/models">models</a></em>
+                        <ul>
+                            <li><a href="src/models/gender.ts">gender</a></li>
                         </ul>
                     </li>
                     <li><em><a href="src/utils">utils</a></em>
@@ -153,12 +195,26 @@
                             <li><a href="src/utils/MathUtils.ts">MathUtils</a></li>
                             <li><a href="src/utils/MiscUtils.ts">MiscUtils</a></li>
                             <li><a href="src/utils/ObjectUtils.ts">ObjectUtils</a></li>
-                            <li><a href="src/utils/StringUtils.ts">StringUtils</a></li>
+                            <li><a href="src/utils/ProcessUtils.ts">ProcessUtils</a></li>
+                            <li><a href="src/utils/Runtime.ts">Runtime</a></li>
                             <li><a href="src/utils/StringCheckers.ts">StringCheckers</a></li>
+                            <li><a href="src/utils/StringUtils.ts">StringUtils</a></li>
                             <li><a href="src/utils/TimeUtils.ts">TimeUtils</a></li>
                         </ul>
                     </li>
                 </ul>
+                <h2 id="release-steps">Release steps</h2>
+                <ol>
+                    <li>change version in <code>package.json</code></li>
+                    <li>run all tests with <code>npm test</code></li>
+                    <li>run <code>npm run release</code></li>
+                    <li>run <code>npm publish</code></li>
+                    <li>commit and push data to <a href="https://github.com/G43riko/GTools">github</a></li>
+                    <li>wait for the build to complete on <a href="https://travis-ci.org/G43riko/GTools">travis</a> and
+                        check for success
+                    </li>
+                    <li>create new release on <a href="https://github.com/G43riko/GTools/releases">github</a></li>
+                </ol>
             </div>
         </div>
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -166,6 +222,9 @@
                 <ul>
                     <li class="globals  ">
                         <a href="globals.html"><em>Globals</em></a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="modules/_gutils_.html">"GUtils"</a>
                     </li>
                     <li class=" tsd-kind-external-module">
                         <a href="modules/_testcase_.html">"
@@ -182,7 +241,16 @@
                             Manager"</a>
                     </li>
                     <li class=" tsd-kind-external-module">
-                        <a href="modules/_components_paginator_.html">"components/paginator"</a>
+                        <a href="modules/_components_itemcounter_.html">"components/
+                            <wbr>
+                            Item
+                            <wbr>
+                            Counter"</a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="modules/_components_paginator_.html">"components/
+                            <wbr>
+                            Paginator"</a>
                     </li>
                     <li class=" tsd-kind-external-module">
                         <a href="modules/_dom_canvasmanager_.html">"dom/
@@ -273,7 +341,10 @@
                             Exception"</a>
                     </li>
                     <li class=" tsd-kind-external-module">
-                        <a href="modules/_index_.html">"index"</a>
+                        <a href="modules/_experimental_countries_country_interface_.html">"experimental/countries/country.interface"</a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="modules/_experimental_countries_country_model_.html">"experimental/countries/country.model"</a>
                     </li>
                     <li class=" tsd-kind-external-module">
                         <a href="modules/_math_vector2f_.html">"math/

@@ -25,11 +25,11 @@ var ElementBuilder = /** @class */ (function () {
         delete this.result;
         return this.clearContent();
     };
-    ElementBuilder.prototype.addStyle = function (key, value) {
+    ElementBuilder.prototype.style = function (key, value) {
         this.styles.key = value;
         return this;
     };
-    ElementBuilder.prototype.addAttribute = function (key, value) {
+    ElementBuilder.prototype.attribute = function (key, value) {
         this.attributes.key = value;
         return this;
     };
@@ -64,10 +64,10 @@ var ElementBuilder = /** @class */ (function () {
         return this.result;
     };
     ElementBuilder.prototype.id = function (id) {
-        return this.addAttribute("id", id);
+        return this.attribute("id", id);
     };
     ElementBuilder.prototype.clazz = function (clazz) {
-        return this.addAttribute("class", clazz);
+        return this.attribute("class", clazz);
     };
     ElementBuilder.prototype.buildAndAppendTo = function (parent) {
         parent.appendChild(this.build());
@@ -79,7 +79,7 @@ var ElementBuilder = /** @class */ (function () {
     return ElementBuilder;
 }());
 exports.ElementBuilder = ElementBuilder;
-ElementBuilder.start("div").addAttribute("class", "main-class").addAttribute("id", "main-id").build();
+ElementBuilder.start("div").attribute("class", "main-class").attribute("id", "main-id").build();
 ElementBuilder.start("div").clazz("main-class").id("main-id").build();
 ElementBuilder.start("table")
     .id("main-table")

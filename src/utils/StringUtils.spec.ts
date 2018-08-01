@@ -84,13 +84,6 @@ describe("StringUtils", () => {
         });
     });
 
-    describe("Repeat", () => {
-        it("It shoult repeat string multiple times", () => {
-            expect(StringUtils.repeat("a", 10)).to.be.equal("aaaaaaaaaa");
-            expect(StringUtils.repeat("abc", 10)).to.be.equal("abcabcabcabcabcabcabcabcabcabc");
-        });
-    });
-
     describe("Count", () => {
         it("It should return number of occurrences of substring", () => {
             expect(StringUtils.count("I am the most expensive and the best IDE on the world", "the")).to.equal(3);

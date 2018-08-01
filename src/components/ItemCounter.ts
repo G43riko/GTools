@@ -1,4 +1,4 @@
-import { ArrayUtils } from "..";
+import { ArrayUtils } from "../utils/ArrayUtils";
 
 export interface SimpleWrapper {
     key: string;

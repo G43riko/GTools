@@ -102,6 +102,11 @@ var StringUtils = /** @class */ (function () {
     StringUtils.count = function (text, key) {
         return (text.match(new RegExp(key, "g")) || []).length;
     };
+    /**
+     * @param text
+     * @param count
+     * @deprecated - use {@link String#repeat}
+     */
     StringUtils.repeat = function (text, count) {
         return new Array(count + 1).join(text);
     };

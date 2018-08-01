@@ -1,4 +1,4 @@
-import { StringMap } from "..";
+import { StringMap } from "../utils/MiscUtils";
 
 // TODO: need to be checked if app is running in browser
 

@@ -10,8 +10,8 @@ export declare class ElementBuilder {
     static start(elementName: string): ElementBuilder;
     child(elementName: string): ElementBuilder;
     reset(): ElementBuilder;
-    addStyle(key: CSSStyleDeclaration, value: string): ElementBuilder;
-    addAttribute(key: string, value: string): ElementBuilder;
+    style(key: CSSStyleDeclaration, value: string): ElementBuilder;
+    attribute(key: string, value: string): ElementBuilder;
     content(newContent: string | HTMLElement): ElementBuilder;
     addContent(newContent: string | HTMLElement): ElementBuilder;
     clearContent(): ElementBuilder;

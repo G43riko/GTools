@@ -6,6 +6,4 @@ export declare class StringCheckers {
     static isUpperSnakeCase(text: string): boolean;
     static isSnakeCase(text: string): boolean;
     static isTimeFormat(text: string, format: string): boolean;
-    static isHHmm(text: string, divider?: string): boolean;
-    static isHHmmss(text: string, divider?: string): boolean;
 }

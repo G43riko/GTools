@@ -165,7 +165,6 @@ export class StringUtils {
         } else {
             return text.substring(startPos + key1.length, endPos);
         }
-
     }
 
     public static occurrences(text: string, key: string): number {

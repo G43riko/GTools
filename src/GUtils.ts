@@ -1,6 +1,6 @@
-// NODE
+/**************************** NODE ****************************/
 
-import { SlovakStemmer } from "./utils/SlovakStemmer";
+// UTILS
 
 export * from "./utils/ArrayUtils";
 export * from "./utils/FileUtils";
@@ -10,9 +10,12 @@ export * from "./utils/ObjectUtils";
 export * from "./utils/StringUtils";
 export * from "./utils/TimeUtils";
 
-export { SlovakStemmer } from "./utils/SlovakStemmer";
+export * from "./utils/SlovakStemmer";
 
-// WEB
+/**************************** WEB ****************************/
+
+// UTILS
+
 export { ArrayUtils as arrays } from "./utils/ArrayUtils";
 export { FileUtils as file } from "./utils/FileUtils";
 export { MathUtils as math } from "./utils/MathUtils";
@@ -24,12 +27,35 @@ export { TimeUtils as time } from "./utils/TimeUtils";
 
 export { SlovakStemmer as stemmer } from "./utils/SlovakStemmer";
 
+// DOM
+
 export { Checkers as check } from "./dom/Checkers";
 export { CanvasManager as canvas } from "./dom/CanvasManager";
 export { Get as get } from "./dom/Get";
 
+/**************************** BOTH ****************************/
+
+// UTILS
+
+export * from "./utils/StringCheckers";
+
+// MODELS
+
 export { GenderType, Gender } from "./models/gender.model";
 
-export { Encodings } from "./enums/encodings.enum";
-export { HttpStatusCodes } from "./enums/http-status-codes.enum";
-export { Keys } from "./enums/keys.enum";
+// ENUMS
+
+export * from "./enums/encodings.enum";
+export * from "./enums/file-types.enum";
+export * from "./enums/http-status-codes.enum";
+export * from "./enums/keys.enum";
+
+// COMPONENTS
+
+export * from "./components/ItemCounter";
+export * from "./components/FileManager";
+export * from "./components/Paginator";
+
+// MATHS
+
+export * from "./math/Vector2f";

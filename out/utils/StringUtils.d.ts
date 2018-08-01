@@ -9,6 +9,11 @@ export declare class StringUtils {
     static toCapital(text: string): string;
     static getLastPart(text: string, divider?: string): string;
     static count(text: string, key: string): number;
+    /**
+     * @param text
+     * @param count
+     * @deprecated - use {@link String#repeat}
+     */
     static repeat(text: string, count: number): string;
     static removeAll(text: string, words: string[]): string;
     static template(text: string, values: StringMap, start?: string, end?: string): string;
