@@ -3,6 +3,9 @@ const path = require("path");
 const serverConfig = {
     entry: "./index.js",
     target: "node",
+    node: {
+        fs: 'empty'
+    },
     output: {
         filename: "gtools.js",
         path: path.resolve(__dirname, "out")

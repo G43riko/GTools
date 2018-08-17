@@ -1,5 +1,17 @@
+/**
+ * @class
+ */
 export declare class ArrayUtils {
     static where(array: any[], condition: any): any[];
+    /**
+     * Return sub array from array
+     *
+     * @param {T[]} array
+     * @param {number} minIndex
+     * @param {number} maxIndex
+     * @returns {T[]} - sub array
+     * @static
+     */
     static subArray<T = any>(array: T[], minIndex?: number, maxIndex?: number): T[];
     /**
      * Function return maximal value from numeric array

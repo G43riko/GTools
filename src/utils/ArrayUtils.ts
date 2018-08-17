@@ -1,3 +1,6 @@
+/**
+ * @class
+ */
 export class ArrayUtils {
     public static where(array: any[], condition: any): any[] {
         if (!Array.isArray(array)) {
@@ -26,12 +29,21 @@ export class ArrayUtils {
         return result;
     }
 
+    /**
+     * Return sub array from array
+     *
+     * @param {T[]} array
+     * @param {number} minIndex
+     * @param {number} maxIndex
+     * @returns {T[]} - sub array
+     * @static
+     */
     public static subArray<T = any>(array: T[], minIndex = 0, maxIndex = array.length - 1): T[] {
         if (!Array.isArray(array)) {
             return array;
         }
         const result: T[] = [];
-        const final       = array.length < maxIndex ? array.length - 1 : maxIndex;
+        const final = array.length < maxIndex ? array.length - 1 : maxIndex;
         for (let i = minIndex; i <= final; i++) {
             result[result.length] = array[i];
         }

@@ -34,7 +34,7 @@ export class FileManager {
             if (files.length > 0) {
                 reader.onload = () => {
                     const image = new Image();
-                    image.src   = reader.result;
+                    image.src = reader.result as string;
                     func(image, files[0]);
                 };
                 reader.readAsDataURL(files[0]);

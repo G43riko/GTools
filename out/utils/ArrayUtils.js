@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @class
+ */
 var ArrayUtils = /** @class */ (function () {
     function ArrayUtils() {
     }
@@ -27,6 +30,15 @@ var ArrayUtils = /** @class */ (function () {
         });
         return result;
     };
+    /**
+     * Return sub array from array
+     *
+     * @param {T[]} array
+     * @param {number} minIndex
+     * @param {number} maxIndex
+     * @returns {T[]} - sub array
+     * @static
+     */
     ArrayUtils.subArray = function (array, minIndex, maxIndex) {
         if (minIndex === void 0) { minIndex = 0; }
         if (maxIndex === void 0) { maxIndex = array.length - 1; }
