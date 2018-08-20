@@ -1,4 +1,4 @@
-export class TestCase {
+export class MockData {
     public static readonly timesHHmmss: string[] = [
         "12:00:00",
         "01:09:09",
@@ -36,11 +36,11 @@ export class TestCase {
 
     public static readonly charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
 
-    public static readonly characters = TestCase.charactersString.split("");
+    public static readonly characters = MockData.charactersString.split("");
 
     public static readonly charactersCaseAbleString = "þÞıŦŧŊEĐđNΩ";
 
-    public static readonly charactersCaseAble: string[] = TestCase.charactersCaseAbleString.split("");
+    public static readonly charactersCaseAble: string[] = MockData.charactersCaseAbleString.split("");
 
     public static readonly charactersEmpty: string[] = [
         "     ",
@@ -77,7 +77,7 @@ export class TestCase {
 
     public static readonly numbersString = "0123456789";
 
-    public static readonly numbers = TestCase.numbersString.split("");
+    public static readonly numbers = MockData.numbersString.split("");
 
     public static readonly randomArray: any[] = [
         "a",
@@ -127,11 +127,11 @@ export class TestCase {
     ];
 
     public static readonly randomStrings: string[] = [
-        ...TestCase.stringHelloWorldIAmComputer,
-        ...TestCase.upperSnakeCase,
-        ...TestCase.lowerSnakeCase,
-        ...TestCase.upperCamelCase,
-        ...TestCase.lowerCamelCase,
+        ...MockData.stringHelloWorldIAmComputer,
+        ...MockData.upperSnakeCase,
+        ...MockData.lowerSnakeCase,
+        ...MockData.upperCamelCase,
+        ...MockData.lowerCamelCase,
     ];
 
     public static readonly man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
@@ -139,12 +139,12 @@ export class TestCase {
     public static readonly woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
 
     public static readonly nothing: string[] = [
-        ...TestCase.charactersEmpty,
-        ...TestCase.randomStrings,
-        ...TestCase.numbers,
-        ...TestCase.characters,
-        ...TestCase.charactersCaseAble,
-        ...TestCase.charactersNotEmpty,
+        ...MockData.charactersEmpty,
+        ...MockData.randomStrings,
+        ...MockData.numbers,
+        ...MockData.characters,
+        ...MockData.charactersCaseAble,
+        ...MockData.charactersNotEmpty,
     ];
 
     public static readonly phoneNumbers: string[] = [
@@ -194,7 +194,7 @@ export class TestCase {
         "this\ still\"not\\allowed@example.com",
         "john..doe@example.com",
         "john.doe@example..com",
-        ...TestCase.randomStrings,
+        ...MockData.randomStrings,
     ];
 
     public static functionSum(a: number, b: any): number {

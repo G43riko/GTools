@@ -3,7 +3,7 @@ import "mocha";
 import { NullPointerException } from "../errors/NullPointerException";
 import { WrongParameterException } from "../errors/WrongParameterException";
 import { WrongTypeException } from "../errors/WrongTypeException";
-import { TestCase } from "../TestCase";
+import { MockData } from "../MockData";
 import { Runtime } from "./Runtime";
 
 describe("Runtime", () => {
@@ -32,7 +32,7 @@ describe("Runtime", () => {
         it("Check function", () => {
             const funcA = (a: number, b: number) => a + b;
             expect(Runtime.isFunction(funcA)).to.be.equal(funcA);
-            expect(Runtime.isFunction(TestCase.functionSum)).to.be.equal(TestCase.functionSum);
+            expect(Runtime.isFunction(MockData.functionSum)).to.be.equal(MockData.functionSum);
             expect(() => Runtime.isFunction("Name" as any)).to.throw(WrongTypeException);
         });
         it("Check function validation", () => {
@@ -40,8 +40,8 @@ describe("Runtime", () => {
                 throw new Error();
             })).to.be.false;
             expect(Runtime.checkFunction(() => 23)).to.be.true;
-            expect(Runtime.checkFunction(TestCase.functionSum, [5, 5])).to.be.true;
-            expect(Runtime.checkFunction(TestCase.functionSum, [5, "gabo" as any])).to.be.false;
+            expect(Runtime.checkFunction(MockData.functionSum, [5, 5])).to.be.true;
+            expect(Runtime.checkFunction(MockData.functionSum, [5, "gabo" as any])).to.be.false;
         });
     });
     describe("Check maths", () => {
@@ -62,7 +62,7 @@ describe("Runtime", () => {
             expect(Runtime.exists(true)).to.be.true;
             expect(Runtime.exists(false)).to.be.false;
             expect(Runtime.exists({a: "a"})).to.deep.equal({a: "a"});
-            expect(Runtime.exists(TestCase.randomArray)).to.deep.equal(TestCase.randomArray);
+            expect(Runtime.exists(MockData.randomArray)).to.deep.equal(MockData.randomArray);
             expect(Runtime.exists("Hello")).to.be.equal("Hello");
             expect(() => Runtime.exists(undefined)).to.throw(Error);
             expect(() => Runtime.exists(null)).to.throw(Error);

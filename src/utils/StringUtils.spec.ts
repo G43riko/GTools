@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import "mocha";
-import { TestCase } from "../TestCase";
+import { MockData } from "../MockData";
 import { StringUtils } from "./StringUtils";
 
 describe("StringUtils", () => {
@@ -18,7 +18,7 @@ describe("StringUtils", () => {
     describe("UpperCamelCase", () => {
         it("It should turn string into upper camel case", () => {
             const result = "HelloWorldIAmComputer";
-            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+            MockData.stringHelloWorldIAmComputer.forEach((word) => {
                 expect(StringUtils.toUpperCamelCase(word), `'${word}' should be converted to '${result}'`)
                     .to
                     .be
@@ -29,7 +29,7 @@ describe("StringUtils", () => {
     describe("LowerCamelCase", () => {
         it("It should turn string into lower camel case", () => {
             const result = "helloWorldIAmComputer";
-            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+            MockData.stringHelloWorldIAmComputer.forEach((word) => {
                 expect(StringUtils.toLowerCamelCase(word), `'${word}' should be converted to '${result}'`)
                     .to
                     .be
@@ -40,7 +40,7 @@ describe("StringUtils", () => {
     describe("UpperSnakeCase", () => {
         it("It should turn string into upper snake case", () => {
             const result = "HELLO_WORLD_I_AM_COMPUTER";
-            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+            MockData.stringHelloWorldIAmComputer.forEach((word) => {
                 expect(StringUtils.toUpperSnakeCase(word), `'${word}' should be converted to '${result}'`)
                     .to
                     .be
@@ -51,7 +51,7 @@ describe("StringUtils", () => {
     describe("LowerSnakeCase", () => {
         it("It should turn string into lower snake case", () => {
             const result = "hello_world_i_am_computer";
-            TestCase.stringHelloWorldIAmComputer.forEach((word) => {
+            MockData.stringHelloWorldIAmComputer.forEach((word) => {
                 expect(StringUtils.toLowerSnakeCase(word), `'${word}' should be converted to '${result}'`)
                     .to
                     .be
@@ -76,10 +76,10 @@ describe("StringUtils", () => {
         it("It should remove accented charactersString from string", () => {
             expect(StringUtils.removeAccentedCharacters(finalTestString)).to.be.equal(finalResultString);
             expect(StringUtils.removeAccentedCharacters(finalResultString)).to.be.equal(finalResultString);
-            expect(StringUtils.removeAccentedCharacters(TestCase.charactersString))
+            expect(StringUtils.removeAccentedCharacters(MockData.charactersString))
                 .to
                 .be
-                .equal(TestCase.charactersString);
+                .equal(MockData.charactersString);
             expect(StringUtils.removeAccentedCharacters(notString)).to.equal(notString);
         });
     });
@@ -97,9 +97,9 @@ describe("StringUtils", () => {
     });
     describe("Between", () => {
         it("It should return substring between two substrings", () => {
-            expect(StringUtils.between(TestCase.numbersString, "34", "67")).to.be.equal("5");
-            expect(StringUtils.between(TestCase.numbersString, "34", "ab")).to.be.equal("56789");
-            expect(StringUtils.between(TestCase.numbersString, "ab", "67")).to.be.equal("012345");
+            expect(StringUtils.between(MockData.numbersString, "34", "67")).to.be.equal("5");
+            expect(StringUtils.between(MockData.numbersString, "34", "ab")).to.be.equal("56789");
+            expect(StringUtils.between(MockData.numbersString, "ab", "67")).to.be.equal("012345");
         });
     });
     describe("RemoveEmptyLines", () => {
@@ -144,7 +144,7 @@ b
     });
     describe("IsEmpty", () => {
         it("It should check if string contains any not white charactersString", () => {
-            TestCase.charactersEmpty.forEach((character) => {
+            MockData.charactersEmpty.forEach((character) => {
                 expect(StringUtils.isEmpty("     "), `'${character}' should be empty`).to.be.true;
             });
 
@@ -159,8 +159,8 @@ b
     });
     describe("SwapCase", () => {
         it("It should swap string case", () => {
-            expect(StringUtils.swapCase(TestCase.charactersString)).to.be.equal(TestCase.charactersString);
-            expect(StringUtils.swapCase(TestCase.numbersString)).to.be.equal(TestCase.numbersString);
+            expect(StringUtils.swapCase(MockData.charactersString)).to.be.equal(MockData.charactersString);
+            expect(StringUtils.swapCase(MockData.numbersString)).to.be.equal(MockData.numbersString);
             expect(StringUtils.swapCase(testString)).to.be.equal(testString.toUpperCase());
             expect(StringUtils.swapCase("GABO")).to.be.equal("gabo");
             expect(StringUtils.swapCase("gabo")).to.be.equal("GABO");
@@ -181,11 +181,11 @@ b
     });
     describe("IsValidPhoneNumber", () => {
         it("It should return true if phone number is valid", () => {
-            [...TestCase.randomStrings, ...TestCase.emails, ""].forEach((num) => {
+            [...MockData.randomStrings, ...MockData.emails, ""].forEach((num) => {
                 expect(StringUtils.isValidPhoneNumber(num), `'${num}' should not be phone number`).to.be.false;
             });
 
-            TestCase.phoneNumbers.forEach((num) => {
+            MockData.phoneNumbers.forEach((num) => {
                 expect(StringUtils.isValidPhoneNumber(num), `'${num}' should be phone number`).to.be.true;
             });
         });
@@ -197,11 +197,11 @@ b
     });
     describe("IsValidEmail", () => {
         it("It should return true if email is valid", () => {
-            [...TestCase.randomStrings, ...TestCase.phoneNumbers, ...TestCase.notEmails, ""].forEach((email) => {
+            [...MockData.randomStrings, ...MockData.phoneNumbers, ...MockData.notEmails, ""].forEach((email) => {
                 expect(StringUtils.isValidEmail(email), `'${email}' should not be email`).to.be.false;
             });
 
-            TestCase.emails.forEach((email) => {
+            MockData.emails.forEach((email) => {
                 expect(StringUtils.isValidEmail(email), `'${email}' should be email`).to.be.true;
             });
         });

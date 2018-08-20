@@ -2418,198 +2418,198 @@ typedoc.search.data = {
     }, {
         "id": 346,
         "kind": 1,
-        "name": "\"TestCase\"",
+        "name": "\"MockData\"",
         "url": "modules/_testcase_.html",
         "classes": "tsd-kind-external-module"
     }, {
         "id": 347,
         "kind": 128,
-        "name": "TestCase",
+        "name": "MockData",
         "url": "classes/_testcase_.testcase.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
-        "parent": "\"TestCase\""
+        "parent": "\"MockData\""
     }, {
         "id": 348,
         "kind": 1024,
         "name": "timesHHmmss",
         "url": "classes/_testcase_.testcase.html#timeshhmmss",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 349,
         "kind": 1024,
         "name": "timesHHmm",
         "url": "classes/_testcase_.testcase.html#timeshhmm",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 350,
         "kind": 1024,
         "name": "timesHmm",
         "url": "classes/_testcase_.testcase.html#timeshmm",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 351,
         "kind": 1024,
         "name": "invalidTimes",
         "url": "classes/_testcase_.testcase.html#invalidtimes",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 352,
         "kind": 1024,
         "name": "charactersString",
         "url": "classes/_testcase_.testcase.html#charactersstring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 353,
         "kind": 1024,
         "name": "characters",
         "url": "classes/_testcase_.testcase.html#characters",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 354,
         "kind": 1024,
         "name": "charactersCaseAbleString",
         "url": "classes/_testcase_.testcase.html#characterscaseablestring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 355,
         "kind": 1024,
         "name": "charactersCaseAble",
         "url": "classes/_testcase_.testcase.html#characterscaseable",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 356,
         "kind": 1024,
         "name": "charactersEmpty",
         "url": "classes/_testcase_.testcase.html#charactersempty",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 357,
         "kind": 1024,
         "name": "charactersNotEmpty",
         "url": "classes/_testcase_.testcase.html#charactersnotempty",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 358,
         "kind": 1024,
         "name": "numbersString",
         "url": "classes/_testcase_.testcase.html#numbersstring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 359,
         "kind": 1024,
         "name": "numbers",
         "url": "classes/_testcase_.testcase.html#numbers",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 360,
         "kind": 1024,
         "name": "randomArray",
         "url": "classes/_testcase_.testcase.html#randomarray",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 361,
         "kind": 1024,
         "name": "stringHelloWorldIAmComputer",
         "url": "classes/_testcase_.testcase.html#stringhelloworldiamcomputer",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 362,
         "kind": 1024,
         "name": "upperSnakeCase",
         "url": "classes/_testcase_.testcase.html#uppersnakecase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 363,
         "kind": 1024,
         "name": "lowerSnakeCase",
         "url": "classes/_testcase_.testcase.html#lowersnakecase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 364,
         "kind": 1024,
         "name": "upperCamelCase",
         "url": "classes/_testcase_.testcase.html#uppercamelcase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 365,
         "kind": 1024,
         "name": "lowerCamelCase",
         "url": "classes/_testcase_.testcase.html#lowercamelcase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 366,
         "kind": 1024,
         "name": "randomStrings",
         "url": "classes/_testcase_.testcase.html#randomstrings",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 367,
         "kind": 1024,
         "name": "man",
         "url": "classes/_testcase_.testcase.html#man",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 368,
         "kind": 1024,
         "name": "woman",
         "url": "classes/_testcase_.testcase.html#woman",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 369,
         "kind": 1024,
         "name": "nothing",
         "url": "classes/_testcase_.testcase.html#nothing",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 370,
         "kind": 1024,
         "name": "phoneNumbers",
         "url": "classes/_testcase_.testcase.html#phonenumbers",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 371,
         "kind": 1024,
         "name": "emails",
         "url": "classes/_testcase_.testcase.html#emails",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 372,
         "kind": 1024,
         "name": "notEmails",
         "url": "classes/_testcase_.testcase.html#notemails",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 373,
         "kind": 2048,
         "name": "functionSum",
         "url": "classes/_testcase_.testcase.html#functionsum",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"TestCase\".TestCase"
+        "parent": "\"MockData\".MockData"
     }, {
         "id": 374,
         "kind": 1,

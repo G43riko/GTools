@@ -59,3 +59,7 @@ export * from "./components/Paginator";
 // MATHS
 
 export * from "./math/Vector2f";
+
+// CONFIG
+
+export { initConfig } from "./config/app-config";

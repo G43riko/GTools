@@ -1,20 +1,20 @@
 import { expect } from "chai";
 import "mocha";
-import { TestCase } from "../TestCase";
+import { MockData } from "../MockData";
 import { StringCheckers } from "./StringCheckers";
 
 describe("StringCheckers", () => {
     describe("IsCamelCase", () => {
         it("It should return true if string is camel case", () => {
             [
-                ...TestCase.lowerCamelCase,
-                ...TestCase.upperCamelCase,
+                ...MockData.lowerCamelCase,
+                ...MockData.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isCamelCase(text), `${text} is valid CamelCase`).to.be.true;
             });
             [
-                ...TestCase.lowerSnakeCase,
-                ...TestCase.upperSnakeCase,
+                ...MockData.lowerSnakeCase,
+                ...MockData.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isCamelCase(text), `${text} is not valid CamelCase`).to.be.false;
@@ -23,13 +23,13 @@ describe("StringCheckers", () => {
     });
     describe("IsUpperCamelCase", () => {
         it("It should return true if string is upper camel case", () => {
-            TestCase.upperCamelCase.forEach((text) => {
+            MockData.upperCamelCase.forEach((text) => {
                 expect(StringCheckers.isUpperCamelCase(text), `${text} is valid UpperCamelCase`).to.be.true;
             });
             [
-                ...TestCase.lowerCamelCase,
-                ...TestCase.lowerSnakeCase,
-                ...TestCase.upperSnakeCase,
+                ...MockData.lowerCamelCase,
+                ...MockData.lowerSnakeCase,
+                ...MockData.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isUpperCamelCase(text), `${text} is not valid UpperCamelCase`).to.be.false;
@@ -38,13 +38,13 @@ describe("StringCheckers", () => {
     });
     describe("IsLowerCamelCase", () => {
         it("It should return true if string is lower camel case", () => {
-            TestCase.lowerCamelCase.forEach((text) => {
+            MockData.lowerCamelCase.forEach((text) => {
                 expect(StringCheckers.isLowerCamelCase(text), `${text} is valid LowerCamelCase`).to.be.true;
             });
             [
-                ...TestCase.upperCamelCase,
-                ...TestCase.lowerSnakeCase,
-                ...TestCase.upperSnakeCase,
+                ...MockData.upperCamelCase,
+                ...MockData.lowerSnakeCase,
+                ...MockData.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isLowerCamelCase(text), `${text} is valid LowerCamelCase`).to.be.false;
@@ -54,15 +54,15 @@ describe("StringCheckers", () => {
     describe("IsSnakeCase", () => {
         it("It should return true if string is snake case", () => {
             [
-                ...TestCase.lowerSnakeCase,
-                ...TestCase.upperSnakeCase,
+                ...MockData.lowerSnakeCase,
+                ...MockData.upperSnakeCase,
                 "HELLO_my_name_is_ChuaN",
             ].forEach((text) => {
                 expect(StringCheckers.isSnakeCase(text), `${text} is valid SnakeCase`).to.be.true;
             });
             [
-                ...TestCase.lowerCamelCase,
-                ...TestCase.upperCamelCase,
+                ...MockData.lowerCamelCase,
+                ...MockData.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isSnakeCase(text), `${text} is not valid SnakeCase`).to.be.false;
             });
@@ -70,13 +70,13 @@ describe("StringCheckers", () => {
     });
     describe("IsUpperSnakeCase", () => {
         it("It should return true if string is upper snake case", () => {
-            TestCase.upperSnakeCase.forEach((text) => {
+            MockData.upperSnakeCase.forEach((text) => {
                 expect(StringCheckers.isUpperSnakeCase(text), `${text} is valid UpperSnakeCase`).to.be.true;
             });
             [
-                ...TestCase.lowerSnakeCase,
-                ...TestCase.lowerCamelCase,
-                ...TestCase.upperCamelCase,
+                ...MockData.lowerSnakeCase,
+                ...MockData.lowerCamelCase,
+                ...MockData.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isUpperSnakeCase(text), `${text} is valid LowerSnakeCase`).to.be.false;
             });
@@ -84,13 +84,13 @@ describe("StringCheckers", () => {
     });
     describe("IsLowerSnakeCase", () => {
         it("It should return true if string is lower snake case", () => {
-            TestCase.lowerSnakeCase.forEach((text) => {
+            MockData.lowerSnakeCase.forEach((text) => {
                 expect(StringCheckers.isLowerSnakeCase(text), `${text} is valid LowerSnakeCase`).to.be.true;
             });
             [
-                ...TestCase.upperSnakeCase,
-                ...TestCase.lowerCamelCase,
-                ...TestCase.upperCamelCase,
+                ...MockData.upperSnakeCase,
+                ...MockData.lowerCamelCase,
+                ...MockData.upperCamelCase,
             ].forEach((text) => {
                 expect(StringCheckers.isLowerSnakeCase(text), `${text} is not valid LowerSnakeCase`).to.be.false;
             });
@@ -98,30 +98,30 @@ describe("StringCheckers", () => {
     });
     describe("IsTimeFormat", () => {
         it("It should return true if time is in HH:mm format", () => {
-            TestCase.timesHHmm.forEach((time) => {
+            MockData.timesHHmm.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm"), `time ${time} is in HH:mm:ss format`).to.be.true;
             });
 
-            [...TestCase.timesHHmmss, ...TestCase.timesHmm].forEach((time) => {
+            [...MockData.timesHHmmss, ...MockData.timesHmm].forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm"), `'${time}' is not valid time in HH:mm format`).to.be.false;
             });
         });
         it("It should return true if time is in H:mm format", () => {
-            TestCase.timesHmm.forEach((time) => {
+            MockData.timesHmm.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "H:mm"), `time ${time} is in H:mm:ss format`).to.be.true;
             });
 
-            [...TestCase.timesHHmmss].forEach((time) => {
+            [...MockData.timesHHmmss].forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "H:mm"), `'${time}' is not valid time in H:mm format`).to.be.false;
             });
 
         });
         it("It should return true if time is in HH:mm:ss format", () => {
-            TestCase.timesHHmmss.forEach((time) => {
+            MockData.timesHHmmss.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm:ss"), `time ${time} is in HH:mm:ss format`).to.be.true;
             });
 
-            [...TestCase.timesHmm, ...TestCase.timesHHmm].forEach((time) => {
+            [...MockData.timesHmm, ...MockData.timesHHmm].forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm:ss"), `'${time}' is not valid time in HH:mm:ss format`).to.be.false;
             });
 
@@ -135,7 +135,7 @@ describe("StringCheckers", () => {
 
         });
         it("It should return false if string is invalid time format", () => {
-            TestCase.invalidTimes.forEach((time) => {
+            MockData.invalidTimes.forEach((time) => {
                 [
                     "HH:mm:ss",
                     "HH:mm",

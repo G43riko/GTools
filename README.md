@@ -59,7 +59,7 @@ const min = ArrayUtils.min([1, 2, 3]);
 ## Structure of src directory
 
 - [index](src/index.html)
-- [TestCase](src/TestCase.ts)
+- [MockData](src/MockData.ts)
 - *[components](src/components)*
     - [FileManager](src/components/FileManager.ts)
     - [paginator](src/components/Paginator.ts)
