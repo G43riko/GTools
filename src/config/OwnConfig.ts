@@ -1,10 +1,7 @@
+import { ClassGToolsConfig } from "./gtools-config";
 import { OwnConfigInterface } from "./OwnConfig.interface";
 
-class ClassOwnConfig implements OwnConfigInterface {
-    public LANGUAGE = "";
-    public PAGE_LIMIT = 0;
-    public URL_API = "";
-    public VERSION = "";
+class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
     public name = "";
 }
 

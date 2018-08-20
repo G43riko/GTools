@@ -1,4 +1,4 @@
-export interface AppConfigInterface {
+export interface GToolsConfigInterface {
     URL_API: string;
     LANGUAGE: string;
     VERSION: string;

@@ -1,5 +1,5 @@
-import { AppConfigInterface } from "./app-config.interface";
+import { GToolsConfigInterface } from "./gtools-config.interface";
 
-export interface OwnConfigInterface extends AppConfigInterface {
+export interface OwnConfigInterface extends GToolsConfigInterface {
     name: string;
 }

@@ -1,8 +1,8 @@
-import { AppConfig } from "../config/app-config";
+import { GToolsConfig } from "../config/gtools-config";
 
 // TODO: itemsPerPage should be dynamic
 export class Paginator<T = any> {
-    private static readonly itemsPerPage = AppConfig.PAGE_LIMIT;
+    private static readonly itemsPerPage = GToolsConfig.PAGE_LIMIT;
     private actList: T[];
     private actualPage                   = 0;
     private readonly lastPage: number;

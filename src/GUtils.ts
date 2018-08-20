@@ -62,4 +62,4 @@ export * from "./math/Vector2f";
 
 // CONFIG
 
-export { initConfig } from "./config/app-config";
+export { initConfig } from "./config/gtools-config";

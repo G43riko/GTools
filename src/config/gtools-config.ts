@@ -1,8 +1,8 @@
-import { AppConfigInterface } from "./app-config.interface";
+import { GToolsConfigInterface } from "./gtools-config.interface";
 
-let config: AppConfigInterface;
+let config: GToolsConfigInterface;
 
-class ClassAppConfig implements AppConfigInterface {
+export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
         return this.checkConfig().URL_API;
     }
@@ -19,7 +19,7 @@ class ClassAppConfig implements AppConfigInterface {
         return this.checkConfig().VERSION;
     }
 
-    private checkConfig(): AppConfigInterface {
+    private checkConfig(): GToolsConfigInterface {
         if (!config) {
             throw new Error("App config must be initializes(app-config/initConfig({...params}))");
         }
@@ -28,8 +28,8 @@ class ClassAppConfig implements AppConfigInterface {
     }
 }
 
-export function initConfig(appConfig: AppConfigInterface): void {
+export function initConfig(appConfig: GToolsConfigInterface): void {
     config = appConfig;
 }
 
-export const AppConfig = new ClassAppConfig();
+export const GToolsConfig = new ClassGToolsConfig();
