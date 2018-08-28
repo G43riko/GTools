@@ -1,60 +1,72 @@
 {
-  "defaultSeverity": "error",
-  "extends": [
-    "tslint:recommended"
-  ],
-  "jsRules": {},
-  "rules": {
-    "strict-boolean-expressions": false,
-    "strict-type-predicates": false,
-    "interface-name": false,
-    "quotemark": [
-      true,
-      "double"
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
     ],
-    "radix": true,
-    "triple-equals": true,
-    "import-spacing": true,
-    "indent": [
-      true,
-      "spaces"
-    ],
-    "prefer-const": true,
-    "semicolon": [
-      true,
-      "always"
-    ],
-    "curly": true,
-    "array-type": [
-      true,
-      "array"
-    ],
-    "newline-before-return": true,
-    // "newline-per-chained-call": true,
-    "no-angle-bracket-type-assertion": true,
-    "number-literal-format": true,
-    "no-unused-expression": false,
-    "member-ordering": false,
-    "object-literal-sort-keys": false,
-    "no-console": false,
-    "one-variable-per-declaration": true,
-    "no-duplicate-switch-case": true,
-    "no-duplicate-imports": true,
-    "no-duplicate-variable": true,
-    "no-empty": true,
-    "jsdoc-format": true,
-    "max-line-length": [
-      true,
-      190
-    ],
-    "typedef": [
-      true,
-      "call-signature",
-      "property-declaration"
-    ],
-    "no-bitwise": false,
-    "no-conditional-assignment": false,
-    "one-line": false
-  },
-  "rulesDirectory": []
+    "jsRules": {},
+    "rules": {
+        "strict-boolean-expressions": false,
+        "strict-type-predicates": false,
+        "interface-name": false,
+        "quotemark": [
+            true,
+            "double"
+        ],
+        "radix": true,
+        "triple-equals": true,
+        "eofline": true,
+        "import-spacing": true,
+        "no-empty-interface": true,
+        "no-shadowed-variable": true,
+        "no-string-throw": true,
+        "no-trailing-whitespace": true,
+        "no-var-keyword": true,
+        "prefer-readonly": true,
+        "comment-format": [
+            true,
+            "check-space"
+        ],
+        "member-access": true,
+        "indent": [
+            true,
+            "spaces"
+        ],
+        "prefer-const": true,
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "curly": true,
+        "array-type": [
+            true,
+            "array"
+        ],
+        "newline-before-return": true,
+        // "newline-per-chained-call": true,
+        "no-angle-bracket-type-assertion": true,
+        "number-literal-format": true,
+        "no-unused-expression": false,
+        "member-ordering": false,
+        "object-literal-sort-keys": false,
+        "no-console": false,
+        "one-variable-per-declaration": true,
+        "no-duplicate-switch-case": true,
+        "no-duplicate-imports": true,
+        "no-duplicate-variable": true,
+        "no-empty": true,
+        "jsdoc-format": true,
+        "max-line-length": [
+            true,
+            190
+        ],
+        "typedef": [
+            true,
+            "call-signature",
+            "property-declaration"
+        ],
+        "no-bitwise": false,
+        "no-conditional-assignment": false,
+        "one-line": false
+    },
+    "rulesDirectory": []
 }
