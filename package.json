@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.1.32",
+    "version": "0.1.33",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "homepage": "https://github.com/G43riko/GTools#readme",
