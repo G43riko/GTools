@@ -30,7 +30,7 @@
         "release:patch": "npm version patch && npm publish",
         "doc": "typedoc --out doc",
         "pack": "npm run build && webpack",
-        "release": "npm run coverage && pm run pack && npm run doc",
+        "release": "npm run pack && npm run doc",
         "clean": "rimraf out doc coverage bin",
         "lint": "tslint --project ."
     },
