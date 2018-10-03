@@ -1,7 +1,7 @@
 const path = require("path");
 
 const serverConfig = {
-    entry: "./index.js",
+    entry: "./out/index.js",
     target: "node",
     node: {
         fs: 'empty'
@@ -12,7 +12,7 @@ const serverConfig = {
     }
 };
 const webConfig = {
-    entry: "./index.js",
+    entry: "./out/index.js",
     target: "web",
     node: {
         fs: 'empty'

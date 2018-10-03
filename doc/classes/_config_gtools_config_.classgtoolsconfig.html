@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ObjectUtils | gtools</title>
+    <title>ClassGToolsConfig | gtools</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -56,25 +56,52 @@
                     <a href="../globals.html">Globals</a>
                 </li>
                 <li>
-                    <a href="../modules/_utils_objectutils_.html">&quot;utils/ObjectUtils&quot;</a>
+                    <a href="../modules/_config_gtools_config_.html">&quot;config/gtools-config&quot;</a>
                 </li>
                 <li>
-                    <a href="_utils_objectutils_.objectutils.html">ObjectUtils</a>
+                    <a href="_config_gtools_config_.classgtoolsconfig.html">ClassGToolsConfig</a>
                 </li>
             </ul>
-            <h1>Class ObjectUtils</h1>
+            <h1>Class ClassGToolsConfig</h1>
         </div>
     </div>
 </header>
 <div class="container container-main">
     <div class="row">
         <div class="col-8 col-content">
+            <section class="tsd-panel tsd-comment">
+                <div class="tsd-comment tsd-typography">
+                    <dl class="tsd-comment-tags">
+                        <dt>class</dt>
+                        <dd></dd>
+                        <dt>implements</dt>
+                        <dd><p>{GToolsConfigInterface}</p>
+                        </dd>
+                        <dt>example</dt>
+                        <dd><p>class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
+                            public name = &quot;&quot;;
+                            }</p>
+                            <p>export const OwnConfig = new ClassOwnConfig();</p>
+                        </dd>
+                        <dt>see</dt>
+                        <dd><p>GToolsConfigInterface</p>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
             <section class="tsd-panel tsd-hierarchy">
                 <h3>Hierarchy</h3>
                 <ul class="tsd-hierarchy">
                     <li>
-                        <span class="target">ObjectUtils</span>
+                        <span class="target">ClassGToolsConfig</span>
                     </li>
+                </ul>
+            </section>
+            <section class="tsd-panel">
+                <h3>Implements</h3>
+                <ul class="tsd-hierarchy">
+                    <li><a href="../interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html"
+                           class="tsd-signature-type">GToolsConfigInterface</a></li>
                 </ul>
             </section>
             <section class="tsd-panel-group tsd-index-group">
@@ -82,45 +109,49 @@
                 <section class="tsd-panel tsd-index-panel">
                     <div class="tsd-index-content">
                         <section class="tsd-index-section ">
+                            <h3>Accessors</h3>
+                            <ul class="tsd-index-list">
+                                <li class="tsd-kind-get-signature tsd-parent-kind-class"><a
+                                        href="_config_gtools_config_.classgtoolsconfig.html#language"
+                                        class="tsd-kind-icon">LANGUAGE</a></li>
+                                <li class="tsd-kind-get-signature tsd-parent-kind-class"><a
+                                        href="_config_gtools_config_.classgtoolsconfig.html#page_limit"
+                                        class="tsd-kind-icon">PAGE_
+                                    <wbr>
+                                    LIMIT</a></li>
+                                <li class="tsd-kind-get-signature tsd-parent-kind-class"><a
+                                        href="_config_gtools_config_.classgtoolsconfig.html#url_api"
+                                        class="tsd-kind-icon">URL_
+                                    <wbr>
+                                    API</a></li>
+                                <li class="tsd-kind-get-signature tsd-parent-kind-class"><a
+                                        href="_config_gtools_config_.classgtoolsconfig.html#version"
+                                        class="tsd-kind-icon">VERSION</a></li>
+                            </ul>
+                        </section>
+                        <section class="tsd-index-section tsd-is-private tsd-is-private-protected">
                             <h3>Methods</h3>
                             <ul class="tsd-index-list">
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a
-                                        href="_utils_objectutils_.objectutils.html#bypath" class="tsd-kind-icon">by
+                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a
+                                        href="_config_gtools_config_.classgtoolsconfig.html#checkconfig"
+                                        class="tsd-kind-icon">check
                                     <wbr>
-                                    Path</a></li>
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a
-                                        href="_utils_objectutils_.objectutils.html#isplain" class="tsd-kind-icon">is
-                                    <wbr>
-                                    Plain</a></li>
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a
-                                        href="_utils_objectutils_.objectutils.html#size" class="tsd-kind-icon">size</a>
-                                </li>
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a
-                                        href="_utils_objectutils_.objectutils.html#without" class="tsd-kind-icon">without</a>
-                                </li>
+                                    Config</a></li>
                             </ul>
                         </section>
                     </div>
                 </section>
             </section>
             <section class="tsd-panel-group tsd-member-group ">
-                <h2>Methods</h2>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a name="bypath" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> by
-                        <wbr>
-                        Path
-                    </h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">by
-                            <wbr>
-                            Path<span class="tsd-signature-symbol">(</span>obj<span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>,
-                            path<span class="tsd-signature-symbol">: </span><span
-                                    class="tsd-signature-type">string</span>, divider<span class="tsd-signature-symbol">?: </span><span
-                                    class="tsd-signature-type">string</span><span
+                <h2>Accessors</h2>
+                <section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+                    <a name="language" class="tsd-anchor"></a>
+                    <h3>LANGUAGE</h3>
+                    <ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+                        <li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span>
+                            LANGUAGE<span class="tsd-signature-symbol">(</span><span
                                     class="tsd-signature-symbol">)</span><span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>
+                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>
                         </li>
                     </ul>
                     <ul class="tsd-descriptions">
@@ -128,124 +159,117 @@
                             <aside class="tsd-sources">
                                 <ul>
                                     <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/utils/ObjectUtils.ts#L15">utils/ObjectUtils.ts:15</a>
+                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.ts#L26">config/gtools-config.ts:26</a>
                                     </li>
                                 </ul>
                             </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>obj: <span class="tsd-signature-type">any</span></h5>
-                                </li>
-                                <li>
-                                    <h5>path: <span class="tsd-signature-type">string</span></h5>
-                                </li>
-                                <li>
-                                    <h5><span class="tsd-flag ts-flagDefault value">Default value</span> divider: <span
-                                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;.&quot;</span>
-                                    </h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
                         </li>
                     </ul>
                 </section>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a name="isplain" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> is
+                <section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+                    <a name="page_limit" class="tsd-anchor"></a>
+                    <h3>PAGE_
                         <wbr>
-                        Plain
+                        LIMIT
                     </h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">is
-                            <wbr>
-                            Plain<span class="tsd-signature-symbol">(</span>object<span
-                                    class="tsd-signature-symbol">: </span><span
-                                    class="tsd-signature-type">any</span><span
-                                    class="tsd-signature-symbol">)</span><span
-                                    class="tsd-signature-symbol">: </span><span
-                                    class="tsd-signature-type">boolean</span></li>
-                    </ul>
-                    <ul class="tsd-descriptions">
-                        <li class="tsd-description">
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/utils/ObjectUtils.ts#L36">utils/ObjectUtils.ts:36</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>object: <span class="tsd-signature-type">any</span></h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+                    <ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+                        <li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> PAGE_LIMIT<span
+                                class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span
+                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>
                         </li>
                     </ul>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a name="size" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> size</h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">size<span
-                                class="tsd-signature-symbol">(</span>object<span
-                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span
-                                class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span
-                                class="tsd-signature-type">number</span></li>
-                    </ul>
                     <ul class="tsd-descriptions">
                         <li class="tsd-description">
                             <aside class="tsd-sources">
                                 <ul>
                                     <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/utils/ObjectUtils.ts#L25">utils/ObjectUtils.ts:25</a>
+                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.ts#L22">config/gtools-config.ts:22</a>
                                     </li>
                                 </ul>
                             </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>object: <span class="tsd-signature-type">any</span></h5>
-                                </li>
-                            </ul>
                             <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
                         </li>
                     </ul>
                 </section>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a name="without" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> without</h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">without<span
-                                class="tsd-signature-symbol">(</span>obj<span
-                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, items<span
-                                class="tsd-signature-symbol">: </span><span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span
-                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+                <section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+                    <a name="url_api" class="tsd-anchor"></a>
+                    <h3>URL_
+                        <wbr>
+                        API
+                    </h3>
+                    <ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+                        <li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span>
+                            URL_API<span class="tsd-signature-symbol">(</span><span
+                                    class="tsd-signature-symbol">)</span><span
+                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>
+                        </li>
                     </ul>
                     <ul class="tsd-descriptions">
                         <li class="tsd-description">
                             <aside class="tsd-sources">
                                 <ul>
                                     <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/utils/ObjectUtils.ts#L2">utils/ObjectUtils.ts:2</a>
+                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.ts#L18">config/gtools-config.ts:18</a>
                                     </li>
                                 </ul>
                             </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>obj: <span class="tsd-signature-type">any</span></h5>
-                                </li>
-                                <li>
-                                    <h5>items: <span class="tsd-signature-type">string</span><span
-                                            class="tsd-signature-symbol">[]</span></h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+                        </li>
+                    </ul>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+                    <a name="version" class="tsd-anchor"></a>
+                    <h3>VERSION</h3>
+                    <ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+                        <li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span>
+                            VERSION<span class="tsd-signature-symbol">(</span><span
+                                    class="tsd-signature-symbol">)</span><span
+                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>
+                        </li>
+                    </ul>
+                    <ul class="tsd-descriptions">
+                        <li class="tsd-description">
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in <a
+                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.ts#L30">config/gtools-config.ts:30</a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+                <h2>Methods</h2>
+                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+                    <a name="checkconfig" class="tsd-anchor"></a>
+                    <h3><span class="tsd-flag ts-flagPrivate">Private</span> check
+                        <wbr>
+                        Config
+                    </h3>
+                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+                        <li class="tsd-signature tsd-kind-icon">check
+                            <wbr>
+                            Config<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span
+                                    class="tsd-signature-symbol">: </span><a
+                                    href="../interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html"
+                                    class="tsd-signature-type">GToolsConfigInterface</a></li>
+                    </ul>
+                    <ul class="tsd-descriptions">
+                        <li class="tsd-description">
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in <a
+                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.ts#L34">config/gtools-config.ts:34</a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <h4 class="tsd-returns-title">Returns <a
+                                    href="../interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html"
+                                    class="tsd-signature-type">GToolsConfigInterface</a></h4>
                         </li>
                     </ul>
                 </section>
@@ -258,11 +282,9 @@
                         <a href="../globals.html"><em>Globals</em></a>
                     </li>
                     <li class="current tsd-kind-external-module">
-                        <a href="../modules/_utils_objectutils_.html">"utils/
+                        <a href="../modules/_config_gtools_config_.html">"config/gtools-
                             <wbr>
-                            Object
-                            <wbr>
-                            Utils"</a>
+                            config"</a>
                     </li>
                 </ul>
             </nav>
@@ -271,30 +293,50 @@
                 </ul>
                 <ul class="current">
                     <li class="current tsd-kind-class tsd-parent-kind-external-module">
-                        <a href="_utils_objectutils_.objectutils.html" class="tsd-kind-icon">Object
+                        <a href="_config_gtools_config_.classgtoolsconfig.html" class="tsd-kind-icon">ClassGTools
                             <wbr>
-                            Utils</a>
+                            Config</a>
                         <ul>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a href="_utils_objectutils_.objectutils.html#bypath" class="tsd-kind-icon">by
+                            <li class=" tsd-kind-get-signature tsd-parent-kind-class">
+                                <a href="_config_gtools_config_.classgtoolsconfig.html#language" class="tsd-kind-icon">LANGUAGE</a>
+                            </li>
+                            <li class=" tsd-kind-get-signature tsd-parent-kind-class">
+                                <a href="_config_gtools_config_.classgtoolsconfig.html#page_limit"
+                                   class="tsd-kind-icon">PAGE_
                                     <wbr>
-                                    Path</a>
+                                    LIMIT</a>
                             </li>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a href="_utils_objectutils_.objectutils.html#isplain" class="tsd-kind-icon">is
+                            <li class=" tsd-kind-get-signature tsd-parent-kind-class">
+                                <a href="_config_gtools_config_.classgtoolsconfig.html#url_api" class="tsd-kind-icon">URL_
                                     <wbr>
-                                    Plain</a>
+                                    API</a>
                             </li>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a href="_utils_objectutils_.objectutils.html#size" class="tsd-kind-icon">size</a>
+                            <li class=" tsd-kind-get-signature tsd-parent-kind-class">
+                                <a href="_config_gtools_config_.classgtoolsconfig.html#version" class="tsd-kind-icon">VERSION</a>
                             </li>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a href="_utils_objectutils_.objectutils.html#without" class="tsd-kind-icon">without</a>
+                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+                                <a href="_config_gtools_config_.classgtoolsconfig.html#checkconfig"
+                                   class="tsd-kind-icon">check
+                                    <wbr>
+                                    Config</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="after-current">
+                    <li class=" tsd-kind-variable tsd-parent-kind-external-module">
+                        <a href="../modules/_config_gtools_config_.html#gtoolsconfig" class="tsd-kind-icon">GTools
+                            <wbr>
+                            Config</a>
+                    </li>
+                    <li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+                        <a href="../modules/_config_gtools_config_.html#config" class="tsd-kind-icon">config</a>
+                    </li>
+                    <li class=" tsd-kind-function tsd-parent-kind-external-module">
+                        <a href="../modules/_config_gtools_config_.html#initconfig" class="tsd-kind-icon">init
+                            <wbr>
+                            Config</a>
+                    </li>
                 </ul>
             </nav>
         </div>

@@ -57,3 +57,6 @@ __export(require("./components/FileManager"));
 __export(require("./components/Paginator"));
 // MATHS
 __export(require("./math/Vector2f"));
+// CONFIG
+var gtools_config_1 = require("./config/gtools-config");
+exports.initConfig = gtools_config_1.initConfig;

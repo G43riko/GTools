@@ -1,3 +1,6 @@
+/**
+ * @interface CountryData
+ */
 export interface CountryData {
     key: string;
     patterns: string[];

@@ -1,4 +1,4 @@
-export declare class TestCase {
+export declare class MockData {
     static readonly timesHHmmss: string[];
     static readonly timesHHmm: string[];
     static readonly timesHmm: string[];

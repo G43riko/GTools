@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SlovakStemmer | gtools</title>
+    <title>GToolsConfigInterface | gtools</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -56,24 +56,47 @@
                     <a href="../globals.html">Globals</a>
                 </li>
                 <li>
-                    <a href="../modules/_utils_slovakstemmer_.html">&quot;utils/SlovakStemmer&quot;</a>
+                    <a href="../modules/_config_gtools_config_interface_.html">&quot;config/gtools-config.interface&quot;</a>
                 </li>
                 <li>
-                    <a href="_utils_slovakstemmer_.slovakstemmer.html">SlovakStemmer</a>
+                    <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html">GToolsConfigInterface</a>
                 </li>
             </ul>
-            <h1>Class SlovakStemmer</h1>
+            <h1>Interface GToolsConfigInterface</h1>
         </div>
     </div>
 </header>
 <div class="container container-main">
     <div class="row">
         <div class="col-8 col-content">
+            <section class="tsd-panel tsd-comment">
+                <div class="tsd-comment tsd-typography">
+                    <dl class="tsd-comment-tags">
+                        <dt>interface</dt>
+                        <dd></dd>
+                        <dt>example</dt>
+                        <dd><p>export interface OwnConfigInterface extends GToolsConfigInterface {
+                            name: string;
+                            }</p>
+                        </dd>
+                        <dt>see</dt>
+                        <dd><p>ClassGToolsConfig</p>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
             <section class="tsd-panel tsd-hierarchy">
                 <h3>Hierarchy</h3>
                 <ul class="tsd-hierarchy">
                     <li>
-                        <span class="target">SlovakStemmer</span>
+                        <span class="target">GToolsConfigInterface</span>
+                    </li>
+                </ul>
+            </section>
+            <section class="tsd-panel">
+                <h3>Implemented by</h3>
+                <ul class="tsd-hierarchy">
+                    <li><a href="../classes/_config_gtools_config_.classgtoolsconfig.html" class="tsd-signature-type">ClassGToolsConfig</a>
                     </li>
                 </ul>
             </section>
@@ -82,47 +105,92 @@
                 <section class="tsd-panel tsd-index-panel">
                     <div class="tsd-index-content">
                         <section class="tsd-index-section ">
-                            <h3>Methods</h3>
+                            <h3>Properties</h3>
                             <ul class="tsd-index-list">
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a
-                                        href="_utils_slovakstemmer_.slovakstemmer.html#steme" class="tsd-kind-icon">steme</a>
-                                </li>
+                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
+                                        href="_config_gtools_config_interface_.gtoolsconfiginterface.html#language"
+                                        class="tsd-kind-icon">LANGUAGE</a></li>
+                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
+                                        href="_config_gtools_config_interface_.gtoolsconfiginterface.html#page_limit"
+                                        class="tsd-kind-icon">PAGE_
+                                    <wbr>
+                                    LIMIT</a></li>
+                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
+                                        href="_config_gtools_config_interface_.gtoolsconfiginterface.html#url_api"
+                                        class="tsd-kind-icon">URL_
+                                    <wbr>
+                                    API</a></li>
+                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
+                                        href="_config_gtools_config_interface_.gtoolsconfiginterface.html#version"
+                                        class="tsd-kind-icon">VERSION</a></li>
                             </ul>
                         </section>
                     </div>
                 </section>
             </section>
             <section class="tsd-panel-group tsd-member-group ">
-                <h2>Methods</h2>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a name="steme" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> steme</h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">steme<span
-                                class="tsd-signature-symbol">(</span>word<span
-                                class="tsd-signature-symbol">: </span><span
-                                class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span
-                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>
-                        </li>
-                    </ul>
-                    <ul class="tsd-descriptions">
-                        <li class="tsd-description">
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/utils/SlovakStemmer.ts#L201">utils/SlovakStemmer.ts:201</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>word: <span class="tsd-signature-type">string</span></h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-                        </li>
-                    </ul>
+                <h2>Properties</h2>
+                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+                    <a name="language" class="tsd-anchor"></a>
+                    <h3>LANGUAGE</h3>
+                    <div class="tsd-signature tsd-kind-icon">LANGUAGE<span class="tsd-signature-symbol">:</span> <span
+                            class="tsd-signature-type">string</span></div>
+                    <aside class="tsd-sources">
+                        <ul>
+                            <li>Defined in <a
+                                    href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.interface.ts#L11">config/gtools-config.interface.ts:11</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+                    <a name="page_limit" class="tsd-anchor"></a>
+                    <h3>PAGE_
+                        <wbr>
+                        LIMIT
+                    </h3>
+                    <div class="tsd-signature tsd-kind-icon">PAGE_
+                        <wbr>
+                        LIMIT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span>
+                    </div>
+                    <aside class="tsd-sources">
+                        <ul>
+                            <li>Defined in <a
+                                    href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.interface.ts#L13">config/gtools-config.interface.ts:13</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+                    <a name="url_api" class="tsd-anchor"></a>
+                    <h3>URL_
+                        <wbr>
+                        API
+                    </h3>
+                    <div class="tsd-signature tsd-kind-icon">URL_
+                        <wbr>
+                        API<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
+                    </div>
+                    <aside class="tsd-sources">
+                        <ul>
+                            <li>Defined in <a
+                                    href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.interface.ts#L10">config/gtools-config.interface.ts:10</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+                    <a name="version" class="tsd-anchor"></a>
+                    <h3>VERSION</h3>
+                    <div class="tsd-signature tsd-kind-icon">VERSION<span class="tsd-signature-symbol">:</span> <span
+                            class="tsd-signature-type">string</span></div>
+                    <aside class="tsd-sources">
+                        <ul>
+                            <li>Defined in <a
+                                    href="https://github.com/G43riko/GTools/blob/7c5fb3f/src/config/gtools-config.interface.ts#L12">config/gtools-config.interface.ts:12</a>
+                            </li>
+                        </ul>
+                    </aside>
                 </section>
             </section>
         </div>
@@ -133,11 +201,9 @@
                         <a href="../globals.html"><em>Globals</em></a>
                     </li>
                     <li class="current tsd-kind-external-module">
-                        <a href="../modules/_utils_slovakstemmer_.html">"utils/
+                        <a href="../modules/_config_gtools_config_interface_.html">"config/gtools-
                             <wbr>
-                            Slovak
-                            <wbr>
-                            Stemmer"</a>
+                            config.interface"</a>
                     </li>
                 </ul>
             </nav>
@@ -145,36 +211,37 @@
                 <ul class="before-current">
                 </ul>
                 <ul class="current">
-                    <li class="current tsd-kind-class tsd-parent-kind-external-module">
-                        <a href="_utils_slovakstemmer_.slovakstemmer.html" class="tsd-kind-icon">Slovak
+                    <li class="current tsd-kind-interface tsd-parent-kind-external-module">
+                        <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html" class="tsd-kind-icon">GTools
                             <wbr>
-                            Stemmer</a>
+                            Config
+                            <wbr>
+                            Interface</a>
                         <ul>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a href="_utils_slovakstemmer_.slovakstemmer.html#steme" class="tsd-kind-icon">steme</a>
+                            <li class=" tsd-kind-property tsd-parent-kind-interface">
+                                <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html#language"
+                                   class="tsd-kind-icon">LANGUAGE</a>
+                            </li>
+                            <li class=" tsd-kind-property tsd-parent-kind-interface">
+                                <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html#page_limit"
+                                   class="tsd-kind-icon">PAGE_
+                                    <wbr>
+                                    LIMIT</a>
+                            </li>
+                            <li class=" tsd-kind-property tsd-parent-kind-interface">
+                                <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html#url_api"
+                                   class="tsd-kind-icon">URL_
+                                    <wbr>
+                                    API</a>
+                            </li>
+                            <li class=" tsd-kind-property tsd-parent-kind-interface">
+                                <a href="_config_gtools_config_interface_.gtoolsconfiginterface.html#version"
+                                   class="tsd-kind-icon">VERSION</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="after-current">
-                    <li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-                        <a href="../modules/_utils_slovakstemmer_.html#normalize" class="tsd-kind-icon">normalize</a>
-                    </li>
-                    <li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-                        <a href="../modules/_utils_slovakstemmer_.html#removecase" class="tsd-kind-icon">remove
-                            <wbr>
-                            Case</a>
-                    </li>
-                    <li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-                        <a href="../modules/_utils_slovakstemmer_.html#removepossessives" class="tsd-kind-icon">remove
-                            <wbr>
-                            Possessives</a>
-                    </li>
-                    <li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-                        <a href="../modules/_utils_slovakstemmer_.html#removepredpona" class="tsd-kind-icon">remove
-                            <wbr>
-                            Predpona</a>
-                    </li>
                 </ul>
             </nav>
         </div>

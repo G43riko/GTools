@@ -2,6 +2,18 @@ import { GToolsConfigInterface } from "./gtools-config.interface";
 
 let config: GToolsConfigInterface;
 
+/**
+ * @class
+ * @implements {GToolsConfigInterface}
+ * @example
+ * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
+ *     public name = "";
+ * }
+ *
+ * export const OwnConfig = new ClassOwnConfig();
+ *
+ * @see GToolsConfigInterface
+ */
 export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
         return this.checkConfig().URL_API;

@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var gtools_config_1 = require("../config/gtools-config");
+// TODO: itemsPerPage should be dynamic
 var Paginator = /** @class */ (function () {
     function Paginator(allItems) {
         this.allItems = allItems;
@@ -71,7 +73,7 @@ var Paginator = /** @class */ (function () {
         this.actList = this.allItems ? this.allItems.slice(start, start + Paginator.itemsPerPage) : [];
         return this.actList;
     };
-    Paginator.itemsPerPage = 10;
+    Paginator.itemsPerPage = gtools_config_1.GToolsConfig.PAGE_LIMIT;
     return Paginator;
 }());
 exports.Paginator = Paginator;

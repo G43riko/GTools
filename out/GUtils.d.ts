@@ -31,3 +31,4 @@ export * from "./components/ItemCounter";
 export * from "./components/FileManager";
 export * from "./components/Paginator";
 export * from "./math/Vector2f";
+export { initConfig } from "./config/gtools-config";

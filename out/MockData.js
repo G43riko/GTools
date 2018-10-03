@@ -1,22 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var TestCase = /** @class */ (function () {
-    function TestCase() {
+var MockData = /** @class */ (function () {
+    function MockData() {
     }
-    TestCase.functionSum = function (a, b) {
+    MockData.functionSum = function (a, b) {
         if (isNaN(a) || isNaN(b)) {
             throw new Error("Wrong params");
         }
         return a + b;
     };
-    TestCase.timesHHmmss = [
+    MockData.timesHHmmss = [
         "12:00:00",
         "01:09:09",
         "23:59:59",
         "00:59:59",
         "23:01:01",
     ];
-    TestCase.timesHHmm = [
+    MockData.timesHHmm = [
         "12:53",
         "12:00",
         "01:09",
@@ -24,12 +24,12 @@ var TestCase = /** @class */ (function () {
         "00:59",
         "23:01",
     ];
-    TestCase.timesHmm = [
+    MockData.timesHmm = [
         "1:59",
         "9:09",
         "9:09",
     ];
-    TestCase.invalidTimes = [
+    MockData.invalidTimes = [
         "24:00",
         "24:13:56",
         "12:61",
@@ -40,11 +40,11 @@ var TestCase = /** @class */ (function () {
         "12:61:61",
         "30:61:61",
     ];
-    TestCase.charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
-    TestCase.characters = TestCase.charactersString.split("");
-    TestCase.charactersCaseAbleString = "þÞıŦŧŊEĐđNΩ";
-    TestCase.charactersCaseAble = TestCase.charactersCaseAbleString.split("");
-    TestCase.charactersEmpty = [
+    MockData.charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+    MockData.characters = MockData.charactersString.split("");
+    MockData.charactersCaseAbleString = "þÞıŦŧŊEĐđNΩ";
+    MockData.charactersCaseAble = MockData.charactersCaseAbleString.split("");
+    MockData.charactersEmpty = [
         "     ",
         "    ",
         "",
@@ -56,7 +56,7 @@ var TestCase = /** @class */ (function () {
         "\t\t",
         "\xa0\xa0",
     ];
-    TestCase.charactersNotEmpty = [
+    MockData.charactersNotEmpty = [
         " 3 ",
         "a",
         "0",
@@ -75,9 +75,9 @@ var TestCase = /** @class */ (function () {
         "********",
         "______",
     ];
-    TestCase.numbersString = "0123456789";
-    TestCase.numbers = TestCase.numbersString.split("");
-    TestCase.randomArray = [
+    MockData.numbersString = "0123456789";
+    MockData.numbers = MockData.numbersString.split("");
+    MockData.randomArray = [
         "a",
         1,
         2.32,
@@ -91,7 +91,7 @@ var TestCase = /** @class */ (function () {
         { a: "aa", b: "bb" },
         ["a", 1, true],
     ];
-    TestCase.stringHelloWorldIAmComputer = [
+    MockData.stringHelloWorldIAmComputer = [
         "Hello world i am computer",
         "HelloWorldIAmComputer",
         "helloWorldIAmComputer",
@@ -102,27 +102,27 @@ var TestCase = /** @class */ (function () {
         "hello_World i Am-computer-------",
         "-_Hello___world-i--AM    computer",
     ];
-    TestCase.upperSnakeCase = [
+    MockData.upperSnakeCase = [
         "HELLO_WORLD",
         "HELLO_MY_NAME_IS_CHOSE",
     ];
-    TestCase.lowerSnakeCase = [
+    MockData.lowerSnakeCase = [
         "hello_world",
         "hello_my_name_is_chose",
     ];
-    TestCase.upperCamelCase = [
+    MockData.upperCamelCase = [
         "HelloWorld",
         "HelloMyNameIsChose",
     ];
-    TestCase.lowerCamelCase = [
+    MockData.lowerCamelCase = [
         "helloWorld",
         "helloMyNameIsChose",
     ];
-    TestCase.randomStrings = TestCase.stringHelloWorldIAmComputer.concat(TestCase.upperSnakeCase, TestCase.lowerSnakeCase, TestCase.upperCamelCase, TestCase.lowerCamelCase);
-    TestCase.man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
-    TestCase.woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
-    TestCase.nothing = TestCase.charactersEmpty.concat(TestCase.randomStrings, TestCase.numbers, TestCase.characters, TestCase.charactersCaseAble, TestCase.charactersNotEmpty);
-    TestCase.phoneNumbers = [
+    MockData.randomStrings = MockData.stringHelloWorldIAmComputer.concat(MockData.upperSnakeCase, MockData.lowerSnakeCase, MockData.upperCamelCase, MockData.lowerCamelCase);
+    MockData.man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
+    MockData.woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
+    MockData.nothing = MockData.charactersEmpty.concat(MockData.randomStrings, MockData.numbers, MockData.characters, MockData.charactersCaseAble, MockData.charactersNotEmpty);
+    MockData.phoneNumbers = [
         "+421905123456",
         "00421905123456",
         "0905123456",
@@ -138,7 +138,7 @@ var TestCase = /** @class */ (function () {
         "+31636363634",
         "075-63546725",
     ];
-    TestCase.emails = [
+    MockData.emails = [
         "abc@def.com",
         "my@name.is.chorche.com",
         "foo.bar@machine.subdomain.example.museum",
@@ -155,7 +155,7 @@ var TestCase = /** @class */ (function () {
         "\"Fred Bloggs\"@example.com",
         "\"Joe.\\Blow\"@example.com",
     ];
-    TestCase.notEmails = [
+    MockData.notEmails = [
         "Abc.example.com",
         "A@b@c@example.com",
         "a\"b(c)d,e:f;g<h>i[j\k]l@example.com",
@@ -164,7 +164,7 @@ var TestCase = /** @class */ (function () {
         "this\ still\"not\\allowed@example.com",
         "john..doe@example.com",
         "john.doe@example..com"
-    ].concat(TestCase.randomStrings);
-    return TestCase;
+    ].concat(MockData.randomStrings);
+    return MockData;
 }());
-exports.TestCase = TestCase;
+exports.MockData = MockData;
