@@ -33,7 +33,13 @@ export class ClassGToolsConfig implements GToolsConfigInterface {
 
     private checkConfig(): GToolsConfigInterface {
         if (!config) {
-            throw new Error("App config must be initializes(app-config/initConfig({...params}))");
+            // throw new Error("App config must be initializes(app-config/initConfig({...params}))");
+            return {
+                URL_API   : "",
+                LANGUAGE  : "",
+                VERSION   : "",
+                PAGE_LIMIT: 0,
+            };
         }
 
         return config;
