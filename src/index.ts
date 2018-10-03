@@ -1,1 +1,1 @@
-export * from "./gutils";
+export * from "./GUtils";
