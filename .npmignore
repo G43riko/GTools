@@ -70,4 +70,5 @@ tsconfig.json
 tslint.json
 .scannerwork
 .idea
+lib
 *.properties
