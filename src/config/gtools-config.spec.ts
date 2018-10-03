@@ -4,8 +4,8 @@ import { GToolsConfig, initConfig } from "./gtools-config";
 describe("GToolsConfig", () => {
     describe("setAppConfig", () => {
         it("Return config values from options", () => {
-            expect(() => GToolsConfig.URL_API).to.throw(Error);
-            expect(() => GToolsConfig.PAGE_LIMIT).to.throw(Error);
+            expect(GToolsConfig.URL_API).to.be.equal("");
+            expect(GToolsConfig.PAGE_LIMIT).to.be.equal(0);
 
             initConfig({
                 PAGE_LIMIT: 233,
@@ -28,8 +28,8 @@ describe("GToolsConfig", () => {
 
             initConfig(null as any);
 
-            expect(() => GToolsConfig.URL_API).to.throw(Error);
-            expect(() => GToolsConfig.PAGE_LIMIT).to.throw(Error);
+            expect(GToolsConfig.URL_API).to.be.equal("");
+            expect(GToolsConfig.PAGE_LIMIT).to.be.equal(0);
         });
     });
 });

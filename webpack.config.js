@@ -1,25 +1,25 @@
 const path = require("path");
 
 const serverConfig = {
-    entry: "./index.js",
+    entry: "./out/index.js",
     target: "node",
     node: {
         fs: 'empty'
     },
     output: {
-        filename: "gtools.js",
-        path: path.resolve(__dirname, "out")
+        filename: "gtools.min.js",
+        path: path.resolve(__dirname, "bin")
     }
 };
 const webConfig = {
-    entry: "./index.js",
+    entry: "./out/index.js",
     target: "web",
     node: {
         fs: 'empty'
     },
     output: {
-        filename: "gtools.web.js",
-        path: path.resolve(__dirname, "out")
+        filename: "gtools.web.min.js",
+        path: path.resolve(__dirname, "bin")
     }
 };
 

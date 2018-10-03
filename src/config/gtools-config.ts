@@ -2,6 +2,18 @@ import { GToolsConfigInterface } from "./gtools-config.interface";
 
 let config: GToolsConfigInterface;
 
+/**
+ * @class
+ * @implements {GToolsConfigInterface}
+ * @example
+ * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
+ *     public name = "";
+ * }
+ *
+ * export const OwnConfig = new ClassOwnConfig();
+ *
+ * @see GToolsConfigInterface
+ */
 export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
         return this.checkConfig().URL_API;
@@ -21,7 +33,13 @@ export class ClassGToolsConfig implements GToolsConfigInterface {
 
     private checkConfig(): GToolsConfigInterface {
         if (!config) {
-            throw new Error("App config must be initializes(app-config/initConfig({...params}))");
+            // throw new Error("App config must be initializes(app-config/initConfig({...params}))");
+            return {
+                URL_API   : "",
+                LANGUAGE  : "",
+                VERSION   : "",
+                PAGE_LIMIT: 0,
+            };
         }
 
         return config;
