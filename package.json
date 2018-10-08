@@ -2,7 +2,7 @@
     "name": "gtools",
     "version": "0.2.1",
     "description": "Small library including utils methods for easier life",
-    "main": "./out/index",
+    "main": "./index",
     "homepage": "https://github.com/G43riko/GTools#readme",
     "keywords": [
         "tools",
