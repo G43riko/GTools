@@ -1,26 +1,27 @@
 {
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
-  ],
-  "compilerOptions": {
-    "declaration": true,
-    "diagnostics": true,
-    "outDir": "out",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "alwaysStrict": true,
-    "strictPropertyInitialization": true,
-    "target": "es5",
-    "lib": [
-      "es2016",
-      "dom"
-    ]
-  },
-  "jsdoc": "out"
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "src/**/*.spec.ts"
+    ],
+    "compilerOptions": {
+        "declaration": true,
+        "diagnostics": true,
+        "experimentalDecorators": true,
+        "outDir": "out",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "alwaysStrict": true,
+        "strictPropertyInitialization": true,
+        "target": "es5",
+        "lib": [
+            "es2016",
+            "dom"
+        ]
+    },
+    "jsdoc": "out"
 }
