@@ -1101,2640 +1101,2652 @@ typedoc.search.data = {
     }, {
         "id": 156,
         "kind": 1,
-        "name": "\"dom/Get\"",
-        "url": "modules/_dom_get_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 157,
-        "kind": 128,
-        "name": "Get",
-        "url": "classes/_dom_get_.get.html",
-        "classes": "tsd-kind-class tsd-parent-kind-external-module",
-        "parent": "\"dom/Get\""
-    }, {
-        "id": 158,
-        "kind": 2048,
-        "name": "setContext",
-        "url": "classes/_dom_get_.get.html#setcontext",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 159,
-        "kind": 2048,
-        "name": "byClass",
-        "url": "classes/_dom_get_.get.html#byclass",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 160,
-        "kind": 2048,
-        "name": "byLink",
-        "url": "classes/_dom_get_.get.html#bylink",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 161,
-        "kind": 2048,
-        "name": "byId",
-        "url": "classes/_dom_get_.get.html#byid",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 162,
-        "kind": 2048,
-        "name": "byName",
-        "url": "classes/_dom_get_.get.html#byname",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 163,
-        "kind": 2048,
-        "name": "byTag",
-        "url": "classes/_dom_get_.get.html#bytag",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"dom/Get\".Get"
-    }, {
-        "id": 164,
-        "kind": 32,
-        "name": "localContext",
-        "url": "modules/_dom_get_.html#localcontext",
-        "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
-        "parent": "\"dom/Get\""
-    }, {
-        "id": 165,
-        "kind": 1,
-        "name": "\"utils/DomUtils\"",
-        "url": "modules/_utils_domutils_.html",
-        "classes": "tsd-kind-external-module"
-    }, {
-        "id": 166,
-        "kind": 256,
-        "name": "ObjectCreatorParams",
-        "url": "interfaces/_utils_domutils_.objectcreatorparams.html",
-        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
-        "parent": "\"utils/DomUtils\""
-    }, {
-        "id": 167,
-        "kind": 1024,
-        "name": "name",
-        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#name",
-        "classes": "tsd-kind-property tsd-parent-kind-interface",
-        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
-    }, {
-        "id": 168,
-        "kind": 1024,
-        "name": "attr",
-        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#attr",
-        "classes": "tsd-kind-property tsd-parent-kind-interface",
-        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
-    }, {
-        "id": 169,
-        "kind": 1024,
-        "name": "cont",
-        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#cont",
-        "classes": "tsd-kind-property tsd-parent-kind-interface",
-        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
-    }, {
-        "id": 170,
-        "kind": 1024,
-        "name": "style",
-        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#style",
-        "classes": "tsd-kind-property tsd-parent-kind-interface",
-        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
-    }, {
-        "id": 171,
-        "kind": 128,
-        "name": "DomUtils",
-        "url": "classes/_utils_domutils_.domutils.html",
-        "classes": "tsd-kind-class tsd-parent-kind-external-module",
-        "parent": "\"utils/DomUtils\""
-    }, {
-        "id": 172,
-        "kind": 2048,
-        "name": "getWindowHeight",
-        "url": "classes/_utils_domutils_.domutils.html#getwindowheight",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 173,
-        "kind": 2048,
-        "name": "getWindowWidth",
-        "url": "classes/_utils_domutils_.domutils.html#getwindowwidth",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 174,
-        "kind": 2048,
-        "name": "text",
-        "url": "classes/_utils_domutils_.domutils.html#text",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 175,
-        "kind": 2048,
-        "name": "html",
-        "url": "classes/_utils_domutils_.domutils.html#html",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 176,
-        "kind": 2048,
-        "name": "class",
-        "url": "classes/_utils_domutils_.domutils.html#class",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 177,
-        "kind": 2048,
-        "name": "createElement",
-        "url": "classes/_utils_domutils_.domutils.html#createelement",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 178,
-        "kind": 2048,
-        "name": "remove",
-        "url": "classes/_utils_domutils_.domutils.html#remove",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 179,
-        "kind": 2048,
-        "name": "position",
-        "url": "classes/_utils_domutils_.domutils.html#position",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 180,
-        "kind": 2048,
-        "name": "indexOf",
-        "url": "classes/_utils_domutils_.domutils.html#indexof",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 181,
-        "kind": 2048,
-        "name": "size",
-        "url": "classes/_utils_domutils_.domutils.html#size",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 182,
-        "kind": 2048,
-        "name": "serialize",
-        "url": "classes/_utils_domutils_.domutils.html#serialize",
-        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
-        "parent": "\"utils/DomUtils\".DomUtils"
-    }, {
-        "id": 183,
-        "kind": 1,
         "name": "\"dom/CanvasManager\"",
         "url": "modules/_dom_canvasmanager_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 184,
+        "id": 157,
         "kind": 128,
         "name": "CanvasManager",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"dom/CanvasManager\""
     }, {
-        "id": 185,
+        "id": 158,
         "kind": 1024,
         "name": "localCanvas",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#localcanvas",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 186,
+        "id": 159,
         "kind": 1024,
         "name": "localContext",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#localcontext",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 187,
+        "id": 160,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 188,
+        "id": 161,
         "kind": 262144,
         "name": "canvas",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#canvas",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 189,
+        "id": 162,
         "kind": 262144,
         "name": "context",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#context",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 190,
+        "id": 163,
         "kind": 2048,
         "name": "clearCanvas",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#clearcanvas-1",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 191,
+        "id": 164,
         "kind": 2048,
         "name": "setCanvasSize",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#setcanvassize-1",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 192,
+        "id": 165,
         "kind": 2048,
         "name": "setShadow",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#setshadow-1",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 193,
+        "id": 166,
         "kind": 2048,
         "name": "imageToCanvas",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#imagetocanvas",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 194,
+        "id": 167,
         "kind": 2048,
         "name": "setLineDash",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#setlinedash",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 195,
+        "id": 168,
         "kind": 2048,
         "name": "calcTextWidth",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#calctextwidth",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 196,
+        "id": 169,
         "kind": 2048,
         "name": "canvasToImage",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#canvastoimage",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 197,
+        "id": 170,
         "kind": 2048,
         "name": "getImage",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#getimage",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 198,
+        "id": 171,
         "kind": 2048,
         "name": "setShadow",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#setshadow",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 199,
+        "id": 172,
         "kind": 2048,
         "name": "show",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#show",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 200,
+        "id": 173,
         "kind": 2048,
         "name": "clearCanvas",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#clearcanvas",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 201,
+        "id": 174,
         "kind": 2048,
         "name": "setCanvasSize",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#setcanvassize",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 202,
+        "id": 175,
         "kind": 2048,
         "name": "appendTo",
         "url": "classes/_dom_canvasmanager_.canvasmanager.html#appendto",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/CanvasManager\".CanvasManager"
     }, {
-        "id": 203,
+        "id": 176,
+        "kind": 1,
+        "name": "\"dom/Get\"",
+        "url": "modules/_dom_get_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 177,
+        "kind": 128,
+        "name": "Get",
+        "url": "classes/_dom_get_.get.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"dom/Get\""
+    }, {
+        "id": 178,
+        "kind": 2048,
+        "name": "setContext",
+        "url": "classes/_dom_get_.get.html#setcontext",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 179,
+        "kind": 2048,
+        "name": "byClass",
+        "url": "classes/_dom_get_.get.html#byclass",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 180,
+        "kind": 2048,
+        "name": "byLink",
+        "url": "classes/_dom_get_.get.html#bylink",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 181,
+        "kind": 2048,
+        "name": "byId",
+        "url": "classes/_dom_get_.get.html#byid",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 182,
+        "kind": 2048,
+        "name": "byName",
+        "url": "classes/_dom_get_.get.html#byname",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 183,
+        "kind": 2048,
+        "name": "byTag",
+        "url": "classes/_dom_get_.get.html#bytag",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"dom/Get\".Get"
+    }, {
+        "id": 184,
+        "kind": 32,
+        "name": "localContext",
+        "url": "modules/_dom_get_.html#localcontext",
+        "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
+        "parent": "\"dom/Get\""
+    }, {
+        "id": 185,
         "kind": 1,
         "name": "\"models/gender.model\"",
         "url": "modules/_models_gender_model_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 204,
+        "id": 186,
         "kind": 128,
         "name": "Gender",
         "url": "classes/_models_gender_model_.gender.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"models/gender.model\""
     }, {
-        "id": 205,
+        "id": 187,
         "kind": 2048,
         "name": "parse",
         "url": "classes/_models_gender_model_.gender.html#parse",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"models/gender.model\".Gender"
     }, {
-        "id": 206,
+        "id": 188,
         "kind": 4194304,
         "name": "GenderType",
         "url": "modules/_models_gender_model_.html#gendertype",
         "classes": "tsd-kind-type-alias tsd-parent-kind-external-module",
         "parent": "\"models/gender.model\""
     }, {
-        "id": 207,
+        "id": 189,
         "kind": 32,
         "name": "maleRegexp",
         "url": "modules/_models_gender_model_.html#maleregexp",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"models/gender.model\""
     }, {
-        "id": 208,
+        "id": 190,
         "kind": 32,
         "name": "femaleRegexp",
         "url": "modules/_models_gender_model_.html#femaleregexp",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"models/gender.model\""
     }, {
-        "id": 209,
+        "id": 191,
         "kind": 1,
         "name": "\"enums/encodings.enum\"",
         "url": "modules/_enums_encodings_enum_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 210,
+        "id": 192,
         "kind": 4,
         "name": "Encodings",
         "url": "enums/_enums_encodings_enum_.encodings.html",
         "classes": "tsd-kind-enum tsd-parent-kind-external-module",
         "parent": "\"enums/encodings.enum\""
     }, {
-        "id": 211,
+        "id": 193,
         "kind": 16,
         "name": "UTF8",
         "url": "enums/_enums_encodings_enum_.encodings.html#utf8",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/encodings.enum\".Encodings"
     }, {
-        "id": 212,
+        "id": 194,
         "kind": 16,
         "name": "UTF16",
         "url": "enums/_enums_encodings_enum_.encodings.html#utf16",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/encodings.enum\".Encodings"
     }, {
-        "id": 213,
+        "id": 195,
         "kind": 16,
         "name": "UNICODE",
         "url": "enums/_enums_encodings_enum_.encodings.html#unicode",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/encodings.enum\".Encodings"
     }, {
-        "id": 214,
+        "id": 196,
         "kind": 16,
         "name": "ASCII",
         "url": "enums/_enums_encodings_enum_.encodings.html#ascii",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/encodings.enum\".Encodings"
     }, {
-        "id": 215,
+        "id": 197,
         "kind": 16,
         "name": "UCS2",
         "url": "enums/_enums_encodings_enum_.encodings.html#ucs2",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/encodings.enum\".Encodings"
     }, {
-        "id": 216,
+        "id": 198,
         "kind": 1,
         "name": "\"enums/file-types.enum\"",
         "url": "modules/_enums_file_types_enum_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 217,
+        "id": 199,
         "kind": 4,
         "name": "FileTypes",
         "url": "enums/_enums_file_types_enum_.filetypes.html",
         "classes": "tsd-kind-enum tsd-parent-kind-external-module",
         "parent": "\"enums/file-types.enum\""
     }, {
-        "id": 218,
+        "id": 200,
         "kind": 16,
         "name": "CSS",
         "url": "enums/_enums_file_types_enum_.filetypes.html#css",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 219,
+        "id": 201,
         "kind": 16,
         "name": "HTML",
         "url": "enums/_enums_file_types_enum_.filetypes.html#html",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 220,
+        "id": 202,
         "kind": 16,
         "name": "JS",
         "url": "enums/_enums_file_types_enum_.filetypes.html#js",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 221,
+        "id": 203,
         "kind": 16,
         "name": "MP3",
         "url": "enums/_enums_file_types_enum_.filetypes.html#mp3",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 222,
+        "id": 204,
         "kind": 16,
         "name": "MP4",
         "url": "enums/_enums_file_types_enum_.filetypes.html#mp4",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 223,
+        "id": 205,
         "kind": 16,
         "name": "OGG",
         "url": "enums/_enums_file_types_enum_.filetypes.html#ogg",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 224,
+        "id": 206,
         "kind": 16,
         "name": "OGV",
         "url": "enums/_enums_file_types_enum_.filetypes.html#ogv",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 225,
+        "id": 207,
         "kind": 16,
         "name": "OGA",
         "url": "enums/_enums_file_types_enum_.filetypes.html#oga",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 226,
+        "id": 208,
         "kind": 16,
         "name": "TXT",
         "url": "enums/_enums_file_types_enum_.filetypes.html#txt",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 227,
+        "id": 209,
         "kind": 16,
         "name": "WAV",
         "url": "enums/_enums_file_types_enum_.filetypes.html#wav",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 228,
+        "id": 210,
         "kind": 16,
         "name": "WEBM",
         "url": "enums/_enums_file_types_enum_.filetypes.html#webm",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/file-types.enum\".FileTypes"
     }, {
-        "id": 229,
+        "id": 211,
         "kind": 1,
         "name": "\"enums/http-status-codes.enum\"",
         "url": "modules/_enums_http_status_codes_enum_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 230,
+        "id": 212,
         "kind": 4,
         "name": "HttpStatusCodes",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html",
         "classes": "tsd-kind-enum tsd-parent-kind-external-module",
         "parent": "\"enums/http-status-codes.enum\""
     }, {
-        "id": 231,
+        "id": 213,
         "kind": 16,
         "name": "CONTINUE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#continue",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 232,
+        "id": 214,
         "kind": 16,
         "name": "SWITCHING_PROTOCOLS",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#switching_protocols",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 233,
+        "id": 215,
         "kind": 16,
         "name": "OK",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#ok",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 234,
+        "id": 216,
         "kind": 16,
         "name": "CREATED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#created",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 235,
+        "id": 217,
         "kind": 16,
         "name": "ACCEPTED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#accepted",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 236,
+        "id": 218,
         "kind": 16,
         "name": "NON_AUTHORITATIVE_INFORMATION",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#non_authoritative_information",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 237,
+        "id": 219,
         "kind": 16,
         "name": "NO_CONTENT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#no_content",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 238,
+        "id": 220,
         "kind": 16,
         "name": "RESET_CONTENT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#reset_content",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 239,
+        "id": 221,
         "kind": 16,
         "name": "PARTIAL_CONTENT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#partial_content",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 240,
+        "id": 222,
         "kind": 16,
         "name": "MULTIPLE_CHOICES",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#multiple_choices",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 241,
+        "id": 223,
         "kind": 16,
         "name": "MOVED_PERMANENTLY",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#moved_permanently",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 242,
+        "id": 224,
         "kind": 16,
         "name": "FOUND",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#found",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 243,
+        "id": 225,
         "kind": 16,
         "name": "SEE_OTHER",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#see_other",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 244,
+        "id": 226,
         "kind": 16,
         "name": "NOT_MODIFIED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#not_modified",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 245,
+        "id": 227,
         "kind": 16,
         "name": "USE_PROXY",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#use_proxy",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 246,
+        "id": 228,
         "kind": 16,
         "name": "TEMPORARY_REDIRECT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#temporary_redirect",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 247,
+        "id": 229,
         "kind": 16,
         "name": "BAD_REQUEST",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#bad_request",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 248,
+        "id": 230,
         "kind": 16,
         "name": "UNAUTHORIZED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#unauthorized",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 249,
+        "id": 231,
         "kind": 16,
         "name": "PAYMENT_REQUIRED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#payment_required",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 250,
+        "id": 232,
         "kind": 16,
         "name": "FORBIDDEN",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#forbidden",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 251,
+        "id": 233,
         "kind": 16,
         "name": "NOT_FOUND",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#not_found",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 252,
+        "id": 234,
         "kind": 16,
         "name": "METHOD_NOT_ALLOWED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#method_not_allowed",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 253,
+        "id": 235,
         "kind": 16,
         "name": "NOT_ACCEPTABLE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#not_acceptable",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 254,
+        "id": 236,
         "kind": 16,
         "name": "PROXY_AUTHENTICATION_REQUIRED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#proxy_authentication_required",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 255,
+        "id": 237,
         "kind": 16,
         "name": "REQUEST_TIMEOUT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#request_timeout",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 256,
+        "id": 238,
         "kind": 16,
         "name": "CONFLICT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#conflict",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 257,
+        "id": 239,
         "kind": 16,
         "name": "GONE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#gone",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 258,
+        "id": 240,
         "kind": 16,
         "name": "LENGTH_REQUIRED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#length_required",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 259,
+        "id": 241,
         "kind": 16,
         "name": "PRECONDITION_FAILED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#precondition_failed",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 260,
+        "id": 242,
         "kind": 16,
         "name": "REQUEST_ENTITY_TOO_LARGE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#request_entity_too_large",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 261,
+        "id": 243,
         "kind": 16,
         "name": "REQUEST_URI_TOO_LONG",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#request_uri_too_long",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 262,
+        "id": 244,
         "kind": 16,
         "name": "UNSUPPORTED_MEDIA_TYPE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#unsupported_media_type",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 263,
+        "id": 245,
         "kind": 16,
         "name": "REQUESTED_RANGE_NOT_SATISFIABLE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#requested_range_not_satisfiable",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 264,
+        "id": 246,
         "kind": 16,
         "name": "EXPECTATION_FAILED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#expectation_failed",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 265,
+        "id": 247,
         "kind": 16,
         "name": "UNPROCESSABLE_ENTITY",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#unprocessable_entity",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 266,
+        "id": 248,
         "kind": 16,
         "name": "TOO_MANY_REQUESTS",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#too_many_requests",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 267,
+        "id": 249,
         "kind": 16,
         "name": "INTERNAL_SERVER_ERROR",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#internal_server_error",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 268,
+        "id": 250,
         "kind": 16,
         "name": "NOT_IMPLEMENTED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#not_implemented",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 269,
+        "id": 251,
         "kind": 16,
         "name": "BAD_GATEWAY",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#bad_gateway",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 270,
+        "id": 252,
         "kind": 16,
         "name": "SERVICE_UNAVAILABLE",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#service_unavailable",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 271,
+        "id": 253,
         "kind": 16,
         "name": "GATEWAY_TIMEOUT",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#gateway_timeout",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 272,
+        "id": 254,
         "kind": 16,
         "name": "HTTP_VERSION_NOT_SUPPORTED",
         "url": "enums/_enums_http_status_codes_enum_.httpstatuscodes.html#http_version_not_supported",
         "classes": "tsd-kind-enum-member tsd-parent-kind-enum",
         "parent": "\"enums/http-status-codes.enum\".HttpStatusCodes"
     }, {
-        "id": 273,
+        "id": 255,
         "kind": 1,
         "name": "\"enums/keys.enum\"",
         "url": "modules/_enums_keys_enum_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 274,
+        "id": 256,
         "kind": 128,
         "name": "Keys",
         "url": "classes/_enums_keys_enum_.keys.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"enums/keys.enum\""
     }, {
-        "id": 275,
+        "id": 257,
         "kind": 1024,
         "name": "ENTER",
         "url": "classes/_enums_keys_enum_.keys.html#enter",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 276,
+        "id": 258,
         "kind": 1024,
         "name": "TAB",
         "url": "classes/_enums_keys_enum_.keys.html#tab",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 277,
+        "id": 259,
         "kind": 1024,
         "name": "W",
         "url": "classes/_enums_keys_enum_.keys.html#w",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 278,
+        "id": 260,
         "kind": 1024,
         "name": "A",
         "url": "classes/_enums_keys_enum_.keys.html#a",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 279,
+        "id": 261,
         "kind": 1024,
         "name": "S",
         "url": "classes/_enums_keys_enum_.keys.html#s",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 280,
+        "id": 262,
         "kind": 1024,
         "name": "D",
         "url": "classes/_enums_keys_enum_.keys.html#d",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 281,
+        "id": 263,
         "kind": 1024,
         "name": "Q",
         "url": "classes/_enums_keys_enum_.keys.html#q",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 282,
+        "id": 264,
         "kind": 1024,
         "name": "E",
         "url": "classes/_enums_keys_enum_.keys.html#e",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 283,
+        "id": 265,
         "kind": 1024,
         "name": "F",
         "url": "classes/_enums_keys_enum_.keys.html#f",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 284,
+        "id": 266,
         "kind": 1024,
         "name": "LCONTROL",
         "url": "classes/_enums_keys_enum_.keys.html#lcontrol",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 285,
+        "id": 267,
         "kind": 1024,
         "name": "ESCAPE",
         "url": "classes/_enums_keys_enum_.keys.html#escape",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 286,
+        "id": 268,
         "kind": 1024,
         "name": "LALT",
         "url": "classes/_enums_keys_enum_.keys.html#lalt",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 287,
+        "id": 269,
         "kind": 1024,
         "name": "LSHIFT",
         "url": "classes/_enums_keys_enum_.keys.html#lshift",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 288,
+        "id": 270,
         "kind": 1024,
         "name": "SPACE",
         "url": "classes/_enums_keys_enum_.keys.html#space",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 289,
+        "id": 271,
         "kind": 1024,
         "name": "ARROW_UP",
         "url": "classes/_enums_keys_enum_.keys.html#arrow_up",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 290,
+        "id": 272,
         "kind": 1024,
         "name": "ARROW_DOWN",
         "url": "classes/_enums_keys_enum_.keys.html#arrow_down",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 291,
+        "id": 273,
         "kind": 1024,
         "name": "ARROW_RIGHT",
         "url": "classes/_enums_keys_enum_.keys.html#arrow_right",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 292,
+        "id": 274,
         "kind": 1024,
         "name": "ARROW_LEFT",
         "url": "classes/_enums_keys_enum_.keys.html#arrow_left",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"enums/keys.enum\".Keys"
     }, {
-        "id": 293,
+        "id": 275,
         "kind": 1,
         "name": "\"components/ItemCounter\"",
         "url": "modules/_components_itemcounter_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 294,
+        "id": 276,
         "kind": 256,
         "name": "SimpleWrapper",
         "url": "interfaces/_components_itemcounter_.simplewrapper.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"components/ItemCounter\""
     }, {
-        "id": 295,
+        "id": 277,
         "kind": 1024,
         "name": "key",
         "url": "interfaces/_components_itemcounter_.simplewrapper.html#key",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"components/ItemCounter\".SimpleWrapper"
     }, {
-        "id": 296,
+        "id": 278,
         "kind": 1024,
         "name": "count",
         "url": "interfaces/_components_itemcounter_.simplewrapper.html#count",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"components/ItemCounter\".SimpleWrapper"
     }, {
-        "id": 297,
+        "id": 279,
         "kind": 128,
         "name": "ItemCounter",
         "url": "classes/_components_itemcounter_.itemcounter.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"components/ItemCounter\""
     }, {
-        "id": 298,
+        "id": 280,
         "kind": 1024,
         "name": "data",
         "url": "classes/_components_itemcounter_.itemcounter.html#data",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 299,
+        "id": 281,
         "kind": 1024,
         "name": "results",
         "url": "classes/_components_itemcounter_.itemcounter.html#results",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 300,
+        "id": 282,
         "kind": 1024,
         "name": "processed",
         "url": "classes/_components_itemcounter_.itemcounter.html#processed",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 301,
+        "id": 283,
         "kind": 2048,
         "name": "add",
         "url": "classes/_components_itemcounter_.itemcounter.html#add",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 302,
+        "id": 284,
         "kind": 2048,
         "name": "addAll",
         "url": "classes/_components_itemcounter_.itemcounter.html#addall",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 303,
+        "id": 285,
         "kind": 2048,
         "name": "getTopN",
         "url": "classes/_components_itemcounter_.itemcounter.html#gettopn",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 304,
+        "id": 286,
         "kind": 2048,
         "name": "getCount",
         "url": "classes/_components_itemcounter_.itemcounter.html#getcount",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 305,
+        "id": 287,
         "kind": 2048,
         "name": "process",
         "url": "classes/_components_itemcounter_.itemcounter.html#process",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/ItemCounter\".ItemCounter"
     }, {
-        "id": 306,
+        "id": 288,
         "kind": 1,
         "name": "\"components/FileManager\"",
         "url": "modules/_components_filemanager_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 307,
+        "id": 289,
         "kind": 128,
         "name": "FileManager",
         "url": "classes/_components_filemanager_.filemanager.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"components/FileManager\""
     }, {
-        "id": 308,
+        "id": 290,
         "kind": 1024,
         "name": "input",
         "url": "classes/_components_filemanager_.filemanager.html#input",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 309,
+        "id": 291,
         "kind": 1024,
         "name": "link",
         "url": "classes/_components_filemanager_.filemanager.html#link",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 310,
+        "id": 292,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_components_filemanager_.filemanager.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 311,
+        "id": 293,
         "kind": 2048,
         "name": "saveFile",
         "url": "classes/_components_filemanager_.filemanager.html#savefile",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 312,
+        "id": 294,
         "kind": 2048,
         "name": "saveImage",
         "url": "classes/_components_filemanager_.filemanager.html#saveimage",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 313,
+        "id": 295,
         "kind": 2048,
         "name": "loadImage",
         "url": "classes/_components_filemanager_.filemanager.html#loadimage",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 314,
+        "id": 296,
         "kind": 2048,
         "name": "loadFile",
         "url": "classes/_components_filemanager_.filemanager.html#loadfile",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 315,
+        "id": 297,
         "kind": 2048,
         "name": "loadBinaryFile",
         "url": "classes/_components_filemanager_.filemanager.html#loadbinaryfile",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/FileManager\".FileManager"
     }, {
-        "id": 316,
+        "id": 298,
         "kind": 1,
         "name": "\"config/gtools-config.interface\"",
         "url": "modules/_config_gtools_config_interface_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 317,
+        "id": 299,
         "kind": 256,
         "name": "GToolsConfigInterface",
         "url": "interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"config/gtools-config.interface\""
     }, {
-        "id": 318,
+        "id": 300,
         "kind": 1024,
         "name": "URL_API",
         "url": "interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html#url_api",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"config/gtools-config.interface\".GToolsConfigInterface"
     }, {
-        "id": 319,
+        "id": 301,
         "kind": 1024,
         "name": "LANGUAGE",
         "url": "interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html#language",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"config/gtools-config.interface\".GToolsConfigInterface"
     }, {
-        "id": 320,
+        "id": 302,
         "kind": 1024,
         "name": "VERSION",
         "url": "interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html#version",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"config/gtools-config.interface\".GToolsConfigInterface"
     }, {
-        "id": 321,
+        "id": 303,
         "kind": 1024,
         "name": "PAGE_LIMIT",
         "url": "interfaces/_config_gtools_config_interface_.gtoolsconfiginterface.html#page_limit",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"config/gtools-config.interface\".GToolsConfigInterface"
     }, {
-        "id": 322,
+        "id": 304,
         "kind": 1,
         "name": "\"config/gtools-config\"",
         "url": "modules/_config_gtools_config_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 323,
+        "id": 305,
         "kind": 128,
         "name": "ClassGToolsConfig",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"config/gtools-config\""
     }, {
-        "id": 324,
+        "id": 306,
         "kind": 262144,
         "name": "URL_API",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html#url_api",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"config/gtools-config\".ClassGToolsConfig"
     }, {
-        "id": 325,
+        "id": 307,
         "kind": 262144,
         "name": "PAGE_LIMIT",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html#page_limit",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"config/gtools-config\".ClassGToolsConfig"
     }, {
-        "id": 326,
+        "id": 308,
         "kind": 262144,
         "name": "LANGUAGE",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html#language",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"config/gtools-config\".ClassGToolsConfig"
     }, {
-        "id": 327,
+        "id": 309,
         "kind": 262144,
         "name": "VERSION",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html#version",
         "classes": "tsd-kind-get-signature tsd-parent-kind-class",
         "parent": "\"config/gtools-config\".ClassGToolsConfig"
     }, {
-        "id": 328,
+        "id": 310,
         "kind": 2048,
         "name": "checkConfig",
         "url": "classes/_config_gtools_config_.classgtoolsconfig.html#checkconfig",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-private",
         "parent": "\"config/gtools-config\".ClassGToolsConfig"
     }, {
-        "id": 329,
+        "id": 311,
         "kind": 32,
         "name": "config",
         "url": "modules/_config_gtools_config_.html#config",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"config/gtools-config\""
     }, {
-        "id": 330,
+        "id": 312,
         "kind": 64,
         "name": "initConfig",
         "url": "modules/_config_gtools_config_.html#initconfig",
         "classes": "tsd-kind-function tsd-parent-kind-external-module",
         "parent": "\"config/gtools-config\""
     }, {
-        "id": 331,
+        "id": 313,
         "kind": 32,
         "name": "GToolsConfig",
         "url": "modules/_config_gtools_config_.html#gtoolsconfig",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module",
         "parent": "\"config/gtools-config\""
     }, {
-        "id": 332,
+        "id": 314,
         "kind": 1,
         "name": "\"components/Paginator\"",
         "url": "modules/_components_paginator_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 333,
+        "id": 315,
         "kind": 128,
         "name": "Paginator",
         "url": "classes/_components_paginator_.paginator.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter",
         "parent": "\"components/Paginator\""
     }, {
-        "id": 334,
+        "id": 316,
         "kind": 1024,
         "name": "itemsPerPage",
         "url": "classes/_components_paginator_.paginator.html#itemsperpage",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 335,
+        "id": 317,
         "kind": 1024,
         "name": "actList",
         "url": "classes/_components_paginator_.paginator.html#actlist",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 336,
+        "id": 318,
         "kind": 1024,
         "name": "actualPage",
         "url": "classes/_components_paginator_.paginator.html#actualpage",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 337,
+        "id": 319,
         "kind": 1024,
         "name": "lastPage",
         "url": "classes/_components_paginator_.paginator.html#lastpage",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 338,
+        "id": 320,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_components_paginator_.paginator.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 339,
+        "id": 321,
         "kind": 1024,
         "name": "allItems",
         "url": "classes/_components_paginator_.paginator.html#allitems",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 340,
+        "id": 322,
         "kind": 2048,
         "name": "getActualPage",
         "url": "classes/_components_paginator_.paginator.html#getactualpage",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 341,
+        "id": 323,
         "kind": 2048,
         "name": "getPages",
         "url": "classes/_components_paginator_.paginator.html#getpages",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 342,
+        "id": 324,
         "kind": 2048,
         "name": "getPagesAround",
         "url": "classes/_components_paginator_.paginator.html#getpagesaround",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 343,
+        "id": 325,
         "kind": 2048,
         "name": "getList",
         "url": "classes/_components_paginator_.paginator.html#getlist",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 344,
+        "id": 326,
         "kind": 2048,
         "name": "goToNext",
         "url": "classes/_components_paginator_.paginator.html#gotonext",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 345,
+        "id": 327,
         "kind": 2048,
         "name": "gotTo",
         "url": "classes/_components_paginator_.paginator.html#gotto",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 346,
+        "id": 328,
         "kind": 2048,
         "name": "goToPrev",
         "url": "classes/_components_paginator_.paginator.html#gotoprev",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 347,
+        "id": 329,
         "kind": 2048,
         "name": "goToFirst",
         "url": "classes/_components_paginator_.paginator.html#gotofirst",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 348,
+        "id": 330,
         "kind": 2048,
         "name": "goToLast",
         "url": "classes/_components_paginator_.paginator.html#gotolast",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 349,
+        "id": 331,
         "kind": 2048,
         "name": "_reCalcList",
         "url": "classes/_components_paginator_.paginator.html#_recalclist",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-private",
         "parent": "\"components/Paginator\".Paginator"
     }, {
-        "id": 350,
+        "id": 332,
         "kind": 1,
         "name": "\"math/Vector2f\"",
         "url": "modules/_math_vector2f_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 351,
+        "id": 333,
         "kind": 128,
         "name": "Vector2f",
         "url": "classes/_math_vector2f_.vector2f.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"math/Vector2f\""
     }, {
-        "id": 352,
+        "id": 334,
         "kind": 1024,
         "name": "y",
         "url": "classes/_math_vector2f_.vector2f.html#y",
         "classes": "tsd-kind-property tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 353,
+        "id": 335,
         "kind": 1024,
         "name": "x",
         "url": "classes/_math_vector2f_.vector2f.html#x",
         "classes": "tsd-kind-property tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 354,
+        "id": 336,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_math_vector2f_.vector2f.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 355,
+        "id": 337,
         "kind": 2048,
         "name": "set",
         "url": "classes/_math_vector2f_.vector2f.html#set",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 356,
+        "id": 338,
         "kind": 2048,
         "name": "add",
         "url": "classes/_math_vector2f_.vector2f.html#add",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 357,
+        "id": 339,
         "kind": 2048,
         "name": "div",
         "url": "classes/_math_vector2f_.vector2f.html#div",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 358,
+        "id": 340,
         "kind": 2048,
         "name": "mul",
         "url": "classes/_math_vector2f_.vector2f.html#mul",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 359,
+        "id": 341,
         "kind": 2048,
         "name": "sub",
         "url": "classes/_math_vector2f_.vector2f.html#sub",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"math/Vector2f\".Vector2f"
     }, {
-        "id": 360,
+        "id": 342,
         "kind": 64,
         "name": "process",
         "url": "modules/_math_vector2f_.html#process",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"math/Vector2f\""
     }, {
+        "id": 343,
+        "kind": 1,
+        "name": "\"GUtils.node\"",
+        "url": "modules/_gutils_node_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 344,
+        "kind": 1,
+        "name": "\"utils/DomUtils\"",
+        "url": "modules/_utils_domutils_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 345,
+        "kind": 256,
+        "name": "ObjectCreatorParams",
+        "url": "interfaces/_utils_domutils_.objectcreatorparams.html",
+        "classes": "tsd-kind-interface tsd-parent-kind-external-module",
+        "parent": "\"utils/DomUtils\""
+    }, {
+        "id": 346,
+        "kind": 1024,
+        "name": "name",
+        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#name",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
+    }, {
+        "id": 347,
+        "kind": 1024,
+        "name": "attr",
+        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#attr",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
+    }, {
+        "id": 348,
+        "kind": 1024,
+        "name": "cont",
+        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#cont",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
+    }, {
+        "id": 349,
+        "kind": 1024,
+        "name": "style",
+        "url": "interfaces/_utils_domutils_.objectcreatorparams.html#style",
+        "classes": "tsd-kind-property tsd-parent-kind-interface",
+        "parent": "\"utils/DomUtils\".ObjectCreatorParams"
+    }, {
+        "id": 350,
+        "kind": 128,
+        "name": "DomUtils",
+        "url": "classes/_utils_domutils_.domutils.html",
+        "classes": "tsd-kind-class tsd-parent-kind-external-module",
+        "parent": "\"utils/DomUtils\""
+    }, {
+        "id": 351,
+        "kind": 2048,
+        "name": "getWindowHeight",
+        "url": "classes/_utils_domutils_.domutils.html#getwindowheight",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 352,
+        "kind": 2048,
+        "name": "getWindowWidth",
+        "url": "classes/_utils_domutils_.domutils.html#getwindowwidth",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 353,
+        "kind": 2048,
+        "name": "text",
+        "url": "classes/_utils_domutils_.domutils.html#text",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 354,
+        "kind": 2048,
+        "name": "html",
+        "url": "classes/_utils_domutils_.domutils.html#html",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 355,
+        "kind": 2048,
+        "name": "class",
+        "url": "classes/_utils_domutils_.domutils.html#class",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 356,
+        "kind": 2048,
+        "name": "createElement",
+        "url": "classes/_utils_domutils_.domutils.html#createelement",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 357,
+        "kind": 2048,
+        "name": "remove",
+        "url": "classes/_utils_domutils_.domutils.html#remove",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 358,
+        "kind": 2048,
+        "name": "position",
+        "url": "classes/_utils_domutils_.domutils.html#position",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 359,
+        "kind": 2048,
+        "name": "indexOf",
+        "url": "classes/_utils_domutils_.domutils.html#indexof",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 360,
+        "kind": 2048,
+        "name": "size",
+        "url": "classes/_utils_domutils_.domutils.html#size",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
         "id": 361,
+        "kind": 2048,
+        "name": "serialize",
+        "url": "classes/_utils_domutils_.domutils.html#serialize",
+        "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
+        "parent": "\"utils/DomUtils\".DomUtils"
+    }, {
+        "id": 362,
         "kind": 1,
         "name": "\"GUtils\"",
         "url": "modules/_gutils_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 362,
+        "id": 363,
+        "kind": 1,
+        "name": "\"GUtils.web\"",
+        "url": "modules/_gutils_web_.html",
+        "classes": "tsd-kind-external-module"
+    }, {
+        "id": 364,
         "kind": 1,
         "name": "\"MockData\"",
         "url": "modules/_mockdata_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 363,
+        "id": 365,
         "kind": 128,
         "name": "MockData",
         "url": "classes/_mockdata_.mockdata.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"MockData\""
     }, {
-        "id": 364,
+        "id": 366,
         "kind": 1024,
         "name": "timesHHmmss",
         "url": "classes/_mockdata_.mockdata.html#timeshhmmss",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 365,
+        "id": 367,
         "kind": 1024,
         "name": "timesHHmm",
         "url": "classes/_mockdata_.mockdata.html#timeshhmm",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 366,
+        "id": 368,
         "kind": 1024,
         "name": "timesHmm",
         "url": "classes/_mockdata_.mockdata.html#timeshmm",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 367,
+        "id": 369,
         "kind": 1024,
         "name": "invalidTimes",
         "url": "classes/_mockdata_.mockdata.html#invalidtimes",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 368,
+        "id": 370,
         "kind": 1024,
         "name": "charactersString",
         "url": "classes/_mockdata_.mockdata.html#charactersstring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 369,
+        "id": 371,
         "kind": 1024,
         "name": "characters",
         "url": "classes/_mockdata_.mockdata.html#characters",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 370,
+        "id": 372,
         "kind": 1024,
         "name": "charactersCaseAbleString",
         "url": "classes/_mockdata_.mockdata.html#characterscaseablestring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 371,
+        "id": 373,
         "kind": 1024,
         "name": "charactersCaseAble",
         "url": "classes/_mockdata_.mockdata.html#characterscaseable",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 372,
+        "id": 374,
         "kind": 1024,
         "name": "charactersEmpty",
         "url": "classes/_mockdata_.mockdata.html#charactersempty",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 373,
+        "id": 375,
         "kind": 1024,
         "name": "charactersNotEmpty",
         "url": "classes/_mockdata_.mockdata.html#charactersnotempty",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 374,
+        "id": 376,
         "kind": 1024,
         "name": "numbersString",
         "url": "classes/_mockdata_.mockdata.html#numbersstring",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 375,
+        "id": 377,
         "kind": 1024,
         "name": "numbers",
         "url": "classes/_mockdata_.mockdata.html#numbers",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 376,
+        "id": 378,
         "kind": 1024,
         "name": "randomArray",
         "url": "classes/_mockdata_.mockdata.html#randomarray",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 377,
+        "id": 379,
         "kind": 1024,
         "name": "stringHelloWorldIAmComputer",
         "url": "classes/_mockdata_.mockdata.html#stringhelloworldiamcomputer",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 378,
+        "id": 380,
         "kind": 1024,
         "name": "upperSnakeCase",
         "url": "classes/_mockdata_.mockdata.html#uppersnakecase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 379,
+        "id": 381,
         "kind": 1024,
         "name": "lowerSnakeCase",
         "url": "classes/_mockdata_.mockdata.html#lowersnakecase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 380,
+        "id": 382,
         "kind": 1024,
         "name": "upperCamelCase",
         "url": "classes/_mockdata_.mockdata.html#uppercamelcase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 381,
+        "id": 383,
         "kind": 1024,
         "name": "lowerCamelCase",
         "url": "classes/_mockdata_.mockdata.html#lowercamelcase",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 382,
+        "id": 384,
         "kind": 1024,
         "name": "randomStrings",
         "url": "classes/_mockdata_.mockdata.html#randomstrings",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 383,
+        "id": 385,
         "kind": 1024,
         "name": "man",
         "url": "classes/_mockdata_.mockdata.html#man",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 384,
+        "id": 386,
         "kind": 1024,
         "name": "woman",
         "url": "classes/_mockdata_.mockdata.html#woman",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 385,
+        "id": 387,
         "kind": 1024,
         "name": "nothing",
         "url": "classes/_mockdata_.mockdata.html#nothing",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 386,
+        "id": 388,
         "kind": 1024,
         "name": "phoneNumbers",
         "url": "classes/_mockdata_.mockdata.html#phonenumbers",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 387,
+        "id": 389,
         "kind": 1024,
         "name": "emails",
         "url": "classes/_mockdata_.mockdata.html#emails",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 388,
+        "id": 390,
         "kind": 1024,
         "name": "notEmails",
         "url": "classes/_mockdata_.mockdata.html#notemails",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 389,
+        "id": 391,
         "kind": 2048,
         "name": "functionSum",
         "url": "classes/_mockdata_.mockdata.html#functionsum",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"MockData\".MockData"
     }, {
-        "id": 390,
+        "id": 392,
         "kind": 1,
         "name": "\"index\"",
         "url": "modules/_index_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 391,
+        "id": 393,
         "kind": 1,
         "name": "\"utils/DecoratorsUtils\"",
         "url": "modules/_utils_decoratorsutils_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 392,
+        "id": 394,
         "kind": 4194304,
         "name": "PropertyDecoratorType",
         "url": "modules/_utils_decoratorsutils_.html#propertydecoratortype",
         "classes": "tsd-kind-type-alias tsd-parent-kind-external-module",
         "parent": "\"utils/DecoratorsUtils\""
     }, {
-        "id": 393,
+        "id": 395,
         "kind": 65536,
         "name": "__type",
         "url": "modules/_utils_decoratorsutils_.html#propertydecoratortype.__type",
         "classes": "tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported",
         "parent": "\"utils/DecoratorsUtils\".PropertyDecoratorType"
     }, {
-        "id": 394,
+        "id": 396,
         "kind": 1,
         "name": "\"decorators/deprecated.decorator\"",
         "url": "modules/_decorators_deprecated_decorator_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 395,
+        "id": 397,
         "kind": 64,
         "name": "Deprecated",
         "url": "modules/_decorators_deprecated_decorator_.html#deprecated",
         "classes": "tsd-kind-function tsd-parent-kind-external-module",
         "parent": "\"decorators/deprecated.decorator\""
     }, {
-        "id": 396,
+        "id": 398,
         "kind": 1,
         "name": "\"decorators/mapper.decorator\"",
         "url": "modules/_decorators_mapper_decorator_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 397,
+        "id": 399,
         "kind": 64,
         "name": "Mapper",
         "url": "modules/_decorators_mapper_decorator_.html#mapper",
         "classes": "tsd-kind-function tsd-parent-kind-external-module",
         "parent": "\"decorators/mapper.decorator\""
     }, {
-        "id": 398,
+        "id": 400,
         "kind": 1,
         "name": "\"decorators/singleton.decorator\"",
         "url": "modules/_decorators_singleton_decorator_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 399,
+        "id": 401,
         "kind": 32,
         "name": "instances",
         "url": "modules/_decorators_singleton_decorator_.html#instances",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"decorators/singleton.decorator\""
     }, {
-        "id": 400,
+        "id": 402,
         "kind": 65536,
         "name": "__type",
         "url": "modules/_decorators_singleton_decorator_.html#instances.__type",
         "classes": "tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported",
         "parent": "\"decorators/singleton.decorator\".instances"
     }, {
-        "id": 401,
+        "id": 403,
         "kind": 64,
         "name": "Singleton",
         "url": "modules/_decorators_singleton_decorator_.html#singleton",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter",
         "parent": "\"decorators/singleton.decorator\""
     }, {
-        "id": 402,
+        "id": 404,
         "kind": 1,
         "name": "\"decorators/watch.decorator\"",
         "url": "modules/_decorators_watch_decorator_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 403,
+        "id": 405,
         "kind": 256,
         "name": "WatchOptions",
         "url": "interfaces/_decorators_watch_decorator_.watchoptions.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"decorators/watch.decorator\""
     }, {
-        "id": 404,
+        "id": 406,
         "kind": 1024,
         "name": "enumerable",
         "url": "interfaces/_decorators_watch_decorator_.watchoptions.html#enumerable",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"decorators/watch.decorator\".WatchOptions"
     }, {
-        "id": 405,
+        "id": 407,
         "kind": 1024,
         "name": "configurable",
         "url": "interfaces/_decorators_watch_decorator_.watchoptions.html#configurable",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"decorators/watch.decorator\".WatchOptions"
     }, {
-        "id": 406,
+        "id": 408,
         "kind": 1024,
         "name": "prefix",
         "url": "interfaces/_decorators_watch_decorator_.watchoptions.html#prefix",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"decorators/watch.decorator\".WatchOptions"
     }, {
-        "id": 407,
+        "id": 409,
         "kind": 64,
         "name": "Watch",
         "url": "modules/_decorators_watch_decorator_.html#watch",
         "classes": "tsd-kind-function tsd-parent-kind-external-module",
         "parent": "\"decorators/watch.decorator\""
     }, {
-        "id": 408,
+        "id": 410,
         "kind": 1,
         "name": "\"dom/CanvasUtils\"",
         "url": "modules/_dom_canvasutils_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 409,
+        "id": 411,
         "kind": 256,
         "name": "CanvasShadowConfig",
         "url": "interfaces/_dom_canvasutils_.canvasshadowconfig.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 410,
+        "id": 412,
         "kind": 1024,
         "name": "x",
         "url": "interfaces/_dom_canvasutils_.canvasshadowconfig.html#x",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasShadowConfig"
     }, {
-        "id": 411,
+        "id": 413,
         "kind": 1024,
         "name": "y",
         "url": "interfaces/_dom_canvasutils_.canvasshadowconfig.html#y",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasShadowConfig"
     }, {
-        "id": 412,
+        "id": 414,
         "kind": 1024,
         "name": "color",
         "url": "interfaces/_dom_canvasutils_.canvasshadowconfig.html#color",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasShadowConfig"
     }, {
-        "id": 413,
+        "id": 415,
         "kind": 1024,
         "name": "blur",
         "url": "interfaces/_dom_canvasutils_.canvasshadowconfig.html#blur",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasShadowConfig"
     }, {
-        "id": 414,
+        "id": 416,
         "kind": 256,
         "name": "CanvasConfig",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 415,
+        "id": 417,
         "kind": 1024,
         "name": "shadow",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#shadow",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 416,
+        "id": 418,
         "kind": 1024,
         "name": "position",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#position",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 417,
+        "id": 419,
         "kind": 1024,
         "name": "center",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#center",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 418,
+        "id": 420,
         "kind": 1024,
         "name": "size",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#size",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 419,
+        "id": 421,
         "kind": 1024,
         "name": "bgImage",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#bgimage",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 420,
+        "id": 422,
         "kind": 1024,
         "name": "fill",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#fill",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 421,
+        "id": 423,
         "kind": 1024,
         "name": "fillColor",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#fillcolor",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 422,
+        "id": 424,
         "kind": 1024,
         "name": "draw",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#draw",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 423,
+        "id": 425,
         "kind": 1024,
         "name": "borderWidth",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#borderwidth",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 424,
+        "id": 426,
         "kind": 1024,
         "name": "radius",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#radius",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 425,
+        "id": 427,
         "kind": 1024,
         "name": "borderColor",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#bordercolor",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 426,
+        "id": 428,
         "kind": 1024,
         "name": "ctx",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#ctx",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 427,
+        "id": 429,
         "kind": 1024,
         "name": "lineCap",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#linecap",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 428,
+        "id": 430,
         "kind": 1024,
         "name": "joinType",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#jointype",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 429,
+        "id": 431,
         "kind": 1024,
         "name": "x",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#x",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 430,
+        "id": 432,
         "kind": 1024,
         "name": "y",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#y",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 431,
+        "id": 433,
         "kind": 1024,
         "name": "startAngle",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#startangle",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 432,
+        "id": 434,
         "kind": 1024,
         "name": "endAngle",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#endangle",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 433,
+        "id": 435,
         "kind": 1024,
         "name": "offset",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#offset",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 434,
+        "id": 436,
         "kind": 1024,
         "name": "lineDash",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#linedash",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 435,
+        "id": 437,
         "kind": 1024,
         "name": "width",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#width",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 436,
+        "id": 438,
         "kind": 1024,
         "name": "height",
         "url": "interfaces/_dom_canvasutils_.canvasconfig.html#height",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"dom/CanvasUtils\".CanvasConfig"
     }, {
-        "id": 437,
+        "id": 439,
         "kind": 128,
         "name": "CanvasUtils",
         "url": "classes/_dom_canvasutils_.canvasutils.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 438,
+        "id": 440,
         "kind": 2048,
         "name": "doArc",
         "url": "classes/_dom_canvasutils_.canvasutils.html#doarc",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasUtils\".CanvasUtils"
     }, {
-        "id": 439,
+        "id": 441,
         "kind": 2048,
         "name": "doRect",
         "url": "classes/_dom_canvasutils_.canvasutils.html#dorect",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/CanvasUtils\".CanvasUtils"
     }, {
-        "id": 440,
+        "id": 442,
         "kind": 32,
         "name": "$",
         "url": "modules/_dom_canvasutils_.html#_",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 441,
+        "id": 443,
         "kind": 64,
         "name": "setShadow",
         "url": "modules/_dom_canvasutils_.html#setshadow",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 442,
+        "id": 444,
         "kind": 64,
         "name": "process",
         "url": "modules/_dom_canvasutils_.html#process",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 443,
+        "id": 445,
         "kind": 64,
         "name": "initDef",
         "url": "modules/_dom_canvasutils_.html#initdef",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 444,
+        "id": 446,
         "kind": 64,
         "name": "remakePosAndSize",
         "url": "modules/_dom_canvasutils_.html#remakeposandsize",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 445,
+        "id": 447,
         "kind": 64,
         "name": "checkPosAndSize",
         "url": "modules/_dom_canvasutils_.html#checkposandsize",
         "classes": "tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/CanvasUtils\""
     }, {
-        "id": 446,
+        "id": 448,
         "kind": 1,
         "name": "\"dom/ElementBuilder\"",
         "url": "modules/_dom_elementbuilder_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 447,
+        "id": 449,
         "kind": 128,
         "name": "ElementBuilder",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"dom/ElementBuilder\""
     }, {
-        "id": 448,
+        "id": 450,
         "kind": 1024,
         "name": "result",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#result",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 449,
+        "id": 451,
         "kind": 1024,
         "name": "styles",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#styles",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 450,
+        "id": 452,
         "kind": 1024,
         "name": "attributes",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#attributes",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 451,
+        "id": 453,
         "kind": 1024,
         "name": "contentBuffer",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#contentbuffer",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 452,
+        "id": 454,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 453,
+        "id": 455,
         "kind": 1024,
         "name": "elementName",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#elementname",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 454,
+        "id": 456,
         "kind": 1024,
         "name": "parent",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#parent",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-private",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 455,
+        "id": 457,
         "kind": 2048,
         "name": "setContext",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#setcontext",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 456,
+        "id": 458,
         "kind": 2048,
         "name": "start",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#start",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 457,
+        "id": 459,
         "kind": 2048,
         "name": "child",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#child",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 458,
+        "id": 460,
         "kind": 2048,
         "name": "reset",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#reset",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 459,
+        "id": 461,
         "kind": 2048,
         "name": "style",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#style",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 460,
+        "id": 462,
         "kind": 2048,
         "name": "attribute",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#attribute",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 461,
+        "id": 463,
         "kind": 2048,
         "name": "content",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#content",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 462,
+        "id": 464,
         "kind": 2048,
         "name": "addContent",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#addcontent",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 463,
+        "id": 465,
         "kind": 2048,
         "name": "clearContent",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#clearcontent",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 464,
+        "id": 466,
         "kind": 2048,
         "name": "finish",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#finish",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 465,
+        "id": 467,
         "kind": 2048,
         "name": "build",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#build",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 466,
+        "id": 468,
         "kind": 2048,
         "name": "id",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#id",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 467,
+        "id": 469,
         "kind": 2048,
         "name": "clazz",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#clazz",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 468,
+        "id": 470,
         "kind": 2048,
         "name": "buildAndAppendTo",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#buildandappendto",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 469,
+        "id": 471,
         "kind": 2048,
         "name": "get",
         "url": "classes/_dom_elementbuilder_.elementbuilder.html#get",
         "classes": "tsd-kind-method tsd-parent-kind-class",
         "parent": "\"dom/ElementBuilder\".ElementBuilder"
     }, {
-        "id": 470,
+        "id": 472,
         "kind": 32,
         "name": "localContext",
         "url": "modules/_dom_elementbuilder_.html#localcontext",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"dom/ElementBuilder\""
     }, {
-        "id": 471,
+        "id": 473,
         "kind": 1,
         "name": "\"errors/GLogger\"",
         "url": "modules/_errors_glogger_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 472,
+        "id": 474,
         "kind": 128,
         "name": "GLogger",
         "url": "classes/_errors_glogger_.glogger.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"errors/GLogger\""
     }, {
-        "id": 473,
+        "id": 475,
         "kind": 2048,
         "name": "getLine",
         "url": "classes/_errors_glogger_.glogger.html#getline",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"errors/GLogger\".GLogger"
     }, {
-        "id": 474,
+        "id": 476,
         "kind": 1,
         "name": "\"errors/NullPointerException\"",
         "url": "modules/_errors_nullpointerexception_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 475,
+        "id": 477,
         "kind": 128,
         "name": "NullPointerException",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"errors/NullPointerException\""
     }, {
-        "id": 476,
+        "id": 478,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"errors/NullPointerException\".NullPointerException"
     }, {
-        "id": 477,
+        "id": 479,
         "kind": 1024,
         "name": "name",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html#name",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/NullPointerException\".NullPointerException"
     }, {
-        "id": 478,
+        "id": 480,
         "kind": 1024,
         "name": "message",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html#message",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/NullPointerException\".NullPointerException"
     }, {
-        "id": 479,
+        "id": 481,
         "kind": 1024,
         "name": "stack",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html#stack",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited",
         "parent": "\"errors/NullPointerException\".NullPointerException"
     }, {
-        "id": 480,
+        "id": 482,
         "kind": 1024,
         "name": "Error",
         "url": "classes/_errors_nullpointerexception_.nullpointerexception.html#error",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"errors/NullPointerException\".NullPointerException"
     }, {
-        "id": 481,
+        "id": 483,
         "kind": 1,
         "name": "\"errors/WrongParameterException\"",
         "url": "modules/_errors_wrongparameterexception_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 482,
+        "id": 484,
         "kind": 128,
         "name": "WrongParameterException",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"errors/WrongParameterException\""
     }, {
-        "id": 483,
+        "id": 485,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"errors/WrongParameterException\".WrongParameterException"
     }, {
-        "id": 484,
+        "id": 486,
         "kind": 1024,
         "name": "name",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html#name",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/WrongParameterException\".WrongParameterException"
     }, {
-        "id": 485,
+        "id": 487,
         "kind": 1024,
         "name": "message",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html#message",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/WrongParameterException\".WrongParameterException"
     }, {
-        "id": 486,
+        "id": 488,
         "kind": 1024,
         "name": "stack",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html#stack",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited",
         "parent": "\"errors/WrongParameterException\".WrongParameterException"
     }, {
-        "id": 487,
+        "id": 489,
         "kind": 1024,
         "name": "Error",
         "url": "classes/_errors_wrongparameterexception_.wrongparameterexception.html#error",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"errors/WrongParameterException\".WrongParameterException"
     }, {
-        "id": 488,
+        "id": 490,
         "kind": 1,
         "name": "\"errors/WrongTypeException\"",
         "url": "modules/_errors_wrongtypeexception_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 489,
+        "id": 491,
         "kind": 128,
         "name": "WrongTypeException",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"errors/WrongTypeException\""
     }, {
-        "id": 490,
+        "id": 492,
         "kind": 512,
         "name": "constructor",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html#constructor",
         "classes": "tsd-kind-constructor tsd-parent-kind-class",
         "parent": "\"errors/WrongTypeException\".WrongTypeException"
     }, {
-        "id": 491,
+        "id": 493,
         "kind": 1024,
         "name": "name",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html#name",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/WrongTypeException\".WrongTypeException"
     }, {
-        "id": 492,
+        "id": 494,
         "kind": 1024,
         "name": "message",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html#message",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-inherited",
         "parent": "\"errors/WrongTypeException\".WrongTypeException"
     }, {
-        "id": 493,
+        "id": 495,
         "kind": 1024,
         "name": "stack",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html#stack",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited",
         "parent": "\"errors/WrongTypeException\".WrongTypeException"
     }, {
-        "id": 494,
+        "id": 496,
         "kind": 1024,
         "name": "Error",
         "url": "classes/_errors_wrongtypeexception_.wrongtypeexception.html#error",
         "classes": "tsd-kind-property tsd-parent-kind-class tsd-is-static",
         "parent": "\"errors/WrongTypeException\".WrongTypeException"
     }, {
-        "id": 495,
+        "id": 497,
         "kind": 1,
         "name": "\"experimental/countries/country.interface\"",
         "url": "modules/_experimental_countries_country_interface_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 496,
+        "id": 498,
         "kind": 256,
         "name": "CountryData",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"experimental/countries/country.interface\""
     }, {
-        "id": 497,
+        "id": 499,
         "kind": 1024,
         "name": "key",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#key",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 498,
+        "id": 500,
         "kind": 1024,
         "name": "patterns",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#patterns",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 499,
+        "id": 501,
         "kind": 1024,
         "name": "name",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#name",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 500,
+        "id": 502,
         "kind": 1024,
         "name": "capitalCity",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#capitalcity",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 501,
+        "id": 503,
         "kind": 1024,
         "name": "currency",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#currency",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 502,
+        "id": 504,
         "kind": 1024,
         "name": "diallingCode",
         "url": "interfaces/_experimental_countries_country_interface_.countrydata.html#diallingcode",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"experimental/countries/country.interface\".CountryData"
     }, {
-        "id": 503,
+        "id": 505,
         "kind": 1,
         "name": "\"experimental/countries/country.model\"",
         "url": "modules/_experimental_countries_country_model_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 504,
+        "id": 506,
         "kind": 128,
         "name": "Country",
         "url": "classes/_experimental_countries_country_model_.country.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"experimental/countries/country.model\""
     }, {
-        "id": 505,
+        "id": 507,
         "kind": 2048,
         "name": "getByKey",
         "url": "classes/_experimental_countries_country_model_.country.html#getbykey",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"experimental/countries/country.model\".Country"
     }, {
-        "id": 506,
+        "id": 508,
         "kind": 2048,
         "name": "find",
         "url": "classes/_experimental_countries_country_model_.country.html#find",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"experimental/countries/country.model\".Country"
     }, {
-        "id": 507,
+        "id": 509,
         "kind": 32,
         "name": "data",
         "url": "modules/_experimental_countries_country_model_.html#data",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"experimental/countries/country.model\""
     }, {
-        "id": 508,
+        "id": 510,
         "kind": 32,
         "name": "countries",
         "url": "modules/_experimental_countries_country_model_.html#countries",
         "classes": "tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported",
         "parent": "\"experimental/countries/country.model\""
     }, {
-        "id": 509,
+        "id": 511,
         "kind": 65536,
         "name": "__type",
         "url": "modules/_experimental_countries_country_model_.html#countries.__type",
         "classes": "tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported",
         "parent": "\"experimental/countries/country.model\".countries"
     }, {
-        "id": 510,
+        "id": 512,
         "kind": 1,
         "name": "\"utils/ProcessUtils\"",
         "url": "modules/_utils_processutils_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 511,
+        "id": 513,
         "kind": 256,
         "name": "ProcessData",
         "url": "interfaces/_utils_processutils_.processdata.html",
         "classes": "tsd-kind-interface tsd-parent-kind-external-module",
         "parent": "\"utils/ProcessUtils\""
     }, {
-        "id": 512,
+        "id": 514,
         "kind": 1024,
         "name": "memoryUsage",
         "url": "interfaces/_utils_processutils_.processdata.html#memoryusage",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 513,
+        "id": 515,
         "kind": 1024,
         "name": "cpuUsage",
         "url": "interfaces/_utils_processutils_.processdata.html#cpuusage",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 514,
+        "id": 516,
         "kind": 1024,
         "name": "upTime",
         "url": "interfaces/_utils_processutils_.processdata.html#uptime",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 515,
+        "id": 517,
         "kind": 1024,
         "name": "version",
         "url": "interfaces/_utils_processutils_.processdata.html#version",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 516,
+        "id": 518,
         "kind": 1024,
         "name": "platform",
         "url": "interfaces/_utils_processutils_.processdata.html#platform",
         "classes": "tsd-kind-property tsd-parent-kind-interface",
         "parent": "\"utils/ProcessUtils\".ProcessData"
     }, {
-        "id": 517,
+        "id": 519,
         "kind": 128,
         "name": "ProcessUtils",
         "url": "classes/_utils_processutils_.processutils.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"utils/ProcessUtils\""
     }, {
-        "id": 518,
+        "id": 520,
         "kind": 2048,
         "name": "isTest",
         "url": "classes/_utils_processutils_.processutils.html#istest",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 519,
+        "id": 521,
         "kind": 2048,
         "name": "isProd",
         "url": "classes/_utils_processutils_.processutils.html#isprod",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 520,
+        "id": 522,
         "kind": 2048,
         "name": "isDev",
         "url": "classes/_utils_processutils_.processutils.html#isdev",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 521,
+        "id": 523,
         "kind": 2048,
         "name": "setEnvironment",
         "url": "classes/_utils_processutils_.processutils.html#setenvironment",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 522,
+        "id": 524,
         "kind": 2048,
         "name": "getProcessData",
         "url": "classes/_utils_processutils_.processutils.html#getprocessdata",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 523,
+        "id": 525,
         "kind": 2048,
         "name": "setDefaultEnvironment",
         "url": "classes/_utils_processutils_.processutils.html#setdefaultenvironment",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/ProcessUtils\".ProcessUtils"
     }, {
-        "id": 524,
+        "id": 526,
         "kind": 1,
         "name": "\"utils/Runtime\"",
         "url": "modules/_utils_runtime_.html",
         "classes": "tsd-kind-external-module"
     }, {
-        "id": 525,
+        "id": 527,
         "kind": 128,
         "name": "Runtime",
         "url": "classes/_utils_runtime_.runtime.html",
         "classes": "tsd-kind-class tsd-parent-kind-external-module",
         "parent": "\"utils/Runtime\""
     }, {
-        "id": 526,
+        "id": 528,
         "kind": 2048,
         "name": "useRuntimeExceptions",
         "url": "classes/_utils_runtime_.runtime.html#useruntimeexceptions",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 527,
+        "id": 529,
         "kind": 2048,
         "name": "notNull",
         "url": "classes/_utils_runtime_.runtime.html#notnull",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 528,
+        "id": 530,
         "kind": 2048,
         "name": "exists",
         "url": "classes/_utils_runtime_.runtime.html#exists",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 529,
+        "id": 531,
         "kind": 2048,
         "name": "isArray",
         "url": "classes/_utils_runtime_.runtime.html#isarray",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 530,
+        "id": 532,
         "kind": 2048,
         "name": "isString",
         "url": "classes/_utils_runtime_.runtime.html#isstring",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 531,
+        "id": 533,
         "kind": 2048,
         "name": "isNumber",
         "url": "classes/_utils_runtime_.runtime.html#isnumber",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 532,
+        "id": 534,
         "kind": 2048,
         "name": "isFunction",
         "url": "classes/_utils_runtime_.runtime.html#isfunction",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 533,
+        "id": 535,
         "kind": 2048,
         "name": "checkFunction",
         "url": "classes/_utils_runtime_.runtime.html#checkfunction",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 534,
+        "id": 536,
         "kind": 2048,
         "name": "isBoolean",
         "url": "classes/_utils_runtime_.runtime.html#isboolean",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 535,
+        "id": 537,
         "kind": 2048,
         "name": "min",
         "url": "classes/_utils_runtime_.runtime.html#min",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 536,
+        "id": 538,
         "kind": 2048,
         "name": "max",
         "url": "classes/_utils_runtime_.runtime.html#max",
         "classes": "tsd-kind-method tsd-parent-kind-class tsd-is-static",
         "parent": "\"utils/Runtime\".Runtime"
     }, {
-        "id": 537,
+        "id": 539,
         "kind": 32,
         "name": "useRuntimeCheckers",
         "url": "modules/_utils_runtime_.html#useruntimecheckers",
