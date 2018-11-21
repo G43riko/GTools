@@ -160,11 +160,13 @@ export class StringUtils {
         const endPos   = text.indexOf(key2);
         if (startPos < 0 && endPos >= 0) {
             return text.substring(0, endPos);
-        } else if (endPos < 0 && startPos >= 0) {
-            return text.substring(startPos + key1.length, text.length);
-        } else {
-            return text.substring(startPos + key1.length, endPos);
         }
+
+        if (endPos < 0 && startPos >= 0) {
+            return text.substring(startPos + key1.length, text.length);
+        }
+
+        return text.substring(startPos + key1.length, endPos);
     }
 
     public static occurrences(text: string, key: string): number {

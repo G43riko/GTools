@@ -42,10 +42,8 @@ export class MiscUtils {
             if (data[0].indexOf(obj) >= 0) {
                 return true;
             }
-        } else {
-            if (data.indexOf(obj) >= 0) {
-                return true;
-            }
+        } else if (data.indexOf(obj) >= 0) {
+            return true;
         }
 
         return false;
@@ -88,11 +86,9 @@ export class MiscUtils {
             const pair = key.split(delimiter);
             if (typeof queryString[pair[0]] === "undefined") {
                 queryString[pair[0]] = decodeURIComponent(pair[1]);
-            }
-            else if (typeof queryString[pair[0]] === "string") {
+            } else if (typeof queryString[pair[0]] === "string") {
                 queryString[pair[0]] = [queryString[pair[0]], decodeURIComponent(pair[1])];
-            }
-            else {
+            } else {
                 queryString[pair[0]].push(decodeURIComponent(pair[1]));
             }
         }
@@ -101,21 +97,18 @@ export class MiscUtils {
     }
 
     public static roughSizeOfObject(object: any): number {
-        const objectList = [];
+        const objectList   = [];
         const stack: any[] = [object];
-        let bytes        = 0;
+        let bytes          = 0;
         while (stack.length) {
             const value: any = stack.pop();
             if (typeof value === "boolean") {
                 bytes += 4;
-            }
-            else if (typeof value === "string") {
+            } else if (typeof value === "string") {
                 bytes += value.length << 1;
-            }
-            else if (typeof value === "number") {
+            } else if (typeof value === "number") {
                 bytes += 8;
-            }
-            else if (typeof value === "object" && objectList.indexOf(value) === -1) {
+            } else if (typeof value === "object" && objectList.indexOf(value) === -1) {
                 objectList.push(value);
                 for (const key in value) {
                     if (value.hasOwnProperty(key)) {
@@ -153,10 +146,8 @@ export class MiscUtils {
 
     public static serialize(obj: any): string {
         for (const key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                if (typeof obj[key] === "function") {
-                    obj[key] = obj[key].toString();
-                }
+            if (obj.hasOwnProperty(key) && typeof obj[key] === "function") {
+                obj[key] = obj[key].toString();
             }
         }
 
@@ -166,19 +157,17 @@ export class MiscUtils {
     public static parse(obj: string): any {
         const result = JSON.parse(obj);
         for (const i in result) {
-            if (result.hasOwnProperty(i)) {
-                if (typeof result[i] === "string") {
-                    if (result[i].indexOf("function (") === 0 ||
-                        result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/)) {
-                        try {
-                            // tslint:disable-next-line no-eval
-                            eval("result[i] = " + result[i]);
-                        }
-                        catch (e) {
-                            result[i] = e;
-                        }
-                    }
-                }
+            if (!result.hasOwnProperty(i) ||
+                typeof result[i] !== "string" || !(result[i].indexOf("function (") === 0 ||
+                    result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/))
+            ) {
+                continue;
+            }
+            try {
+                // tslint:disable-next-line no-eval
+                eval("result[i] = " + result[i]);
+            } catch (e) {
+                result[i] = e;
             }
         }
 

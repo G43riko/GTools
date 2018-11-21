@@ -3,14 +3,10 @@ const process = (op: (x: number, y: number) => void,
                  arg2?: number) => {
     if (typeof arg2 === "number") {
         op(arg1 as number, arg2);
-    }
-    else {
-        if (typeof arg1 === "number") {
-            op(arg1, arg1);
-        }
-        else {
-            op(arg1.x, arg1.y);
-        }
+    } else if (typeof arg1 === "number") {
+        op(arg1, arg1);
+    } else {
+        op(arg1.x, arg1.y);
     }
 };
 

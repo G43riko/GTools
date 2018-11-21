@@ -1,4 +1,4 @@
-import { Vector2f } from "../math/Vector2f";
+import { Vector2f } from "..";
 import { CanvasManager } from "./CanvasManager";
 import { Checkers } from "./Checkers";
 
@@ -93,11 +93,12 @@ function process(res: CanvasConfig): void {
         res.ctx.setLineDash(res.lineDash);
     }
 
-    if (res.draw) {
-        res.ctx.lineWidth   = res.borderWidth;
-        res.ctx.strokeStyle = res.borderColor;
-        res.ctx.stroke();
+    if (!res.draw) {
+        return;
     }
+    res.ctx.lineWidth   = res.borderWidth;
+    res.ctx.strokeStyle = res.borderColor;
+    res.ctx.stroke();
 }
 
 function initDef(obj: any): CanvasConfig {
@@ -126,19 +127,18 @@ function initDef(obj: any): CanvasConfig {
 function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
     const res: CanvasConfig = $.extend(def, obj);
     const checkAttribute = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
-        if (typeof res[attrName] !== "undefined") {
-            if (Checkers.isNumber(res[attrName])) {
-                res[partA] = res[attrName] as number;
-                res[partB] = res[attrName] as number;
-            }
-            else if (Array.isArray(res[attrName])) {
-                res[partA] = res[attrName][0];
-                res[partB] = res[attrName][1];
-            }
-            else {
-                res[partA] = (res[attrName] as Vector2f).x;
-                res[partB] = (res[attrName] as Vector2f).y;
-            }
+        if (typeof res[attrName] === "undefined") {
+            return;
+        }
+        if (Checkers.isNumber(res[attrName])) {
+            res[partA] = res[attrName] as number;
+            res[partB] = res[attrName] as number;
+        } else if (Array.isArray(res[attrName])) {
+            res[partA] = res[attrName][0];
+            res[partB] = res[attrName][1];
+        } else {
+            res[partA] = (res[attrName] as Vector2f).x;
+            res[partB] = (res[attrName] as Vector2f).y;
         }
     };
 

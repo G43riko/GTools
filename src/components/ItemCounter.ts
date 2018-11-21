@@ -1,4 +1,4 @@
-import { ArrayUtils } from "../utils/ArrayUtils";
+import { ArrayUtils } from "..";
 
 export interface SimpleWrapper {
     key: string;
@@ -17,7 +17,7 @@ export class ItemCounter {
         else {
             this.data[item] = 1;
         }
-        if (this.process()) {
+        if (this.processed) {
             this.processed = false;
         }
     }

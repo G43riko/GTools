@@ -58,16 +58,17 @@ export class FileManager {
      */
     public loadImage(func: (result: any, fileName: string) => any): void {
         this.input.onchange = (event: any) => {
-            const reader: FileReader = new FileReader();
             const files              = event.target.files;
-            if (files.length > 0) {
-                reader.onload = () => {
-                    const image = new Image();
-                    image.src   = reader.result as string;
-                    func(image, files[0]);
-                };
-                reader.readAsDataURL(files[0]);
+            if (files.length <= 0) {
+                return;
             }
+            const reader: FileReader = new FileReader();
+            reader.onload            = () => {
+                const image = new Image();
+                image.src   = reader.result as string;
+                func(image, files[0]);
+            };
+            reader.readAsDataURL(files[0]);
         };
         this.input.click();
     }

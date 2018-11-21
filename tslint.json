@@ -1,7 +1,10 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-consistent-codestyle",
+        "tslint-clean-code",
+        "tslint-sonarts"
     ],
     "jsRules": {},
     "rules": {
@@ -77,7 +80,21 @@
         "no-duplicate-imports": true,
         "use-isnan": true,
         "no-parameter-reassignment": false,
-        "no-magic-numbers": false
+        "no-magic-numbers": false,
+        "no-for-each-push": true,
+        "no-map-without-usage": true,
+        "no-feature-envy": false,
+        "no-complex-conditionals": false,
+        "cognitive-complexity": false,
+        "early-exit": true,
+        "no-collapsible-if": true,
+        "no-else-after-return": true,
+        "no-return-undefined": true,
+        "no-static-this": true,
+        "no-unnecessary-else": true,
+        "object-shorthand-properties-first": true
     },
-    "rulesDirectory": []
+    "rulesDirectory": [
+        "tslint-consistent-codestyle"
+    ]
 }

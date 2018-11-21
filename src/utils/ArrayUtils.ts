@@ -14,11 +14,9 @@ export class ArrayUtils {
         array.forEach((e) => {
             let add = false;
             for (const key in condition) {
-                if (condition.hasOwnProperty(key)) {
-                    if (e[key] === condition[key]) {
-                        add = true;
-                        break;
-                    }
+                if (condition.hasOwnProperty(key) && e[key] === condition[key]) {
+                    add = true;
+                    break;
                 }
             }
             if (add) {

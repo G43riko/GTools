@@ -17,13 +17,14 @@ export function Watch(onSet?: (newValue: any, oldValue: any) => any, options?: W
             target[prefix + key] = newVal;
         };
 
-        if (delete target[key]) {
-            Object.defineProperty(target, key, {
-                get         : () => target[prefix + key],
-                set         : setter,
-                enumerable  : (options && typeof options.enumerable === "boolean") ? options.enumerable : true,
-                configurable: (options && typeof options.configurable === "boolean") ? options.configurable : true,
-            });
+        if (!delete target[key]) {
+            return;
         }
+        Object.defineProperty(target, key, {
+            get         : () => target[prefix + key],
+            set         : setter,
+            enumerable  : (options && typeof options.enumerable === "boolean") ? options.enumerable : true,
+            configurable: (options && typeof options.configurable === "boolean") ? options.configurable : true,
+        });
     };
 }

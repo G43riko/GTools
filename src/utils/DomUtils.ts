@@ -81,15 +81,11 @@ export class DomUtils {
             else if (Checkers.isElement(html)) {
                 element.appendChild(html);
             }
-        }
-        else {
-            if (typeof html === "string") {
+        } else if (typeof html === "string") {
                 element.innerHTML = html;
-            }
-            else if (Checkers.isElement(html)) {
-                element.innerHTML = "";
-                element.appendChild(html);
-            }
+        } else if (Checkers.isElement(html)) {
+            element.innerHTML = "";
+            element.appendChild(html);
         }
 
         return element;
@@ -279,13 +275,13 @@ export class DomUtils {
 
         // priradíme hodnoty do výsledného objektu
         for (const key in elements) {
-            if (elements.hasOwnProperty(key)) {
-                const e: Element = elements[key];
-
-                const name = e.getAttribute("name");
-                if (name) {
-                    result[name] = e.getAttribute("value") as string;
-                }
+            if (!elements.hasOwnProperty(key)) {
+                continue;
+            }
+            const e: Element = elements[key];
+            const name       = e.getAttribute("name");
+            if (name) {
+                result[name] = e.getAttribute("value") as string;
             }
         }
 

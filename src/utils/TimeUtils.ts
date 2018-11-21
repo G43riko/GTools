@@ -12,9 +12,9 @@ export class TimeUtils {
         const splitTime = time.split(":");
         if (splitTime.length >= 2) {
             return `${splitTime[0]}:${splitTime[1]}`;
-        } else {
-            return "";
         }
+
+        return "";
     }
 
     /**
@@ -49,9 +49,9 @@ export class TimeUtils {
     public static formatDateUTC(date: Date): string {
         if (!date) {
             return "";
-        } else {
-            return date.toUTCString();
         }
+
+        return date.toUTCString();
     }
 
     public static getStartOfTheDay(date: Date): Date {
@@ -99,8 +99,7 @@ export class TimeUtils {
         }
         if (seconds < 10) {
             seconds = "0" + seconds.toFixed(decimals);
-        }
-        else {
+        } else {
             seconds = seconds.toFixed(decimals);
         }
 

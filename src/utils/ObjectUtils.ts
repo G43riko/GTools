@@ -2,10 +2,8 @@ export class ObjectUtils {
     public static without(obj: any, items: string[]): any {
         const result: any = {};
         for (const objKey in obj) {
-            if (obj.hasOwnProperty(objKey)) {
-                if (items.indexOf(objKey) < 0) {
-                    result[objKey] = obj[objKey];
-                }
+            if (obj.hasOwnProperty(objKey) && items.indexOf(objKey) < 0) {
+                result[objKey] = obj[objKey];
             }
         }
 
@@ -35,10 +33,8 @@ export class ObjectUtils {
 
     public static isPlain(object: any): boolean {
         for (const index in object) {
-            if (object.hasOwnProperty(index)) {
-                if (typeof object[index] === "object") {
-                    return false;
-                }
+            if (object.hasOwnProperty(index) && typeof object[index] === "object") {
+                return false;
             }
         }
 
