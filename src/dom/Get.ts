@@ -58,6 +58,6 @@ export class Get {
      * @returns {NodeListOf<Element>}
      */
     public static byTag(tagName: string, context: Document = localContext as Document): NodeListOf<Element> {
-        return context.getElementsByTagName(tagName);
+        return context.getElementsByTagName(tagName) as any;
     }
 }

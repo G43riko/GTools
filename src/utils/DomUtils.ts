@@ -30,6 +30,7 @@ export class DomUtils {
             throw new NotBrowserException();
         }
 
+        // @ts-ignore
         return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
 
@@ -43,6 +44,7 @@ export class DomUtils {
             throw new NotBrowserException();
         }
 
+        // @ts-ignore
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
 

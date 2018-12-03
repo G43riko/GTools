@@ -138,6 +138,9 @@ export class MiscUtils {
             throw new NotBrowserException();
         }
         const script = document.createElement("script");
+        if (!script) {
+            return;
+        }
         script.src   = file;
         script.type  = "text/javascript";
         script.defer = true;
