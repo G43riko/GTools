@@ -1,8 +1,8 @@
 import { StringMap } from "./MiscUtils";
 import { StringCheckers } from "./StringCheckers";
 
-const accentedLowerCharacters = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
-const normalLowerCharacters   = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
+const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
+const normalLowerCharacters   = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 const accentedCharacters      = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
 const normalCharacters        = normalLowerCharacters + normalLowerCharacters.toUpperCase();
 
