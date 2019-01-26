@@ -10,15 +10,6 @@ export interface ObjectCreatorParams {
     style?: CSSStyleDeclaration;
 }
 
-/**
- * @typedef {Object} SizeObject
- * @property {number} width
- * @property {number} height
- *
- * @typedef {Object} PositionObject
- * @property {number} x
- * @property {number} y
- */
 export class DomUtils {
     /**
      * Function returns height of window
@@ -101,7 +92,7 @@ export class DomUtils {
      * @param {boolean} force
      * @returns {HTMLElement | boolean}
      */
-    public static class(element: HTMLElement, name: string | string[], force?: boolean): HTMLElement | boolean {
+    public static class(element: HTMLElement, name: string | string[], force = false): HTMLElement | boolean {
         if (Array.isArray(name)) {
             for (const className of name) {
                 DomUtils.class(element, className, force);
@@ -213,7 +204,7 @@ export class DomUtils {
      * Function returns object with element position
      *
      * @param {HTMLElement} element
-     * @returns {PositionObject}
+     * @returns {{x: number, y: number}}
      */
     public static position(element: HTMLElement): { x: number, y: number } {
         let top                        = 0;
@@ -251,7 +242,7 @@ export class DomUtils {
      * Function returns object with element size
      *
      * @param {HTMLElement} element
-     * @returns {SizeObject}
+     * @returns {{width: number, height: number}}
      */
     public static size(element: HTMLElement): { width: number, height: number } {
         return {
@@ -262,20 +253,20 @@ export class DomUtils {
 
     public static serialize(form: HTMLFormElement): StringMap {
         const result: StringMap = {};
-        // ak formular nieje element
+        // if forms is not element
         if (!Checkers.isElement(form)) {
             return result;
         }
 
-        // k formular nieje typu form
+        // if form is not form
         if (form.tagName.toLowerCase() !== "form") {
             return result;
         }
 
-        // získame všetky input elementy
+        // get all inputs
         const elements = Get.byTag("input");
 
-        // priradíme hodnoty do výsledného objektu
+        // add all values to result object
         for (const key in elements) {
             if (!elements.hasOwnProperty(key)) {
                 continue;

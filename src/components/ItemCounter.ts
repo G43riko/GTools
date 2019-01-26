@@ -25,7 +25,7 @@ export class ItemCounter {
     public addAll(items: any[]): void {
         items.forEach(this.add, this);
     }
-    
+
     public getAll(): SimpleWrapper[] {
         return this.results;
     }

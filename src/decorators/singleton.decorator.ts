@@ -1,6 +1,6 @@
 const instances: { [className: string]: any } = {};
 
-export function Singleton<T extends { new(...args: any[]): {} }>(constructor: T): any {
+export function Singleton<T extends new(...args: any[]) => {}>(constructor: T): any {
     const className = constructor.name;
 
     return class extends constructor {
