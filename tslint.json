@@ -21,6 +21,12 @@
         "no-empty-interface": true,
         "no-shadowed-variable": true,
         "no-string-throw": true,
+        "completed-docs": false,
+        // TODO: vyžaduje všade tsdoc
+        "cyclomatic-complexity": [
+            true,
+            20
+        ],
         "no-trailing-whitespace": true,
         "no-var-keyword": true,
         "prefer-readonly": true,
@@ -43,14 +49,20 @@
             true,
             "array"
         ],
+        "no-inferrable-types": true,
+        "trailing-comma": true,
         "newline-before-return": true,
-        // "newline-per-chained-call": true,
+        "newline-per-chained-call": false,
+        // nedá sa to vždy
         "no-unused-expression": false,
         "member-ordering": false,
         "object-literal-sort-keys": false,
         "no-console": false,
         "no-empty": true,
         "jsdoc-format": true,
+        "no-unnecessary-initializer": true,
+        "no-redundant-jsdoc": false,
+        // TODO: too many errors
         "max-line-length": [
             true,
             190
@@ -61,7 +73,7 @@
             "property-declaration"
         ],
         "no-bitwise": false,
-        "no-conditional-assignment": false,
+        "no-conditional-assignment": true,
         "number-literal-format": true,
         "ordered-imports": true,
         "no-angle-bracket-type-assertion": true,
@@ -73,6 +85,7 @@
             true,
             500
         ],
+        "arrow-parens": true,
         "triple-equals": true,
         "no-unnecessary-type-assertion": true,
         "no-for-in-array": true,
@@ -80,7 +93,9 @@
         "no-duplicate-imports": true,
         "use-isnan": true,
         "no-parameter-reassignment": false,
+        // TODO: treba zistiť či nieje rýchlejšie používať jednu premennú
         "no-magic-numbers": false,
+        // TODO: too many errors
         "no-for-each-push": true,
         "no-map-without-usage": true,
         "no-feature-envy": false,

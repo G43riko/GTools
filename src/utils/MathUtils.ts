@@ -35,6 +35,7 @@ export class MathUtils {
 
     public static log2i(value: number): number {
         let r = 0;
+        // tslint:disable-next-line
         while ((value >>= 1) > 0) {
             r++;
         }

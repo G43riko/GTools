@@ -6,6 +6,7 @@ function removePredpona(char: string): string {
     return char;
 }
 
+// tslint:disable-next-line
 function removeCase(key: string): string {
     const len = key.length;
     if (len > 9 && key.endsWith("ejšieho")
