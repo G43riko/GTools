@@ -76,7 +76,7 @@ describe("Math utils", () => {
     });
     describe("BinomialCoefficient", () => {
         it("test binomialCoefficient function", () => {
-            // expect(MathUtils.binomialCoefficient(0, 1)).to.be.equal(1);
+            // should test (0, 1) to equal 1
             expect(MathUtils.binomialCoefficient(1, 5)).to.be.equal(0);
             expect(MathUtils.binomialCoefficient(1, 1)).to.be.equal(1);
             expect(MathUtils.binomialCoefficient(2, 1)).to.be.equal(2);

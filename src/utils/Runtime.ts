@@ -20,7 +20,7 @@ export class Runtime {
     }
 
     public static exists<T>(obj: T): T {
-        if (useRuntimeCheckers && (!obj && obj !== false)) {
+        if (useRuntimeCheckers && (typeof obj !== "boolean" && !obj)) {
             throw new Error("Variable ");
         }
 

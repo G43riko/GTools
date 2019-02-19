@@ -1,6 +1,6 @@
 import { PropertyDecoratorType } from "../utils/DecoratorsUtils";
 
-export function Deprecated(value?: boolean): PropertyDecoratorType {
+export function Deprecated(value?: string): PropertyDecoratorType {
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor): any => {
         const oldMethod  = target[propertyKey];
         descriptor.value = (...args: any[]): any => {

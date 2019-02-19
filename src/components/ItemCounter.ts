@@ -26,6 +26,10 @@ export class ItemCounter {
         items.forEach(this.add, this);
     }
 
+    public getAll(): SimpleWrapper[] {
+        return this.results;
+    }
+
     public getTopN(count: number): SimpleWrapper[] {
         if (!this.processed) {
             this.process();

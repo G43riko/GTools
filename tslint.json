@@ -79,6 +79,14 @@
         "no-angle-bracket-type-assertion": true,
         "one-variable-per-declaration": true,
         "no-duplicate-switch-case": true,
+        "max-classes-per-file": [
+            true,
+            2
+        ],
+        "no-big-function": [
+            true,
+            220
+        ],
         "no-duplicate-variable": true,
         "one-line": true,
         "max-file-line-count": [

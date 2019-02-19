@@ -27,7 +27,7 @@ describe("SlovakStemmer", () => {
             expect(SlovakStemmer.steme("najžľaznatejších")).to.be.equal("žľaznat");
             expect(SlovakStemmer.steme("najžľaznatejšia")).to.be.equal("žľaznat");
             expect(SlovakStemmer.steme("zefektívnenie")).to.be.equal("zefektívn");
-            // expect(SlovakStemmer.steme("zefektívnenila")).to.be.equal("zefektívn");
+            // wrong "zefektívnenila" equals "zefektívn"
             expect(SlovakStemmer.steme("umožnenie")).to.be.equal("umožn");
 
         });
