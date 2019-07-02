@@ -3,7 +3,7 @@ import "mocha";
 import { ObjectUtils } from "./ObjectUtils";
 
 describe("ObjectUtils", () => {
-    describe("ByPath", () => {
+    describe("GetNestedProperty", () => {
         it("It should access object attribute by string", () => {
             const testObject: any = {
                 a: {
@@ -14,10 +14,10 @@ describe("ObjectUtils", () => {
                     },
                 },
             };
-            expect(ObjectUtils.byPath(testObject, "a.c.b.d")).to.be.undefined;
-            expect(ObjectUtils.byPath(testObject, "a_c_b_d", "_")).to.be.undefined;
-            expect(ObjectUtils.byPath(testObject, "a.b.c.d")).to.be.equal("dd");
-            expect(ObjectUtils.byPath(testObject, "a_b_c_d", "_")).to.be.equal("dd");
+            expect(ObjectUtils.getNestedProperty(testObject, "a.c.b.d")).to.be.undefined;
+            expect(ObjectUtils.getNestedProperty(testObject, "a_c_b_d", "_")).to.be.undefined;
+            expect(ObjectUtils.getNestedProperty(testObject, "a.b.c.d")).to.be.equal("dd");
+            expect(ObjectUtils.getNestedProperty(testObject, "a_b_c_d", "_")).to.be.equal("dd");
         });
     });
     describe("Size", () => {

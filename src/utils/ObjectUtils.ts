@@ -10,14 +10,12 @@ export class ObjectUtils {
         return result;
     }
 
-    public static byPath(obj: any, path: string, divider = "."): any {
-        const splitPath = path.split(divider);
+    public static getNestedProperty(object: any, propertyPath: string, separator = "."): any {
+        const propertyList = propertyPath.split(separator);
 
-        for (let i = 0; i < splitPath.length && obj; i++) {
-            obj = obj[splitPath[i]];
-        }
-
-        return obj;
+        return propertyList.reduce((currentNestedPropertyValue, propertyName) => {
+            return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined;
+        }, object);
     }
 
     public static size(object: any): number {
@@ -39,5 +37,24 @@ export class ObjectUtils {
         }
 
         return true;
+    }
+
+    public static makeFlat(list: any[], propertyPath: string, separator = "."): any {
+        const propertyList = propertyPath.indexOf(separator) >= 0 ? propertyPath.split(separator) : [propertyPath];
+        const unknown      = Symbol("unknown");
+
+        return list.reduce((acc, curr) => {
+            const value = propertyList.reduce((propVal, propertyName) => propVal ? propVal[propertyName] : unknown, curr);
+            if (value === unknown) {
+                return acc;
+            }
+            if (acc[value]) {
+                acc[value].push(curr);
+            } else {
+                acc[value] = [curr];
+            }
+
+            return acc;
+        }, {});
     }
 }

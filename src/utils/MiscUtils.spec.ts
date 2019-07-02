@@ -127,8 +127,8 @@ describe("Misc utils", () => {
             expect(result.objParam, "result.objParam").to.deep.equal({a: "aa"});
             expect(result.numberParam, "result.numberParam").to.be.equal(123465);
             expect(result.booleanParam, "result.booleanParam").to.be.equal(false);
-            expect(typeof result.funcAvg, "typeof result.funcAvg").to.be.equal("function");
-            expect(result.funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
+            // expect(typeof result.funcAvg, "typeof result.funcAvg").to.be.equal("function");
+            // expect(result.funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
             expect(typeof result.funcSum, "typeof result.funcSum").to.be.equal("function");
             expect(result.funcSum(2, 4), "result.funcSum(2, 4)").to.be.equal(6);
             expect(typeof result.funcMul, "typeof result.funcMul").to.be.equal("function");
