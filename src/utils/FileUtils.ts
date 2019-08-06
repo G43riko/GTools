@@ -4,7 +4,7 @@ import { StringUtils } from "./StringUtils";
 
 function walk(dir: string, done: (error: any, files?: string[]) => any): void {
     const results: string[] = [];
-    fs.readdir(dir, (err: NodeJS.ErrnoException, list: string[]) => {
+    fs.readdir(dir, (err: NodeJS.ErrnoException | null, list: string[]) => {
         if (err) {
             return done(err);
         }
@@ -14,7 +14,7 @@ function walk(dir: string, done: (error: any, files?: string[]) => any): void {
         }
         list.forEach((file: string) => {
             file = path.resolve(dir, file);
-            fs.stat(file, (err1: NodeJS.ErrnoException, stat: any) => {
+            fs.stat(file, (err1: NodeJS.ErrnoException | null, stat: any) => {
                 if (stat && stat.isDirectory()) {
                     walk(file, (err2: any, res?: string[]) => {
                         if (!res) {
@@ -42,7 +42,7 @@ function walk(dir: string, done: (error: any, files?: string[]) => any): void {
 export class FileUtils {
     public static scanDirRecursive(dir: string): Promise<string[]> {
         return new Promise<string[]>((success, reject) => {
-            fs.stat(dir, (err0: NodeJS.ErrnoException, stats: fs.Stats) => {
+            fs.stat(dir, (err0: NodeJS.ErrnoException | null, stats: fs.Stats) => {
                 if (err0) {
                     return reject(err0);
                 }
@@ -59,11 +59,11 @@ export class FileUtils {
         });
     }
 
-    public static loadFileJSON(url: string, callback: (err: NodeJS.ErrnoException, data: any) => any): void {
+    public static loadFileJSON(url: string, callback: (err: NodeJS.ErrnoException | null, data: any) => any): void {
         FileUtils.loadFile(url, (err, data) => callback(err, JSON.parse(data)));
     }
 
-    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException, data: string) => any, encoding = "utf8"): void {
+    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException | null, data: string) => any, encoding = "utf8"): void {
         fs.readFile(url, encoding, callback);
     }
 

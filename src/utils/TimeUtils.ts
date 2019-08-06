@@ -3,25 +3,10 @@ import { MathUtils } from "./MathUtils";
 
 export class TimeUtils {
     /**
-     * Convert time from HH:mm:ss to HH:mm
      *
-     * @param {string} time
-     * @returns {string}
-     */
-    public static formatTime(time: string): string {
-        const splitTime = time.split(":");
-        if (splitTime.length >= 2) {
-            return `${splitTime[0]}:${splitTime[1]}`;
-        }
-
-        return "";
-    }
-
-    /**
-     *
-     * @param {string} from - time in string using HH:mm:ss format
-     * @param {string} to - time in string using HH:mm:ss format
-     * @returns {number}
+     * @param from - time in string using HH:mm:ss format
+     * @param to - time in string using HH:mm:ss format
+     * @returns - duration in minutes
      */
     public static getDurationInMinutes(from: string, to: string): number {
         const fromDate = moment("1970-01-01T" + from);

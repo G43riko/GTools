@@ -1,17 +1,18 @@
 import { FileTypes } from "../enums/file-types.enum";
 
 /**
- * @class
- *
+ *  FileManager is class used for open and save files
  */
 export class FileManager {
+    /**
+     * private input used for opening system window for upload files
+     */
     private readonly input: HTMLInputElement;
+    /**
+     * private input used for opening system window for download files
+     */
     private readonly link: HTMLAnchorElement;
 
-    /**
-     * @constructor
-     * @public
-     */
     public constructor() {
         this.input = document.createElement("input");
         this.input.setAttribute("type", "file");

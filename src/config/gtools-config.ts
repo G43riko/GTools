@@ -2,6 +2,19 @@ import { GToolsConfigInterface } from "./gtools-config.interface";
 
 let config: GToolsConfigInterface;
 
+const checkConfig = (): GToolsConfigInterface => {
+    if (!config) {
+        return {
+            URL_API   : "",
+            LANGUAGE  : "",
+            VERSION   : "",
+            PAGE_LIMIT: 0,
+        };
+    }
+
+    return config;
+};
+
 /**
  * @class
  * @implements {GToolsConfigInterface}
@@ -16,33 +29,21 @@ let config: GToolsConfigInterface;
  */
 export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
-        return this.checkConfig().URL_API;
+        return checkConfig().URL_API;
     }
 
     public get PAGE_LIMIT(): number {
-        return this.checkConfig().PAGE_LIMIT;
+        return checkConfig().PAGE_LIMIT;
     }
 
     public get LANGUAGE(): string {
-        return this.checkConfig().LANGUAGE;
+        return checkConfig().LANGUAGE;
     }
 
     public get VERSION(): string {
-        return this.checkConfig().VERSION;
+        return checkConfig().VERSION;
     }
 
-    private checkConfig(): GToolsConfigInterface {
-        if (!config) {
-            return {
-                URL_API   : "",
-                LANGUAGE  : "",
-                VERSION   : "",
-                PAGE_LIMIT: 0,
-            };
-        }
-
-        return config;
-    }
 }
 
 export function initConfig(appConfig: GToolsConfigInterface): void {

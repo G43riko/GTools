@@ -4,23 +4,23 @@ function typeOf(arg: any): string {
 
 export class Checkers {
     public static isFunction(arg: any): boolean {
-        return typeof arg === "function";
+        return typeOf(arg) === "function";
     }
 
     public static isString(arg: any): boolean {
-        return typeof arg === "string";
+        return typeOf(arg) === "string";
     }
 
     public static isObject(arg: any): boolean {
-        return typeof arg === "object";
+        return typeOf(arg) === "object";
     }
 
     public static isNumber(arg: any): boolean {
-        return typeof arg === "number";
+        return typeOf(arg) === "number";
     }
 
     public static isBoolean(arg: any): boolean {
-        return typeof arg === "boolean";
+        return typeOf(arg) === "boolean";
     }
 
     public static isArray(arg: any): boolean {
@@ -35,15 +35,15 @@ export class Checkers {
     }
 
     public static isInt(arg: any): boolean {
-        return typeof arg === "number" && arg % 1 === 0;
+        return typeOf(arg) === "number" && arg % 1 === 0;
     }
 
     public static isFloat(arg: any): boolean {
-        return typeof arg === "number" && arg % 1 !== 0;
+        return typeOf(arg) === "number" && arg % 1 !== 0;
     }
 
     public static isUndefined(arg: any): boolean {
-        return typeof arg === "undefined";
+        return typeOf(arg) === "undefined";
     }
 
     public static isElement(obj: any): boolean {

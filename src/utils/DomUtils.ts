@@ -1,6 +1,8 @@
 import { Checkers } from "../dom/Checkers";
 import { Get } from "../dom/Get";
 import { NotBrowserException } from "../errors/NotBrowserException";
+import { Point } from "../interfaces/point.interaface";
+import { Size } from "../interfaces/size.interaface";
 import { StringMapInterface } from "../interfaces/string-map.interface";
 
 export interface ObjectCreatorParams {
@@ -14,7 +16,7 @@ export class DomUtils {
     /**
      * Function returns height of window
      *
-     * @returns {number}
+     * @returns - window height in pixels
      */
     public static getWindowHeight(): number {
         if (typeof window === "undefined") {
@@ -28,7 +30,7 @@ export class DomUtils {
     /**
      * Function returns width of window
      *
-     * @returns {number}
+     * @returns - window width in pixels
      */
     public static getWindowWidth(): number {
         if (typeof window === "undefined") {
@@ -42,16 +44,15 @@ export class DomUtils {
     /**
      * Function set, append or returns text of element
      *
-     * @param {HTMLElement} element
-     * @param {string} text
-     * @param {boolean} append
-     * @returns {HTMLElement}
+     * @param element - input element
+     * @param text - text to put in element
+     * @param append - flag if text should be append or replace previous text
+     * @returns - element given as input
      */
     public static text(element: HTMLElement, text: string, append = true): HTMLElement {
         if (append) {
             element.textContent += text;
-        }
-        else {
+        } else {
             element.textContent = text;
         }
 
@@ -61,21 +62,20 @@ export class DomUtils {
     /**
      * Function set, append or returns html content of element
      *
-     * @param {HTMLElement} element
-     * @param {string} html
-     * @param {boolean} append
-     * @returns {HTMLElement}
+     * @param element - input element
+     * @param html - html to put in element
+     * @param append - flag if html should be append or replace previous content
+     * @returns - element given as input
      */
     public static html(element: HTMLElement, html: string | HTMLElement, append = true): HTMLElement {
         if (append) {
             if (typeof html === "string") {
                 element.innerHTML += html;
-            }
-            else if (Checkers.isElement(html)) {
+            } else if (Checkers.isElement(html)) {
                 element.appendChild(html);
             }
         } else if (typeof html === "string") {
-                element.innerHTML = html;
+            element.innerHTML = html;
         } else if (Checkers.isElement(html)) {
             element.innerHTML = "";
             element.appendChild(html);
@@ -87,18 +87,17 @@ export class DomUtils {
     /**
      * Function returns, add, remove or toggle elements classes
      *
-     * @param {HTMLElement} element
-     * @param {string | string[]} name
-     * @param {boolean} force
-     * @returns {HTMLElement | boolean}
+     * @param element - input element
+     * @param name - class name or list of class names
+     * @param force - flag if class should be toggled false
+     * @returns - boolean if function is used to check class presence otherwise element given as input
      */
     public static class(element: HTMLElement, name: string | string[], force = false): HTMLElement | boolean {
         if (Array.isArray(name)) {
             for (const className of name) {
                 DomUtils.class(element, className, force);
             }
-        }
-        else {
+        } else {
             switch (name[0]) {
                 case "+":
                     element.classList.add(name.substring(1));
@@ -110,8 +109,7 @@ export class DomUtils {
                     name = name.substring(1);
                     if (Checkers.isBoolean(force)) {
                         element.classList.toggle(name, force);
-                    }
-                    else {
+                    } else {
                         element.classList.toggle(name);
                     }
                     break;
@@ -136,11 +134,11 @@ export class DomUtils {
      * ElementManager.createElement({name: "div"}) => <div></div>;
      * ElementManager.createElement({name: "div", attr: {id: "ide"}}) => <div id="ide"></div>;
      *
-     * @param {string | ObjectCreatorParams} name
-     * @param {StringMapInterface} attr
-     * @param {string | HTMLElement | HTMLElement[]} cont
-     * @param {CSSStyleDeclaration} style
-     * @returns {HTMLElement}
+     * @param name - name of element or object contains all configuration
+     * @param attr - map of all element attributes
+     * @param cont - element content. Can be string, element or array of elements
+     * @param style - styles that will be applied to the element
+     * @returns - created element
      */
     public static createElement(name: string | ObjectCreatorParams,
                                 attr?: StringMapInterface,
@@ -177,8 +175,7 @@ export class DomUtils {
             cont.forEach((e) => {
                 DomUtils.html(el, e, true);
             });
-        }
-        else {
+        } else {
             DomUtils.html(el, cont as string | HTMLElement);
         }
 
@@ -188,8 +185,8 @@ export class DomUtils {
     /**
      * Function remove element
      *
-     * @param {Element} element
-     * @returns {Element}
+     * @param element - input element
+     * @returns - removed element
      */
     public static remove(element: Element): Element {
         const parentElement = element.parentElement;
@@ -203,12 +200,12 @@ export class DomUtils {
     /**
      * Function returns object with element position
      *
-     * @param {HTMLElement} element
-     * @returns {{x: number, y: number}}
+     * @param element - input element
+     * @returns - position of element
      */
-    public static position(element: HTMLElement): { x: number, y: number } {
-        let top                        = 0;
-        let left                       = 0;
+    public static position(element: HTMLElement): Point {
+        let top  = 0;
+        let left = 0;
         do {
             top += element.offsetTop || 0;
             left += element.offsetLeft || 0;
@@ -225,11 +222,11 @@ export class DomUtils {
     /**
      * Function returns order of element between siblings
      *
-     * @param {Element} element
-     * @returns {number}
+     * @param element - input element
+     * @returns - index of number
      */
     public static indexOf(element: Element | null): number {
-        let index                      = 0;
+        let index = 0;
         while (element) {
             element = element.previousElementSibling;
             index++;
@@ -241,13 +238,13 @@ export class DomUtils {
     /**
      * Function returns object with element size
      *
-     * @param {HTMLElement} element
-     * @returns {{width: number, height: number}}
+     * @param element - input element
+     * @returns - size of element
      */
-    public static size(element: HTMLElement): { width: number, height: number } {
+    public static size(element: HTMLElement): Size {
         return {
             height: element.offsetHeight,
-            width: element.offsetWidth,
+            width : element.offsetWidth,
         };
     }
 

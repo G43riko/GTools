@@ -9,8 +9,8 @@ export class MiscUtils {
      * Create class by name and list of parameters
      *
      * @param name - class name
-     * @param {any[]} args - constructor parameter
-     * @returns {any} - created object
+     * @param args - constructor parameter
+     * @returns - created object
      */
     public static createClass(name: any, args: any[]): any {
         const temp = Object.create(name.prototype);

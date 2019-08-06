@@ -1,5 +1,5 @@
-import { StringCheckers } from "./StringCheckers";
 import { StringMapInterface } from "../interfaces/string-map.interface";
+import { StringCheckers } from "./StringCheckers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
 const normalLowerCharacters   = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
@@ -118,8 +118,8 @@ export class StringUtils {
     }
 
     /**
-     * @param text
-     * @param count
+     * @param text - text need to be repeat
+     * @param count - number of iterations
      * @deprecated - use {@link String#repeat}
      */
     public static repeat(text: string, count: number): string {

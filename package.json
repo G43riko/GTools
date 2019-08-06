@@ -3,6 +3,7 @@
     "version": "0.2.7",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
+    "types": "./out/index",
     "homepage": "https://github.com/G43riko/GTools#readme",
     "keywords": [
         "tools",
@@ -20,7 +21,7 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run pack && npm run doc",
+        "prepare": "npm run clean && npm run pack && npm run doc && npm run coverage",
         "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",

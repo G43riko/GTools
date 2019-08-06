@@ -218,32 +218,15 @@ export class CanvasUtils {
         const res = remakePosAndSize(def, obj);
 
         res.ctx.beginPath();
-        res.ctx.moveTo(res.x + (res.radius as any).tl,
-            res.y);
-        res.ctx.lineTo(res.x + res.width - (res.radius as any).tr,
-            res.y);
-        res.ctx.quadraticCurveTo(res.x + res.width,
-            res.y,
-            res.x + res.width,
-            res.y + (res.radius as any).tr);
-        res.ctx.lineTo(res.x + res.width,
-            res.y + res.height - (res.radius as any).br);
-        res.ctx.quadraticCurveTo(res.x + res.width,
-            res.y + res.height,
-            res.x + res.width - (res.radius as any).br,
-            res.y + res.height);
-        res.ctx.lineTo(res.x + (res.radius as any).bl,
-            res.y + res.height);
-        res.ctx.quadraticCurveTo(res.x,
-            res.y + res.height,
-            res.x,
-            res.y + res.height - (res.radius as any).bl);
-        res.ctx.lineTo(res.x,
-            res.y + (res.radius as any).tl);
-        res.ctx.quadraticCurveTo(res.x,
-            res.y,
-            res.x + (res.radius as any).tl,
-            res.y);
+        res.ctx.moveTo(res.x + (res.radius as any).tl, res.y);
+        res.ctx.lineTo(res.x + res.width - (res.radius as any).tr, res.y);
+        res.ctx.quadraticCurveTo(res.x + res.width, res.y, res.x + res.width, res.y + (res.radius as any).tr);
+        res.ctx.lineTo(res.x + res.width, res.y + res.height - (res.radius as any).br);
+        res.ctx.quadraticCurveTo(res.x + res.width, res.y + res.height, res.x + res.width - (res.radius as any).br, res.y + res.height);
+        res.ctx.lineTo(res.x + (res.radius as any).bl, res.y + res.height);
+        res.ctx.quadraticCurveTo(res.x, res.y + res.height, res.x, res.y + res.height - (res.radius as any).bl);
+        res.ctx.lineTo(res.x, res.y + (res.radius as any).tl);
+        res.ctx.quadraticCurveTo(res.x, res.y, res.x + (res.radius as any).tl, res.y);
         res.ctx.closePath();
 
         process(res);

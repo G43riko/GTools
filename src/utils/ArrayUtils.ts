@@ -1,24 +1,27 @@
 /**
- * @class
  */
 export class ArrayUtils {
-    public static where(array: any[], condition: any): any[] {
+    /**
+     *
+     * @example
+     * const array = [{name: "Michael", age: 23}, {name: "Joachim", age: 15}, {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
+     * const conditions = {age: 23, name: "Monica"}
+     * where(array, conditions); // [{name: "Michael", age: 23},  {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
+     */
+    public static where<T extends { [key: string]: any }>(array: T[], condition: any): T[] {
         if (!Array.isArray(array)) {
             return array;
         }
-        const result: any[] = [];
 
-        if (typeof condition !== "object" || !condition) {
-            return result;
+        if (!condition || typeof condition !== "object") {
+            return [];
         }
+
+        const result: any[]    = [];
+        const conditionEntries = Object.entries(condition);
+
         array.forEach((e) => {
-            let add = false;
-            for (const key in condition) {
-                if (condition.hasOwnProperty(key) && e[key] === condition[key]) {
-                    add = true;
-                    break;
-                }
-            }
+            const add = conditionEntries.some((conditionEntry) => e[conditionEntry[0]] === conditionEntry[1]);
             if (add) {
                 result[result.length] = e;
             }
@@ -30,18 +33,17 @@ export class ArrayUtils {
     /**
      * Return sub array from array
      *
-     * @param {T[]} array
-     * @param {number} minIndex
-     * @param {number} maxIndex
-     * @returns {T[]} - sub array
-     * @static
+     * @param array - input array
+     * @param minIndex - start index
+     * @param maxIndex - end index
+     * @returns - final array
      */
     public static subArray<T = any>(array: T[], minIndex = 0, maxIndex = array.length - 1): T[] {
         if (!Array.isArray(array)) {
             return array;
         }
         const result: T[] = [];
-        const final = array.length < maxIndex ? array.length - 1 : maxIndex;
+        const final       = array.length < maxIndex ? array.length - 1 : maxIndex;
         for (let i = minIndex; i <= final; i++) {
             result[result.length] = array[i];
         }
@@ -52,8 +54,8 @@ export class ArrayUtils {
     /**
      * Function return maximal value from numeric array
      *
-     * @param {number[]} array
-     * @returns {number}
+     * @param array - array of numbers
+     * @returns - maximal number from array
      */
     public static max(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -69,8 +71,8 @@ export class ArrayUtils {
     /**
      * Function return minimal value from numeric array
      *
-     * @param {number[]} array
-     * @returns {number}
+     * @param array - array of numbers
+     * @returns - minimal number from array
      */
     public static min(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -86,8 +88,8 @@ export class ArrayUtils {
     /**
      * Function return total value of all elements in numeric array
      *
-     * @param {number[]} array
-     * @returns {number}
+     * @param array - array of numbers
+     * @returns - summary of all numbers in array
      */
     public static sum(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -103,8 +105,8 @@ export class ArrayUtils {
     /**
      * Function returns average of numeric array given as input
      *
-     * @param {number[]} array
-     * @returns {number}
+     * @param array - array of numbers
+     * @returns - average of all numbers in array
      */
     public static avg(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -120,13 +122,13 @@ export class ArrayUtils {
     /**
      * Function join array by delimiter and append prefix and postfix
      *
-     * @param {any[]} array
-     * @param {string} delimiter
-     * @param {string} prefix
-     * @param {string} postfix
-     * @returns {string}
+     * @param array - not empty array
+     * @param delimiter - character used for join elements in array
+     * @param prefix - string append at the beginning of final string
+     * @param postfix - string append at the end of final string
+     * @returns - final string
      */
-    public static join(array: any[], delimiter: string, prefix = "", postfix = ""): string {
+    public static join<T>(array: T[], delimiter: string, prefix = "", postfix = ""): string {
         if (!Array.isArray(array)) {
             return prefix + array + postfix;
         }
@@ -136,8 +138,8 @@ export class ArrayUtils {
 
     /**
      * Method returns last element from array or null if array is empty. If argument is not array, method returns argument
-     * @param {T[]} array
-     * @returns {T | null}
+     * @param array - not empty array
+     * @returns - last value from array
      */
     public static getLast<T = any>(array: T[]): T | null {
         if (!Array.isArray(array)) {
@@ -154,18 +156,18 @@ export class ArrayUtils {
     /**
      * Method returns random element from array
      *
-     * @param {T[]} args
-     * @returns {T | null}
+     * @param array - not empty array
+     * @returns - random value from array
      */
-    public static getRandom<T = any>(args: T[]): T | null {
-        if (!Array.isArray(args)) {
-            return args;
+    public static getRandom<T = any>(array: T[]): T | null {
+        if (!Array.isArray(array)) {
+            return array;
         }
-        if (args.length === 0) {
+        if (array.length === 0) {
             return null;
         }
 
-        return args[Math.floor(Math.random() * args.length)];
+        return array[Math.floor(Math.random() * array.length)];
     }
 
     public static getNRandom<T = any>(args: T[], count: number): T[] {
@@ -179,20 +181,23 @@ export class ArrayUtils {
             return args;
         }
 
-        const result = new Set();
+        const result = new Set<T>();
 
         while (result.size <= count) {
-            result.add(ArrayUtils.getRandom(args));
+            const randomItem = ArrayUtils.getRandom<T>(args);
+            if (randomItem) {
+                result.add(randomItem);
+            }
         }
 
-        return Array.from(result);
+        return Array.from<T>(result);
     }
 
     /**
      * Method return copy of array with only distinct elements
      *
-     * @param {T[]} array
-     * @returns {T[]}
+     * @param array - array with duplicate elements
+     * @returns - unique array
      */
     public static makeUnique<T = any>(array: T[]): T[] {
         if (!Array.isArray(array)) {

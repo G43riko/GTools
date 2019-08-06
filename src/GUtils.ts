@@ -67,3 +67,5 @@ export { StringMapInterface } from "./interfaces/string-map.interface";
 
 export * from "./interfaces/key-value.interface";
 export * from "./interfaces/string-map.interface";
+export * from "./interfaces/size.interaface";
+export * from "./interfaces/point.interaface";

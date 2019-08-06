@@ -48,3 +48,10 @@ export * from "./math/Vector2f";
 // CONFIG
 
 export { initConfig } from "./config/gtools-config";
+
+// INTERFACES
+
+export * from "./interfaces/key-value.interface";
+export * from "./interfaces/string-map.interface";
+export * from "./interfaces/size.interaface";
+export * from "./interfaces/point.interaface";

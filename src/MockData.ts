@@ -1,3 +1,4 @@
+// tslint:disable:completed-docs
 export class MockData {
     public static readonly timesHHmmss: string[] = [
         "12:00:00",
