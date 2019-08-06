@@ -1,4 +1,4 @@
-import { StringMap } from "../utils/MiscUtils";
+import { StringMapInterface } from "../interfaces/string-map.interface";
 
 // TODO: need to be checked if app is running in browser
 
@@ -6,8 +6,8 @@ let localContext: Document = document;
 
 export class ElementBuilder {
     private result?: HTMLElement;
-    private styles: StringMap                                = {};
-    private attributes: StringMap                            = {};
+    private styles: StringMapInterface                       = {};
+    private attributes: StringMapInterface                   = {};
     private readonly contentBuffer: (string | HTMLElement)[] = [];
 
     private constructor(private readonly elementName: string, private readonly parent?: ElementBuilder) {

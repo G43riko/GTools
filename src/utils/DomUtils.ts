@@ -1,11 +1,11 @@
 import { Checkers } from "../dom/Checkers";
 import { Get } from "../dom/Get";
 import { NotBrowserException } from "../errors/NotBrowserException";
-import { StringMap } from "./MiscUtils";
+import { StringMapInterface } from "../interfaces/string-map.interface";
 
 export interface ObjectCreatorParams {
     name: string;
-    attr?: StringMap;
+    attr?: StringMapInterface;
     cont?: string | HTMLElement | HTMLElement[];
     style?: CSSStyleDeclaration;
 }
@@ -137,13 +137,13 @@ export class DomUtils {
      * ElementManager.createElement({name: "div", attr: {id: "ide"}}) => <div id="ide"></div>;
      *
      * @param {string | ObjectCreatorParams} name
-     * @param {StringMap} attr
+     * @param {StringMapInterface} attr
      * @param {string | HTMLElement | HTMLElement[]} cont
      * @param {CSSStyleDeclaration} style
      * @returns {HTMLElement}
      */
     public static createElement(name: string | ObjectCreatorParams,
-                                attr?: StringMap,
+                                attr?: StringMapInterface,
                                 cont?: string | HTMLElement | HTMLElement[],
                                 style?: CSSStyleDeclaration): HTMLElement {
         if (typeof document === "undefined") {
@@ -251,8 +251,8 @@ export class DomUtils {
         };
     }
 
-    public static serialize(form: HTMLFormElement): StringMap {
-        const result: StringMap = {};
+    public static serialize(form: HTMLFormElement): StringMapInterface {
+        const result: StringMapInterface = {};
         // if forms is not element
         if (!Checkers.isElement(form)) {
             return result;
