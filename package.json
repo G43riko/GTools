@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "types": "./out/index",
@@ -21,7 +21,7 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run clean && npm run pack && npm run doc && npm run coverage",
+        "prepare": "npm run clean && npm run pack && npm run doc",
         "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
@@ -34,7 +34,10 @@
         "clean": "rimraf out doc coverage bin",
         "lint": "tslint --project ."
     },
-    "author": "Gabriel Csollei<gcsollei@hotmail.com>",
+    "author": {
+        "email": "gcsollei@hotmail.com",
+        "name": "Gabriel Csollei"
+    },
     "license": "ISC",
     "devDependencies": {
         "@types/chai": "^4.1.7",

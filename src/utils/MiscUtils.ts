@@ -2,7 +2,7 @@
  * @typedef  {(Object)} any
  */
 import { NotBrowserException } from "../errors/NotBrowserException";
-import { StringMapInterface } from "../interfaces/string-map.interface";
+import { StringMap } from "../interfaces/string-map.interface";
 
 export class MiscUtils {
     /**
@@ -19,9 +19,9 @@ export class MiscUtils {
         return temp;
     }
 
-    public static parseCookies(cookies: string): StringMapInterface {
-        const list: StringMapInterface = {};
-        const data                     = cookies ? cookies.toString()
+    public static parseCookies(cookies: string): StringMap {
+        const list: StringMap = {};
+        const data            = cookies ? cookies.toString()
                                                  .split(";") : [];
         data.forEach((cookie) => {
             const parts     = cookie.split("=");
@@ -118,7 +118,7 @@ export class MiscUtils {
         return bytes;
     }
 
-    public static objectToQueryParams(obj: StringMapInterface): string {
+    public static objectToQueryParams(obj: StringMap): string {
         // TODO: add url prefix
         let result = "";
         for (const objKey in obj) {

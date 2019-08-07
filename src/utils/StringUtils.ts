@@ -1,4 +1,4 @@
-import { StringMapInterface } from "../interfaces/string-map.interface";
+import { StringMap } from "../interfaces/string-map.interface";
 import { StringCheckers } from "./StringCheckers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
@@ -131,7 +131,7 @@ export class StringUtils {
     }
 
     // TODO: need to be fixed
-    public static template(text: string, values: StringMapInterface, start = "{{", end = "}}"): string {
+    public static template(text: string, values: StringMap, start = "{{", end = "}}"): string {
         start         = start.replace(/[-[\]()*\s]/g, "\\$&")
                              .replace(/\$/g, "\\$");
         end           = end.replace(/[-[\]()*\s]/g, "\\$&")

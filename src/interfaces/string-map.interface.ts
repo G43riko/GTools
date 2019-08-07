@@ -1,3 +1,3 @@
-export interface StringMapInterface {
+export interface StringMap {
     [s: string]: string;
 }

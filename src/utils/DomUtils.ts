@@ -3,11 +3,11 @@ import { Get } from "../dom/Get";
 import { NotBrowserException } from "../errors/NotBrowserException";
 import { Point } from "../interfaces/point.interaface";
 import { Size } from "../interfaces/size.interaface";
-import { StringMapInterface } from "../interfaces/string-map.interface";
+import { StringMap } from "../interfaces/string-map.interface";
 
 export interface ObjectCreatorParams {
     name: string;
-    attr?: StringMapInterface;
+    attr?: StringMap;
     cont?: string | HTMLElement | HTMLElement[];
     style?: CSSStyleDeclaration;
 }
@@ -141,7 +141,7 @@ export class DomUtils {
      * @returns - created element
      */
     public static createElement(name: string | ObjectCreatorParams,
-                                attr?: StringMapInterface,
+                                attr?: StringMap,
                                 cont?: string | HTMLElement | HTMLElement[],
                                 style?: CSSStyleDeclaration): HTMLElement {
         if (typeof document === "undefined") {
@@ -248,8 +248,8 @@ export class DomUtils {
         };
     }
 
-    public static serialize(form: HTMLFormElement): StringMapInterface {
-        const result: StringMapInterface = {};
+    public static serialize(form: HTMLFormElement): StringMap {
+        const result: StringMap = {};
         // if forms is not element
         if (!Checkers.isElement(form)) {
             return result;

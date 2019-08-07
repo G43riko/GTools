@@ -1,985 +1,575 @@
 <!doctype html>
 <html class="default no-js">
 <head>
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>MockData | gtools</title>
-    <meta content="" name="description">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="../assets/css/main.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MockData | gtools</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
-    <div class="tsd-page-toolbar">
-        <div class="container">
-            <div class="table-wrap">
-                <div class="table-cell" data-base=".." data-index="../assets/js/search.js" id="tsd-search">
-                    <div class="field">
-                        <label class="tsd-widget search no-caption" for="tsd-search-field">Search</label>
-                        <input id="tsd-search-field" type="text"/>
-                    </div>
-                    <ul class="results">
-                        <li class="state loading">Preparing search index...</li>
-                        <li class="state failure">The search index is not available</li>
-                    </ul>
-                    <a class="title" href="../index.html">gtools</a>
-                </div>
-                <div class="table-cell" id="tsd-widgets">
-                    <div id="tsd-filter">
-                        <a class="tsd-widget options no-caption" data-toggle="options" href="#">Options</a>
-                        <div class="tsd-filter-group">
-                            <div class="tsd-select" id="tsd-filter-visibility">
-                                <span class="tsd-select-label">All</span>
-                                <ul class="tsd-select-list">
-                                    <li data-value="public">Public</li>
-                                    <li data-value="protected">Public/Protected</li>
-                                    <li class="selected" data-value="private">All</li>
-                                </ul>
-                            </div>
-                            <input checked id="tsd-filter-inherited" type="checkbox"/>
-                            <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                            <input checked id="tsd-filter-externals" type="checkbox"/>
-                            <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-                            <input id="tsd-filter-only-exported" type="checkbox"/>
-                            <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
-                        </div>
-                    </div>
-                    <a class="tsd-widget menu no-caption" data-toggle="menu" href="#">Menu</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tsd-page-title">
-        <div class="container">
-            <ul class="tsd-breadcrumb">
-                <li>
-                    <a href="../globals.html">Globals</a>
-                </li>
-                <li>
-                    <a href="../modules/_mockdata_.html">&quot;MockData&quot;</a>
-                </li>
-                <li>
-                    <a href="_mockdata_.mockdata.html">MockData</a>
-                </li>
-            </ul>
-            <h1>Class MockData</h1>
-        </div>
-    </div>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">gtools</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_mockdata_.html">&quot;MockData&quot;</a>
+				</li>
+				<li>
+					<a href="_mockdata_.mockdata.html">MockData</a>
+				</li>
+			</ul>
+			<h1>Class MockData</h1>
+		</div>
+	</div>
 </header>
 <div class="container container-main">
-    <div class="row">
-        <div class="col-8 col-content">
-            <section class="tsd-panel tsd-hierarchy">
-                <h3>Hierarchy</h3>
-                <ul class="tsd-hierarchy">
-                    <li>
-                        <span class="target">MockData</span>
-                    </li>
-                </ul>
-            </section>
-            <section class="tsd-panel-group tsd-index-group">
-                <h2>Index</h2>
-                <section class="tsd-panel tsd-index-panel">
-                    <div class="tsd-index-content">
-                        <section class="tsd-index-section ">
-                            <h3>Properties</h3>
-                            <ul class="tsd-index-list">
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#characters">characters</a>
-                                </li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#characterscaseable">characters
-                                    <wbr>
-                                    Case
-                                    <wbr>
-                                    Able</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#characterscaseablestring">characters
-                                    <wbr>
-                                    Case
-                                    <wbr>
-                                    Able
-                                    <wbr>
-                                    String</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersempty">characters
-                                    <wbr>
-                                    Empty</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersnotempty">characters
-                                    <wbr>
-                                    Not
-                                    <wbr>
-                                    Empty</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersstring">characters
-                                    <wbr>
-                                    String</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#emails">emails</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#invalidtimes">invalid
-                                    <wbr>
-                                    Times</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#lowercamelcase">lower
-                                    <wbr>
-                                    Camel
-                                    <wbr>
-                                    Case</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#lowersnakecase">lower
-                                    <wbr>
-                                    Snake
-                                    <wbr>
-                                    Case</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#man">man</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#notemails">not
-                                    <wbr>
-                                    Emails</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#nothing">nothing</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#numbers">numbers</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#numbersstring">numbers
-                                    <wbr>
-                                    String</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#phonenumbers">phone
-                                    <wbr>
-                                    Numbers</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#randomarray">random
-                                    <wbr>
-                                    Array</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#randomstrings">random
-                                    <wbr>
-                                    Strings</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon"
-                                        href="_mockdata_.mockdata.html#stringhelloworldiamcomputer">string
-                                    <wbr>
-                                    Hello
-                                    <wbr>
-                                    WorldIAm
-                                    <wbr>
-                                    Computer</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#timeshhmm">timesHHmm</a>
-                                </li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon"
-                                        href="_mockdata_.mockdata.html#timeshhmmss">timesHHmmss</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#timeshmm">times
-                                    <wbr>
-                                    Hmm</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#uppercamelcase">upper
-                                    <wbr>
-                                    Camel
-                                    <wbr>
-                                    Case</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#uppersnakecase">upper
-                                    <wbr>
-                                    Snake
-                                    <wbr>
-                                    Case</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a
-                                        class="tsd-kind-icon" href="_mockdata_.mockdata.html#woman">woman</a></li>
-                            </ul>
-                        </section>
-                        <section class="tsd-index-section ">
-                            <h3>Methods</h3>
-                            <ul class="tsd-index-list">
-                                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a class="tsd-kind-icon"
-                                                                                                   href="_mockdata_.mockdata.html#functionsum">function
-                                    <wbr>
-                                    Sum</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                </section>
-            </section>
-            <section class="tsd-panel-group tsd-member-group ">
-                <h2>Properties</h2>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="characters"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters</h3>
-                    <div class="tsd-signature tsd-kind-icon">characters<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;MockData.charactersString.split(&quot;&quot;)</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L39">MockData.ts:39</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="characterscaseable"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters
-                        <wbr>
-                        Case
-                        <wbr>
-                        Able
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">characters
-                        <wbr>
-                        Case
-                        <wbr>
-                        Able<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;MockData.charactersCaseAbleString.split(&quot;&quot;)</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L43">MockData.ts:43</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="characterscaseablestring"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters
-                        <wbr>
-                        Case
-                        <wbr>
-                        Able
-                        <wbr>
-                        String
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">characters
-                        <wbr>
-                        Case
-                        <wbr>
-                        Able
-                        <wbr>
-                        String<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">"þÞıŦŧŊEĐđNΩ"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;þÞıŦŧŊEĐđNΩ&quot;</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L41">MockData.ts:41</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="charactersempty"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters
-                        <wbr>
-                        Empty
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">characters
-                        <wbr>
-                        Empty<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;     &quot;,&quot;    &quot;,&quot;&quot;,&quot; &quot;,&quot;\t&quot;,&quot;\xa0&quot;,&quot;\t \xa0\t \xa0&quot;,&quot;  &quot;,&quot;\t\t&quot;,&quot;\xa0\xa0&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L45">MockData.ts:45</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="charactersnotempty"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters
-                        <wbr>
-                        Not
-                        <wbr>
-                        Empty
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">characters
-                        <wbr>
-                        Not
-                        <wbr>
-                        Empty<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot; 3 &quot;,&quot;a&quot;,&quot;0&quot;,&quot;[]&quot;,&quot;A&quot;,&quot;{}&quot;,&quot;.&quot;,&quot;123&quot;,&quot;gabriel&quot;,&quot;Ich bin Hanz&quot;,&quot;@&quot;,// &quot;123@123.123&quot;,&quot;00000000000000000000&quot;,&quot;\\&quot;,&quot;/&quot;,&quot;********&quot;,&quot;______&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L58">MockData.ts:58</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="charactersstring"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> characters
-                        <wbr>
-                        String
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">characters
-                        <wbr>
-                        String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"+&#x3D;§,.-?:_&quot;!)/()&lt;&gt;*&#x27;$[]}{*&amp;^%$#@!/\|#&amp;@{}^&#x27;&#x60;][~|€¶←↓→º’‘©&gt;&lt;§®ª&#x60;←&#x27;↓&amp;×÷|÷×"</span><span
-                                class="tsd-signature-symbol"> =&nbsp;&quot;+&#x3D;§,.-?:_&quot;!)/()&lt;&gt;*&#x27;$[]}{*&amp;^%$#@!/\|#&amp;@{}^&#x27;&#x60;][~|€¶←↓→º’‘©&gt;&lt;§®ª&#x60;←&#x27;↓&amp;×÷|÷×&quot;</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L37">MockData.ts:37</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="emails"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> emails</h3>
-                    <div class="tsd-signature tsd-kind-icon">emails<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;[&quot;abc@def.com&quot;,&quot;my@name.is.chorche.com&quot;,&quot;foo.bar@machine.subdomain.example.museum&quot;,&#x60;Abc@example.com&#x60;,// &#x60;Abc@example.com.&#x60;,// &#x60;Abc@10.42.0.1&#x60;,// &#x60;user@localserver&#x60;,&#x60;Abc.123@example.com&#x60;,&#x60;user+mailbox/department&#x3D;shipping@example.com&#x60;,&#x60;&quot;very.(),:;&lt;&gt;[]\&quot;.VERY.\&quot;very@\\ \&quot;very\&quot;.unusual&quot;@strange.example.com&#x60;,&quot;!#$%&amp;\&#x27;*+-/&#x3D;?^_&#x60;.{|}~@example.com&quot;,&quot;\&quot;()&lt;&gt;[]:,;@\\\&quot;!#$%&amp;\&#x27;-/&#x3D;?^_&#x60;{}| ~.a\&quot;@example.org&quot;,&quot;\&quot;Abc@def\&quot;@example.com&quot;,&quot;\&quot;Fred Bloggs\&quot;@example.com&quot;,&quot;\&quot;Joe.\\Blow\&quot;@example.com&quot;,// &quot;Loïc.Accentué@voilà.fr&quot;,// &quot;\&quot; \&quot;@example.org\&quot;&quot;,// &quot;user@[IPv6:2001:DB8::1]&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L167">MockData.ts:167</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="invalidtimes"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> invalid
-                        <wbr>
-                        Times
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">invalid
-                        <wbr>
-                        Times<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;24:00&quot;,&quot;24:13:56&quot;,&quot;12:61&quot;,&quot;12:60&quot;,&quot;12:59:60&quot;,&quot;30:61&quot;,&quot;12:12:61&quot;,&quot;12:61:61&quot;,&quot;30:61:61&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L25">MockData.ts:25</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="lowercamelcase"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> lower
-                        <wbr>
-                        Camel
-                        <wbr>
-                        Case
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">lower
-                        <wbr>
-                        Camel
-                        <wbr>
-                        Case<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;helloWorld&quot;,&quot;helloMyNameIsChose&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L124">MockData.ts:124</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="lowersnakecase"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> lower
-                        <wbr>
-                        Snake
-                        <wbr>
-                        Case
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">lower
-                        <wbr>
-                        Snake
-                        <wbr>
-                        Case<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;hello_world&quot;,&quot;hello_my_name_is_chose&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L114">MockData.ts:114</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="man"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> man</h3>
-                    <div class="tsd-signature tsd-kind-icon">man<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;[&quot;Muž&quot;, &quot;muz&quot;, &quot;MAN&quot;, &quot;m&quot;, &quot;boY&quot;, &quot;chLaPec&quot;, &quot;M&quot;, &quot;male&quot;]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L137">MockData.ts:137</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="notemails"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> not
-                        <wbr>
-                        Emails
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">not
-                        <wbr>
-                        Emails<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Abc.example.com&quot;,&quot;A@b@c@example.com&quot;,&quot;a\&quot;b(c)d,e:f;g&lt;h&gt;i[j\k]l@example.com&quot;,&quot;just\&quot;not\&quot;right@example.com&quot;,&quot;this is\&quot;not\allowed@example.com&quot;,&quot;this\ still\&quot;not\\allowed@example.com&quot;,&quot;john..doe@example.com&quot;,&quot;john.doe@example..com&quot;,...MockData.randomStrings,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L188">MockData.ts:188</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="nothing"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> nothing</h3>
-                    <div class="tsd-signature tsd-kind-icon">nothing<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;[...MockData.charactersEmpty,...MockData.randomStrings,...MockData.numbers,...MockData.characters,...MockData.charactersCaseAble,...MockData.charactersNotEmpty,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L141">MockData.ts:141</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="numbers"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> numbers</h3>
-                    <div class="tsd-signature tsd-kind-icon">numbers<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;MockData.numbersString.split(&quot;&quot;)</span></div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L80">MockData.ts:80</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="numbersstring"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> numbers
-                        <wbr>
-                        String
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">numbers
-                        <wbr>
-                        String<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">"0123456789"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;0123456789&quot;</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L78">MockData.ts:78</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="phonenumbers"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> phone
-                        <wbr>
-                        Numbers
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">phone
-                        <wbr>
-                        Numbers<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;+421905123456&quot;,&quot;00421905123456&quot;,&quot;0905123456&quot;,&quot;+421 905 123 456&quot;,&quot;00421905 123 456&quot;,&quot;0905 123 456&quot;,&quot;(123) 456-7890&quot;,&quot;(123)456-7890&quot;,&quot;(048)99-99-999&quot;,&quot;123-456-7890&quot;,&quot;123.456.7890&quot;,&quot;1234567890&quot;,&quot;+31636363634&quot;,&quot;075-63546725&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L150">MockData.ts:150</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="randomarray"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> random
-                        <wbr>
-                        Array
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">random
-                        <wbr>
-                        Array<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span
-                                class="tsd-signature-symbol"> =&nbsp;[&quot;a&quot;,1,2.32,true,(a: any, b: any) &#x3D;&gt; a + b,{},null,undefined,Infinity,NaN,{a: &quot;aa&quot;, b: &quot;bb&quot;},[&quot;a&quot;, 1, true],]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L82">MockData.ts:82</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="randomstrings"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> random
-                        <wbr>
-                        Strings
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">random
-                        <wbr>
-                        Strings<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[...MockData.stringHelloWorldIAmComputer,...MockData.upperSnakeCase,...MockData.lowerSnakeCase,...MockData.upperCamelCase,...MockData.lowerCamelCase,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L129">MockData.ts:129</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="stringhelloworldiamcomputer"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> string
-                        <wbr>
-                        Hello
-                        <wbr>
-                        WorldIAm
-                        <wbr>
-                        Computer
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">string
-                        <wbr>
-                        Hello
-                        <wbr>
-                        WorldIAm
-                        <wbr>
-                        Computer<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Hello world i am computer&quot;,&quot;HelloWorldIAmComputer&quot;,&quot;helloWorldIAmComputer&quot;,&quot;hello_world_i_am_computer&quot;,&quot;HELLO_WORLD_I_AM_COMPUTER&quot;,&quot;--------Hello world---i am computer____&quot;,&quot;hello_World i Am-computer&quot;,&quot;hello_World i Am-computer-------&quot;,&quot;-_Hello___world-i--AM    computer&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L97">MockData.ts:97</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="timeshhmm"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> timesHHmm</h3>
-                    <div class="tsd-signature tsd-kind-icon">timesHHmm<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;[&quot;12:53&quot;,&quot;12:00&quot;,&quot;01:09&quot;,&quot;23:59&quot;,&quot;00:59&quot;,&quot;23:01&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L10">MockData.ts:10</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="timeshhmmss"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> timesHHmmss</h3>
-                    <div class="tsd-signature tsd-kind-icon">timesHHmmss<span class="tsd-signature-symbol">:</span>
-                        <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                                class="tsd-signature-symbol"> =&nbsp;[&quot;12:00:00&quot;,&quot;01:09:09&quot;,&quot;23:59:59&quot;,&quot;00:59:59&quot;,&quot;23:01:01&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L2">MockData.ts:2</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="timeshmm"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> times
-                        <wbr>
-                        Hmm
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">times
-                        <wbr>
-                        Hmm<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;1:59&quot;,&quot;9:09&quot;,&quot;9:09&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L19">MockData.ts:19</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="uppercamelcase"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> upper
-                        <wbr>
-                        Camel
-                        <wbr>
-                        Case
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">upper
-                        <wbr>
-                        Camel
-                        <wbr>
-                        Case<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;HelloWorld&quot;,&quot;HelloMyNameIsChose&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L119">MockData.ts:119</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="uppersnakecase"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> upper
-                        <wbr>
-                        Snake
-                        <wbr>
-                        Case
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">upper
-                        <wbr>
-                        Snake
-                        <wbr>
-                        Case<span class="tsd-signature-symbol">:</span> <span
-                                class="tsd-signature-type">string</span><span
-                                class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;HELLO_WORLD&quot;,&quot;HELLO_MY_NAME_IS_CHOSE&quot;,]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L109">MockData.ts:109</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="woman"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> woman</h3>
-                    <div class="tsd-signature tsd-kind-icon">woman<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span
-                            class="tsd-signature-symbol"> =&nbsp;[&quot;Žena&quot;, &quot;zena&quot;, &quot;WOMAN&quot;, &quot;w&quot;, &quot;z&quot;, &quot;GiRl&quot;, &quot;Dievča&quot;, &quot;woman&quot;, &quot;female&quot;, &quot;f&quot;]</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L139">MockData.ts:139</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-            </section>
-            <section class="tsd-panel-group tsd-member-group ">
-                <h2>Methods</h2>
-                <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                    <a class="tsd-anchor" name="functionsum"></a>
-                    <h3><span class="tsd-flag ts-flagStatic">Static</span> function
-                        <wbr>
-                        Sum
-                    </h3>
-                    <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                        <li class="tsd-signature tsd-kind-icon">function
-                            <wbr>
-                            Sum<span class="tsd-signature-symbol">(</span>a<span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>,
-                            b<span class="tsd-signature-symbol">: </span><span
-                                    class="tsd-signature-type">any</span><span
-                                    class="tsd-signature-symbol">)</span><span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>
-                        </li>
-                    </ul>
-                    <ul class="tsd-descriptions">
-                        <li class="tsd-description">
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>Defined in <a
-                                            href="https://github.com/G43riko/GTools/blob/a452c63/src/MockData.ts#L200">MockData.ts:200</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>a: <span class="tsd-signature-type">number</span></h5>
-                                </li>
-                                <li>
-                                    <h5>b: <span class="tsd-signature-type">any</span></h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-                        </li>
-                    </ul>
-                </section>
-            </section>
-        </div>
-        <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-            <nav class="tsd-navigation primary">
-                <ul>
-                    <li class="globals  ">
-                        <a href="../globals.html"><em>Globals</em></a>
-                    </li>
-                    <li class="current tsd-kind-external-module">
-                        <a href="../modules/_mockdata_.html">"
-                            <wbr>
-                            Mock
-                            <wbr>
-                            Data"</a>
-                    </li>
-                </ul>
-            </nav>
-            <nav class="tsd-navigation secondary menu-sticky">
-                <ul class="before-current">
-                </ul>
-                <ul class="current">
-                    <li class="current tsd-kind-class tsd-parent-kind-external-module">
-                        <a class="tsd-kind-icon" href="_mockdata_.mockdata.html">Mock
-                            <wbr>
-                            Data</a>
-                        <ul>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#characters">characters</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#characterscaseable">characters
-                                    <wbr>
-                                    Case
-                                    <wbr>
-                                    Able</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#characterscaseablestring">characters
-                                    <wbr>
-                                    Case
-                                    <wbr>
-                                    Able
-                                    <wbr>
-                                    String</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersempty">characters
-                                    <wbr>
-                                    Empty</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersnotempty">characters
-                                    <wbr>
-                                    Not
-                                    <wbr>
-                                    Empty</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#charactersstring">characters
-                                    <wbr>
-                                    String</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#emails">emails</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#invalidtimes">invalid
-                                    <wbr>
-                                    Times</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#lowercamelcase">lower
-                                    <wbr>
-                                    Camel
-                                    <wbr>
-                                    Case</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#lowersnakecase">lower
-                                    <wbr>
-                                    Snake
-                                    <wbr>
-                                    Case</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#man">man</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#notemails">not
-                                    <wbr>
-                                    Emails</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#nothing">nothing</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#numbers">numbers</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#numbersstring">numbers
-                                    <wbr>
-                                    String</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#phonenumbers">phone
-                                    <wbr>
-                                    Numbers</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#randomarray">random
-                                    <wbr>
-                                    Array</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#randomstrings">random
-                                    <wbr>
-                                    Strings</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#stringhelloworldiamcomputer">string
-                                    <wbr>
-                                    Hello
-                                    <wbr>
-                                    WorldIAm
-                                    <wbr>
-                                    Computer</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#timeshhmm">timesHHmm</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#timeshhmmss">timesHHmmss</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#timeshmm">times
-                                    <wbr>
-                                    Hmm</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#uppercamelcase">upper
-                                    <wbr>
-                                    Camel
-                                    <wbr>
-                                    Case</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#uppersnakecase">upper
-                                    <wbr>
-                                    Snake
-                                    <wbr>
-                                    Case</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#woman">woman</a>
-                            </li>
-                            <li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-                                <a class="tsd-kind-icon" href="_mockdata_.mockdata.html#functionsum">function
-                                    <wbr>
-                                    Sum</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="after-current">
-                </ul>
-            </nav>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">MockData</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#characters" class="tsd-kind-icon">characters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#characterscaseable" class="tsd-kind-icon">characters<wbr>Case<wbr>Able</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#characterscaseablestring" class="tsd-kind-icon">characters<wbr>Case<wbr>Able<wbr>String</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#charactersempty" class="tsd-kind-icon">characters<wbr>Empty</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#charactersnotempty" class="tsd-kind-icon">characters<wbr>Not<wbr>Empty</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#charactersstring" class="tsd-kind-icon">characters<wbr>String</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#emails" class="tsd-kind-icon">emails</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#invalidtimes" class="tsd-kind-icon">invalid<wbr>Times</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#lowercamelcase" class="tsd-kind-icon">lower<wbr>Camel<wbr>Case</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#lowersnakecase" class="tsd-kind-icon">lower<wbr>Snake<wbr>Case</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#man" class="tsd-kind-icon">man</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#notemails" class="tsd-kind-icon">not<wbr>Emails</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#nothing" class="tsd-kind-icon">nothing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#numbers" class="tsd-kind-icon">numbers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#numbersstring" class="tsd-kind-icon">numbers<wbr>String</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#phonenumbers" class="tsd-kind-icon">phone<wbr>Numbers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#randomarray" class="tsd-kind-icon">random<wbr>Array</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#randomstrings" class="tsd-kind-icon">random<wbr>Strings</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#stringhelloworldiamcomputer" class="tsd-kind-icon">string<wbr>Hello<wbr>WorldIAm<wbr>Computer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#timeshhmm" class="tsd-kind-icon">timesHHmm</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#timeshhmmss" class="tsd-kind-icon">timesHHmmss</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#timeshmm" class="tsd-kind-icon">times<wbr>Hmm</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#uppercamelcase" class="tsd-kind-icon">upper<wbr>Camel<wbr>Case</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#uppersnakecase" class="tsd-kind-icon">upper<wbr>Snake<wbr>Case</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#woman" class="tsd-kind-icon">woman</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_mockdata_.mockdata.html#functionsum" class="tsd-kind-icon">function<wbr>Sum</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="characters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;MockData.charactersString.split(&quot;&quot;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L40">MockData.ts:40</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="characterscaseable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters<wbr>Case<wbr>Able</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<wbr>Case<wbr>Able<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;MockData.charactersCaseAbleString.split(&quot;&quot;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L44">MockData.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="characterscaseablestring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters<wbr>Case<wbr>Able<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<wbr>Case<wbr>Able<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"þÞıŦŧŊEĐđNΩ"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;þÞıŦŧŊEĐđNΩ&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L42">MockData.ts:42</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="charactersempty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters<wbr>Empty</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<wbr>Empty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;     &quot;,&quot;    &quot;,&quot;&quot;,&quot; &quot;,&quot;\t&quot;,&quot;\xa0&quot;,&quot;\t \xa0\t \xa0&quot;,&quot;  &quot;,&quot;\t\t&quot;,&quot;\xa0\xa0&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L46">MockData.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="charactersnotempty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters<wbr>Not<wbr>Empty</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<wbr>Not<wbr>Empty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot; 3 &quot;,&quot;a&quot;,&quot;0&quot;,&quot;[]&quot;,&quot;A&quot;,&quot;{}&quot;,&quot;.&quot;,&quot;123&quot;,&quot;gabriel&quot;,&quot;Ich bin Hanz&quot;,&quot;@&quot;,// &quot;123@123.123&quot;,&quot;00000000000000000000&quot;,&quot;\\&quot;,&quot;/&quot;,&quot;********&quot;,&quot;______&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L59">MockData.ts:59</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="charactersstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> characters<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">characters<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"+&#x3D;§,.-?:_&quot;!)/()&lt;&gt;*&#x27;$[]}{*&amp;^%$#@!/\|#&amp;@{}^&#x27;&#x60;][~|€¶←↓→º’‘©&gt;&lt;§®ª&#x60;←&#x27;↓&amp;×÷|÷×"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;+&#x3D;§,.-?:_&quot;!)/()&lt;&gt;*&#x27;$[]}{*&amp;^%$#@!/\|#&amp;@{}^&#x27;&#x60;][~|€¶←↓→º’‘©&gt;&lt;§®ª&#x60;←&#x27;↓&amp;×÷|÷×&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L38">MockData.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="emails" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> emails</h3>
+					<div class="tsd-signature tsd-kind-icon">emails<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;abc@def.com&quot;,&quot;my@name.is.chorche.com&quot;,&quot;foo.bar@machine.subdomain.example.museum&quot;,&#x60;Abc@example.com&#x60;,// &#x60;Abc@example.com.&#x60;,// &#x60;Abc@10.42.0.1&#x60;,// &#x60;user@localserver&#x60;,&#x60;Abc.123@example.com&#x60;,&#x60;user+mailbox/department&#x3D;shipping@example.com&#x60;,&#x60;&quot;very.(),:;&lt;&gt;[]\&quot;.VERY.\&quot;very@\\ \&quot;very\&quot;.unusual&quot;@strange.example.com&#x60;,&quot;!#$%&amp;\&#x27;*+-/&#x3D;?^_&#x60;.{|}~@example.com&quot;,&quot;\&quot;()&lt;&gt;[]:,;@\\\&quot;!#$%&amp;\&#x27;-/&#x3D;?^_&#x60;{}| ~.a\&quot;@example.org&quot;,&quot;\&quot;Abc@def\&quot;@example.com&quot;,&quot;\&quot;Fred Bloggs\&quot;@example.com&quot;,&quot;\&quot;Joe.\\Blow\&quot;@example.com&quot;,// &quot;Loïc.Accentué@voilà.fr&quot;,// &quot;\&quot; \&quot;@example.org\&quot;&quot;,// &quot;user@[IPv6:2001:DB8::1]&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L168">MockData.ts:168</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="invalidtimes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> invalid<wbr>Times</h3>
+					<div class="tsd-signature tsd-kind-icon">invalid<wbr>Times<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;24:00&quot;,&quot;24:13:56&quot;,&quot;12:61&quot;,&quot;12:60&quot;,&quot;12:59:60&quot;,&quot;30:61&quot;,&quot;12:12:61&quot;,&quot;12:61:61&quot;,&quot;30:61:61&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L26">MockData.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="lowercamelcase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> lower<wbr>Camel<wbr>Case</h3>
+					<div class="tsd-signature tsd-kind-icon">lower<wbr>Camel<wbr>Case<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;helloWorld&quot;,&quot;helloMyNameIsChose&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L125">MockData.ts:125</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="lowersnakecase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> lower<wbr>Snake<wbr>Case</h3>
+					<div class="tsd-signature tsd-kind-icon">lower<wbr>Snake<wbr>Case<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;hello_world&quot;,&quot;hello_my_name_is_chose&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L115">MockData.ts:115</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="man" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> man</h3>
+					<div class="tsd-signature tsd-kind-icon">man<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Muž&quot;, &quot;muz&quot;, &quot;MAN&quot;, &quot;m&quot;, &quot;boY&quot;, &quot;chLaPec&quot;, &quot;M&quot;, &quot;male&quot;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L138">MockData.ts:138</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="notemails" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> not<wbr>Emails</h3>
+					<div class="tsd-signature tsd-kind-icon">not<wbr>Emails<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Abc.example.com&quot;,&quot;A@b@c@example.com&quot;,&quot;a\&quot;b(c)d,e:f;g&lt;h&gt;i[j\k]l@example.com&quot;,&quot;just\&quot;not\&quot;right@example.com&quot;,&quot;this is\&quot;not\allowed@example.com&quot;,&quot;this\ still\&quot;not\\allowed@example.com&quot;,&quot;john..doe@example.com&quot;,&quot;john.doe@example..com&quot;,...MockData.randomStrings,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L189">MockData.ts:189</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="nothing" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> nothing</h3>
+					<div class="tsd-signature tsd-kind-icon">nothing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[...MockData.charactersEmpty,...MockData.randomStrings,...MockData.numbers,...MockData.characters,...MockData.charactersCaseAble,...MockData.charactersNotEmpty,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L142">MockData.ts:142</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="numbers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> numbers</h3>
+					<div class="tsd-signature tsd-kind-icon">numbers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;MockData.numbersString.split(&quot;&quot;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L81">MockData.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="numbersstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> numbers<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">numbers<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"0123456789"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;0123456789&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L79">MockData.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="phonenumbers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> phone<wbr>Numbers</h3>
+					<div class="tsd-signature tsd-kind-icon">phone<wbr>Numbers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;+421905123456&quot;,&quot;00421905123456&quot;,&quot;0905123456&quot;,&quot;+421 905 123 456&quot;,&quot;00421905 123 456&quot;,&quot;0905 123 456&quot;,&quot;(123) 456-7890&quot;,&quot;(123)456-7890&quot;,&quot;(048)99-99-999&quot;,&quot;123-456-7890&quot;,&quot;123.456.7890&quot;,&quot;1234567890&quot;,&quot;+31636363634&quot;,&quot;075-63546725&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L151">MockData.ts:151</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="randomarray" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> random<wbr>Array</h3>
+					<div class="tsd-signature tsd-kind-icon">random<wbr>Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;a&quot;,1,2.32,true,(a: any, b: any) &#x3D;&gt; a + b,{},null,undefined,Infinity,NaN,{a: &quot;aa&quot;, b: &quot;bb&quot;},[&quot;a&quot;, 1, true],]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L83">MockData.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="randomstrings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> random<wbr>Strings</h3>
+					<div class="tsd-signature tsd-kind-icon">random<wbr>Strings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[...MockData.stringHelloWorldIAmComputer,...MockData.upperSnakeCase,...MockData.lowerSnakeCase,...MockData.upperCamelCase,...MockData.lowerCamelCase,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L130">MockData.ts:130</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="stringhelloworldiamcomputer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> string<wbr>Hello<wbr>WorldIAm<wbr>Computer</h3>
+					<div class="tsd-signature tsd-kind-icon">string<wbr>Hello<wbr>WorldIAm<wbr>Computer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Hello world i am computer&quot;,&quot;HelloWorldIAmComputer&quot;,&quot;helloWorldIAmComputer&quot;,&quot;hello_world_i_am_computer&quot;,&quot;HELLO_WORLD_I_AM_COMPUTER&quot;,&quot;--------Hello world---i am computer____&quot;,&quot;hello_World i Am-computer&quot;,&quot;hello_World i Am-computer-------&quot;,&quot;-_Hello___world-i--AM    computer&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L98">MockData.ts:98</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="timeshhmm" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> timesHHmm</h3>
+					<div class="tsd-signature tsd-kind-icon">timesHHmm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;12:53&quot;,&quot;12:00&quot;,&quot;01:09&quot;,&quot;23:59&quot;,&quot;00:59&quot;,&quot;23:01&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L11">MockData.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="timeshhmmss" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> timesHHmmss</h3>
+					<div class="tsd-signature tsd-kind-icon">timesHHmmss<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;12:00:00&quot;,&quot;01:09:09&quot;,&quot;23:59:59&quot;,&quot;00:59:59&quot;,&quot;23:01:01&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L3">MockData.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="timeshmm" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> times<wbr>Hmm</h3>
+					<div class="tsd-signature tsd-kind-icon">times<wbr>Hmm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;1:59&quot;,&quot;9:09&quot;,&quot;9:09&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L20">MockData.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="uppercamelcase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> upper<wbr>Camel<wbr>Case</h3>
+					<div class="tsd-signature tsd-kind-icon">upper<wbr>Camel<wbr>Case<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;HelloWorld&quot;,&quot;HelloMyNameIsChose&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L120">MockData.ts:120</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="uppersnakecase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> upper<wbr>Snake<wbr>Case</h3>
+					<div class="tsd-signature tsd-kind-icon">upper<wbr>Snake<wbr>Case<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;HELLO_WORLD&quot;,&quot;HELLO_MY_NAME_IS_CHOSE&quot;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L110">MockData.ts:110</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="woman" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> woman</h3>
+					<div class="tsd-signature tsd-kind-icon">woman<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;Žena&quot;, &quot;zena&quot;, &quot;WOMAN&quot;, &quot;w&quot;, &quot;z&quot;, &quot;GiRl&quot;, &quot;Dievča&quot;, &quot;woman&quot;, &quot;female&quot;, &quot;f&quot;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L140">MockData.ts:140</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="functionsum" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> function<wbr>Sum</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">function<wbr>Sum<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/15d2b50/src/MockData.ts#L201">MockData.ts:201</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>b: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_mockdata_.html">"<wbr>Mock<wbr>Data"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_mockdata_.mockdata.html" class="tsd-kind-icon">Mock<wbr>Data</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#characters" class="tsd-kind-icon">characters</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#characterscaseable" class="tsd-kind-icon">characters<wbr>Case<wbr>Able</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#characterscaseablestring" class="tsd-kind-icon">characters<wbr>Case<wbr>Able<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#charactersempty" class="tsd-kind-icon">characters<wbr>Empty</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#charactersnotempty" class="tsd-kind-icon">characters<wbr>Not<wbr>Empty</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#charactersstring" class="tsd-kind-icon">characters<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#emails" class="tsd-kind-icon">emails</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#invalidtimes" class="tsd-kind-icon">invalid<wbr>Times</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#lowercamelcase" class="tsd-kind-icon">lower<wbr>Camel<wbr>Case</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#lowersnakecase" class="tsd-kind-icon">lower<wbr>Snake<wbr>Case</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#man" class="tsd-kind-icon">man</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#notemails" class="tsd-kind-icon">not<wbr>Emails</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#nothing" class="tsd-kind-icon">nothing</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#numbers" class="tsd-kind-icon">numbers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#numbersstring" class="tsd-kind-icon">numbers<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#phonenumbers" class="tsd-kind-icon">phone<wbr>Numbers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#randomarray" class="tsd-kind-icon">random<wbr>Array</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#randomstrings" class="tsd-kind-icon">random<wbr>Strings</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#stringhelloworldiamcomputer" class="tsd-kind-icon">string<wbr>Hello<wbr>WorldIAm<wbr>Computer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#timeshhmm" class="tsd-kind-icon">timesHHmm</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#timeshhmmss" class="tsd-kind-icon">timesHHmmss</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#timeshmm" class="tsd-kind-icon">times<wbr>Hmm</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#uppercamelcase" class="tsd-kind-icon">upper<wbr>Camel<wbr>Case</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#uppersnakecase" class="tsd-kind-icon">upper<wbr>Snake<wbr>Case</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#woman" class="tsd-kind-icon">woman</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_mockdata_.mockdata.html#functionsum" class="tsd-kind-icon">function<wbr>Sum</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
 <footer class="with-border-bottom">
-    <div class="container">
-        <h2>Legend</h2>
-        <div class="tsd-legend-group">
-            <ul class="tsd-legend">
-                <li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-                <li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-                <li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-                <li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-                <li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span>
-                </li>
-                <li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-                <li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-                <li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-                <li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-                <li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-                <li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span>
-                </li>
-                <li class="tsd-kind-constructor tsd-parent-kind-interface"><span
-                        class="tsd-kind-icon">Constructor</span></li>
-                <li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-                <li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-                <li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span>
-                </li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-                <li class="tsd-kind-class tsd-has-type-parameter"><span
-                        class="tsd-kind-icon">Class with type parameter</span></li>
-                <li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span>
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-                <li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-                <li class="tsd-kind-index-signature tsd-parent-kind-class"><span
-                        class="tsd-kind-icon">Index signature</span></li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span>
-                </li>
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span>
-                </li>
-                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span>
-                </li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span>
-                </li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span>
-                </li>
-                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span>
-                </li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span>
-                </li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span>
-                </li>
-                <li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span>
-                </li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span>
-                </li>
-            </ul>
-            <ul class="tsd-legend">
-                <li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span>
-                </li>
-                <li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
 </footer>
 <div class="container tsd-generator">
-    <p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

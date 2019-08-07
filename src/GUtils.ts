@@ -61,7 +61,6 @@ export * from "./math/Vector2f";
 // CONFIG
 
 export { initConfig } from "./config/gtools-config";
-export { StringMapInterface } from "./interfaces/string-map.interface";
 
 // INTERFACES
 
