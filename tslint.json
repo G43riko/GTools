@@ -9,7 +9,7 @@
     "jsRules": {},
     "rules": {
         "strict-boolean-expressions": false,
-        "strict-type-predicates": false,
+        "strict-type-predicates": true,
         "interface-name": false,
         "quotemark": [
             true,
@@ -48,9 +48,12 @@
             true,
             20
         ],
+        // TODO: too many errors
+        "only-arrow-functions": false,
         "no-trailing-whitespace": true,
         "no-var-keyword": true,
         "prefer-readonly": true,
+
         "comment-format": [
             true,
             "check-space"
@@ -82,8 +85,8 @@
         "no-empty": true,
         "jsdoc-format": true,
         "no-unnecessary-initializer": true,
-        "no-redundant-jsdoc": true,
         // TODO: too many errors
+        "no-redundant-jsdoc": false,
         "max-line-length": [
             true,
             190
@@ -123,6 +126,7 @@
             true,
             500
         ],
+        "align": true,
         "arrow-parens": true,
         "triple-equals": true,
         "no-unnecessary-type-assertion": true,
@@ -130,6 +134,7 @@
         "no-invalid-this": true,
         "no-duplicate-imports": true,
         "use-isnan": true,
+        // TODO: too many errors
         "no-parameter-reassignment": false,
         "no-magic-numbers": false,
         "no-for-each-push": true,

@@ -19,6 +19,10 @@ export class MiscUtils {
         return temp;
     }
 
+    /**
+     * Method parse cookies
+     * @param cookies
+     */
     public static parseCookies(cookies: string): StringMap {
         const list: StringMap = {};
         const data            = cookies ? cookies.toString()
@@ -34,6 +38,11 @@ export class MiscUtils {
         return list;
     }
 
+    /**
+     * Method check if object is in array
+     * @param obj
+     * @param data
+     */
     public static isIn(obj: any, ...data: any[]): boolean {
         if (Array.isArray(data[0])) {
             if (data[0].indexOf(obj) >= 0) {
@@ -44,6 +53,14 @@ export class MiscUtils {
         }
 
         return false;
+    }
+
+    /**
+     * Method parse JSON content with comments
+     * @param content
+     */
+    public static parseJSONWithComments(content: string): any {
+        return  JSON.parse(content.replace(/\/\/.*\n/g, ""))
     }
 
     // TODO: should append cookies or add option to appending instead of replace cookies
