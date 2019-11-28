@@ -39,7 +39,7 @@ export * from "./enums/keys.enum";
 
 // COMPONENTS
 
-export * from "./components/ItemCounter";
+export * from "./components/KeyValueCounter";
 export * from "./components/FileManager";
 export * from "./components/Paginator";
 
