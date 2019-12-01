@@ -4,7 +4,7 @@
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "types": "./out/index",
-    "homepage": "https://github.com/G43riko/GTools#readme",
+    "homepage": "https://g43riko.github.io/GTools",
     "keywords": [
         "tools",
         "utils",
