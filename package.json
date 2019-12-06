@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.11",
+    "version": "0.2.12",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "types": "./out/index",
@@ -20,23 +20,35 @@
         "email": "gcsollei@hotmail.com",
         "url": "https://github.com/G43riko/GTools/issues"
     },
+
     "scripts": {
         "prepare": "npm run clean && npm run pack && npm run doc",
         "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
         "tsc": "tsc",
+        "release": "npm publish out",
         "release:major": "npm version major && npm publish",
         "release:minor": "npm version minor && npm publish",
         "release:patch": "npm version patch && npm publish",
         "doc": "typedoc --out docs",
         "pack": "npm run tsc && webpack",
+        "copy": "cp package.json out",
         "clean": "rimraf out doc docs coverage bin .nyc_output",
         "lint": "tslint --project ."
     },
     "author": {
         "email": "gcsollei@hotmail.com",
         "name": "Gabriel Csollei"
+    },
+    "browser": {
+        "http": false,
+        "https": false,
+        "net": false,
+        "fs": false,
+        "path": false,
+        "stream": false,
+        "tls": false
     },
     "license": "ISC",
     "devDependencies": {

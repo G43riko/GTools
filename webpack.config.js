@@ -2,8 +2,8 @@ const path = require("path");
 
 const serverConfig = {
     entry: [
-        "./out/GUtils.node.js",
-        "./out/GUtils.common.js",
+        "./out/node.js",
+        "./out/common.js",
     ],
     target: "node",
     node: {
@@ -17,8 +17,8 @@ const serverConfig = {
 };
 const webConfig = {
     entry: [
-        "./out/GUtils.web.js",
-        "./out/GUtils.common.js",
+        "./out/web.js",
+        "./out/common.js",
     ],
     target: "web",
     node: {

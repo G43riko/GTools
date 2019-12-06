@@ -1,6 +1,6 @@
 "use strict";
 /**************************** WEB ****************************/
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 // UTILS
 var ArrayUtils_1 = require("./utils/ArrayUtils");
 exports.arrays = ArrayUtils_1.ArrayUtils;

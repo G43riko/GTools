@@ -5,7 +5,6 @@ var AbstractFixture = /** @class */ (function () {
         this.list = list;
         this.detail = list[0];
     }
-
     return AbstractFixture;
 }());
 exports.AbstractFixture = AbstractFixture;

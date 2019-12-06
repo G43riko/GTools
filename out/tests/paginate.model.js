@@ -11,7 +11,6 @@ var PaginateModel = /** @class */ (function () {
         this.limit = +count;
         this.offset = +offset;
     }
-
     PaginateModel.validate = function (paginate) {
         if (!paginate) {
             return new PaginateModel();

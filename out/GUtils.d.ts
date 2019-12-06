@@ -1,6 +1,3 @@
-/**************************** NODE ****************************/
-/**************************** WEB ****************************/
-/**************************** BOTH ****************************/
-export * from "./GUtils.node";
-export * from "./GUtils.web";
-export * from "./GUtils.common";
+export * from "./node";
+export * from "./web";
+export * from "./common";

@@ -16,7 +16,6 @@ var __extends = (this && this.__extends) || (function () {
         function __() {
             this.constructor = d;
         }
-
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -24,14 +23,12 @@ Object.defineProperty(exports, "__esModule", {value: true});
 var abstract_fixture_1 = require("./abstract.fixture");
 var AbstractDatabaseFixture = /** @class */ (function (_super) {
     __extends(AbstractDatabaseFixture, _super);
-
     function AbstractDatabaseFixture(list, mapper) {
         var _this = _super.call(this, list) || this;
         _this.listDto = list.map(mapper.mapToDto, mapper);
         _this.detailDto = _this.listDto[0];
         return _this;
     }
-
     return AbstractDatabaseFixture;
 }(abstract_fixture_1.AbstractFixture));
 exports.AbstractDatabaseFixture = AbstractDatabaseFixture;
