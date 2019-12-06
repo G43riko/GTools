@@ -1,5 +1,5 @@
 /**************************** NODE ****************************/
-
+/*
 // UTILS
 
 export * from "./utils/ArrayUtils";
@@ -10,9 +10,9 @@ export * from "./utils/StringUtils";
 export * from "./utils/TimeUtils";
 
 export * from "./utils/SlovakStemmer";
-
+*/
 /**************************** WEB ****************************/
-
+/*
 // UTILS
 
 export { ArrayUtils as arrays } from "./utils/ArrayUtils";
@@ -30,41 +30,9 @@ export { SlovakStemmer as stemmer } from "./utils/SlovakStemmer";
 export { Checkers as check } from "./dom/Checkers";
 export { CanvasManager as canvas } from "./dom/CanvasManager";
 export { Get as get } from "./dom/Get";
-
+*/
 /**************************** BOTH ****************************/
 
-// UTILS
-
-export * from "./utils/StringCheckers";
-
-// MODELS
-
-export { GenderType, Gender } from "./models/gender.model";
-
-// ENUMS
-
-export * from "./enums/encodings.enum";
-export * from "./enums/file-types.enum";
-export * from "./enums/http-status-codes.enum";
-export * from "./enums/keys.enum";
-
-// COMPONENTS
-
-export * from "./components/KeyValueCounter";
-export * from "./components/FileManager";
-export * from "./components/Paginator";
-
-// MATHS
-
-export * from "./math/Vector2f";
-
-// CONFIG
-
-export { initConfig } from "./config/gtools-config";
-
-// INTERFACES
-
-export * from "./interfaces/key-value.interface";
-export * from "./interfaces/string-map.interface";
-export * from "./interfaces/size.interaface";
-export * from "./interfaces/point.interaface";
+export * from "./GUtils.node";
+export * from "./GUtils.web";
+export * from "./GUtils.common";

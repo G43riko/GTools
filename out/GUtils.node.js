@@ -18,23 +18,3 @@ __export(require("./utils/SlovakStemmer"));
 __export(require("./dom/Checkers"));
 __export(require("./dom/CanvasManager"));
 __export(require("./dom/Get"));
-/**************************** BOTH ****************************/
-// UTILS
-__export(require("./utils/StringCheckers"));
-// MODELS
-var gender_model_1 = require("./models/gender.model");
-exports.Gender = gender_model_1.Gender;
-// ENUMS
-__export(require("./enums/encodings.enum"));
-__export(require("./enums/file-types.enum"));
-__export(require("./enums/http-status-codes.enum"));
-__export(require("./enums/keys.enum"));
-// COMPONENTS
-__export(require("./components/KeyValueCounter"));
-__export(require("./components/FileManager"));
-__export(require("./components/Paginator"));
-// MATHS
-__export(require("./math/Vector2f"));
-// CONFIG
-var gtools_config_1 = require("./config/gtools-config");
-exports.initConfig = gtools_config_1.initConfig;

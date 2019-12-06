@@ -1,11 +1,4 @@
 "use strict";
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 // tslint:disable:completed-docs
 var MockData = /** @class */ (function () {
@@ -126,10 +119,10 @@ var MockData = /** @class */ (function () {
         "helloWorld",
         "helloMyNameIsChose",
     ];
-    MockData.randomStrings = __spreadArrays(MockData.stringHelloWorldIAmComputer, MockData.upperSnakeCase, MockData.lowerSnakeCase, MockData.upperCamelCase, MockData.lowerCamelCase);
+    MockData.randomStrings = MockData.stringHelloWorldIAmComputer.concat(MockData.upperSnakeCase, MockData.lowerSnakeCase, MockData.upperCamelCase, MockData.lowerCamelCase);
     MockData.man = ["Muž", "muz", "MAN", "m", "boY", "chLaPec", "M", "male"];
     MockData.woman = ["Žena", "zena", "WOMAN", "w", "z", "GiRl", "Dievča", "woman", "female", "f"];
-    MockData.nothing = __spreadArrays(MockData.charactersEmpty, MockData.randomStrings, MockData.numbers, MockData.characters, MockData.charactersCaseAble, MockData.charactersNotEmpty);
+    MockData.nothing = MockData.charactersEmpty.concat(MockData.randomStrings, MockData.numbers, MockData.characters, MockData.charactersCaseAble, MockData.charactersNotEmpty);
     MockData.phoneNumbers = [
         "+421905123456",
         "00421905123456",
@@ -163,7 +156,7 @@ var MockData = /** @class */ (function () {
         "\"Fred Bloggs\"@example.com",
         "\"Joe.\\Blow\"@example.com",
     ];
-    MockData.notEmails = __spreadArrays([
+    MockData.notEmails = [
         "Abc.example.com",
         "A@b@c@example.com",
         "a\"b(c)d,e:f;g<h>i[j\k]l@example.com",
@@ -172,7 +165,7 @@ var MockData = /** @class */ (function () {
         "this\ still\"not\\allowed@example.com",
         "john..doe@example.com",
         "john.doe@example..com"
-    ], MockData.randomStrings);
+    ].concat(MockData.randomStrings);
     return MockData;
 }());
 exports.MockData = MockData;

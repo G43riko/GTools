@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.8",
+    "version": "0.2.11",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "types": "./out/index",
@@ -31,7 +31,7 @@
         "release:patch": "npm version patch && npm publish",
         "doc": "typedoc --out docs",
         "pack": "npm run tsc && webpack",
-        "clean": "rimraf out doc coverage bin",
+        "clean": "rimraf out doc docs coverage bin .nyc_output",
         "lint": "tslint --project ."
     },
     "author": {
@@ -52,7 +52,7 @@
         "tslint": "^5.20.1",
         "tslint-consistent-codestyle": "^1.16.0",
         "typedoc": "^0.15.3",
-        "typescript": "^3.7.2",
+        "typescript": "<3.6.0",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.10"
     },

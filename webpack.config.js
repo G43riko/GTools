@@ -1,7 +1,10 @@
 const path = require("path");
 
 const serverConfig = {
-    entry: "./out/GUtils.node.js",
+    entry: [
+        "./out/GUtils.node.js",
+        "./out/GUtils.common.js",
+    ],
     target: "node",
     node: {
         fs: 'empty'
@@ -13,7 +16,10 @@ const serverConfig = {
     mode: "production"
 };
 const webConfig = {
-    entry: "./out/GUtils.web.js",
+    entry: [
+        "./out/GUtils.web.js",
+        "./out/GUtils.common.js",
+    ],
     target: "web",
     node: {
         fs: 'empty'
