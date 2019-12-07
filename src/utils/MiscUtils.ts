@@ -60,7 +60,7 @@ export class MiscUtils {
      * @param content
      */
     public static parseJSONWithComments(content: string): any {
-        return  JSON.parse(content.replace(/\/\/.*\n/g, ""))
+        return JSON.parse(content.replace(/\/\/.*\n/g, ""));
     }
 
     // TODO: should append cookies or add option to appending instead of replace cookies

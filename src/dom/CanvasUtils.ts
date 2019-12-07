@@ -44,8 +44,6 @@ export interface CanvasConfig {
     lineDash: number[];
     width: number;
     height: number;
-    partA: number;
-    partB: number;
 }
 
 function setShadow(context: CanvasRenderingContext2D, config?: CanvasShadowConfig): void {
@@ -123,26 +121,31 @@ function initDef(obj: any): CanvasConfig {
         width: 0,
         x: 0,
         y: 0,
-        partA: 0,
-        partB: 0,
     };
 }
 
 function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
-    const res: CanvasConfig = $.extend(def, obj) as any;
-    const checkAttribute = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
+    const res: CanvasConfig = $.extend(def, obj) as CanvasConfig;
+    const checkAttribute    = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
         if (typeof res[attrName] === "undefined") {
             return;
         }
-        if (Checkers.isNumber(res[attrName])) {
-            res.partA = res[attrName] as number;
-            res.partB = res[attrName] as number;
-        } else if (Array.isArray(res[attrName])) {
-            res.partA = res[attrName][0];
-            res.partB = res[attrName][1];
+        const value = res[attrName];
+        if (Checkers.isNumber(value)) {
+            // @ts-ignore
+            res[partA] = value;
+            // @ts-ignore
+            res[partB] = value;
+        } else if (Array.isArray(value)) {
+            // @ts-ignore
+            res[partA] = value[0];
+            // @ts-ignore
+            res[partB] = value[1];
         } else {
-            res.partA = (res[attrName] as Vector2f).x;
-            res.partB = (res[attrName] as Vector2f).y;
+            // @ts-ignore
+            res[partA] = (value as Vector2f).x;
+            // @ts-ignore
+            res[partB] = (value as Vector2f).y;
         }
     };
 

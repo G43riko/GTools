@@ -90,9 +90,9 @@ describe("Misc utils", () => {
         });
         it("It should parse cookies", () => {
             expect(MiscUtils.parseCookies(getCookies())).to.deep.equal({
-                name: "gabriel",
-                age: "24",
-                real: "true",
+                name : "gabriel",
+                age  : "24",
+                real : "true",
                 empty: "",
             });
         });
@@ -100,18 +100,18 @@ describe("Misc utils", () => {
         // istanbul ignore next
         it("It should test serialization and deserialization", () => {
             const obj = {
-                funcAvg: (a: number, b: number) => {
+                funcAvg     : (a: number, b: number) => {
                     return (a + b) / 2;
                 },
-                funcSum: (a: number, b: number) => a + b,
+                funcSum     : (a: number, b: number) => a + b,
                 // tslint:disable-next-line
-                funcMul: function(a: number, b: number) {
+                funcMul     : function(a: number, b: number) {
                     return a * b;
                 },
-                stringParam: "name",
-                numberParam: 123465,
-                objParam: {a: "aa"},
-                arrayParam: ["a", true, 12],
+                stringParam : "name",
+                numberParam : 123465,
+                objParam    : {a: "aa"},
+                arrayParam  : ["a", true, 12],
                 booleanParam: false,
             };
 
@@ -127,8 +127,10 @@ describe("Misc utils", () => {
             expect(result.objParam, "result.objParam").to.deep.equal({a: "aa"});
             expect(result.numberParam, "result.numberParam").to.be.equal(123465);
             expect(result.booleanParam, "result.booleanParam").to.be.equal(false);
-            // expect(typeof result.funcAvg, "typeof result.funcAvg").to.be.equal("function");
-            // expect(result.funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
+            describe.skip("should skip wrong tests", () => {
+                expect(typeof result.funcAvg, "typeof result.funcAvg").to.be.equal("function");
+                expect(result.funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
+            });
             expect(typeof result.funcSum, "typeof result.funcSum").to.be.equal("function");
             expect(result.funcSum(2, 4), "result.funcSum(2, 4)").to.be.equal(6);
             expect(typeof result.funcMul, "typeof result.funcMul").to.be.equal("function");

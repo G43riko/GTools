@@ -27,12 +27,8 @@ export class NetUtils {
     public static getContentFrom(url: string): Promise<string> {
         const callback = (res: http.IncomingMessage, success: any) => {
             let data = "";
-            res.on("data", function(chunk) {
-                data += chunk;
-            });
-            res.on("end", function() {
-                success(data);
-            });
+            res.on("data", (chunk) => data += chunk);
+            res.on("end", () => success(data));
         };
 
         return new Promise((success, reject) => {

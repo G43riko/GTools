@@ -7,7 +7,7 @@ export class Checkers {
         return typeOf(arg) === "function";
     }
 
-    public static isString(arg: any): boolean {
+    public static isString(arg: any): arg is string {
         return typeOf(arg) === "string";
     }
 
@@ -15,11 +15,11 @@ export class Checkers {
         return typeOf(arg) === "object";
     }
 
-    public static isNumber(arg: any): boolean {
+    public static isNumber(arg: any): arg is number {
         return typeOf(arg) === "number";
     }
 
-    public static isBoolean(arg: any): boolean {
+    public static isBoolean(arg: any): arg is boolean {
         return typeOf(arg) === "boolean";
     }
 

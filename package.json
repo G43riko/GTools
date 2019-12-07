@@ -20,7 +20,6 @@
         "email": "gcsollei@hotmail.com",
         "url": "https://github.com/G43riko/GTools/issues"
     },
-
     "scripts": {
         "prepare": "npm run clean && npm run pack && npm run doc",
         "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
