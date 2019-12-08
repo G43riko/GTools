@@ -15,6 +15,7 @@ __export(require("./enums/http-status-codes.enum"));
 __export(require("./enums/keys.enum"));
 // COMPONENTS
 __export(require("./components/KeyValueCounter"));
+__export(require("./components/NumberCounter"));
 __export(require("./components/FileManager"));
 __export(require("./components/Paginator"));
 // MATHS

@@ -16,7 +16,7 @@ export class DomUtils {
     /**
      * Function returns height of window
      *
-     * @returns - window height in pixels
+     * @returns window height in pixels
      */
     public static getWindowHeight(): number {
         if (typeof window === "undefined") {
@@ -30,7 +30,7 @@ export class DomUtils {
     /**
      * Function returns width of window
      *
-     * @returns - window width in pixels
+     * @returns window width in pixels
      */
     public static getWindowWidth(): number {
         if (typeof window === "undefined") {
@@ -47,7 +47,7 @@ export class DomUtils {
      * @param element - input element
      * @param text - text to put in element
      * @param append - flag if text should be append or replace previous text
-     * @returns - element given as input
+     * @returns element given as input
      */
     public static text(element: HTMLElement, text: string, append = true): HTMLElement {
         if (append) {
@@ -65,7 +65,7 @@ export class DomUtils {
      * @param element - input element
      * @param html - html to put in element
      * @param append - flag if html should be append or replace previous content
-     * @returns - element given as input
+     * @returns element given as input
      */
     public static html(element: HTMLElement, html: string | HTMLElement, append = true): HTMLElement {
         if (append) {
@@ -90,7 +90,7 @@ export class DomUtils {
      * @param element - input element
      * @param name - class name or list of class names
      * @param force - flag if class should be toggled false
-     * @returns - boolean if function is used to check class presence otherwise element given as input
+     * @returns boolean if function is used to check class presence otherwise element given as input
      */
     public static class(element: HTMLElement, name: string | string[], force = false): HTMLElement | boolean {
         if (Array.isArray(name)) {
@@ -138,7 +138,7 @@ export class DomUtils {
      * @param attr - map of all element attributes
      * @param cont - element content. Can be string, element or array of elements
      * @param style - styles that will be applied to the element
-     * @returns - created element
+     * @returns created element
      */
     public static createElement(name: string | ObjectCreatorParams,
                                 attr?: StringMap,
@@ -186,7 +186,7 @@ export class DomUtils {
      * Function remove element
      *
      * @param element - input element
-     * @returns - removed element
+     * @returns removed element
      */
     public static remove(element: Element): Element {
         const parentElement = element.parentElement;
@@ -201,7 +201,7 @@ export class DomUtils {
      * Function returns object with element position
      *
      * @param element - input element
-     * @returns - position of element
+     * @returns position of element
      */
     public static position(element: HTMLElement): Point {
         let top  = 0;
@@ -223,7 +223,7 @@ export class DomUtils {
      * Function returns order of element between siblings
      *
      * @param element - input element
-     * @returns - index of number
+     * @returns index of number
      */
     public static indexOf(element: Element | null): number {
         let index = 0;
@@ -239,7 +239,7 @@ export class DomUtils {
      * Function returns object with element size
      *
      * @param element - input element
-     * @returns - size of element
+     * @returns size of element
      */
     public static size(element: HTMLElement): Size {
         return {

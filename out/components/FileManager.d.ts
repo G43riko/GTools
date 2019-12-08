@@ -1,4 +1,5 @@
 import { FileTypes } from "../enums/file-types.enum";
+
 /**
  *  FileManager is class used for open and save files
  */
@@ -15,38 +16,38 @@ export declare class FileManager {
     /**
      * Save text content into file with specific extensions
      *
-     * @param {string} name
-     * @param {string} text
-     * @param {FileTypes} type
-     * @public
+     * @param name file name
+     * @param text file content
+     * @param type file {@link FileTypes}. Defaul value is {@link FileTypes.TXT}
      */
     saveFile(name: string, text: string, type?: FileTypes): void;
+
     /**
      * Save image into file
      *
-     * @param {string} name
-     * @param {string|HTMLImageElement} image
-     * @public
+     * @param name image name
+     * @param image image element or path to image
      */
     saveImage(name: string, image: string | HTMLImageElement): void;
+
     /**
      * Load image using system file picker
      *
-     * @param {(result: any, fileName: string) => any} func
-     * @public
+     * @param  func loading callback
      */
     loadImage(func: (result: any, fileName: string) => any): void;
+
     /**
      * Load file using system file picker
      *
-     * @param {(result: any, files: any) => any} func
-     * @public
+     * @param func loading callback
      */
     loadFile(func: (result: any, files: any) => any): void;
+
     /**
      * Load binary file using system file picker
      *
-     * @param {(result: any, fileName: string) => any)} func
+     * @param func loading callback
      */
     loadBinaryFile(func: (result: any, fileName: string) => any): void;
 }

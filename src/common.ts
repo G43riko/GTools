@@ -16,6 +16,7 @@ export * from "./enums/keys.enum";
 // COMPONENTS
 
 export * from "./components/KeyValueCounter";
+export * from "./components/NumberCounter";
 export * from "./components/FileManager";
 export * from "./components/Paginator";
 

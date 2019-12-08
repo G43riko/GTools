@@ -1,42 +1,47 @@
 export declare class Get {
     /**
      *
-     * @param {Document} context
+     * @param context document context
      */
     static setContext(context: Document): void;
+
     /**
      *
-     * @param {string} className
-     * @param {Document} context
-     * @returns {HTMLCollectionOf<Element>}
+     * @param className name of class
+     * @param context searched context
+     * @returns collection of found elements
      */
     static byClass(className: string, context?: Document): HTMLCollectionOf<Element>;
+
     /**
      *
-     * @param {string} link
-     * @param {Document} context
-     * @returns {NodeListOf}
+     * @param link name of link
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     static byLink(link: string, context?: Document): NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]>;
+
     /**
      *
-     * @param {string} id
-     * @param {Document} context
-     * @returns {HTMLElement | null}
+     * @param id searched ID
+     * @param context searched context
+     * @returns found element or null
      */
     static byId(id: string, context?: Document): HTMLElement | null;
+
     /**
      *
-     * @param {string} name
-     * @param {Document} context
-     * @returns {NodeListOf<HTMLElement>}
+     * @param name elements name
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     static byName(name: string, context?: Document): NodeListOf<HTMLElement>;
+
     /**
      *
-     * @param {string} tagName
-     * @param {Document} context
-     * @returns {NodeListOf<Element>}
+     * @param tagName elements tagName
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     static byTag(tagName: string, context?: Document): NodeListOf<Element>;
 }

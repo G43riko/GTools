@@ -10,7 +10,7 @@ export class MiscUtils {
      *
      * @param name - class name
      * @param args - constructor parameter
-     * @returns - created object
+     * @returns created object
      */
     public static createClass(name: any, args: any[]): any {
         const temp = Object.create(name.prototype);
@@ -21,7 +21,7 @@ export class MiscUtils {
 
     /**
      * Method parse cookies
-     * @param cookies
+     * @param cookies - cooke to parse
      */
     public static parseCookies(cookies: string): StringMap {
         const list: StringMap = {};
@@ -40,8 +40,8 @@ export class MiscUtils {
 
     /**
      * Method check if object is in array
-     * @param obj
-     * @param data
+     * @param obj - searched object
+     * @param data - array of objects to be compare with searched object
      */
     public static isIn(obj: any, ...data: any[]): boolean {
         if (Array.isArray(data[0])) {
@@ -57,7 +57,7 @@ export class MiscUtils {
 
     /**
      * Method parse JSON content with comments
-     * @param content
+     * @param content - stringify JSON
      */
     public static parseJSONWithComments(content: string): any {
         return JSON.parse(content.replace(/\/\/.*\n/g, ""));

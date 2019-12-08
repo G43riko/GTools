@@ -7,16 +7,16 @@ var Get = /** @class */ (function () {
     }
     /**
      *
-     * @param {Document} context
+     * @param context document context
      */
     Get.setContext = function (context) {
         localContext = context;
     };
     /**
      *
-     * @param {string} className
-     * @param {Document} context
-     * @returns {HTMLCollectionOf<Element>}
+     * @param className name of class
+     * @param context searched context
+     * @returns collection of found elements
      */
     Get.byClass = function (className, context) {
         if (context === void 0) { context = localContext; }
@@ -24,9 +24,9 @@ var Get = /** @class */ (function () {
     };
     /**
      *
-     * @param {string} link
-     * @param {Document} context
-     * @returns {NodeListOf}
+     * @param link name of link
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     Get.byLink = function (link, context) {
         if (context === void 0) { context = localContext; }
@@ -34,9 +34,9 @@ var Get = /** @class */ (function () {
     };
     /**
      *
-     * @param {string} id
-     * @param {Document} context
-     * @returns {HTMLElement | null}
+     * @param id searched ID
+     * @param context searched context
+     * @returns found element or null
      */
     Get.byId = function (id, context) {
         if (context === void 0) { context = localContext; }
@@ -44,9 +44,9 @@ var Get = /** @class */ (function () {
     };
     /**
      *
-     * @param {string} name
-     * @param {Document} context
-     * @returns {NodeListOf<HTMLElement>}
+     * @param name elements name
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     Get.byName = function (name, context) {
         if (context === void 0) { context = localContext; }
@@ -54,9 +54,9 @@ var Get = /** @class */ (function () {
     };
     /**
      *
-     * @param {string} tagName
-     * @param {Document} context
-     * @returns {NodeListOf<Element>}
+     * @param tagName elements tagName
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     Get.byTag = function (tagName, context) {
         if (context === void 0) { context = localContext; }

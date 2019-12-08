@@ -1,22 +1,22 @@
 import { CountryData } from "./country.interface";
+
 /**
- * @class Country
+ * Class used for parsing countries
  */
 export declare class Country {
     /**
      * Function try to get country by key and return CountryData or null if cannot parse country
      *
-     * @param {string} key
-     * @public
-     * @returns {CountryData|null}
+     * @param  key - Country key
+     * @returns if found than CountryData otherwise null
      */
     static getByKey(key: string): CountryData | null;
+
     /**
      * Function try to parse country by name or key or substring and return CountryData or null if cannot parse country
      *
-     * @param {string} query
-     * @public
-     * @returns {CountryData|null}
+     * @param key - searched key
+     * @returns if found than CountryData otherwise null
      */
-    static find(query: string): CountryData | null;
+    static find(key: string): CountryData | null;
 }

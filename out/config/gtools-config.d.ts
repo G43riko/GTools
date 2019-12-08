@@ -1,8 +1,6 @@
 import { GToolsConfigInterface } from "./gtools-config.interface";
 
 /**
- * @class
- * @implements {GToolsConfigInterface}
  * @example
  * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
  *     public name = "";

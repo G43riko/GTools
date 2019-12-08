@@ -12,7 +12,7 @@ var MiscUtils = /** @class */ (function () {
      *
      * @param name - class name
      * @param args - constructor parameter
-     * @returns - created object
+     * @returns created object
      */
     MiscUtils.createClass = function (name, args) {
         var temp = Object.create(name.prototype);
@@ -21,7 +21,7 @@ var MiscUtils = /** @class */ (function () {
     };
     /**
      * Method parse cookies
-     * @param cookies
+     * @param cookies - cooke to parse
      */
     MiscUtils.parseCookies = function (cookies) {
         var list = {};
@@ -38,8 +38,8 @@ var MiscUtils = /** @class */ (function () {
     };
     /**
      * Method check if object is in array
-     * @param obj
-     * @param data
+     * @param obj - searched object
+     * @param data - array of objects to be compare with searched object
      */
     MiscUtils.isIn = function (obj) {
         var data = [];
@@ -58,7 +58,7 @@ var MiscUtils = /** @class */ (function () {
     };
     /**
      * Method parse JSON content with comments
-     * @param content
+     * @param content - stringify JSON
      */
     MiscUtils.parseJSONWithComments = function (content) {
         return JSON.parse(content.replace(/\/\/.*\n/g, ""));

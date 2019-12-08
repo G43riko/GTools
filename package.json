@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.12",
+    "version": "0.2.13",
     "description": "Small library including utils methods for easier life",
     "main": "./out/index",
     "types": "./out/index",

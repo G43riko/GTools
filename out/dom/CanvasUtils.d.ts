@@ -1,4 +1,5 @@
 import { Vector2f } from "..";
+
 export interface CanvasShadowConfig {
     x: number;
     y: number;
@@ -39,8 +40,6 @@ export interface CanvasConfig {
     lineDash: number[];
     width: number;
     height: number;
-    partA: number;
-    partB: number;
 }
 export declare class CanvasUtils {
     static doArc(obj: any): void;

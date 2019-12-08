@@ -5,6 +5,7 @@ export * from "./enums/file-types.enum";
 export * from "./enums/http-status-codes.enum";
 export * from "./enums/keys.enum";
 export * from "./components/KeyValueCounter";
+export * from "./components/NumberCounter";
 export * from "./components/FileManager";
 export * from "./components/Paginator";
 export * from "./math/Vector2f";

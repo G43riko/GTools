@@ -64,8 +64,6 @@ function initDef(obj) {
         width: 0,
         x: 0,
         y: 0,
-        partA: 0,
-        partB: 0,
     };
 }
 function remakePosAndSize(def, obj) {
@@ -74,17 +72,22 @@ function remakePosAndSize(def, obj) {
         if (typeof res[attrName] === "undefined") {
             return;
         }
-        if (Checkers_1.Checkers.isNumber(res[attrName])) {
-            res.partA = res[attrName];
-            res.partB = res[attrName];
-        }
-        else if (Array.isArray(res[attrName])) {
-            res.partA = res[attrName][0];
-            res.partB = res[attrName][1];
-        }
-        else {
-            res.partA = res[attrName].x;
-            res.partB = res[attrName].y;
+        var value = res[attrName];
+        if (Checkers_1.Checkers.isNumber(value)) {
+            // @ts-ignore
+            res[partA] = value;
+            // @ts-ignore
+            res[partB] = value;
+        } else if (Array.isArray(value)) {
+            // @ts-ignore
+            res[partA] = value[0];
+            // @ts-ignore
+            res[partB] = value[1];
+        } else {
+            // @ts-ignore
+            res[partA] = value.x;
+            // @ts-ignore
+            res[partB] = value.y;
         }
     };
     checkAttribute("size", "width", "size");

@@ -9,7 +9,7 @@ var TimeUtils = /** @class */ (function () {
      *
      * @param from - time in string using HH:mm:ss format
      * @param to - time in string using HH:mm:ss format
-     * @returns - duration in minutes
+     * @returns duration in minutes
      */
     TimeUtils.getDurationInMinutes = function (from, to) {
         var fromDate = moment("1970-01-01T" + from);

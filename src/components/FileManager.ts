@@ -27,10 +27,9 @@ export class FileManager {
     /**
      * Save text content into file with specific extensions
      *
-     * @param {string} name
-     * @param {string} text
-     * @param {FileTypes} type
-     * @public
+     * @param name file name
+     * @param text file content
+     * @param type file {@link FileTypes}. Defaul value is {@link FileTypes.TXT}
      */
     public saveFile(name: string, text: string, type: FileTypes = FileTypes.TXT): void {
         this.link.href     = URL.createObjectURL(new Blob([text], {type}));
@@ -41,9 +40,8 @@ export class FileManager {
     /**
      * Save image into file
      *
-     * @param {string} name
-     * @param {string|HTMLImageElement} image
-     * @public
+     * @param name image name
+     * @param image image element or path to image
      */
     public saveImage(name: string, image: string | HTMLImageElement): void {
         this.link.href     = typeof image === "string" ? image : image.src;
@@ -54,8 +52,7 @@ export class FileManager {
     /**
      * Load image using system file picker
      *
-     * @param {(result: any, fileName: string) => any} func
-     * @public
+     * @param  func loading callback
      */
     public loadImage(func: (result: any, fileName: string) => any): void {
         this.input.onchange = (event: any) => {
@@ -77,8 +74,7 @@ export class FileManager {
     /**
      * Load file using system file picker
      *
-     * @param {(result: any, files: any) => any} func
-     * @public
+     * @param func loading callback
      */
     public loadFile(func: (result: any, files: any) => any): void {
         this.input.onchange = (e: Event) => {
@@ -95,7 +91,7 @@ export class FileManager {
     /**
      * Load binary file using system file picker
      *
-     * @param {(result: any, fileName: string) => any)} func
+     * @param func loading callback
      */
     public loadBinaryFile(func: (result: any, fileName: string) => any): void {
         this.input.onchange = (event: any) => {

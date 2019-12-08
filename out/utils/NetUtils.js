@@ -28,10 +28,10 @@ var NetUtils = /** @class */ (function () {
         var callback = function (res, success) {
             var data = "";
             res.on("data", function (chunk) {
-                data += chunk;
+                return data += chunk;
             });
             res.on("end", function () {
-                success(data);
+                return success(data);
             });
         };
         return new Promise(function (success, reject) {

@@ -5,7 +5,7 @@ let localContext: Document | null = typeof document !== "undefined" ? document :
 export class Get {
     /**
      *
-     * @param {Document} context
+     * @param context document context
      */
     public static setContext(context: Document): void {
         localContext = context;
@@ -13,9 +13,9 @@ export class Get {
 
     /**
      *
-     * @param {string} className
-     * @param {Document} context
-     * @returns {HTMLCollectionOf<Element>}
+     * @param className name of class
+     * @param context searched context
+     * @returns collection of found elements
      */
     public static byClass(className: string, context: Document = localContext as Document): HTMLCollectionOf<Element> {
         return context.getElementsByClassName(className);
@@ -23,9 +23,9 @@ export class Get {
 
     /**
      *
-     * @param {string} link
-     * @param {Document} context
-     * @returns {NodeListOf}
+     * @param link name of link
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     public static byLink(link: string, context: Document = localContext as Document): NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]> {
         return context.querySelectorAll(`a[attr="${link}"]`);
@@ -33,9 +33,9 @@ export class Get {
 
     /**
      *
-     * @param {string} id
-     * @param {Document} context
-     * @returns {HTMLElement | null}
+     * @param id searched ID
+     * @param context searched context
+     * @returns found element or null
      */
     public static byId(id: string, context: Document = localContext as Document): HTMLElement | null {
         return context.getElementById(id);
@@ -43,9 +43,9 @@ export class Get {
 
     /**
      *
-     * @param {string} name
-     * @param {Document} context
-     * @returns {NodeListOf<HTMLElement>}
+     * @param name elements name
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     public static byName(name: string, context: Document = localContext as Document): NodeListOf<HTMLElement> {
         return context.getElementsByName(name);
@@ -53,9 +53,9 @@ export class Get {
 
     /**
      *
-     * @param {string} tagName
-     * @param {Document} context
-     * @returns {NodeListOf<Element>}
+     * @param tagName elements tagName
+     * @param context searched context
+     * @returns nodeList of found elements
      */
     public static byTag(tagName: string, context: Document = localContext as Document): NodeListOf<Element> {
         return context.getElementsByTagName(tagName) as any;

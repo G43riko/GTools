@@ -13,8 +13,6 @@ var checkConfig = function () {
     return config;
 };
 /**
- * @class
- * @implements {GToolsConfigInterface}
  * @example
  * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
  *     public name = "";

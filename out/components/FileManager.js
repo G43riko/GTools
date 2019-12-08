@@ -17,10 +17,9 @@ var FileManager = /** @class */ (function () {
     /**
      * Save text content into file with specific extensions
      *
-     * @param {string} name
-     * @param {string} text
-     * @param {FileTypes} type
-     * @public
+     * @param name file name
+     * @param text file content
+     * @param type file {@link FileTypes}. Defaul value is {@link FileTypes.TXT}
      */
     FileManager.prototype.saveFile = function (name, text, type) {
         if (type === void 0) { type = file_types_enum_1.FileTypes.TXT; }
@@ -31,9 +30,8 @@ var FileManager = /** @class */ (function () {
     /**
      * Save image into file
      *
-     * @param {string} name
-     * @param {string|HTMLImageElement} image
-     * @public
+     * @param name image name
+     * @param image image element or path to image
      */
     FileManager.prototype.saveImage = function (name, image) {
         this.link.href = typeof image === "string" ? image : image.src;
@@ -43,8 +41,7 @@ var FileManager = /** @class */ (function () {
     /**
      * Load image using system file picker
      *
-     * @param {(result: any, fileName: string) => any} func
-     * @public
+     * @param  func loading callback
      */
     FileManager.prototype.loadImage = function (func) {
         this.input.onchange = function (event) {
@@ -65,8 +62,7 @@ var FileManager = /** @class */ (function () {
     /**
      * Load file using system file picker
      *
-     * @param {(result: any, files: any) => any} func
-     * @public
+     * @param func loading callback
      */
     FileManager.prototype.loadFile = function (func) {
         this.input.onchange = function (e) {
@@ -82,7 +78,7 @@ var FileManager = /** @class */ (function () {
     /**
      * Load binary file using system file picker
      *
-     * @param {(result: any, fileName: string) => any)} func
+     * @param func loading callback
      */
     FileManager.prototype.loadBinaryFile = function (func) {
         this.input.onchange = function (event) {

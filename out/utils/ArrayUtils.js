@@ -35,7 +35,7 @@ var ArrayUtils = /** @class */ (function () {
      * @param array - input array
      * @param minIndex - start index
      * @param maxIndex - end index
-     * @returns - final array
+     * @returns final array
      */
     ArrayUtils.subArray = function (array, minIndex, maxIndex) {
         if (minIndex === void 0) { minIndex = 0; }
@@ -54,7 +54,7 @@ var ArrayUtils = /** @class */ (function () {
      * Function return maximal value from numeric array
      *
      * @param array - array of numbers
-     * @returns - maximal number from array
+     * @returns maximal number from array
      */
     ArrayUtils.max = function (array) {
         if (!Array.isArray(array)) {
@@ -69,7 +69,7 @@ var ArrayUtils = /** @class */ (function () {
      * Function return minimal value from numeric array
      *
      * @param array - array of numbers
-     * @returns - minimal number from array
+     * @returns minimal number from array
      */
     ArrayUtils.min = function (array) {
         if (!Array.isArray(array)) {
@@ -84,7 +84,7 @@ var ArrayUtils = /** @class */ (function () {
      * Function return total value of all elements in numeric array
      *
      * @param array - array of numbers
-     * @returns - summary of all numbers in array
+     * @returns summary of all numbers in array
      */
     ArrayUtils.sum = function (array) {
         if (!Array.isArray(array)) {
@@ -99,7 +99,7 @@ var ArrayUtils = /** @class */ (function () {
      * Function returns average of numeric array given as input
      *
      * @param array - array of numbers
-     * @returns - average of all numbers in array
+     * @returns average of all numbers in array
      */
     ArrayUtils.avg = function (array) {
         if (!Array.isArray(array)) {
@@ -117,7 +117,7 @@ var ArrayUtils = /** @class */ (function () {
      * @param delimiter - character used for join elements in array
      * @param prefix - string append at the beginning of final string
      * @param postfix - string append at the end of final string
-     * @returns - final string
+     * @returns final string
      */
     ArrayUtils.join = function (array, delimiter, prefix, postfix) {
         if (prefix === void 0) { prefix = ""; }
@@ -130,7 +130,7 @@ var ArrayUtils = /** @class */ (function () {
     /**
      * Method returns last element from array or null if array is empty. If argument is not array, method returns argument
      * @param array - not empty array
-     * @returns - last value from array
+     * @returns last value from array
      */
     ArrayUtils.getLast = function (array) {
         if (!Array.isArray(array)) {
@@ -145,7 +145,7 @@ var ArrayUtils = /** @class */ (function () {
      * Method returns random element from array
      *
      * @param array - not empty array
-     * @returns - random value from array
+     * @returns random value from array
      */
     ArrayUtils.getRandom = function (array) {
         if (!Array.isArray(array)) {
@@ -179,7 +179,7 @@ var ArrayUtils = /** @class */ (function () {
      * Method return copy of array with only distinct elements
      *
      * @param array - array with duplicate elements
-     * @returns - unique array
+     * @returns unique array
      */
     ArrayUtils.makeUnique = function (array) {
         if (!Array.isArray(array)) {

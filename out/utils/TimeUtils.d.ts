@@ -3,7 +3,7 @@ export declare class TimeUtils {
      *
      * @param from - time in string using HH:mm:ss format
      * @param to - time in string using HH:mm:ss format
-     * @returns - duration in minutes
+     * @returns duration in minutes
      */
     static getDurationInMinutes(from: string, to: string): number;
     static getStartOfTheMonthDate(date: Date): string;

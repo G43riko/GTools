@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var __1 = require("..");
+var ArrayUtils_1 = require("../utils/ArrayUtils");
 var KeyValueCounter = /** @class */ (function () {
     function KeyValueCounter() {
         this.data = {};
         this.results = [];
         this.processed = false;
     }
+
     KeyValueCounter.prototype.add = function (item) {
         if (this.data[item]) {
             this.data[item]++;
@@ -28,7 +29,7 @@ var KeyValueCounter = /** @class */ (function () {
         if (!this.processed) {
             this.process();
         }
-        return __1.ArrayUtils.subArray(this.results, 0, count);
+        return ArrayUtils_1.ArrayUtils.subArray(this.results, 0, count);
     };
     KeyValueCounter.prototype.getCount = function () {
         return this.results.length;

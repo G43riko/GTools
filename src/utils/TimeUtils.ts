@@ -6,7 +6,7 @@ export class TimeUtils {
      *
      * @param from - time in string using HH:mm:ss format
      * @param to - time in string using HH:mm:ss format
-     * @returns - duration in minutes
+     * @returns duration in minutes
      */
     public static getDurationInMinutes(from: string, to: string): number {
         const fromDate = moment("1970-01-01T" + from);

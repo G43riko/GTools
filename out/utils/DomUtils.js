@@ -9,7 +9,7 @@ var DomUtils = /** @class */ (function () {
     /**
      * Function returns height of window
      *
-     * @returns - window height in pixels
+     * @returns window height in pixels
      */
     DomUtils.getWindowHeight = function () {
         if (typeof window === "undefined") {
@@ -21,7 +21,7 @@ var DomUtils = /** @class */ (function () {
     /**
      * Function returns width of window
      *
-     * @returns - window width in pixels
+     * @returns window width in pixels
      */
     DomUtils.getWindowWidth = function () {
         if (typeof window === "undefined") {
@@ -36,7 +36,7 @@ var DomUtils = /** @class */ (function () {
      * @param element - input element
      * @param text - text to put in element
      * @param append - flag if text should be append or replace previous text
-     * @returns - element given as input
+     * @returns element given as input
      */
     DomUtils.text = function (element, text, append) {
         if (append === void 0) { append = true; }
@@ -54,7 +54,7 @@ var DomUtils = /** @class */ (function () {
      * @param element - input element
      * @param html - html to put in element
      * @param append - flag if html should be append or replace previous content
-     * @returns - element given as input
+     * @returns element given as input
      */
     DomUtils.html = function (element, html, append) {
         if (append === void 0) { append = true; }
@@ -81,7 +81,7 @@ var DomUtils = /** @class */ (function () {
      * @param element - input element
      * @param name - class name or list of class names
      * @param force - flag if class should be toggled false
-     * @returns - boolean if function is used to check class presence otherwise element given as input
+     * @returns boolean if function is used to check class presence otherwise element given as input
      */
     DomUtils.class = function (element, name, force) {
         if (force === void 0) { force = false; }
@@ -131,7 +131,7 @@ var DomUtils = /** @class */ (function () {
      * @param attr - map of all element attributes
      * @param cont - element content. Can be string, element or array of elements
      * @param style - styles that will be applied to the element
-     * @returns - created element
+     * @returns created element
      */
     DomUtils.createElement = function (name, attr, cont, style) {
         if (typeof document === "undefined") {
@@ -170,7 +170,7 @@ var DomUtils = /** @class */ (function () {
      * Function remove element
      *
      * @param element - input element
-     * @returns - removed element
+     * @returns removed element
      */
     DomUtils.remove = function (element) {
         var parentElement = element.parentElement;
@@ -183,7 +183,7 @@ var DomUtils = /** @class */ (function () {
      * Function returns object with element position
      *
      * @param element - input element
-     * @returns - position of element
+     * @returns position of element
      */
     DomUtils.position = function (element) {
         var top = 0;
@@ -202,7 +202,7 @@ var DomUtils = /** @class */ (function () {
      * Function returns order of element between siblings
      *
      * @param element - input element
-     * @returns - index of number
+     * @returns index of number
      */
     DomUtils.indexOf = function (element) {
         var index = 0;
@@ -216,7 +216,7 @@ var DomUtils = /** @class */ (function () {
      * Function returns object with element size
      *
      * @param element - input element
-     * @returns - size of element
+     * @returns size of element
      */
     DomUtils.size = function (element) {
         return {

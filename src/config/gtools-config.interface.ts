@@ -1,5 +1,4 @@
 /**
- * @interface
  * @example
  * export interface OwnConfigInterface extends GToolsConfigInterface {
  *     name: string;

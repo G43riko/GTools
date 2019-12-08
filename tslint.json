@@ -81,12 +81,10 @@
         "no-unused-expression": false,
         "member-ordering": false,
         "object-literal-sort-keys": false,
-        "no-console": false,
         "no-empty": true,
         "jsdoc-format": true,
         "no-unnecessary-initializer": true,
-        // TODO: too many errors
-        "no-redundant-jsdoc": false,
+        "no-redundant-jsdoc": true,
         "max-line-length": [
             true,
             190
@@ -148,7 +146,19 @@
         "no-return-undefined": true,
         "no-static-this": true,
         "no-unnecessary-else": true,
-        "object-shorthand-properties-first": true
+        "object-shorthand-properties-first": true,
+        "interface-over-type-literal": true,
+        "label-position": true,
+        "no-debugger": true,
+        "no-console": [
+            true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
+        "typeof-compare": true
     },
     "rulesDirectory": [
         "tslint-consistent-codestyle"

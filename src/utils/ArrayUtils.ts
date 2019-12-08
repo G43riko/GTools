@@ -36,7 +36,7 @@ export class ArrayUtils {
      * @param array - input array
      * @param minIndex - start index
      * @param maxIndex - end index
-     * @returns - final array
+     * @returns final array
      */
     public static subArray<T = any>(array: T[], minIndex = 0, maxIndex = array.length - 1): T[] {
         if (!Array.isArray(array)) {
@@ -55,7 +55,7 @@ export class ArrayUtils {
      * Function return maximal value from numeric array
      *
      * @param array - array of numbers
-     * @returns - maximal number from array
+     * @returns maximal number from array
      */
     public static max(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -72,7 +72,7 @@ export class ArrayUtils {
      * Function return minimal value from numeric array
      *
      * @param array - array of numbers
-     * @returns - minimal number from array
+     * @returns minimal number from array
      */
     public static min(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -89,7 +89,7 @@ export class ArrayUtils {
      * Function return total value of all elements in numeric array
      *
      * @param array - array of numbers
-     * @returns - summary of all numbers in array
+     * @returns summary of all numbers in array
      */
     public static sum(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -106,7 +106,7 @@ export class ArrayUtils {
      * Function returns average of numeric array given as input
      *
      * @param array - array of numbers
-     * @returns - average of all numbers in array
+     * @returns average of all numbers in array
      */
     public static avg(array: number[]): number {
         if (!Array.isArray(array)) {
@@ -126,7 +126,7 @@ export class ArrayUtils {
      * @param delimiter - character used for join elements in array
      * @param prefix - string append at the beginning of final string
      * @param postfix - string append at the end of final string
-     * @returns - final string
+     * @returns final string
      */
     public static join<T>(array: T[], delimiter: string, prefix = "", postfix = ""): string {
         if (!Array.isArray(array)) {
@@ -139,7 +139,7 @@ export class ArrayUtils {
     /**
      * Method returns last element from array or null if array is empty. If argument is not array, method returns argument
      * @param array - not empty array
-     * @returns - last value from array
+     * @returns last value from array
      */
     public static getLast<T = any>(array: T[]): T | null {
         if (!Array.isArray(array)) {
@@ -157,7 +157,7 @@ export class ArrayUtils {
      * Method returns random element from array
      *
      * @param array - not empty array
-     * @returns - random value from array
+     * @returns random value from array
      */
     public static getRandom<T = any>(array: T[]): T | null {
         if (!Array.isArray(array)) {
@@ -197,7 +197,7 @@ export class ArrayUtils {
      * Method return copy of array with only distinct elements
      *
      * @param array - array with duplicate elements
-     * @returns - unique array
+     * @returns unique array
      */
     public static makeUnique<T = any>(array: T[]): T[] {
         if (!Array.isArray(array)) {

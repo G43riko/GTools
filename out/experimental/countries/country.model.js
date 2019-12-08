@@ -7,34 +7,35 @@ var data = require("./countries.data.json");
 var countries = {};
 data.forEach(function (country) { return countries[country.key] = country; });
 /**
- * @class Country
+ * Class used for parsing countries
  */
 var Country = /** @class */ (function () {
     function Country() {
     }
+
     /**
      * Function try to get country by key and return CountryData or null if cannot parse country
      *
-     * @param {string} key
-     * @public
-     * @returns {CountryData|null}
+     * @param  key - Country key
+     * @returns if found than CountryData otherwise null
      */
     Country.getByKey = function (key) {
         var finalKey = key.toUpperCase();
-        return countries[finalKey] || data.find(function (country) { return country.key === finalKey; }) || null;
+        return countries[finalKey] || data.find(function (country) {
+            return country.key === finalKey;
+        }) || null;
     };
     /**
      * Function try to parse country by name or key or substring and return CountryData or null if cannot parse country
      *
-     * @param {string} query
-     * @public
-     * @returns {CountryData|null}
+     * @param key - searched key
+     * @returns if found than CountryData otherwise null
      */
-    Country.find = function (query) {
-        var finalQuery = StringUtils_1.StringUtils.toBasicForm(query);
+    Country.find = function (key) {
+        var finalKey = StringUtils_1.StringUtils.toBasicForm(key);
         return data.find(function (country) {
-            return country.key.toLowerCase() === finalQuery || country.patterns.some(function (pattern) {
-                return finalQuery.indexOf(pattern) >= 0;
+            return country.key.toLowerCase() === finalKey || country.patterns.some(function (pattern) {
+                return finalKey.indexOf(pattern) >= 0;
             });
         }) || null;
     };

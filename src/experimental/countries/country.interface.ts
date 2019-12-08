@@ -1,5 +1,5 @@
 /**
- * @interface CountryData
+ * Hold data about country
  */
 export interface CountryData {
     key: string;

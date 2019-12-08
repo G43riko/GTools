@@ -12,32 +12,28 @@ var process = function (op, arg1, arg2) {
     }
 };
 /**
- * @class Vector2f
+ * Class is used for holding 2 numeric values and manipulation with them
  */
 var Vector2f = /** @class */ (function () {
     function Vector2f(x, y) {
         /**
          * the X value of vector
-         * @type {number}
-         * @public
          */
         this.y = 0;
         /**
          * the Y value of vector
-         * @type {number}
-         * @public
          */
         this.x = 0;
         this.x = x;
         this.y = y;
     }
+
     /**
      * Function set vectors values and return object itself
      *
-     * @param {Vector2f | number} arg1
-     * @param {number} arg2
-     * @returns {Vector2f}
-     * @public
+     * @param arg1 parameter can by {@link Vector2f} or number representing {@link x} if arg2 is passed otherwise {@link x} and {@link y}
+     * @param arg2 is {@link y} value for vector
+     * @returns created {@link Vector2f}
      */
     Vector2f.prototype.set = function (arg1, arg2) {
         var _this = this;
@@ -50,10 +46,9 @@ var Vector2f = /** @class */ (function () {
     /**
      * Function add values into current values and return object itself
      *
-     * @param {Vector2f | number} arg1
-     * @param {number} arg2
-     * @returns {Vector2f}
-     * @public
+     * @param arg1 parameter can by {@link Vector2f} or number representing {@link x} if arg2 is passed otherwise {@link x} and {@link y}
+     * @param arg2 is {@link y} value for vector
+     * @returns updated {@link Vector2f}
      */
     Vector2f.prototype.add = function (arg1, arg2) {
         var _this = this;
@@ -66,10 +61,9 @@ var Vector2f = /** @class */ (function () {
     /**
      * Function divide current values and return object itself
      *
-     * @param {Vector2f | number} arg1
-     * @param {number} arg2
-     * @returns {Vector2f}
-     * @public
+     * @param arg1 parameter can by {@link Vector2f} or number representing {@link x} if arg2 is passed otherwise {@link x} and {@link y}
+     * @param arg2 is {@link y} value for vector
+     * @returns updated {@link Vector2f}
      */
     Vector2f.prototype.div = function (arg1, arg2) {
         var _this = this;
@@ -82,10 +76,9 @@ var Vector2f = /** @class */ (function () {
     /**
      * Function multiply current values and return object itself
      *
-     * @param {Vector2f | number} arg1
-     * @param {number} arg2
-     * @returns {Vector2f}
-     * @public
+     * @param arg1 parameter can by {@link Vector2f} or number representing {@link x} if arg2 is passed otherwise {@link x} and {@link y}
+     * @param arg2 is {@link y} value for vector
+     * @returns updated {@link Vector2f}
      */
     Vector2f.prototype.mul = function (arg1, arg2) {
         var _this = this;
@@ -98,10 +91,9 @@ var Vector2f = /** @class */ (function () {
     /**
      * Function subtract values from current values and return object itself
      *
-     * @param {Vector2f | number} arg1
-     * @param {number} arg2
-     * @returns {Vector2f}
-     * @public
+     * @param arg1 parameter can by {@link Vector2f} or number representing {@link x} if arg2 is passed otherwise {@link x} and {@link y}
+     * @param arg2 is {@link y} value for vector
+     * @returns updated {@link Vector2f}
      */
     Vector2f.prototype.sub = function (arg1, arg2) {
         var _this = this;

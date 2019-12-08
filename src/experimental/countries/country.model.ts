@@ -9,15 +9,14 @@ const countries: { [key: string]: CountryData } = {};
 data.forEach((country) => countries[country.key] = country);
 
 /**
- * @class Country
+ * Class used for parsing countries
  */
 export class Country {
     /**
      * Function try to get country by key and return CountryData or null if cannot parse country
      *
-     * @param {string} key
-     * @public
-     * @returns {CountryData|null}
+     * @param  key - Country key
+     * @returns if found than CountryData otherwise null
      */
     public static getByKey(key: string): CountryData | null {
         const finalKey = key.toUpperCase();
@@ -28,16 +27,15 @@ export class Country {
     /**
      * Function try to parse country by name or key or substring and return CountryData or null if cannot parse country
      *
-     * @param {string} query
-     * @public
-     * @returns {CountryData|null}
+     * @param key - searched key
+     * @returns if found than CountryData otherwise null
      */
-    public static find(query: string): CountryData | null {
-        const finalQuery = StringUtils.toBasicForm(query);
+    public static find(key: string): CountryData | null {
+        const finalKey = StringUtils.toBasicForm(key);
 
         return data.find((country) => {
-            return country.key.toLowerCase() === finalQuery || country.patterns.some((pattern) => {
-                return finalQuery.indexOf(pattern) >= 0;
+            return country.key.toLowerCase() === finalKey || country.patterns.some((pattern) => {
+                return finalKey.indexOf(pattern) >= 0;
             });
         }) || null;
     }
