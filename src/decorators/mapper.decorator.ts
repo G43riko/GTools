@@ -1,7 +1,5 @@
-import { PropertyDecoratorType } from "../utils/DecoratorsUtils";
-
-export function Mapper(params: { onGet?: (oldValue: any) => any, onSet?: (oldValue: any) => void }, prefix = "_"): PropertyDecoratorType {
-    return (target: any, key: string) => {
+export function Mapper(params: { onGet?: (oldValue: any) => any, onSet?: (oldValue: any) => any } = {}, prefix = "_"): any {
+    return (target: any, key: string): any => {
         if (!delete target[key]) {
             return;
         }
@@ -9,18 +7,20 @@ export function Mapper(params: { onGet?: (oldValue: any) => any, onSet?: (oldVal
             enumerable  : true,
             configurable: true,
         };
+        const newName                        = prefix + key;
         if (params) {
             if (typeof params.onGet === "function") {
                 // @ts-ignore
-                descriptor.get = () => params.onGet(target[prefix + key]);
+                descriptor.get = () => params.onGet(target[newName]);
+            } else {
+                descriptor.get = () => target[newName];
             }
 
-            if (params && typeof params.onSet === "function") {
-                descriptor.set = (newVal: any) => {
-                    // @ts-ignore
-                    params.onSet(newVal);
-                    target[prefix + key] = newVal;
-                };
+            if (typeof params.onSet === "function") {
+                // @ts-ignore
+                descriptor.set = (newVal: any) => target[newName] = params.onSet(newVal);
+            } else {
+                descriptor.set = (value) => target[newName] = value;
             }
         }
         Object.defineProperty(target, key, descriptor);
