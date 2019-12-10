@@ -24,3 +24,17 @@ jobs:
         npm test
       env:
         CI: true
+    - name: npm install, make test-coverage
+      run: |
+        npm install
+        make test-coverage
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Send Velocity deployment
+      uses: codeclimate/velocity-deploy-action@master
+      with:
+        token: ${{ secrets.VELOCITY_DEPLOYMENT_TOKEN }}
+        version: ${{ outputs.version }}
+        environment: ${{ outputs.environment }}
