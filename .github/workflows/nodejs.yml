@@ -32,9 +32,4 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Send Velocity deployment
-      uses: codeclimate/velocity-deploy-action@master
-      with:
-        token: ${{ secrets.VELOCITY_DEPLOYMENT_TOKEN }}
-        version: ${{ outputs.version }}
-        environment: ${{ outputs.environment }}
+  
