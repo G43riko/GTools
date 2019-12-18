@@ -190,4 +190,27 @@ export class MiscUtils {
 
         return result;
     }
+
+    public map<S = any, T = S>(source: S, data: { attrS: keyof S, attrD?: keyof T, mapFunction: (src: any) => any }[]): T {
+        const destination: any = {};
+
+        data.forEach((item) => {
+            if (item.mapFunction) {
+                if (item.attrD) {
+                    destination[item.attrD] = item.mapFunction(source[item.attrS]);
+                } else {
+                    destination[item.attrS] = item.mapFunction(source[item.attrS]);
+                }
+
+                return;
+            }
+            if (item.attrD) {
+                destination[item.attrD] = source[item.attrS];
+            } else {
+                destination[item.attrS] = source[item.attrS];
+            }
+        });
+
+        return destination;
+    }
 }
