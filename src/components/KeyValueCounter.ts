@@ -1,20 +1,17 @@
-import { ArrayUtils } from "../utils/ArrayUtils";
-
 export interface SimpleWrapper {
     key: string;
     count: number;
 }
 
 export class KeyValueCounter {
-    private readonly data: any = {};
+    private readonly data: any                = {};
     private readonly results: SimpleWrapper[] = [];
-    private processed = false;
+    private processed                         = false;
 
     public add(item: any): void {
         if (this.data[item]) {
             this.data[item]++;
-        }
-        else {
+        } else {
             this.data[item] = 1;
         }
         if (this.processed) {
@@ -27,6 +24,10 @@ export class KeyValueCounter {
     }
 
     public getAll(): SimpleWrapper[] {
+        if (!this.processed) {
+            this.process();
+        }
+
         return this.results;
     }
 
@@ -35,11 +36,11 @@ export class KeyValueCounter {
             this.process();
         }
 
-        return ArrayUtils.subArray(this.results, 0, count);
+        return this.results.slice(0, count);
     }
 
     public getCount(): number {
-        return this.results.length;
+        return this.getAll().length;
     }
 
     private process(): void {

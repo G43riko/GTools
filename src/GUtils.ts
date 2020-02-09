@@ -1,3 +1,3 @@
-export * from "./node";
-export * from "./web";
+export * from "../node";
+export * from "../web";
 export * from "./common";

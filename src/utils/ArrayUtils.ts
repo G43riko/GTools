@@ -33,6 +33,7 @@ export class ArrayUtils {
     /**
      * Return sub array from array
      *
+     * @deprecated use {@link Array.prototype.slice} instead
      * @param array - input array
      * @param minIndex - start index
      * @param maxIndex - end index
