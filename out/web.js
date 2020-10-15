@@ -1,27 +1,27 @@
 "use strict";
 /**************************** WEB ****************************/
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 // UTILS
-var ArrayUtils_1 = require("./utils/ArrayUtils");
+var ArrayUtils_1 = require("./src/utils/ArrayUtils");
 exports.arrays = ArrayUtils_1.ArrayUtils;
-var MathUtils_1 = require("./utils/MathUtils");
+var MathUtils_1 = require("./src/utils/MathUtils");
 exports.math = MathUtils_1.MathUtils;
-var DomUtils_1 = require("./utils/DomUtils");
+var DomUtils_1 = require("./src/utils/DomUtils");
 exports.dom = DomUtils_1.DomUtils;
-var MiscUtils_1 = require("./utils/MiscUtils");
+var MiscUtils_1 = require("./src/utils/MiscUtils");
 exports.misc = MiscUtils_1.MiscUtils;
-var ObjectUtils_1 = require("./utils/ObjectUtils");
+var ObjectUtils_1 = require("./src/utils/ObjectUtils");
 exports.object = ObjectUtils_1.ObjectUtils;
-var StringUtils_1 = require("./utils/StringUtils");
+var StringUtils_1 = require("./src/utils/StringUtils");
 exports.string = StringUtils_1.StringUtils;
-var TimeUtils_1 = require("./utils/TimeUtils");
+var TimeUtils_1 = require("./src/utils/TimeUtils");
 exports.time = TimeUtils_1.TimeUtils;
-var SlovakStemmer_1 = require("./utils/SlovakStemmer");
+var SlovakStemmer_1 = require("./src/utils/SlovakStemmer");
 exports.stemmer = SlovakStemmer_1.SlovakStemmer;
 // DOM
-var Checkers_1 = require("./dom/Checkers");
+var Checkers_1 = require("./src/dom/Checkers");
 exports.check = Checkers_1.Checkers;
-var CanvasManager_1 = require("./dom/CanvasManager");
+var CanvasManager_1 = require("./src/dom/CanvasManager");
 exports.canvas = CanvasManager_1.CanvasManager;
-var Get_1 = require("./dom/Get");
+var Get_1 = require("./src/dom/Get");
 exports.get = Get_1.Get;

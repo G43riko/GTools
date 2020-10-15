@@ -1,3 +1,11 @@
+export function isEmpty<T>(arr: T[]): boolean {
+    return !Array.isArray(arr) || arr.length === 0;
+}
+
+export function isNotEmptyArray<T>(arr: T[]): boolean {
+    return Array.isArray(arr) && arr.length > 0;
+}
+
 /**
  */
 export class ArrayUtils {
@@ -17,7 +25,7 @@ export class ArrayUtils {
             return [];
         }
 
-        const result: any[]    = [];
+        const result: any[] = [];
         const conditionEntries = Object.entries(condition);
 
         array.forEach((e) => {
@@ -142,13 +150,9 @@ export class ArrayUtils {
      * @param array - not empty array
      * @returns last value from array
      */
-    public static getLast<T = any>(array: T[]): T | null {
+    public static getLast<T = any>(array: T[]): T | undefined {
         if (!Array.isArray(array)) {
             return array;
-        }
-
-        if (array.length === 0) {
-            return null;
         }
 
         return array[array.length - 1];
