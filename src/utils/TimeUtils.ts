@@ -1,5 +1,5 @@
-import * as moment from "moment";
-import { MathUtils } from "./MathUtils";
+import moment from "moment";
+import { MathUtils } from "./deprecated/MathUtils";
 
 export class TimeUtils {
     /**

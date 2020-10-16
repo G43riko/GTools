@@ -2,8 +2,8 @@ const path = require("path");
 
 const serverConfig = {
     entry: [
-        "./out/node.js",
-        "./out/src/common.js",
+        __dirname + "/out/node.js",
+        __dirname + "/out/src/common.js",
     ],
     target: "node",
     node: {
@@ -17,8 +17,8 @@ const serverConfig = {
 };
 const webConfig = {
     entry: [
-        "./out/web.js",
-        "./out/src/common.js",
+        __dirname + "/out/web.js",
+        __dirname + "/out/src/common.js",
     ],
     target: "web",
     node: {

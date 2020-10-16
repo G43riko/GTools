@@ -5,4 +5,4 @@ function __export(m) {
 }
 
 Object.defineProperty(exports, "__esModule", {value: true});
-__export(require("./out/GUtils"));
+__export(require("./out/src/GUtils"));

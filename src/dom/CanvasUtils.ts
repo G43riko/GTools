@@ -1,4 +1,4 @@
-import { Vector2f } from "..";
+import { Vector2f } from "../math/Vector2f";
 import { CanvasManager } from "./CanvasManager";
 import { Checkers } from "./Checkers";
 

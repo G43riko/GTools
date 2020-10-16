@@ -30,10 +30,10 @@ export { initConfig } from "./config/gtools-config";
 
 // INTERFACES
 
-export * from "./interfaces/key-value.interface";
-export * from "./interfaces/string-map.interface";
-export * from "./interfaces/size.interaface";
-export * from "./interfaces/point.interaface";
+export * from "./types/key-value.interface";
+export * from "./types/string-map.interface";
+export * from "./types/size.interaface";
+export * from "./types/point.interaface";
 
 // TESTS
 

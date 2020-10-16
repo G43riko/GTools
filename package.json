@@ -1,9 +1,10 @@
 {
     "name": "gtools",
-    "version": "0.2.14",
+    "version": "0.2.17",
     "description": "Small library including utils methods for easier life",
-    "main": "./out/index",
-    "types": "./out/index",
+    "main": "./lib/index.js",
+    "module": "./lib-esm/index.js",
+    "types": "./lib/index",
     "homepage": "https://g43riko.github.io/GTools",
     "keywords": [
         "tools",
@@ -21,19 +22,20 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run clean && npm run pack && npm run doc",
+        "prepare": "npm run clean && npm run doc",
         "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
         "tsc": "tsc",
-        "release": "npm publish out",
+        "build": "tsc --outDir lib && tsc -m es6 --outDir lib-esm && webpack --config webpack.prod.js",
+        "release": "npm publish",
         "release:major": "npm version major && npm publish",
         "release:minor": "npm version minor && npm publish",
         "release:patch": "npm version patch && npm publish",
         "doc": "typedoc --out docs",
-        "pack": "npm run tsc && webpack",
-        "copy": "cp package.json out",
-        "clean": "rimraf out doc docs coverage bin .nyc_output",
+        "pack2": "npm run tsc && webpack",
+        "copy": "copy package.json out",
+        "clean": "rimraf out doc docs coverage bin .nyc_output _bundles lib lib-esm",
         "lint": "tslint --project ."
     },
     "author": {
@@ -51,25 +53,28 @@
     },
     "license": "ISC",
     "devDependencies": {
-        "@types/chai": "^4.2.5",
-        "@types/mocha": "^5.2.7",
-        "@types/node": "^12.12.14",
+        "@types/chai": "^4.2.13",
+        "@types/mocha": "^8.0.3",
+        "@types/node": "^14.11.8",
+        "copy": "^0.3.2",
         "chai": "^4.2.0",
-        "coveralls": "^3.0.9",
-        "mocha": "^6.2.2",
+        "coveralls": "^3.1.0",
+        "mocha": "^8.1.3",
         "mocha-lcov-reporter": "^1.3.0",
-        "nyc": "^14.1.1",
-        "ts-node": "^8.5.3",
-        "tslint": "^5.20.1",
+        "nyc": "^15.1.0",
+        "ts-node": "^9.0.0",
+        "tslint": "^6.1.3",
         "tslint-consistent-codestyle": "^1.16.0",
-        "typedoc": "^0.15.3",
-        "typescript": "<3.6.0",
-        "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.10"
+        "typedoc": "^0.19.2",
+        "typescript": "^4.0.3",
+        "webpack": "^5.1.3",
+        "webpack-cli": "^4.0.0",
+        "tslint-clean-code": "^0.2.10",
+        "tslint-sonarts": "^1.9.0",
+        "terser-webpack-plugin": "^5.0.0",
+        "awesome-typescript-loader": "^5.2.1"
     },
     "dependencies": {
-        "moment": "^2.24.0",
-        "tslint-clean-code": "^0.2.10",
-        "tslint-sonarts": "^1.9.0"
+        "moment": "^2.29.1"
     }
 }

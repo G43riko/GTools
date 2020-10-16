@@ -8,6 +8,7 @@
     "compilerOptions": {
         "declaration": true,
         "diagnostics": true,
+        "rootDir": "src",
         "experimentalDecorators": true,
         "outDir": "out",
         "module": "commonjs",
@@ -21,7 +22,10 @@
         "lib": [
             "es2016",
             "dom"
-        ]
+        ],
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
     },
     "jsdoc": "out"
 }

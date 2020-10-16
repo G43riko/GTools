@@ -1,4 +1,4 @@
-import { PropertyDecoratorType } from "../utils/DecoratorsUtils";
+import { PropertyDecoratorType } from "../types/property-decorator";
 
 export interface WatchOptions {
     enumerable?: boolean;

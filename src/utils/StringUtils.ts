@@ -1,4 +1,4 @@
-import { StringMap } from "../interfaces/string-map.interface";
+import { StringMap } from "../types/string-map.interface";
 import { StringCheckers } from "./StringCheckers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";

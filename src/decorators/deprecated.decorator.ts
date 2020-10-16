@@ -1,4 +1,4 @@
-import { PropertyDecoratorType } from "../utils/DecoratorsUtils";
+import { PropertyDecoratorType } from "../types/property-decorator";
 
 export function Deprecated(value?: string): PropertyDecoratorType {
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor): any => {

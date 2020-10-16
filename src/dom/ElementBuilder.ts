@@ -1,4 +1,4 @@
-import { StringMap } from "../interfaces/string-map.interface";
+import { StringMap } from "../types/string-map.interface";
 
 // TODO: need to be checked if app is running in browser
 

@@ -6,7 +6,6 @@ import { WrongTypeException } from "../errors/WrongTypeException";
 let useRuntimeCheckers = true;
 
 export class Runtime {
-
     public static useRuntimeExceptions(value: boolean): void {
         useRuntimeCheckers = value;
     }

@@ -1,9 +1,9 @@
 import { Checkers } from "../dom/Checkers";
 import { Get } from "../dom/Get";
 import { NotBrowserException } from "../errors/NotBrowserException";
-import { Point } from "../interfaces/point.interaface";
-import { Size } from "../interfaces/size.interaface";
-import { StringMap } from "../interfaces/string-map.interface";
+import { Point } from "../types/point.interaface";
+import { Size } from "../types/size.interaface";
+import { StringMap } from "../types/string-map.interface";
 
 export interface ObjectCreatorParams {
     name: string;

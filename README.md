@@ -85,13 +85,13 @@ const min = ArrayUtils.min([1, 2, 3]);
 - *[models](src/models)*
     - [gender](src/models/gender.ts)
 - *[utils](src/utils)*
-    - [ArrayUtils](src/utils/ArrayUtils.ts)
+    - [ArrayUtils](src/utils/deprecated/ArrayUtils.ts)
     - [DomUtils](src/utils/DomUtils.ts)
     - [FileUtils](src/utils/FileUtils.ts)
-    - [MathUtils](src/utils/MathUtils.ts)
-    - [MiscUtils](src/utils/MiscUtils.ts)
-    - [ObjectUtils](src/utils/ObjectUtils.ts)
-    - [ProcessUtils](src/utils/ProcessUtils.ts)
+    - [MathUtils](src/utils/deprecated/MathUtils.ts)
+    - [MiscUtils](src/utils/deprecated/MiscUtils.ts)
+    - [ObjectUtils](src/utils/deprecated/ObjectUtils.ts)
+    - [ProcessUtils](src/utils/deprecated/ProcessUtils.ts)
     - [Runtime](src/utils/Runtime.ts)
     - [StringCheckers](src/utils/StringCheckers.ts)
     - [StringUtils](src/utils/StringUtils.ts)
