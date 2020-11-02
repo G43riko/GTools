@@ -1,13 +1,11 @@
 import { StringMap } from "../types/string-map.interface";
-import { StringCheckers } from "./string-checkers";
+import { join } from "./array-utils";
+import * as StringCheckers from "./string-checkers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
 const normalLowerCharacters   = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 const accentedCharacters      = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
 const normalCharacters        = normalLowerCharacters + normalLowerCharacters.toUpperCase();
-
-const validEmailRegex       = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
-const validPhoneNumberRegex = /^([+]|00)?[(]?[0-9]{3,4}[)]?[-\s.]?[0-9]{2,3}[-\s.]?[0-9]{2,6}([-\s.]?[0-9]{3})?$/im;
 
 /* TODO:
     static underscore(word) {
@@ -91,6 +89,10 @@ export function toUpperCamelCase(text: string): string {
     return toCapital(toLowerCamelCase(text));
 }
 
+export function capitalize(text: string): string {
+    return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
+}
+
 export function toCapital(text: string): string {
     return text.replace(/./, (e) => e.toUpperCase());
 }
@@ -110,11 +112,11 @@ export function count(text: string, key: string): number {
 
 /**
  * @param text - text need to be repeat
- * @param count - number of iterations
+ * @param numberOfRepetitions - number of iterations
  * @deprecated - use {@link String#repeat}
  */
-export function repeat(text: string, count: number): string {
-    return new Array(count + 1).join(text);
+export function repeat(text: string, numberOfRepetitions: number): string {
+    return new Array(numberOfRepetitions + 1).join(text);
 }
 
 export function removeAll(text: string, words: string[]): string {
@@ -168,13 +170,6 @@ export function collapseWhitespace(text: string): string {
     return text.replace(/[\s\uFEFF\xA0]{2,}/g, " ");
 }
 
-export function capitalize(text: string): string {
-    return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
-}
-
-export function isEmpty(thisArg: string): boolean {
-    return !thisArg || /^[\s\xa0]*$/.test(thisArg);
-}
 
 export function swapCase(text: string): string {
     return text.replace(/\S/g, (char) => {
@@ -188,14 +183,6 @@ export function transformToBasicFormat(text: string): string {
     return collapseWhitespace(removeAccentedCharacters(text).toLowerCase()).trim();
 }
 
-export function isValidEmail(email: string): boolean {
-    if (!email) {
-        return false;
-    }
-
-    return validEmailRegex.test(email.trim());
-}
-
 export function getAsciiArray(thisArg: string): number[] {
     const result = [];
     for (const letter of thisArg) {
@@ -203,14 +190,6 @@ export function getAsciiArray(thisArg: string): number[] {
     }
 
     return result;
-}
-
-export function isValidPhoneNumber(num: string): boolean {
-    if (!num) {
-        return false;
-    }
-
-    return validPhoneNumberRegex.test(num.trim());
 }
 
 export function toBasicForm(text: string): string {
@@ -231,6 +210,17 @@ export function joinSingle(prefix: string, divider: string, postfix: string): st
     }
 
     return prefix + divider + postfix;
+}
+
+/**
+ * @deprecated use {@link join} instead
+ * @param data - data to join
+ * @param delimiter - delimiter
+ * @param prefix - prefix
+ * @param postfix - postfix
+ */
+export function joinString(data: string[], delimiter = " ", prefix = "", postfix = ""): string {
+    return join(data, delimiter, prefix, postfix);
 }
 
 export function getFormattedNumber(num: string, prefix = "+421"): string {
@@ -268,8 +258,6 @@ function fuzzy_match_simple(pattern: string, str: string): boolean {
     return patternLength !== 0 && strLength !== 0 && patternIdx === patternLength;
 }
 
-export function replaceForAll(template: string, values: string[], placeHolder: string): string[] {
-    return values.map((value) => {
-        return template.replace(placeHolder, value);
-    });
+export function replaceForAll(content: string, values: string[], placeHolder: string): string[] {
+    return values.map((value) => content.replace(placeHolder, value));
 }

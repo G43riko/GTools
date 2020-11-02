@@ -1,4 +1,24 @@
-export class Keys {
+export enum Keys {
+    ARROW_UP    = "ArrowUp",
+    ARROW_DOWN  = "ArrowDown",
+    ARROW_LEFT  = "ArrowLeft",
+    ARROW_RIGHT = "ArrowRight",
+    DELETE      = "Delete",
+    CONTROL     = "ControlLeft",
+    SHIFT       = "ShiftLeft",
+    PAGE_UP     = "PageUp",
+    PAGE_DOWN   = "PageDown",
+    ESCAPE      = "Escape",
+    W           = "KeyW",
+    F           = "KeyF",
+    A           = "KeyA",
+    P           = "KeyP",
+    S           = "KeyS",
+    D           = "KeyD",
+    R           = "KeyR",
+}
+
+export class KeysOld {
     public static readonly ENTER       = 13;
     public static readonly TAB         = 9;
     public static readonly W           = 87;

@@ -48,7 +48,7 @@ export function parseJSONWithComments<T>(content: string): T {
 // TODO: expires must be only in the end of cookies
 export function setCookie(name: string, value: string | number | boolean, days: number): string {
     const d: Date = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
     const finalCookies = `${name}=${value};expires=${d.toUTCString()}`;
     if (typeof document !== "undefined") {
         document.cookie = finalCookies;

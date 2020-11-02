@@ -35,7 +35,7 @@ export class MockData {
         "30:61:61",
     ];
 
-    public static readonly charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+    public static readonly charactersString = "+=§,.-?:_\"!)/()<>*'$[]}{*&^%$#@!/\\|#&@{}^'`][~|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
 
     public static readonly characters = MockData.charactersString.split("");
 
@@ -80,18 +80,21 @@ export class MockData {
 
     public static readonly numbers = MockData.numbersString.split("");
 
-    public static readonly randomArray: any[] = [
+    public static readonly randomArray: unknown[] = [
         "a",
         1,
         2.32,
         true,
-        (a: any, b: any) => a + b,
+        (a: number, b: number): number => a + b,
         {},
         null,
         undefined,
         Infinity,
         NaN,
-        {a: "aa", b: "bb"},
+        {
+            a: "aa",
+            b: "bb"
+        },
         ["a", 1, true],
     ];
 
@@ -169,15 +172,15 @@ export class MockData {
         "abc@def.com",
         "my@name.is.chorche.com",
         "foo.bar@machine.subdomain.example.museum",
-        `Abc@example.com`,
+        "Abc@example.com",
         // `Abc@example.com.`,
         // `Abc@10.42.0.1`,
         // `user@localserver`,
-        `Abc.123@example.com`,
-        `user+mailbox/department=shipping@example.com`,
-        `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`,
-        "!#$%&\'*+-/=?^_`.{|}~@example.com",
-        "\"()<>[]:,;@\\\"!#$%&\'-/=?^_`{}| ~.a\"@example.org",
+        "Abc.123@example.com",
+        "user+mailbox/department=shipping@example.com",
+        "\"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual\"@strange.example.com",
+        "!#$%&'*+-/=?^_`.{|}~@example.com",
+        "\"()<>[]:,;@\\\"!#$%&'-/=?^_`{}| ~.a\"@example.org",
         "\"Abc@def\"@example.com",
         "\"Fred Bloggs\"@example.com",
         "\"Joe.\\Blow\"@example.com",
@@ -189,16 +192,16 @@ export class MockData {
     public static readonly notEmails: string[] = [
         "Abc.example.com",
         "A@b@c@example.com",
-        "a\"b(c)d,e:f;g<h>i[j\k]l@example.com",
+        "a\"b(c)d,e:f;g<h>i[j\\k]l@example.com",
         "just\"not\"right@example.com",
-        "this is\"not\allowed@example.com",
-        "this\ still\"not\\allowed@example.com",
+        "this is\"notallowed@example.com",
+        "this still\"not\\allowed@example.com",
         "john..doe@example.com",
         "john.doe@example..com",
         ...MockData.randomStrings,
     ];
 
-    public static functionSum(a: number, b: any): number {
+    public static functionSum(a: number, b: number): number {
         if (isNaN(a) || isNaN(b)) {
             throw new Error("Wrong params");
         }

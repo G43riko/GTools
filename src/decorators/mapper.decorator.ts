@@ -10,15 +10,13 @@ export function Mapper(params: { onGet?: (oldValue: any) => any, onSet?: (oldVal
         const newName                        = prefix + key;
         if (params) {
             if (typeof params.onGet === "function") {
-                // @ts-ignore
-                descriptor.get = () => params.onGet(target[newName]);
+                descriptor.get = () => params.onGet && params.onGet(target[newName]);
             } else {
                 descriptor.get = () => target[newName];
             }
 
             if (typeof params.onSet === "function") {
-                // @ts-ignore
-                descriptor.set = (newVal: any) => target[newName] = params.onSet(newVal);
+                descriptor.set = (newVal: any) => target[newName] = params.onSet && params.onSet(newVal);
             } else {
                 descriptor.set = (value) => target[newName] = value;
             }

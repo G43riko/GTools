@@ -71,9 +71,15 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_models_gender_model_.gender.html" class="tsd-kind-icon">Gender</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/_models_gender_model_.gender.html" class="tsd-kind-icon">Gender</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/_models_gender_model_.genderclass.html" class="tsd-kind-icon">Gender<wbr>Class</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -89,6 +95,12 @@
 								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_models_gender_model_.html#maleregexp" class="tsd-kind-icon">male<wbr>Regexp</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_models_gender_model_.html#parsegender" class="tsd-kind-icon">parse<wbr>Gender</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -100,9 +112,16 @@
 					<div class="tsd-signature tsd-kind-icon">Gender<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MAN"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WOMAN"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">""</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/models/gender.model.ts#L1">src/models/gender.model.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/models/gender.model.ts#L4">src/models/gender.model.ts:4</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>deprecated</dt>
+							<dd><p>use <a href="../enums/_models_gender_model_.gender.html">Gender</a> instead</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
@@ -113,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">female<wbr>Regexp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /^(female|woman|zena|girl|dievca|f|w|z)$/g</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/models/gender.model.ts#L4">src/models/gender.model.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/models/gender.model.ts#L7">src/models/gender.model.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -123,9 +142,35 @@
 					<div class="tsd-signature tsd-kind-icon">male<wbr>Regexp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> = /^(male|man|muz|boy|chlapec|m)$/g</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/models/gender.model.ts#L3">src/models/gender.model.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/models/gender.model.ts#L6">src/models/gender.model.ts:6</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parsegender" class="tsd-anchor"></a>
+					<h3>parse<wbr>Gender</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Gender<span class="tsd-signature-symbol">(</span>gender<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_models_gender_model_.gender.html" class="tsd-signature-type">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/models/gender.model.ts#L9">src/models/gender.model.ts:9</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>gender: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_models_gender_model_.gender.html" class="tsd-signature-type">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -142,8 +187,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_models_gender_model_.gender.html" class="tsd-kind-icon">Gender</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_models_gender_model_.gender.html" class="tsd-kind-icon">Gender</a>
+						<a href="../classes/_models_gender_model_.genderclass.html" class="tsd-kind-icon">Gender<wbr>Class</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_models_gender_model_.html#gendertype" class="tsd-kind-icon">Gender<wbr>Type</a>
@@ -153,6 +201,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_models_gender_model_.html#maleregexp" class="tsd-kind-icon">male<wbr>Regexp</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_models_gender_model_.html#parsegender" class="tsd-kind-icon">parse<wbr>Gender</a>
 					</li>
 				</ul>
 			</nav>
@@ -169,6 +220,7 @@
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

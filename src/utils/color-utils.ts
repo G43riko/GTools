@@ -25,6 +25,22 @@ export function lerpColor(
     ];
 }
 
+export function lerpHexaColor(a: string, b: string, amount: number): string {
+    const ah = +a.replace("#", "0x");
+    const ar = ah >> 16;
+    const ag = ah >> 8 & 0xFF;
+    const ab = ah & 0xFF;
+    const bh = +b.replace("#", "0x");
+    const br = bh >> 16;
+    const bg = bh >> 8 & 0xFF;
+    const bb = bh & 0xFF;
+    const rr = ar + amount * (br - ar);
+    const rg = ag + amount * (bg - ag);
+    const rb = ab + amount * (bb - ab);
+
+    return "#" + ((1 << 24) + (rr << 16) + (rg << 8) + rb | 0).toString(16).slice(1);
+}
+
 export function hex2rgb(color: string): [number, number, number] {
     const num = parseInt(color.slice(1), 16);
 
@@ -57,8 +73,8 @@ export function int2hex(val: number): string {
 export function int2rgb(val: number): [number, number, number] {
     return [
         val >> 16,
-        (val >> 8) & 0xFF,
-        val & 0xFF
+        val >> 8 & 0xFF,
+        val & 0xFF,
     ];
 }
 
@@ -67,7 +83,7 @@ export function hex2int(val: string): number {
 }
 
 export function rgb2int(R: number, G: number, B: number): number {
-    return R << 16 | (G << 8) & 0xFFFF | B;
+    return R << 16 | G << 8 & 0xFFFF | B;
 }
 
 export function parseColor(color: string): [number, number, number] {

@@ -1,6 +1,6 @@
 // UTILS
 
-export * from "./utils/StringCheckers";
+export * from "./utils/deprecated/StringCheckers";
 
 // MODELS
 
@@ -15,14 +15,14 @@ export * from "./enums/keys.enum";
 
 // COMPONENTS
 
-export * from "./components/KeyValueCounter";
-export * from "./components/NumberCounter";
-export * from "./components/FileManager";
-export * from "./components/Paginator";
+export * from "./components/key-value-counter";
+export * from "./components/number-counter";
+export * from "./components/file-manager";
+export * from "./components/paginator";
 
 // MATHS
 
-export * from "./math/Vector2f";
+export * from "./math/vector2f";
 
 // CONFIG
 

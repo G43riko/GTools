@@ -12,12 +12,15 @@ export function serializeImage(image: HTMLImageElement): string {
 
 export function deserializeImage(image: string): HTMLImageElement {
     return CreateImage({
-        src: image
+        src: image,
     });
 }
 
 export function createImage(callback: (context: CanvasRenderingContext2D) => void, width: number, height = width): HTMLCanvasElement {
-    const canvas = CreateElement("canvas", {width, height});
+    const canvas = CreateElement("canvas", {
+        width,
+        height
+    });
     callback(canvas.getContext("2d") as CanvasRenderingContext2D);
 
     return canvas;

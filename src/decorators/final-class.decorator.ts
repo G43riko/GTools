@@ -1,4 +1,4 @@
-function FinalClass<T extends new(...args: any[]) => object>(target: T): T {
+export function FinalClass<T extends new(...args: any[]) => Record<string, unknown>>(target: T): T {
     return class Final extends target {
         constructor(...args: any[]) {
             if (new.target !== Final) {

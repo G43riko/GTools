@@ -1,6 +1,6 @@
-import { Checkers } from "../dom/Checkers";
-import { Get } from "../dom/Get";
-import { NotBrowserException } from "../errors/NotBrowserException";
+import { Checkers } from "../dom/deprecated/Checkers";
+import { DomGet } from "../dom/dom-get";
+import { NotBrowserException } from "../errors/not-browser.exception";
 import { Point } from "../types/point.interaface";
 import { Size } from "../types/size.interaface";
 import { StringMap } from "../types/string-map.interface";
@@ -148,12 +148,11 @@ export class DomUtils {
             throw new NotBrowserException();
         }
 
-        let el: HTMLElement;
         if (typeof name === "object") {
             return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);
         }
 
-        el = document.createElement(name);
+        const el = document.createElement(name);
 
         if (typeof attr === "object") {
             for (const key in attr) {
@@ -261,7 +260,7 @@ export class DomUtils {
         }
 
         // get all inputs
-        const elements = Get.byTag("input");
+        const elements = DomGet.byTag("input");
 
         // add all values to result object
         for (const key in elements) {

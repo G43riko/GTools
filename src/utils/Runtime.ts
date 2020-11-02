@@ -1,7 +1,7 @@
-import { Checkers } from "../dom/Checkers";
-import { NullPointerException } from "../errors/NullPointerException";
-import { WrongParameterException } from "../errors/WrongParameterException";
-import { WrongTypeException } from "../errors/WrongTypeException";
+import { Checkers } from "../dom/deprecated/Checkers";
+import { NullPointerException } from "../errors/null-pointer.exception";
+import { WrongParameterException } from "../errors/wrong-parameter.exception";
+import { WrongTypeException } from "../errors/wrong-type.exception";
 
 let useRuntimeCheckers = true;
 
@@ -58,14 +58,14 @@ export class Runtime {
         return obj;
     }
 
-    // tslint:disable-next-line
+    // tslint:disable
+    // eslint-disable-next-line @typescript-eslint/ban-types
     public static checkFunction(func: Function, args: any[] = [], thisArg = this): boolean {
         try {
             func.apply(thisArg, args);
 
             return true;
-        }
-        catch (e) {
+        } catch (e) {
             return false;
         }
     }

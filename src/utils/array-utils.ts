@@ -5,7 +5,7 @@
  * const conditions = {age: 23, name: "Monica"}
  * where(array, conditions); // [{name: "Michael", age: 23},  {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
  */
-export function where<T extends object>(array: T[], condition: Partial<T>): T[] {
+export function where<T extends Record<string, unknown>>(array: T[], condition: Partial<T>): T[] {
     if (!Array.isArray(array)) {
         return array;
     }
@@ -18,9 +18,7 @@ export function where<T extends object>(array: T[], condition: Partial<T>): T[] 
     const conditionEntries = Object.entries(condition);
 
     array.forEach((e) => {
-        const add = conditionEntries.some((conditionEntry) => {
-            return e[conditionEntry[0] as keyof T] === conditionEntry[1];
-        });
+        const add = conditionEntries.some((conditionEntry) => e[conditionEntry[0] as keyof T] === conditionEntry[1]);
         if (add) {
             result[result.length] = e;
         }
@@ -203,4 +201,17 @@ export function makeUnique<T>(array: T[]): T[] {
     }
 
     return Array.from(new Set<T>(array));
+}
+
+/**
+ * Combine 2 array each other
+ * @param arr
+ * @param callback
+ */
+export function eachOther<T>(arr: T[], callback: (a: T, b: T) => void): void {
+    arr.forEach((e, i) => {
+        for (let j = i + 1; j < arr.length; j++) {
+            callback(e, arr[j]);
+        }
+    });
 }

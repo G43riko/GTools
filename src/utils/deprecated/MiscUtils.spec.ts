@@ -33,8 +33,14 @@ describe("Misc utils", () => {
     describe("ObjectToQueryParams", () => {
         it("It should return object serialized into string", () => {
             expect(MiscUtils.objectToQueryParams({})).to.equal("");
-            expect(MiscUtils.objectToQueryParams({a: "aa", b: "bb"})).to.equal("?a=aa&b=bb");
-            expect(MiscUtils.objectToQueryParams({a: "21", b: "22"})).to.equal("?a=21&b=22");
+            expect(MiscUtils.objectToQueryParams({
+                a: "aa",
+                b: "bb"
+            })).to.equal("?a=aa&b=bb");
+            expect(MiscUtils.objectToQueryParams({
+                a: "21",
+                b: "22"
+            })).to.equal("?a=21&b=22");
         });
     });
     describe("ParseParams", () => {
@@ -100,9 +106,7 @@ describe("Misc utils", () => {
         // istanbul ignore next
         it("It should test serialization and deserialization", () => {
             const obj = {
-                funcAvg     : (a: number, b: number) => {
-                    return (a + b) / 2;
-                },
+                funcAvg     : (a: number, b: number) => (a + b) / 2,
                 funcSum     : (a: number, b: number) => a + b,
                 // tslint:disable-next-line
                 funcMul     : function(a: number, b: number) {

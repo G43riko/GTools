@@ -1,21 +1,21 @@
-import * as fs from "fs";
-import * as http from "http";
-import * as https from "https";
+import { createWriteStream, PathLike, readFile } from "fs";
+import { get as HttpGet, IncomingMessage, request as HttpRequest } from "http";
+import { request as HttpsRequest } from "https";
 
 export function serverDownloadFile(url: string, fileName: string): void {
-    const file = fs.createWriteStream(fileName);
-    http.get(url, (response) => response.pipe(file));
+    const file = createWriteStream(fileName);
+    HttpGet(url, (response) => response.pipe(file));
 }
 
 export function getPublicIp(): Promise<string> {
     const options = {
         host: "ipv4bot.whatismyipaddress.com",
         port: 80,
-        path: "/"
+        path: "/",
     };
 
     return new Promise((success, reject) => {
-        http.get(options, (res) => {
+        HttpGet(options, (res) => {
             res.on("data", (chunk) => {
                 success(String(chunk));
             });
@@ -23,22 +23,74 @@ export function getPublicIp(): Promise<string> {
     });
 }
 
-export function getContentFrom(url: string): Promise<string> {
-    const callback = (res: http.IncomingMessage, success: (param: any) => void) => {
-        let data = "";
-        res.on("data", (chunk) => data += chunk);
-        res.on("end", () => success(data));
-    };
+function tryParseUrl(url: PathLike): URL | null {
+    if (url instanceof URL) {
+        return url;
+    }
 
-    return new Promise((success, reject) => {
-        if (url.startsWith("https")) {
-            const request = https.get(url, {}, (res: http.IncomingMessage) => callback(res, success));
-            request.on("error", reject);
-            request.end();
-        } else {
-            const request = http.request(url, {}, (res: http.IncomingMessage) => callback(res, success));
-            request.on("error", reject);
-            request.end();
-        }
+    try {
+        return new URL(url.toString());
+    } catch (e) {
+        return null;
+    }
+}
+
+// @ts-ignore
+function processClientRequest(url: string, req: HttpRequest & HttpsRequest): Promise<string> {
+    return new Promise<string>((success, reject) => {
+        const request = req(url, (res: IncomingMessage) => {
+            let data = "";
+            res.on("data", (chunk) => {
+                data += chunk;
+            });
+            res.on("end", () => {
+                success(data);
+            });
+        });
+        request.on("error", (e: Error) => {
+            reject(e);
+        });
+        request.end();
     });
+}
+
+export function getContent(uri: PathLike): Promise<string> {
+    const url = tryParseUrl(uri);
+
+    if (url) {
+        return getContentFromUrl(url);
+    }
+
+    return getContentFromFile(uri);
+}
+
+export function getContentFromUrl(url: URL): Promise<string> {
+    if (url.protocol === "http") {
+        return processClientRequest(url.href, HttpRequest);
+    }
+    if (url.protocol === "https") {
+        return processClientRequest(url.href, HttpsRequest);
+    }
+
+    throw new Error("Unknown protocol " + url.protocol);
+}
+
+export function getContentFromFile(path: PathLike, encoding: "utf8" = "utf8"): Promise<string> {
+    return new Promise<string>((success, reject) => {
+        readFile(path, {encoding}, (error: NodeJS.ErrnoException | null, data) => {
+            if (error) {
+                return reject(error);
+            }
+
+            success(data);
+        });
+    });
+}
+
+/**
+ * @deprecated use {@link getContentFromUrl} instead
+ * @param url - resource url
+ */
+export function getContentFrom(url: string): Promise<string> {
+    return getContent(url);
 }

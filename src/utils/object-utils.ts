@@ -1,6 +1,6 @@
-import { ObjectEntry } from "../types/object-entry";
+import { ObjectEntry } from "../types/object-entry.interface";
 
-export function without<T extends object>(obj: T, items: (keyof T)[]): Omit<T, any> {
+export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))
                                 .reduce((prev, entry) => {
                                     prev[entry.key] = entry.value;
@@ -9,7 +9,7 @@ export function without<T extends object>(obj: T, items: (keyof T)[]): Omit<T, a
                                 }, {} as T);
 }
 
-export function getObjectEntries<T extends object>(obj: T): ObjectEntry<T>[] {
+export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {
     const result: ObjectEntry<T>[] = [];
     for (const objKey in obj) {
         if (!obj.hasOwnProperty(objKey)) {
@@ -27,9 +27,16 @@ export function getObjectEntries<T extends object>(obj: T): ObjectEntry<T>[] {
 export function getNestedProperty(object: any, propertyPath: string, separator = "."): any {
     const propertyList = propertyPath.split(separator);
 
-    return propertyList.reduce((currentNestedPropertyValue, propertyName) => {
-        return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined;
-    }, object);
+    return propertyList.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+}
+
+export function setNestedProperty<T>(key: string, item: any, value: T): void {
+    let obj        = item;
+    const splitKey = key.split(".");
+    for (let i = 0; i < splitKey.length - 1; i++) {
+        obj = obj[splitKey[i]];
+    }
+    obj[splitKey[splitKey.length - 1]] = value;
 }
 
 export function roughSizeOfObject<T>(object: T): number {
@@ -57,7 +64,7 @@ export function roughSizeOfObject<T>(object: T): number {
     return bytes;
 }
 
-export function size<T extends object>(object: T): number {
+export function size<T extends Record<string, unknown>>(object: T): number {
     let result = 0;
     for (const i in object) {
         if (object.hasOwnProperty(i)) {
@@ -68,7 +75,7 @@ export function size<T extends object>(object: T): number {
     return result;
 }
 
-export function isPlain<T extends object>(object: T): boolean {
+export function isPlain<T extends Record<string, unknown>>(object: T): boolean {
     for (const index in object) {
         if (object.hasOwnProperty(index) && typeof object[index] === "object") {
             return false;

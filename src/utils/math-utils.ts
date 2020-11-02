@@ -1,3 +1,5 @@
+import * as Random from "./random-utils";
+
 export function pad(num: number, size: number): string {
     const s = "00000000000000" + num;
 
@@ -14,7 +16,7 @@ export function hash2Numbers(x: number, y: number): number {
     const xFinal = x >= 0 ? x * 2 : -x * 2 - 1;
     const yFinal = y >= 0 ? y * 2 : -y * 2 - 1;
 
-    return ((xFinal + yFinal) * (xFinal + yFinal + 1) / 2) + yFinal;
+    return (xFinal + yFinal) * (xFinal + yFinal + 1) / 2 + yFinal;
 }
 
 export function clamp(value: number, min: number, max: number): number {
@@ -53,14 +55,24 @@ export function lamp(min: number, max: number, scale: number): number {
     return clamp((max - min) * scale + min, min, max);
 }
 
+/**
+ * @deprecated use {@link randomIntBetween} instead;
+ *
+ * @param min - min value
+ * @param max - max value
+ */
 export function randomInt(min: number, max: number): number {
-    return Math.floor(random(min, max));
+    return Random.randomIntBetween(min, max);
 }
 
+/**
+ * @deprecated use {@link randomFloatBetween} instead;
+ *
+ * @param min - min value
+ * @param max - max value
+ */
 export function random(min: number, max: number): number {
-    const diff = max - min;
-
-    return min + Math.random() * diff;
+    return Random.randomFloatBetween(min, max);
 }
 
 export function average(args: number[]): number {
@@ -73,7 +85,7 @@ export function average(args: number[]): number {
 }
 
 export function isPowerOf2(value: number): boolean {
-    return (value & (value - 1)) === 0;
+    return (value & value - 1) === 0;
 }
 
 export function getDiff(num1: number, num2: number): number {

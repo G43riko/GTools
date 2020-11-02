@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { StringUtils } from "./StringUtils";
+import { StringUtils } from "./deprecated/StringUtils";
 
 function walk(dir: string, done: (error: any, files?: string[]) => any): void {
     const results: string[] = [];
@@ -26,8 +26,7 @@ function walk(dir: string, done: (error: any, files?: string[]) => any): void {
                             done(null, results);
                         }
                     });
-                }
-                else {
+                } else {
                     results.push(file);
                     pending--;
                     if (!pending) {

@@ -25,7 +25,7 @@ export class ArrayUtils {
      * @returns final array
      */
     public static subArray<T = any>(array: T[], minIndex = 0, maxIndex = array.length - 1): T[] {
-        return Arrays.subArray(array);
+        return Arrays.subArray(array, minIndex, maxIndex);
     }
 
     /**

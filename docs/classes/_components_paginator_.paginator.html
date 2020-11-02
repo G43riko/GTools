@@ -56,7 +56,7 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_components_paginator_.html">&quot;components/Paginator&quot;</a>
+					<a href="../modules/_components_paginator_.html">&quot;components/paginator&quot;</a>
 				</li>
 				<li>
 					<a href="_components_paginator_.paginator.html">Paginator</a>
@@ -73,7 +73,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T = <span class="tsd-signature-type">any</span></h4>
+						<h4>T = <span class="tsd-signature-type">unknown</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -101,8 +101,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_paginator_.paginator.html#actlist" class="tsd-kind-icon">act<wbr>List</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_paginator_.paginator.html#actualpage" class="tsd-kind-icon">actual<wbr>Page</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_paginator_.paginator.html#allitems" class="tsd-kind-icon">all<wbr>Items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_paginator_.paginator.html#itemsperpage" class="tsd-kind-icon">items<wbr>Per<wbr>Page</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_components_paginator_.paginator.html#lastpage" class="tsd-kind-icon">last<wbr>Page</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_components_paginator_.paginator.html#itemsperpage" class="tsd-kind-icon">items<wbr>Per<wbr>Page</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -129,19 +129,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Paginator<span class="tsd-signature-symbol">(</span>allItems<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_components_paginator_.paginator.html" class="tsd-signature-type">Paginator</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Paginator<span class="tsd-signature-symbol">(</span>allItems<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, itemsPerPage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_components_paginator_.paginator.html" class="tsd-signature-type">Paginator</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L8">src/components/Paginator.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L6">src/components/paginator.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>allItems: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> itemsPerPage: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = GToolsConfig.PAGE_LIMIT</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_components_paginator_.paginator.html" class="tsd-signature-type">Paginator</a></h4>
@@ -157,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">act<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L6">src/components/Paginator.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L4">src/components/paginator.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">actual<wbr>Page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L7">src/components/Paginator.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L5">src/components/paginator.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +180,17 @@
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L10">src/components/Paginator.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L8">src/components/paginator.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="itemsperpage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> items<wbr>Per<wbr>Page</h3>
+					<div class="tsd-signature tsd-kind-icon">items<wbr>Per<wbr>Page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L9">src/components/paginator.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,17 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L8">src/components/Paginator.ts:8</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="itemsperpage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> items<wbr>Per<wbr>Page</h3>
-					<div class="tsd-signature tsd-kind-icon">items<wbr>Per<wbr>Page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = GToolsConfig.PAGE_LIMIT</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L5">src/components/Paginator.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L6">src/components/paginator.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L92">src/components/Paginator.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L91">src/components/paginator.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -231,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L15">src/components/Paginator.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L14">src/components/paginator.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -248,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L46">src/components/Paginator.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L45">src/components/paginator.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -265,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L19">src/components/Paginator.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L18">src/components/paginator.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -282,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L23">src/components/Paginator.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L22">src/components/paginator.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -299,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L80">src/components/Paginator.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L79">src/components/paginator.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -316,7 +319,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L86">src/components/Paginator.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L85">src/components/paginator.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -333,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L50">src/components/Paginator.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L49">src/components/paginator.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -350,7 +353,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L70">src/components/Paginator.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L69">src/components/paginator.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -367,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/a303dd3/src/components/Paginator.ts#L60">src/components/Paginator.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/GTools/blob/2a4f127/src/components/paginator.ts#L59">src/components/paginator.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -389,7 +392,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_components_paginator_.html">&quot;components/<wbr>Paginator&quot;</a>
+						<a href="../modules/_components_paginator_.html">&quot;components/paginator&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -413,10 +416,10 @@
 								<a href="_components_paginator_.paginator.html#allitems" class="tsd-kind-icon">all<wbr>Items</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_components_paginator_.paginator.html#lastpage" class="tsd-kind-icon">last<wbr>Page</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
 								<a href="_components_paginator_.paginator.html#itemsperpage" class="tsd-kind-icon">items<wbr>Per<wbr>Page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_components_paginator_.paginator.html#lastpage" class="tsd-kind-icon">last<wbr>Page</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_components_paginator_.paginator.html#_recalclist" class="tsd-kind-icon">_re<wbr>Calc<wbr>List</a>
@@ -467,6 +470,7 @@
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

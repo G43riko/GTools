@@ -34,8 +34,14 @@ describe("ObjectUtils", () => {
             expect(ObjectUtils.size(item)).to.equal(3);
             expect(ObjectUtils.size({})).to.be.equal(0);
             expect(ObjectUtils.size({a: "aa"})).to.be.equal(1);
-            expect(ObjectUtils.size({a: "aa", b: "bb"})).to.be.equal(2);
-            expect(ObjectUtils.size({a: undefined, b: undefined})).to.be.equal(2);
+            expect(ObjectUtils.size({
+                a: "aa",
+                b: "bb"
+            })).to.be.equal(2);
+            expect(ObjectUtils.size({
+                a: undefined,
+                b: undefined
+            })).to.be.equal(2);
             expect(ObjectUtils.size([])).to.be.equal(0);
             expect(ObjectUtils.size([0])).to.be.equal(1);
             expect(ObjectUtils.size(["a", "b", "c"])).to.equal(3);
@@ -44,24 +50,69 @@ describe("ObjectUtils", () => {
     });
     describe("isPlain", () => {
         it("It check if object is plain or not", () => {
-            expect(ObjectUtils.isPlain({a: "a", b: "b"})).to.be.true;
-            expect(ObjectUtils.isPlain({a: 1, b: "b", c: true})).to.be.true;
-            expect(ObjectUtils.isPlain({a: 1, b: "b", c: undefined})).to.be.true;
+            expect(ObjectUtils.isPlain({
+                a: "a",
+                b: "b"
+            })).to.be.true;
+            expect(ObjectUtils.isPlain({
+                a: 1,
+                b: "b",
+                c: true
+            })).to.be.true;
+            expect(ObjectUtils.isPlain({
+                a: 1,
+                b: "b",
+                c: undefined
+            })).to.be.true;
 
-            expect(ObjectUtils.isPlain({a: {}, b: "b"})).to.be.false;
-            expect(ObjectUtils.isPlain({a: 1, b: "b", c: []})).to.be.false;
-            expect(ObjectUtils.isPlain({a: 1, b: "b", c: null})).to.be.false;
-            expect(ObjectUtils.isPlain({a: 1, b: "b", c: new Date()})).to.be.false;
+            expect(ObjectUtils.isPlain({
+                a: {},
+                b: "b"
+            })).to.be.false;
+            expect(ObjectUtils.isPlain({
+                a: 1,
+                b: "b",
+                c: []
+            })).to.be.false;
+            expect(ObjectUtils.isPlain({
+                a: 1,
+                b: "b",
+                c: null
+            })).to.be.false;
+            expect(ObjectUtils.isPlain({
+                a: 1,
+                b: "b",
+                c: new Date()
+            })).to.be.false;
         });
     });
     describe("Without", () => {
         it("It should return object without values given as second parameter", () => {
-            expect(ObjectUtils.without({a: "a", b: "b"}, ["a"])).to.deep.equal({b: "b"});
+            expect(ObjectUtils.without({
+                a: "a",
+                b: "b"
+            }, ["a"])).to.deep.equal({b: "b"});
             expect(ObjectUtils.without({}, ["a"])).to.deep.equal({});
             expect(ObjectUtils.without({}, [])).to.deep.equal({});
-            expect(ObjectUtils.without({a: "a", b: "b"}, [])).to.deep.equal({a: "a", b: "b"});
-            expect(ObjectUtils.without({a: "aa", b: "bb"}, ["a"])).to.deep.equal({b: "bb"});
-            expect(ObjectUtils.without({a: "a", b: "b", aa: "aa"}, ["a"])).to.deep.equal({b: "b", aa: "aa"});
+            expect(ObjectUtils.without({
+                a: "a",
+                b: "b"
+            }, [])).to.deep.equal({
+                a: "a",
+                b: "b"
+            });
+            expect(ObjectUtils.without({
+                a: "aa",
+                b: "bb"
+            }, ["a"])).to.deep.equal({b: "bb"});
+            expect(ObjectUtils.without({
+                a : "a",
+                b : "b",
+                aa: "aa"
+            }, ["a"])).to.deep.equal({
+                b : "b",
+                aa: "aa"
+            });
         });
     });
 });

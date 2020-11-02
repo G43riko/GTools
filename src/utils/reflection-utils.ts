@@ -15,6 +15,7 @@ export function createClass(name: any, args: any[]): any {
 export async function callFirstFunction(...functions: any[]): Promise<any> {
     for (const func of functions) {
         if (typeof func === "function") {
+            // eslint-disable-next-line no-await-in-loop
             return await func();
         }
     }

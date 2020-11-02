@@ -26,8 +26,8 @@ describe("File utils", () => {
                     "StringCheckers.ts",
                     "StringUtils.spec.ts",
                     "StringUtils.ts",
-                    "TimeUtils.spec.ts",
-                    "TimeUtils.ts",
+                    "time-utils.spec.ts",
+                    "time-utils.ts",
                 ]);
                 done();
             }).catch(console.error);

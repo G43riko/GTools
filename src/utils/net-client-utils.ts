@@ -1,4 +1,4 @@
-import { NotBrowserException } from "../errors/NotBrowserException";
+import { NotBrowserException } from "../errors/not-browser.exception";
 import { CreateElement, CreateImage } from "./html-utils";
 
 export async function uploadImage(): Promise<HTMLImageElement> {
@@ -9,12 +9,13 @@ export async function uploadImage(): Promise<HTMLImageElement> {
                 const reader   = new FileReader();
                 reader.onload  = () => {
                     success(CreateImage({
-                        src: reader.result as string
+                        src: reader.result as string,
                     }));
                 };
                 reader.onerror = reject;
-                reader.readAsDataURL((event.target as any).files[0]);
-            }
+                reader.readAsDataURL(event.target as any.files[0];
+            )
+            },
         });
         element.style.display = "none";
         document.body.appendChild(element);
@@ -23,7 +24,6 @@ export async function uploadImage(): Promise<HTMLImageElement> {
 
         document.body.removeChild(element);
     });
-
 }
 
 export async function uploadFile(): Promise<string> {
@@ -35,8 +35,9 @@ export async function uploadFile(): Promise<string> {
                 reader.onload = () => {
                     success(reader.result as string);
                 };
-                reader.readAsText((event.target as any).files[0]);
-            }
+                reader.readAsText(event.target as any.files[0];
+            )
+            },
         });
         element.style.display = "none";
         document.body.appendChild(element);

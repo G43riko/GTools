@@ -43,8 +43,8 @@ describe("Array utils", () => {
         });
 
         it("It should join string by delimiter and append prefix and postfix", () => {
-            const notArray: any[] | any = "gabriel";
-            const testCase              = ["hello", "my", "world"];
+            const notArray = "gabriel" as any;
+            const testCase = ["hello", "my", "world"];
             expect(ArrayUtils.join(notArray, "///", "<<", ">>")).to.equal("<<" + notArray + ">>");
             expect(ArrayUtils.join(testCase, " ", "<<", ">>")).to.equal("<<hello my world>>");
             expect(ArrayUtils.join([], "-", "<<", ">>")).to.equal("<<>>");
@@ -87,14 +87,29 @@ describe("Array utils", () => {
         });
     });
     describe("Where", () => {
-        const testArray = [{a: "aa"}, {a: "aa", b: "bbb"}, {b: "bb"}];
+        const testArray = [
+            {a: "aa"}, {
+                a: "aa",
+                b: "bbb"
+            }, {b: "bb"}
+        ];
         it("It return subArray with element existing in both arrays", () => {
             expect(ArrayUtils.where(notArray, {})).to.deep.equal("gabriel");
             expect(ArrayUtils.where(notArray, {b: "bb"})).to.be.equal("gabriel");
             expect(ArrayUtils.where(testArray, {})).to.deep.equal([]);
             expect(ArrayUtils.where(testArray, null as any)).to.deep.equal([]);
-            expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([{a: "aa"}, {a: "aa", b: "bbb"}]);
-            expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([{a: "aa", b: "bbb"}]);
+            expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([
+                {a: "aa"}, {
+                    a: "aa",
+                    b: "bbb"
+                }
+            ]);
+            expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([
+                {
+                    a: "aa",
+                    b: "bbb"
+                }
+            ]);
         });
     });
     describe("GetNRandom", () => {

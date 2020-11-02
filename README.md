@@ -61,27 +61,27 @@ const min = ArrayUtils.min([1, 2, 3]);
 - [index](src/index.html)
 - [MockData](src/MockData.ts)
 - *[components](src/components)*
-    - [FileManager](src/components/FileManager.ts)
-    - [paginator](src/components/Paginator.ts)
+    - [FileManager](src/components/file-manager.ts)
+    - [paginator](src/components/paginator.ts)
 - *[dom](src/dom)*
-    - [CanvasManager](src/dom/CanvasManager.ts)
-    - [CanvasUtils](src/dom/CanvasUtils.ts)
-    - [Checkers](src/dom/Checkers.ts)
-    - [ElementBuilder](src/dom/ElementBuilder.ts)
-    - [Get](src/dom/Get.ts)
+    - [CanvasManager](src/dom/canvas-manager.ts)
+    - [CanvasUtils](src/dom/canvas-utils.ts)
+    - [Checkers](src/dom/deprecated/Checkers.ts)
+    - [ElementBuilder](src/dom/element-builder.ts)
+    - [DomGet](src/dom/dom-get.ts)
 - *[enums](src/enums)*
     - [encodings](src/enums/enodings.enum.ts)
     - [file-types](src/enums/file-types.enum.ts)
     - [http-status-codes](src/enums/http-status-codes.enum.ts)
     - [keys](src/enums/keys.enum.ts)
 - *[errors](src/errors)*
-    - [GLogger](src/errors/GLogger.ts)
-    - [NotBrowserException](src/errors/NotBrowserException.ts)
-    - [NullPointerException](src/errors/NullPointerException.ts)
-    - [WrongParameterException](src/errors/WrongParameterException.ts)
-    - [WrongTypeException](src/errors/WrongTypeException.ts)
+    - [GLogger](src/components/g-logger.ts)
+    - [NotBrowserException](src/errors/not-browser.exception.ts)
+    - [NullPointerException](src/errors/null-pointer.exception.ts)
+    - [WrongParameterException](src/errors/wrong-parameter.exception.ts)
+    - [WrongTypeException](src/errors/wrong-type.exception.ts)
 - *[math](src/math)*
-    - [Vector2f](src/math/Vector2f.ts)
+    - [Vector2f](src/math/vector2f.ts)
 - *[models](src/models)*
     - [gender](src/models/gender.ts)
 - *[utils](src/utils)*
@@ -93,9 +93,9 @@ const min = ArrayUtils.min([1, 2, 3]);
     - [ObjectUtils](src/utils/deprecated/ObjectUtils.ts)
     - [ProcessUtils](src/utils/deprecated/ProcessUtils.ts)
     - [Runtime](src/utils/Runtime.ts)
-    - [StringCheckers](src/utils/StringCheckers.ts)
-    - [StringUtils](src/utils/StringUtils.ts)
-    - [TimeUtils](src/utils/TimeUtils.ts)
+    - [StringCheckers](src/utils/deprecated/StringCheckers.ts)
+    - [StringUtils](src/utils/deprecated/StringUtils.ts)
+    - [TimeUtils](src/utils/time-utils.ts)
 
 ## Release steps
 1. change version in `package.json`

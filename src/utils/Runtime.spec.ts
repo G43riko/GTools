@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import "mocha";
-import { NullPointerException } from "../errors/NullPointerException";
-import { WrongParameterException } from "../errors/WrongParameterException";
-import { WrongTypeException } from "../errors/WrongTypeException";
+import { NullPointerException } from "../errors/null-pointer.exception";
+import { WrongParameterException } from "../errors/wrong-parameter.exception";
+import { WrongTypeException } from "../errors/wrong-type.exception";
 import { MockData } from "../MockData";
 import { Runtime } from "./Runtime";
 
