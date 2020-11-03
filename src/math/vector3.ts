@@ -1,4 +1,3 @@
-import { SimpleVector3f } from "../physics/distances-3d";
 import { SimpleVector3 } from "./simple-vector3";
 
 export class Vector3 implements SimpleVector3 {
@@ -39,6 +38,10 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     }
 
+    public static add(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
+        return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
+    }
+
     public static sum(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     }
@@ -47,7 +50,7 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(vecA.x * val, vecA.y * val, vecA.z * val);
     }
 
-    public static mul(vecA: SimpleVector3f, vecB: SimpleVector3f): Vector3 {
+    public static mul(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     }
 
@@ -141,10 +144,30 @@ export class Vector3 implements SimpleVector3 {
         return this;
     }
 
+    public cross(v: SimpleVector3): Vector3 {
+        const localX = this.y * v.z - this.z * v.y;
+        const localY = this.z * v.x - this.x * v.z;
+        const localZ = this.x * v.y - this.y * v.x;
+
+        return new Vector3(localX, localY, localZ);
+    }
+
+    public dot(v: SimpleVector3): number {
+        return this.x * v.x + this.y * v.y + this.z * v.z;
+    }
+
     public sub(vec: SimpleVector3): this {
         this.x -= vec.x;
         this.y -= vec.y;
         this.z -= vec.z;
+
+        return this;
+    }
+
+    public setData(x: number, y: number, z: number): this {
+        this.x = x;
+        this.y = y;
+        this.z = z;
 
         return this;
     }

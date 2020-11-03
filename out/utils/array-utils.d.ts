@@ -5,7 +5,7 @@
  * const conditions = {age: 23, name: "Monica"}
  * where(array, conditions); // [{name: "Michael", age: 23},  {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
  */
-export declare function where<T extends object>(array: T[], condition: Partial<T>): T[];
+export declare function where<T extends Record<string, unknown>>(array: T[], condition: Partial<T>): T[];
 /**
  * Return sub array from array
  *

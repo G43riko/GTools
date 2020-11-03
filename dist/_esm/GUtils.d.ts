@@ -11,8 +11,6 @@ export * from "./dom/deprecated/checkers";
 export * from "./dom/dom-get";
 export * from "./validators";
 export * from "./misc";
-export * from "./math";
-export * from "./physics";
 export * from "./models";
 export * from "./tests/abstract-database.fixture";
 export * from "./tests/abstract.fixture";

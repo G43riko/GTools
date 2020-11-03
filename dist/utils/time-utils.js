@@ -8,7 +8,7 @@ var intervals = {
     "day": 86400,
     "hour": 3600,
     "minute": 60,
-    "second": 1
+    "second": 1,
 };
 var intervalEntries = Object.entries(intervals);
 function dateAge(value) {
@@ -87,10 +87,20 @@ function setDate(date, opt) {
     return date;
 }
 function getStartOfTheDay(date) {
-    return setDate(date, { ms: 0, s: 0, m: 0, h: 0 });
+    return setDate(date, {
+        ms: 0,
+        s: 0,
+        m: 0,
+        h: 0,
+    });
 }
 exports.getStartOfTheDay = getStartOfTheDay;
 function getEndOfTheDay(date) {
-    return setDate(date, { ms: 999, s: 59, m: 59, h: 23 });
+    return setDate(date, {
+        ms: 999,
+        s: 59,
+        m: 59,
+        h: 23,
+    });
 }
 exports.getEndOfTheDay = getEndOfTheDay;

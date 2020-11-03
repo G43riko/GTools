@@ -18,7 +18,7 @@ export interface ElementAttributes {
     width?: number;
     height?: number;
 }
-export declare function elementToString(element: HTMLElement, showParent?: boolean): string;
+export declare function elementToString(element: HTMLElement): string;
 export declare function dragElement(element: HTMLElement, headerSelector?: string): {
     clear: () => void;
 };

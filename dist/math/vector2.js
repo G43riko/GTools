@@ -22,9 +22,20 @@ var Vector2 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Vector2.prototype.isZero = function () {
-        return this.x === 0 && this.y === 0;
-    };
+    Object.defineProperty(Vector2.prototype, "avg", {
+        get: function () {
+            return (this.x + this.y) / 2;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector2.prototype, "length", {
+        get: function () {
+            return Math.sqrt(this.x * this.x + this.y * this.y);
+        },
+        enumerable: false,
+        configurable: true
+    });
     Vector2.equals = function (vecA, vecB) {
         if (vecA === vecB) {
             return true;
@@ -35,18 +46,11 @@ var Vector2 = /** @class */ (function () {
         return new Vector2(vecA.x - vecB.x, vecA.y - vecB.y);
     };
     Vector2.isVisible = function (obsX, obsY, angle, cutOff, px, py) {
-        return (angle - Math.atan2(py - obsY, px - obsX)) <= cutOff;
+        return angle - Math.atan2(py - obsY, px - obsX) <= cutOff;
     };
     Vector2.angleBetweenPoints = function (obsX, obsY, px1, py1, px2, py2) {
         return Math.atan2(py1 - obsY, px1 - obsX) - Math.atan2(py2 - obsY, px2 - obsX);
     };
-    Object.defineProperty(Vector2.prototype, "avg", {
-        get: function () {
-            return (this.x + this.y) / 2;
-        },
-        enumerable: false,
-        configurable: true
-    });
     Vector2.sum = function (vecA, vecB) {
         return new Vector2(vecA.x + vecB.x, vecA.y + vecB.y);
     };
@@ -62,16 +66,16 @@ var Vector2 = /** @class */ (function () {
     Vector2.dist = function (vecA, vecB) {
         return Math.sqrt(Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2));
     };
+    Vector2.from = function (valA, valB) {
+        if (valB === void 0) { valB = valA; }
+        return new Vector2(valA, valB);
+    };
+    Vector2.prototype.isZero = function () {
+        return this.x === 0 && this.y === 0;
+    };
     Vector2.prototype.getNormalized = function () {
         return this.clone().normalize();
     };
-    Object.defineProperty(Vector2.prototype, "length", {
-        get: function () {
-            return Math.sqrt(this.x * this.x + this.y * this.y);
-        },
-        enumerable: false,
-        configurable: true
-    });
     Vector2.prototype.clone = function () {
         return new Vector2(this.x, this.y);
     };
@@ -101,10 +105,6 @@ var Vector2 = /** @class */ (function () {
         this.x -= vec.x;
         this.y -= vec.y;
         return this;
-    };
-    Vector2.from = function (valA, valB) {
-        if (valB === void 0) { valB = valA; }
-        return new Vector2(valA, valB);
     };
     Vector2.prototype.set = function (vec) {
         this.x = vec.x;

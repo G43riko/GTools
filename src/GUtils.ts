@@ -23,8 +23,8 @@ export * from "./dom/dom-get";
 export * from "./validators";
 
 export * from "./misc";
-export * from "./math";
-export * from "./physics";
+// export * from "./math";
+// export * from "./physics";
 
 export * from "./models";
 

@@ -1,3 +1,2 @@
 import { KeyValue } from "./key-value.interface";
-export interface ObjectEntry<T, E extends keyof T = keyof T, S extends T[E] = T[E]> extends KeyValue<E, S> {
-}
+export declare type ObjectEntry<T, E extends keyof T = keyof T, S extends T[E] = T[E]> = KeyValue<E, S>;

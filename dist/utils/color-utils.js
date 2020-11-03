@@ -66,8 +66,8 @@ exports.int2hex = int2hex;
 function int2rgb(val) {
     return [
         val >> 16,
-        (val >> 8) & 0xFF,
-        val & 0xFF
+        val >> 8 & 0xFF,
+        val & 0xFF,
     ];
 }
 exports.int2rgb = int2rgb;
@@ -76,7 +76,7 @@ function hex2int(val) {
 }
 exports.hex2int = hex2int;
 function rgb2int(R, G, B) {
-    return R << 16 | (G << 8) & 0xFFFF | B;
+    return R << 16 | G << 8 & 0xFFFF | B;
 }
 exports.rgb2int = rgb2int;
 function parseColor(color) {

@@ -63,7 +63,9 @@ export function callFirstFunction() {
                     func = functions_1[_a];
                     if (!(typeof func === "function")) return [3 /*break*/, 3];
                     return [4 /*yield*/, func()];
-                case 2: return [2 /*return*/, _b.sent()];
+                case 2: 
+                // eslint-disable-next-line no-await-in-loop
+                return [2 /*return*/, _b.sent()];
                 case 3:
                     _a++;
                     return [3 /*break*/, 1];

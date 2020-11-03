@@ -132,12 +132,12 @@ function removeCase(key) {
             case "o":
             case "u":
             case "ú":
-            /*case "ô":*/
             case "y":
             case "á":
             case "é":
             case "í":
             case "ý":
+                /*case "ô":*/
                 return key.substring(0, len - 1);
         }
     }

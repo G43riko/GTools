@@ -13,13 +13,16 @@ function serializeImage(image) {
 exports.serializeImage = serializeImage;
 function deserializeImage(image) {
     return html_utils_1.CreateImage({
-        src: image
+        src: image,
     });
 }
 exports.deserializeImage = deserializeImage;
 function createImage(callback, width, height) {
     if (height === void 0) { height = width; }
-    var canvas = html_utils_1.CreateElement("canvas", { width: width, height: height });
+    var canvas = html_utils_1.CreateElement("canvas", {
+        width: width,
+        height: height,
+    });
     callback(canvas.getContext("2d"));
     return canvas;
 }

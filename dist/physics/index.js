@@ -11,6 +11,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./closest-2d"), exports);
+__exportStar(require("./closest-3d"), exports);
 __exportStar(require("./collisions-2d"), exports);
+__exportStar(require("./collisions-3d"), exports);
 __exportStar(require("./distances-2d"), exports);
 __exportStar(require("./distances-3d"), exports);
+__exportStar(require("./intersects-3d"), exports);

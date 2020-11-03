@@ -9,7 +9,7 @@ export function getPublicIp() {
     var options = {
         host: "ipv4bot.whatismyipaddress.com",
         port: 80,
-        path: "/"
+        path: "/",
     };
     return new Promise(function (success, reject) {
         HttpGet(options, function (res) {

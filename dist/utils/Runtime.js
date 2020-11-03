@@ -48,7 +48,8 @@ var Runtime = /** @class */ (function () {
         }
         return obj;
     };
-    // tslint:disable-next-line
+    // tslint:disable
+    // eslint-disable-next-line @typescript-eslint/ban-types
     Runtime.checkFunction = function (func, args, thisArg) {
         if (args === void 0) { args = []; }
         if (thisArg === void 0) { thisArg = this; }

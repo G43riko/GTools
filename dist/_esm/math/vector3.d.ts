@@ -1,4 +1,3 @@
-import { SimpleVector3f } from "../physics/distances-3d";
 import { SimpleVector3 } from "./simple-vector3";
 export declare class Vector3 implements SimpleVector3 {
     x: number;
@@ -8,28 +7,32 @@ export declare class Vector3 implements SimpleVector3 {
     static get UP(): Vector3;
     static get ZERO(): Vector3;
     static get ONE(): Vector3;
-    toArray(): [number, number, number];
+    get avg(): number;
+    get length(): number;
     static equals(vecA: SimpleVector3, vecB: SimpleVector3): boolean;
     static sub(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
-    get avg(): number;
+    static add(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static sum(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static mulNum(vecA: SimpleVector3, val: number): Vector3;
-    sum(): number;
-    static mul(vecA: SimpleVector3f, vecB: SimpleVector3f): Vector3;
+    static mul(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static min(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static createFromSphericalCoords(radius: number, phi: number, theta: number): Vector3;
     static max(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static dist(vecA: SimpleVector3, vecB: SimpleVector3): number;
     static normalize<T extends SimpleVector3>(vec: T): T;
+    static fromArray(value: number[] | Float32Array): Vector3;
+    static from(valA: number, valB?: number, valC?: number): Vector3;
+    static isVector(item: any): item is SimpleVector3;
+    toArray(): [number, number, number];
+    sum(): number;
     getNormalized(): SimpleVector3;
-    get length(): number;
     clone(): Vector3;
     normalize(): this;
     mul(value: SimpleVector3 | number): this;
     add(vec: SimpleVector3): this;
+    cross(v: SimpleVector3): Vector3;
+    dot(v: SimpleVector3): number;
     sub(vec: SimpleVector3): this;
-    static fromArray(value: number[] | Float32Array): Vector3;
-    static from(valA: number, valB?: number, valC?: number): Vector3;
-    static isVector(item: any): item is SimpleVector3;
+    setData(x: number, y: number, z: number): this;
     set(vec: SimpleVector3): this;
 }

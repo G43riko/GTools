@@ -9,12 +9,15 @@ export function serializeImage(image) {
 }
 export function deserializeImage(image) {
     return CreateImage({
-        src: image
+        src: image,
     });
 }
 export function createImage(callback, width, height) {
     if (height === void 0) { height = width; }
-    var canvas = CreateElement("canvas", { width: width, height: height });
+    var canvas = CreateElement("canvas", {
+        width: width,
+        height: height,
+    });
     callback(canvas.getContext("2d"));
     return canvas;
 }

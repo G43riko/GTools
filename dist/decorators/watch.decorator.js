@@ -16,8 +16,8 @@ function Watch(onSet, options) {
         Object.defineProperty(target, key, {
             get: function () { return target[prefix + key]; },
             set: setter,
-            enumerable: (options && typeof options.enumerable === "boolean") ? options.enumerable : true,
-            configurable: (options && typeof options.configurable === "boolean") ? options.configurable : true,
+            enumerable: options && typeof options.enumerable === "boolean" ? options.enumerable : true,
+            configurable: options && typeof options.configurable === "boolean" ? options.configurable : true,
         });
     };
 }

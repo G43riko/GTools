@@ -11,7 +11,7 @@ export function pointLine2dClosest(sx1, sy1, sx2, sy2, px, py) {
     if (u > 1) {
         return {
             x: sx2,
-            y: sy2
+            y: sy2,
         };
     }
     return {

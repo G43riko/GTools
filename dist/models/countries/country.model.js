@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Country = void 0;
 var string_utils_1 = require("../../utils/string-utils");
-// tslint:disable-next-line
+// tslint:disable
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 var data = require("./countries.data.json");
 // only for optimization
 var countries = {};
@@ -31,11 +32,7 @@ var Country = /** @class */ (function () {
      */
     Country.find = function (key) {
         var finalKey = string_utils_1.toBasicForm(key);
-        return data.find(function (country) {
-            return country.key.toLowerCase() === finalKey || country.patterns.some(function (pattern) {
-                return finalKey.indexOf(pattern) >= 0;
-            });
-        }) || null;
+        return data.find(function (country) { return country.key.toLowerCase() === finalKey || country.patterns.some(function (pattern) { return finalKey.indexOf(pattern) >= 0; }); }) || null;
     };
     return Country;
 }());

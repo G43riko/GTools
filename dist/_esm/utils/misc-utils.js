@@ -46,7 +46,7 @@ export function parseJSONWithComments(content) {
 // TODO: expires must be only in the end of cookies
 export function setCookie(name, value, days) {
     var d = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
     var finalCookies = name + "=" + value + ";expires=" + d.toUTCString();
     if (typeof document !== "undefined") {
         document.cookie = finalCookies;

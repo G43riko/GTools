@@ -26,15 +26,6 @@ var Vector4 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Vector4.prototype.toArray = function () {
-        return [this.x, this.y, this.z, this.w];
-    };
-    Vector4.equals = function (vecA, vecB) {
-        if (vecA === vecB) {
-            return true;
-        }
-        return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z && vecA.w === vecB.w;
-    };
     Object.defineProperty(Vector4.prototype, "avg", {
         get: function () {
             return (this.x + this.y + this.z + this.w) / 4;
@@ -42,6 +33,19 @@ var Vector4 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Vector4.prototype, "length", {
+        get: function () {
+            return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Vector4.equals = function (vecA, vecB) {
+        if (vecA === vecB) {
+            return true;
+        }
+        return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z && vecA.w === vecB.w;
+    };
     Vector4.min = function (vecA, vecB) {
         return new Vector4(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y), Math.min(vecA.z, vecB.z), Math.min(vecA.w, vecB.w));
     };
@@ -62,16 +66,24 @@ var Vector4 = /** @class */ (function () {
         vec.w /= length;
         return vec;
     };
+    Vector4.fromArray = function (value) {
+        return new Vector4(value[0], value[1], value[2], value[3]);
+    };
+    Vector4.from = function (valA, valB, valC, valD) {
+        if (valB === void 0) { valB = valA; }
+        if (valC === void 0) { valC = valB; }
+        if (valD === void 0) { valD = valC; }
+        return new Vector4(valA, valB, valC, valD);
+    };
+    Vector4.isVector = function (item) {
+        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
+    };
+    Vector4.prototype.toArray = function () {
+        return [this.x, this.y, this.z, this.w];
+    };
     Vector4.prototype.getNormalized = function () {
         return this.clone().normalize();
     };
-    Object.defineProperty(Vector4.prototype, "length", {
-        get: function () {
-            return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
-        },
-        enumerable: false,
-        configurable: true
-    });
     Vector4.prototype.clone = function () {
         return new Vector4(this.x, this.y, this.z, this.w);
     };
@@ -111,18 +123,6 @@ var Vector4 = /** @class */ (function () {
         this.z -= vec.z;
         this.w -= vec.w;
         return this;
-    };
-    Vector4.fromArray = function (value) {
-        return new Vector4(value[0], value[1], value[2], value[3]);
-    };
-    Vector4.from = function (valA, valB, valC, valD) {
-        if (valB === void 0) { valB = valA; }
-        if (valC === void 0) { valC = valB; }
-        if (valD === void 0) { valD = valC; }
-        return new Vector4(valA, valB, valC, valD);
-    };
-    Vector4.isVector = function (item) {
-        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
     };
     Vector4.prototype.setFromValues = function (x, y, z, w) {
         this.x = x;

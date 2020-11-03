@@ -49,12 +49,12 @@ function uploadImage() {
                             var reader = new FileReader();
                             reader.onload = function () {
                                 success(html_utils_1.CreateImage({
-                                    src: reader.result
+                                    src: reader.result,
                                 }));
                             };
                             reader.onerror = reject;
                             reader.readAsDataURL(event.target.files[0]);
-                        }
+                        },
                     });
                     element.style.display = "none";
                     document.body.appendChild(element);
@@ -77,7 +77,7 @@ function uploadFile() {
                                 success(reader.result);
                             };
                             reader.readAsText(event.target.files[0]);
-                        }
+                        },
                     });
                     element.style.display = "none";
                     document.body.appendChild(element);

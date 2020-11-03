@@ -9,11 +9,10 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOrCreateAndAppend = exports.getOrCreate = exports.chooseColorUsingDefaultInput = exports.CreateElement = exports.createCheckbox = exports.CreateImage = exports.dragElement = exports.elementToString = void 0;
 var constants_1 = require("../constants");
-function elementToString(element, showParent) {
-    if (showParent === void 0) { showParent = true; }
+function elementToString(element) {
     var classes = Array.from(element.classList).join(".");
     var id = element.id ? "#" + element.id : "";
-    var parent = element.parentElement ? elementToString(element.parentElement, false) + " > " : "";
+    var parent = element.parentElement ? elementToString(element.parentElement) + " > " : "";
     return parent + element.localName + id + (classes ? "." + classes : "");
 }
 exports.elementToString = elementToString;
@@ -23,14 +22,6 @@ function dragElement(element, headerSelector) {
     var pos2 = 0;
     var pos3 = 0;
     var pos4 = 0;
-    var dragMouseDown = function (e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onpointerup = closeDragElement;
-        document.onpointermove = elementDrag;
-    };
     var elementDrag = function (e) {
         e = e || window.event;
         e.preventDefault();
@@ -38,8 +29,16 @@ function dragElement(element, headerSelector) {
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
         pos4 = e.clientY;
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
+        element.style.top = element.offsetTop - pos2 + "px";
+        element.style.left = element.offsetLeft - pos1 + "px";
+    };
+    var dragMouseDown = function (e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onpointerup = closeDragElement;
+        document.onpointermove = elementDrag;
     };
     var header = element.querySelector(headerSelector);
     if (header) {
@@ -60,7 +59,7 @@ function dragElement(element, headerSelector) {
             else {
                 element.removeEventListener("pointerdown", dragMouseDown);
             }
-        }
+        },
     };
 }
 exports.dragElement = dragElement;
@@ -140,7 +139,7 @@ function chooseColorUsingDefaultInput() {
             onChange: function () {
                 success(input.value);
                 document.body.removeChild(input);
-            }
+            },
         });
         document.body.appendChild(input);
         input.click();

@@ -10,7 +10,7 @@ export { ObjectUtils as object } from "./utils/deprecated/ObjectUtils";
 export { StringUtils as string } from "./utils/deprecated/StringUtils";
 export * as time from "./utils/time-utils";
 
-export { SlovakStemmer as stemmer } from "./misc/SlovakStemmer";
+export { SlovakStemmer as stemmer } from "./misc/slovak-stemmer";
 
 // DOM
 

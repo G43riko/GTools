@@ -1,5 +1,10 @@
 var maleRegexp = /^(male|man|muz|boy|chlapec|m)$/g;
 var femaleRegexp = /^(female|woman|zena|girl|dievca|f|w|z)$/g;
+export var Gender;
+(function (Gender) {
+    Gender["MAN"] = "MAN";
+    Gender["WOMAN"] = "WOMAN";
+})(Gender || (Gender = {}));
 export function parseGender(gender) {
     if (!gender) {
         return;
@@ -11,13 +16,7 @@ export function parseGender(gender) {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
-    return;
 }
-export var Gender;
-(function (Gender) {
-    Gender["MAN"] = "MAN";
-    Gender["WOMAN"] = "WOMAN";
-})(Gender || (Gender = {}));
 /**
  * @deprecated use {@link parseGender} and {@link Gender} instead
  * Class is used for parsing gender

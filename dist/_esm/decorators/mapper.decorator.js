@@ -12,15 +12,13 @@ export function Mapper(params, prefix) {
         var newName = prefix + key;
         if (params) {
             if (typeof params.onGet === "function") {
-                // @ts-ignore
-                descriptor.get = function () { return params.onGet(target[newName]); };
+                descriptor.get = function () { return params.onGet && params.onGet(target[newName]); };
             }
             else {
                 descriptor.get = function () { return target[newName]; };
             }
             if (typeof params.onSet === "function") {
-                // @ts-ignore
-                descriptor.set = function (newVal) { return target[newName] = params.onSet(newVal); };
+                descriptor.set = function (newVal) { return target[newName] = params.onSet && params.onSet(newVal); };
             }
             else {
                 descriptor.set = function (value) { return target[newName] = value; };

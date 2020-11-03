@@ -48,12 +48,6 @@ export function pointLine3dDistance(
     return vectorPoint3dDistance(aStartX, aStartY, aStartZ, aEndX, aEndY, aEndZ, bCenterX, bCenterY, bCenterZ);
 }
 
-export interface SimpleVector3f {
-    x: number;
-    y: number;
-    z: number;
-}
-
 export function pointNormalPlane3dDistance(aNormal: Vector3, aPoint: Vector3, bPoint: Vector3): number {
     const d = -Vector3.mul(aNormal, aPoint).sum();
 

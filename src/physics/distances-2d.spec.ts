@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import "mocha";
-import { pointLine2dDistance, pointPoint2dDistance } from "./distances-2d";
+import { circleCircle2dDistance, pointLine2dDistance, pointPoint2dDistance } from "./distances-2d";
 
 describe("Distances2d", () => {
     describe("point-point", () => {
@@ -98,6 +98,21 @@ describe("Distances2d", () => {
                 0, 20,
                 10, 30,
             )).to.be.equal(pointPoint2dDistance(0, 20, 10, 30));
+        });
+    });
+    describe("circle-circle", () => {
+        it("It should check same circles", () => {
+            expect(circleCircle2dDistance(0, 0, 5, 0, 0, 10)).to.be.equal(0);
+        });
+        it("It should check touching circles", () => {
+            expect(circleCircle2dDistance(0, 0, 5, 5, 0, 5)).to.be.equal(0);
+            expect(circleCircle2dDistance(0, 0, 5, 8, 0, 10)).to.be.equal(0);
+            expect(circleCircle2dDistance(0, 0, 5, 10, 0, 5)).to.be.equal(0);
+            expect(circleCircle2dDistance(0, 0, 6, 10, 0, 6)).to.be.equal(0);
+        });
+        it("It should calc real distance between circle", () => {
+            expect(circleCircle2dDistance(0, 0, 5, 20, 0, 5)).to.be.equal(10);
+            expect(circleCircle2dDistance(0, 0, 5, 20, 0, 10)).to.be.equal(5);
         });
     });
 });

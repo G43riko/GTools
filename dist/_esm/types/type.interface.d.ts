@@ -1,4 +1,4 @@
-export interface Type<T = object> {
+export interface Type<T = Record<string, unknown>> {
     name?: string;
     new (...args: any[]): T;
 }

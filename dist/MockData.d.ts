@@ -11,7 +11,7 @@ export declare class MockData {
     static readonly charactersNotEmpty: string[];
     static readonly numbersString = "0123456789";
     static readonly numbers: string[];
-    static readonly randomArray: any[];
+    static readonly randomArray: unknown[];
     static readonly stringHelloWorldIAmComputer: string[];
     static readonly upperSnakeCase: string[];
     static readonly lowerSnakeCase: string[];
@@ -24,5 +24,5 @@ export declare class MockData {
     static readonly phoneNumbers: string[];
     static readonly emails: string[];
     static readonly notEmails: string[];
-    static functionSum(a: number, b: any): number;
+    static functionSum(a: number, b: number): number;
 }

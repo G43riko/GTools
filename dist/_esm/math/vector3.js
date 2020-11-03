@@ -28,9 +28,20 @@ var Vector3 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Vector3.prototype.toArray = function () {
-        return [this.x, this.y, this.z];
-    };
+    Object.defineProperty(Vector3.prototype, "avg", {
+        get: function () {
+            return (this.x + this.y + this.z) / 3;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "length", {
+        get: function () {
+            return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        },
+        enumerable: false,
+        configurable: true
+    });
     Vector3.equals = function (vecA, vecB) {
         if (vecA === vecB) {
             return true;
@@ -40,21 +51,14 @@ var Vector3 = /** @class */ (function () {
     Vector3.sub = function (vecA, vecB) {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     };
-    Object.defineProperty(Vector3.prototype, "avg", {
-        get: function () {
-            return (this.x + this.y + this.z) / 3;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    Vector3.add = function (vecA, vecB) {
+        return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
+    };
     Vector3.sum = function (vecA, vecB) {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     };
     Vector3.mulNum = function (vecA, val) {
         return new Vector3(vecA.x * val, vecA.y * val, vecA.z * val);
-    };
-    Vector3.prototype.sum = function () {
-        return this.x + this.y + this.z;
     };
     Vector3.mul = function (vecA, vecB) {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
@@ -82,16 +86,26 @@ var Vector3 = /** @class */ (function () {
         vec.z /= length;
         return vec;
     };
+    Vector3.fromArray = function (value) {
+        return new Vector3(value[0], value[1], value[2]);
+    };
+    Vector3.from = function (valA, valB, valC) {
+        if (valB === void 0) { valB = valA; }
+        if (valC === void 0) { valC = valA; }
+        return new Vector3(valA, valB, valC);
+    };
+    Vector3.isVector = function (item) {
+        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z);
+    };
+    Vector3.prototype.toArray = function () {
+        return [this.x, this.y, this.z];
+    };
+    Vector3.prototype.sum = function () {
+        return this.x + this.y + this.z;
+    };
     Vector3.prototype.getNormalized = function () {
         return this.clone().normalize();
     };
-    Object.defineProperty(Vector3.prototype, "length", {
-        get: function () {
-            return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
-        },
-        enumerable: false,
-        configurable: true
-    });
     Vector3.prototype.clone = function () {
         return new Vector3(this.x, this.y, this.z);
     };
@@ -121,22 +135,26 @@ var Vector3 = /** @class */ (function () {
         this.z += vec.z;
         return this;
     };
+    Vector3.prototype.cross = function (v) {
+        var localX = this.y * v.z - this.z * v.y;
+        var localY = this.z * v.x - this.x * v.z;
+        var localZ = this.x * v.y - this.y * v.x;
+        return new Vector3(localX, localY, localZ);
+    };
+    Vector3.prototype.dot = function (v) {
+        return this.x * v.x + this.y * v.y + this.z * v.z;
+    };
     Vector3.prototype.sub = function (vec) {
         this.x -= vec.x;
         this.y -= vec.y;
         this.z -= vec.z;
         return this;
     };
-    Vector3.fromArray = function (value) {
-        return new Vector3(value[0], value[1], value[2]);
-    };
-    Vector3.from = function (valA, valB, valC) {
-        if (valB === void 0) { valB = valA; }
-        if (valC === void 0) { valC = valA; }
-        return new Vector3(valA, valB, valC);
-    };
-    Vector3.isVector = function (item) {
-        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z);
+    Vector3.prototype.setData = function (x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        return this;
     };
     Vector3.prototype.set = function (vec) {
         this.x = vec.x;

@@ -1,8 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GenderClass = exports.Gender = exports.parseGender = void 0;
+exports.GenderClass = exports.parseGender = exports.Gender = void 0;
 var maleRegexp = /^(male|man|muz|boy|chlapec|m)$/g;
 var femaleRegexp = /^(female|woman|zena|girl|dievca|f|w|z)$/g;
+var Gender;
+(function (Gender) {
+    Gender["MAN"] = "MAN";
+    Gender["WOMAN"] = "WOMAN";
+})(Gender = exports.Gender || (exports.Gender = {}));
 function parseGender(gender) {
     if (!gender) {
         return;
@@ -14,14 +19,8 @@ function parseGender(gender) {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
-    return;
 }
 exports.parseGender = parseGender;
-var Gender;
-(function (Gender) {
-    Gender["MAN"] = "MAN";
-    Gender["WOMAN"] = "WOMAN";
-})(Gender = exports.Gender || (exports.Gender = {}));
 /**
  * @deprecated use {@link parseGender} and {@link Gender} instead
  * Class is used for parsing gender

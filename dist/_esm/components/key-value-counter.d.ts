@@ -2,7 +2,7 @@ export interface SimpleWrapper {
     key: string;
     count: number;
 }
-export declare class KeyValueCounter<T> {
+export declare class KeyValueCounter {
     private readonly data;
     private readonly results;
     private processed;

@@ -26,9 +26,7 @@ exports.getObjectEntries = getObjectEntries;
 function getNestedProperty(object, propertyPath, separator) {
     if (separator === void 0) { separator = "."; }
     var propertyList = propertyPath.split(separator);
-    return propertyList.reduce(function (currentNestedPropertyValue, propertyName) {
-        return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined;
-    }, object);
+    return propertyList.reduce(function (currentNestedPropertyValue, propertyName) { return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined; }, object);
 }
 exports.getNestedProperty = getNestedProperty;
 function setNestedProperty(key, item, value) {

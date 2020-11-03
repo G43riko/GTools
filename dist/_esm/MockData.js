@@ -46,7 +46,7 @@ var MockData = /** @class */ (function () {
         "12:61:61",
         "30:61:61",
     ];
-    MockData.charactersString = "+=§,.-?:_\"!)/()<>*\'$[]}{*&^%$#@!/\\|#&@{}^'`][~\|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+    MockData.charactersString = "+=§,.-?:_\"!)/()<>*'$[]}{*&^%$#@!/\\|#&@{}^'`][~|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
     MockData.characters = MockData.charactersString.split("");
     MockData.charactersCaseAbleString = "þÞıŦŧŊEĐđNΩ";
     MockData.charactersCaseAble = MockData.charactersCaseAbleString.split("");
@@ -94,7 +94,10 @@ var MockData = /** @class */ (function () {
         undefined,
         Infinity,
         NaN,
-        { a: "aa", b: "bb" },
+        {
+            a: "aa",
+            b: "bb",
+        },
         ["a", 1, true],
     ];
     MockData.stringHelloWorldIAmComputer = [
@@ -155,8 +158,8 @@ var MockData = /** @class */ (function () {
         "Abc.123@example.com",
         "user+mailbox/department=shipping@example.com",
         "\"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual\"@strange.example.com",
-        "!#$%&\'*+-/=?^_`.{|}~@example.com",
-        "\"()<>[]:,;@\\\"!#$%&\'-/=?^_`{}| ~.a\"@example.org",
+        "!#$%&'*+-/=?^_`.{|}~@example.com",
+        "\"()<>[]:,;@\\\"!#$%&'-/=?^_`{}| ~.a\"@example.org",
         "\"Abc@def\"@example.com",
         "\"Fred Bloggs\"@example.com",
         "\"Joe.\\Blow\"@example.com",
@@ -164,10 +167,10 @@ var MockData = /** @class */ (function () {
     MockData.notEmails = __spreadArrays([
         "Abc.example.com",
         "A@b@c@example.com",
-        "a\"b(c)d,e:f;g<h>i[j\k]l@example.com",
+        "a\"b(c)d,e:f;g<h>i[j\\k]l@example.com",
         "just\"not\"right@example.com",
-        "this is\"not\allowed@example.com",
-        "this\ still\"not\\allowed@example.com",
+        "this is\"notallowed@example.com",
+        "this still\"not\\allowed@example.com",
         "john..doe@example.com",
         "john.doe@example..com"
     ], MockData.randomStrings);

@@ -49,7 +49,7 @@ var ArrayUtils = /** @class */ (function () {
     ArrayUtils.subArray = function (array, minIndex, maxIndex) {
         if (minIndex === void 0) { minIndex = 0; }
         if (maxIndex === void 0) { maxIndex = array.length - 1; }
-        return Arrays.subArray(array);
+        return Arrays.subArray(array, minIndex, maxIndex);
     };
     /**
      * Function return maximal value from numeric array

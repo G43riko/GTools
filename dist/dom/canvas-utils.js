@@ -60,7 +60,12 @@ function initDef(obj) {
         lineCap: "round",
         lineDash: [],
         offset: null,
-        radius: { tl: 0, tr: 0, br: 0, bl: 0 },
+        radius: {
+            tl: 0,
+            tr: 0,
+            br: 0,
+            bl: 0,
+        },
         startAngle: 0,
         width: 0,
         x: 0,
@@ -88,9 +93,9 @@ function remakePosAndSize(def, obj) {
         }
         else {
             // @ts-ignore
-            res[partA] = value.x;
+            res[partA] = value;
             // @ts-ignore
-            res[partB] = value.y;
+            res[partB] = value;
         }
     };
     checkAttribute("size", "width", "size");

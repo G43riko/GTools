@@ -39,7 +39,10 @@ var KeyValueCounter = /** @class */ (function () {
     KeyValueCounter.prototype.process = function () {
         for (var key in this.data) {
             if (this.data.hasOwnProperty(key)) {
-                this.results.push({ key: key, count: this.data[key] });
+                this.results.push({
+                    key: key,
+                    count: this.data[key],
+                });
             }
         }
         this.results.sort(function (a, b) { return b.count - a.count; });

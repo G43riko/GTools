@@ -15,9 +15,7 @@ export function where(array, condition) {
     var result = [];
     var conditionEntries = Object.entries(condition);
     array.forEach(function (e) {
-        var add = conditionEntries.some(function (conditionEntry) {
-            return e[conditionEntry[0]] === conditionEntry[1];
-        });
+        var add = conditionEntries.some(function (conditionEntry) { return e[conditionEntry[0]] === conditionEntry[1]; });
         if (add) {
             result[result.length] = e;
         }

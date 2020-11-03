@@ -57,15 +57,15 @@ export function int2hex(val) {
 export function int2rgb(val) {
     return [
         val >> 16,
-        (val >> 8) & 0xFF,
-        val & 0xFF
+        val >> 8 & 0xFF,
+        val & 0xFF,
     ];
 }
 export function hex2int(val) {
     return parseInt(val, 16);
 }
 export function rgb2int(R, G, B) {
-    return R << 16 | (G << 8) & 0xFFFF | B;
+    return R << 16 | G << 8 & 0xFFFF | B;
 }
 export function parseColor(color) {
     if (colors[color]) {

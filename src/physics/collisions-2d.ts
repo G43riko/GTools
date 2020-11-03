@@ -43,25 +43,24 @@ export function lineRectangle2dCollision(
     bSizeX: number,
     bSizeY: number,
 ): boolean {
-    return;
-    pointRect2dCollision(aStartX, aStartY, bPosX, bPosY, bSizeX, bSizeY) ||
-    pointRect2dCollision(aEndX, aEndY, bPosX, bPosY, bSizeX, bSizeY) ||
-    lineLine2dCollision(aStartX,
-        aStartY,
-        aEndX,
-        aEndY,
-        bPosX,
-        bPosY,
-        bPosX + bSizeX,
-        bPosY + bSizeY) ||
-    lineLine2dCollision(aStartX,
-        aStartY,
-        aEndX,
-        aEndY,
-        bPosX + bSizeX,
-        bPosY,
-        bPosX,
-        bPosY + bSizeY);
+    return pointRect2dCollision(aStartX, aStartY, bPosX, bPosY, bSizeX, bSizeY) ||
+        pointRect2dCollision(aEndX, aEndY, bPosX, bPosY, bSizeX, bSizeY) ||
+        lineLine2dCollision(aStartX,
+            aStartY,
+            aEndX,
+            aEndY,
+            bPosX,
+            bPosY,
+            bPosX + bSizeX,
+            bPosY + bSizeY) ||
+        lineLine2dCollision(aStartX,
+            aStartY,
+            aEndX,
+            aEndY,
+            bPosX + bSizeX,
+            bPosY,
+            bPosX,
+            bPosY + bSizeY);
 
 }
 

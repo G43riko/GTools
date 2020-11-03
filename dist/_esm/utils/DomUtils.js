@@ -135,11 +135,10 @@ var DomUtils = /** @class */ (function () {
         if (typeof document === "undefined") {
             throw new NotBrowserException();
         }
-        var el;
         if (typeof name === "object") {
             return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);
         }
-        el = document.createElement(name);
+        var el = document.createElement(name);
         if (typeof attr === "object") {
             for (var key in attr) {
                 if (attr.hasOwnProperty(key)) {

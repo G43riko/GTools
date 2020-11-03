@@ -1,15 +1,15 @@
 export function pointPoint2dDistance(ax, ay, bx, by) {
-    return Math.sqrt(pointPointSqrt2dDistance(ax, ay, bx, by));
+    return Math.sqrt(pointPointSqr2dDistance(ax, ay, bx, by));
 }
-export function pointPointSqrt2dDistance(ax, ay, bx, by) {
+export function pointPointSqr2dDistance(ax, ay, bx, by) {
     var distX = ax - bx;
     var distY = ay - by;
     return distX * distX + distY * distY;
 }
 export function pointLine2dDistance(aX, aY, bX, bY, pX, pY) {
-    return Math.sqrt(pointLineSqrt2dDistance(aX, aY, bX, bY, pX, pY));
+    return Math.sqrt(pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY));
 }
-export function pointLineSqrt2dDistance(aX, aY, bX, bY, pX, pY) {
+export function pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY) {
     var A = pX - aX;
     var B = pY - aY;
     var C = bX - aX;

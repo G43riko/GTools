@@ -36,7 +36,7 @@ exports.roundToDecimals = roundToDecimals;
 function hash2Numbers(x, y) {
     var xFinal = x >= 0 ? x * 2 : -x * 2 - 1;
     var yFinal = y >= 0 ? y * 2 : -y * 2 - 1;
-    return ((xFinal + yFinal) * (xFinal + yFinal + 1) / 2) + yFinal;
+    return (xFinal + yFinal) * (xFinal + yFinal + 1) / 2 + yFinal;
 }
 exports.hash2Numbers = hash2Numbers;
 function clamp(value, min, max) {
@@ -103,7 +103,7 @@ function average(args) {
 }
 exports.average = average;
 function isPowerOf2(value) {
-    return (value & (value - 1)) === 0;
+    return (value & value - 1) === 0;
 }
 exports.isPowerOf2 = isPowerOf2;
 function getDiff(num1, num2) {

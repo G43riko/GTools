@@ -25,14 +25,6 @@ var Color = /** @class */ (function () {
         checkColorValue(blue);
         checkColorValue(alpha);
     }
-    Color.fromHex = function (color) {
-        var value = color_utils_1.hex2rgb(color);
-        return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
-    };
-    Color.fromInt = function (color) {
-        var value = color_utils_1.int2rgb(color);
-        return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
-    };
     Object.defineProperty(Color.prototype, "rgb", {
         get: function () {
             return [this.red, this.green, this.blue];
@@ -47,12 +39,6 @@ var Color = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Color.prototype.normalized = function () {
-        if (this.red > 1 || this.green > 1 || this.blue > 1 || this.alpha > 1) {
-            return new Color(this.red / 255, this.green / 255, this.blue / 255, this.alpha / 255);
-        }
-        return this;
-    };
     Object.defineProperty(Color.prototype, "rgba", {
         get: function () {
             return [this.red, this.green, this.blue, this.alpha];
@@ -74,6 +60,20 @@ var Color = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Color.fromHex = function (color) {
+        var value = color_utils_1.hex2rgb(color);
+        return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
+    };
+    Color.fromInt = function (color) {
+        var value = color_utils_1.int2rgb(color);
+        return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
+    };
+    Color.prototype.normalized = function () {
+        if (this.red > 1 || this.green > 1 || this.blue > 1 || this.alpha > 1) {
+            return new Color(this.red / 255, this.green / 255, this.blue / 255, this.alpha / 255);
+        }
+        return this;
+    };
     Color.BLACK = new Color(0, 0, 0);
     Color.WHITE = new Color(255, 255, 255);
     Color.GRAY = new Color(128, 128, 128);

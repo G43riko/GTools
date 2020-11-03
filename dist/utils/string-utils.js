@@ -264,8 +264,6 @@ function fuzzy_match_simple(pattern, str) {
     return patternLength !== 0 && strLength !== 0 && patternIdx === patternLength;
 }
 function replaceForAll(content, values, placeHolder) {
-    return values.map(function (value) {
-        return content.replace(placeHolder, value);
-    });
+    return values.map(function (value) { return content.replace(placeHolder, value); });
 }
 exports.replaceForAll = replaceForAll;

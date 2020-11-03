@@ -2,11 +2,11 @@
  * @deprecated use {@link Gender} instead
  */
 export declare type GenderType = "MAN" | "WOMAN" | "";
-export declare function parseGender(gender: string): Gender | undefined;
 export declare enum Gender {
     MAN = "MAN",
     WOMAN = "WOMAN"
 }
+export declare function parseGender(gender: string): Gender | undefined;
 /**
  * @deprecated use {@link parseGender} and {@link Gender} instead
  * Class is used for parsing gender
