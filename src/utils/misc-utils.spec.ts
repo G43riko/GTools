@@ -18,11 +18,11 @@ describe("Misc utils", () => {
             expect(MiscUtils.objectToQueryParams({})).to.equal("");
             expect(MiscUtils.objectToQueryParams({
                 a: "aa",
-                b: "bb"
+                b: "bb",
             })).to.equal("?a=aa&b=bb");
             expect(MiscUtils.objectToQueryParams({
                 a: "21",
-                b: "22"
+                b: "22",
             })).to.equal("?a=21&b=22");
         });
     });

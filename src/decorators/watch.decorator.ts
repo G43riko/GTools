@@ -10,7 +10,7 @@ export function Watch(onSet?: (newValue: any, oldValue: any) => any, options?: W
     const prefix = options && options.prefix || "_";
 
     return (target: any, key: string) => {
-        const setter = (newVal: any) => {
+        const setter = (newVal: any): void => {
             if (onSet) {
                 target[prefix + key] = onSet(newVal, target[prefix + key]);
             }

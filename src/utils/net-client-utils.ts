@@ -13,8 +13,7 @@ export async function uploadImage(): Promise<HTMLImageElement> {
                     }));
                 };
                 reader.onerror = reject;
-                reader.readAsDataURL(event.target as any.files[0];
-            )
+                reader.readAsDataURL((event.target as any).files[0]);
             },
         });
         element.style.display = "none";
@@ -35,8 +34,7 @@ export async function uploadFile(): Promise<string> {
                 reader.onload = () => {
                     success(reader.result as string);
                 };
-                reader.readAsText(event.target as any.files[0];
-            )
+                reader.readAsText((event.target as any).files[0]);
             },
         });
         element.style.display = "none";
@@ -46,7 +44,6 @@ export async function uploadFile(): Promise<string> {
 
         document.body.removeChild(element);
     });
-
 }
 
 export function clientDownloadFile(text: string, name: string): void {

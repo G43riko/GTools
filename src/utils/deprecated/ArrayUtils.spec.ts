@@ -80,8 +80,8 @@ describe("Array utils", () => {
         const testArray = [
             {a: "aa"}, {
                 a: "aa",
-                b: "bbb"
-            }, {b: "bb"}
+                b: "bbb",
+            }, {b: "bb"},
         ];
         it("It return subArray with element existing in both arrays", () => {
             expect(ArrayUtils.where(notArray, {})).to.deep.equal("gabriel");
@@ -91,14 +91,14 @@ describe("Array utils", () => {
             expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([
                 {a: "aa"}, {
                     a: "aa",
-                    b: "bbb"
-                }
+                    b: "bbb",
+                },
             ]);
             expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([
                 {
                     a: "aa",
-                    b: "bbb"
-                }
+                    b: "bbb",
+                },
             ]);
         });
     });

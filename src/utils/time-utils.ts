@@ -98,7 +98,7 @@ export function getStartOfTheDay(date: Date): Date {
         ms: 0,
         s : 0,
         m : 0,
-        h : 0
+        h : 0,
     });
 }
 
@@ -107,6 +107,6 @@ export function getEndOfTheDay(date: Date): Date {
         ms: 999,
         s : 59,
         m : 59,
-        h : 23
+        h : 23,
     });
 }

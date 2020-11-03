@@ -6,6 +6,7 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,6 +20,7 @@ module.exports = {
         "indent": [
             "error",
             4,
+            {"SwitchCase": 1},
         ],
         // "linebreak-style": [
         // 	"error",
@@ -66,5 +68,12 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         // "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/array-type": ["error", {default: "array"}],
+        "@typescript-eslint/explicit-function-return-type": ["warn", {allowExpressions: true}],
+        "@typescript-eslint/explicit-member-accessibility": ["error", {accessibility: "explicit"}],
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/prefer-for-of": "error",
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "no-throw-literal": "error",
     },
 };

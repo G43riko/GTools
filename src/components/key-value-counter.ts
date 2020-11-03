@@ -48,7 +48,7 @@ export class KeyValueCounter {
             if (this.data.hasOwnProperty(key)) {
                 this.results.push({
                     key,
-                    count: this.data[key]
+                    count: this.data[key],
                 });
             }
         }

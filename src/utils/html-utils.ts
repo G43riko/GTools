@@ -33,7 +33,7 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
     let pos3 = 0;
     let pos4 = 0;
 
-    const dragMouseDown = (e: PointerEvent) => {
+    const dragMouseDown = (e: PointerEvent): void => {
         e = e || window.event;
         e.preventDefault();
         pos3                   = e.clientX;

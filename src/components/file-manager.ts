@@ -79,9 +79,7 @@ export class FileManager {
     public loadFile(func: (result: any, files: any) => any): void {
         this.input.onchange = (e: Event) => {
             const reader = new FileReader();
-            const files  = e.target as any;
-        .
-            files;
+            const files  = (e.target as any).files;
             if (files.length > 0) {
                 reader.onload = () => func(reader.result, files);
                 reader.readAsText(files[0]);

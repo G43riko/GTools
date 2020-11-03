@@ -30,7 +30,7 @@ describe("Runtime", () => {
         });
 
         it("Check function", () => {
-            const funcA = (a: number, b: number) => a + b;
+            const funcA = (a: number, b: number): number => a + b;
             expect(Runtime.isFunction(funcA)).to.be.equal(funcA);
             expect(Runtime.isFunction(MockData.functionSum)).to.be.equal(MockData.functionSum);
             expect(() => Runtime.isFunction("Name" as any)).to.throw(WrongTypeException);

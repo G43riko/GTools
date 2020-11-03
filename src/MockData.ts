@@ -93,7 +93,7 @@ export class MockData {
         NaN,
         {
             a: "aa",
-            b: "bb"
+            b: "bb",
         },
         ["a", 1, true],
     ];

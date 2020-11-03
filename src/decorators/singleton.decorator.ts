@@ -4,7 +4,7 @@ export function Singleton<T extends new(...args: any[]) => Record<string, unknow
     const className = constructor.name;
 
     return class extends constructor {
-        constructor(...args: any[]) {
+        public constructor(...args: any[]) {
             super(...args);
             if (instances[className]) {
                 throw new Error("Instance of " + className + " is already created");

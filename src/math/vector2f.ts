@@ -1,6 +1,8 @@
-const process = (op: (x: number, y: number) => void,
-                 arg1: Vector2f | number,
-                 arg2?: number) => {
+const process = (
+    op: (x: number, y: number) => void,
+    arg1: Vector2f | number,
+    arg2?: number,
+): void => {
     if (typeof arg2 === "number") {
         op(arg1 as number, arg2);
     } else if (typeof arg1 === "number") {

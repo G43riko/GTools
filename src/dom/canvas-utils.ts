@@ -118,7 +118,7 @@ function initDef(obj: any): CanvasConfig {
             tl: 0,
             tr: 0,
             br: 0,
-            bl: 0
+            bl: 0,
         },
         startAngle : 0,
         width      : 0,
