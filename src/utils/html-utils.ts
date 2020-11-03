@@ -33,15 +33,6 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
     let pos3 = 0;
     let pos4 = 0;
 
-    const dragMouseDown = (e: PointerEvent): void => {
-        e = e || window.event;
-        e.preventDefault();
-        pos3                   = e.clientX;
-        pos4                   = e.clientY;
-        document.onpointerup   = closeDragElement;
-        document.onpointermove = elementDrag;
-    };
-
     const elementDrag = (e: PointerEvent): void => {
         e = e || window.event;
         e.preventDefault();
@@ -51,6 +42,15 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
         pos4               = e.clientY;
         element.style.top  = element.offsetTop - pos2 + "px";
         element.style.left = element.offsetLeft - pos1 + "px";
+    };
+
+    const dragMouseDown = (e: PointerEvent): void => {
+        e = e || window.event;
+        e.preventDefault();
+        pos3                   = e.clientX;
+        pos4                   = e.clientY;
+        document.onpointerup   = closeDragElement;
+        document.onpointermove = elementDrag;
     };
 
     const header = element.querySelector(headerSelector) as HTMLElement;

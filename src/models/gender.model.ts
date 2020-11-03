@@ -6,6 +6,11 @@ export type GenderType = "MAN" | "WOMAN" | "";
 const maleRegexp   = /^(male|man|muz|boy|chlapec|m)$/g;
 const femaleRegexp = /^(female|woman|zena|girl|dievca|f|w|z)$/g;
 
+export enum Gender {
+    MAN   = "MAN",
+    WOMAN = "WOMAN",
+}
+
 export function parseGender(gender: string): Gender | undefined {
     if (!gender) {
         return;
@@ -18,13 +23,6 @@ export function parseGender(gender: string): Gender | undefined {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
-
-    return;
-}
-
-export enum Gender {
-    MAN   = "MAN",
-    WOMAN = "WOMAN",
 }
 
 /**

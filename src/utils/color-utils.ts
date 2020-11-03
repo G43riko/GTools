@@ -17,6 +17,7 @@ export function lerpColor(
     const green = progress * fromColor[1] + (1 - progress) * toColor[1];
     const blue  = progress * fromColor[2] + (1 - progress) * toColor[2];
     const alpha = progress * fromColor[3] + (1 - progress) * toColor[3];
+
     return [
         clamp(red, 0, 255),
         clamp(green, 0, 255),
