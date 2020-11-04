@@ -42,19 +42,19 @@ export function isElement(obj) {
     }
 }
 export function isEmpty(value) {
-    if (!value) {
-        return false;
+    if (value === null || value === undefined) {
+        return true;
     }
     if (typeof value === "string") {
-        return value.length > 0 && /^[\s\xa0]*$/.test(value);
+        return value.length === 0 || /^[\s\xa0]*$/.test(value);
     }
     if (Array.isArray(value)) {
-        return value.length > 0;
+        return value.length === 0;
     }
     if (value.constructor === Object) {
-        return Object.keys(value).length > 0;
+        return Object.keys(value).length === 0;
     }
-    return true;
+    return false;
 }
 export function isValidPhoneNumber(num) {
     if (!num) {

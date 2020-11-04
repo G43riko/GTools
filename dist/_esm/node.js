@@ -7,7 +7,7 @@ export * from "./utils/deprecated/MiscUtils";
 export * from "./utils/deprecated/ObjectUtils";
 export * from "./utils/deprecated/StringUtils";
 export * from "./utils/time-utils";
-export * from "./misc/SlovakStemmer";
+export * from "./misc/slovak-stemmer";
 /**************************** WEB ****************************/
 // DOM
 export * from "./dom/deprecated/Checkers";

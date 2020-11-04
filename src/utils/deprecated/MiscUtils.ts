@@ -37,8 +37,8 @@ export class MiscUtils {
      * @param obj - searched object
      * @param data - array of objects to be compare with searched object
      */
-    public static isIn(obj: any, ...data: any[]): boolean {
-        return Misc.isIn(obj, data);
+    public static isIn<T>(obj: T, ...data: T[] | [T[]]): boolean {
+        return Misc.isIn(obj, ...data);
     }
 
     /**

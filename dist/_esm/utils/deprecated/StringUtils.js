@@ -68,7 +68,7 @@ var StringUtils = /** @class */ (function () {
         return Strings.collapseWhitespace(text);
     };
     StringUtils.capitalize = function (text) {
-        return Strings.toCapital(text);
+        return Strings.capitalize(text);
     };
     StringUtils.isEmpty = function (text) {
         return isEmpty(text);

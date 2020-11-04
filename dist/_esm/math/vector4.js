@@ -23,6 +23,15 @@ var Vector4 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Vector4.fromArray = function (val) {
+        return new Vector4(val[0], val[1], val[2], val[3]);
+    };
+    Vector4.from = function (valA, valB, valC, valD) {
+        if (valB === void 0) { valB = valA; }
+        if (valC === void 0) { valC = valB; }
+        if (valD === void 0) { valD = valC; }
+        return new Vector4(valA, valB, valC, valB);
+    };
     Object.defineProperty(Vector4.prototype, "avg", {
         get: function () {
             return (this.x + this.y + this.z + this.w) / 4;
@@ -62,15 +71,6 @@ var Vector4 = /** @class */ (function () {
         vec.z /= length;
         vec.w /= length;
         return vec;
-    };
-    Vector4.fromArray = function (value) {
-        return new Vector4(value[0], value[1], value[2], value[3]);
-    };
-    Vector4.from = function (valA, valB, valC, valD) {
-        if (valB === void 0) { valB = valA; }
-        if (valC === void 0) { valC = valB; }
-        if (valD === void 0) { valD = valC; }
-        return new Vector4(valA, valB, valC, valD);
     };
     Vector4.isVector = function (item) {
         return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
@@ -121,7 +121,7 @@ var Vector4 = /** @class */ (function () {
         this.w -= vec.w;
         return this;
     };
-    Vector4.prototype.setFromValues = function (x, y, z, w) {
+    Vector4.prototype.setData = function (x, y, z, w) {
         this.x = x;
         this.y = y;
         this.z = z;

@@ -15,6 +15,14 @@ export class Vector4 implements SimpleVector4 {
         return new Vector4(1, 1, 1, 1);
     }
 
+    public static fromArray(val: [number, number, number, number] | Float32Array): Vector4 {
+        return new Vector4(val[0], val[1], val[2], val[3]);
+    }
+
+    public static from(valA: number, valB = valA, valC = valB, valD = valC): Vector4 {
+        return new Vector4(valA, valB, valC, valB);
+    }
+
     public get avg(): number {
         return (this.x + this.y + this.z + this.w) / 4;
     }
@@ -68,13 +76,6 @@ export class Vector4 implements SimpleVector4 {
         return vec;
     }
 
-    public static fromArray(value: [number, number, number, number] | Float32Array): Vector4 {
-        return new Vector4(value[0], value[1], value[2], value[3]);
-    }
-
-    public static from(valA: number, valB = valA, valC = valB, valD = valC): Vector4 {
-        return new Vector4(valA, valB, valC, valD);
-    }
 
     public static isVector(item: any): item is SimpleVector4 {
         return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
@@ -136,7 +137,7 @@ export class Vector4 implements SimpleVector4 {
         return this;
     }
 
-    public setFromValues(x: number, y: number, z: number, w: number): this {
+    public setData(x: number, y: number, z: number, w: number): this {
         this.x = x;
         this.y = y;
         this.z = z;

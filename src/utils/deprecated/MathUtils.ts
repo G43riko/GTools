@@ -29,7 +29,7 @@ export class MathUtils {
     }
 
     public static lamp(min: number, max: number, scale: number): number {
-        return Maths.clamp(scale, min, max);
+        return Maths.lamp(min, max, scale);
     }
 
     public static randomInt(min: number, max: number): number {

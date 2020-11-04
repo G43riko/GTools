@@ -11,9 +11,9 @@ export enum Gender {
     WOMAN = "WOMAN",
 }
 
-export function parseGender(gender: string): Gender | undefined {
+export function parseGender(gender: string): Gender | null {
     if (!gender) {
-        return;
+        return null;
     }
     const genderLowerCase = gender.trim().toLowerCase().replace("ž", "z").replace("č", "c");
     if (genderLowerCase.match(maleRegexp)) {
@@ -23,6 +23,8 @@ export function parseGender(gender: string): Gender | undefined {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
+
+    return null;
 }
 
 /**

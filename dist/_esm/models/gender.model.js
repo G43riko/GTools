@@ -7,7 +7,7 @@ export var Gender;
 })(Gender || (Gender = {}));
 export function parseGender(gender) {
     if (!gender) {
-        return;
+        return null;
     }
     var genderLowerCase = gender.trim().toLowerCase().replace("ž", "z").replace("č", "c");
     if (genderLowerCase.match(maleRegexp)) {
@@ -16,6 +16,7 @@ export function parseGender(gender) {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
+    return null;
 }
 /**
  * @deprecated use {@link parseGender} and {@link Gender} instead

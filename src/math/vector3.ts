@@ -1,4 +1,5 @@
 import { SimpleVector3 } from "./simple-vector3";
+import { Vector2 } from "./vector2";
 
 export class Vector3 implements SimpleVector3 {
     public constructor(public x = 0,
@@ -85,8 +86,8 @@ export class Vector3 implements SimpleVector3 {
         return vec;
     }
 
-    public static fromArray(value: number[] | Float32Array): Vector3 {
-        return new Vector3(value[0], value[1], value[2]);
+    public get xy(): Vector2 {
+        return new Vector2(this.x, this.y);
     }
 
     public static from(valA: number, valB = valA, valC = valA): Vector3 {
@@ -178,5 +179,29 @@ export class Vector3 implements SimpleVector3 {
         this.z = vec.z;
 
         return this;
+    }
+
+    public get yx(): Vector2 {
+        return new Vector2(this.y, this.x);
+    }
+
+    public get yz(): Vector2 {
+        return new Vector2(this.y, this.z);
+    }
+
+    public get zy(): Vector2 {
+        return new Vector2(this.z, this.y);
+    }
+
+    public get xz(): Vector2 {
+        return new Vector2(this.x, this.z);
+    }
+
+    public get zx(): Vector2 {
+        return new Vector2(this.z, this.x);
+    }
+
+    public static fromArray(value: [number, number, number] | Float32Array): Vector3 {
+        return new Vector3(value[0], value[1], value[2]);
     }
 }

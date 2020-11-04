@@ -93,8 +93,11 @@ export function capitalize(text: string): string {
     return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
 }
 
+/**
+ * @deprecated use {@link capitalize} instead
+ */
 export function toCapital(text: string): string {
-    return text.replace(/./, (e) => e.toUpperCase());
+    return text.replace(/^./, (e) => e.toUpperCase());
 }
 
 export function getLastPart(text: string, divider = " "): string {

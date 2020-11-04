@@ -82,7 +82,7 @@ export class StringUtils {
     }
 
     public static capitalize(text: string): string {
-        return Strings.toCapital(text);
+        return Strings.capitalize(text);
     }
 
     public static isEmpty(text: string): boolean {

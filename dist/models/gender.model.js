@@ -10,7 +10,7 @@ var Gender;
 })(Gender = exports.Gender || (exports.Gender = {}));
 function parseGender(gender) {
     if (!gender) {
-        return;
+        return null;
     }
     var genderLowerCase = gender.trim().toLowerCase().replace("ž", "z").replace("č", "c");
     if (genderLowerCase.match(maleRegexp)) {
@@ -19,6 +19,7 @@ function parseGender(gender) {
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
     }
+    return null;
 }
 exports.parseGender = parseGender;
 /**

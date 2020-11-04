@@ -18,7 +18,7 @@ export declare class Vector2f {
      * @param arg2 is {@link y} value for vector
      * @returns created {@link Vector2f}
      */
-    set(arg1: Vector2f | number, arg2?: number): Vector2f;
+    set(arg1: Vector2f | number, arg2?: number): this;
     /**
      * Function add values into current values and return object itself
      *
@@ -26,7 +26,7 @@ export declare class Vector2f {
      * @param arg2 is {@link y} value for vector
      * @returns updated {@link Vector2f}
      */
-    add(arg1: Vector2f | number, arg2?: number): Vector2f;
+    add(arg1: Vector2f | number, arg2?: number): this;
     /**
      * Function divide current values and return object itself
      *
@@ -34,7 +34,7 @@ export declare class Vector2f {
      * @param arg2 is {@link y} value for vector
      * @returns updated {@link Vector2f}
      */
-    div(arg1: Vector2f | number, arg2?: number): Vector2f;
+    div(arg1: Vector2f | number, arg2?: number): this;
     /**
      * Function multiply current values and return object itself
      *
@@ -42,7 +42,7 @@ export declare class Vector2f {
      * @param arg2 is {@link y} value for vector
      * @returns updated {@link Vector2f}
      */
-    mul(arg1: Vector2f | number, arg2?: number): Vector2f;
+    mul(arg1: Vector2f | number, arg2?: number): this;
     /**
      * Function subtract values from current values and return object itself
      *
@@ -50,5 +50,5 @@ export declare class Vector2f {
      * @param arg2 is {@link y} value for vector
      * @returns updated {@link Vector2f}
      */
-    sub(arg1: Vector2f | number, arg2?: number): Vector2f;
+    sub(arg1: Vector2f | number, arg2?: number): this;
 }

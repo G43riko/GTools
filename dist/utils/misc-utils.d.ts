@@ -9,7 +9,7 @@ export declare function parseCookies(cookies: string): StringMap<string>;
  * @param obj - searched object
  * @param data - array of objects to be compare with searched object
  */
-export declare function isIn(obj: unknown, ...data: unknown[]): boolean;
+export declare function isIn<T>(obj: T, ...data: unknown[]): boolean;
 /**
  * Method parse JSON content with comments
  * @param content - stringify JSON

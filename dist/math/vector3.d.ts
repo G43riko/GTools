@@ -1,4 +1,5 @@
 import { SimpleVector3 } from "./simple-vector3";
+import { Vector2 } from "./vector2";
 export declare class Vector3 implements SimpleVector3 {
     x: number;
     y: number;
@@ -20,7 +21,7 @@ export declare class Vector3 implements SimpleVector3 {
     static max(vecA: SimpleVector3, vecB: SimpleVector3): Vector3;
     static dist(vecA: SimpleVector3, vecB: SimpleVector3): number;
     static normalize<T extends SimpleVector3>(vec: T): T;
-    static fromArray(value: number[] | Float32Array): Vector3;
+    static fromArray(value: [number, number, number] | Float32Array): Vector3;
     static from(valA: number, valB?: number, valC?: number): Vector3;
     static isVector(item: any): item is SimpleVector3;
     toArray(): [number, number, number];
@@ -35,4 +36,10 @@ export declare class Vector3 implements SimpleVector3 {
     sub(vec: SimpleVector3): this;
     setData(x: number, y: number, z: number): this;
     set(vec: SimpleVector3): this;
+    get xy(): Vector2;
+    get yx(): Vector2;
+    get yz(): Vector2;
+    get zy(): Vector2;
+    get xz(): Vector2;
+    get zx(): Vector2;
 }

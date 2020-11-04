@@ -64,7 +64,7 @@ export function roughSizeOfObject<T>(object: T): number {
     return bytes;
 }
 
-export function size<T extends Record<string, unknown>>(object: T): number {
+export function size<T extends (Record<string, unknown> | unknown[])>(object: T): number {
     let result = 0;
     for (const i in object) {
         if (object.hasOwnProperty(i)) {

@@ -46,7 +46,7 @@ describe("Array utils", () => {
         it("It return last element of array", () => {
             expect(ArrayUtils.getLast(notArray)).to.equal(notArray);
             expect(ArrayUtils.getLast(numArray)).to.equal(8);
-            expect(ArrayUtils.getLast([])).to.be.null;
+            expect(ArrayUtils.getLast([])).to.be.undefined;
         });
     });
     describe("MakeUnique", () => {

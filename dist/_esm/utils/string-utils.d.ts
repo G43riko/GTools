@@ -5,6 +5,9 @@ export declare function toLowerSnakeCase(text: string): string;
 export declare function toLowerCamelCase(text: string): string;
 export declare function toUpperCamelCase(text: string): string;
 export declare function capitalize(text: string): string;
+/**
+ * @deprecated use {@link capitalize} instead
+ */
 export declare function toCapital(text: string): string;
 export declare function getLastPart(text: string, divider?: string): string;
 export declare function count(text: string, key: string): number;

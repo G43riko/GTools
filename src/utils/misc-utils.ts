@@ -24,7 +24,7 @@ export function parseCookies(cookies: string): StringMap<string> {
  * @param obj - searched object
  * @param data - array of objects to be compare with searched object
  */
-export function isIn(obj: unknown, ...data: unknown[]): boolean {
+export function isIn<T>(obj: T, ...data: unknown[]): boolean {
     if (Array.isArray(data[0])) {
         if (data[0].indexOf(obj) >= 0) {
             return true;

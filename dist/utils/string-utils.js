@@ -104,8 +104,11 @@ function capitalize(text) {
     return text.toLowerCase().replace(/^./, function (char) { return char.toUpperCase(); });
 }
 exports.capitalize = capitalize;
+/**
+ * @deprecated use {@link capitalize} instead
+ */
 function toCapital(text) {
-    return text.replace(/./, function (e) { return e.toUpperCase(); });
+    return text.replace(/^./, function (e) { return e.toUpperCase(); });
 }
 exports.toCapital = toCapital;
 function getLastPart(text, divider) {

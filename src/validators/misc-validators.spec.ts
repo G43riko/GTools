@@ -110,8 +110,8 @@ describe("Checkers", () => {
         expect(Checkers.isEmpty([])).to.be.true;
         expect(Checkers.isEmpty({a: "aa"})).to.be.false;
         expect(Checkers.isEmpty([1, "a"])).to.be.false;
-        expect(Checkers.isEmpty(undefined)).to.be.false;
-        expect(Checkers.isEmpty(null)).to.be.false;
+        expect(Checkers.isEmpty(undefined)).to.be.true;
+        expect(Checkers.isEmpty(null)).to.be.true;
         expect(Checkers.isEmpty("test")).to.be.false;
         expect(Checkers.isEmpty("")).to.be.true;
     });

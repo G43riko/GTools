@@ -29,7 +29,7 @@ describe("Misc utils", () => {
     describe("ParseParams", () => {
         it("It should return object parsed from url string", () => {
             const param       = "name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test";
-            const parsedParam = MiscUtils.parseParams(param);
+            const parsedParam = MiscUtils.parseParams<any>(param);
             expect(parsedParam).to.be.an("object");
             expect(parsedParam.name).to.be.equal("Gabriel");
             expect(parsedParam.age).to.be.equal("23");
@@ -92,7 +92,7 @@ describe("Misc utils", () => {
 
             const serializedResult = MiscUtils.serialize(obj);
             expect(serializedResult).to.be.a("string");
-            const result = MiscUtils.parse(serializedResult);
+            const result = MiscUtils.parse<any>(serializedResult);
 
             expect(Array.isArray(result.arrayParam)).to.be.true;
             expect(result.arrayParam, "result.arrayParam").to.deep.equal(["a", true, 12]);

@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.32",
+    "version": "0.2.33",
     "description": "Small library including utils methods for easier life",
     "main": "./index.js",
     "module": "./_esm/index.js",
@@ -23,23 +23,23 @@
     },
     "scripts": {
         "prepare": "npm run clean && npm run build && npm run doc",
-        "test": "mocha --require ts-node/register ./src/**/*.spec.ts",
+        "test": "npm run lint && mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
         "tsc": "tsc",
-        "esc": "eslint src/**/*.ts",
-        "esc:fix": "eslint --fix src/**/*.ts",
-        "eslintInit": "eslint --init",
+        "eslint": "eslint src/**/*.ts",
+        "eslint:fix": "eslint --fix src/**/*.ts",
+        "tslint": "tslint --project .",
         "build": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && webpack --config webpack.prod.js && npm run copy",
         "release": "npm publish dist",
         "release:major": "npm version major && npm publish",
         "release:minor": "npm version minor && npm publish",
         "release:patch": "npm version patch && npm publish",
         "doc": "typedoc --out docs",
-        "pack": "npm run tsc && webpack",
+        "pack_old": "npm run tsc && webpack",
         "copy": "node copy-package.js",
         "clean": "rimraf out doc dist docs coverage bin .nyc_output _bundles lib lib-esm",
-        "lint": "tslint --project ."
+        "lint": "npm run tslint && npm run eslint"
     },
     "author": {
         "email": "gcsollei@hotmail.com",

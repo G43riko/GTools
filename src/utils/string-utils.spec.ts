@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import "mocha";
-import { MockData } from "../mock-data";
+import { MockData } from "../MockData";
+import * as Validators from "../validators";
 import * as StringUtils from "./string-utils";
 
 describe("StringUtils", () => {
@@ -135,16 +136,16 @@ b
     describe("IsEmpty", () => {
         it("It should check if string contains any not white charactersString", () => {
             MockData.charactersEmpty.forEach((character) => {
-                expect(StringUtils.isEmpty("     "), `'${character}' should be empty`).to.be.true;
+                expect(Validators.isEmpty("     "), `'${character}' should be empty`).to.be.true;
             });
 
-            expect(StringUtils.isEmpty(" 3 ")).to.be.false;
-            expect(StringUtils.isEmpty("a")).to.be.false;
-            expect(StringUtils.isEmpty("0")).to.be.false;
-            expect(StringUtils.isEmpty("[]")).to.be.false;
-            expect(StringUtils.isEmpty("A")).to.be.false;
-            expect(StringUtils.isEmpty("{}")).to.be.false;
-            expect(StringUtils.isEmpty(".")).to.be.false;
+            expect(Validators.isEmpty(" 3 ")).to.be.false;
+            expect(Validators.isEmpty("a")).to.be.false;
+            expect(Validators.isEmpty("0")).to.be.false;
+            expect(Validators.isEmpty("[]")).to.be.false;
+            expect(Validators.isEmpty("A")).to.be.false;
+            expect(Validators.isEmpty("{}")).to.be.false;
+            expect(Validators.isEmpty(".")).to.be.false;
         });
     });
     describe("SwapCase", () => {
@@ -172,11 +173,11 @@ b
     describe("IsValidPhoneNumber", () => {
         it("It should return true if phone number is valid", () => {
             [...MockData.randomStrings, ...MockData.emails, ""].forEach((num) => {
-                expect(StringUtils.isValidPhoneNumber(num), `'${num}' should not be phone number`).to.be.false;
+                expect(Validators.isValidPhoneNumber(num), `'${num}' should not be phone number`).to.be.false;
             });
 
             MockData.phoneNumbers.forEach((num) => {
-                expect(StringUtils.isValidPhoneNumber(num), `'${num}' should be phone number`).to.be.true;
+                expect(Validators.isValidPhoneNumber(num), `'${num}' should be phone number`).to.be.true;
             });
         });
     });
@@ -188,11 +189,11 @@ b
     describe("IsValidEmail", () => {
         it("It should return true if email is valid", () => {
             [...MockData.randomStrings, ...MockData.phoneNumbers, ...MockData.notEmails, ""].forEach((email) => {
-                expect(StringUtils.isValidEmail(email), `'${email}' should not be email`).to.be.false;
+                expect(Validators.isValidEmail(email), `'${email}' should not be email`).to.be.false;
             });
 
             MockData.emails.forEach((email) => {
-                expect(StringUtils.isValidEmail(email), `'${email}' should be email`).to.be.true;
+                expect(Validators.isValidEmail(email), `'${email}' should be email`).to.be.true;
             });
         });
     });

@@ -1,3 +1,4 @@
+import { Vector2 } from "./vector2";
 var Vector3 = /** @class */ (function () {
     function Vector3(x, y, z) {
         if (x === void 0) { x = 0; }
@@ -162,6 +163,48 @@ var Vector3 = /** @class */ (function () {
         this.z = vec.z;
         return this;
     };
+    Object.defineProperty(Vector3.prototype, "xy", {
+        get: function () {
+            return new Vector2(this.x, this.y);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "yx", {
+        get: function () {
+            return new Vector2(this.y, this.x);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "yz", {
+        get: function () {
+            return new Vector2(this.y, this.z);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "zy", {
+        get: function () {
+            return new Vector2(this.z, this.y);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "xz", {
+        get: function () {
+            return new Vector2(this.x, this.z);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Vector3.prototype, "zx", {
+        get: function () {
+            return new Vector2(this.z, this.x);
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Vector3;
 }());
 export { Vector3 };

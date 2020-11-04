@@ -76,8 +76,11 @@ export function toUpperCamelCase(text) {
 export function capitalize(text) {
     return text.toLowerCase().replace(/^./, function (char) { return char.toUpperCase(); });
 }
+/**
+ * @deprecated use {@link capitalize} instead
+ */
 export function toCapital(text) {
-    return text.replace(/./, function (e) { return e.toUpperCase(); });
+    return text.replace(/^./, function (e) { return e.toUpperCase(); });
 }
 export function getLastPart(text, divider) {
     if (divider === void 0) { divider = " "; }

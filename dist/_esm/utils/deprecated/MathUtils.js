@@ -26,7 +26,7 @@ var MathUtils = /** @class */ (function () {
         return Maths.log2i(value);
     };
     MathUtils.lamp = function (min, max, scale) {
-        return Maths.clamp(scale, min, max);
+        return Maths.lamp(min, max, scale);
     };
     MathUtils.randomInt = function (min, max) {
         return Maths.randomInt(min, max);

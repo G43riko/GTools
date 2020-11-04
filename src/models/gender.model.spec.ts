@@ -16,7 +16,7 @@ describe("ParseGender", () => {
     });
     it("It should not parse any gender", () => {
         [...MockData.randomStrings, ...MockData.nothing, null, "", undefined].forEach((key) => {
-            expect(parseGender(key as string), key + " is not valid gender").to.be.equal("");
+            expect(parseGender(key as string), key + " is not valid gender").to.be.null;
         });
     });
 });

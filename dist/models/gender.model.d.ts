@@ -6,7 +6,7 @@ export declare enum Gender {
     MAN = "MAN",
     WOMAN = "WOMAN"
 }
-export declare function parseGender(gender: string): Gender | undefined;
+export declare function parseGender(gender: string): Gender | null;
 /**
  * @deprecated use {@link parseGender} and {@link Gender} instead
  * Class is used for parsing gender

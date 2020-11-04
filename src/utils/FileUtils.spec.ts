@@ -7,27 +7,27 @@ describe("File utils", () => {
     describe("scanDirRecursive", () => {
         it("it should return list of files in folder", (done) => {
             FileUtils.scanDirRecursive("src/utils").then((data) => {
-                const changedData = data.map((e) => e.replace(__dirname, "")
-                                                     .replace(/^\W*/, ""));
+                const changedData = data.map((e) =>
+                    e.replace(__dirname, "").replace(/^\W*/, ""),
+                );
 
                 expect(changedData).to.include.members([
-                    "ArrayUtils.spec.ts",
-                    "ArrayUtils.ts",
-                    "DomUtils.ts",
-                    "FileUtils.spec.ts",
-                    "FileUtils.ts",
-                    "MathUtils.spec.ts",
-                    "MathUtils.ts",
-                    "MiscUtils.spec.ts",
-                    "MiscUtils.ts",
-                    "ObjectUtils.spec.ts",
-                    "ObjectUtils.ts",
-                    "StringCheckers.spec.ts",
-                    "StringCheckers.ts",
-                    "StringUtils.spec.ts",
-                    "StringUtils.ts",
-                    "time-utils.spec.ts",
-                    "time-utils.ts",
+                    "analytics-utils.ts",
+                    "array-utils.ts",
+                    "coerce-util.ts",
+                    "color-utils.ts",
+                    "date-utils.ts",
+                    "html-utils.ts",
+                    "image-utils.ts",
+                    "math-utils.ts",
+                    "misc-utils.ts",
+                    "input-utils.ts",
+                    "object-utils.ts",
+                    "parser-utils.ts",
+                    "process-utils.ts",
+                    "reflection-utils.ts",
+                    "string-utils.ts",
+                    "svg-utils.ts",
                 ]);
                 done();
             }).catch(console.error);

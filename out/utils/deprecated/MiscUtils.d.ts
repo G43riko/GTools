@@ -26,7 +26,7 @@ export declare class MiscUtils {
      * @param obj - searched object
      * @param data - array of objects to be compare with searched object
      */
-    static isIn(obj: any, ...data: any[]): boolean;
+    static isIn<T>(obj: T, ...data: T[] | [T[]]): boolean;
     /**
      * Method parse JSON content with comments
      * @param content - stringify JSON

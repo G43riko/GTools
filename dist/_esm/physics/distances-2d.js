@@ -6,6 +6,18 @@ export function pointPointSqr2dDistance(ax, ay, bx, by) {
     var distY = ay - by;
     return distX * distX + distY * distY;
 }
+export function circleCircle2dDistance(ax, ay, ar, bx, by, br) {
+    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br - ar, 0);
+}
+export function circleCircleSqr2dDistance(ax, ay, ar, bx, by, br) {
+    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br - ar);
+}
+export function pointCircle2dDistance(ax, ay, bx, by, br) {
+    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br, 0);
+}
+export function pointCircleSqr2dDistance(ax, ay, bx, by, br) {
+    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br, 0);
+}
 export function pointLine2dDistance(aX, aY, bX, bY, pX, pY) {
     return Math.sqrt(pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY));
 }

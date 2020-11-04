@@ -35,8 +35,8 @@ Object.defineProperty(exports, "object", { enumerable: true, get: function () { 
 var StringUtils_1 = require("./utils/deprecated/StringUtils");
 Object.defineProperty(exports, "string", { enumerable: true, get: function () { return StringUtils_1.StringUtils; } });
 exports.time = __importStar(require("./utils/time-utils"));
-var SlovakStemmer_1 = require("./misc/SlovakStemmer");
-Object.defineProperty(exports, "stemmer", { enumerable: true, get: function () { return SlovakStemmer_1.SlovakStemmer; } });
+var slovak_stemmer_1 = require("./misc/slovak-stemmer");
+Object.defineProperty(exports, "stemmer", { enumerable: true, get: function () { return slovak_stemmer_1.SlovakStemmer; } });
 // DOM
 var Checkers_1 = require("./dom/deprecated/Checkers");
 Object.defineProperty(exports, "check", { enumerable: true, get: function () { return Checkers_1.Checkers; } });

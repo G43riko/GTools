@@ -19,7 +19,7 @@ __exportStar(require("./utils/deprecated/MiscUtils"), exports);
 __exportStar(require("./utils/deprecated/ObjectUtils"), exports);
 __exportStar(require("./utils/deprecated/StringUtils"), exports);
 __exportStar(require("./utils/time-utils"), exports);
-__exportStar(require("./misc/SlovakStemmer"), exports);
+__exportStar(require("./misc/slovak-stemmer"), exports);
 /**************************** WEB ****************************/
 // DOM
 __exportStar(require("./dom/deprecated/Checkers"), exports);
