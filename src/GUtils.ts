@@ -10,7 +10,7 @@ export * from "./config/gtools-config";
 export * from "./decorators";
 export * from "./dom/canvas-manager";
 export * from "./dom/canvas-utils";
-export * from "./dom/deprecated/checkers";
+export * from "./dom/deprecated/Checkers";
 export * from "./dom/dom-get";
 
 // TODO not work on backend
