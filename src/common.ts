@@ -1,6 +1,6 @@
 // UTILS
 
-export * from "./utils/deprecated/StringCheckers";
+export * from "./utils/string-checkers";
 
 // MODELS
 

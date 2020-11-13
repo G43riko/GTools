@@ -127,7 +127,7 @@ export function removeAll(text: string, words: string[]): string {
 }
 
 // TODO: need to be fixed
-export function template(text: string, values: StringMap<string>, start = "{{", end = "}}"): string {
+export function template(text: string, values: StringMap, start = "{{", end = "}}"): string {
     start         = start.replace(/[-[\]()*\s]/g, "\\$&")
                          .replace(/\$/g, "\\$");
     end           = end.replace(/[-[\]()*\s]/g, "\\$&")

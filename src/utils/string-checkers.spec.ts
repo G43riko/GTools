@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import { MockData } from "../MockData";
-import { StringCheckers } from "./deprecated/StringCheckers";
+import * as StringCheckers from "./string-checkers";
 
 describe("StringCheckers", () => {
     describe("IsCamelCase", () => {

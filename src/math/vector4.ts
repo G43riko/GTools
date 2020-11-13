@@ -20,7 +20,7 @@ export class Vector4 implements SimpleVector4 {
     }
 
     public static from(valA: number, valB = valA, valC = valB, valD = valC): Vector4 {
-        return new Vector4(valA, valB, valC, valB);
+        return new Vector4(valA, valB, valC, valD);
     }
 
     public get avg(): number {

@@ -4,10 +4,10 @@ import { StringMap } from "gtools/types";
  * Method parse cookies
  * @param cookies - cooke to parse
  */
-export function parseCookies(cookies: string): StringMap<string> {
-    const list: StringMap<string> = {};
-    const data                    = cookies ? cookies.toString()
-                                                     .split(";") : [];
+export function parseCookies(cookies: string): StringMap {
+    const list: StringMap = {};
+    const data            = cookies ? cookies.toString()
+                                             .split(";") : [];
     data.forEach((cookie) => {
         const parts     = cookie.split("=");
         const shiftPart = parts.shift();
@@ -91,7 +91,7 @@ export function parseParams<T>(query     = typeof window !== "undefined" ? windo
     return queryString as T;
 }
 
-export function objectToQueryParams(obj: StringMap<string>): string {
+export function objectToQueryParams(obj: StringMap): string {
     // TODO: add url prefix
     let result = "";
     for (const objKey in obj) {

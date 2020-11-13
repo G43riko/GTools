@@ -16,7 +16,7 @@ export class Range<T> {
         };
     }
 
-    public static randomColor(range: Range<Color>, method = "rgba"): Color {
+    public static randomColor(range: Range<Color>): Color {
         const min = range.min.rgba;
         const max = range.max.rgba;
 

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { StringUtils } from "./deprecated/StringUtils";
+import { joinSingle } from "./string-utils";
 
 function walk(dir: string, done: (error: any, files?: string[]) => any): void {
     const results: string[] = [];
@@ -91,6 +91,6 @@ export class FileUtils {
             return name;
         }
 
-        return StringUtils.joinSingle(name, ".", extension);
+        return joinSingle(name, ".", extension);
     }
 }

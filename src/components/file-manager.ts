@@ -29,7 +29,7 @@ export class FileManager {
      *
      * @param name file name
      * @param text file content
-     * @param type file {@link FileTypes}. Defaul value is {@link FileTypes.TXT}
+     * @param type file {@link FileTypes}. Default value is {@link FileTypes.TXT}
      */
     public saveFile(name: string, text: string, type: FileTypes = FileTypes.TXT): void {
         this.link.href     = URL.createObjectURL(new Blob([text], {type}));
