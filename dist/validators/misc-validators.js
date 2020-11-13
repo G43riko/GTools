@@ -84,3 +84,4 @@ function isValidEmail(email) {
     return validEmailRegex.test(email.trim());
 }
 exports.isValidEmail = isValidEmail;
+//# sourceMappingURL=misc-validators.js.map

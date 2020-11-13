@@ -1,9 +1,22 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CanvasManager = void 0;
-var not_browser_exception_1 = require("../errors/not-browser.exception");
-var CanvasManager = /** @class */ (function () {
-    function CanvasManager(arg1, arg2, arg3) {
+var errors_1 = require("gtools/errors");
+var AbstractCanvasManager = (function () {
+    function AbstractCanvasManager(arg1, arg2, arg3) {
         if (arg1 instanceof HTMLCanvasElement) {
             this.localCanvas = arg1;
             if (arg2 && arg3) {
@@ -15,7 +28,7 @@ var CanvasManager = /** @class */ (function () {
         }
         else {
             if (typeof document === "undefined") {
-                throw new not_browser_exception_1.NotBrowserException();
+                throw new errors_1.NotBrowserException();
             }
             this.localCanvas = document.createElement("canvas");
             if (arg1 && arg2) {
@@ -24,20 +37,62 @@ var CanvasManager = /** @class */ (function () {
         }
         this.localContext = this.localCanvas.getContext("2d");
     }
-    Object.defineProperty(CanvasManager.prototype, "canvas", {
+    Object.defineProperty(AbstractCanvasManager.prototype, "canvas", {
         get: function () {
             return this.localCanvas;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(CanvasManager.prototype, "context", {
+    Object.defineProperty(AbstractCanvasManager.prototype, "context", {
         get: function () {
             return this.localContext;
         },
         enumerable: false,
         configurable: true
     });
+    AbstractCanvasManager.prototype.setTransform = function (transform) {
+        this.setTransformRaw(transform.offset.x, transform.offset.y, transform.scale);
+    };
+    AbstractCanvasManager.prototype.setTransformRaw = function (translationX, translationY, scaleX, scaleY) {
+        if (scaleY === void 0) { scaleY = scaleX; }
+        if (this.localContext) {
+            CanvasManager.setTransformRaw(this.localContext, translationX, translationY, scaleX, scaleY);
+        }
+    };
+    AbstractCanvasManager.prototype.getImage = function () {
+        return CanvasManager.canvasToImage(this.localCanvas);
+    };
+    AbstractCanvasManager.prototype.setShadow = function (x, y, color, blur) {
+        if (this.localContext) {
+            CanvasManager.setShadow(this.localContext, x, y, color, blur);
+        }
+    };
+    AbstractCanvasManager.prototype.show = function (format) {
+        if (format === void 0) { format = "image/png"; }
+        window.open(this.localCanvas.toDataURL(format), "_blank");
+    };
+    AbstractCanvasManager.prototype.clearCanvas = function () {
+        if (this.localContext) {
+            CanvasManager.clearCanvas(this.localContext);
+        }
+    };
+    AbstractCanvasManager.prototype.setCanvasSize = function (width, height) {
+        if (width === void 0) { width = window.innerWidth; }
+        if (height === void 0) { height = window.innerHeight; }
+        CanvasManager.setCanvasSize(this.localCanvas, width, height);
+    };
+    AbstractCanvasManager.prototype.appendTo = function (element) {
+        element.appendChild(this.localCanvas);
+        return element;
+    };
+    return AbstractCanvasManager;
+}());
+var CanvasManager = (function (_super) {
+    __extends(CanvasManager, _super);
+    function CanvasManager() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
     CanvasManager.clearCanvas = function (ctx) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     };
@@ -55,7 +110,7 @@ var CanvasManager = /** @class */ (function () {
     };
     CanvasManager.imageToCanvas = function (image) {
         if (typeof document === "undefined") {
-            throw new not_browser_exception_1.NotBrowserException();
+            throw new errors_1.NotBrowserException();
         }
         var canvas = document.createElement("canvas");
         canvas.width = image.width;
@@ -81,6 +136,10 @@ var CanvasManager = /** @class */ (function () {
         }
         return ctx.measureText(value).width;
     };
+    CanvasManager.setTransformRaw = function (ctx, translationX, translationY, scaleX, scaleY) {
+        if (scaleY === void 0) { scaleY = scaleX; }
+        ctx.setTransform(scaleX, 0, 0, scaleY, translationX, translationY);
+    };
     CanvasManager.canvasToImage = function (canvas, format) {
         if (format === void 0) { format = "image/png"; }
         var image = new Image();
@@ -89,32 +148,7 @@ var CanvasManager = /** @class */ (function () {
         image.height = canvas.height;
         return image;
     };
-    CanvasManager.prototype.getImage = function () {
-        return CanvasManager.canvasToImage(this.localCanvas);
-    };
-    CanvasManager.prototype.setShadow = function (x, y, color, blur) {
-        if (this.localContext) {
-            CanvasManager.setShadow(this.localContext, x, y, color, blur);
-        }
-    };
-    CanvasManager.prototype.show = function (format) {
-        if (format === void 0) { format = "image/png"; }
-        window.open(this.localCanvas.toDataURL(format), "_blank");
-    };
-    CanvasManager.prototype.clearCanvas = function () {
-        if (this.localContext) {
-            CanvasManager.clearCanvas(this.localContext);
-        }
-    };
-    CanvasManager.prototype.setCanvasSize = function (width, height) {
-        if (width === void 0) { width = window.innerWidth; }
-        if (height === void 0) { height = window.innerHeight; }
-        CanvasManager.setCanvasSize(this.localCanvas, width, height);
-    };
-    CanvasManager.prototype.appendTo = function (element) {
-        element.appendChild(this.localCanvas);
-        return element;
-    };
     return CanvasManager;
-}());
+}(AbstractCanvasManager));
 exports.CanvasManager = CanvasManager;
+//# sourceMappingURL=canvas-manager.js.map

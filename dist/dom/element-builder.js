@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ElementBuilder = void 0;
-// TODO: need to be checked if app is running in browser
 var localContext = document;
-var ElementBuilder = /** @class */ (function () {
+var ElementBuilder = (function () {
     function ElementBuilder(elementName, parent) {
         this.elementName = elementName;
         this.parent = parent;
@@ -90,3 +89,4 @@ ElementBuilder.start("table")
     .finish()
     .finish()
     .buildAndAppendTo(document.body);
+//# sourceMappingURL=element-builder.js.map

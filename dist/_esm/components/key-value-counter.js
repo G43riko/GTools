@@ -1,10 +1,10 @@
-var KeyValueCounter = /** @class */ (function () {
-    function KeyValueCounter() {
+export class KeyValueCounter {
+    constructor() {
         this.data = {};
         this.results = [];
         this.processed = false;
     }
-    KeyValueCounter.prototype.add = function (item) {
+    add(item) {
         if (item in this.data) {
             this.data[item]++;
         }
@@ -14,37 +14,36 @@ var KeyValueCounter = /** @class */ (function () {
         if (this.processed) {
             this.processed = false;
         }
-    };
-    KeyValueCounter.prototype.addAll = function (items) {
+    }
+    addAll(items) {
         items.forEach(this.add, this);
-    };
-    KeyValueCounter.prototype.getAll = function () {
+    }
+    getAll() {
         if (!this.processed) {
             this.process();
         }
         return this.results;
-    };
-    KeyValueCounter.prototype.getTopN = function (count) {
+    }
+    getTopN(count) {
         if (!this.processed) {
             this.process();
         }
         return this.results.slice(0, count);
-    };
-    KeyValueCounter.prototype.getCount = function () {
+    }
+    getCount() {
         return this.getAll().length;
-    };
-    KeyValueCounter.prototype.process = function () {
-        for (var key in this.data) {
+    }
+    process() {
+        for (const key in this.data) {
             if (this.data.hasOwnProperty(key)) {
                 this.results.push({
-                    key: key,
+                    key,
                     count: this.data[key],
                 });
             }
         }
-        this.results.sort(function (a, b) { return b.count - a.count; });
+        this.results.sort((a, b) => b.count - a.count);
         this.processed = true;
-    };
-    return KeyValueCounter;
-}());
-export { KeyValueCounter };
+    }
+}
+//# sourceMappingURL=key-value-counter.js.map

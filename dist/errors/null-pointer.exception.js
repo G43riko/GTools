@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NullPointerException = void 0;
-var NullPointerException = /** @class */ (function (_super) {
+var NullPointerException = (function (_super) {
     __extends(NullPointerException, _super);
     function NullPointerException(text) {
         var _this = _super.call(this, "Null pointer exception at line" + (typeof text === "string" ? ": " + text : "!")) || this;
@@ -24,3 +24,4 @@ var NullPointerException = /** @class */ (function (_super) {
     return NullPointerException;
 }(Error));
 exports.NullPointerException = NullPointerException;
+//# sourceMappingURL=null-pointer.exception.js.map

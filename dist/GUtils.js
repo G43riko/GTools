@@ -19,20 +19,14 @@ __exportStar(require("./config/gtools-config"), exports);
 __exportStar(require("./decorators"), exports);
 __exportStar(require("./dom/canvas-manager"), exports);
 __exportStar(require("./dom/canvas-utils"), exports);
-__exportStar(require("./dom/deprecated/checkers"), exports);
+__exportStar(require("./dom/deprecated/Checkers"), exports);
 __exportStar(require("./dom/dom-get"), exports);
-// TODO not work on backend
-// export * from "./dom/element-builder";
-// export * from "./enums";
-// export * from "./errors";
 __exportStar(require("./validators"), exports);
 __exportStar(require("./misc"), exports);
-// export * from "./math";
-// export * from "./physics";
 __exportStar(require("./models"), exports);
 __exportStar(require("./tests/abstract-database.fixture"), exports);
 __exportStar(require("./tests/abstract.fixture"), exports);
 __exportStar(require("./tests/abstract.mapper"), exports);
 __exportStar(require("./tests/paginate.model"), exports);
 __exportStar(require("./types"), exports);
-// export * from "./utils";
+//# sourceMappingURL=GUtils.js.map

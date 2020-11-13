@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FinalClass = void 0;
 function FinalClass(target) {
-    return /** @class */ (function (_super) {
+    return (function (_super) {
         __extends(Final, _super);
         function Final() {
             var _newTarget = this.constructor;
@@ -34,3 +34,4 @@ function FinalClass(target) {
     }(target));
 }
 exports.FinalClass = FinalClass;
+//# sourceMappingURL=final-class.decorator.js.map

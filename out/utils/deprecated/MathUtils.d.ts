@@ -1,6 +1,3 @@
-/**
- * @deprecated use {@link Maths} instead
- */
 export declare class MathUtils {
     static roundToDecimals(num: number, decimals?: number, type?: "floor" | "ceil" | "round"): string;
     static pad(num: number, size: number): string;

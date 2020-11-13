@@ -46,3 +46,4 @@ var HttpStatusCodes;
     HttpStatusCodes[HttpStatusCodes["GATEWAY_TIMEOUT"] = 504] = "GATEWAY_TIMEOUT";
     HttpStatusCodes[HttpStatusCodes["HTTP_VERSION_NOT_SUPPORTED"] = 505] = "HTTP_VERSION_NOT_SUPPORTED";
 })(HttpStatusCodes = exports.HttpStatusCodes || (exports.HttpStatusCodes = {}));
+//# sourceMappingURL=http-status-codes.enum.js.map

@@ -1,20 +1,19 @@
 import { GToolsConfig } from "../config/gtools-config";
-var Paginator = /** @class */ (function () {
-    function Paginator(allItems, itemsPerPage) {
-        if (itemsPerPage === void 0) { itemsPerPage = GToolsConfig.PAGE_LIMIT; }
+export class Paginator {
+    constructor(allItems, itemsPerPage = GToolsConfig.PAGE_LIMIT) {
         this.allItems = allItems;
         this.itemsPerPage = itemsPerPage;
         this.actualPage = 0;
         this.lastPage = allItems ? Math.floor(allItems.length / this.itemsPerPage) : 0;
         this.actList = this._reCalcList();
     }
-    Paginator.prototype.getActualPage = function () {
+    getActualPage() {
         return this.actualPage + 1;
-    };
-    Paginator.prototype.getPages = function () {
+    }
+    getPages() {
         return this.lastPage + 1;
-    };
-    Paginator.prototype.getPagesAround = function () {
+    }
+    getPagesAround() {
         if (this.actualPage < 2) {
             return [1, 2, 3, 4, 5];
         }
@@ -34,44 +33,43 @@ var Paginator = /** @class */ (function () {
             this.actualPage + 2,
             this.actualPage + 3,
         ];
-    };
-    Paginator.prototype.getList = function () {
+    }
+    getList() {
         return this.actList;
-    };
-    Paginator.prototype.goToNext = function () {
+    }
+    goToNext() {
         if (this.actualPage < this.lastPage) {
             this.actualPage++;
             return this._reCalcList();
         }
         return this.getList();
-    };
-    Paginator.prototype.gotTo = function (page) {
+    }
+    gotTo(page) {
         if (page >= 0 && page <= this.lastPage) {
             this.actualPage = page;
             return this._reCalcList();
         }
         return this.getList();
-    };
-    Paginator.prototype.goToPrev = function () {
+    }
+    goToPrev() {
         if (this.actualPage > 0) {
             this.actualPage--;
             return this._reCalcList();
         }
         return this.getList();
-    };
-    Paginator.prototype.goToFirst = function () {
+    }
+    goToFirst() {
         this.actualPage = 0;
         return this._reCalcList();
-    };
-    Paginator.prototype.goToLast = function () {
+    }
+    goToLast() {
         this.actualPage = this.lastPage;
         return this._reCalcList();
-    };
-    Paginator.prototype._reCalcList = function () {
-        var start = this.actualPage * this.itemsPerPage;
+    }
+    _reCalcList() {
+        const start = this.actualPage * this.itemsPerPage;
         this.actList = this.allItems ? this.allItems.slice(start, start + this.itemsPerPage) : [];
         return this.actList;
-    };
-    return Paginator;
-}());
-export { Paginator };
+    }
+}
+//# sourceMappingURL=paginator.js.map

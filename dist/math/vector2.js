@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vector2 = void 0;
-var Vector2 = /** @class */ (function () {
+var models_1 = require("gtools/models");
+var Vector2 = (function () {
     function Vector2(x, y) {
         if (x === void 0) { x = 0; }
         if (y === void 0) { y = 0; }
@@ -50,13 +51,6 @@ var Vector2 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Vector2.fromArray = function (val) {
-        return new Vector2(val[0], val[1]);
-    };
-    Vector2.from = function (valA, valB) {
-        if (valB === void 0) { valB = valA; }
-        return new Vector2(valA, valB);
-    };
     Object.defineProperty(Vector2.prototype, "avg", {
         get: function () {
             return this.sum / 2;
@@ -64,6 +58,16 @@ var Vector2 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Vector2.prototype, "sum", {
+        get: function () {
+            return this.x + this.y;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Vector2.fromArray = function (val) {
+        return new Vector2(val[0], val[1]);
+    };
     Object.defineProperty(Vector2.prototype, "length", {
         get: function () {
             return Math.sqrt(this.x * this.x + this.y * this.y);
@@ -80,22 +84,44 @@ var Vector2 = /** @class */ (function () {
     Vector2.sub = function (vecA, vecB) {
         return new Vector2(vecA.x - vecB.x, vecA.y - vecB.y);
     };
-    Vector2.isVector = function (item) {
-        return item && !isNaN(item.x) && !isNaN(item.y);
+    Vector2.from = function (valA, valB) {
+        if (valB === void 0) { valB = valA; }
+        return new Vector2(valA, valB);
     };
     Vector2.isVisible = function (obsX, obsY, angle, cutOff, px, py) {
         return angle - Math.atan2(py - obsY, px - obsX) <= cutOff;
     };
+    Vector2.createOutlineRange = function (points) {
+        var min = {
+            x: Infinity,
+            y: Infinity,
+        };
+        var max = {
+            x: -Infinity,
+            y: -Infinity,
+        };
+        points.forEach(function (p) {
+            if (p.x < min.x) {
+                min.x = p.x;
+            }
+            if (p.y < min.y) {
+                min.y = p.y;
+            }
+            if (p.x > max.x) {
+                max.x = p.x;
+            }
+            if (p.y > max.y) {
+                max.y = p.y;
+            }
+        });
+        return new models_1.Range(min, max);
+    };
     Vector2.angleBetweenPoints = function (obsX, obsY, px1, py1, px2, py2) {
         return Math.atan2(py1 - obsY, px1 - obsX) - Math.atan2(py2 - obsY, px2 - obsX);
     };
-    Object.defineProperty(Vector2.prototype, "sum", {
-        get: function () {
-            return this.x + this.y;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    Vector2.isVector = function (item) {
+        return item && !isNaN(item.x) && !isNaN(item.y);
+    };
     Vector2.sum = function (vecA, vecB) {
         return new Vector2(vecA.x + vecB.x, vecA.y + vecB.y);
     };
@@ -183,3 +209,4 @@ var Vector2 = /** @class */ (function () {
     return Vector2;
 }());
 exports.Vector2 = Vector2;
+//# sourceMappingURL=vector2.js.map

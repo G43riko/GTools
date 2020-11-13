@@ -1,14 +1,14 @@
-import { Vector3 } from "../math";
+import { Vector3 } from "gtools/math";
 import { getClosestPointOnLine } from "./closest-3d";
 import { pointPoint2dDistance } from "./distances-2d";
 import { pointLine3dDistance, pointPoint3dDistance } from "./distances-3d";
 import { vectorSquareIntersect3d } from "./intersects-3d";
 export function sphereSphere(ax, ay, az, aRadius, bx, by, bz, bRadius) {
-    var dist = pointPoint3dDistance(ax, ay, az, bx, by, bz);
+    const dist = pointPoint3dDistance(ax, ay, az, bx, by, bz);
     return dist <= aRadius + bRadius;
 }
 export function pointSphere(ax, ay, az, bx, by, bz, bRadius) {
-    var dist = pointPoint3dDistance(ax, ay, az, bx, by, bz);
+    const dist = pointPoint3dDistance(ax, ay, az, bx, by, bz);
     return dist <= bRadius;
 }
 export function lineSphere(ax, ay, az, bx, by, bz, sx, sy, sz, sr) {
@@ -21,20 +21,19 @@ export var IntersectionType;
     IntersectionType["ONE_INTERSECTION"] = "ONE_INTERSECTION";
     IntersectionType["TWO_INTERSECTION"] = "TWO_INTERSECTION";
 })(IntersectionType || (IntersectionType = {}));
-// tslint:disable-next-line:cyclomatic-complexity
 export function lineBox2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, minX, minY, minZ, maxX, maxY, maxZ, result) {
-    var dirX = p1X - p0X;
-    var dirY = p1Y - p0Y;
-    var dirZ = p1Z - p0Z;
-    var invDirX = 1 / dirX;
-    var invDirY = 1 / dirY;
-    var invDirZ = 1 / dirZ;
-    var tNear;
-    var tFar;
-    var tymin;
-    var tymax;
-    var tzmin;
-    var tzmax;
+    const dirX = p1X - p0X;
+    const dirY = p1Y - p0Y;
+    const dirZ = p1Z - p0Z;
+    const invDirX = 1 / dirX;
+    const invDirY = 1 / dirY;
+    const invDirZ = 1 / dirZ;
+    let tNear;
+    let tFar;
+    let tymin;
+    let tymax;
+    let tzmin;
+    let tzmax;
     if (invDirX >= 0) {
         tNear = (minX - p0X) * invDirX;
         tFar = (maxX - p0X) * invDirX;
@@ -69,7 +68,7 @@ export function lineBox2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, minX, minY, minZ, maxX, m
     tFar = tymax < tFar || isNaN(tFar) ? tymax : tFar;
     tNear = tzmin > tNear ? tzmin : tNear;
     tFar = tzmax < tFar ? tzmax : tFar;
-    var type = IntersectionType.OUTSIDE;
+    let type = IntersectionType.OUTSIDE;
     if (tNear < tFar && tNear <= 1 && tFar >= 0) {
         if (tNear > 0 && tFar > 1) {
             tFar = tNear;
@@ -108,12 +107,12 @@ export function lineBox(a1x, a1y, a1z, a2x, a2y, a2z, bPosX, bPosY, bPosZ, bSize
         vectorSquareIntersect3d(a1x, a1y, a1z, a2x, a2y, a2z, bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ, bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ, bPosX + bSizeX, bPosY - bSizeY, bPosZ - bSizeZ);
 }
 export function lineSphere2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, centerX, centerY, centerZ, radiusSquared) {
-    var dX = p1X - p0X;
-    var dY = p1Y - p0Y;
-    var dZ = p1Z - p0Z;
-    var nom = (centerX - p0X) * dX + (centerY - p0Y) * dY + (centerZ - p0Z) * dZ;
-    var den = dX * dX + dY * dY + dZ * dZ;
-    var u = nom / den;
+    let dX = p1X - p0X;
+    let dY = p1Y - p0Y;
+    let dZ = p1Z - p0Z;
+    const nom = (centerX - p0X) * dX + (centerY - p0Y) * dY + (centerZ - p0Z) * dZ;
+    const den = dX * dX + dY * dY + dZ * dZ;
+    const u = nom / den;
     if (u < 0) {
         dX = p0X - centerX;
         dY = p0Y - centerY;
@@ -124,15 +123,15 @@ export function lineSphere2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, centerX, centerY, cent
         dY = p1Y - centerY;
         dZ = p1Z - centerZ;
     }
-    else { // has to be >= 0 and <= 1
-        var pX = p0X + u * dX;
-        var pY = p0Y + u * dY;
-        var pZ = p0Z + u * dZ;
+    else {
+        const pX = p0X + u * dX;
+        const pY = p0Y + u * dY;
+        const pZ = p0Z + u * dZ;
         dX = pX - centerX;
         dY = pY - centerY;
         dZ = pZ - centerZ;
     }
-    var dist = dX * dX + dY * dY + dZ * dZ;
+    const dist = dX * dX + dY * dY + dZ * dZ;
     return dist <= radiusSquared;
 }
 export function boxBox(ax, ay, az, aw, ah, ad, bx, by, bz, bw, bh, bd) {
@@ -141,37 +140,32 @@ export function boxBox(ax, ay, az, aw, ah, ad, bx, by, bz, bw, bh, bd) {
         az + ad > bz && bz + bd > az;
 }
 export function pointEllipsoid(ax, ay, az, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ) {
-    var aposNewX = ax - bPosX;
-    var aposNewY = ay - bPosY;
-    var aposNewZ = az - bPosZ;
-    var xa = (aposNewX * aposNewX) / (bSizeX * bSizeX);
-    var yb = (aposNewY * aposNewY) / (bSizeY * bSizeY);
-    var zc = (aposNewZ * aposNewZ) / (bSizeZ * bSizeZ);
+    const aposNewX = ax - bPosX;
+    const aposNewY = ay - bPosY;
+    const aposNewZ = az - bPosZ;
+    const xa = (aposNewX * aposNewX) / (bSizeX * bSizeX);
+    const yb = (aposNewY * aposNewY) / (bSizeY * bSizeY);
+    const zc = (aposNewZ * aposNewZ) / (bSizeZ * bSizeZ);
     return xa + yb + zc <= 1;
 }
 export function lineEllipsoid(aStartX, aStartY, aStartZ, aEndX, aEndY, aEndZ, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ) {
-    var point = getClosestPointOnLine(aStartX, aStartY, aStartZ, aEndX, aEndY, aEndZ, bPosX, bPosY, bPosZ);
+    const point = getClosestPointOnLine(aStartX, aStartY, aStartZ, aEndX, aEndY, aEndZ, bPosX, bPosY, bPosZ);
     return pointEllipsoid(point.x, point.y, point.z, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ);
 }
 export function pointCylinder(ax, ay, az, bx, by, bz, bRadius, bHeight) {
-    var conditionOne = ay > by && ay < by + bHeight;
-    var conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < bRadius;
+    const conditionOne = ay > by && ay < by + bHeight;
+    const conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < bRadius;
     return conditionOne && conditionTwo;
 }
 export function sphereCylinder(ax, ay, az, aRadius, bx, by, bz, bRadius, bHeight) {
-    var conditionOne = ay + aRadius > by && ay - aRadius < by + bHeight;
-    var conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < aRadius + bRadius;
+    const conditionOne = ay + aRadius > by && ay - aRadius < by + bHeight;
+    const conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < aRadius + bRadius;
     return conditionOne && conditionTwo;
 }
 export function testSphereBoxMinMax(centerX, centerY, centerZ, radiusSquared, minX, minY, minZ, maxX, maxY, maxZ) {
-    var radius2 = radiusSquared;
-    /**
-     * X - min
-     * Y - max
-     * Z - center
-     */
-    var func = function (val) {
-        var d = 0;
+    let radius2 = radiusSquared;
+    const func = (val) => {
+        let d = 0;
         if (val.z < val.x) {
             d = val.z - val.x;
         }
@@ -180,9 +174,10 @@ export function testSphereBoxMinMax(centerX, centerY, centerZ, radiusSquared, mi
         }
         return d * d;
     };
-    var params = new Vector3();
+    const params = new Vector3();
     radius2 -= func(params.setData(minX, maxX, centerX));
     radius2 -= func(params.setData(minY, maxY, centerY));
     radius2 -= func(params.setData(minZ, maxZ, centerZ));
     return radius2 >= 0;
 }
+//# sourceMappingURL=collisions-3d.js.map

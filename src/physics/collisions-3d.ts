@@ -1,4 +1,4 @@
-import { SimpleVector2, Vector3 } from "../math";
+import { SimpleVector2, Vector3 } from "gtools/math";
 import { getClosestPointOnLine } from "./closest-3d";
 import { pointPoint2dDistance } from "./distances-2d";
 import { pointLine3dDistance, pointPoint3dDistance } from "./distances-3d";

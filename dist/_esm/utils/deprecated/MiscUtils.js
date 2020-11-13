@@ -1,101 +1,46 @@
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 import * as Misc from "../misc-utils";
 import * as NetClient from "../net-client-utils";
 import * as Objects from "../object-utils";
 import * as Reflection from "../reflection-utils";
-/**
- * @deprecated use {@link Misc} instead
- */
-var MiscUtils = /** @class */ (function () {
-    function MiscUtils() {
-    }
-    /**
-     * Create class by name and list of parameters
-     *
-     * @deprecated use {@link createClass} instead
-     *
-     * @param name - class name
-     * @param args - constructor parameter
-     * @returns created object
-     */
-    MiscUtils.createClass = function (name, args) {
+export class MiscUtils {
+    static createClass(name, args) {
         return Reflection.createClass(name, args);
-    };
-    /**
-     * Method parse cookies
-     * @param cookies - cooke to parse
-     */
-    MiscUtils.parseCookies = function (cookies) {
+    }
+    static parseCookies(cookies) {
         return Misc.parseCookies(cookies);
-    };
-    /**
-     * Method check if object is in array
-     * @param obj - searched object
-     * @param data - array of objects to be compare with searched object
-     */
-    MiscUtils.isIn = function (obj) {
-        var data = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            data[_i - 1] = arguments[_i];
-        }
-        return Misc.isIn.apply(Misc, __spreadArrays([obj], data));
-    };
-    /**
-     * Method parse JSON content with comments
-     * @param content - stringify JSON
-     */
-    MiscUtils.parseJSONWithComments = function (content) {
+    }
+    static isIn(obj, ...data) {
+        return Misc.isIn(obj, ...data);
+    }
+    static parseJSONWithComments(content) {
         return Misc.parseJSONWithComments(content);
-    };
-    // TODO: should append cookies or add option to appending instead of replace cookies
-    // TODO: expires must be only in the end of cookies
-    MiscUtils.setCookie = function (name, value, days) {
+    }
+    static setCookie(name, value, days) {
         return Misc.setCookie(name, value, days);
-    };
-    MiscUtils.getCookie = function (cname, source) {
-        if (source === void 0) { source = typeof document !== "undefined" ? document.cookie : ""; }
+    }
+    static getCookie(cname, source = typeof document !== "undefined" ? document.cookie : "") {
         return Misc.getCookie(cname, source);
-    };
-    MiscUtils.parseParams = function (query, separator, delimiter) {
-        if (query === void 0) { query = typeof window !== "undefined" ? window.location.search.substring(1) : ""; }
-        if (separator === void 0) { separator = "&"; }
-        if (delimiter === void 0) { delimiter = "="; }
+    }
+    static parseParams(query = typeof window !== "undefined" ? window.location.search.substring(1) : "", separator = "&", delimiter = "=") {
         return Misc.parseParams(query, separator, delimiter);
-    };
-    /**
-     * @deprecated use {@link roughSizeOfObject} instead
-     *
-     * @param object - object to determine size
-     */
-    MiscUtils.roughSizeOfObject = function (object) {
+    }
+    static roughSizeOfObject(object) {
         return Objects.roughSizeOfObject(object);
-    };
-    MiscUtils.objectToQueryParams = function (obj) {
+    }
+    static objectToQueryParams(obj) {
         return Misc.objectToQueryParams(obj);
-    };
-    /**
-     * @deprecated use {@link includeFile} instead
-     *
-     * @param file - path to file
-     */
-    MiscUtils.includeFile = function (file) {
+    }
+    static includeFile(file) {
         return NetClient.includeFile(file);
-    };
-    MiscUtils.serialize = function (obj) {
+    }
+    static serialize(obj) {
         return Misc.serialize(obj);
-    };
-    MiscUtils.parse = function (obj) {
+    }
+    static parse(obj) {
         return Misc.parse(obj);
-    };
-    MiscUtils.prototype.map = function (source, data) {
+    }
+    map(source, data) {
         return Misc.map(source, data);
-    };
-    return MiscUtils;
-}());
-export { MiscUtils };
+    }
+}
+//# sourceMappingURL=MiscUtils.js.map

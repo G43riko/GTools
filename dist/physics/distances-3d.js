@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.vectorPoint3dDistance = exports.pointNormalPlane3dDistance = exports.pointLine3dDistance = exports.pointPointSqr3dDistance = exports.pointPoint3dDistance = void 0;
-var vector3_1 = require("../math/vector3");
+var math_1 = require("gtools/math");
 function pointPoint3dDistance(ax, ay, az, bx, by, bz) {
     return Math.sqrt(pointPointSqr3dDistance(ax, ay, az, bx, by, bz));
 }
@@ -38,13 +38,10 @@ function pointLine3dDistance(aStartX, aStartY, aStartZ, aEndX, aEndY, aEndZ, bCe
 }
 exports.pointLine3dDistance = pointLine3dDistance;
 function pointNormalPlane3dDistance(aNormal, aPoint, bPoint) {
-    var d = -vector3_1.Vector3.mul(aNormal, aPoint).sum();
-    return Math.abs((vector3_1.Vector3.mul(aNormal, bPoint).sum() + d) / Math.sqrt(vector3_1.Vector3.mul(aNormal, aNormal).sum()));
+    var d = -math_1.Vector3.mul(aNormal, aPoint).sum();
+    return Math.abs((math_1.Vector3.mul(aNormal, bPoint).sum() + d) / Math.sqrt(math_1.Vector3.mul(aNormal, aNormal).sum()));
 }
 exports.pointNormalPlane3dDistance = pointNormalPlane3dDistance;
-// export function pointPlane(Vector3 a1, Vector3 a2, Vector3 a3, Vector3 bPoint) {
-//     return pointPlane(a3.sub(a2).cross(a1.sub(a2)), a1, bPoint);
-// }
 function vectorPoint3dDistance(startX, startY, startZ, endX, endY, endZ, pointX, pointY, pointZ) {
     var startSubEndX = startX - endX;
     var startSubEndY = startY - endY;
@@ -60,3 +57,4 @@ function vectorPoint3dDistance(startX, startY, startZ, endX, endY, endZ, pointX,
     return length1 / length2;
 }
 exports.vectorPoint3dDistance = vectorPoint3dDistance;
+//# sourceMappingURL=distances-3d.js.map

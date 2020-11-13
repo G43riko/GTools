@@ -16,3 +16,4 @@ __exportStar(require("./wrong-parameter.exception"), exports);
 __exportStar(require("./missing-parameter.error"), exports);
 __exportStar(require("./no-database-connection.error"), exports);
 __exportStar(require("./wrong-type.exception"), exports);
+//# sourceMappingURL=index.js.map

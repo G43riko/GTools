@@ -1,7 +1,4 @@
 "use strict";
-/**
- * Model is enum and parser
- */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -15,6 +12,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./gender.model"), exports);
 __exportStar(require("./color.model"), exports);
-// TODO: Cannot import countries.data.json
-// export * from "./countries/country.interface";
-// export * from "./countries/country.model";
+__exportStar(require("./transform"), exports);
+__exportStar(require("./range"), exports);
+//# sourceMappingURL=index.js.map

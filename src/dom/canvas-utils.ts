@@ -1,15 +1,8 @@
-import { Vector2f } from "../math/vector2f";
+import { Vector2f } from "gtools/math";
 import { CanvasManager } from "./canvas-manager";
-import { Checkers } from "./deprecated/Checkers";
+import { CanvasShadowConfig } from "./types/canvas-shadow-config";
 
 declare const $: any;
-
-export interface CanvasShadowConfig {
-    x: number;
-    y: number;
-    color: string;
-    blur: number;
-}
 
 export interface CanvasConfig {
     shadow?: CanvasShadowConfig;
@@ -134,7 +127,7 @@ function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
             return;
         }
         const value = res[attrName];
-        if (Checkers.isNumber(value)) {
+        if (!isNaN(value)) {
             // @ts-ignore
             res[partA] = value;
             // @ts-ignore
@@ -207,7 +200,7 @@ export class CanvasUtils {
         const def = checkPosAndSize(obj, "Rect");
 
         if (typeof obj.radius !== "undefined") {
-            if (Checkers.isNumber(obj.radius)) {
+            if (!isNaN(obj.radius)) {
                 obj.radius = {
                     bl: obj.radius,
                     br: obj.radius,

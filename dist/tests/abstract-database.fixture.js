@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AbstractDatabaseFixture = void 0;
 var abstract_fixture_1 = require("./abstract.fixture");
-var AbstractDatabaseFixture = /** @class */ (function (_super) {
+var AbstractDatabaseFixture = (function (_super) {
     __extends(AbstractDatabaseFixture, _super);
     function AbstractDatabaseFixture(list, mapper) {
         var _this = _super.call(this, list) || this;
@@ -26,3 +26,4 @@ var AbstractDatabaseFixture = /** @class */ (function (_super) {
     return AbstractDatabaseFixture;
 }(abstract_fixture_1.AbstractFixture));
 exports.AbstractDatabaseFixture = AbstractDatabaseFixture;
+//# sourceMappingURL=abstract-database.fixture.js.map

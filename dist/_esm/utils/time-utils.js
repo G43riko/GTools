@@ -1,4 +1,4 @@
-var intervals = {
+const intervals = {
     "year": 31536000,
     "month": 2592000,
     "week": 604800,
@@ -7,40 +7,39 @@ var intervals = {
     "minute": 60,
     "second": 1,
 };
-var intervalEntries = Object.entries(intervals);
-export function dateAge(value) {
+const intervalEntries = Object.entries(intervals);
+export function dateAgo(value) {
     if (value) {
-        var seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
-        if (seconds < 29) { // less than 30 seconds ago will show as 'Just now'
+        const seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
+        if (seconds < 29) {
             return "Just now";
         }
-        var counter = void 0;
-        for (var _i = 0, intervalEntries_1 = intervalEntries; _i < intervalEntries_1.length; _i++) {
-            var _a = intervalEntries_1[_i], key = _a[0], interval = _a[1];
+        let counter;
+        for (const [key, interval] of intervalEntries) {
             counter = Math.floor(seconds / interval);
             if (counter <= 0) {
                 continue;
             }
             if (counter === 1) {
-                return counter + " " + key + " ago"; // singular (1 day ago)
+                return `${counter} ${key} ago`;
             }
-            return counter + " " + key + "s ago"; // plural (2 days ago)
+            return `${counter} ${key}s ago`;
         }
     }
     return value;
 }
 export function format(date, pattern) {
-    var toString = function (time) { return time < 10 ? "0" + time : "" + time; };
-    var regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
-    var DD = toString(date.getDate());
-    var MM = toString(date.getMonth() + 1);
-    var YYYY = date.getFullYear() + "";
-    var YYY = YYYY.substr(1, 4);
-    var YY = YYY.substr(1, 4);
-    var HH = toString(date.getHours());
-    var mm = toString(date.getMinutes());
-    var SS = toString(date.getSeconds());
-    return pattern.replace(regex, function (e) {
+    const toString = (time) => time < 10 ? "0" + time : "" + time;
+    const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
+    const DD = toString(date.getDate());
+    const MM = toString(date.getMonth() + 1);
+    const YYYY = date.getFullYear() + "";
+    const YYY = YYYY.substr(1, 4);
+    const YY = YYY.substr(1, 4);
+    const HH = toString(date.getHours());
+    const mm = toString(date.getMinutes());
+    const SS = toString(date.getSeconds());
+    return pattern.replace(regex, (e) => {
         switch (e) {
             case "DD":
                 return DD;
@@ -62,6 +61,16 @@ export function format(date, pattern) {
                 return e;
         }
     });
+}
+export function createStopWatch() {
+    const start = Date.now();
+    const getDiffMs = () => Date.now() - start;
+    return {
+        getDiffMs,
+        getDiff() {
+            return getDiffMs() + "ms";
+        },
+    };
 }
 function setDate(date, opt) {
     if (!date) {
@@ -97,3 +106,4 @@ export function getEndOfTheDay(date) {
         h: 23,
     });
 }
+//# sourceMappingURL=time-utils.js.map

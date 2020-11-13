@@ -33,7 +33,6 @@ function lineLine2dCollision(aStartX, aStartY, aEndX, aEndY, bStartX, bStartY, b
     var denominator = (aEndX - aStartX) * (bEndY - bStartY) - (aEndY - aStartY) * (bEndX - bStartX);
     var numerator1 = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
     var numerator2 = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
-    // Detect coincident lines (has a problem, read below)
     if (denominator === 0) {
         return numerator1 === 0 && numerator2 === 0;
     }
@@ -68,3 +67,4 @@ function pointCircle2dCollision(pointX, pointY, circleX, circleY, circleRadius) 
     return distances_2d_1.pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
 }
 exports.pointCircle2dCollision = pointCircle2dCollision;
+//# sourceMappingURL=collisions-2d.js.map

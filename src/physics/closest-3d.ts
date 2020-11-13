@@ -1,4 +1,4 @@
-import { SimpleVector3 } from "../math";
+import { SimpleVector3 } from "gtools/math";
 
 export function getClosestPointOnLine(
     sx1: number,

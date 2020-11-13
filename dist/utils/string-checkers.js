@@ -1,7 +1,4 @@
 "use strict";
-/*
- * TODO: This is deprecated. Move this to validators
- */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -70,19 +67,12 @@ function isTimeFormat(text, format) {
     return new RegExp("^" + format + "$").test(text);
 }
 exports.isTimeFormat = isTimeFormat;
-/**
- * @deprecated use {@link MiscValidators.isValidPhoneNumber} instead
- * @param num - num to validate
- */
 function isValidPhoneNumber(num) {
     return MiscValidators.isValidPhoneNumber(num);
 }
 exports.isValidPhoneNumber = isValidPhoneNumber;
-/**
- * @deprecated use {@link MiscValidators.isValidEmail} instead
- * @param email - email to validate
- */
 function isValidEmail(email) {
     return MiscValidators.isValidEmail(email);
 }
 exports.isValidEmail = isValidEmail;
+//# sourceMappingURL=string-checkers.js.map

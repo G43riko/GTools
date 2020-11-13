@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.testSphereBoxMinMax = exports.sphereCylinder = exports.pointCylinder = exports.lineEllipsoid = exports.pointEllipsoid = exports.boxBox = exports.lineSphere2 = exports.lineBox = exports.pointBoxMinMax = exports.pointBox = exports.lineBox2 = exports.IntersectionType = exports.lineSphere = exports.pointSphere = exports.sphereSphere = void 0;
-var math_1 = require("../math");
+var math_1 = require("gtools/math");
 var closest_3d_1 = require("./closest-3d");
 var distances_2d_1 = require("./distances-2d");
 var distances_3d_1 = require("./distances-3d");
@@ -27,7 +27,6 @@ var IntersectionType;
     IntersectionType["ONE_INTERSECTION"] = "ONE_INTERSECTION";
     IntersectionType["TWO_INTERSECTION"] = "TWO_INTERSECTION";
 })(IntersectionType = exports.IntersectionType || (exports.IntersectionType = {}));
-// tslint:disable-next-line:cyclomatic-complexity
 function lineBox2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, minX, minY, minZ, maxX, maxY, maxZ, result) {
     var dirX = p1X - p0X;
     var dirY = p1Y - p0Y;
@@ -134,7 +133,7 @@ function lineSphere2(p0X, p0Y, p0Z, p1X, p1Y, p1Z, centerX, centerY, centerZ, ra
         dY = p1Y - centerY;
         dZ = p1Z - centerZ;
     }
-    else { // has to be >= 0 and <= 1
+    else {
         var pX = p0X + u * dX;
         var pY = p0Y + u * dY;
         var pZ = p0Z + u * dZ;
@@ -181,11 +180,6 @@ function sphereCylinder(ax, ay, az, aRadius, bx, by, bz, bRadius, bHeight) {
 exports.sphereCylinder = sphereCylinder;
 function testSphereBoxMinMax(centerX, centerY, centerZ, radiusSquared, minX, minY, minZ, maxX, maxY, maxZ) {
     var radius2 = radiusSquared;
-    /**
-     * X - min
-     * Y - max
-     * Z - center
-     */
     var func = function (val) {
         var d = 0;
         if (val.z < val.x) {
@@ -203,3 +197,4 @@ function testSphereBoxMinMax(centerX, centerY, centerZ, radiusSquared, minX, min
     return radius2 >= 0;
 }
 exports.testSphereBoxMinMax = testSphereBoxMinMax;
+//# sourceMappingURL=collisions-3d.js.map

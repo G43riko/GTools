@@ -6,8 +6,10 @@ export interface ElementAttributes {
     type?: string;
     onChange?: (value: any) => void;
     onClick?: (value: any) => void;
+    onInput?: (value: string) => void;
     styles?: { [style in keyof CSSStyleDeclaration]?: CSSStyleDeclaration[style] };
     content?: string;
+    value?: string;
     src?: string;
     for?: string;
     id?: string;
@@ -147,11 +149,13 @@ export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, op
 /**
  * TODO: element remains after deletion onMessage screen
  */
-export function chooseColorUsingDefaultInput(): Promise<string> {
+export function chooseColorUsingDefaultInput(color = "#000000", onInput?: (value: string) => void): Promise<string> {
     return new Promise((success) => {
-        const input = CreateElement("input", {
+        const input: HTMLInputElement = CreateElement("input", {
             type     : "color",
             className: "hidden",
+            value    : color,
+            onInput: typeof onInput === "function" ? () => onInput(input.value) : undefined,
             onChange : () => {
                 success(input.value);
                 document.body.removeChild(input);

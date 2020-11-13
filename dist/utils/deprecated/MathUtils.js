@@ -21,10 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MathUtils = void 0;
 var Maths = __importStar(require("../math-utils"));
-/**
- * @deprecated use {@link Maths} instead
- */
-var MathUtils = /** @class */ (function () {
+var MathUtils = (function () {
     function MathUtils() {
     }
     MathUtils.roundToDecimals = function (num, decimals, type) {
@@ -65,3 +62,4 @@ var MathUtils = /** @class */ (function () {
     return MathUtils;
 }());
 exports.MathUtils = MathUtils;
+//# sourceMappingURL=MathUtils.js.map

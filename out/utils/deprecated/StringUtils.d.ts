@@ -1,7 +1,5 @@
 import { StringMap } from "../../types/string-map.interface";
-/**
- * @deprecated use {@link Strings} instead
- */
+
 export declare class StringUtils {
     static removeAccentedCharacters(word: string): string;
     static join(data: string[], delimiter?: string, prefix?: string, postfix?: string): string;
@@ -12,11 +10,6 @@ export declare class StringUtils {
     static toCapital(text: string): string;
     static getLastPart(text: string, divider?: string): string;
     static count(text: string, key: string): number;
-    /**
-     * @param text - text need to be repeat
-     * @param count - number of iterations
-     * @deprecated - use {@link String#repeat}
-     */
     static repeat(text: string, count: number): string;
     static removeAll(text: string, words: string[]): string;
     static template(text: string, values: StringMap, start?: string, end?: string): string;
@@ -29,11 +22,6 @@ export declare class StringUtils {
     static swapCase(text: string): string;
     static transformToBasicFormat(text: string): string;
     static isValidEmail(email: string): boolean;
-    /**
-     * @deprecated use {@link isValidPhoneNumber} instead
-     *
-     * @param num - string to validate
-     */
     static isValidPhoneNumber(num: string): boolean;
     static getAsciiArray(text: string): number[];
     static toBasicForm(text: string): string;

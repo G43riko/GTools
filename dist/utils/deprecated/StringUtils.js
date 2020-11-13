@@ -23,10 +23,7 @@ exports.StringUtils = void 0;
 var validators_1 = require("../../validators");
 var Checkers = __importStar(require("../string-checkers"));
 var Strings = __importStar(require("../string-utils"));
-/**
- * @deprecated use {@link Strings} instead
- */
-var StringUtils = /** @class */ (function () {
+var StringUtils = (function () {
     function StringUtils() {
     }
     StringUtils.removeAccentedCharacters = function (word) {
@@ -60,18 +57,12 @@ var StringUtils = /** @class */ (function () {
     StringUtils.count = function (text, key) {
         return Strings.count(text, key);
     };
-    /**
-     * @param text - text need to be repeat
-     * @param count - number of iterations
-     * @deprecated - use {@link String#repeat}
-     */
     StringUtils.repeat = function (text, count) {
         return text.repeat(count);
     };
     StringUtils.removeAll = function (text, words) {
         return Strings.removeAll(text, words);
     };
-    // TODO: need to be fixed
     StringUtils.template = function (text, values, start, end) {
         if (start === void 0) { start = "{{"; }
         if (end === void 0) { end = "}}"; }
@@ -104,11 +95,6 @@ var StringUtils = /** @class */ (function () {
     StringUtils.isValidEmail = function (email) {
         return Checkers.isValidEmail(email);
     };
-    /**
-     * @deprecated use {@link isValidPhoneNumber} instead
-     *
-     * @param num - string to validate
-     */
     StringUtils.isValidPhoneNumber = function (num) {
         return Checkers.isValidPhoneNumber(num);
     };
@@ -131,3 +117,4 @@ var StringUtils = /** @class */ (function () {
     return StringUtils;
 }());
 exports.StringUtils = StringUtils;
+//# sourceMappingURL=StringUtils.js.map

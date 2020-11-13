@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vector4 = void 0;
-var Vector4 = /** @class */ (function () {
+var Vector4 = (function () {
     function Vector4(x, y, z, w) {
         if (x === void 0) { x = 0; }
         if (y === void 0) { y = 0; }
@@ -141,3 +141,4 @@ var Vector4 = /** @class */ (function () {
     return Vector4;
 }());
 exports.Vector4 = Vector4;
+//# sourceMappingURL=vector4.js.map

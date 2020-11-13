@@ -23,3 +23,4 @@ function pointLine2dClosest(sx1, sy1, sx2, sy2, px, py) {
     };
 }
 exports.pointLine2dClosest = pointLine2dClosest;
+//# sourceMappingURL=closest-2d.js.map

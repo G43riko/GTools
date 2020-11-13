@@ -21,7 +21,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLogger = exports.GLoggerInstance = void 0;
-var GLoggerInstance = /** @class */ (function () {
+var GLoggerInstance = (function () {
     function GLoggerInstance(context) {
         this.context = context;
     }
@@ -49,7 +49,7 @@ var GLoggerInstance = /** @class */ (function () {
     return GLoggerInstance;
 }());
 exports.GLoggerInstance = GLoggerInstance;
-var GLogger = /** @class */ (function (_super) {
+var GLogger = (function (_super) {
     __extends(GLogger, _super);
     function GLogger(context) {
         return _super.call(this, context) || this;
@@ -88,3 +88,4 @@ var GLogger = /** @class */ (function (_super) {
     return GLogger;
 }(GLoggerInstance));
 exports.GLogger = GLogger;
+//# sourceMappingURL=g-logger.js.map

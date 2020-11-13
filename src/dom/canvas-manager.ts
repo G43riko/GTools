@@ -1,6 +1,7 @@
-import { NotBrowserException } from "../errors/not-browser.exception";
+import { NotBrowserException } from "gtools/errors";
+import { Transform } from "gtools/models";
 
-export class CanvasManager {
+class AbstractCanvasManager {
     private readonly localCanvas: HTMLCanvasElement;
     private readonly localContext: CanvasRenderingContext2D | null;
 
@@ -33,6 +34,48 @@ export class CanvasManager {
         return this.localContext;
     }
 
+    public setTransform(transform: Transform): void {
+        this.setTransformRaw(transform.offset.x, transform.offset.y, transform.scale);
+    }
+
+    public setTransformRaw(translationX: number, translationY: number, scaleX: number, scaleY = scaleX): void {
+        if (this.localContext) {
+            CanvasManager.setTransformRaw(this.localContext, translationX, translationY, scaleX, scaleY);
+        }
+    }
+
+    public getImage(): HTMLImageElement {
+        return CanvasManager.canvasToImage(this.localCanvas);
+    }
+
+    public setShadow(x: number, y: number, color: string, blur: number): void {
+        if (this.localContext) {
+            CanvasManager.setShadow(this.localContext, x, y, color, blur);
+        }
+    }
+
+    public show(format = "image/png"): void {
+        window.open(this.localCanvas.toDataURL(format), "_blank");
+    }
+
+    public clearCanvas(): void {
+        if (this.localContext) {
+            CanvasManager.clearCanvas(this.localContext);
+        }
+    }
+
+    public setCanvasSize(width = window.innerWidth, height = window.innerHeight): void {
+        CanvasManager.setCanvasSize(this.localCanvas, width, height);
+    }
+
+    public appendTo(element: Element): Element {
+        element.appendChild(this.localCanvas);
+
+        return element;
+    }
+}
+
+export class CanvasManager extends AbstractCanvasManager {
     public static clearCanvas(ctx: CanvasRenderingContext2D): void {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     }
@@ -78,6 +121,16 @@ export class CanvasManager {
         return ctx.measureText(value).width;
     }
 
+    public static setTransformRaw(
+        ctx: CanvasRenderingContext2D,
+        translationX: number,
+        translationY: number,
+        scaleX: number,
+        scaleY = scaleX,
+    ): void {
+        ctx.setTransform(scaleX, 0, 0, scaleY, translationX, translationY);
+    }
+
     public static canvasToImage(canvas: HTMLCanvasElement, format = "image/png"): HTMLImageElement {
         const image  = new Image();
         image.src    = canvas.toDataURL(format);
@@ -85,35 +138,5 @@ export class CanvasManager {
         image.height = canvas.height;
 
         return image;
-    }
-
-    public getImage(): HTMLImageElement {
-        return CanvasManager.canvasToImage(this.localCanvas);
-    }
-
-    public setShadow(x: number, y: number, color: string, blur: number): void {
-        if (this.localContext) {
-            CanvasManager.setShadow(this.localContext, x, y, color, blur);
-        }
-    }
-
-    public show(format = "image/png"): void {
-        window.open(this.localCanvas.toDataURL(format), "_blank");
-    }
-
-    public clearCanvas(): void {
-        if (this.localContext) {
-            CanvasManager.clearCanvas(this.localContext);
-        }
-    }
-
-    public setCanvasSize(width = window.innerWidth, height = window.innerHeight): void {
-        CanvasManager.setCanvasSize(this.localCanvas, width, height);
-    }
-
-    public appendTo(element: Element): Element {
-        element.appendChild(this.localCanvas);
-
-        return element;
     }
 }

@@ -1,6 +1,3 @@
-var AbstractMapper = /** @class */ (function () {
-    function AbstractMapper() {
-    }
-    return AbstractMapper;
-}());
-export { AbstractMapper };
+export class AbstractMapper {
+}
+//# sourceMappingURL=abstract.mapper.js.map

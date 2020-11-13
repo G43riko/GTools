@@ -31,36 +31,15 @@ var Misc = __importStar(require("../misc-utils"));
 var NetClient = __importStar(require("../net-client-utils"));
 var Objects = __importStar(require("../object-utils"));
 var Reflection = __importStar(require("../reflection-utils"));
-/**
- * @deprecated use {@link Misc} instead
- */
-var MiscUtils = /** @class */ (function () {
+var MiscUtils = (function () {
     function MiscUtils() {
     }
-    /**
-     * Create class by name and list of parameters
-     *
-     * @deprecated use {@link createClass} instead
-     *
-     * @param name - class name
-     * @param args - constructor parameter
-     * @returns created object
-     */
     MiscUtils.createClass = function (name, args) {
         return Reflection.createClass(name, args);
     };
-    /**
-     * Method parse cookies
-     * @param cookies - cooke to parse
-     */
     MiscUtils.parseCookies = function (cookies) {
         return Misc.parseCookies(cookies);
     };
-    /**
-     * Method check if object is in array
-     * @param obj - searched object
-     * @param data - array of objects to be compare with searched object
-     */
     MiscUtils.isIn = function (obj) {
         var data = [];
         for (var _i = 1; _i < arguments.length; _i++) {
@@ -68,15 +47,9 @@ var MiscUtils = /** @class */ (function () {
         }
         return Misc.isIn.apply(Misc, __spreadArrays([obj], data));
     };
-    /**
-     * Method parse JSON content with comments
-     * @param content - stringify JSON
-     */
     MiscUtils.parseJSONWithComments = function (content) {
         return Misc.parseJSONWithComments(content);
     };
-    // TODO: should append cookies or add option to appending instead of replace cookies
-    // TODO: expires must be only in the end of cookies
     MiscUtils.setCookie = function (name, value, days) {
         return Misc.setCookie(name, value, days);
     };
@@ -90,22 +63,12 @@ var MiscUtils = /** @class */ (function () {
         if (delimiter === void 0) { delimiter = "="; }
         return Misc.parseParams(query, separator, delimiter);
     };
-    /**
-     * @deprecated use {@link roughSizeOfObject} instead
-     *
-     * @param object - object to determine size
-     */
     MiscUtils.roughSizeOfObject = function (object) {
         return Objects.roughSizeOfObject(object);
     };
     MiscUtils.objectToQueryParams = function (obj) {
         return Misc.objectToQueryParams(obj);
     };
-    /**
-     * @deprecated use {@link includeFile} instead
-     *
-     * @param file - path to file
-     */
     MiscUtils.includeFile = function (file) {
         return NetClient.includeFile(file);
     };
@@ -121,3 +84,4 @@ var MiscUtils = /** @class */ (function () {
     return MiscUtils;
 }());
 exports.MiscUtils = MiscUtils;
+//# sourceMappingURL=MiscUtils.js.map

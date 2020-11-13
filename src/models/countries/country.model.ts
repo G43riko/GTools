@@ -1,4 +1,4 @@
-import { toBasicForm } from "../../utils/string-utils";
+import { toBasicForm } from "gtools/utils";
 import { CountryData } from "./country.interface";
 
 // tslint:disable

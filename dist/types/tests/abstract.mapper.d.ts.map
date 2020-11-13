@@ -1,0 +1,1 @@
+{"version":3,"file":"abstract.mapper.d.ts","sourceRoot":"","sources":["../../../src/tests/abstract.mapper.ts"],"names":[],"mappings":"AAAA,8BAAsB,cAAc,CAAC,GAAG,EAAE,MAAM;aAC5B,QAAQ,CAAC,MAAM,EAAE,OAAO,CAAC,GAAG,CAAC,GAAG,MAAM;aAEtC,UAAU,CAAC,MAAM,EAAE,OAAO,CAAC,MAAM,CAAC,GAAG,GAAG;CAC3D"}

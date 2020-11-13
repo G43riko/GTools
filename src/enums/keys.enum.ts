@@ -16,6 +16,17 @@ export enum Keys {
     S           = "KeyS",
     D           = "KeyD",
     R           = "KeyR",
+
+    DIGIT_1           = "Digit1",
+    DIGIT_2           = "Digit2",
+    DIGIT_3           = "Digit3",
+    DIGIT_4           = "Digit4",
+    DIGIT_5           = "Digit5",
+    DIGIT_6           = "Digit6",
+    DIGIT_7           = "Digit7",
+    DIGIT_8           = "Digit8",
+    DIGIT_9           = "Digit9",
+    DIGIT_0           = "Digit0",
 }
 
 export class KeysOld {

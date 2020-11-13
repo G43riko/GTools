@@ -19,7 +19,7 @@ export function isDev(): boolean {
 }
 
 export function setEnvironment(type: "test" | "production" | "development"): void {
-    process.env.NODE_ENV = type;
+    // process.env.NODE_ENV = type;
 }
 
 export function getProcessData(): ProcessData {

@@ -15,3 +15,4 @@ __exportStar(require("./final-class.decorator"), exports);
 __exportStar(require("./mapper.decorator"), exports);
 __exportStar(require("./singleton.decorator"), exports);
 __exportStar(require("./watch.decorator"), exports);
+//# sourceMappingURL=index.js.map

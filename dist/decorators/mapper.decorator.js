@@ -31,3 +31,4 @@ function Mapper(params, prefix) {
     };
 }
 exports.Mapper = Mapper;
+//# sourceMappingURL=mapper.decorator.js.map

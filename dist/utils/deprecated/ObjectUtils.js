@@ -21,10 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectUtils = void 0;
 var Objects = __importStar(require("../object-utils"));
-/**
- * @deprecated use {@link Objects} instead
- */
-var ObjectUtils = /** @class */ (function () {
+var ObjectUtils = (function () {
     function ObjectUtils() {
     }
     ObjectUtils.without = function (obj, items) {
@@ -47,3 +44,4 @@ var ObjectUtils = /** @class */ (function () {
     return ObjectUtils;
 }());
 exports.ObjectUtils = ObjectUtils;
+//# sourceMappingURL=ObjectUtils.js.map

@@ -35,7 +35,6 @@ function tryParseUrl(url) {
         return null;
     }
 }
-// @ts-ignore
 function processClientRequest(url, req) {
     return new Promise(function (success, reject) {
         var request = req(url, function (res) {
@@ -83,11 +82,8 @@ function getContentFromFile(path, encoding) {
     });
 }
 exports.getContentFromFile = getContentFromFile;
-/**
- * @deprecated use {@link getContentFromUrl} instead
- * @param url - resource url
- */
 function getContentFrom(url) {
     return getContent(url);
 }
 exports.getContentFrom = getContentFrom;
+//# sourceMappingURL=net-server-utils.js.map

@@ -21,10 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StringCheckers = void 0;
 var Checkers = __importStar(require("../string-checkers"));
-/**
- * @deprecated use {@link Checkers} instead
- */
-var StringCheckers = /** @class */ (function () {
+var StringCheckers = (function () {
     function StringCheckers() {
     }
     StringCheckers.isCamelCase = Checkers.isCamelCase;
@@ -37,3 +34,4 @@ var StringCheckers = /** @class */ (function () {
     return StringCheckers;
 }());
 exports.StringCheckers = StringCheckers;
+//# sourceMappingURL=StringCheckers.js.map

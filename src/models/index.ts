@@ -4,6 +4,8 @@
 
 export * from "./gender.model";
 export * from "./color.model";
+export * from "./transform";
+export * from "./range";
 
 // TODO: Cannot import countries.data.json
 // export * from "./countries/country.interface";

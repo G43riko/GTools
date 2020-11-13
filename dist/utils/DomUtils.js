@@ -1,44 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DomUtils = void 0;
+var errors_1 = require("gtools/errors");
 var Checkers_1 = require("../dom/deprecated/Checkers");
 var dom_get_1 = require("../dom/dom-get");
-var not_browser_exception_1 = require("../errors/not-browser.exception");
-var DomUtils = /** @class */ (function () {
+var DomUtils = (function () {
     function DomUtils() {
     }
-    /**
-     * Function returns height of window
-     *
-     * @returns window height in pixels
-     */
     DomUtils.getWindowHeight = function () {
         if (typeof window === "undefined") {
-            throw new not_browser_exception_1.NotBrowserException();
+            throw new errors_1.NotBrowserException();
         }
-        // @ts-ignore
         return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     };
-    /**
-     * Function returns width of window
-     *
-     * @returns window width in pixels
-     */
     DomUtils.getWindowWidth = function () {
         if (typeof window === "undefined") {
-            throw new not_browser_exception_1.NotBrowserException();
+            throw new errors_1.NotBrowserException();
         }
-        // @ts-ignore
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     };
-    /**
-     * Function set, append or returns text of element
-     *
-     * @param element - input element
-     * @param text - text to put in element
-     * @param append - flag if text should be append or replace previous text
-     * @returns element given as input
-     */
     DomUtils.text = function (element, text, append) {
         if (append === void 0) { append = true; }
         if (append) {
@@ -49,14 +29,6 @@ var DomUtils = /** @class */ (function () {
         }
         return element;
     };
-    /**
-     * Function set, append or returns html content of element
-     *
-     * @param element - input element
-     * @param html - html to put in element
-     * @param append - flag if html should be append or replace previous content
-     * @returns element given as input
-     */
     DomUtils.html = function (element, html, append) {
         if (append === void 0) { append = true; }
         if (append) {
@@ -76,14 +48,6 @@ var DomUtils = /** @class */ (function () {
         }
         return element;
     };
-    /**
-     * Function returns, add, remove or toggle elements classes
-     *
-     * @param element - input element
-     * @param name - class name or list of class names
-     * @param force - flag if class should be toggled false
-     * @returns boolean if function is used to check class presence otherwise element given as input
-     */
     DomUtils.class = function (element, name, force) {
         if (force === void 0) { force = false; }
         if (Array.isArray(name)) {
@@ -115,28 +79,9 @@ var DomUtils = /** @class */ (function () {
         }
         return element;
     };
-    /**
-     * Function crete new element
-     *
-     * ElementManager.createElement("div") => <div></div>;
-     * ElementManager.createElement("div", {id: "ide"}) => <div id="ide"></div>;
-     * ElementManager.createElement("div", {}, "text") => <div>text</div>;
-     * ElementManager.createElement("div", {}, "<b>text</b>") => <div><b>text</b></div>;
-     * ElementManager.createElement("div", {}, "text", {color: "blue"}) => <div style="color: blue;">text</div>
-     *
-     * ElementManager.createElement({name: "div"}) => <div></div>;
-     * ElementManager.createElement({name: "div"}) => <div></div>;
-     * ElementManager.createElement({name: "div", attr: {id: "ide"}}) => <div id="ide"></div>;
-     *
-     * @param name - name of element or object contains all configuration
-     * @param attr - map of all element attributes
-     * @param cont - element content. Can be string, element or array of elements
-     * @param style - styles that will be applied to the element
-     * @returns created element
-     */
     DomUtils.createElement = function (name, attr, cont, style) {
         if (typeof document === "undefined") {
-            throw new not_browser_exception_1.NotBrowserException();
+            throw new errors_1.NotBrowserException();
         }
         if (typeof name === "object") {
             return DomUtils.createElement(name.name, name.attr || {}, name.cont || "", name.style);
@@ -166,12 +111,6 @@ var DomUtils = /** @class */ (function () {
         }
         return el;
     };
-    /**
-     * Function remove element
-     *
-     * @param element - input element
-     * @returns removed element
-     */
     DomUtils.remove = function (element) {
         var parentElement = element.parentElement;
         if (parentElement) {
@@ -179,12 +118,6 @@ var DomUtils = /** @class */ (function () {
         }
         return element;
     };
-    /**
-     * Function returns object with element position
-     *
-     * @param element - input element
-     * @returns position of element
-     */
     DomUtils.position = function (element) {
         var top = 0;
         var left = 0;
@@ -198,12 +131,6 @@ var DomUtils = /** @class */ (function () {
             y: top,
         };
     };
-    /**
-     * Function returns order of element between siblings
-     *
-     * @param element - input element
-     * @returns index of number
-     */
     DomUtils.indexOf = function (element) {
         var index = 0;
         while (element) {
@@ -212,12 +139,6 @@ var DomUtils = /** @class */ (function () {
         }
         return index;
     };
-    /**
-     * Function returns object with element size
-     *
-     * @param element - input element
-     * @returns size of element
-     */
     DomUtils.size = function (element) {
         return {
             height: element.offsetHeight,
@@ -226,17 +147,13 @@ var DomUtils = /** @class */ (function () {
     };
     DomUtils.serialize = function (form) {
         var result = {};
-        // if forms is not element
         if (!Checkers_1.Checkers.isElement(form)) {
             return result;
         }
-        // if form is not form
         if (form.tagName.toLowerCase() !== "form") {
             return result;
         }
-        // get all inputs
         var elements = dom_get_1.DomGet.byTag("input");
-        // add all values to result object
         for (var key in elements) {
             if (!elements.hasOwnProperty(key)) {
                 continue;
@@ -252,3 +169,4 @@ var DomUtils = /** @class */ (function () {
     return DomUtils;
 }());
 exports.DomUtils = DomUtils;
+//# sourceMappingURL=DomUtils.js.map

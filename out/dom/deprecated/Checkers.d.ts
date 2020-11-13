@@ -1,8 +1,5 @@
 import * as MiscValidators from "../../validators/misc-validators";
-/**
- * @deprecated use {@link MiscValidators} instead
- * TODO: move this to validators
- */
+
 export declare class Checkers {
     static isFunction: typeof MiscValidators.isFunction;
     static isString: typeof MiscValidators.isString;

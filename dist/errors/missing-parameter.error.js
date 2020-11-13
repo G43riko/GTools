@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MissingParameterError = void 0;
-var MissingParameterError = /** @class */ (function (_super) {
+var MissingParameterError = (function (_super) {
     __extends(MissingParameterError, _super);
     function MissingParameterError(parameterName) {
         return _super.call(this, "Parameter " + parameterName + " must be defined") || this;
@@ -22,3 +22,4 @@ var MissingParameterError = /** @class */ (function (_super) {
     return MissingParameterError;
 }(Error));
 exports.MissingParameterError = MissingParameterError;
+//# sourceMappingURL=missing-parameter.error.js.map

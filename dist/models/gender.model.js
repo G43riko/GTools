@@ -22,20 +22,11 @@ function parseGender(gender) {
     return null;
 }
 exports.parseGender = parseGender;
-/**
- * @deprecated use {@link parseGender} and {@link Gender} instead
- * Class is used for parsing gender
- */
-var GenderClass = /** @class */ (function () {
+var GenderClass = (function () {
     function GenderClass() {
     }
-    /**
-     * Method parse string and return GenderType
-     * @deprecated use {@link parseGender} instead
-     * @param gender gender in any format
-     * @returns parsed gender as {@link GenderType}
-     */
     GenderClass.parse = parseGender;
     return GenderClass;
 }());
 exports.GenderClass = GenderClass;
+//# sourceMappingURL=gender.model.js.map

@@ -16,5 +16,6 @@ export * from "./object-utils";
 export * from "./parser-utils";
 export * from "./process-utils";
 export * from "./reflection-utils";
+export * from "./random-utils";
 export * from "./string-utils";
 export * from "./svg-utils";

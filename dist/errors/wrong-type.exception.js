@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WrongTypeException = void 0;
-var WrongTypeException = /** @class */ (function (_super) {
+var WrongTypeException = (function (_super) {
     __extends(WrongTypeException, _super);
     function WrongTypeException(requiredType, text) {
         var _this = _super.call(this, "Wrong type exception at line. " + typeof requiredType + " must be " + requiredType + (typeof text === "string" ? ": " + text : "!")) || this;
@@ -24,3 +24,4 @@ var WrongTypeException = /** @class */ (function (_super) {
     return WrongTypeException;
 }(Error));
 exports.WrongTypeException = WrongTypeException;
+//# sourceMappingURL=wrong-type.exception.js.map

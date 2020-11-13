@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ajax = void 0;
-var AjaxWrapper = /** @class */ (function () {
+var AjaxWrapper = (function () {
     function AjaxWrapper(ajaxHandler) {
         this.ajaxHandler = ajaxHandler;
     }
@@ -24,3 +24,4 @@ function ajax(_a) {
     return new AjaxWrapper(request);
 }
 exports.ajax = ajax;
+//# sourceMappingURL=ajax.js.map

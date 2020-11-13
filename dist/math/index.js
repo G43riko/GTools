@@ -15,5 +15,7 @@ __exportStar(require("./simple-vector3"), exports);
 __exportStar(require("./simple-vector4"), exports);
 __exportStar(require("./vector"), exports);
 __exportStar(require("./vector2"), exports);
+__exportStar(require("./vector2f"), exports);
 __exportStar(require("./vector3"), exports);
 __exportStar(require("./vector4"), exports);
+//# sourceMappingURL=index.js.map

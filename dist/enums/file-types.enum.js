@@ -15,3 +15,4 @@ var FileTypes;
     FileTypes["WAV"] = "audio/x-wav";
     FileTypes["WEBM"] = "video/webm";
 })(FileTypes = exports.FileTypes || (exports.FileTypes = {}));
+//# sourceMappingURL=file-types.enum.js.map

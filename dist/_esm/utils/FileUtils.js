@@ -2,24 +2,24 @@ import * as fs from "fs";
 import * as path from "path";
 import { StringUtils } from "./deprecated/StringUtils";
 function walk(dir, done) {
-    var results = [];
-    fs.readdir(dir, function (err, list) {
+    const results = [];
+    fs.readdir(dir, (err, list) => {
         if (err) {
             return done(err);
         }
-        var pending = list.length;
+        let pending = list.length;
         if (!pending) {
             return done(null, results);
         }
-        list.forEach(function (file) {
+        list.forEach((file) => {
             file = path.resolve(dir, file);
-            fs.stat(file, function (err1, stat) {
+            fs.stat(file, (err1, stat) => {
                 if (stat && stat.isDirectory()) {
-                    walk(file, function (err2, res) {
+                    walk(file, (err2, res) => {
                         if (!res) {
                             return;
                         }
-                        results.push.apply(results, res);
+                        results.push(...res);
                         pending--;
                         if (!pending) {
                             done(null, results);
@@ -37,19 +37,17 @@ function walk(dir, done) {
         });
     });
 }
-var FileUtils = /** @class */ (function () {
-    function FileUtils() {
-    }
-    FileUtils.scanDirRecursive = function (dir) {
-        return new Promise(function (success, reject) {
-            fs.stat(dir, function (err0, stats) {
+export class FileUtils {
+    static scanDirRecursive(dir) {
+        return new Promise((success, reject) => {
+            fs.stat(dir, (err0, stats) => {
                 if (err0) {
                     return reject(err0);
                 }
                 if (!stats.isDirectory()) {
                     return reject(dir + " is not directory");
                 }
-                walk(dir, function (err, data) {
+                walk(dir, (err, data) => {
                     if (err) {
                         return reject(err);
                     }
@@ -57,37 +55,35 @@ var FileUtils = /** @class */ (function () {
                 });
             });
         });
-    };
-    FileUtils.loadFileJSON = function (url, callback) {
-        FileUtils.loadFile(url, function (err, data) { return callback(err, JSON.parse(data)); });
-    };
-    FileUtils.loadFile = function (url, callback, encoding) {
-        if (encoding === void 0) { encoding = "utf8"; }
+    }
+    static loadFileJSON(url, callback) {
+        FileUtils.loadFile(url, (err, data) => callback(err, JSON.parse(data)));
+    }
+    static loadFile(url, callback, encoding = "utf8") {
         fs.readFile(url, encoding, callback);
-    };
-    FileUtils.saveJsonFile = function (data, fileName) {
+    }
+    static saveJsonFile(data, fileName) {
         return FileUtils.saveFile(JSON.stringify(data), fileName);
-    };
-    FileUtils.saveFile = function (data, fileName) {
-        return new Promise(function (success, reject) {
-            fs.writeFile(fileName, data, function (err) {
+    }
+    static saveFile(data, fileName) {
+        return new Promise((success, reject) => {
+            fs.writeFile(fileName, data, (err) => {
                 err ? reject(err) : success("The file was saved!");
             });
         });
-    };
-    FileUtils.removeFile = function (fileName) {
-        return new Promise(function (success, reject) {
-            fs.unlink(fileName, function (err) {
+    }
+    static removeFile(fileName) {
+        return new Promise((success, reject) => {
+            fs.unlink(fileName, (err) => {
                 err ? reject(err) : success("The file was removed!");
             });
         });
-    };
-    FileUtils.checkExtension = function (name, extension) {
+    }
+    static checkExtension(name, extension) {
         if (name.endsWith(extension)) {
             return name;
         }
         return StringUtils.joinSingle(name, ".", extension);
-    };
-    return FileUtils;
-}());
-export { FileUtils };
+    }
+}
+//# sourceMappingURL=FileUtils.js.map

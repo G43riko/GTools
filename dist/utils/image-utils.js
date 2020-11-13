@@ -27,3 +27,4 @@ function createImage(callback, width, height) {
     return canvas;
 }
 exports.createImage = createImage;
+//# sourceMappingURL=image-utils.js.map

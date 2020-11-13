@@ -1,9 +1,6 @@
-import { FileTypes } from "../enums/file-types.enum";
-/**
- *  FileManager is class used for open and save files
- */
-var FileManager = /** @class */ (function () {
-    function FileManager() {
+import { FileTypes } from "gtools/enums";
+export class FileManager {
+    constructor() {
         this.input = document.createElement("input");
         this.input.setAttribute("type", "file");
         this.input.setAttribute("value", "files");
@@ -12,83 +9,53 @@ var FileManager = /** @class */ (function () {
         this.link.setAttribute("class", "hide");
         this.link.setAttribute("href", "");
     }
-    /**
-     * Save text content into file with specific extensions
-     *
-     * @param name file name
-     * @param text file content
-     * @param type file {@link FileTypes}. Defaul value is {@link FileTypes.TXT}
-     */
-    FileManager.prototype.saveFile = function (name, text, type) {
-        if (type === void 0) { type = FileTypes.TXT; }
-        this.link.href = URL.createObjectURL(new Blob([text], { type: type }));
+    saveFile(name, text, type = FileTypes.TXT) {
+        this.link.href = URL.createObjectURL(new Blob([text], { type }));
         this.link.download = name;
         this.link.click();
-    };
-    /**
-     * Save image into file
-     *
-     * @param name image name
-     * @param image image element or path to image
-     */
-    FileManager.prototype.saveImage = function (name, image) {
+    }
+    saveImage(name, image) {
         this.link.href = typeof image === "string" ? image : image.src;
         this.link.download = name;
         this.link.click();
-    };
-    /**
-     * Load image using system file picker
-     *
-     * @param  func loading callback
-     */
-    FileManager.prototype.loadImage = function (func) {
-        this.input.onchange = function (event) {
-            var files = event.target.files;
+    }
+    loadImage(func) {
+        this.input.onchange = (event) => {
+            const files = event.target.files;
             if (files.length <= 0) {
                 return;
             }
-            var reader = new FileReader();
-            reader.onload = function () {
-                var image = new Image();
+            const reader = new FileReader();
+            reader.onload = () => {
+                const image = new Image();
                 image.src = reader.result;
                 func(image, files[0]);
             };
             reader.readAsDataURL(files[0]);
         };
         this.input.click();
-    };
-    /**
-     * Load file using system file picker
-     *
-     * @param func loading callback
-     */
-    FileManager.prototype.loadFile = function (func) {
-        this.input.onchange = function (e) {
-            var reader = new FileReader();
-            var files = e.target.files;
+    }
+    loadFile(func) {
+        this.input.onchange = (e) => {
+            const reader = new FileReader();
+            const files = e.target.files;
             if (files.length > 0) {
-                reader.onload = function () { return func(reader.result, files); };
+                reader.onload = () => func(reader.result, files);
                 reader.readAsText(files[0]);
             }
         };
         this.input.click();
-    };
-    /**
-     * Load binary file using system file picker
-     *
-     * @param func loading callback
-     */
-    FileManager.prototype.loadBinaryFile = function (func) {
-        this.input.onchange = function (event) {
-            var reader = new FileReader();
-            var files = event.target.files;
+    }
+    loadBinaryFile(func) {
+        this.input.onchange = (event) => {
+            const reader = new FileReader();
+            const files = event.target.files;
             if (files.length > 0) {
-                reader.onload = function () { return func(reader.result, files[0].name); };
+                reader.onload = () => func(reader.result, files[0].name);
                 reader.readAsBinaryString(files[0]);
             }
         };
         this.input.click();
-    };
-    return FileManager;
-}());
-export { FileManager };
+    }
+}
+//# sourceMappingURL=file-manager.js.map

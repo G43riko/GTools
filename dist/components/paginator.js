@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Paginator = void 0;
 var gtools_config_1 = require("../config/gtools-config");
-var Paginator = /** @class */ (function () {
+var Paginator = (function () {
     function Paginator(allItems, itemsPerPage) {
         if (itemsPerPage === void 0) { itemsPerPage = gtools_config_1.GToolsConfig.PAGE_LIMIT; }
         this.allItems = allItems;
@@ -78,3 +78,4 @@ var Paginator = /** @class */ (function () {
     return Paginator;
 }());
 exports.Paginator = Paginator;
+//# sourceMappingURL=paginator.js.map

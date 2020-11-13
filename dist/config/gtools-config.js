@@ -13,17 +13,7 @@ var checkConfig = function () {
     }
     return config;
 };
-/**
- * @example
- * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
- *     public name = "";
- * }
- *
- * export const OwnConfig = new ClassOwnConfig();
- *
- * @see GToolsConfigInterface
- */
-var ClassGToolsConfig = /** @class */ (function () {
+var ClassGToolsConfig = (function () {
     function ClassGToolsConfig() {
     }
     Object.defineProperty(ClassGToolsConfig.prototype, "URL_API", {
@@ -62,3 +52,4 @@ function initConfig(appConfig) {
 }
 exports.initConfig = initConfig;
 exports.GToolsConfig = new ClassGToolsConfig();
+//# sourceMappingURL=gtools-config.js.map

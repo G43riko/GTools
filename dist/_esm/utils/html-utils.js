@@ -1,24 +1,16 @@
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 import { ALLOW_IMAGES_ONLY_WITH_ALLOWED_CORS } from "../constants";
 export function elementToString(element) {
-    var classes = Array.from(element.classList).join(".");
-    var id = element.id ? "#" + element.id : "";
-    var parent = element.parentElement ? elementToString(element.parentElement) + " > " : "";
+    const classes = Array.from(element.classList).join(".");
+    const id = element.id ? "#" + element.id : "";
+    const parent = element.parentElement ? elementToString(element.parentElement) + " > " : "";
     return parent + element.localName + id + (classes ? "." + classes : "");
 }
-export function dragElement(element, headerSelector) {
-    if (headerSelector === void 0) { headerSelector = ".header"; }
-    var pos1 = 0;
-    var pos2 = 0;
-    var pos3 = 0;
-    var pos4 = 0;
-    var elementDrag = function (e) {
+export function dragElement(element, headerSelector = ".header") {
+    let pos1 = 0;
+    let pos2 = 0;
+    let pos3 = 0;
+    let pos4 = 0;
+    const elementDrag = (e) => {
         e = e || window.event;
         e.preventDefault();
         pos1 = pos3 - e.clientX;
@@ -28,7 +20,7 @@ export function dragElement(element, headerSelector) {
         element.style.top = element.offsetTop - pos2 + "px";
         element.style.left = element.offsetLeft - pos1 + "px";
     };
-    var dragMouseDown = function (e) {
+    const dragMouseDown = (e) => {
         e = e || window.event;
         e.preventDefault();
         pos3 = e.clientX;
@@ -36,7 +28,7 @@ export function dragElement(element, headerSelector) {
         document.onpointerup = closeDragElement;
         document.onpointermove = elementDrag;
     };
-    var header = element.querySelector(headerSelector);
+    const header = element.querySelector(headerSelector);
     if (header) {
         header.addEventListener("pointerdown", dragMouseDown);
     }
@@ -48,7 +40,7 @@ export function dragElement(element, headerSelector) {
         document.onpointermove = null;
     }
     return {
-        clear: function () {
+        clear: () => {
             if (header) {
                 header.removeEventListener("pointerdown", dragMouseDown);
             }
@@ -59,18 +51,17 @@ export function dragElement(element, headerSelector) {
     };
 }
 export function CreateImage(options) {
-    var result = CreateElement("img", options);
+    const result = CreateElement("img", options);
     if (ALLOW_IMAGES_ONLY_WITH_ALLOWED_CORS) {
         result.crossOrigin = "Anonymous";
     }
     return result;
 }
-export function createCheckbox(label, onChange, checked) {
-    if (checked === void 0) { checked = false; }
-    var inputElement = CreateElement("input", {
-        checked: checked,
+export function createCheckbox(label, onChange, checked = false) {
+    const inputElement = CreateElement("input", {
+        checked,
         type: "checkbox",
-        onChange: function () { return onChange(inputElement.checked); },
+        onChange: () => onChange(inputElement.checked),
     });
     return CreateElement("label", {
         className: "checkbox-container",
@@ -78,11 +69,11 @@ export function createCheckbox(label, onChange, checked) {
     });
 }
 export function CreateElement(type, options) {
-    var result = document.createElement(type);
+    const result = document.createElement(type);
     if (!options) {
         return result;
     }
-    Object.entries(options).forEach(function (entry) {
+    Object.entries(options).forEach((entry) => {
         switch (entry[0]) {
             case "className":
                 result.className = entry[1];
@@ -97,13 +88,13 @@ export function CreateElement(type, options) {
                 result.checked = entry[1];
                 break;
             case "styles":
-                Object.entries(entry[1]).forEach(function (styleEntry) {
+                Object.entries(entry[1]).forEach((styleEntry) => {
                     result.style[styleEntry[0]] = styleEntry[1];
                 });
                 break;
             case "children":
                 if (Array.isArray(entry[1])) {
-                    result.append.apply(result, entry[1]);
+                    result.append(...entry[1]);
                 }
                 else {
                     result.append(entry[1]);
@@ -120,15 +111,14 @@ export function CreateElement(type, options) {
     });
     return result;
 }
-/**
- * TODO: element remains after deletion onMessage screen
- */
-export function chooseColorUsingDefaultInput() {
-    return new Promise(function (success) {
-        var input = CreateElement("input", {
+export function chooseColorUsingDefaultInput(color = "#000000", onInput) {
+    return new Promise((success) => {
+        const input = CreateElement("input", {
             type: "color",
             className: "hidden",
-            onChange: function () {
+            value: color,
+            onInput: typeof onInput === "function" ? () => onInput(input.value) : undefined,
+            onChange: () => {
                 success(input.value);
                 document.body.removeChild(input);
             },
@@ -137,23 +127,16 @@ export function chooseColorUsingDefaultInput() {
         input.click();
     });
 }
-export function getOrCreate(parent, type) {
-    var classes = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-        classes[_i - 2] = arguments[_i];
-    }
-    var result = parent.querySelector(type + "." + classes.join("."));
+export function getOrCreate(parent, type, ...classes) {
+    const result = parent.querySelector(`${type}.${classes.join(".")}`);
     if (result) {
         return result;
     }
     return CreateElement(type, { className: classes.join(" ") });
 }
-export function getOrCreateAndAppend(parent, type) {
-    var classes = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-        classes[_i - 2] = arguments[_i];
-    }
-    var result = getOrCreate.apply(void 0, __spreadArrays([parent, type], classes));
+export function getOrCreateAndAppend(parent, type, ...classes) {
+    const result = getOrCreate(parent, type, ...classes);
     parent.appendChild(result);
     return result;
 }
+//# sourceMappingURL=html-utils.js.map

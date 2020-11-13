@@ -1,8 +1,5 @@
-/*
- * TODO: This is deprecated. Move this to validators
- */
 import * as MiscValidators from "../validators/misc-validators";
-var timeFormats = {
+const timeFormats = {
     HH: "(2[0-3]|[01]\\d)",
     H: "(2[0-3]|[01]?\\d)",
     mm: "([0-5]\\d)",
@@ -34,24 +31,17 @@ export function isSnakeCase(text) {
     return new RegExp("^([a-z]*|[A-Z]*)(_[a-zA-Z]*)*$", "g").test(text);
 }
 export function isTimeFormat(text, format) {
-    for (var key in timeFormats) {
+    for (const key in timeFormats) {
         if (timeFormats.hasOwnProperty(key)) {
             format = format.replace(key, timeFormats[key]);
         }
     }
-    return new RegExp("^" + format + "$").test(text);
+    return new RegExp(`^${format}$`).test(text);
 }
-/**
- * @deprecated use {@link MiscValidators.isValidPhoneNumber} instead
- * @param num - num to validate
- */
 export function isValidPhoneNumber(num) {
     return MiscValidators.isValidPhoneNumber(num);
 }
-/**
- * @deprecated use {@link MiscValidators.isValidEmail} instead
- * @param email - email to validate
- */
 export function isValidEmail(email) {
     return MiscValidators.isValidEmail(email);
 }
+//# sourceMappingURL=string-checkers.js.map

@@ -1,5 +1,5 @@
-var config;
-var checkConfig = function () {
+let config;
+const checkConfig = () => {
     if (!config) {
         return {
             URL_API: "",
@@ -10,51 +10,22 @@ var checkConfig = function () {
     }
     return config;
 };
-/**
- * @example
- * class ClassOwnConfig extends ClassGToolsConfig implements OwnConfigInterface {
- *     public name = "";
- * }
- *
- * export const OwnConfig = new ClassOwnConfig();
- *
- * @see GToolsConfigInterface
- */
-var ClassGToolsConfig = /** @class */ (function () {
-    function ClassGToolsConfig() {
+export class ClassGToolsConfig {
+    get URL_API() {
+        return checkConfig().URL_API;
     }
-    Object.defineProperty(ClassGToolsConfig.prototype, "URL_API", {
-        get: function () {
-            return checkConfig().URL_API;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(ClassGToolsConfig.prototype, "PAGE_LIMIT", {
-        get: function () {
-            return checkConfig().PAGE_LIMIT;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(ClassGToolsConfig.prototype, "LANGUAGE", {
-        get: function () {
-            return checkConfig().LANGUAGE;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(ClassGToolsConfig.prototype, "VERSION", {
-        get: function () {
-            return checkConfig().VERSION;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return ClassGToolsConfig;
-}());
-export { ClassGToolsConfig };
+    get PAGE_LIMIT() {
+        return checkConfig().PAGE_LIMIT;
+    }
+    get LANGUAGE() {
+        return checkConfig().LANGUAGE;
+    }
+    get VERSION() {
+        return checkConfig().VERSION;
+    }
+}
 export function initConfig(appConfig) {
     config = appConfig;
 }
-export var GToolsConfig = new ClassGToolsConfig();
+export const GToolsConfig = new ClassGToolsConfig();
+//# sourceMappingURL=gtools-config.js.map

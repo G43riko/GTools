@@ -4,9 +4,8 @@ function removePredpona(char) {
     }
     return char;
 }
-// tslint:disable-next-line
 function removeCase(key) {
-    var len = key.length;
+    const len = key.length;
     if (len > 9 && key.endsWith("ejšieho")
         || key.endsWith("ejšiemu")) {
         return key.substring(0, len - 7);
@@ -44,29 +43,24 @@ function removeCase(key) {
             key.endsWith("ieme") ||
             key.endsWith("iete") ||
             key.endsWith("ejší") ||
-            // gabos
             key.endsWith("enie"))) {
         return key.substring(0, len - 4);
     }
     if (len > 5 &&
-        (key.endsWith("ich") || // From cz
+        (key.endsWith("ich") ||
             key.endsWith("eho") ||
             key.endsWith("ych") ||
-            key.endsWith("ích") || // From cz
-            key.endsWith("ého") || // From cz
-            key.endsWith("emi") || // From cz
-            key.endsWith("ému") || // From cz
+            key.endsWith("ích") ||
+            key.endsWith("ého") ||
+            key.endsWith("emi") ||
+            key.endsWith("ému") ||
             key.endsWith("emu") ||
-            /*key.endsWith("iho") ||*/ // Veľmi malý vplyv
-            key.endsWith("ími") || // From cz
+            key.endsWith("ími") ||
             key.endsWith("imi") ||
-            key.endsWith("ách") || // From cz
-            key.endsWith("ých") || // From cz
-            key.endsWith("ami") || // From cz
-            /*                        key.endsWith("ové") ||
-                                    key.endsWith("ový") ||
-                                    key.endsWith("oví") ||*/
-            key.endsWith("ovi") || // From cz
+            key.endsWith("ách") ||
+            key.endsWith("ých") ||
+            key.endsWith("ami") ||
+            key.endsWith("ovi") ||
             key.endsWith("ieť") ||
             key.endsWith("ieš") ||
             key.endsWith("ejú") ||
@@ -76,11 +70,10 @@ function removeCase(key) {
             key.endsWith("eme") ||
             key.endsWith("íte") ||
             key.endsWith("íme") ||
-            key.endsWith("ými") || // From cz
+            key.endsWith("ými") ||
             key.endsWith("ymi") ||
             key.endsWith("ach") ||
             key.endsWith("iam") ||
-            /*key.endsWith("atá") ||*/
             key.endsWith("iac") ||
             key.endsWith("ite") ||
             key.endsWith("ili") ||
@@ -91,14 +84,14 @@ function removeCase(key) {
         return key.substring(0, len - 3);
     }
     if (len > 4 &&
-        ( /*key.endsWith("ín") ||*/key.endsWith("ím") || // From cz
-            key.endsWith("ám") || // From cz
+        (key.endsWith("ím") ||
+            key.endsWith("ám") ||
             key.endsWith("am") ||
-            key.endsWith("us") || // From cz
-            key.endsWith("ým") || // From cz
+            key.endsWith("us") ||
+            key.endsWith("ým") ||
             key.endsWith("ym") ||
-            key.endsWith("mi") || // From cz
-            key.endsWith("ou") || // From cz
+            key.endsWith("mi") ||
+            key.endsWith("ou") ||
             key.endsWith("om") ||
             key.endsWith("ej") ||
             key.endsWith("ov") ||
@@ -134,14 +127,13 @@ function removeCase(key) {
             case "é":
             case "í":
             case "ý":
-                /*case "ô":*/
                 return key.substring(0, len - 1);
         }
     }
     return key;
 }
 function removePossessives(s) {
-    var len = s.length;
+    const len = s.length;
     if (len > 5 && s.endsWith("in") ||
         s.endsWith("ov")) {
         return s.substr(0, len - 2);
@@ -149,25 +141,20 @@ function removePossessives(s) {
     return s;
 }
 function normalize(s) {
-    var len = s.length;
-    // toto pravidlo znižuje FP ale zvyšuje FN
-    /*        if (len > 1 && s[len - 2] == "i" && s[len-1]=="c") {
-                s[len - 2] = s[len - 1]; // e* > *
-                return len - 1;
-            }*/
+    const len = s.length;
     switch (s[len - 1]) {
-        case "c": // [cč] -> k
+        case "c":
         case "č":
-            return s.replace(/./g, function (e, i) { return i === len - 1 ? e : "k"; });
-        case "ľ": // [ľ] -> l
-            return s.replace(/./g, function (e, i) { return i === len - 1 ? e : "l"; });
-        case "ň": // [ľ] -> l
-            return s.replace(/./g, function (e, i) { return i === len - 1 ? e : "n"; });
-        case "ť": // [ľ] -> l
-            return s.replace(/./g, function (e, i) { return i === len - 1 ? e : "t"; });
+            return s.replace(/./g, (e, i) => i === len - 1 ? e : "k");
+        case "ľ":
+            return s.replace(/./g, (e, i) => i === len - 1 ? e : "l");
+        case "ň":
+            return s.replace(/./g, (e, i) => i === len - 1 ? e : "n");
+        case "ť":
+            return s.replace(/./g, (e, i) => i === len - 1 ? e : "t");
     }
     if (len > 3 && s[len - 3] === "i" && (s[len - 2] === "e" || s[len - 2] === "a" || s[len - 2] === "u")) {
-        return s.replace(/./g, function (e, i) {
+        return s.replace(/./g, (e, i) => {
             if (i === len - 3) {
                 return s[len - 2];
             }
@@ -179,16 +166,13 @@ function normalize(s) {
     }
     return s;
 }
-var SlovakStemmer = /** @class */ (function () {
-    function SlovakStemmer() {
-    }
-    SlovakStemmer.steme = function (word) {
-        var result = removePossessives(removeCase(removePredpona(word)));
+export class SlovakStemmer {
+    static steme(word) {
+        const result = removePossessives(removeCase(removePredpona(word)));
         if (result.length) {
             return normalize(result);
         }
         return result;
-    };
-    return SlovakStemmer;
-}());
-export { SlovakStemmer };
+    }
+}
+//# sourceMappingURL=slovak-stemmer.js.map

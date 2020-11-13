@@ -1,55 +1,47 @@
+import { NullPointerException, WrongParameterException, WrongTypeException } from "gtools/errors";
 import { Checkers } from "../dom/deprecated/Checkers";
-import { NullPointerException } from "../errors/null-pointer.exception";
-import { WrongParameterException } from "../errors/wrong-parameter.exception";
-import { WrongTypeException } from "../errors/wrong-type.exception";
-var useRuntimeCheckers = true;
-var Runtime = /** @class */ (function () {
-    function Runtime() {
-    }
-    Runtime.useRuntimeExceptions = function (value) {
+let useRuntimeCheckers = true;
+export class Runtime {
+    static useRuntimeExceptions(value) {
         useRuntimeCheckers = value;
-    };
-    Runtime.notNull = function (obj) {
+    }
+    static notNull(obj) {
         if (useRuntimeCheckers && obj === null) {
             throw new NullPointerException();
         }
         return obj;
-    };
-    Runtime.exists = function (obj) {
+    }
+    static exists(obj) {
         if (useRuntimeCheckers && (typeof obj !== "boolean" && !obj)) {
             throw new Error("Variable ");
         }
         return obj;
-    };
-    Runtime.isArray = function (obj) {
+    }
+    static isArray(obj) {
         if (useRuntimeCheckers && !Checkers.isArray(obj)) {
             throw new WrongTypeException("Array");
         }
         return obj;
-    };
-    Runtime.isString = function (obj) {
+    }
+    static isString(obj) {
         if (useRuntimeCheckers && !Checkers.isString(obj)) {
             throw new WrongTypeException("string");
         }
         return obj;
-    };
-    Runtime.isNumber = function (obj) {
+    }
+    static isNumber(obj) {
         if (useRuntimeCheckers && !Checkers.isNumber(obj)) {
             throw new WrongTypeException("number");
         }
         return obj;
-    };
-    Runtime.isFunction = function (obj) {
+    }
+    static isFunction(obj) {
         if (useRuntimeCheckers && !Checkers.isFunction(obj)) {
             throw new WrongTypeException("function");
         }
         return obj;
-    };
-    // tslint:disable
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    Runtime.checkFunction = function (func, args, thisArg) {
-        if (args === void 0) { args = []; }
-        if (thisArg === void 0) { thisArg = this; }
+    }
+    static checkFunction(func, args = [], thisArg = this) {
         try {
             func.apply(thisArg, args);
             return true;
@@ -57,25 +49,24 @@ var Runtime = /** @class */ (function () {
         catch (e) {
             return false;
         }
-    };
-    Runtime.isBoolean = function (obj) {
+    }
+    static isBoolean(obj) {
         if (useRuntimeCheckers && !Checkers.isBoolean(obj)) {
             throw new WrongTypeException("boolean");
         }
         return obj;
-    };
-    Runtime.min = function (obj, value) {
+    }
+    static min(obj, value) {
         if (useRuntimeCheckers && obj <= value) {
-            throw new WrongParameterException("Number " + obj + "  must be greater than " + value);
+            throw new WrongParameterException(`Number ${obj}  must be greater than ${value}`);
         }
         return obj;
-    };
-    Runtime.max = function (obj, value) {
+    }
+    static max(obj, value) {
         if (useRuntimeCheckers && obj >= value) {
-            throw new WrongParameterException("Number " + obj + "  must be lower than " + value);
+            throw new WrongParameterException(`Number ${obj}  must be lower than ${value}`);
         }
         return obj;
-    };
-    return Runtime;
-}());
-export { Runtime };
+    }
+}
+//# sourceMappingURL=Runtime.js.map

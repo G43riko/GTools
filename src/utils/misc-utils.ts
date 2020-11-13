@@ -1,4 +1,4 @@
-import { StringMap } from "../types/string-map.interface";
+import { StringMap } from "gtools/types";
 
 /**
  * Method parse cookies

@@ -1,82 +1,78 @@
-// TODO: need to be checked if app is running in browser
-var localContext = document;
-var ElementBuilder = /** @class */ (function () {
-    function ElementBuilder(elementName, parent) {
+let localContext = document;
+export class ElementBuilder {
+    constructor(elementName, parent) {
         this.elementName = elementName;
         this.parent = parent;
         this.styles = {};
         this.attributes = {};
         this.contentBuffer = [];
     }
-    ElementBuilder.setContext = function (context) {
+    static setContext(context) {
         localContext = context;
-    };
-    ElementBuilder.start = function (elementName) {
+    }
+    static start(elementName) {
         return new ElementBuilder(elementName);
-    };
-    ElementBuilder.prototype.child = function (elementName) {
+    }
+    child(elementName) {
         return new ElementBuilder(elementName, this);
-    };
-    ElementBuilder.prototype.reset = function () {
+    }
+    reset() {
         this.styles = {};
         this.attributes = {};
         delete this.result;
         return this.clearContent();
-    };
-    ElementBuilder.prototype.style = function (key, value) {
+    }
+    style(key, value) {
         this.styles.key = value;
         return this;
-    };
-    ElementBuilder.prototype.attribute = function (key, value) {
+    }
+    attribute(key, value) {
         this.attributes.key = value;
         return this;
-    };
-    ElementBuilder.prototype.content = function (newContent) {
+    }
+    content(newContent) {
         return this.clearContent().addContent(newContent);
-    };
-    ElementBuilder.prototype.addContent = function (newContent) {
+    }
+    addContent(newContent) {
         this.contentBuffer.push(newContent);
         return this;
-    };
-    ElementBuilder.prototype.clearContent = function () {
+    }
+    clearContent() {
         this.contentBuffer.splice(0, this.contentBuffer.length);
         return this;
-    };
-    ElementBuilder.prototype.finish = function () {
+    }
+    finish() {
         if (!this.parent) {
             throw new Error("Parent must be set");
         }
         return this.parent.addContent(this.build());
-    };
-    ElementBuilder.prototype.build = function () {
-        var _this = this;
+    }
+    build() {
         this.result = localContext.createElement(this.elementName);
-        this.contentBuffer.forEach(function (content) {
+        this.contentBuffer.forEach((content) => {
             if (typeof content === "string") {
-                _this.result.innerHTML += content;
+                this.result.innerHTML += content;
             }
             else {
-                _this.result.appendChild(content);
+                this.result.appendChild(content);
             }
         });
         return this.result;
-    };
-    ElementBuilder.prototype.id = function (id) {
+    }
+    id(id) {
         return this.attribute("id", id);
-    };
-    ElementBuilder.prototype.clazz = function (clazz) {
+    }
+    clazz(clazz) {
         return this.attribute("class", clazz);
-    };
-    ElementBuilder.prototype.buildAndAppendTo = function (parent) {
+    }
+    buildAndAppendTo(parent) {
         parent.appendChild(this.build());
         return this;
-    };
-    ElementBuilder.prototype.get = function () {
+    }
+    get() {
         return this.result;
-    };
-    return ElementBuilder;
-}());
-export { ElementBuilder };
+    }
+}
 ElementBuilder.start("div").attribute("class", "main-class").attribute("id", "main-id").build();
 ElementBuilder.start("div").clazz("main-class").id("main-id").build();
 ElementBuilder.start("table")
@@ -87,3 +83,4 @@ ElementBuilder.start("table")
     .finish()
     .finish()
     .buildAndAppendTo(document.body);
+//# sourceMappingURL=element-builder.js.map

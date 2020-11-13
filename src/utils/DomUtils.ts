@@ -1,9 +1,8 @@
+import { NotBrowserException } from "gtools/errors";
+import { SimpleVector2 } from "gtools/math";
+import { Size, StringMap } from "gtools/types";
 import { Checkers } from "../dom/deprecated/Checkers";
 import { DomGet } from "../dom/dom-get";
-import { NotBrowserException } from "../errors/not-browser.exception";
-import { Point } from "../types/point.interaface";
-import { Size } from "../types/size.interaface";
-import { StringMap } from "../types/string-map.interface";
 
 export interface ObjectCreatorParams {
     name: string;
@@ -202,7 +201,7 @@ export class DomUtils {
      * @param element - input element
      * @returns position of element
      */
-    public static position(element: HTMLElement): Point {
+    public static position(element: HTMLElement): SimpleVector2 {
         let top  = 0;
         let left = 0;
         do {

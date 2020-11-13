@@ -8,12 +8,12 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Color = void 0;
-var color_utils_1 = require("../utils/color-utils");
+var utils_1 = require("gtools/utils");
 function checkColorValue(value) {
     console.assert(value >= 0);
     console.assert(value <= 255);
 }
-var Color = /** @class */ (function () {
+var Color = (function () {
     function Color(red, green, blue, alpha) {
         if (alpha === void 0) { alpha = 255; }
         this.red = red;
@@ -48,24 +48,24 @@ var Color = /** @class */ (function () {
     });
     Object.defineProperty(Color.prototype, "hex", {
         get: function () {
-            return color_utils_1.rgb2hex(Math.floor(this.red), Math.floor(this.green), Math.floor(this.blue));
+            return utils_1.rgb2hex(Math.floor(this.red), Math.floor(this.green), Math.floor(this.blue));
         },
         enumerable: false,
         configurable: true
     });
     Object.defineProperty(Color.prototype, "int", {
         get: function () {
-            return color_utils_1.rgb2int(this.red, this.green, this.blue);
+            return utils_1.rgb2int(this.red, this.green, this.blue);
         },
         enumerable: false,
         configurable: true
     });
     Color.fromHex = function (color) {
-        var value = color_utils_1.hex2rgb(color);
+        var value = utils_1.hex2rgb(color);
         return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
     };
     Color.fromInt = function (color) {
-        var value = color_utils_1.int2rgb(color);
+        var value = utils_1.int2rgb(color);
         return new (Color.bind.apply(Color, __spreadArrays([void 0], value)))();
     };
     Color.prototype.normalized = function () {
@@ -83,3 +83,4 @@ var Color = /** @class */ (function () {
     return Color;
 }());
 exports.Color = Color;
+//# sourceMappingURL=color.model.js.map

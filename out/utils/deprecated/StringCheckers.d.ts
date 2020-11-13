@@ -1,7 +1,5 @@
 import * as Checkers from "../string-checkers";
-/**
- * @deprecated use {@link Checkers} instead
- */
+
 export declare class StringCheckers {
     static isCamelCase: typeof Checkers.isCamelCase;
     static isUpperCamelCase: typeof Checkers.isUpperCamelCase;

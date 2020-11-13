@@ -17,7 +17,7 @@ exports.Singleton = void 0;
 var instances = {};
 function Singleton(constructor) {
     var className = constructor.name;
-    return /** @class */ (function (_super) {
+    return (function (_super) {
         __extends(class_1, _super);
         function class_1() {
             var args = [];
@@ -35,3 +35,4 @@ function Singleton(constructor) {
     }(constructor));
 }
 exports.Singleton = Singleton;
+//# sourceMappingURL=singleton.decorator.js.map

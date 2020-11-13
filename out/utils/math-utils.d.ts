@@ -6,19 +6,7 @@ export declare function binomialCoefficient(n: number, k: number): number;
 export declare function lerp(a: number, b: number, val: number): number;
 export declare function log2i(value: number): number;
 export declare function lamp(min: number, max: number, scale: number): number;
-/**
- * @deprecated use {@link randomIntBetween} instead;
- *
- * @param min - min value
- * @param max - max value
- */
 export declare function randomInt(min: number, max: number): number;
-/**
- * @deprecated use {@link randomFloatBetween} instead;
- *
- * @param min - min value
- * @param max - max value
- */
 export declare function random(min: number, max: number): number;
 export declare function average(args: number[]): number;
 export declare function isPowerOf2(value: number): boolean;

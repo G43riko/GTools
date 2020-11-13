@@ -28,3 +28,4 @@ function getClosestPointOnLine(sx1, sy1, sz1, sx2, sy2, sz2, px, py, pz) {
     };
 }
 exports.getClosestPointOnLine = getClosestPointOnLine;
+//# sourceMappingURL=closest-3d.js.map

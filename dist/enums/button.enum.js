@@ -7,3 +7,4 @@ var Button;
     Button[Button["RIGHT"] = 1] = "RIGHT";
     Button[Button["MIDDLE"] = 2] = "MIDDLE";
 })(Button = exports.Button || (exports.Button = {}));
+//# sourceMappingURL=button.enum.js.map

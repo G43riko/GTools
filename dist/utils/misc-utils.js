@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.map = exports.parse = exports.serialize = exports.objectToQueryParams = exports.parseParams = exports.getCookie = exports.setCookie = exports.parseJSONWithComments = exports.isIn = exports.parseCookies = void 0;
-/**
- * Method parse cookies
- * @param cookies - cooke to parse
- */
 function parseCookies(cookies) {
     var list = {};
     var data = cookies ? cookies.toString()
@@ -19,11 +15,6 @@ function parseCookies(cookies) {
     return list;
 }
 exports.parseCookies = parseCookies;
-/**
- * Method check if object is in array
- * @param obj - searched object
- * @param data - array of objects to be compare with searched object
- */
 function isIn(obj) {
     var data = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -40,16 +31,10 @@ function isIn(obj) {
     return false;
 }
 exports.isIn = isIn;
-/**
- * Method parse JSON content with comments
- * @param content - stringify JSON
- */
 function parseJSONWithComments(content) {
     return JSON.parse(content.replace(/\/\/.*\n/g, ""));
 }
 exports.parseJSONWithComments = parseJSONWithComments;
-// TODO: should append cookies or add option to appending instead of replace cookies
-// TODO: expires must be only in the end of cookies
 function setCookie(name, value, days) {
     var d = new Date();
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -99,7 +84,6 @@ function parseParams(query, separator, delimiter) {
 }
 exports.parseParams = parseParams;
 function objectToQueryParams(obj) {
-    // TODO: add url prefix
     var result = "";
     for (var objKey in obj) {
         if (obj.hasOwnProperty(objKey)) {
@@ -127,7 +111,6 @@ function parse(obj) {
             continue;
         }
         try {
-            // tslint:disable-next-line no-eval
             eval("result[i] = " + result[i]);
         }
         catch (e) {
@@ -159,3 +142,4 @@ function map(source, data) {
     return destination;
 }
 exports.map = map;
+//# sourceMappingURL=misc-utils.js.map

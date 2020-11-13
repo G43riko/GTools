@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WrongParameterException = void 0;
-var WrongParameterException = /** @class */ (function (_super) {
+var WrongParameterException = (function (_super) {
     __extends(WrongParameterException, _super);
     function WrongParameterException(text) {
         var _this = _super.call(this, "Wrong parameter exception at line" + (typeof text === "string" ? ": " + text : "!")) || this;
@@ -24,3 +24,4 @@ var WrongParameterException = /** @class */ (function (_super) {
     return WrongParameterException;
 }(Error));
 exports.WrongParameterException = WrongParameterException;
+//# sourceMappingURL=wrong-parameter.exception.js.map

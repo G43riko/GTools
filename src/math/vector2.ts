@@ -1,3 +1,4 @@
+import { Range } from "gtools/models";
 import { SimpleVector2 } from "./simple-vector2";
 
 export class Vector2 implements SimpleVector2 {
@@ -67,7 +68,33 @@ export class Vector2 implements SimpleVector2 {
             px - obsX,
         ) <= cutOff;
     }
+    public static createOutlineRange(points: readonly SimpleVector2[]): Range<SimpleVector2> {
+        const min = {
+            x: Infinity,
+            y: Infinity,
+        };
+        const max = {
+            x: -Infinity,
+            y: -Infinity,
+        };
 
+        points.forEach((p) => {
+            if (p.x < min.x) {
+                min.x = p.x;
+            }
+            if (p.y < min.y) {
+                min.y = p.y;
+            }
+            if (p.x > max.x) {
+                max.x = p.x;
+            }
+            if (p.y > max.y) {
+                max.y = p.y;
+            }
+        });
+
+        return new Range(min, max);
+    }
     public static angleBetweenPoints(obsX: number, obsY: number, px1: number, py1: number, px2: number, py2: number): number {
         return Math.atan2(
             py1 - obsY,

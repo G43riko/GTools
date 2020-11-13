@@ -21,10 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NetUtils = void 0;
 var Server = __importStar(require("../net-server-utils"));
-/**
- * @deprecated use {@link Server} instead
- */
-var NetUtils = /** @class */ (function () {
+var NetUtils = (function () {
     function NetUtils() {
     }
     NetUtils.downloadFile = function (url, fileName) {
@@ -39,3 +36,4 @@ var NetUtils = /** @class */ (function () {
     return NetUtils;
 }());
 exports.NetUtils = NetUtils;
+//# sourceMappingURL=NetUtils.js.map

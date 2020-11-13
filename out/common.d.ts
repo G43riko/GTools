@@ -13,7 +13,6 @@ export { initConfig } from "./config/gtools-config";
 export * from "./types/key-value.interface";
 export * from "./types/string-map.interface";
 export * from "./types/size.interaface";
-export * from "./types/point.interaface";
 export * from "./tests/abstract-database.fixture";
 export * from "./tests/abstract.fixture";
 export * from "./tests/abstract.mapper";

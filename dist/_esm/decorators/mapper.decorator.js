@@ -1,29 +1,28 @@
-export function Mapper(params, prefix) {
-    if (params === void 0) { params = {}; }
-    if (prefix === void 0) { prefix = "_"; }
-    return function (target, key) {
+export function Mapper(params = {}, prefix = "_") {
+    return (target, key) => {
         if (!delete target[key]) {
             return;
         }
-        var descriptor = {
+        const descriptor = {
             enumerable: true,
             configurable: true,
         };
-        var newName = prefix + key;
+        const newName = prefix + key;
         if (params) {
             if (typeof params.onGet === "function") {
-                descriptor.get = function () { return params.onGet && params.onGet(target[newName]); };
+                descriptor.get = () => params.onGet && params.onGet(target[newName]);
             }
             else {
-                descriptor.get = function () { return target[newName]; };
+                descriptor.get = () => target[newName];
             }
             if (typeof params.onSet === "function") {
-                descriptor.set = function (newVal) { return target[newName] = params.onSet && params.onSet(newVal); };
+                descriptor.set = (newVal) => target[newName] = params.onSet && params.onSet(newVal);
             }
             else {
-                descriptor.set = function (value) { return target[newName] = value; };
+                descriptor.set = (value) => target[newName] = value;
             }
         }
         Object.defineProperty(target, key, descriptor);
     };
 }
+//# sourceMappingURL=mapper.decorator.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"gender.model.d.ts","sourceRoot":"","sources":["../../../src/models/gender.model.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,oBAAY,UAAU,GAAG,KAAK,GAAG,OAAO,GAAG,EAAE,CAAC;AAK9C,oBAAY,MAAM;IACd,GAAG,QAAU;IACb,KAAK,UAAU;CAClB;AAED,wBAAgB,WAAW,CAAC,MAAM,EAAE,MAAM,GAAG,MAAM,GAAG,IAAI,CAczD;AAED;;;GAGG;AACH,qBAAa,WAAW;IACpB;;;;;OAKG;IACH,OAAc,KAAK,qBAAe;CACrC"}

@@ -128,14 +128,14 @@ function CreateElement(type, options) {
     return result;
 }
 exports.CreateElement = CreateElement;
-/**
- * TODO: element remains after deletion onMessage screen
- */
-function chooseColorUsingDefaultInput() {
+function chooseColorUsingDefaultInput(color, onInput) {
+    if (color === void 0) { color = "#000000"; }
     return new Promise(function (success) {
         var input = CreateElement("input", {
             type: "color",
             className: "hidden",
+            value: color,
+            onInput: typeof onInput === "function" ? function () { return onInput(input.value); } : undefined,
             onChange: function () {
                 success(input.value);
                 document.body.removeChild(input);
@@ -168,3 +168,4 @@ function getOrCreateAndAppend(parent, type) {
     return result;
 }
 exports.getOrCreateAndAppend = getOrCreateAndAppend;
+//# sourceMappingURL=html-utils.js.map

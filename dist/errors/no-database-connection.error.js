@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NoDatabaseConnectionError = void 0;
-var NoDatabaseConnectionError = /** @class */ (function (_super) {
+var NoDatabaseConnectionError = (function (_super) {
     __extends(NoDatabaseConnectionError, _super);
     function NoDatabaseConnectionError() {
         return _super.call(this, "Database connection is no established") || this;
@@ -22,3 +22,4 @@ var NoDatabaseConnectionError = /** @class */ (function (_super) {
     return NoDatabaseConnectionError;
 }(Error));
 exports.NoDatabaseConnectionError = NoDatabaseConnectionError;
+//# sourceMappingURL=no-database-connection.error.js.map

@@ -26,23 +26,6 @@ var accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïî�
 var normalLowerCharacters = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 var accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
 var normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
-/* TODO:
-    static underscore(word) {
-    }
-    static humanize(word) {
-    }
-    static dasherize(word) {
-    }
-    //dashCase = a-b-c-d-e
-    //dotCase a.c.d.v.s.d
-    //pascalCase = FooBarBaz
-    //pathCase = a/b/c/d
-    //snakeCase = a_b_c_d_
-    static isUpper(word) {
-    }
-    static isLower(word) {
-    }
-*/
 function removeAccentedCharacters(word) {
     if (!word || !word.replace) {
         return word;
@@ -104,9 +87,6 @@ function capitalize(text) {
     return text.toLowerCase().replace(/^./, function (char) { return char.toUpperCase(); });
 }
 exports.capitalize = capitalize;
-/**
- * @deprecated use {@link capitalize} instead
- */
 function toCapital(text) {
     return text.replace(/^./, function (e) { return e.toUpperCase(); });
 }
@@ -124,11 +104,6 @@ function count(text, key) {
     return (text.match(new RegExp(key, "g")) || []).length;
 }
 exports.count = count;
-/**
- * @param text - text need to be repeat
- * @param numberOfRepetitions - number of iterations
- * @deprecated - use {@link String#repeat}
- */
 function repeat(text, numberOfRepetitions) {
     return new Array(numberOfRepetitions + 1).join(text);
 }
@@ -137,7 +112,6 @@ function removeAll(text, words) {
     return text.replace(new RegExp("(" + words.join("|") + ")", "g"), "");
 }
 exports.removeAll = removeAll;
-// TODO: need to be fixed
 function template(text, values, start, end) {
     if (start === void 0) { start = "{{"; }
     if (end === void 0) { end = "}}"; }
@@ -220,13 +194,6 @@ function joinSingle(prefix, divider, postfix) {
     return prefix + divider + postfix;
 }
 exports.joinSingle = joinSingle;
-/**
- * @deprecated use {@link join} instead
- * @param data - data to join
- * @param delimiter - delimiter
- * @param prefix - prefix
- * @param postfix - postfix
- */
 function joinString(data, delimiter, prefix, postfix) {
     if (delimiter === void 0) { delimiter = " "; }
     if (prefix === void 0) { prefix = ""; }
@@ -270,3 +237,4 @@ function replaceForAll(content, values, placeHolder) {
     return values.map(function (value) { return content.replace(placeHolder, value); });
 }
 exports.replaceForAll = replaceForAll;
+//# sourceMappingURL=string-utils.js.map

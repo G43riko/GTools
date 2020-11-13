@@ -1,7 +1,5 @@
+import { NullPointerException, WrongParameterException, WrongTypeException } from "gtools/errors";
 import { Checkers } from "../dom/deprecated/Checkers";
-import { NullPointerException } from "../errors/null-pointer.exception";
-import { WrongParameterException } from "../errors/wrong-parameter.exception";
-import { WrongTypeException } from "../errors/wrong-type.exception";
 
 let useRuntimeCheckers = true;
 

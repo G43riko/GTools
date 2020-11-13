@@ -1,4 +1,3 @@
-/**************************** WEB ****************************/
 export { ArrayUtils as arrays } from "./utils/deprecated/ArrayUtils";
 export { MathUtils as math } from "./utils/deprecated/MathUtils";
 export { DomUtils as dom } from "./utils/DomUtils";

@@ -17,3 +17,4 @@ __exportStar(require("./collisions-3d"), exports);
 __exportStar(require("./distances-2d"), exports);
 __exportStar(require("./distances-3d"), exports);
 __exportStar(require("./intersects-3d"), exports);
+//# sourceMappingURL=index.js.map

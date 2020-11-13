@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CanvasUtils = void 0;
 var canvas_manager_1 = require("./canvas-manager");
-var Checkers_1 = require("./deprecated/Checkers");
 function setShadow(context, config) {
     if (config) {
         canvas_manager_1.CanvasManager.setShadow(context, config.x, config.y, config.color, config.blur);
@@ -79,22 +78,16 @@ function remakePosAndSize(def, obj) {
             return;
         }
         var value = res[attrName];
-        if (Checkers_1.Checkers.isNumber(value)) {
-            // @ts-ignore
+        if (!isNaN(value)) {
             res[partA] = value;
-            // @ts-ignore
             res[partB] = value;
         }
         else if (Array.isArray(value)) {
-            // @ts-ignore
             res[partA] = value[0];
-            // @ts-ignore
             res[partB] = value[1];
         }
         else {
-            // @ts-ignore
             res[partA] = value;
-            // @ts-ignore
             res[partB] = value;
         }
     };
@@ -118,7 +111,7 @@ function checkPosAndSize(obj, name) {
     }
     return initDef(obj);
 }
-var CanvasUtils = /** @class */ (function () {
+var CanvasUtils = (function () {
     function CanvasUtils() {
     }
     CanvasUtils.doArc = function (obj) {
@@ -135,7 +128,7 @@ var CanvasUtils = /** @class */ (function () {
     CanvasUtils.doRect = function (obj) {
         var def = checkPosAndSize(obj, "Rect");
         if (typeof obj.radius !== "undefined") {
-            if (Checkers_1.Checkers.isNumber(obj.radius)) {
+            if (!isNaN(obj.radius)) {
                 obj.radius = {
                     bl: obj.radius,
                     br: obj.radius,
@@ -168,3 +161,4 @@ var CanvasUtils = /** @class */ (function () {
     return CanvasUtils;
 }());
 exports.CanvasUtils = CanvasUtils;
+//# sourceMappingURL=canvas-utils.js.map

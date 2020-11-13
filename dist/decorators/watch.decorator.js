@@ -22,3 +22,4 @@ function Watch(onSet, options) {
     };
 }
 exports.Watch = Watch;
+//# sourceMappingURL=watch.decorator.js.map

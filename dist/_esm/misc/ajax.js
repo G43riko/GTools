@@ -1,13 +1,11 @@
-var AjaxWrapper = /** @class */ (function () {
-    function AjaxWrapper(ajaxHandler) {
+class AjaxWrapper {
+    constructor(ajaxHandler) {
         this.ajaxHandler = ajaxHandler;
     }
-    return AjaxWrapper;
-}());
-export function ajax(_a) {
-    var _b = _a.method, method = _b === void 0 ? "GET" : _b, url = _a.url, onResponse = _a.onResponse, content = _a.content, _c = _a.headers, headers = _c === void 0 ? {} : _c;
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
+}
+export function ajax({ method = "GET", url, onResponse, content, headers = {}, }) {
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = () => {
         if (!(request.readyState === 4 && (request.status === 200 || request.status === 201))) {
             return;
         }
@@ -16,7 +14,8 @@ export function ajax(_a) {
         }
     };
     request.open(method, url, true);
-    Object.entries(headers).forEach(function (entry) { return request.setRequestHeader(entry[0], entry[1]); });
+    Object.entries(headers).forEach((entry) => request.setRequestHeader(entry[0], entry[1]));
     request.send(content);
     return new AjaxWrapper(request);
 }
+//# sourceMappingURL=ajax.js.map

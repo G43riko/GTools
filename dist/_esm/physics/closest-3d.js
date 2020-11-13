@@ -1,8 +1,8 @@
 export function getClosestPointOnLine(sx1, sy1, sz1, sx2, sy2, sz2, px, py, pz) {
-    var xDelta = sx2 - sx1;
-    var yDelta = sy2 - sy1;
-    var zDelta = sz2 - sz1;
-    var u = ((px - sx1) * xDelta + (py - sy1) * yDelta + (pz - sz1) * zDelta);
+    const xDelta = sx2 - sx1;
+    const yDelta = sy2 - sy1;
+    const zDelta = sz2 - sz1;
+    let u = ((px - sx1) * xDelta + (py - sy1) * yDelta + (pz - sz1) * zDelta);
     u /= (xDelta * xDelta + yDelta * yDelta + zDelta * zDelta);
     if (u < 0) {
         return {
@@ -24,3 +24,4 @@ export function getClosestPointOnLine(sx1, sy1, sz1, sx2, sy2, sz2, px, py, pz) 
         z: sz1 + u * zDelta,
     };
 }
+//# sourceMappingURL=closest-3d.js.map

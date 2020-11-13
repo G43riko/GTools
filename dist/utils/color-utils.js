@@ -102,3 +102,4 @@ function parseColor(color) {
     throw new Error("Cannot parse color: " + color);
 }
 exports.parseColor = parseColor;
+//# sourceMappingURL=color-utils.js.map

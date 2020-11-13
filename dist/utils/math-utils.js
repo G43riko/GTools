@@ -62,7 +62,6 @@ function lerp(a, b, val) {
 exports.lerp = lerp;
 function log2i(value) {
     var r = 0;
-    // tslint:disable-next-line
     while ((value >>= 1) > 0) {
         r++;
     }
@@ -73,22 +72,10 @@ function lamp(min, max, scale) {
     return clamp((max - min) * scale + min, min, max);
 }
 exports.lamp = lamp;
-/**
- * @deprecated use {@link randomIntBetween} instead;
- *
- * @param min - min value
- * @param max - max value
- */
 function randomInt(min, max) {
     return Random.randomIntBetween(min, max);
 }
 exports.randomInt = randomInt;
-/**
- * @deprecated use {@link randomFloatBetween} instead;
- *
- * @param min - min value
- * @param max - max value
- */
 function random(min, max) {
     return Random.randomFloatBetween(min, max);
 }
@@ -115,3 +102,4 @@ function toDegrees(radians) {
     return radians * ratio;
 }
 exports.toDegrees = toDegrees;
+//# sourceMappingURL=math-utils.js.map

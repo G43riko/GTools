@@ -1,6 +1,6 @@
 import { CreateElement, CreateImage } from "./html-utils";
 export function serializeImage(image) {
-    var canvas = CreateElement("canvas", {
+    const canvas = CreateElement("canvas", {
         width: image.width,
         height: image.height,
     });
@@ -12,12 +12,12 @@ export function deserializeImage(image) {
         src: image,
     });
 }
-export function createImage(callback, width, height) {
-    if (height === void 0) { height = width; }
-    var canvas = CreateElement("canvas", {
-        width: width,
-        height: height,
+export function createImage(callback, width, height = width) {
+    const canvas = CreateElement("canvas", {
+        width,
+        height,
     });
     callback(canvas.getContext("2d"));
     return canvas;
 }
+//# sourceMappingURL=image-utils.js.map

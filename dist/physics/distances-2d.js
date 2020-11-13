@@ -61,3 +61,4 @@ function pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY) {
     return dx * dx + dy * dy;
 }
 exports.pointLineSqr2dDistance = pointLineSqr2dDistance;
+//# sourceMappingURL=distances-2d.js.map

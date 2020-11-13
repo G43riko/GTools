@@ -21,11 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Checkers = void 0;
 var MiscValidators = __importStar(require("../../validators/misc-validators"));
-/**
- * @deprecated use {@link MiscValidators} instead
- * TODO: move this to validators
- */
-var Checkers = /** @class */ (function () {
+var Checkers = (function () {
     function Checkers() {
     }
     Checkers.isFunction = MiscValidators.isFunction;
@@ -42,3 +38,4 @@ var Checkers = /** @class */ (function () {
     return Checkers;
 }());
 exports.Checkers = Checkers;
+//# sourceMappingURL=Checkers.js.map

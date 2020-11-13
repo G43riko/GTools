@@ -5,3 +5,4 @@ function coerceBooleanProperty(value) {
     return value !== null && "" + value !== "false";
 }
 exports.coerceBooleanProperty = coerceBooleanProperty;
+//# sourceMappingURL=coerce-util.js.map

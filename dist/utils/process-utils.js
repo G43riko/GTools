@@ -14,7 +14,6 @@ function isDev() {
 }
 exports.isDev = isDev;
 function setEnvironment(type) {
-    process.env.NODE_ENV = type;
 }
 exports.setEnvironment = setEnvironment;
 function getProcessData() {
@@ -33,3 +32,4 @@ function setDefaultEnvironment() {
     }
 }
 exports.setDefaultEnvironment = setDefaultEnvironment;
+//# sourceMappingURL=process-utils.js.map

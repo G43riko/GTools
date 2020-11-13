@@ -1,4 +1,4 @@
-import { ObjectEntry } from "../types/object-entry.interface";
+import { ObjectEntry } from "gtools/types";
 
 export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))

@@ -1,4 +1,4 @@
-import { PropertyDecorator } from "../types/property-decorator.type";
+import { PropertyDecorator } from "gtools/types";
 
 export interface WatchOptions {
     enumerable?: boolean;

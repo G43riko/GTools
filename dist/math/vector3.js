@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vector3 = void 0;
 var vector2_1 = require("./vector2");
-var Vector3 = /** @class */ (function () {
+var Vector3 = (function () {
     function Vector3(x, y, z) {
         if (x === void 0) { x = 0; }
         if (y === void 0) { y = 0; }
@@ -90,9 +90,13 @@ var Vector3 = /** @class */ (function () {
         vec.z /= length;
         return vec;
     };
-    Vector3.fromArray = function (value) {
-        return new Vector3(value[0], value[1], value[2]);
-    };
+    Object.defineProperty(Vector3.prototype, "xy", {
+        get: function () {
+            return new vector2_1.Vector2(this.x, this.y);
+        },
+        enumerable: false,
+        configurable: true
+    });
     Vector3.from = function (valA, valB, valC) {
         if (valB === void 0) { valB = valA; }
         if (valC === void 0) { valC = valA; }
@@ -166,13 +170,6 @@ var Vector3 = /** @class */ (function () {
         this.z = vec.z;
         return this;
     };
-    Object.defineProperty(Vector3.prototype, "xy", {
-        get: function () {
-            return new vector2_1.Vector2(this.x, this.y);
-        },
-        enumerable: false,
-        configurable: true
-    });
     Object.defineProperty(Vector3.prototype, "yx", {
         get: function () {
             return new vector2_1.Vector2(this.y, this.x);
@@ -208,6 +205,10 @@ var Vector3 = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Vector3.fromArray = function (value) {
+        return new Vector3(value[0], value[1], value[2]);
+    };
     return Vector3;
 }());
 exports.Vector3 = Vector3;
+//# sourceMappingURL=vector3.js.map

@@ -17,7 +17,7 @@ exports.NotBrowserException = void 0;
 function getText(text) {
     return text ? ": " + text : "";
 }
-var NotBrowserException = /** @class */ (function (_super) {
+var NotBrowserException = (function (_super) {
     __extends(NotBrowserException, _super);
     function NotBrowserException(text) {
         var _this = _super.call(this, "App is not running in browser" + getText(text) + "!") || this;
@@ -27,3 +27,4 @@ var NotBrowserException = /** @class */ (function (_super) {
     return NotBrowserException;
 }(Error));
 exports.NotBrowserException = NotBrowserException;
+//# sourceMappingURL=not-browser.exception.js.map

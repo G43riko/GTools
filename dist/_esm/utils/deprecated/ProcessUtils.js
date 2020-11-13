@@ -1,22 +1,16 @@
 import * as Process from "../process-utils";
-/**
- * @deprecated use {@link Process} instead
- */
-var ProcessUtils = /** @class */ (function () {
-    function ProcessUtils() {
-    }
-    ProcessUtils.setEnvironment = function (type) {
+export class ProcessUtils {
+    static setEnvironment(type) {
         return Process.setEnvironment(type);
-    };
-    ProcessUtils.getProcessData = function () {
+    }
+    static getProcessData() {
         return Process.getProcessData();
-    };
-    ProcessUtils.setDefaultEnvironment = function () {
+    }
+    static setDefaultEnvironment() {
         return Process.setDefaultEnvironment();
-    };
-    ProcessUtils.isTest = Process.isTest;
-    ProcessUtils.isProd = Process.isProd;
-    ProcessUtils.isDev = Process.isDev;
-    return ProcessUtils;
-}());
-export { ProcessUtils };
+    }
+}
+ProcessUtils.isTest = Process.isTest;
+ProcessUtils.isProd = Process.isProd;
+ProcessUtils.isDev = Process.isDev;
+//# sourceMappingURL=ProcessUtils.js.map

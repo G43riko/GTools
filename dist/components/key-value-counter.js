@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KeyValueCounter = void 0;
-var KeyValueCounter = /** @class */ (function () {
+var KeyValueCounter = (function () {
     function KeyValueCounter() {
         this.data = {};
         this.results = [];
@@ -51,3 +51,4 @@ var KeyValueCounter = /** @class */ (function () {
     return KeyValueCounter;
 }());
 exports.KeyValueCounter = KeyValueCounter;
+//# sourceMappingURL=key-value-counter.js.map

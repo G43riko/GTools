@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NumberCounter = void 0;
-var NumberCounter = /** @class */ (function () {
+var NumberCounter = (function () {
     function NumberCounter() {
         this.min = Infinity;
         this.max = -Infinity;
@@ -32,3 +32,4 @@ var NumberCounter = /** @class */ (function () {
     return NumberCounter;
 }());
 exports.NumberCounter = NumberCounter;
+//# sourceMappingURL=number-counter.js.map

@@ -1,5 +1,4 @@
 import { CanvasManager } from "./canvas-manager";
-import { Checkers } from "./deprecated/Checkers";
 function setShadow(context, config) {
     if (config) {
         CanvasManager.setShadow(context, config.x, config.y, config.color, config.blur);
@@ -70,28 +69,22 @@ function initDef(obj) {
     };
 }
 function remakePosAndSize(def, obj) {
-    var res = $.extend(def, obj);
-    var checkAttribute = function (attrName, partA, partB) {
+    const res = $.extend(def, obj);
+    const checkAttribute = (attrName, partA, partB) => {
         if (typeof res[attrName] === "undefined") {
             return;
         }
-        var value = res[attrName];
-        if (Checkers.isNumber(value)) {
-            // @ts-ignore
+        const value = res[attrName];
+        if (!isNaN(value)) {
             res[partA] = value;
-            // @ts-ignore
             res[partB] = value;
         }
         else if (Array.isArray(value)) {
-            // @ts-ignore
             res[partA] = value[0];
-            // @ts-ignore
             res[partB] = value[1];
         }
         else {
-            // @ts-ignore
             res[partA] = value;
-            // @ts-ignore
             res[partB] = value;
         }
     };
@@ -115,11 +108,9 @@ function checkPosAndSize(obj, name) {
     }
     return initDef(obj);
 }
-var CanvasUtils = /** @class */ (function () {
-    function CanvasUtils() {
-    }
-    CanvasUtils.doArc = function (obj) {
-        var res = remakePosAndSize(checkPosAndSize(obj, "Arc"), obj);
+export class CanvasUtils {
+    static doArc(obj) {
+        const res = remakePosAndSize(checkPosAndSize(obj, "Arc"), obj);
         res.ctx.beginPath();
         if (typeof res.ctx.ellipse === "function") {
             res.ctx.ellipse(res.x + (res.width >> 1), res.y + (res.height >> 1), res.width >> 1, res.height >> 1, 0, res.startAngle, res.endAngle);
@@ -128,11 +119,11 @@ var CanvasUtils = /** @class */ (function () {
             res.ctx.rect(res.x + (res.width >> 1), res.y + (res.height >> 1), res.width >> 1, res.height >> 1);
         }
         process(res);
-    };
-    CanvasUtils.doRect = function (obj) {
-        var def = checkPosAndSize(obj, "Rect");
+    }
+    static doRect(obj) {
+        const def = checkPosAndSize(obj, "Rect");
         if (typeof obj.radius !== "undefined") {
-            if (Checkers.isNumber(obj.radius)) {
+            if (!isNaN(obj.radius)) {
                 obj.radius = {
                     bl: obj.radius,
                     br: obj.radius,
@@ -141,14 +132,14 @@ var CanvasUtils = /** @class */ (function () {
                 };
             }
             else {
-                for (var key in def.radius) {
+                for (const key in def.radius) {
                     if (def.radius.hasOwnProperty(key)) {
                         obj.radius[key] = obj.radius[key] || def.radius[key];
                     }
                 }
             }
         }
-        var res = remakePosAndSize(def, obj);
+        const res = remakePosAndSize(def, obj);
         res.ctx.beginPath();
         res.ctx.moveTo(res.x + res.radius.tl, res.y);
         res.ctx.lineTo(res.x + res.width - res.radius.tr, res.y);
@@ -161,7 +152,6 @@ var CanvasUtils = /** @class */ (function () {
         res.ctx.quadraticCurveTo(res.x, res.y, res.x + res.radius.tl, res.y);
         res.ctx.closePath();
         process(res);
-    };
-    return CanvasUtils;
-}());
-export { CanvasUtils };
+    }
+}
+//# sourceMappingURL=canvas-utils.js.map

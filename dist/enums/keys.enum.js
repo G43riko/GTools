@@ -20,8 +20,18 @@ var Keys;
     Keys["S"] = "KeyS";
     Keys["D"] = "KeyD";
     Keys["R"] = "KeyR";
+    Keys["DIGIT_1"] = "Digit1";
+    Keys["DIGIT_2"] = "Digit2";
+    Keys["DIGIT_3"] = "Digit3";
+    Keys["DIGIT_4"] = "Digit4";
+    Keys["DIGIT_5"] = "Digit5";
+    Keys["DIGIT_6"] = "Digit6";
+    Keys["DIGIT_7"] = "Digit7";
+    Keys["DIGIT_8"] = "Digit8";
+    Keys["DIGIT_9"] = "Digit9";
+    Keys["DIGIT_0"] = "Digit0";
 })(Keys = exports.Keys || (exports.Keys = {}));
-var KeysOld = /** @class */ (function () {
+var KeysOld = (function () {
     function KeysOld() {
     }
     KeysOld.ENTER = 13;
@@ -45,3 +55,4 @@ var KeysOld = /** @class */ (function () {
     return KeysOld;
 }());
 exports.KeysOld = KeysOld;
+//# sourceMappingURL=keys.enum.js.map

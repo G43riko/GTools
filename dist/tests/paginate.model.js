@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaginateModel = void 0;
-var PaginateModel = /** @class */ (function () {
+var PaginateModel = (function () {
     function PaginateModel(count, offset) {
         if (count === void 0) { count = PaginateModel.ITEMS_PER_PAGE; }
         if (offset === void 0) { offset = 0; }
@@ -18,3 +18,4 @@ var PaginateModel = /** @class */ (function () {
     return PaginateModel;
 }());
 exports.PaginateModel = PaginateModel;
+//# sourceMappingURL=paginate.model.js.map

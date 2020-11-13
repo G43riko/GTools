@@ -1,31 +1,30 @@
-var NumberCounter = /** @class */ (function () {
-    function NumberCounter() {
+export class NumberCounter {
+    constructor() {
         this.min = Infinity;
         this.max = -Infinity;
         this.sum = 0;
         this.numbers = [];
     }
-    NumberCounter.prototype.add = function (value) {
+    add(value) {
         this.numbers.push(value);
         this.min = Math.min(this.min, value);
         this.max = Math.max(this.max, value);
         this.sum += value;
-    };
-    NumberCounter.prototype.getMin = function () {
+    }
+    getMin() {
         return this.min;
-    };
-    NumberCounter.prototype.getMax = function () {
+    }
+    getMax() {
         return this.max;
-    };
-    NumberCounter.prototype.getCount = function () {
+    }
+    getCount() {
         return this.numbers.length;
-    };
-    NumberCounter.prototype.getAverage = function () {
+    }
+    getAverage() {
         return this.sum / this.numbers.length;
-    };
-    NumberCounter.prototype.addAll = function (items) {
+    }
+    addAll(items) {
         items.forEach(this.add, this);
-    };
-    return NumberCounter;
-}());
-export { NumberCounter };
+    }
+}
+//# sourceMappingURL=number-counter.js.map

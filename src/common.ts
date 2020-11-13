@@ -33,7 +33,6 @@ export { initConfig } from "./config/gtools-config";
 export * from "./types/key-value.interface";
 export * from "./types/string-map.interface";
 export * from "./types/size.interaface";
-export * from "./types/point.interaface";
 
 // TESTS
 

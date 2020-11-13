@@ -25,7 +25,23 @@
         ],
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "gtools/utils": ["./src/utils"],
+            "gtools/math": ["./src/math"],
+            "gtools/errors": ["./src/errors"],
+            "gtools/enums": ["./src/enums"],
+            "gtools/models": ["./src/models"],
+            "gtools/types": ["./src/types"],
+            "gtools/physics": ["./src/physics"],
+            "gtools/components": ["./src/components"]
+        },
+        "incremental": true,
+        "noEmit": true,
+        "sourceMap": true,
+        "removeComments": true
+//        "preserveConstEnums": true
     },
     "jsdoc": "out"
 }

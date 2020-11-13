@@ -1,36 +1,15 @@
-import { toBasicForm } from "../../utils/string-utils";
-// tslint:disable
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-var data = require("./countries.data.json");
-// only for optimization
-var countries = {};
-data.forEach(function (country) { return countries[country.key] = country; });
-/**
- * Class used for parsing countries
- */
-var Country = /** @class */ (function () {
-    function Country() {
+import { toBasicForm } from "gtools/utils";
+const data = require("./countries.data.json");
+const countries = {};
+data.forEach((country) => countries[country.key] = country);
+export class Country {
+    static getByKey(key) {
+        const finalKey = key.toUpperCase();
+        return countries[finalKey] || data.find((country) => country.key === finalKey) || null;
     }
-    /**
-     * Function try to get country by key and return CountryData or null if cannot parse country
-     *
-     * @param  key - Country key
-     * @returns if found than CountryData otherwise null
-     */
-    Country.getByKey = function (key) {
-        var finalKey = key.toUpperCase();
-        return countries[finalKey] || data.find(function (country) { return country.key === finalKey; }) || null;
-    };
-    /**
-     * Function try to parse country by name or key or substring and return CountryData or null if cannot parse country
-     *
-     * @param key - searched key
-     * @returns if found than CountryData otherwise null
-     */
-    Country.find = function (key) {
-        var finalKey = toBasicForm(key);
-        return data.find(function (country) { return country.key.toLowerCase() === finalKey || country.patterns.some(function (pattern) { return finalKey.indexOf(pattern) >= 0; }); }) || null;
-    };
-    return Country;
-}());
-export { Country };
+    static find(key) {
+        const finalKey = toBasicForm(key);
+        return data.find((country) => country.key.toLowerCase() === finalKey || country.patterns.some((pattern) => finalKey.indexOf(pattern) >= 0)) || null;
+    }
+}
+//# sourceMappingURL=country.model.js.map

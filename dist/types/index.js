@@ -15,7 +15,6 @@ __exportStar(require("./key-value.interface"), exports);
 __exportStar(require("./nested-string-map.interface"), exports);
 __exportStar(require("./object-entry.interface"), exports);
 __exportStar(require("./optional.type"), exports);
-__exportStar(require("./point.interaface"), exports);
 __exportStar(require("./prop.type"), exports);
 __exportStar(require("./property-decorator.type"), exports);
 __exportStar(require("./size.interaface"), exports);
@@ -23,4 +22,10 @@ __exportStar(require("./string-map.interface"), exports);
 __exportStar(require("./text-options.interface"), exports);
 __exportStar(require("./type.interface"), exports);
 __exportStar(require("./unit-number.type"), exports);
+__exportStar(require("./ray2"), exports);
+__exportStar(require("./ray3"), exports);
+__exportStar(require("./xywh"), exports);
+__exportStar(require("./min-max.interface"), exports);
+__exportStar(require("./round-data.type"), exports);
 __exportStar(require("./vertical-align.type"), exports);
+//# sourceMappingURL=index.js.map

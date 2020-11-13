@@ -1,4 +1,4 @@
-import { StringMap } from "../types";
+import { StringMap } from "gtools/types";
 
 const intervals: StringMap<number> = {
     "year"  : 31536000,
@@ -12,7 +12,7 @@ const intervals: StringMap<number> = {
 
 const intervalEntries = Object.entries(intervals);
 
-export function dateAge(value: number | string | Date): number | string | Date {
+export function dateAgo(value: number | string | Date): number | string | Date {
     if (value) {
         const seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
         if (seconds < 29) { // less than 30 seconds ago will show as 'Just now'
@@ -70,6 +70,18 @@ export function format(date: Date, pattern: string): string {
                 return e;
         }
     });
+}
+export function createStopWatch(): { getDiffMs(): number; getDiff(): string } {
+    const start = Date.now();
+
+    const getDiffMs = (): number => Date.now() - start;
+
+    return {
+        getDiffMs,
+        getDiff(): string {
+            return getDiffMs() + "ms";
+        },
+    };
 }
 
 function setDate(date: Date, opt: { ms: number, s: number, m: number, h: number }): Date {

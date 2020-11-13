@@ -1,7 +1,7 @@
 import { pointPoint2dDistance } from "./distances-2d";
 export function circleRect2dCollision(cPosX, cPosY, cRadius, rPosX, rPosY, rSizeX, rSizeY) {
-    var circleDistanceX = Math.abs(cPosX - rPosX);
-    var circleDistanceY = Math.abs(cPosY - rPosY);
+    const circleDistanceX = Math.abs(cPosX - rPosX);
+    const circleDistanceY = Math.abs(cPosY - rPosY);
     if (circleDistanceX > rSizeX / 2 + cRadius) {
         return false;
     }
@@ -14,7 +14,7 @@ export function circleRect2dCollision(cPosX, cPosY, cRadius, rPosX, rPosY, rSize
     if (circleDistanceY <= rSizeY / 2) {
         return true;
     }
-    var cornerDistanceSQ = Math.pow(circleDistanceX - rPosX / 2, 2) +
+    const cornerDistanceSQ = Math.pow(circleDistanceX - rPosX / 2, 2) +
         Math.pow(circleDistanceY - rPosY / 2, 2);
     return cornerDistanceSQ <= Math.pow(cRadius, 2);
 }
@@ -25,15 +25,14 @@ export function lineRectangle2dCollision(aStartX, aStartY, aEndX, aEndY, bPosX, 
         lineLine2dCollision(aStartX, aStartY, aEndX, aEndY, bPosX + bSizeX, bPosY, bPosX, bPosY + bSizeY);
 }
 export function lineLine2dCollision(aStartX, aStartY, aEndX, aEndY, bStartX, bStartY, bEndX, bEndY) {
-    var denominator = (aEndX - aStartX) * (bEndY - bStartY) - (aEndY - aStartY) * (bEndX - bStartX);
-    var numerator1 = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
-    var numerator2 = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
-    // Detect coincident lines (has a problem, read below)
+    const denominator = (aEndX - aStartX) * (bEndY - bStartY) - (aEndY - aStartY) * (bEndX - bStartX);
+    const numerator1 = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
+    const numerator2 = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
     if (denominator === 0) {
         return numerator1 === 0 && numerator2 === 0;
     }
-    var r = numerator1 / denominator;
-    var s = numerator2 / denominator;
+    const r = numerator1 / denominator;
+    const s = numerator2 / denominator;
     return r >= 0 && r <= 1 && (s >= 0 && s <= 1);
 }
 export function rectRect2dCollision(ax, ay, aw, ah, bx, by, bw, bh) {
@@ -57,3 +56,4 @@ export function pointRectMinMax2dCollision(pointX, pointY, minX, minY, maxX, max
 export function pointCircle2dCollision(pointX, pointY, circleX, circleY, circleRadius) {
     return pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
 }
+//# sourceMappingURL=collisions-2d.js.map

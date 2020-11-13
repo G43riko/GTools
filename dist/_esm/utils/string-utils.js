@@ -1,32 +1,15 @@
 import { join } from "./array-utils";
 import * as StringCheckers from "./string-checkers";
-var accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
-var normalLowerCharacters = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
-var accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
-var normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
-/* TODO:
-    static underscore(word) {
-    }
-    static humanize(word) {
-    }
-    static dasherize(word) {
-    }
-    //dashCase = a-b-c-d-e
-    //dotCase a.c.d.v.s.d
-    //pascalCase = FooBarBaz
-    //pathCase = a/b/c/d
-    //snakeCase = a_b_c_d_
-    static isUpper(word) {
-    }
-    static isLower(word) {
-    }
-*/
+const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
+const normalLowerCharacters = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
+const accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
+const normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
 export function removeAccentedCharacters(word) {
     if (!word || !word.replace) {
         return word;
     }
-    return word.replace(/./g, function (e) {
-        var index = accentedCharacters.indexOf(e);
+    return word.replace(/./g, (e) => {
+        const index = accentedCharacters.indexOf(e);
         return index >= 0 ? normalCharacters[index] : e;
     });
 }
@@ -39,7 +22,7 @@ export function toUpperSnakeCase(text) {
     if (StringCheckers.isUpperSnakeCase(text)) {
         return text;
     }
-    return text.replace(/(-|_| |\s)+(.)?/g, function (i, u, e) { return e ? "_" + e : ""; })
+    return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
         .replace(/^_/, "")
         .toUpperCase();
 }
@@ -52,7 +35,7 @@ export function toLowerSnakeCase(text) {
     if (StringCheckers.isLowerSnakeCase(text)) {
         return text;
     }
-    return text.replace(/(-|_| |\s)+(.)?/g, function (i, u, e) { return e ? "_" + e : ""; })
+    return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
         .replace(/^_/, "")
         .toLowerCase();
 }
@@ -64,8 +47,8 @@ export function toLowerCamelCase(text) {
         .replace(/([a-z])([A-Z])([A-Z])/g, "$1$2_$3")
         .replace(/([a-z])([A-Z])/g, "$1_$2")
         .toLowerCase()
-        .replace(/(-|_| |\s)+(.)?/g, function (math, sep, c) { return c ? c.toUpperCase() : ""; })
-        .replace(/^./, function (e) { return e.toLowerCase(); });
+        .replace(/(-|_| |\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "")
+        .replace(/^./, (e) => e.toLowerCase());
 }
 export function toUpperCamelCase(text) {
     if (StringCheckers.isUpperCamelCase(text)) {
@@ -74,50 +57,38 @@ export function toUpperCamelCase(text) {
     return toCapital(toLowerCamelCase(text));
 }
 export function capitalize(text) {
-    return text.toLowerCase().replace(/^./, function (char) { return char.toUpperCase(); });
+    return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
 }
-/**
- * @deprecated use {@link capitalize} instead
- */
 export function toCapital(text) {
-    return text.replace(/^./, function (e) { return e.toUpperCase(); });
+    return text.replace(/^./, (e) => e.toUpperCase());
 }
-export function getLastPart(text, divider) {
-    if (divider === void 0) { divider = " "; }
+export function getLastPart(text, divider = " ") {
     if (!text || !text.split) {
         return text;
     }
-    var splitText = text.split(divider);
+    const splitText = text.split(divider);
     return splitText[splitText.length - 1];
 }
 export function count(text, key) {
     return (text.match(new RegExp(key, "g")) || []).length;
 }
-/**
- * @param text - text need to be repeat
- * @param numberOfRepetitions - number of iterations
- * @deprecated - use {@link String#repeat}
- */
 export function repeat(text, numberOfRepetitions) {
     return new Array(numberOfRepetitions + 1).join(text);
 }
 export function removeAll(text, words) {
-    return text.replace(new RegExp("(" + words.join("|") + ")", "g"), "");
+    return text.replace(new RegExp(`(${words.join("|")})`, "g"), "");
 }
-// TODO: need to be fixed
-export function template(text, values, start, end) {
-    if (start === void 0) { start = "{{"; }
-    if (end === void 0) { end = "}}"; }
+export function template(text, values, start = "{{", end = "}}") {
     start = start.replace(/[-[\]()*\s]/g, "\\$&")
         .replace(/\$/g, "\\$");
     end = end.replace(/[-[\]()*\s]/g, "\\$&")
         .replace(/\$/g, "\\$");
-    var regexp = new RegExp(start + "(.+?)'" + end, "g");
-    var matches = text.match(regexp) || [];
-    matches.forEach(function (match) {
-        var key = match.substring(start.length, match.length - end.length)
+    const regexp = new RegExp(`${start}(.+?)'${end}`, "g");
+    const matches = text.match(regexp) || [];
+    matches.forEach((match) => {
+        const key = match.substring(start.length, match.length - end.length)
             .trim();
-        var value = values[key];
+        const value = values[key];
         if (value) {
             text = text.replace(match, value);
         }
@@ -128,8 +99,8 @@ export function removeEmptyLines(content) {
     return content.replace(/^\s*$(?:\r\n?|\n)/gm, "");
 }
 export function between(text, key1, key2) {
-    var startPos = text.indexOf(key1);
-    var endPos = text.indexOf(key2);
+    const startPos = text.indexOf(key1);
+    const endPos = text.indexOf(key2);
     if (startPos < 0 && endPos >= 0) {
         return text.substring(0, endPos);
     }
@@ -145,8 +116,8 @@ export function collapseWhitespace(text) {
     return text.replace(/[\s\uFEFF\xA0]{2,}/g, " ");
 }
 export function swapCase(text) {
-    return text.replace(/\S/g, function (char) {
-        var lowerCase = char.toLowerCase();
+    return text.replace(/\S/g, (char) => {
+        const lowerCase = char.toLowerCase();
         return lowerCase === char ? char.toUpperCase() : lowerCase;
     });
 }
@@ -154,9 +125,8 @@ export function transformToBasicFormat(text) {
     return collapseWhitespace(removeAccentedCharacters(text).toLowerCase()).trim();
 }
 export function getAsciiArray(thisArg) {
-    var result = [];
-    for (var _i = 0, thisArg_1 = thisArg; _i < thisArg_1.length; _i++) {
-        var letter = thisArg_1[_i];
+    const result = [];
+    for (const letter of thisArg) {
         result[result.length] = letter.charCodeAt(0);
     }
     return result;
@@ -176,21 +146,10 @@ export function joinSingle(prefix, divider, postfix) {
     }
     return prefix + divider + postfix;
 }
-/**
- * @deprecated use {@link join} instead
- * @param data - data to join
- * @param delimiter - delimiter
- * @param prefix - prefix
- * @param postfix - postfix
- */
-export function joinString(data, delimiter, prefix, postfix) {
-    if (delimiter === void 0) { delimiter = " "; }
-    if (prefix === void 0) { prefix = ""; }
-    if (postfix === void 0) { postfix = ""; }
+export function joinString(data, delimiter = " ", prefix = "", postfix = "") {
     return join(data, delimiter, prefix, postfix);
 }
-export function getFormattedNumber(num, prefix) {
-    if (prefix === void 0) { prefix = "+421"; }
+export function getFormattedNumber(num, prefix = "+421") {
     num = num.replace(/[( )/-]/g, "");
     if (num.startsWith("+")) {
         return num;
@@ -204,14 +163,14 @@ export function getFormattedNumber(num, prefix) {
     return num;
 }
 function fuzzy_match_simple(pattern, str) {
-    var patternIdx = 0;
-    var strIdx = 0;
-    var patternLength = pattern.length;
-    var strLength = str.length;
+    let patternIdx = 0;
+    let strIdx = 0;
+    const patternLength = pattern.length;
+    const strLength = str.length;
     while (patternIdx !== patternLength && strIdx !== strLength) {
-        var patternChar = pattern.charAt(patternIdx)
+        const patternChar = pattern.charAt(patternIdx)
             .toLowerCase();
-        var strChar = str.charAt(strIdx)
+        const strChar = str.charAt(strIdx)
             .toLowerCase();
         if (patternChar === strChar) {
             ++patternIdx;
@@ -221,5 +180,6 @@ function fuzzy_match_simple(pattern, str) {
     return patternLength !== 0 && strLength !== 0 && patternIdx === patternLength;
 }
 export function replaceForAll(content, values, placeHolder) {
-    return values.map(function (value) { return content.replace(placeHolder, value); });
+    return values.map((value) => content.replace(placeHolder, value));
 }
+//# sourceMappingURL=string-utils.js.map

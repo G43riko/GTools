@@ -21,10 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessUtils = void 0;
 var Process = __importStar(require("../process-utils"));
-/**
- * @deprecated use {@link Process} instead
- */
-var ProcessUtils = /** @class */ (function () {
+var ProcessUtils = (function () {
     function ProcessUtils() {
     }
     ProcessUtils.setEnvironment = function (type) {
@@ -42,3 +39,4 @@ var ProcessUtils = /** @class */ (function () {
     return ProcessUtils;
 }());
 exports.ProcessUtils = ProcessUtils;
+//# sourceMappingURL=ProcessUtils.js.map

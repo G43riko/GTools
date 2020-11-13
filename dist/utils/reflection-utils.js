@@ -37,13 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.callFirstFunction = exports.createClass = void 0;
-/**
- * Create class by name and list of parameters
- *
- * @param name - class name
- * @param args - constructor parameter
- * @returns created object
- */
 function createClass(name, args) {
     var temp = Object.create(name.prototype);
     name.apply(temp, args);
@@ -63,19 +56,18 @@ function callFirstFunction() {
                     _a = 0, functions_1 = functions;
                     _b.label = 1;
                 case 1:
-                    if (!(_a < functions_1.length)) return [3 /*break*/, 4];
+                    if (!(_a < functions_1.length)) return [3, 4];
                     func = functions_1[_a];
-                    if (!(typeof func === "function")) return [3 /*break*/, 3];
-                    return [4 /*yield*/, func()];
-                case 2: 
-                // eslint-disable-next-line no-await-in-loop
-                return [2 /*return*/, _b.sent()];
+                    if (!(typeof func === "function")) return [3, 3];
+                    return [4, func()];
+                case 2: return [2, _b.sent()];
                 case 3:
                     _a++;
-                    return [3 /*break*/, 1];
-                case 4: return [2 /*return*/];
+                    return [3, 1];
+                case 4: return [2];
             }
         });
     });
 }
 exports.callFirstFunction = callFirstFunction;
+//# sourceMappingURL=reflection-utils.js.map

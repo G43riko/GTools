@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getEndOfTheDay = exports.getStartOfTheDay = exports.format = exports.dateAge = void 0;
+exports.getEndOfTheDay = exports.getStartOfTheDay = exports.createStopWatch = exports.format = exports.dateAgo = void 0;
 var intervals = {
     "year": 31536000,
     "month": 2592000,
@@ -11,10 +11,10 @@ var intervals = {
     "second": 1,
 };
 var intervalEntries = Object.entries(intervals);
-function dateAge(value) {
+function dateAgo(value) {
     if (value) {
         var seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
-        if (seconds < 29) { // less than 30 seconds ago will show as 'Just now'
+        if (seconds < 29) {
             return "Just now";
         }
         var counter = void 0;
@@ -25,14 +25,14 @@ function dateAge(value) {
                 continue;
             }
             if (counter === 1) {
-                return counter + " " + key + " ago"; // singular (1 day ago)
+                return counter + " " + key + " ago";
             }
-            return counter + " " + key + "s ago"; // plural (2 days ago)
+            return counter + " " + key + "s ago";
         }
     }
     return value;
 }
-exports.dateAge = dateAge;
+exports.dateAgo = dateAgo;
 function format(date, pattern) {
     var toString = function (time) { return time < 10 ? "0" + time : "" + time; };
     var regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
@@ -68,6 +68,17 @@ function format(date, pattern) {
     });
 }
 exports.format = format;
+function createStopWatch() {
+    var start = Date.now();
+    var getDiffMs = function () { return Date.now() - start; };
+    return {
+        getDiffMs: getDiffMs,
+        getDiff: function () {
+            return getDiffMs() + "ms";
+        },
+    };
+}
+exports.createStopWatch = createStopWatch;
 function setDate(date, opt) {
     if (!date) {
         return new Date("");
@@ -104,3 +115,4 @@ function getEndOfTheDay(date) {
     });
 }
 exports.getEndOfTheDay = getEndOfTheDay;
+//# sourceMappingURL=time-utils.js.map

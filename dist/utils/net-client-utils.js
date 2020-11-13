@@ -37,12 +37,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.includeFile = exports.clientDownloadFile = exports.uploadFile = exports.uploadImage = void 0;
-var not_browser_exception_1 = require("../errors/not-browser.exception");
+var errors_1 = require("gtools/errors");
 var html_utils_1 = require("./html-utils");
 function uploadImage() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, new Promise(function (success, reject) {
+            return [2, new Promise(function (success, reject) {
                     var element = html_utils_1.CreateElement("input", {
                         type: "file",
                         onChange: function (event) {
@@ -68,7 +68,7 @@ exports.uploadImage = uploadImage;
 function uploadFile() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, new Promise(function (success) {
+            return [2, new Promise(function (success) {
                     var element = html_utils_1.CreateElement("input", {
                         type: "file",
                         onChange: function (event) {
@@ -101,7 +101,7 @@ function clientDownloadFile(text, name) {
 exports.clientDownloadFile = clientDownloadFile;
 function includeFile(file) {
     if (typeof document === "undefined") {
-        throw new not_browser_exception_1.NotBrowserException();
+        throw new errors_1.NotBrowserException();
     }
     var script = document.createElement("script");
     if (!script) {
@@ -113,3 +113,4 @@ function includeFile(file) {
     document.head.appendChild(script);
 }
 exports.includeFile = includeFile;
+//# sourceMappingURL=net-client-utils.js.map

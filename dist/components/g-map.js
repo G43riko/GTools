@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GMap = void 0;
-var GMap = /** @class */ (function (_super) {
+var GMap = (function (_super) {
     __extends(GMap, _super);
     function GMap() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -33,3 +33,4 @@ var GMap = /** @class */ (function (_super) {
     return GMap;
 }(Map));
 exports.GMap = GMap;
+//# sourceMappingURL=g-map.js.map

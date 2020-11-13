@@ -17,3 +17,4 @@ function getTransform(selectedElement) {
     return transforms.getItem(0);
 }
 exports.getTransform = getTransform;
+//# sourceMappingURL=svg-utils.js.map

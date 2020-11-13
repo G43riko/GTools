@@ -59,7 +59,7 @@ function walk(dir, done) {
         });
     });
 }
-var FileUtils = /** @class */ (function () {
+var FileUtils = (function () {
     function FileUtils() {
     }
     FileUtils.scanDirRecursive = function (dir) {
@@ -113,3 +113,4 @@ var FileUtils = /** @class */ (function () {
     return FileUtils;
 }());
 exports.FileUtils = FileUtils;
+//# sourceMappingURL=FileUtils.js.map

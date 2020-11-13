@@ -7,10 +7,7 @@ export function randomIntBetween(min, max) {
 export function randomBoolean() {
     return Math.random() < 0.5;
 }
-export function randomItem() {
-    var items = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        items[_i] = arguments[_i];
-    }
+export function randomItem(...items) {
     return items[Math.floor(Math.random() * items.length)];
 }
+//# sourceMappingURL=random-utils.js.map

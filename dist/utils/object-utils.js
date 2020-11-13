@@ -84,46 +84,6 @@ function isPlain(object) {
     return true;
 }
 exports.isPlain = isPlain;
-/**
- *
- * @param list - list to flat
- * @param propertyPath - path to property
- * @param separator - separator in propertyPath
- * @param skipUndefined - true if undefined should be skipped
- *
- * @example
- * ```
- * const items = [
- *    {
- *        person: {
- *            name: "Gabriel"
- *        }
- *    },
- *    {
- *        person: {
- *            name: "Ella"
- *        }
- *    },
- *    {
- *        person: {
- *            name: "Gabriel"
- *        }
- *    },
- *    {
- *        person: {
- *            name: "Joe"
- *        }
- *    }
- * ]
- *
- * console.log(makeFlat(items), "person.name");
- * // ["Gabriel", "Ella", "Gabriel", "Joe"]
- * console.log(makeFlat(items), "person_name", "_");
- * // ["Gabriel", "Ella", "Gabriel", "Joe"]
- * console.log(makeFlat(items), "person.name", ".", true);
- * // ["Gabriel", "Ella", "Joe"]
- * ```
- */
 function makeFlat(list, propertyPath, separator, skipUndefined) {
     if (separator === void 0) { separator = "."; }
     if (skipUndefined === void 0) { skipUndefined = false; }
@@ -138,3 +98,4 @@ function makeFlat(list, propertyPath, separator, skipUndefined) {
     }, []);
 }
 exports.makeFlat = makeFlat;
+//# sourceMappingURL=object-utils.js.map

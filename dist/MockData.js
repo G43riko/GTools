@@ -8,8 +8,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MockData = void 0;
-// tslint:disable:completed-docs
-var MockData = /** @class */ (function () {
+var MockData = (function () {
     function MockData() {
     }
     MockData.functionSum = function (a, b) {
@@ -77,7 +76,6 @@ var MockData = /** @class */ (function () {
         "gabriel",
         "Ich bin Hanz",
         "@",
-        // "123@123.123",
         "00000000000000000000",
         "\\",
         "/",
@@ -155,9 +153,6 @@ var MockData = /** @class */ (function () {
         "my@name.is.chorche.com",
         "foo.bar@machine.subdomain.example.museum",
         "Abc@example.com",
-        // `Abc@example.com.`,
-        // `Abc@10.42.0.1`,
-        // `user@localserver`,
         "Abc.123@example.com",
         "user+mailbox/department=shipping@example.com",
         "\"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual\"@strange.example.com",
@@ -180,3 +175,4 @@ var MockData = /** @class */ (function () {
     return MockData;
 }());
 exports.MockData = MockData;
+//# sourceMappingURL=MockData.js.map

@@ -21,19 +21,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DateUtils = void 0;
 var Dates = __importStar(require("../date-utils"));
-/**
- * @deprecated use {@link Dates} instead
- */
-var DateUtils = /** @class */ (function () {
+var DateUtils = (function () {
     function DateUtils() {
     }
-    /**
-     * @deprecated use {@link isValidDate}
-     * @param obj - return true if parameter is valid date
-     */
     DateUtils.isDate = function (obj) {
         return Dates.isValidDate(obj);
     };
     return DateUtils;
 }());
 exports.DateUtils = DateUtils;
+//# sourceMappingURL=DateUtils.js.map

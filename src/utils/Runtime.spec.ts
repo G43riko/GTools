@@ -1,8 +1,6 @@
 import { expect } from "chai";
+import { NullPointerException, WrongParameterException, WrongTypeException } from "gtools/errors";
 import "mocha";
-import { NullPointerException } from "../errors/null-pointer.exception";
-import { WrongParameterException } from "../errors/wrong-parameter.exception";
-import { WrongTypeException } from "../errors/wrong-type.exception";
 import { MockData } from "../MockData";
 import { Runtime } from "./Runtime";
 
@@ -44,7 +42,7 @@ describe("Runtime", () => {
             expect(Runtime.checkFunction(MockData.functionSum, [5, "gabo" as any])).to.be.false;
         });
     });
-    describe("Check maths", () => {
+    describe("Check math", () => {
         it("Check min", () => {
             expect(Runtime.min(23, 20)).to.be.equal(23);
             expect(Runtime.min(2.3, 2.01)).to.be.equal(2.3);

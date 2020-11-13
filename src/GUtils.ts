@@ -34,5 +34,6 @@ export * from "./tests/abstract.mapper";
 export * from "./tests/paginate.model";
 
 export * from "./types";
+export { CanvasShadowConfig } from "./dom/types/canvas-shadow-config";
 
 // export * from "./utils";

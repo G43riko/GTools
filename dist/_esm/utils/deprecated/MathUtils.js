@@ -1,45 +1,37 @@
 import * as Maths from "../math-utils";
-/**
- * @deprecated use {@link Maths} instead
- */
-var MathUtils = /** @class */ (function () {
-    function MathUtils() {
-    }
-    MathUtils.roundToDecimals = function (num, decimals, type) {
-        if (decimals === void 0) { decimals = 2; }
-        if (type === void 0) { type = "round"; }
+export class MathUtils {
+    static roundToDecimals(num, decimals = 2, type = "round") {
         return Maths.roundToDecimals(num, decimals, type);
-    };
-    MathUtils.pad = function (num, size) {
+    }
+    static pad(num, size) {
         return Maths.pad(num, size);
-    };
-    MathUtils.clamp = function (value, min, max) {
+    }
+    static clamp(value, min, max) {
         return Maths.clamp(value, min, max);
-    };
-    MathUtils.binomialCoefficient = function (n, k) {
+    }
+    static binomialCoefficient(n, k) {
         return Maths.binomialCoefficient(n, k);
-    };
-    MathUtils.lerp = function (a, b, val) {
+    }
+    static lerp(a, b, val) {
         return Maths.lerp(a, b, val);
-    };
-    MathUtils.log2i = function (value) {
+    }
+    static log2i(value) {
         return Maths.log2i(value);
-    };
-    MathUtils.lamp = function (min, max, scale) {
+    }
+    static lamp(min, max, scale) {
         return Maths.lamp(min, max, scale);
-    };
-    MathUtils.randomInt = function (min, max) {
+    }
+    static randomInt(min, max) {
         return Maths.randomInt(min, max);
-    };
-    MathUtils.random = function (min, max) {
+    }
+    static random(min, max) {
         return Maths.random(min, max);
-    };
-    MathUtils.average = function (args) {
+    }
+    static average(args) {
         return Maths.average(args);
-    };
-    MathUtils.diff = function (num1, num2) {
+    }
+    static diff(num1, num2) {
         return Maths.getDiff(num1, num2);
-    };
-    return MathUtils;
-}());
-export { MathUtils };
+    }
+}
+//# sourceMappingURL=MathUtils.js.map
