@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileUtils = void 0;
 var fs = __importStar(require("fs"));
 var path = __importStar(require("path"));
-var StringUtils_1 = require("./deprecated/StringUtils");
+var string_utils_1 = require("./string-utils");
 function walk(dir, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
@@ -108,7 +108,7 @@ var FileUtils = (function () {
         if (name.endsWith(extension)) {
             return name;
         }
-        return StringUtils_1.StringUtils.joinSingle(name, ".", extension);
+        return string_utils_1.joinSingle(name, ".", extension);
     };
     return FileUtils;
 }());

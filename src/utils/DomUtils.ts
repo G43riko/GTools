@@ -1,8 +1,8 @@
 import { NotBrowserException } from "gtools/errors";
 import { SimpleVector2 } from "gtools/math";
 import { Size, StringMap } from "gtools/types";
-import { Checkers } from "../dom/deprecated/Checkers";
 import { DomGet } from "../dom/dom-get";
+import * as Checkers from "../validators/misc-validators";
 
 export interface ObjectCreatorParams {
     name: string;
@@ -139,10 +139,12 @@ export class DomUtils {
      * @param style - styles that will be applied to the element
      * @returns created element
      */
-    public static createElement(name: string | ObjectCreatorParams,
-                                attr?: StringMap,
-                                cont?: string | HTMLElement | HTMLElement[],
-                                style?: CSSStyleDeclaration): HTMLElement {
+    public static createElement(
+        name: string | ObjectCreatorParams,
+        attr?: StringMap,
+        cont?: string | HTMLElement | HTMLElement[],
+        style?: CSSStyleDeclaration,
+    ): HTMLElement {
         if (typeof document === "undefined") {
             throw new NotBrowserException();
         }

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { StringUtils } from "./deprecated/StringUtils";
+import { joinSingle } from "./string-utils";
 function walk(dir, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
@@ -86,7 +86,7 @@ var FileUtils = (function () {
         if (name.endsWith(extension)) {
             return name;
         }
-        return StringUtils.joinSingle(name, ".", extension);
+        return joinSingle(name, ".", extension);
     };
     return FileUtils;
 }());

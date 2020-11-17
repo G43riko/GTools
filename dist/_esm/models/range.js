@@ -1,3 +1,4 @@
+import { randomFloatBetween, randomIntBetween } from "gtools/utils";
 import { Color } from "./color.model";
 export class Range {
     constructor(min, max = min) {
@@ -5,18 +6,19 @@ export class Range {
         this.max = max;
     }
     static random(range) {
-        return Math.random() * (range.max - range.min) + range.min;
+        return randomFloatBetween(range.min, range.max);
     }
     static randomVector(range) {
         return {
-            x: Math.random() * (range.max.x - range.min.x) + range.min.x,
-            y: Math.random() * (range.max.y - range.min.y) + range.min.y,
+            x: randomFloatBetween(range.min.x, range.max.x),
+            y: randomFloatBetween(range.min.y, range.max.y),
         };
     }
-    static randomColor(range, method = "rgba") {
-        const min = range.min.rgba;
-        const max = range.max.rgba;
-        return new Color(Math.random() * (max[0] - min[0]) + min[0], Math.random() * (max[1] - min[1]) + min[1], Math.random() * (max[2] - min[2]) + min[2], Math.random() * (max[3] - min[3]) + min[3]);
+    static randomColorF(range) {
+        return new Color(randomFloatBetween(range.min.red, range.max.red), randomFloatBetween(range.min.green, range.max.green), randomFloatBetween(range.min.blue, range.max.blue), randomFloatBetween(range.min.alpha, range.max.alpha));
+    }
+    static randomColorI(range) {
+        return new Color(randomIntBetween(range.min.red, range.max.red), randomIntBetween(range.min.green, range.max.green), randomIntBetween(range.min.blue, range.max.blue), randomIntBetween(range.min.alpha, range.max.alpha));
     }
 }
 //# sourceMappingURL=range.js.map

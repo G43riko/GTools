@@ -37,6 +37,21 @@ export function removeAccentedCharacters(word: string): string {
     });
 }
 
+/**
+ * @example
+ *  cutUsing("abcdefghij", 10) => abcdefghij
+ *  cutUsing("abcdefghij", 15) => abcdefghij
+ *  cutUsing("abcdefghij", 9) => abcdefg...
+ *  cutUsing("abcdefghij", 9, "...", false) => abcdefghi...
+ */
+export function cutUsing(text: string, maxLength: number, suffix = "...", lengthIncludeSuffix = true): string {
+    if (text.length <= maxLength) {
+        return text;
+    }
+
+    return text.substr(0, maxLength - (lengthIncludeSuffix ? suffix.length - 1 : 0)) + suffix;
+}
+
 export function toUpperSnakeCase(text: string): string {
     if (StringCheckers.isCamelCase(text)) {
         return text.replace(/([a-z])([A-Z])/g, "$1_$2")
@@ -89,6 +104,12 @@ export function toUpperCamelCase(text: string): string {
     return toCapital(toLowerCamelCase(text));
 }
 
+/**
+ * @example
+ *  capitalize("gabo") => Gabo
+ *  capitalize("GABO") => Gabo
+ *  capitalize("gABO") => Gabo
+ */
 export function capitalize(text: string): string {
     return text.toLowerCase().replace(/^./, (char) => char.toUpperCase());
 }
@@ -109,6 +130,9 @@ export function getLastPart(text: string, divider = " "): string {
     return splitText[splitText.length - 1];
 }
 
+/**
+ * @deprecated use {@link occurrences} instead
+ */
 export function count(text: string, key: string): number {
     return (text.match(new RegExp(key, "g")) || []).length;
 }
@@ -126,53 +150,74 @@ export function removeAll(text: string, words: string[]): string {
     return text.replace(new RegExp(`(${words.join("|")})`, "g"), "");
 }
 
-// TODO: need to be fixed
-export function template(text: string, values: StringMap, start = "{{", end = "}}"): string {
-    start         = start.replace(/[-[\]()*\s]/g, "\\$&")
-                         .replace(/\$/g, "\\$");
-    end           = end.replace(/[-[\]()*\s]/g, "\\$&")
-                       .replace(/\$/g, "\\$");
-    const regexp  = new RegExp(`${start}(.+?)'${end}`, "g");
-    const matches = text.match(regexp) || [];
+/**
+ * @example
+ *  template("{{name}} is {{age}} years old", {name: "Gabriel", age: 23}) => Gabriel is 23 years old
+ */
+export function template(text: string, values: StringMap<unknown>, start = "{{", end = "}}"): string {
+    const updatedStart = start.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
+    const updatedEnd   = end.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
 
-    matches.forEach((match) => {
-        const key   = match.substring(start.length, match.length - end.length)
-                           .trim();
-        const value = values[key];
-        if (value) {
-            text = text.replace(match, value);
-        }
-    });
-
-    return text;
+    return text.replace(
+        new RegExp(`${updatedStart}(.+?)${updatedEnd}`, "g"),
+        (math, key) => String(values[key]),
+    );
 }
 
 export function removeEmptyLines(content: string): string {
     return content.replace(/^\s*$(?:\r\n?|\n)/gm, "");
 }
 
-export function between(text: string, key1: string, key2: string): string {
+/**
+ * @example
+ *  between("my name is gabriel and I am 26 years old", "NAME", "gabriel") => "my name is "
+ *  between("my name is gabriel and I am 26 years old", "name", "GABRIEL") => " is gabriel and I am 26 years old"
+ *  between("my name is gabriel and I am 26 years old", "name", "gabriel") => " is "
+ *  between("my name is gabriel and I am 26 years old", "name", "gabriel", true) => "is"
+ */
+export function between(text: string, key1: string, key2: string, trim = false): string {
+    const processResult = (result: string) => trim ? result.trim() : result;
+
     const startPos = text.indexOf(key1);
     const endPos   = text.indexOf(key2);
     if (startPos < 0 && endPos >= 0) {
-        return text.substring(0, endPos);
+        return processResult(text.substring(0, endPos));
     }
 
     if (endPos < 0 && startPos >= 0) {
-        return text.substring(startPos + key1.length, text.length);
+        return processResult(text.substring(startPos + key1.length, text.length));
     }
 
-    return text.substring(startPos + key1.length, endPos);
+    return processResult(text.substring(startPos + key1.length, endPos));
 }
 
-export function occurrences(text: string, key: string): number {
-    return (text.match(new RegExp(key, "g")) || []).length;
+/**
+ * Returns number of occurrences of substring
+ * @version 0.2.40 - much faster then previous regex method using `return (text.match(new RegExp(key, "g")) || []).length;`
+ * @example
+ *  occurrences("foofoofoo", "bar"); => 0
+ *  occurrences("foofoofoo", "foo"); => 3
+ *  occurrences("foofoofoo", "foofoo"); => 1
+ *  occurrences("foofoofoo", "foofoo", true); => 2
+ * @param text - text
+ * @param key - searched substring
+ * @param overlapping - allows math overlapping
+ */
+export function occurrences(text: string, key: string, overlapping = false): number {
+    let index   = text.indexOf(key);
+    let counter = 0;
+    const step  = overlapping ? 1 : key.length;
+    while (index >= 0) {
+        counter++;
+        index = text.indexOf(key, index + step);
+    }
+
+    return counter;
 }
 
 export function collapseWhitespace(text: string): string {
     return text.replace(/[\s\uFEFF\xA0]{2,}/g, " ");
 }
-
 
 export function swapCase(text: string): string {
     return text.replace(/\S/g, (char) => {
@@ -182,10 +227,38 @@ export function swapCase(text: string): string {
     });
 }
 
+/**
+ * @example
+ *  format("{} is a big {}", ["Gabo", "hero"]) => Gabo is a big hero
+ *  format("<> is a big <>", ["Gabo", "hero"], "<>") => Gabo is a big hero
+ */
+export function format(text: string, values: string[], placeHolder = "{}"): string {
+    const result: string[] = [];
+    let lastIndex;
+    let actualIndex        = 0;
+    let counter            = 0;
+
+    while (counter < values.length) {
+        lastIndex   = actualIndex;
+        actualIndex = text.indexOf(placeHolder, actualIndex);
+        result.push(text.substring(lastIndex, actualIndex));
+        result.push(values[counter++]);
+        actualIndex += placeHolder.length;
+    }
+    result.push(text.substring(actualIndex));
+
+    return result.join("");
+}
+
 export function transformToBasicFormat(text: string): string {
     return collapseWhitespace(removeAccentedCharacters(text).toLowerCase()).trim();
 }
 
+/**
+ * @example
+ *  getAsciiArray("abcdefg") ==> [97, 98, 99, 100, 101, 102, 103]
+ * @param thisArg
+ */
 export function getAsciiArray(thisArg: string): number[] {
     const result = [];
     for (const letter of thisArg) {
@@ -203,6 +276,13 @@ export function contains(text: string, substring: string): boolean {
     return !!text && removeAccentedCharacters(text.toLowerCase()).indexOf(substring) >= 0;
 }
 
+/**
+ * @example
+ *  joinSingle("package", ".", "json") => package.json
+ *  joinSingle("package.", ".", "json") => package.json
+ *  joinSingle("package", ".", ".json") => package.json
+ *  joinSingle("package.", ".", ".json") => package.json
+ */
 export function joinSingle(prefix: string, divider: string, postfix: string): string {
     if (postfix.startsWith(divider) && prefix.endsWith(divider)) {
         return prefix + postfix.substring(divider.length);

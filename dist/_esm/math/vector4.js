@@ -15,7 +15,7 @@ export class Vector4 {
         return new Vector4(val[0], val[1], val[2], val[3]);
     }
     static from(valA, valB = valA, valC = valB, valD = valC) {
-        return new Vector4(valA, valB, valC, valB);
+        return new Vector4(valA, valB, valC, valD);
     }
     get avg() {
         return (this.x + this.y + this.z + this.w) / 4;

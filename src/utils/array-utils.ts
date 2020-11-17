@@ -87,7 +87,8 @@ export function min(array: number[]): number {
 
 /**
  * Function return total value of all elements in numeric array
- *
+ * @example
+ *  sum([1, 2, 3, 4, 5]) => 15
  * @param array - array of numbers
  * @returns summary of all numbers in array
  */
@@ -104,7 +105,8 @@ export function sum(array: number[]): number {
 
 /**
  * Function returns average of numeric array given as input
- *
+ * @example
+ *  avg([1, 2, 3, 4, 5]) => 3
  * @param array - array of numbers
  * @returns average of all numbers in array
  */
@@ -121,7 +123,10 @@ export function avg(array: number[]): number {
 
 /**
  * Function join array by delimiter and append prefix and postfix
- *
+ * @example
+ *  join(["a", "b", "c", "d"], "") => abcd
+ *  join(["a", "b", "c", "d"], "=") => a=b=c=d
+ *  join(["a", "b", "c", "d"], "=", ">>", "<<") => >>a=b=c=d<<
  * @param array - not empty array
  * @param delimiter - character used for join elements in array
  * @param prefix - string append at the beginning of final string
@@ -138,6 +143,10 @@ export function join<T>(array: T[], delimiter: string, prefix = "", postfix = ""
 
 /**
  * Method returns last element from array or null if array is empty. If argument is not array, method returns argument
+ * @example
+ *  getLast([]) => undefined
+ *  getLast(["a", "b"]) => b
+ *  getLast([5, 6]) => 6
  * @param array - not empty array
  * @returns last value from array
  */
@@ -191,7 +200,9 @@ export function getNRandom<T>(args: T[], count: number): T[] {
 
 /**
  * Method return copy of array with only distinct elements
- *
+ * @example
+ *  makeUnique([5, 5, 3, 2, 1, 4, 5, 4]) ==> [5, 3, 2, 1, 4]
+ *  makeUnique(["5", "5", "3", "2", "1", "4", "5", "4"]) ==> ["5", "3", "2", "1", "4"]
  * @param array - array with duplicate elements
  * @returns unique array
  */

@@ -15,22 +15,6 @@ var CanvasDrawerAdvanced = (function () {
         this.context = context;
         this.drawer = new canvas_drawer_1.CanvasDrawer(this.context);
     }
-    CanvasDrawerAdvanced.prototype.prepareShadow = function (shadow) {
-        var _a, _b, _c, _d;
-        if (shadow) {
-            canvas_manager_1.CanvasManager.setShadow(this.context, (_a = shadow.x) !== null && _a !== void 0 ? _a : 0, (_b = shadow.y) !== null && _b !== void 0 ? _b : 0, (_c = shadow.color) !== null && _c !== void 0 ? _c : "black", (_d = shadow.blur) !== null && _d !== void 0 ? _d : 5);
-        }
-    };
-    CanvasDrawerAdvanced.prototype.prepareDashed = function (dashes) {
-        if (Array.isArray(dashes)) {
-            canvas_manager_1.CanvasManager.setLineDash.apply(canvas_manager_1.CanvasManager, __spreadArrays([this.context], dashes));
-        }
-    };
-    CanvasDrawerAdvanced.prototype.prepareOpacity = function (opacity) {
-        if (!isNaN(opacity !== null && opacity !== void 0 ? opacity : NaN)) {
-            this.context.globalAlpha = opacity;
-        }
-    };
     CanvasDrawerAdvanced.prototype.renderRect = function (location, options) {
         var _a;
         this.prepareShadow(options.shadow);
@@ -61,6 +45,22 @@ var CanvasDrawerAdvanced = (function () {
             if (options.stroke.strokeColor) {
                 this.drawer.fillRect(location.x, location.y, location.w, location.h, options.stroke.strokeColor);
             }
+        }
+    };
+    CanvasDrawerAdvanced.prototype.prepareShadow = function (shadow) {
+        var _a, _b, _c, _d;
+        if (shadow) {
+            canvas_manager_1.CanvasManager.setShadow(this.context, (_a = shadow.x) !== null && _a !== void 0 ? _a : 0, (_b = shadow.y) !== null && _b !== void 0 ? _b : 0, (_c = shadow.color) !== null && _c !== void 0 ? _c : "black", (_d = shadow.blur) !== null && _d !== void 0 ? _d : 5);
+        }
+    };
+    CanvasDrawerAdvanced.prototype.prepareDashed = function (dashes) {
+        if (Array.isArray(dashes)) {
+            canvas_manager_1.CanvasManager.setLineDash.apply(canvas_manager_1.CanvasManager, __spreadArrays([this.context], dashes));
+        }
+    };
+    CanvasDrawerAdvanced.prototype.prepareOpacity = function (opacity) {
+        if (!isNaN(opacity !== null && opacity !== void 0 ? opacity : NaN)) {
+            this.context.globalAlpha = opacity;
         }
     };
     return CanvasDrawerAdvanced;

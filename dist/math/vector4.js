@@ -33,7 +33,7 @@ var Vector4 = (function () {
         if (valB === void 0) { valB = valA; }
         if (valC === void 0) { valC = valB; }
         if (valD === void 0) { valD = valC; }
-        return new Vector4(valA, valB, valC, valB);
+        return new Vector4(valA, valB, valC, valD);
     };
     Object.defineProperty(Vector4.prototype, "avg", {
         get: function () {

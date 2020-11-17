@@ -1,6 +1,6 @@
 import { NotBrowserException } from "gtools/errors";
-import { Checkers } from "../dom/deprecated/Checkers";
 import { DomGet } from "../dom/dom-get";
+import * as Checkers from "../validators/misc-validators";
 var DomUtils = (function () {
     function DomUtils() {
     }

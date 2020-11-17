@@ -141,34 +141,49 @@
         "signature": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
         "affectsGlobalScope": true
       },
-      "../src/utils/array-utils.ts": {
-        "version": "49e1b72ca25fb29aec1812de125223ad11aed22ed5feb1196c48931db30fa39d",
-        "signature": "a5048f5b5e66e94c491947e056c0a527f5fa4ad9c0ac22c27acefff389e8134c",
+      "../src/enums/button.enum.ts": {
+        "version": "3a3637c5fbff08f960b05e14c3416e43a745f815fa04503c3175aa1db0ccf0b6",
+        "signature": "a352d7e679c49c07369bfa88ec86a9bef0fc7cac4770745b58176125e1d3cf89",
         "affectsGlobalScope": false
       },
-      "../src/utils/deprecated/arrayutils.ts": {
-        "version": "a23f8ab515b7cf9a0a94dd4c7377148174836682481cd2b63145be9f7457dd46",
-        "signature": "0452b9079621f0e28555c9101142b77ec69a45b01a4b19d10c763fbb917f61f1",
+      "../src/enums/days.enum.ts": {
+        "version": "bddca260222d9bced7ace11ff9eaef229387a2a46d78142af4164d18e5f49bbb",
+        "signature": "4b653e7dba3ff8e0438f85fd6ed37c56fb6f747cc83e764f1620c8ec7db7649f",
         "affectsGlobalScope": false
       },
-      "../src/types/string-map.interface.ts": {
-        "version": "f56d3d709fd6077c34c5f6f92076954d44dc8ed0ca5cc26f9e09ba4ae5097524",
-        "signature": "f56d3d709fd6077c34c5f6f92076954d44dc8ed0ca5cc26f9e09ba4ae5097524",
+      "../src/enums/encodings.enum.ts": {
+        "version": "3bdf87d3b2d15129abc87ed545543cf68ced22d958779f45d03214e6b4414e13",
+        "signature": "95fbe4ec96c0b9eac9fd35fd431c1cc11f67082709b7558cfe7429b5b57ba64a",
         "affectsGlobalScope": false
       },
-      "../src/validators/misc-validators.ts": {
-        "version": "09d7c81d2a2f6ab3b27dc87d6dabf4745166d9ec8c8f51ff176c8287dc57dc7b",
-        "signature": "6a88a55def28cf51d8bce4a5744b650076334df12544321a51b7df7884fef02a",
+      "../src/enums/file-types.enum.ts": {
+        "version": "4a555a8dcb615ae92031c999c8d67d28fabfb15eb450e0004696ae3a52fe1fc4",
+        "signature": "48601b16415287ce515b4069827b954f79c3ed1aaf9356dcb1ec97b72b2527fe",
         "affectsGlobalScope": false
       },
-      "../src/validators/index.ts": {
-        "version": "e390ad019891cf501c6e70dc43f27cb172e0c6d60c9e17ac628c6098854020f7",
-        "signature": "e390ad019891cf501c6e70dc43f27cb172e0c6d60c9e17ac628c6098854020f7",
+      "../src/enums/http-status-codes.enum.ts": {
+        "version": "18cd245a404949328db6ad30f9329b5b770ee2b2a132d49aa08fb989af9139c2",
+        "signature": "5ae271fc0ca310f7c8151a228dcc2db47a30b55ada389272881662f088dfedeb",
         "affectsGlobalScope": false
       },
-      "../src/utils/string-checkers.ts": {
-        "version": "187e5ffc9e612af3378833d7aabddb8f322140be491e1f4fc7e2fd3fe88b09a6",
-        "signature": "da699f0dd9860fe47044464afcbb21cfedded1c9a47a97ddd9f05d46860522d6",
+      "../src/enums/keys.enum.ts": {
+        "version": "3b2b20713f7cf1b188c65568e20f3af34422d544fd270ebdd7ad88e818fd8b9e",
+        "signature": "3e41b44d8b314dadec039da1e88ac26a057b315b7663374b55fb6616e2ef5044",
+        "affectsGlobalScope": false
+      },
+      "../src/enums/index.ts": {
+        "version": "bc0c5720913d96eaee10398c2ee09021f6e4e90b01a942d5ebe3a3f5326739c1",
+        "signature": "bc0c5720913d96eaee10398c2ee09021f6e4e90b01a942d5ebe3a3f5326739c1",
+        "affectsGlobalScope": false
+      },
+      "../src/components/file-manager.ts": {
+        "version": "bf73ab5601f2578b36e45f2942a31398f95520c0f5a86a7e08ccbcf7df6ac046",
+        "signature": "1e759dec46107fa2e84cdcd8dc0080371d0f9ba60652710ccc58702681e1bd69",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/random-utils.ts": {
+        "version": "66cd6ef50057d60191e3a8f5b06c77d8c40aa1e8e7d41c23f8af352ed4cd1974",
+        "signature": "7fac6144ce84a39f446b61eadcda61cb0af9b9da06ef2374fe6c91b301bd1272",
         "affectsGlobalScope": false
       },
       "../src/types/horizontal-align.type.ts": {
@@ -209,6 +224,11 @@
       "../src/types/size.interaface.ts": {
         "version": "019910ff5c79332c85d282d9cafd9e0d7ca7feab2ab428afe50d3f2992ebe80d",
         "signature": "019910ff5c79332c85d282d9cafd9e0d7ca7feab2ab428afe50d3f2992ebe80d",
+        "affectsGlobalScope": false
+      },
+      "../src/types/string-map.interface.ts": {
+        "version": "f56d3d709fd6077c34c5f6f92076954d44dc8ed0ca5cc26f9e09ba4ae5097524",
+        "signature": "f56d3d709fd6077c34c5f6f92076954d44dc8ed0ca5cc26f9e09ba4ae5097524",
         "affectsGlobalScope": false
       },
       "../src/types/vertical-align.type.ts": {
@@ -261,14 +281,14 @@
         "signature": "f16cda2102a252a1b7125383579338ac618c8e89c4f14fabfac49cc5653b4865",
         "affectsGlobalScope": false
       },
+      "../src/utils/array-utils.ts": {
+        "version": "49e1b72ca25fb29aec1812de125223ad11aed22ed5feb1196c48931db30fa39d",
+        "signature": "a5048f5b5e66e94c491947e056c0a527f5fa4ad9c0ac22c27acefff389e8134c",
+        "affectsGlobalScope": false
+      },
       "../src/utils/coerce-util.ts": {
         "version": "ac3e2db41f1a56ad772ebf21936fb24707b8d0a53af7120ad21de28521808753",
         "signature": "3aaf01dd98093fd4ef879a5f99085ea0167cf4c86c550f79d469cf0155911cd4",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/random-utils.ts": {
-        "version": "66cd6ef50057d60191e3a8f5b06c77d8c40aa1e8e7d41c23f8af352ed4cd1974",
-        "signature": "7fac6144ce84a39f446b61eadcda61cb0af9b9da06ef2374fe6c91b301bd1272",
         "affectsGlobalScope": false
       },
       "../src/utils/math-utils.ts": {
@@ -302,43 +322,8 @@
         "affectsGlobalScope": false
       },
       "../src/utils/misc-utils.ts": {
-        "version": "fdd25d0440b350ee1f043161dc6404a8596136975e31fab95252947b2fb14e67",
-        "signature": "cfe903098d7a7af3ddd3d625ca04f9e6e24dd9954e605566b1c7e528ab20c2be",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/button.enum.ts": {
-        "version": "3a3637c5fbff08f960b05e14c3416e43a745f815fa04503c3175aa1db0ccf0b6",
-        "signature": "a352d7e679c49c07369bfa88ec86a9bef0fc7cac4770745b58176125e1d3cf89",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/days.enum.ts": {
-        "version": "bddca260222d9bced7ace11ff9eaef229387a2a46d78142af4164d18e5f49bbb",
-        "signature": "4b653e7dba3ff8e0438f85fd6ed37c56fb6f747cc83e764f1620c8ec7db7649f",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/encodings.enum.ts": {
-        "version": "3bdf87d3b2d15129abc87ed545543cf68ced22d958779f45d03214e6b4414e13",
-        "signature": "95fbe4ec96c0b9eac9fd35fd431c1cc11f67082709b7558cfe7429b5b57ba64a",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/file-types.enum.ts": {
-        "version": "4a555a8dcb615ae92031c999c8d67d28fabfb15eb450e0004696ae3a52fe1fc4",
-        "signature": "48601b16415287ce515b4069827b954f79c3ed1aaf9356dcb1ec97b72b2527fe",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/http-status-codes.enum.ts": {
-        "version": "18cd245a404949328db6ad30f9329b5b770ee2b2a132d49aa08fb989af9139c2",
-        "signature": "5ae271fc0ca310f7c8151a228dcc2db47a30b55ada389272881662f088dfedeb",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/keys.enum.ts": {
-        "version": "3b2b20713f7cf1b188c65568e20f3af34422d544fd270ebdd7ad88e818fd8b9e",
-        "signature": "3e41b44d8b314dadec039da1e88ac26a057b315b7663374b55fb6616e2ef5044",
-        "affectsGlobalScope": false
-      },
-      "../src/enums/index.ts": {
-        "version": "bc0c5720913d96eaee10398c2ee09021f6e4e90b01a942d5ebe3a3f5326739c1",
-        "signature": "bc0c5720913d96eaee10398c2ee09021f6e4e90b01a942d5ebe3a3f5326739c1",
+        "version": "e8f13571cf26199e44fe87e0634acefccd4439741c8193f8cc51ca8ceac83456",
+        "signature": "75654d3c782e7165ba343534243e8c38c202f328a12f2f7a24fbd7d92d1b88de",
         "affectsGlobalScope": false
       },
       "../src/utils/input-utils.ts": {
@@ -366,14 +351,29 @@
         "signature": "456fd2859ae46d967e2e6b409ae5215ffc41681eb9a3cd27b972eead7d7c066e",
         "affectsGlobalScope": false
       },
+      "../src/validators/misc-validators.ts": {
+        "version": "09d7c81d2a2f6ab3b27dc87d6dabf4745166d9ec8c8f51ff176c8287dc57dc7b",
+        "signature": "6a88a55def28cf51d8bce4a5744b650076334df12544321a51b7df7884fef02a",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/string-checkers.ts": {
+        "version": "187e5ffc9e612af3378833d7aabddb8f322140be491e1f4fc7e2fd3fe88b09a6",
+        "signature": "da699f0dd9860fe47044464afcbb21cfedded1c9a47a97ddd9f05d46860522d6",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/string-utils.ts": {
+        "version": "bea97291081c288776083c16ffef16480adeb17afba533c7d435c0e9d5268e98",
+        "signature": "3b80ac81c3c260fce4e5cd3d17454e4419f7e3398b9f5da2cf54615cf32c0b3a",
+        "affectsGlobalScope": false
+      },
       "../src/utils/svg-utils.ts": {
         "version": "8dc63882eb4946c49b8c315b7dcb8b86ade9ec3209d734797d3edb0051c9790d",
         "signature": "132eb56f2336282750f83ea9fb2c8979ec2b4c98d20e728b76f8484c1983894d",
         "affectsGlobalScope": false
       },
       "../src/utils/index.ts": {
-        "version": "b65552f860a065059f524b43566dcc426db8f04d7ee357efecc5a7506b2db659",
-        "signature": "b1e17cad7d86ddba445c2dca2c768402a45646494519dec2404ea51a15be7a22",
+        "version": "c8e8471a84daa75b062017cb2ad7701727622c04bb3a0d02f34b1943981fabde",
+        "signature": "1f27017b4598295e81daa04d3d17e63d005fe1d9779043eef5e5bf494b45d55c",
         "affectsGlobalScope": false
       },
       "../src/models/color.model.ts": {
@@ -387,8 +387,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/range.ts": {
-        "version": "99321d0d901d886773feb6aaf1a19e5d6b852eb8637e0abde71a82a1aea4c8a1",
-        "signature": "a73f7dcb6d5dae86f78c02cc598c11c921c42dfb1993ba86cda1e84ca2e474cb",
+        "version": "a33b293ed17447be2e038effa20c2652c39252f50bda5e2080e3bab4994603ac",
+        "signature": "822f28b2f462df69de2ab785c783b8599024fd06d7ac91323826fbbc698c2736",
         "affectsGlobalScope": false
       },
       "../src/models/index.ts": {
@@ -412,7 +412,7 @@
         "affectsGlobalScope": false
       },
       "../src/math/vector4.ts": {
-        "version": "204a2c47a477accf9af44a0b847e0e41586553681f09f8f1973b29a751e9b34d",
+        "version": "d1871cd97f10f4462513e1ae61643563ad9f4ae3b6b1ddd2bc018d75219f6420",
         "signature": "0ffef5cb77a17fe28a0ca6b28dcf2357b5e23f1096c341bf7420607545896b8c",
         "affectsGlobalScope": false
       },
@@ -451,119 +451,19 @@
         "signature": "e922b26edb270ee4b3e708e882dc6df730b9ec765a3360bd2baccb5acf2ba08f",
         "affectsGlobalScope": false
       },
-      "../src/utils/string-utils.ts": {
-        "version": "472697417699886b0b9720d7c331858c4a941fc13d51a5889308017a6a765478",
-        "signature": "060c44e829c8cbe720d2e4d288e7d5ac5095bf9bf7146b304b7d3e187751fb5b",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/stringutils.ts": {
-        "version": "c6b4fffbc0fa30537a7bbe0b527585bbcbf9c042a2890088a8c3b00fff20dafc",
-        "signature": "2dfe165b37e63434478ff147c7a9edb3aedabd9d20cf5349d1c850ab34760ac8",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/fileutils.ts": {
-        "version": "158cf59d67245935679ee6f15d20a3612b386cf18683e215a4144e0acf6fce88",
-        "signature": "8ae96f6f0a7b3ac77a6f9b9498f0852f65d72a2e075e2a2edcdce519df2084bd",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/mathutils.ts": {
-        "version": "5d510cfe0c5d97211b39f5640ffe5e2e2f5ec8cd5f309bc0b1bc135b28aee880",
-        "signature": "ec0418a71553b127dbfddafa0381675620a9f37e74ba458a78eb61e01552269a",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/not-browser.exception.ts": {
-        "version": "7ac9a7cc60ae78bc4170a03c03af39fb03ffa79f1b1e47f7fe5e69a830d14a28",
-        "signature": "cecb037f713162767a6345d5b74fcc6f50ee2cbbf52d27cdd6dc6777fe94bba4",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/null-pointer.exception.ts": {
-        "version": "5e4c28420df4a6cbafad6d11832de5f435badbafb7deecd0278c8222e1cffd67",
-        "signature": "84f2239b5c384d12bc122aeab17d6147720a2c05a45e7c60e8c760d600aca3c9",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/wrong-parameter.exception.ts": {
-        "version": "0a6beec39c8e46002f99f858b3d8427d7a413b01d5d7e0e6d7b32c86fe7317c7",
-        "signature": "0eb0fefbebefe664a50256f24e670a6fdbb61682a15434e5111d28eccde6c972",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/missing-parameter.error.ts": {
-        "version": "98c39b59e0dc611b25b773a0be984859f57c7b3e4eeeb4e91e1a81656d1c544f",
-        "signature": "1462d6fdae79ddb9d35fbe2d91646e000373f944b08d6c716a95c8368a32453b",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/no-database-connection.error.ts": {
-        "version": "2e6a228de7228ac55c73a72006b1c9b62fda994e59787377825000faa3349741",
-        "signature": "1b419fef46fb80a50d79b3b1a75535d91f33cabeee68487282c79bf9b74b8f3d",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/wrong-type.exception.ts": {
-        "version": "eec78e492e246937c13113dd1349e2ccf495dc44a853ccbaea7c758b1e8b7fc3",
-        "signature": "de45bfece05ace8859827e8b7ec9e24553387b4662632ccea825d82ff05493f8",
-        "affectsGlobalScope": false
-      },
-      "../src/errors/index.ts": {
-        "version": "439bd9a868c4498fec5604d8efb4952bdaa98736230e14242871bfcfb927c647",
-        "signature": "439bd9a868c4498fec5604d8efb4952bdaa98736230e14242871bfcfb927c647",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/net-client-utils.ts": {
-        "version": "d5393a04c5ded9a06274e8560c68329329ce1266929e40c3b52fb1f7d6ebe9b1",
-        "signature": "32d6f2c32bb9683d9dfb89e63bff518d8d4418baa679f96cfce3c13ef221e2a1",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/miscutils.ts": {
-        "version": "8f54466aa14d93b757c8907f7065f2c94782417fd8ac8ebee7426b8dc92385d5",
-        "signature": "5624644dda4f384b90d9cb8f6508e01c185d13754475ca8e0963049f1ecc37bf",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/objectutils.ts": {
-        "version": "5b984df0ffa2abd63ba0735c70fa79cd76a713b1d9d7fb05467a684a2ab02751",
-        "signature": "80317a021c54b7b2259838d40eeb2acd936a70ea9da207ddb552ec3b75733ef6",
-        "affectsGlobalScope": false
-      },
       "../src/utils/time-utils.ts": {
         "version": "9e86de9a4bec7ae92e68bcbedb89187942bda922964520c0ab2944870d3d5635",
         "signature": "c70c5a55d0ae608a56bf18d0a81fe281590d3a138b7243371017930848cde2ee",
         "affectsGlobalScope": false
       },
-      "../src/misc/slovak-stemmer.ts": {
-        "version": "6d5b2710b30af486ecd78c384281e5c4b25b6f5050f67402a8fb0afee709ea56",
-        "signature": "97ef5ec860c7355db6cf7c1ee5a8adcdfd86ceb3e5165803961f56b3757d8647",
+      "../src/components/g-logger.ts": {
+        "version": "5509ef8fd732b521530cb33e8b1bd83b6591b1c66df77297eab79e355520e1f4",
+        "signature": "312f0026db4d5df0abd1d105f26c6b0c2a4c72fb1d75b347739a2a3234ba7d32",
         "affectsGlobalScope": false
       },
-      "../src/dom/deprecated/checkers.ts": {
-        "version": "b4862af33429df2a7efda8401418d20ff571394cfb082da66d702d9e91133ad7",
-        "signature": "e7a760f1116d6988df7ab9ce20222e628cef666089722703f332436919a4b26f",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/canvas-manager.ts": {
-        "version": "e3c8a06e8702cfe7421a0ad06beb133f5f5165a377d235b5b150d30714347858",
-        "signature": "ce5013c057822289d17411453461314e3c657d3138ad557367f98789776c31f3",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/dom-get.ts": {
-        "version": "01869a90d48283a227656b7b8432ece2b78e4740989a923e5f9a6fd01c40d8ed",
-        "signature": "3d2f3580b512794b58d4c27077641c7ba15e6969de3a45ccffe25769c366b0ba",
-        "affectsGlobalScope": false
-      },
-      "../src/node.ts": {
-        "version": "509d334f05159b8a7ec1baf1e78fe81193bda6a6d979160e82d1dafb2ffd9f3d",
-        "signature": "d09dff41257d9143ff9ed8b6ee3ba705fc9d079b840a813c5925dd2b3288b719",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/domutils.ts": {
-        "version": "5cd5e6f97c2afcf28195a8c006f071ccdb3720b45c4c96e089aa520eb3264435",
-        "signature": "84c29941630a7ff933926990ba86721a24fe4324657525c3fde6e57450eea613",
-        "affectsGlobalScope": false
-      },
-      "../src/web.ts": {
-        "version": "b4c8a48642a0c8ee55a6d21c37d40431915ef9f06bea8f38f0309a03d602d9fd",
-        "signature": "44503c403f0816b0696cac33bbdc07cbe9a56b397ce8f11efc72c94c642d0a35",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/stringcheckers.ts": {
-        "version": "380d9b7c18d8d9884932c18c6939fdb6eeb22fde8754f8f195843570a9c8ef6d",
-        "signature": "9c7f56328d96786898b0edc5c909b6a825d6c009c2959d3a7ecb4544f1f8ae29",
+      "../src/components/g-map.ts": {
+        "version": "6403a6e7b80fe9689dfdd8cc4866687d7a3847d14755d7cb39980d0c5af7d967",
+        "signature": "b6d1ffc0e87b2b5a5e6964847ae9e2b77fa9b1934053a38c94a3ed85d93ef669",
         "affectsGlobalScope": false
       },
       "../src/components/key-value-counter.ts": {
@@ -574,11 +474,6 @@
       "../src/components/number-counter.ts": {
         "version": "ad78c0b6bef281b4ca28e4eadc7e6fc399e67f08a2322497930cac5ae559ac82",
         "signature": "3ccf0c0de44729cc182e1f6aad37c7bf3562dc9b3ccc339e7b10e1ea3592cab1",
-        "affectsGlobalScope": false
-      },
-      "../src/components/file-manager.ts": {
-        "version": "e0cc55d9989b347e0adfe5fa68335107996c1414e82e6c66db21ac51834db7ef",
-        "signature": "1e759dec46107fa2e84cdcd8dc0080371d0f9ba60652710ccc58702681e1bd69",
         "affectsGlobalScope": false
       },
       "../src/config/gtools-config.interface.ts": {
@@ -594,41 +489,6 @@
       "../src/components/paginator.ts": {
         "version": "1ae846e1f799abb1ffdc26539894217991dd4a2c1a885baf291ba0b0851af312",
         "signature": "fec09413ee4e53b7534333443ae2cafce7f5a21cd817369f46293fbb39194dcf",
-        "affectsGlobalScope": false
-      },
-      "../src/tests/abstract.fixture.ts": {
-        "version": "6f75fc70576fee07afd8ac355436f9c045fbee5d72004e6125ea6d22c7b8979e",
-        "signature": "ce94af9d0980c8e834150dd9c4090f51ea51867140420e5494b51470c48a77d1",
-        "affectsGlobalScope": false
-      },
-      "../src/tests/abstract.mapper.ts": {
-        "version": "8295eb4539f238dba561098741feea64af34ba11058d61c640410d7fca16bc2f",
-        "signature": "02c3356891ac37b8cc8db91a1f1f3ec58f5e002cf0e425b909d3e212f7cad0cb",
-        "affectsGlobalScope": false
-      },
-      "../src/tests/abstract-database.fixture.ts": {
-        "version": "91adb8c41b44915cc262e32a88c0747ae9551e7e272e898dda04f5a3759a3c47",
-        "signature": "3d9d147c31ba4bad323cca97e4e5dfe10c2d7b10a6422da98a1923dd4336787d",
-        "affectsGlobalScope": false
-      },
-      "../src/tests/paginate.model.ts": {
-        "version": "e7ba927d5a8c8653c7f3416b7e9c6b7246e329bef258b3d03b0020b9075c2708",
-        "signature": "86f823fd364c395ef3eee14e7b377296c523d2846e7ddb85388a01fc609db2ac",
-        "affectsGlobalScope": false
-      },
-      "../src/common.ts": {
-        "version": "9b2f683cdea5f732893f9f8447128b0a60f6ab7160af0e9454de819ab6f989d5",
-        "signature": "4aa3f1b4626d1411dbeb3868c1d48e76254db02c8bfa8ab67c50c668662ed04e",
-        "affectsGlobalScope": false
-      },
-      "../src/components/g-logger.ts": {
-        "version": "7cef3b32e2d5952fd54e916ad511d30a7a8803547239e60993c69dede1482c4d",
-        "signature": "5b4633ab52f88d8e5cb3d657bfb568c1ff5b415ab6b820d5b0f777e613c8948f",
-        "affectsGlobalScope": false
-      },
-      "../src/components/g-map.ts": {
-        "version": "6403a6e7b80fe9689dfdd8cc4866687d7a3847d14755d7cb39980d0c5af7d967",
-        "signature": "b6d1ffc0e87b2b5a5e6964847ae9e2b77fa9b1934053a38c94a3ed85d93ef669",
         "affectsGlobalScope": false
       },
       "../src/components/index.ts": {
@@ -666,6 +526,46 @@
         "signature": "1af4d1819b90cbba2840b7f55e7cdafe1e7206c0654ddf83827eea264cc50848",
         "affectsGlobalScope": false
       },
+      "../src/errors/not-browser.exception.ts": {
+        "version": "7ac9a7cc60ae78bc4170a03c03af39fb03ffa79f1b1e47f7fe5e69a830d14a28",
+        "signature": "cecb037f713162767a6345d5b74fcc6f50ee2cbbf52d27cdd6dc6777fe94bba4",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/null-pointer.exception.ts": {
+        "version": "5e4c28420df4a6cbafad6d11832de5f435badbafb7deecd0278c8222e1cffd67",
+        "signature": "84f2239b5c384d12bc122aeab17d6147720a2c05a45e7c60e8c760d600aca3c9",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/wrong-parameter.exception.ts": {
+        "version": "0a6beec39c8e46002f99f858b3d8427d7a413b01d5d7e0e6d7b32c86fe7317c7",
+        "signature": "0eb0fefbebefe664a50256f24e670a6fdbb61682a15434e5111d28eccde6c972",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/missing-parameter.error.ts": {
+        "version": "98c39b59e0dc611b25b773a0be984859f57c7b3e4eeeb4e91e1a81656d1c544f",
+        "signature": "1462d6fdae79ddb9d35fbe2d91646e000373f944b08d6c716a95c8368a32453b",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/no-database-connection.error.ts": {
+        "version": "2e6a228de7228ac55c73a72006b1c9b62fda994e59787377825000faa3349741",
+        "signature": "1b419fef46fb80a50d79b3b1a75535d91f33cabeee68487282c79bf9b74b8f3d",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/wrong-type.exception.ts": {
+        "version": "eec78e492e246937c13113dd1349e2ccf495dc44a853ccbaea7c758b1e8b7fc3",
+        "signature": "de45bfece05ace8859827e8b7ec9e24553387b4662632ccea825d82ff05493f8",
+        "affectsGlobalScope": false
+      },
+      "../src/errors/index.ts": {
+        "version": "439bd9a868c4498fec5604d8efb4952bdaa98736230e14242871bfcfb927c647",
+        "signature": "439bd9a868c4498fec5604d8efb4952bdaa98736230e14242871bfcfb927c647",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/canvas-manager.ts": {
+        "version": "e3c8a06e8702cfe7421a0ad06beb133f5f5165a377d235b5b150d30714347858",
+        "signature": "ce5013c057822289d17411453461314e3c657d3138ad557367f98789776c31f3",
+        "affectsGlobalScope": false
+      },
       "../src/dom/types/canvas-shadow-config.ts": {
         "version": "ba122529d42f28761fb1c1f8fd1aeee83de462de9e8516bcc9628b5e12fa17c4",
         "signature": "ba122529d42f28761fb1c1f8fd1aeee83de462de9e8516bcc9628b5e12fa17c4",
@@ -674,6 +574,21 @@
       "../src/dom/canvas-utils.ts": {
         "version": "0388fe6cdbe24e3e657d2acb6209086e28339c8a5ac4f9826d50a359caf2c697",
         "signature": "dba894fb04c7175a0949fd1c4b6359ce7adc52810aaac833e5cdcc813d496615",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/dom-get.ts": {
+        "version": "01869a90d48283a227656b7b8432ece2b78e4740989a923e5f9a6fd01c40d8ed",
+        "signature": "3d2f3580b512794b58d4c27077641c7ba15e6969de3a45ccffe25769c366b0ba",
+        "affectsGlobalScope": false
+      },
+      "../src/validators/index.ts": {
+        "version": "e390ad019891cf501c6e70dc43f27cb172e0c6d60c9e17ac628c6098854020f7",
+        "signature": "e390ad019891cf501c6e70dc43f27cb172e0c6d60c9e17ac628c6098854020f7",
+        "affectsGlobalScope": false
+      },
+      "../src/misc/slovak-stemmer.ts": {
+        "version": "6d5b2710b30af486ecd78c384281e5c4b25b6f5050f67402a8fb0afee709ea56",
+        "signature": "97ef5ec860c7355db6cf7c1ee5a8adcdfd86ceb3e5165803961f56b3757d8647",
         "affectsGlobalScope": false
       },
       "../src/misc/ajax.ts": {
@@ -694,56 +609,6 @@
       "../src/misc/index.ts": {
         "version": "eb15f3a5eaab3a5f3b5509b7dd55d4fe27b27a7007d18d188321f2ce7330413e",
         "signature": "eb15f3a5eaab3a5f3b5509b7dd55d4fe27b27a7007d18d188321f2ce7330413e",
-        "affectsGlobalScope": false
-      },
-      "../src/gutils.ts": {
-        "version": "e8b2496aba5fd5bd814857a92a52bea9a15f9d04acaa50ea741c4f752a022252",
-        "signature": "36c1dc6a7d6f9050b646cfbc703362c63478f14aa3109e6ce4edb21f6d8ab1f4",
-        "affectsGlobalScope": false
-      },
-      "../src/mockdata.ts": {
-        "version": "90c9877cd2e693edf94f8392f615a2e4927733ace7a1c072454f6aa9b52aa3f7",
-        "signature": "69456433797556ac60f72c60226e7589f86e1af8bc833c1157cc713adbc7de18",
-        "affectsGlobalScope": false
-      },
-      "../src/index.ts": {
-        "version": "830adf9f6d6531c5159fc4f4148fa383a9e100411732b17a44d1e2039137973d",
-        "signature": "213e8b02b44c33d262dccc853629e9f2e505a7f644d5f10fb6358d3755d67dd5",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/canvas-misc-utilts.ts": {
-        "version": "4bd7748a9263f42c74088869b563af32f1049ac8888077bfef37c913dc7748b8",
-        "signature": "a0f436ac0bc6d56c9559e7976cc1badea7c296b023b7034db6af0f53af3b1210",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/drawer.ts": {
-        "version": "ec7b4797ff8a62aceecd60adb122ffa79a7efd8c161d8e9949f2d77c09715de3",
-        "signature": "bcc65583f6a3709e4d3994cf3c95b2cba3488be5b02146f5017b050d0539675c",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/canvas-drawer.ts": {
-        "version": "d2b05e002b13d3a498582a417c22a6fa9dd305f0c6120294443827dc1ae39be6",
-        "signature": "ea3cd09e41390c96971ba5182d1879adb4b75b3cd0c6fc381dcddb7f13a48fe1",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/canvas-drawer-advanced.ts": {
-        "version": "27af3ad998c8a04fbc9fbb3fa41d1419433293c796135b0dbc026e00fdf1576f",
-        "signature": "183c9b3a6c5a58741700038671fc90accca16708be472c8ef25cdb273100cc0c",
-        "affectsGlobalScope": false
-      },
-      "../src/dom/element-builder.ts": {
-        "version": "048c4700d2dbdff280d1e9b0dbbc5cbae4d28fe69e9b3e8b26a0ecb1b85b133f",
-        "signature": "d75b4f87328adcb411a0483f140575d4e360982d57e8ce3791dc5c4c37a2d103",
-        "affectsGlobalScope": false
-      },
-      "../src/models/countries/country.interface.ts": {
-        "version": "5d0c6b9dad60dde0fb8e3703bde5d6c93912da4786a5ce9d23675ccd9154b885",
-        "signature": "7989797f0d8fdf465436c35c4312d0b1ad68e02329f46174b4f2e11b1f3270cb",
-        "affectsGlobalScope": false
-      },
-      "../src/models/countries/country.model.ts": {
-        "version": "ddd91a1b4bcedd7dfa467e5d61160ecb03e3ffc1dfbd3d8d6ecf11ab7300bfce",
-        "signature": "67ecaf5354bbaa4b5bd6a0868c97d2ed404e981840f986aefe2c92f074dc7ddb",
         "affectsGlobalScope": false
       },
       "../src/physics/closest-2d.ts": {
@@ -786,34 +651,114 @@
         "signature": "f61a81873759c87251c2bb71ee639a8d243817e7cbb6fe44c4d45f6622f15415",
         "affectsGlobalScope": false
       },
+      "../src/tests/abstract.fixture.ts": {
+        "version": "6f75fc70576fee07afd8ac355436f9c045fbee5d72004e6125ea6d22c7b8979e",
+        "signature": "ce94af9d0980c8e834150dd9c4090f51ea51867140420e5494b51470c48a77d1",
+        "affectsGlobalScope": false
+      },
+      "../src/tests/abstract.mapper.ts": {
+        "version": "8295eb4539f238dba561098741feea64af34ba11058d61c640410d7fca16bc2f",
+        "signature": "02c3356891ac37b8cc8db91a1f1f3ec58f5e002cf0e425b909d3e212f7cad0cb",
+        "affectsGlobalScope": false
+      },
+      "../src/tests/abstract-database.fixture.ts": {
+        "version": "91adb8c41b44915cc262e32a88c0747ae9551e7e272e898dda04f5a3759a3c47",
+        "signature": "3d9d147c31ba4bad323cca97e4e5dfe10c2d7b10a6422da98a1923dd4336787d",
+        "affectsGlobalScope": false
+      },
+      "../src/tests/paginate.model.ts": {
+        "version": "e7ba927d5a8c8653c7f3416b7e9c6b7246e329bef258b3d03b0020b9075c2708",
+        "signature": "86f823fd364c395ef3eee14e7b377296c523d2846e7ddb85388a01fc609db2ac",
+        "affectsGlobalScope": false
+      },
+      "../src/gutils.ts": {
+        "version": "587b523ebc5305c6ef6cb78a2f39f94cde0085eda5cfa7dacc312b8466ebf1ea",
+        "signature": "ed05198c6d3e3d9d1d240e2dfadf1750cc5084eb10553a1d3137143fa443cda2",
+        "affectsGlobalScope": false
+      },
+      "../src/mockdata.ts": {
+        "version": "90c9877cd2e693edf94f8392f615a2e4927733ace7a1c072454f6aa9b52aa3f7",
+        "signature": "69456433797556ac60f72c60226e7589f86e1af8bc833c1157cc713adbc7de18",
+        "affectsGlobalScope": false
+      },
+      "../src/common.ts": {
+        "version": "4ed4fb6cbd50c20471f867f405dc6a05023956b0e7bbc69d41f948785294d46a",
+        "signature": "b054c6aded2ec2b4c3e98da3b613e66ddc528ebd840c606bbe7f94b2be84ebd1",
+        "affectsGlobalScope": false
+      },
+      "../src/index.ts": {
+        "version": "830adf9f6d6531c5159fc4f4148fa383a9e100411732b17a44d1e2039137973d",
+        "signature": "213e8b02b44c33d262dccc853629e9f2e505a7f644d5f10fb6358d3755d67dd5",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/fileutils.ts": {
+        "version": "0941db21e7dd1c841b20c1315555bbdc4f5addaed1745da4d899a9a9ae0ee326",
+        "signature": "8ae96f6f0a7b3ac77a6f9b9498f0852f65d72a2e075e2a2edcdce519df2084bd",
+        "affectsGlobalScope": false
+      },
+      "../src/node.ts": {
+        "version": "9485d520ccfe74c26606276355e3396cab9ffc508a3f23e6204fe019a6055fb1",
+        "signature": "4fd53277b23af7187f1044ac011feaefc4cf3369f639accb7816b1d23c50e0e6",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/domutils.ts": {
+        "version": "6f2a4a888b5c83abd0256302cb6062d3850c03bcf855d049bc39a251160cdf1c",
+        "signature": "84c29941630a7ff933926990ba86721a24fe4324657525c3fde6e57450eea613",
+        "affectsGlobalScope": false
+      },
+      "../src/web.ts": {
+        "version": "b38301821dcde1763e53ff6abb7b93d872ce87e9659e51df891c44dd222bb9f3",
+        "signature": "0aacf4428ad5f748eed087e113f83b8ea7fa88c4f9e7734a884c0a1751ae9bf4",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/canvas-misc-utilts.ts": {
+        "version": "4bd7748a9263f42c74088869b563af32f1049ac8888077bfef37c913dc7748b8",
+        "signature": "a0f436ac0bc6d56c9559e7976cc1badea7c296b023b7034db6af0f53af3b1210",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/drawer.ts": {
+        "version": "ec7b4797ff8a62aceecd60adb122ffa79a7efd8c161d8e9949f2d77c09715de3",
+        "signature": "bcc65583f6a3709e4d3994cf3c95b2cba3488be5b02146f5017b050d0539675c",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/canvas-drawer.ts": {
+        "version": "d2b05e002b13d3a498582a417c22a6fa9dd305f0c6120294443827dc1ae39be6",
+        "signature": "ea3cd09e41390c96971ba5182d1879adb4b75b3cd0c6fc381dcddb7f13a48fe1",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/canvas-drawer-advanced.ts": {
+        "version": "fc4b60ba6ebee3be367f9b3d36eb95d88308d2a58e8fcd11c4d27c24ca035e22",
+        "signature": "c99e0556db1ea14db5e20bdf129c3b921b6127fb21b4a70cc43d36f0b41d2441",
+        "affectsGlobalScope": false
+      },
+      "../src/dom/element-builder.ts": {
+        "version": "048c4700d2dbdff280d1e9b0dbbc5cbae4d28fe69e9b3e8b26a0ecb1b85b133f",
+        "signature": "d75b4f87328adcb411a0483f140575d4e360982d57e8ce3791dc5c4c37a2d103",
+        "affectsGlobalScope": false
+      },
+      "../src/models/countries/country.interface.ts": {
+        "version": "5d0c6b9dad60dde0fb8e3703bde5d6c93912da4786a5ce9d23675ccd9154b885",
+        "signature": "7989797f0d8fdf465436c35c4312d0b1ad68e02329f46174b4f2e11b1f3270cb",
+        "affectsGlobalScope": false
+      },
+      "../src/models/countries/country.model.ts": {
+        "version": "ddd91a1b4bcedd7dfa467e5d61160ecb03e3ffc1dfbd3d8d6ecf11ab7300bfce",
+        "signature": "67ecaf5354bbaa4b5bd6a0868c97d2ed404e981840f986aefe2c92f074dc7ddb",
+        "affectsGlobalScope": false
+      },
       "../src/utils/runtime.ts": {
-        "version": "b978c301832466b598e60f02e9bfa5ae507f9d13059281a1d9c6b04c6d3b1924",
+        "version": "00edc406523038cce8911333f31690fe488a9ffa542c14e1e36efea9f0aabe45",
         "signature": "28ed40676f5cbab9b602191089eb4e99518e3e44ec4dc6aa489a6a589bb0b307",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/net-client-utils.ts": {
+        "version": "d5393a04c5ded9a06274e8560c68329329ce1266929e40c3b52fb1f7d6ebe9b1",
+        "signature": "32d6f2c32bb9683d9dfb89e63bff518d8d4418baa679f96cfce3c13ef221e2a1",
         "affectsGlobalScope": false
       },
       "../src/utils/net-server-utils.ts": {
         "version": "87d178e86d5e83f10f450fb797672a577c5afd130688409311d491ae7a413952",
         "signature": "6fadafb88959fadb4f7bf2283e8bd38ac833776f103db811228248818a0dec72",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/analyticsutils.ts": {
-        "version": "002019c7eb54fdfe528e5649f6e4d438b85125a189f3fc980e4e3f68cdd52e84",
-        "signature": "70d0f508501880a2306b78da00d26213d4bf4381dae030a817c8e51e7c691cb2",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/dateutils.ts": {
-        "version": "b0db3d12c574e6d7ffac557cebd2107828d0057c0b52003e2b62115b06b06d70",
-        "signature": "029a2645445a483ddad7482e2931312c86fc8d13cf7d0b5c6b96cb27d85ac04e",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/netutils.ts": {
-        "version": "30b56794aec0d5a3eef0bf255b3e4f14bdabf7e9f945e36bc48533058d8ff868",
-        "signature": "1a9eabd2bb52dbda1ed0341653e6dbbc6266b068ec7cb076e3f35521366b91b3",
-        "affectsGlobalScope": false
-      },
-      "../src/utils/deprecated/processutils.ts": {
-        "version": "3aa1f21305c4d85be2b68c849b8d433cac5d2200de99bf05ff31ae8d1b4a5648",
-        "signature": "492199bb4ebebbc7fdbf7760dfbb0c8f1cdcafcdeb9d082b5b1496e24ac10817",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/chai/index.d.ts": {
@@ -1337,10 +1282,14 @@
         "../src/types/key-value.interface.ts",
         "../src/types/size.interaface.ts",
         "../src/types/string-map.interface.ts",
-        "../src/utils/deprecated/stringcheckers.ts"
+        "../src/utils/string-checkers.ts"
       ],
       "../src/components/file-manager.ts": [
         "../src/enums/index.ts"
+      ],
+      "../src/components/g-logger.ts": [
+        "../src/utils/random-utils.ts",
+        "../src/utils/time-utils.ts"
       ],
       "../src/components/index.ts": [
         "../src/components/file-manager.ts",
@@ -1393,9 +1342,6 @@
         "../src/dom/types/canvas-shadow-config.ts",
         "../src/math/index.ts"
       ],
-      "../src/dom/deprecated/checkers.ts": [
-        "../src/validators/misc-validators.ts"
-      ],
       "../src/dom/drawer.ts": [
         "../src/math/index.ts",
         "../src/types/index.ts"
@@ -1420,26 +1366,27 @@
         "../src/errors/wrong-type.exception.ts"
       ],
       "../src/gutils.ts": [
-        "../src/common.ts",
         "../src/components/index.ts",
         "../src/config/gtools-config.interface.ts",
         "../src/config/gtools-config.ts",
         "../src/decorators/index.ts",
         "../src/dom/canvas-manager.ts",
         "../src/dom/canvas-utils.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/dom/types/canvas-shadow-config.ts",
+        "../src/enums/index.ts",
+        "../src/errors/index.ts",
+        "../src/math/index.ts",
         "../src/misc/index.ts",
         "../src/models/index.ts",
-        "../src/node.ts",
+        "../src/physics/index.ts",
         "../src/tests/abstract-database.fixture.ts",
         "../src/tests/abstract.fixture.ts",
         "../src/tests/abstract.mapper.ts",
         "../src/tests/paginate.model.ts",
         "../src/types/index.ts",
-        "../src/validators/index.ts",
-        "../src/web.ts"
+        "../src/utils/index.ts",
+        "../src/validators/index.ts"
       ],
       "../src/index.ts": [
         "../src/gutils.ts"
@@ -1495,22 +1442,22 @@
       ],
       "../src/models/range.ts": [
         "../src/math/index.ts",
-        "../src/models/color.model.ts"
+        "../src/models/color.model.ts",
+        "../src/utils/index.ts"
       ],
       "../src/models/transform.ts": [
         "../src/math/index.ts"
       ],
       "../src/node.ts": [
         "../src/dom/canvas-manager.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/misc/slovak-stemmer.ts",
-        "../src/utils/deprecated/arrayutils.ts",
-        "../src/utils/deprecated/mathutils.ts",
-        "../src/utils/deprecated/miscutils.ts",
-        "../src/utils/deprecated/objectutils.ts",
-        "../src/utils/deprecated/stringutils.ts",
+        "../src/utils/array-utils.ts",
         "../src/utils/fileutils.ts",
+        "../src/utils/math-utils.ts",
+        "../src/utils/misc-utils.ts",
+        "../src/utils/object-utils.ts",
+        "../src/utils/string-utils.ts",
         "../src/utils/time-utils.ts"
       ],
       "../src/physics/closest-3d.ts": [
@@ -1584,54 +1531,17 @@
       "../src/utils/color-utils.ts": [
         "../src/utils/math-utils.ts"
       ],
-      "../src/utils/deprecated/analyticsutils.ts": [
-        "../src/utils/analytics-utils.ts"
-      ],
-      "../src/utils/deprecated/arrayutils.ts": [
-        "../src/utils/array-utils.ts"
-      ],
-      "../src/utils/deprecated/dateutils.ts": [
-        "../src/utils/date-utils.ts"
-      ],
-      "../src/utils/deprecated/mathutils.ts": [
-        "../src/utils/math-utils.ts"
-      ],
-      "../src/utils/deprecated/miscutils.ts": [
-        "../src/types/string-map.interface.ts",
-        "../src/utils/misc-utils.ts",
-        "../src/utils/net-client-utils.ts",
-        "../src/utils/object-utils.ts",
-        "../src/utils/reflection-utils.ts"
-      ],
-      "../src/utils/deprecated/netutils.ts": [
-        "../src/utils/net-server-utils.ts"
-      ],
-      "../src/utils/deprecated/objectutils.ts": [
-        "../src/utils/object-utils.ts"
-      ],
-      "../src/utils/deprecated/processutils.ts": [
-        "../src/utils/process-utils.ts"
-      ],
-      "../src/utils/deprecated/stringcheckers.ts": [
-        "../src/utils/string-checkers.ts"
-      ],
-      "../src/utils/deprecated/stringutils.ts": [
-        "../src/types/string-map.interface.ts",
-        "../src/utils/string-checkers.ts",
-        "../src/utils/string-utils.ts",
-        "../src/validators/index.ts"
-      ],
       "../src/utils/domutils.ts": [
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/errors/index.ts",
         "../src/math/index.ts",
-        "../src/types/index.ts"
+        "../src/types/index.ts",
+        "../src/validators/misc-validators.ts"
       ],
       "../src/utils/fileutils.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/path.d.ts",
-        "../src/utils/deprecated/stringutils.ts"
+        "../src/utils/string-utils.ts"
       ],
       "../src/utils/html-utils.ts": [
         "../src/constants.ts"
@@ -1656,7 +1566,8 @@
         "../src/utils/random-utils.ts",
         "../src/utils/reflection-utils.ts",
         "../src/utils/string-utils.ts",
-        "../src/utils/svg-utils.ts"
+        "../src/utils/svg-utils.ts",
+        "../src/utils/time-utils.ts"
       ],
       "../src/utils/input-utils.ts": [
         "../src/enums/index.ts"
@@ -1680,8 +1591,8 @@
         "../src/types/index.ts"
       ],
       "../src/utils/runtime.ts": [
-        "../src/dom/deprecated/checkers.ts",
-        "../src/errors/index.ts"
+        "../src/errors/index.ts",
+        "../src/validators/misc-validators.ts"
       ],
       "../src/utils/string-checkers.ts": [
         "../src/validators/misc-validators.ts"
@@ -1699,15 +1610,14 @@
       ],
       "../src/web.ts": [
         "../src/dom/canvas-manager.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/misc/slovak-stemmer.ts",
-        "../src/utils/deprecated/arrayutils.ts",
-        "../src/utils/deprecated/mathutils.ts",
-        "../src/utils/deprecated/miscutils.ts",
-        "../src/utils/deprecated/objectutils.ts",
-        "../src/utils/deprecated/stringutils.ts",
+        "../src/utils/array-utils.ts",
         "../src/utils/domutils.ts",
+        "../src/utils/math-utils.ts",
+        "../src/utils/misc-utils.ts",
+        "../src/utils/object-utils.ts",
+        "../src/utils/string-utils.ts",
         "../src/utils/time-utils.ts"
       ]
     },
@@ -1907,7 +1817,10 @@
         "../src/types/key-value.interface.ts",
         "../src/types/size.interaface.ts",
         "../src/types/string-map.interface.ts",
-        "../src/utils/deprecated/stringcheckers.ts"
+        "../src/utils/string-checkers.ts"
+      ],
+      "../src/components/file-manager.ts": [
+        "../src/enums/index.ts"
       ],
       "../src/components/index.ts": [
         "../src/components/file-manager.ts",
@@ -1920,12 +1833,18 @@
       "../src/config/gtools-config.ts": [
         "../src/config/gtools-config.interface.ts"
       ],
+      "../src/decorators/deprecated.decorator.ts": [
+        "../src/types/index.ts"
+      ],
       "../src/decorators/index.ts": [
         "../src/decorators/deprecated.decorator.ts",
         "../src/decorators/final-class.decorator.ts",
         "../src/decorators/mapper.decorator.ts",
         "../src/decorators/singleton.decorator.ts",
         "../src/decorators/watch.decorator.ts"
+      ],
+      "../src/decorators/watch.decorator.ts": [
+        "../src/types/index.ts"
       ],
       "../src/dom/canvas-drawer-advanced.ts": [
         "../src/dom/types/canvas-shadow-config.ts",
@@ -1943,10 +1862,8 @@
         "../src/types/index.ts"
       ],
       "../src/dom/canvas-utils.ts": [
-        "../src/dom/types/canvas-shadow-config.ts"
-      ],
-      "../src/dom/deprecated/checkers.ts": [
-        "../src/validators/misc-validators.ts"
+        "../src/dom/types/canvas-shadow-config.ts",
+        "../src/math/index.ts"
       ],
       "../src/dom/drawer.ts": [
         "../src/math/index.ts",
@@ -1969,26 +1886,27 @@
         "../src/errors/wrong-type.exception.ts"
       ],
       "../src/gutils.ts": [
-        "../src/common.ts",
         "../src/components/index.ts",
         "../src/config/gtools-config.interface.ts",
         "../src/config/gtools-config.ts",
         "../src/decorators/index.ts",
         "../src/dom/canvas-manager.ts",
         "../src/dom/canvas-utils.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/dom/types/canvas-shadow-config.ts",
+        "../src/enums/index.ts",
+        "../src/errors/index.ts",
+        "../src/math/index.ts",
         "../src/misc/index.ts",
         "../src/models/index.ts",
-        "../src/node.ts",
+        "../src/physics/index.ts",
         "../src/tests/abstract-database.fixture.ts",
         "../src/tests/abstract.fixture.ts",
         "../src/tests/abstract.mapper.ts",
         "../src/tests/paginate.model.ts",
         "../src/types/index.ts",
-        "../src/validators/index.ts",
-        "../src/web.ts"
+        "../src/utils/index.ts",
+        "../src/validators/index.ts"
       ],
       "../src/index.ts": [
         "../src/gutils.ts"
@@ -2039,20 +1957,32 @@
         "../src/models/transform.ts"
       ],
       "../src/models/range.ts": [
+        "../src/math/index.ts",
         "../src/models/color.model.ts"
+      ],
+      "../src/models/transform.ts": [
+        "../src/math/index.ts"
       ],
       "../src/node.ts": [
         "../src/dom/canvas-manager.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/misc/slovak-stemmer.ts",
-        "../src/utils/deprecated/arrayutils.ts",
-        "../src/utils/deprecated/mathutils.ts",
-        "../src/utils/deprecated/miscutils.ts",
-        "../src/utils/deprecated/objectutils.ts",
-        "../src/utils/deprecated/stringutils.ts",
+        "../src/utils/array-utils.ts",
         "../src/utils/fileutils.ts",
+        "../src/utils/math-utils.ts",
+        "../src/utils/misc-utils.ts",
+        "../src/utils/object-utils.ts",
+        "../src/utils/string-utils.ts",
         "../src/utils/time-utils.ts"
+      ],
+      "../src/physics/closest-3d.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/physics/collisions-3d.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/physics/distances-3d.ts": [
+        "../src/math/index.ts"
       ],
       "../src/physics/index.ts": [
         "../src/physics/closest-2d.ts",
@@ -2062,6 +1992,9 @@
         "../src/physics/distances-2d.ts",
         "../src/physics/distances-3d.ts",
         "../src/physics/intersects-3d.ts"
+      ],
+      "../src/physics/intersects-3d.ts": [
+        "../src/math/index.ts"
       ],
       "../src/tests/abstract-database.fixture.ts": [
         "../src/tests/abstract.fixture.ts",
@@ -2090,21 +2023,22 @@
       "../src/types/object-entry.interface.ts": [
         "../src/types/key-value.interface.ts"
       ],
+      "../src/types/ray2.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/types/ray3.ts": [
+        "../src/math/index.ts"
+      ],
       "../src/types/text-options.interface.ts": [
         "../src/types/horizontal-align.type.ts",
         "../src/types/vertical-align.type.ts"
       ],
-      "../src/utils/deprecated/miscutils.ts": [
-        "../src/types/string-map.interface.ts"
+      "../src/types/xywh.ts": [
+        "../src/math/index.ts"
       ],
-      "../src/utils/deprecated/processutils.ts": [
-        "../src/utils/process-utils.ts"
-      ],
-      "../src/utils/deprecated/stringcheckers.ts": [
-        "../src/utils/string-checkers.ts"
-      ],
-      "../src/utils/deprecated/stringutils.ts": [
-        "../src/types/string-map.interface.ts"
+      "../src/utils/domutils.ts": [
+        "../src/math/index.ts",
+        "../src/types/index.ts"
       ],
       "../src/utils/index.ts": [
         "../src/utils/analytics-utils.ts",
@@ -2123,25 +2057,37 @@
         "../src/utils/random-utils.ts",
         "../src/utils/reflection-utils.ts",
         "../src/utils/string-utils.ts",
-        "../src/utils/svg-utils.ts"
+        "../src/utils/svg-utils.ts",
+        "../src/utils/time-utils.ts"
+      ],
+      "../src/utils/input-utils.ts": [
+        "../src/enums/index.ts"
+      ],
+      "../src/utils/misc-utils.ts": [
+        "../src/types/index.ts"
       ],
       "../src/utils/net-server-utils.ts": [
         "../node_modules/@types/node/fs.d.ts"
+      ],
+      "../src/utils/object-utils.ts": [
+        "../src/types/index.ts"
+      ],
+      "../src/utils/string-utils.ts": [
+        "../src/types/index.ts"
       ],
       "../src/validators/index.ts": [
         "../src/validators/misc-validators.ts"
       ],
       "../src/web.ts": [
         "../src/dom/canvas-manager.ts",
-        "../src/dom/deprecated/checkers.ts",
         "../src/dom/dom-get.ts",
         "../src/misc/slovak-stemmer.ts",
-        "../src/utils/deprecated/arrayutils.ts",
-        "../src/utils/deprecated/mathutils.ts",
-        "../src/utils/deprecated/miscutils.ts",
-        "../src/utils/deprecated/objectutils.ts",
-        "../src/utils/deprecated/stringutils.ts",
+        "../src/utils/array-utils.ts",
         "../src/utils/domutils.ts",
+        "../src/utils/math-utils.ts",
+        "../src/utils/misc-utils.ts",
+        "../src/utils/object-utils.ts",
+        "../src/utils/string-utils.ts",
         "../src/utils/time-utils.ts"
       ]
     },
@@ -2250,7 +2196,6 @@
       "../src/dom/canvas-manager.ts",
       "../src/dom/canvas-misc-utilts.ts",
       "../src/dom/canvas-utils.ts",
-      "../src/dom/deprecated/checkers.ts",
       "../src/dom/dom-get.ts",
       "../src/dom/drawer.ts",
       "../src/dom/element-builder.ts",
@@ -2330,16 +2275,6 @@
       "../src/utils/coerce-util.ts",
       "../src/utils/color-utils.ts",
       "../src/utils/date-utils.ts",
-      "../src/utils/deprecated/analyticsutils.ts",
-      "../src/utils/deprecated/arrayutils.ts",
-      "../src/utils/deprecated/dateutils.ts",
-      "../src/utils/deprecated/mathutils.ts",
-      "../src/utils/deprecated/miscutils.ts",
-      "../src/utils/deprecated/netutils.ts",
-      "../src/utils/deprecated/objectutils.ts",
-      "../src/utils/deprecated/processutils.ts",
-      "../src/utils/deprecated/stringcheckers.ts",
-      "../src/utils/deprecated/stringutils.ts",
       "../src/utils/domutils.ts",
       "../src/utils/fileutils.ts",
       "../src/utils/html-utils.ts",

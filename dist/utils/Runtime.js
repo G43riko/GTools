@@ -1,8 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Runtime = void 0;
 var errors_1 = require("gtools/errors");
-var Checkers_1 = require("../dom/deprecated/Checkers");
+var Checkers = __importStar(require("../validators/misc-validators"));
 var useRuntimeCheckers = true;
 var Runtime = (function () {
     function Runtime() {
@@ -23,25 +42,25 @@ var Runtime = (function () {
         return obj;
     };
     Runtime.isArray = function (obj) {
-        if (useRuntimeCheckers && !Checkers_1.Checkers.isArray(obj)) {
+        if (useRuntimeCheckers && !Checkers.isArray(obj)) {
             throw new errors_1.WrongTypeException("Array");
         }
         return obj;
     };
     Runtime.isString = function (obj) {
-        if (useRuntimeCheckers && !Checkers_1.Checkers.isString(obj)) {
+        if (useRuntimeCheckers && !Checkers.isString(obj)) {
             throw new errors_1.WrongTypeException("string");
         }
         return obj;
     };
     Runtime.isNumber = function (obj) {
-        if (useRuntimeCheckers && !Checkers_1.Checkers.isNumber(obj)) {
+        if (useRuntimeCheckers && !Checkers.isNumber(obj)) {
             throw new errors_1.WrongTypeException("number");
         }
         return obj;
     };
     Runtime.isFunction = function (obj) {
-        if (useRuntimeCheckers && !Checkers_1.Checkers.isFunction(obj)) {
+        if (useRuntimeCheckers && !Checkers.isFunction(obj)) {
             throw new errors_1.WrongTypeException("function");
         }
         return obj;
@@ -58,7 +77,7 @@ var Runtime = (function () {
         }
     };
     Runtime.isBoolean = function (obj) {
-        if (useRuntimeCheckers && !Checkers_1.Checkers.isBoolean(obj)) {
+        if (useRuntimeCheckers && !Checkers.isBoolean(obj)) {
             throw new errors_1.WrongTypeException("boolean");
         }
         return obj;

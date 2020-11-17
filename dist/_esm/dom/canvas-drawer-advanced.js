@@ -5,22 +5,6 @@ export class CanvasDrawerAdvanced {
         this.context = context;
         this.drawer = new CanvasDrawer(this.context);
     }
-    prepareShadow(shadow) {
-        var _a, _b, _c, _d;
-        if (shadow) {
-            CanvasManager.setShadow(this.context, (_a = shadow.x) !== null && _a !== void 0 ? _a : 0, (_b = shadow.y) !== null && _b !== void 0 ? _b : 0, (_c = shadow.color) !== null && _c !== void 0 ? _c : "black", (_d = shadow.blur) !== null && _d !== void 0 ? _d : 5);
-        }
-    }
-    prepareDashed(dashes) {
-        if (Array.isArray(dashes)) {
-            CanvasManager.setLineDash(this.context, ...dashes);
-        }
-    }
-    prepareOpacity(opacity) {
-        if (!isNaN(opacity !== null && opacity !== void 0 ? opacity : NaN)) {
-            this.context.globalAlpha = opacity;
-        }
-    }
     renderRect(location, options) {
         var _a;
         this.prepareShadow(options.shadow);
@@ -51,6 +35,22 @@ export class CanvasDrawerAdvanced {
             if (options.stroke.strokeColor) {
                 this.drawer.fillRect(location.x, location.y, location.w, location.h, options.stroke.strokeColor);
             }
+        }
+    }
+    prepareShadow(shadow) {
+        var _a, _b, _c, _d;
+        if (shadow) {
+            CanvasManager.setShadow(this.context, (_a = shadow.x) !== null && _a !== void 0 ? _a : 0, (_b = shadow.y) !== null && _b !== void 0 ? _b : 0, (_c = shadow.color) !== null && _c !== void 0 ? _c : "black", (_d = shadow.blur) !== null && _d !== void 0 ? _d : 5);
+        }
+    }
+    prepareDashed(dashes) {
+        if (Array.isArray(dashes)) {
+            CanvasManager.setLineDash(this.context, ...dashes);
+        }
+    }
+    prepareOpacity(opacity) {
+        if (!isNaN(opacity !== null && opacity !== void 0 ? opacity : NaN)) {
+            this.context.globalAlpha = opacity;
         }
     }
 }

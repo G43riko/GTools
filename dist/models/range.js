@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Range = void 0;
+var utils_1 = require("gtools/utils");
 var color_model_1 = require("./color.model");
 var Range = (function () {
     function Range(min, max) {
@@ -9,19 +10,19 @@ var Range = (function () {
         this.max = max;
     }
     Range.random = function (range) {
-        return Math.random() * (range.max - range.min) + range.min;
+        return utils_1.randomFloatBetween(range.min, range.max);
     };
     Range.randomVector = function (range) {
         return {
-            x: Math.random() * (range.max.x - range.min.x) + range.min.x,
-            y: Math.random() * (range.max.y - range.min.y) + range.min.y,
+            x: utils_1.randomFloatBetween(range.min.x, range.max.x),
+            y: utils_1.randomFloatBetween(range.min.y, range.max.y),
         };
     };
-    Range.randomColor = function (range, method) {
-        if (method === void 0) { method = "rgba"; }
-        var min = range.min.rgba;
-        var max = range.max.rgba;
-        return new color_model_1.Color(Math.random() * (max[0] - min[0]) + min[0], Math.random() * (max[1] - min[1]) + min[1], Math.random() * (max[2] - min[2]) + min[2], Math.random() * (max[3] - min[3]) + min[3]);
+    Range.randomColorF = function (range) {
+        return new color_model_1.Color(utils_1.randomFloatBetween(range.min.red, range.max.red), utils_1.randomFloatBetween(range.min.green, range.max.green), utils_1.randomFloatBetween(range.min.blue, range.max.blue), utils_1.randomFloatBetween(range.min.alpha, range.max.alpha));
+    };
+    Range.randomColorI = function (range) {
+        return new color_model_1.Color(utils_1.randomIntBetween(range.min.red, range.max.red), utils_1.randomIntBetween(range.min.green, range.max.green), utils_1.randomIntBetween(range.min.blue, range.max.blue), utils_1.randomIntBetween(range.min.alpha, range.max.alpha));
     };
     return Range;
 }());

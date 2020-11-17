@@ -16,6 +16,14 @@ describe("StringUtils", () => {
             expect(StringUtils.capitalize("gABO")).to.be.equal("Gabo");
         });
     });
+    describe("Format", () => {
+        it("It should replace default placeholder with parameters", () => {
+            expect(StringUtils.format("{} is a big {}", ["Gabo", "hero"])).to.be.equal("Gabo is a big hero");
+        });
+        it("It should replace custom placeholder with parameters", () => {
+            expect(StringUtils.format("<> is a big <>", ["Gabo", "hero"], "<>")).to.be.equal("Gabo is a big hero");
+        });
+    });
     describe("UpperCamelCase", () => {
         it("It should turn string into upper camel case", () => {
             const result = "HelloWorldIAmComputer";
@@ -112,19 +120,23 @@ b
 `);
         });
     });
-    describe.skip("Template", () => {
+    describe("Template", () => {
         it("It should replace placeholders with values", () => {
             const params = {
                 age : "23",
                 name: "Gabo",
             };
-            expect(StringUtils.template("{{name}} is {{age}} years old", params)).to.be.equal("Gabo je starý 23 rokov");
+            expect(StringUtils.template("{{name}} is {{age}} years old", params)).to.be.equal("Gabo is 23 years old");
         });
     });
 
     describe("Occurrences", () => {
         it("It should return number of occurrences of substring", () => {
             expect(StringUtils.occurrences("I am the most expensive and the best IDE on the world", "the")).to.equal(3);
+            expect(StringUtils.occurrences("foofoofoo", "bar")).to.equal(0);
+            expect(StringUtils.occurrences("foofoofoo", "foo")).to.equal(3);
+            expect(StringUtils.occurrences("foofoofoo", "foofoo")).to.equal(1);
+            expect(StringUtils.occurrences("foofoofoo", "foofoo", true)).to.equal(2);
         });
     });
     describe("CollapseWhiteSpace", () => {
@@ -195,6 +207,14 @@ b
             MockData.emails.forEach((email) => {
                 expect(Validators.isValidEmail(email), `'${email}' should be email`).to.be.true;
             });
+        });
+    });
+    describe("CutUsing", () => {
+        it("It should return cut end and append suffix", () => {
+            expect(StringUtils.cutUsing("abcdefghij", 10)).to.be.equal("abcdefghij");
+            expect(StringUtils.cutUsing("abcdefghij", 15)).to.be.equal("abcdefghij");
+            expect(StringUtils.cutUsing("abcdefghij", 9)).to.be.equal("abcdefg...");
+            expect(StringUtils.cutUsing("abcdefghij", 9, "...", false)).to.be.equal("abcdefghi...");
         });
     });
     describe("JoinSingle", () => {

@@ -11,7 +11,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initConfig = exports.Gender = void 0;
-__exportStar(require("./utils/deprecated/StringCheckers"), exports);
+__exportStar(require("./utils/string-checkers"), exports);
 var gender_model_1 = require("./models/gender.model");
 Object.defineProperty(exports, "Gender", { enumerable: true, get: function () { return gender_model_1.Gender; } });
 __exportStar(require("./enums/encodings.enum"), exports);

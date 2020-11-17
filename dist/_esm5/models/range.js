@@ -1,3 +1,4 @@
+import { randomFloatBetween, randomIntBetween } from "gtools/utils";
 import { Color } from "./color.model";
 var Range = (function () {
     function Range(min, max) {
@@ -6,19 +7,19 @@ var Range = (function () {
         this.max = max;
     }
     Range.random = function (range) {
-        return Math.random() * (range.max - range.min) + range.min;
+        return randomFloatBetween(range.min, range.max);
     };
     Range.randomVector = function (range) {
         return {
-            x: Math.random() * (range.max.x - range.min.x) + range.min.x,
-            y: Math.random() * (range.max.y - range.min.y) + range.min.y,
+            x: randomFloatBetween(range.min.x, range.max.x),
+            y: randomFloatBetween(range.min.y, range.max.y),
         };
     };
-    Range.randomColor = function (range, method) {
-        if (method === void 0) { method = "rgba"; }
-        var min = range.min.rgba;
-        var max = range.max.rgba;
-        return new Color(Math.random() * (max[0] - min[0]) + min[0], Math.random() * (max[1] - min[1]) + min[1], Math.random() * (max[2] - min[2]) + min[2], Math.random() * (max[3] - min[3]) + min[3]);
+    Range.randomColorF = function (range) {
+        return new Color(randomFloatBetween(range.min.red, range.max.red), randomFloatBetween(range.min.green, range.max.green), randomFloatBetween(range.min.blue, range.max.blue), randomFloatBetween(range.min.alpha, range.max.alpha));
+    };
+    Range.randomColorI = function (range) {
+        return new Color(randomIntBetween(range.min.red, range.max.red), randomIntBetween(range.min.green, range.max.green), randomIntBetween(range.min.blue, range.max.blue), randomIntBetween(range.min.alpha, range.max.alpha));
     };
     return Range;
 }());

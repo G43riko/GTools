@@ -1,4 +1,4 @@
-export * from "./utils/deprecated/StringCheckers";
+export * from "./utils/string-checkers";
 export { Gender } from "./models/gender.model";
 export * from "./enums/encodings.enum";
 export * from "./enums/file-types.enum";
