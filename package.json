@@ -24,7 +24,7 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run clean",
+        "prepare": "npm run clean && npm run build && npm run doc",
         "test": "ts-mocha --paths -p ./tsconfig.json ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
