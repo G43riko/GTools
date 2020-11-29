@@ -1,8 +1,9 @@
-import { FileTypes } from "gtools/enums";
+import { FileTypes } from "../enums/file-types.enum";
 
 /**
  *  FileManager is class used for open and save files
  */
+
 export class FileManager {
     /**
      * private input used for opening system window for upload files

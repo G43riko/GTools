@@ -1,4 +1,4 @@
-import { hex2rgb, int2rgb, rgb2hex, rgb2int } from "gtools/utils";
+import { hex2rgb, int2rgb, rgb2hex, rgb2int } from "../utils";
 
 function checkColorValue(value: number): void {
     console.assert(value >= 0);

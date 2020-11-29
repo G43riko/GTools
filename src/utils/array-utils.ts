@@ -1,9 +1,9 @@
 /**
  *
  * @example
- * const array = [{name: "Michael", age: 23}, {name: "Joachim", age: 15}, {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
- * const conditions = {age: 23, name: "Monica"}
- * where(array, conditions); // [{name: "Michael", age: 23},  {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
+ *  const array = [{name: "Michael", age: 23}, {name: "Joachim", age: 15}, {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
+ *  const conditions = {age: 23, name: "Monica"}
+ *  where(array, conditions); // [{name: "Michael", age: 23},  {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
  */
 export function where<T extends Record<string, unknown>>(array: T[], condition: Partial<T>): T[] {
     if (!Array.isArray(array)) {

@@ -1,4 +1,4 @@
-import { Vector3 } from "gtools/math";
+import { Vector3 } from "../math";
 
 export function pointPoint3dDistance(ax: number, ay: number, az: number, bx: number, by: number, bz: number): number {
     return Math.sqrt(pointPointSqr3dDistance(ax, ay, az, bx, by, bz));

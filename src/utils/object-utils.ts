@@ -2,11 +2,75 @@ import { ObjectEntry } from "gtools/types";
 
 export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))
-                                .reduce((prev, entry) => {
-                                    prev[entry.key] = entry.value;
+        .reduce((prev, entry) => {
+            prev[entry.key] = entry.value;
 
-                                    return prev;
-                                }, {} as T);
+            return prev;
+        }, {} as T);
+}
+
+export function deepEqual<T>(objA: T, objB: T): boolean {
+    if (typeof objA !== typeof objB) {
+        return false;
+    }
+
+    if (typeof objA === "object") {
+        if (!objA || !objB) {
+            return objA === objB;
+        }
+        if ((objA as any)?.constructor?.name !== (objB as any)?.constructor?.name) {
+            return false;
+        }
+
+        const keys = Object.keys(objA) as (keyof T)[];
+
+        if (keys.length !== Object.keys(objB).length) {
+            return false;
+        }
+
+        for(const key of keys) {
+            if (!deepEqual(objA[key], objB[key])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    if (typeof (objA as any) === "number" && typeof objB === "number") {
+        if (isNaN(+objA) && isNaN(+objB)) {
+            return true;
+        }
+    }
+
+    return objA === objB;
+}
+
+export function deepCopy<T>(source: T): T {
+    if (typeof source === "object") {
+        if (Array.isArray(source)) {
+            // tslint:disable-next-line:no-map-without-usage
+            return source.map((e) => deepCopy(e)) as any;
+        }
+        if ((source as any)?.constructor?.name !== "Object") {
+            throw new Error("This method cannot copy class instances");
+        }
+
+
+        const result: Partial<T> = {};
+
+        Object.entries(source).forEach(([key, value]) => {
+            (result as any)[key] = deepCopy(value);
+        });
+
+        return result as T;
+    }
+
+    if (typeof source === "function") {
+        throw new Error("This method cannot copy functions");
+    }
+
+    return source;
 }
 
 export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {

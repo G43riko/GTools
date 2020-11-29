@@ -181,44 +181,9 @@
         "signature": "1e759dec46107fa2e84cdcd8dc0080371d0f9ba60652710ccc58702681e1bd69",
         "affectsGlobalScope": false
       },
-      "./src/components/g-logger.ts": {
-        "version": "7cef3b32e2d5952fd54e916ad511d30a7a8803547239e60993c69dede1482c4d",
-        "signature": "5b4633ab52f88d8e5cb3d657bfb568c1ff5b415ab6b820d5b0f777e613c8948f",
-        "affectsGlobalScope": false
-      },
-      "./src/components/g-map.ts": {
-        "version": "6403a6e7b80fe9689dfdd8cc4866687d7a3847d14755d7cb39980d0c5af7d967",
-        "signature": "b6d1ffc0e87b2b5a5e6964847ae9e2b77fa9b1934053a38c94a3ed85d93ef669",
-        "affectsGlobalScope": false
-      },
-      "./src/components/key-value-counter.ts": {
-        "version": "059521734a9cc15523579f1e40d39100608f07b375dfc0098735106fbf0fd2cd",
-        "signature": "bd506792e3d0f86c1b148870a530470c37c0234319114953473dbe73a84940ec",
-        "affectsGlobalScope": false
-      },
-      "./src/components/number-counter.ts": {
-        "version": "ad78c0b6bef281b4ca28e4eadc7e6fc399e67f08a2322497930cac5ae559ac82",
-        "signature": "3ccf0c0de44729cc182e1f6aad37c7bf3562dc9b3ccc339e7b10e1ea3592cab1",
-        "affectsGlobalScope": false
-      },
-      "./src/config/gtools-config.interface.ts": {
-        "version": "e6e113eadb1ccaaae2e957e8de27034dfb13482e63ccf39fb05437bcbe1eecfb",
-        "signature": "86ed1beceb38e1af1bb7ec598db14a491e07a8b1d8ad479a5df6edc1c6231e27",
-        "affectsGlobalScope": false
-      },
-      "./src/config/gtools-config.ts": {
-        "version": "5810ad019f74c6261146aa2e0d9a0de42f2d0797e440d5c69528fb77e20d68cf",
-        "signature": "cd0a8bbee4c1af364206cbec7fc471dc238edb40d1f04f856691c042bcf8a323",
-        "affectsGlobalScope": false
-      },
-      "./src/components/paginator.ts": {
-        "version": "1ae846e1f799abb1ffdc26539894217991dd4a2c1a885baf291ba0b0851af312",
-        "signature": "fec09413ee4e53b7534333443ae2cafce7f5a21cd817369f46293fbb39194dcf",
-        "affectsGlobalScope": false
-      },
-      "./src/components/index.ts": {
-        "version": "e4e81d2d53d2ab46122fc360aa6f7ccf63d707f4567a00b0128cdc5f6c8b0d2b",
-        "signature": "e4e81d2d53d2ab46122fc360aa6f7ccf63d707f4567a00b0128cdc5f6c8b0d2b",
+      "./src/utils/random-utils.ts": {
+        "version": "66cd6ef50057d60191e3a8f5b06c77d8c40aa1e8e7d41c23f8af352ed4cd1974",
+        "signature": "7fac6144ce84a39f446b61eadcda61cb0af9b9da06ef2374fe6c91b301bd1272",
         "affectsGlobalScope": false
       },
       "./src/types/horizontal-align.type.ts": {
@@ -317,7 +282,7 @@
         "affectsGlobalScope": false
       },
       "./src/utils/array-utils.ts": {
-        "version": "49e1b72ca25fb29aec1812de125223ad11aed22ed5feb1196c48931db30fa39d",
+        "version": "bc00baef2b5531943326a4d7ad995e80d8a39ad19289e6dd69e7d1a808ca6f91",
         "signature": "a5048f5b5e66e94c491947e056c0a527f5fa4ad9c0ac22c27acefff389e8134c",
         "affectsGlobalScope": false
       },
@@ -326,18 +291,13 @@
         "signature": "3aaf01dd98093fd4ef879a5f99085ea0167cf4c86c550f79d469cf0155911cd4",
         "affectsGlobalScope": false
       },
-      "./src/utils/random-utils.ts": {
-        "version": "66cd6ef50057d60191e3a8f5b06c77d8c40aa1e8e7d41c23f8af352ed4cd1974",
-        "signature": "7fac6144ce84a39f446b61eadcda61cb0af9b9da06ef2374fe6c91b301bd1272",
-        "affectsGlobalScope": false
-      },
       "./src/utils/math-utils.ts": {
         "version": "d82302ca272586338587ebd3182cc5df4aee6b3b06b94a5fa906f5406fb49797",
         "signature": "b69aca32f970ab2b0cb8e97dc31575ed1f264973d3cd9d92a1275201d13a1cfb",
         "affectsGlobalScope": false
       },
       "./src/utils/color-utils.ts": {
-        "version": "cf220a32ae401e350da30a46efff1e5c030a55d448bd3eb9d2631381c8a4ba28",
+        "version": "77999b89b18fbda44563e6250dd2f90cd47c6889876ed5a46d26e29b90e3bfb9",
         "signature": "057993534c988f4a46b9aad2b8a5e1698ac87a35ac30ecb13bf0a4853cf68760",
         "affectsGlobalScope": false
       },
@@ -362,8 +322,8 @@
         "affectsGlobalScope": false
       },
       "./src/utils/misc-utils.ts": {
-        "version": "e8f13571cf26199e44fe87e0634acefccd4439741c8193f8cc51ca8ceac83456",
-        "signature": "75654d3c782e7165ba343534243e8c38c202f328a12f2f7a24fbd7d92d1b88de",
+        "version": "81eb3f2b1b2a80b502541528512f757b9a3d9a7a7abe175a7b41c905211f28cd",
+        "signature": "0bb79967b16de2d62e750a9c5727c5258c0932ebd9c7e26084c3e974f56409b7",
         "affectsGlobalScope": false
       },
       "./src/utils/input-utils.ts": {
@@ -402,8 +362,8 @@
         "affectsGlobalScope": false
       },
       "./src/utils/string-utils.ts": {
-        "version": "bea97291081c288776083c16ffef16480adeb17afba533c7d435c0e9d5268e98",
-        "signature": "3b80ac81c3c260fce4e5cd3d17454e4419f7e3398b9f5da2cf54615cf32c0b3a",
+        "version": "32bd3ecbedb546d079562a33f0cf29a8724150a0b70dfa434461ea2b18b8addf",
+        "signature": "6bbf2a79575477f413b697c41ec2159bf57cce295ed85e5b7e299188d9711622",
         "affectsGlobalScope": false
       },
       "./src/utils/svg-utils.ts": {
@@ -412,8 +372,8 @@
         "affectsGlobalScope": false
       },
       "./src/utils/index.ts": {
-        "version": "b65552f860a065059f524b43566dcc426db8f04d7ee357efecc5a7506b2db659",
-        "signature": "b1e17cad7d86ddba445c2dca2c768402a45646494519dec2404ea51a15be7a22",
+        "version": "c8e8471a84daa75b062017cb2ad7701727622c04bb3a0d02f34b1943981fabde",
+        "signature": "1f27017b4598295e81daa04d3d17e63d005fe1d9779043eef5e5bf494b45d55c",
         "affectsGlobalScope": false
       },
       "./src/models/color.model.ts": {
@@ -427,7 +387,7 @@
         "affectsGlobalScope": false
       },
       "./src/models/range.ts": {
-        "version": "a33b293ed17447be2e038effa20c2652c39252f50bda5e2080e3bab4994603ac",
+        "version": "7090ba6900f1294712b700eb646de550e844cefe142db99846522b09fcc42558",
         "signature": "822f28b2f462df69de2ab785c783b8599024fd06d7ac91323826fbbc698c2736",
         "affectsGlobalScope": false
       },
@@ -489,6 +449,51 @@
       "./src/types/index.ts": {
         "version": "e922b26edb270ee4b3e708e882dc6df730b9ec765a3360bd2baccb5acf2ba08f",
         "signature": "e922b26edb270ee4b3e708e882dc6df730b9ec765a3360bd2baccb5acf2ba08f",
+        "affectsGlobalScope": false
+      },
+      "./src/utils/time-utils.ts": {
+        "version": "9e86de9a4bec7ae92e68bcbedb89187942bda922964520c0ab2944870d3d5635",
+        "signature": "c70c5a55d0ae608a56bf18d0a81fe281590d3a138b7243371017930848cde2ee",
+        "affectsGlobalScope": false
+      },
+      "./src/components/g-logger.ts": {
+        "version": "6ebbff13610e52678a93a77f1aca9cbc91efe7e99b2d5bfb541ddd3c7f956b9e",
+        "signature": "75e22c20bc962af8c64b8d3cfb97979746c8b56cc40c8ef1e5b90913e6ebc520",
+        "affectsGlobalScope": false
+      },
+      "./src/components/g-map.ts": {
+        "version": "6403a6e7b80fe9689dfdd8cc4866687d7a3847d14755d7cb39980d0c5af7d967",
+        "signature": "b6d1ffc0e87b2b5a5e6964847ae9e2b77fa9b1934053a38c94a3ed85d93ef669",
+        "affectsGlobalScope": false
+      },
+      "./src/components/key-value-counter.ts": {
+        "version": "059521734a9cc15523579f1e40d39100608f07b375dfc0098735106fbf0fd2cd",
+        "signature": "bd506792e3d0f86c1b148870a530470c37c0234319114953473dbe73a84940ec",
+        "affectsGlobalScope": false
+      },
+      "./src/components/number-counter.ts": {
+        "version": "ad78c0b6bef281b4ca28e4eadc7e6fc399e67f08a2322497930cac5ae559ac82",
+        "signature": "3ccf0c0de44729cc182e1f6aad37c7bf3562dc9b3ccc339e7b10e1ea3592cab1",
+        "affectsGlobalScope": false
+      },
+      "./src/config/gtools-config.interface.ts": {
+        "version": "e6e113eadb1ccaaae2e957e8de27034dfb13482e63ccf39fb05437bcbe1eecfb",
+        "signature": "86ed1beceb38e1af1bb7ec598db14a491e07a8b1d8ad479a5df6edc1c6231e27",
+        "affectsGlobalScope": false
+      },
+      "./src/config/gtools-config.ts": {
+        "version": "5810ad019f74c6261146aa2e0d9a0de42f2d0797e440d5c69528fb77e20d68cf",
+        "signature": "cd0a8bbee4c1af364206cbec7fc471dc238edb40d1f04f856691c042bcf8a323",
+        "affectsGlobalScope": false
+      },
+      "./src/components/paginator.ts": {
+        "version": "1ae846e1f799abb1ffdc26539894217991dd4a2c1a885baf291ba0b0851af312",
+        "signature": "fec09413ee4e53b7534333443ae2cafce7f5a21cd817369f46293fbb39194dcf",
+        "affectsGlobalScope": false
+      },
+      "./src/components/index.ts": {
+        "version": "e4e81d2d53d2ab46122fc360aa6f7ccf63d707f4567a00b0128cdc5f6c8b0d2b",
+        "signature": "e4e81d2d53d2ab46122fc360aa6f7ccf63d707f4567a00b0128cdc5f6c8b0d2b",
         "affectsGlobalScope": false
       },
       "./src/decorators/deprecated.decorator.ts": {
@@ -691,11 +696,6 @@
         "signature": "8ae96f6f0a7b3ac77a6f9b9498f0852f65d72a2e075e2a2edcdce519df2084bd",
         "affectsGlobalScope": false
       },
-      "./src/utils/time-utils.ts": {
-        "version": "9e86de9a4bec7ae92e68bcbedb89187942bda922964520c0ab2944870d3d5635",
-        "signature": "c70c5a55d0ae608a56bf18d0a81fe281590d3a138b7243371017930848cde2ee",
-        "affectsGlobalScope": false
-      },
       "./src/node.ts": {
         "version": "9485d520ccfe74c26606276355e3396cab9ffc508a3f23e6204fe019a6055fb1",
         "signature": "4fd53277b23af7187f1044ac011feaefc4cf3369f639accb7816b1d23c50e0e6",
@@ -751,6 +751,26 @@
         "signature": "28ed40676f5cbab9b602191089eb4e99518e3e44ec4dc6aa489a6a589bb0b307",
         "affectsGlobalScope": false
       },
+      "./node_modules/@types/chai/index.d.ts": {
+        "version": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
+        "signature": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/mocha/index.d.ts": {
+        "version": "4862143e5418707aff61e5377e99300af3abcaa705a4a20908ca565bbe9e50d1",
+        "signature": "4862143e5418707aff61e5377e99300af3abcaa705a4a20908ca565bbe9e50d1",
+        "affectsGlobalScope": true
+      },
+      "./src/utils/array-utils.g-spec.ts": {
+        "version": "6e4135b5a791acba3c6a3286b782bd3c9c00f242913d10d4520b2602fb419301",
+        "signature": "e0c0d55d0b3a14a888989df248d2817b1c684e70531ad07a26677c993463818a",
+        "affectsGlobalScope": false
+      },
+      "./src/utils/misc-utils.g-spec.ts": {
+        "version": "f88b54d1c6cecbfd415c1c45f280f02096aee5227d18740f611aa6757a6e772a",
+        "signature": "e0c0d55d0b3a14a888989df248d2817b1c684e70531ad07a26677c993463818a",
+        "affectsGlobalScope": false
+      },
       "./src/utils/net-client-utils.ts": {
         "version": "d5393a04c5ded9a06274e8560c68329329ce1266929e40c3b52fb1f7d6ebe9b1",
         "signature": "32d6f2c32bb9683d9dfb89e63bff518d8d4418baa679f96cfce3c13ef221e2a1",
@@ -761,10 +781,10 @@
         "signature": "6fadafb88959fadb4f7bf2283e8bd38ac833776f103db811228248818a0dec72",
         "affectsGlobalScope": false
       },
-      "./node_modules/@types/chai/index.d.ts": {
-        "version": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
-        "signature": "2d65af67144ac8a3e835ba0bff8cd0c86ca7af3ade64ca13eab6ef42c3bd54de",
-        "affectsGlobalScope": true
+      "./src/utils/string-utils.g-spec.ts": {
+        "version": "2f1b7927f2e2f058bec81d2058604dce3315de08d509215d18d20882cc5753b7",
+        "signature": "e0c0d55d0b3a14a888989df248d2817b1c684e70531ad07a26677c993463818a",
+        "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint/helpers.d.ts": {
         "version": "f345b0888d003fd69cb32bad3a0aa04c615ccafc572019e4bd86a52bd5e49e46",
@@ -782,19 +802,14 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint/index.d.ts": {
-        "version": "be337886c0b7b94a0cec462da9d6136abfda99d51b4cd67830351cd691285387",
-        "signature": "be337886c0b7b94a0cec462da9d6136abfda99d51b4cd67830351cd691285387",
+        "version": "edb3e2f61a2a6e29a5f9043f73adf65951d52b4c1f22e84050381f7ef0d77318",
+        "signature": "edb3e2f61a2a6e29a5f9043f73adf65951d52b4c1f22e84050381f7ef0d77318",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint-scope/index.d.ts": {
         "version": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
         "signature": "274bda283ef15f4205603ca9967313fc013aa77ae89f2cbeab5fbd51439e96ed",
         "affectsGlobalScope": false
-      },
-      "./node_modules/@types/mocha/index.d.ts": {
-        "version": "4862143e5418707aff61e5377e99300af3abcaa705a4a20908ca565bbe9e50d1",
-        "signature": "4862143e5418707aff61e5377e99300af3abcaa705a4a20908ca565bbe9e50d1",
-        "affectsGlobalScope": true
       },
       "./node_modules/@types/node/globals.d.ts": {
         "version": "1332704d6761c94b85753fc3cadc36109f53e5d92fad137ac3de18083febedf3",
@@ -1287,6 +1302,10 @@
       "./src/components/file-manager.ts": [
         "./src/enums/index.ts"
       ],
+      "./src/components/g-logger.ts": [
+        "./src/utils/random-utils.ts",
+        "./src/utils/time-utils.ts"
+      ],
       "./src/components/index.ts": [
         "./src/components/file-manager.ts",
         "./src/components/g-logger.ts",
@@ -1524,6 +1543,11 @@
       "./src/types/xywh.ts": [
         "./src/math/index.ts"
       ],
+      "./src/utils/array-utils.g-spec.ts": [
+        "./node_modules/@types/chai/index.d.ts",
+        "./node_modules/@types/mocha/index.d.ts",
+        "./src/utils/array-utils.ts"
+      ],
       "./src/utils/color-utils.ts": [
         "./src/utils/math-utils.ts"
       ],
@@ -1562,13 +1586,19 @@
         "./src/utils/random-utils.ts",
         "./src/utils/reflection-utils.ts",
         "./src/utils/string-utils.ts",
-        "./src/utils/svg-utils.ts"
+        "./src/utils/svg-utils.ts",
+        "./src/utils/time-utils.ts"
       ],
       "./src/utils/input-utils.ts": [
         "./src/enums/index.ts"
       ],
       "./src/utils/math-utils.ts": [
         "./src/utils/random-utils.ts"
+      ],
+      "./src/utils/misc-utils.g-spec.ts": [
+        "./node_modules/@types/chai/index.d.ts",
+        "./node_modules/@types/mocha/index.d.ts",
+        "./src/utils/misc-utils.ts"
       ],
       "./src/utils/misc-utils.ts": [
         "./src/types/index.ts"
@@ -1591,6 +1621,11 @@
       ],
       "./src/utils/string-checkers.ts": [
         "./src/validators/misc-validators.ts"
+      ],
+      "./src/utils/string-utils.g-spec.ts": [
+        "./node_modules/@types/chai/index.d.ts",
+        "./node_modules/@types/mocha/index.d.ts",
+        "./src/utils/string-utils.ts"
       ],
       "./src/utils/string-utils.ts": [
         "./src/types/index.ts",
@@ -2031,6 +2066,9 @@
       "./src/types/xywh.ts": [
         "./src/math/index.ts"
       ],
+      "./src/utils/array-utils.g-spec.ts": [
+        "./node_modules/@types/mocha/index.d.ts"
+      ],
       "./src/utils/domutils.ts": [
         "./src/math/index.ts",
         "./src/types/index.ts"
@@ -2052,10 +2090,14 @@
         "./src/utils/random-utils.ts",
         "./src/utils/reflection-utils.ts",
         "./src/utils/string-utils.ts",
-        "./src/utils/svg-utils.ts"
+        "./src/utils/svg-utils.ts",
+        "./src/utils/time-utils.ts"
       ],
       "./src/utils/input-utils.ts": [
         "./src/enums/index.ts"
+      ],
+      "./src/utils/misc-utils.g-spec.ts": [
+        "./node_modules/@types/mocha/index.d.ts"
       ],
       "./src/utils/misc-utils.ts": [
         "./src/types/index.ts"
@@ -2065,6 +2107,9 @@
       ],
       "./src/utils/object-utils.ts": [
         "./src/types/index.ts"
+      ],
+      "./src/utils/string-utils.g-spec.ts": [
+        "./node_modules/@types/mocha/index.d.ts"
       ],
       "./src/utils/string-utils.ts": [
         "./src/types/index.ts"
@@ -2232,7 +2277,19 @@
       "./src/models/index.ts",
       "./src/models/range.ts",
       "./src/models/transform.ts",
-      "./src/node.ts",
+      [
+        "./src/node.ts",
+        [
+          {
+            "file": "./src/node.ts",
+            "start": 306,
+            "length": 35,
+            "messageText": "Module \"./utils/string-utils\" has already exported a member named 'format'. Consider explicitly re-exporting to resolve the ambiguity.",
+            "category": 1,
+            "code": 2308
+          }
+        ]
+      ],
       "./src/physics/closest-2d.ts",
       "./src/physics/closest-3d.ts",
       "./src/physics/collisions-2d.ts",
@@ -2265,6 +2322,7 @@
       "./src/types/vertical-align.type.ts",
       "./src/types/xywh.ts",
       "./src/utils/analytics-utils.ts",
+      "./src/utils/array-utils.g-spec.ts",
       "./src/utils/array-utils.ts",
       "./src/utils/coerce-util.ts",
       "./src/utils/color-utils.ts",
@@ -2273,9 +2331,22 @@
       "./src/utils/fileutils.ts",
       "./src/utils/html-utils.ts",
       "./src/utils/image-utils.ts",
-      "./src/utils/index.ts",
+      [
+        "./src/utils/index.ts",
+        [
+          {
+            "file": "./src/utils/index.ts",
+            "start": 647,
+            "length": 31,
+            "messageText": "Module \"./time-utils\" has already exported a member named 'format'. Consider explicitly re-exporting to resolve the ambiguity.",
+            "category": 1,
+            "code": 2308
+          }
+        ]
+      ],
       "./src/utils/input-utils.ts",
       "./src/utils/math-utils.ts",
+      "./src/utils/misc-utils.g-spec.ts",
       "./src/utils/misc-utils.ts",
       "./src/utils/net-client-utils.ts",
       "./src/utils/net-server-utils.ts",
@@ -2286,6 +2357,7 @@
       "./src/utils/reflection-utils.ts",
       "./src/utils/runtime.ts",
       "./src/utils/string-checkers.ts",
+      "./src/utils/string-utils.g-spec.ts",
       "./src/utils/string-utils.ts",
       "./src/utils/svg-utils.ts",
       "./src/utils/time-utils.ts",
@@ -2919,6 +2991,10 @@
         1
       ],
       [
+        "./src/utils/array-utils.g-spec.ts",
+        1
+      ],
+      [
         "./src/utils/array-utils.ts",
         1
       ],
@@ -3003,6 +3079,10 @@
         1
       ],
       [
+        "./src/utils/misc-utils.g-spec.ts",
+        1
+      ],
+      [
         "./src/utils/misc-utils.ts",
         1
       ],
@@ -3040,6 +3120,10 @@
       ],
       [
         "./src/utils/string-checkers.ts",
+        1
+      ],
+      [
+        "./src/utils/string-utils.g-spec.ts",
         1
       ],
       [

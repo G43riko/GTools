@@ -149,6 +149,7 @@ export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, op
 /**
  * TODO: element remains after deletion onMessage screen
  */
+// eslint-disable-next-line default-param-last
 export function chooseColorUsingDefaultInput(color = "#000000", onInput?: (value: string) => void): Promise<string> {
     return new Promise((success) => {
         const input: HTMLInputElement = CreateElement("input", {

@@ -1,4 +1,4 @@
-import { Range } from "gtools/models";
+import { Range } from "../models";
 import { SimpleVector2 } from "./simple-vector2";
 
 export class Vector2 implements SimpleVector2 {

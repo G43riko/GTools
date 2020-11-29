@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.39",
+    "version": "0.2.43",
     "description": "Small library including utils methods for easier life",
     "main": "./index.js",
     "module": "./_esm5/index.js",
@@ -24,7 +24,7 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run clean && npm run build && npm run doc",
+        "prepare": "npm run clean && npm run build:new && npm run doc",
         "test": "npm run lint && mocha --require ts-node/register ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
@@ -32,8 +32,9 @@
         "eslint": "eslint src/**/*.ts",
         "eslint:fix": "eslint --fix src/**/*.ts",
         "tslint": "tslint --project .",
-        "build": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && webpack --config webpack.prod.js && npm run copy",
-        "build:new": "npm run build:ts && webpack --config webpack.prod.js && npm run copy",
+        "build": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && npm run build:webpack:prod && npm run copy",
+        "build:new": "npm run build:ts && npm run build:webpack:prod && npm run copy",
+        "build:webpack:prod": "webpack --config webpack.prod.js",
         "build:ts": "tsc -b ./src/tsconfig.cjs.json ./src/tsconfig.esm.json ./src/tsconfig.esm5.json ./src/tsconfig.types.json",
         "release": "npm publish dist",
         "release:major": "npm version major && npm publish",
@@ -85,6 +86,7 @@
         "webpack-cli": "^4.2.0"
     },
     "dependencies": {
+        "glob": "^7.1.6",
         "moment": "^2.29.1"
     }
 }

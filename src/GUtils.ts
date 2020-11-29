@@ -1,4 +1,4 @@
-export * from "./components";
+export * from "./enums";
 
 export * from "./config/gtools-config.interface";
 export * from "./config/gtools-config";
@@ -12,7 +12,8 @@ export * from "./dom/types/canvas-shadow-config";
 // TODO not work on backend
 // export * from "./dom/element-builder";
 
-export * from "./enums";
+
+export * from "./components";
 
 export * from "./errors";
 

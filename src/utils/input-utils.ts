@@ -1,4 +1,4 @@
-import { Button, Keys } from "gtools/enums";
+import { Button, Keys } from "../enums";
 
 export function getButtonFromEvent(event: MouseEvent): Button | undefined {
     return getButtonFromEventButtons(event.button);

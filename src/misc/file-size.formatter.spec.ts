@@ -2,8 +2,8 @@ import { expect } from "chai";
 import { formatFileSize } from "./file-size-formatter";
 
 describe("FileSizeFormatter", () => {
-    describe("format file size", () => {
-        it("It should format fil size", () => {
+    describe("formatTime file size", () => {
+        it("It should formatTime fil size", () => {
             expect(formatFileSize(0)).to.be.equal("0");
             expect(formatFileSize(31)).to.be.equal("31 B");
             expect(formatFileSize(32)).to.be.equal("0.03 KB");

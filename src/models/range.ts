@@ -1,5 +1,5 @@
 import { SimpleVector2 } from "gtools/math";
-import { randomFloatBetween, randomIntBetween } from "gtools/utils";
+import { randomFloatBetween, randomIntBetween } from "../utils";
 import { Color } from "./color.model";
 
 export class Range<T> {

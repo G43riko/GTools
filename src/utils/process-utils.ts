@@ -18,6 +18,7 @@ export function isDev(): boolean {
     return process.env.NODE_ENV === "development" || !process.env.NODE_ENV;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function setEnvironment(type: "test" | "production" | "development"): void {
     // process.env.NODE_ENV = type;
 }

@@ -1,4 +1,4 @@
-import { NotBrowserException } from "gtools/errors";
+import { NotBrowserException } from "../errors";
 import { Transform } from "gtools/models";
 
 class AbstractCanvasManager {

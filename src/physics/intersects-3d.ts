@@ -1,4 +1,4 @@
-import { SimpleVector3, Vector3 } from "gtools/math";
+import { SimpleVector3, Vector3 } from "../math";
 
 export function vectorSquareIntersect3d(
     r1x: number,

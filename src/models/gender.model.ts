@@ -35,7 +35,7 @@ export class GenderClass {
     /**
      * Method parse string and return GenderType
      * @deprecated use {@link parseGender} instead
-     * @param gender gender in any format
+     * @param gender gender in any formatTime
      * @returns parsed gender as {@link GenderType}
      */
     public static parse = parseGender;

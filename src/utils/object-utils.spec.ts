@@ -20,6 +20,73 @@ describe("ObjectUtils", () => {
             expect(ObjectUtils.getNestedProperty(testObject, "a_b_c_d", "_")).to.be.equal("dd");
         });
     });
+    describe("DeepEqual", () => {
+        const createFlatObject = (): any => ({a: "a", b: 23, c: true});
+        const createFlatArray  = (): any => ["a", 23, true];
+
+        const createNestedObject            = (): any => ({...createFlatObject(), d: createFlatObject(), e: createFlatArray()});
+        const createNestedObjectWithClasses = (): any => ({...createNestedObject(), f: new Date()});
+
+        const createNestedArray            = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
+        const createNestedArrayWithClasses = (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
+
+        it("It should test equal immutable objects", () => {
+            expect(ObjectUtils.deepEqual("a", "a")).to.be.true;
+            expect(ObjectUtils.deepEqual({}, {})).to.be.true;
+            expect(ObjectUtils.deepEqual([], [])).to.be.true;
+            expect(ObjectUtils.deepEqual(563, 563)).to.be.true;
+            expect(ObjectUtils.deepEqual(true, true)).to.be.true;
+            expect(ObjectUtils.deepEqual(null, null)).to.be.true;
+            expect(ObjectUtils.deepEqual(NaN, NaN)).to.be.true;
+            expect(ObjectUtils.deepEqual(undefined, undefined)).to.be.true;
+        });
+        it("It should test different immutable objects", () => {
+            expect(ObjectUtils.deepEqual("a", "b")).to.be.false;
+            expect(ObjectUtils.deepEqual({}, [])).to.be.false;
+            expect(ObjectUtils.deepEqual([], null)).to.be.false;
+            expect(ObjectUtils.deepEqual(563, 2000)).to.be.false;
+            expect(ObjectUtils.deepEqual(true, false)).to.be.false;
+            expect(ObjectUtils.deepEqual(null, undefined)).to.be.false;
+            expect(ObjectUtils.deepEqual(NaN, 53)).to.be.false;
+            expect(ObjectUtils.deepEqual(undefined, NaN)).to.be.false;
+        });
+        it("It should test compare objects", () => {
+            expect(ObjectUtils.deepEqual(createFlatArray(), createFlatArray())).to.be.true;
+            expect(ObjectUtils.deepEqual(createFlatObject(), createFlatObject())).to.be.true;
+            expect(ObjectUtils.deepEqual(createNestedObject(), createNestedObject())).to.be.true;
+            expect(ObjectUtils.deepEqual(createNestedArray(), createNestedArray())).to.be.true;
+        });
+    });
+    describe("DeepCopy", () => {
+        const createFlatObject = (): any => ({a: "a", b: 23, c: true});
+        const createFlatArray  = (): any => ["a", 23, true];
+
+        const createNestedObject            = (): any => ({...createFlatObject(), d: createFlatObject(), e: createFlatArray()});
+        const createNestedObjectWithClasses = (): any => ({...createNestedObject(), f: new Date()});
+
+        const createNestedArray            = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
+        const createNestedArrayWithClasses = (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
+
+        it("It should test immutable objects", () => {
+            expect(ObjectUtils.deepCopy("a")).to.be.eq("a");
+            expect(ObjectUtils.deepCopy(563)).to.be.eq(563);
+            expect(ObjectUtils.deepCopy(true)).to.be.eq(true);
+        });
+        it("It should test objects", () => {
+            expect(ObjectUtils.deepCopy({})).to.be.not.eq({});
+            expect(ObjectUtils.deepCopy({})).to.deep.equal({});
+            expect(ObjectUtils.deepCopy(createNestedObject())).to.be.not.eq(createNestedObject());
+            expect(ObjectUtils.deepCopy(createNestedObject())).to.deep.equal(createNestedObject());
+            expect(ObjectUtils.deepCopy(createNestedArray())).to.be.not.eq(createNestedArray());
+            expect(ObjectUtils.deepCopy(createNestedArray())).to.deep.equal(createNestedArray());
+        });
+        xit("It should test object with classes", () => {
+            expect(ObjectUtils.deepCopy(createNestedObjectWithClasses())).to.be.not.eq(createNestedObjectWithClasses());
+            expect(ObjectUtils.deepCopy(createNestedObjectWithClasses())).to.deep.equal(createNestedObjectWithClasses());
+            expect(ObjectUtils.deepCopy(createNestedArrayWithClasses())).to.be.not.eq(createNestedArrayWithClasses());
+            expect(ObjectUtils.deepCopy(createNestedArrayWithClasses())).to.deep.equal(createNestedArrayWithClasses());
+        });
+    });
     describe("RoughSizeOfObject", () => {
         it("It should return object rough size", () => {
             expect(ObjectUtils.roughSizeOfObject([])).to.be.equal(0);

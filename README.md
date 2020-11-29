@@ -75,7 +75,7 @@ const min = ArrayUtils.min([1, 2, 3]);
     - [http-status-codes](src/enums/http-status-codes.enum.ts)
     - [keys](src/enums/keys.enum.ts)
 - *[errors](src/errors)*
-    - [GLogger](src/components/g-logger.ts)
+    - [GLogger](src/components/logger/g-logger.ts)
     - [NotBrowserException](src/errors/not-browser.exception.ts)
     - [NullPointerException](src/errors/null-pointer.exception.ts)
     - [WrongParameterException](src/errors/wrong-parameter.exception.ts)

@@ -35,7 +35,7 @@ export function dateAgo(value: number | string | Date): number | string | Date {
     return value;
 }
 
-export function format(date: Date, pattern: string): string {
+export function formatTime(date: Date, pattern: string): string {
     const toString = (time: number): string => time < 10 ? "0" + time : "" + time;
 
     const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");

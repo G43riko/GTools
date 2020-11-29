@@ -1,17 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
+const glob = require("glob");
 
-const myArgs = process.argv.slice(2);
-console.log("myArgs: ", myArgs);
 const newLineDivider = os.EOL;
 
-const fileName = myArgs[0];
 const KEY = "TESTED_OBJ";
-const filePath = path.resolve(fileName);
-const pathParts = filePath.split("\\");
-const realFileName = pathParts[pathParts.length - 1];
-const realFileNameWithoutExtension = realFileName.replace(/\.\w+$/, "");
 
 /**
  * Operators
@@ -95,7 +89,16 @@ const utils = {
         return `"${value}"`;
     },
 };
-const fileContent = fs.readFileSync(filePath, {encoding: "utf8"});
+
+const testBuilderUtils = {
+    createDescribe: (title, data, tabs = 1) => {
+        const text = Array.isArray(data) ? data.join(newLineDivider) : String(data);
+
+        return `${utils.tabs(tabs - 1)}describe("${title}", () => {
+${utils.tabs(tabs)}${text}
+${utils.tabs(tabs - 1)}});`;
+    },
+};
 
 const regexps = {
     startComment: "\\/\\*\\*",
@@ -105,74 +108,108 @@ const regexps = {
     operatorPattern: /(={1,2}>|typeof)/,
     nextJsDocOrEnd: "(@\\w|\\*\\/)",
 };
-const mainDescribePrefix = `describe("${realFileNameWithoutExtension}", () => {`;
-const mainDescribeSuffix = "});";
 const commentRegexp = new RegExp(
     `${regexps.startComment}${regexps.endLine}+?(${regexps.anyChar}+?)${regexps.endComment}${regexps.anyChar}+?function +(\\w+)`,
     "gi",
 );
-const commentMath2 = fileContent.match(commentRegexp); //(.|\n)*?function (\w+)
 
-const fileTests = [];
 
-commentMath2.forEach((item) => {
-    // extract everything between '@example' and next jsDoc or comment end
+const testMethod = {
+    getTestsFor: (fullPath) => {
+        const pathParts = fullPath.split("\\");
+        const realFileName = pathParts[pathParts.length - 1];
+        const realFileNameWithoutExtension = realFileName.replace(/\.\w+$/, "");
+        const fileContent = fs.readFileSync(fullPath, {encoding: "utf8"});
+        const commentMath2 = fileContent.match(commentRegexp); //(.|\n)*?function (\w+)
 
-    const testCases = item.match(new RegExp(`@example(${regexps.anyChar}+?)${regexps.nextJsDocOrEnd}+?`));
-    const result = {};
-    const functionName = item.match(/function +(\w+)/);
-    if (functionName) {
-        result.functionName = functionName[1];
-    }
+        if (!commentMath2) {
+            return "";
+        }
 
-    if (testCases) {
-        result.testData = Array.from(testCases[1].split(/[\n\r]/g)).map((rawLine) => {
-            if (!rawLine) {
-                return {rawLine};
+        const fileTests = [];
+
+        commentMath2.forEach((item) => {
+            // extract everything between '@example' and next jsDoc or comment end
+
+            const testCases = item.match(new RegExp(`@example(${regexps.anyChar}+?)${regexps.nextJsDocOrEnd}+?`));
+            const result = {};
+
+            const functionName = item.match(/function +(\w+)/);
+            if (functionName) {
+                result.functionName = functionName[1];
             }
-            const rawTestCase = rawLine.replace(/^\W*\\*\W*/, "");
-            const operatorMath = rawTestCase.match(regexps.operatorPattern);
 
-            if (!rawTestCase || !operatorMath) {
-                return {
-                    rawLine,
-                    rawTestCase,
-                };
-            }
-            const operator = operatorMath[0];
-            const condition = rawTestCase.substring(0, operatorMath.index).replace(/[;]/g, "").trim();
-            const resultValue = utils.parseResultValue(rawTestCase.substring(operatorMath.index + operator.length));
+            if (testCases) {
+                result.testData = Array.from(testCases[1].split(/[\n\r]/g)).map((rawLine) => {
+                    if (!rawLine) {
+                        return {rawLine};
+                    }
+                    const rawTestCase = rawLine.replace(/^\W*\\*\W*/, "");
+                    const operatorMath = rawTestCase.match(regexps.operatorPattern);
 
-            const testText = `expect(${KEY}.${condition}).${utils.stringifyCondition(operator, resultValue)};`;
+                    if (!rawTestCase || !operatorMath) {
+                        return {
+                            rawLine,
+                            rawTestCase,
+                        };
+                    }
+                    const operator = operatorMath[0];
+                    const condition = rawTestCase.substring(0, operatorMath.index).replace(/[;]/g, "").trim();
+                    const resultValue = utils.parseResultValue(rawTestCase.substring(operatorMath.index + operator.length));
 
-            return {
-                testText,
-                condition,
-                resultValue,
-                operator,
-                rawLine,
-                rawTestCase,
-            };
-        }).filter(({condition, operator}) => condition && operator);
+                    const testText = `expect(${KEY}.${condition}).${utils.stringifyCondition(operator, resultValue)};`;
+
+                    return {
+                        testText,
+                        condition,
+                        resultValue,
+                        operator,
+                        rawLine,
+                        rawTestCase,
+                    };
+                }).filter(({condition, operator}) => condition && operator);
 
 
-        result.test = `
+                result.test = `
 ${utils.tabs(1)}it("It should test function ${result.functionName}", () => {
 ${result.testData.map(({testText}) => `${utils.tabs(2)}${testText}`).join(newLineDivider)}
 ${utils.tabs(1)}});`;
-        fileTests.push(result.test);
-    }
+                fileTests.push(result.test);
+            }
+        });
+        const newFileContent = [
+            "import { expect } from 'chai'",
+            "import 'mocha';",
+            `import * as ${KEY} from './${realFileNameWithoutExtension}';`,
+            testBuilderUtils.createDescribe(realFileNameWithoutExtension, fileTests),
+        ];
+
+        return newFileContent.join(newLineDivider) + newLineDivider;
+    },
+
+    generateTestForInto: (fullPath, testFilePath = fullPath.replace(/\.([tj]s)$/, (_, extension) => ".generated.spec." + extension)) => {
+        const data = testMethod.getTestsFor(fullPath);
+        if (!data) {
+            return;
+        }
+        fs.writeFileSync(testFilePath, data, {encoding: "utf8"});
+    },
+};
+
+const myArgs = process.argv.slice(2);
+const filePattern = myArgs[0];
+
+const fullFilePaths = glob.sync(filePattern).filter(e => fs.statSync(e).isFile()).map((e) => {
+    console.log(e);
+
+    return path.resolve(e);
 });
-const newFileContent = [
-    "import { expect } from 'chai'",
-    "import 'mocha';",
-    `import * as ${KEY} from './${realFileNameWithoutExtension}';`,
-    mainDescribePrefix,
-    ...fileTests,
-    mainDescribeSuffix,
-];
-fs.writeFileSync(
-    filePath.replace(/\.([tj]s)$/, (_, extension) => ".g-spec." + extension),
-    newFileContent.join(newLineDivider) + newLineDivider,
-    {encoding: "utf8"},
-);
+const begin = Date.now();
+console.log(fullFilePaths);
+fullFilePaths.forEach((filePath) => {
+    const fullFilePath = path.resolve(filePath);
+    const start = Date.now();
+    testMethod.generateTestForInto(fullFilePath);
+    console.log("Generated tests for " + fullFilePath + " in " + (Date.now() - start) + " ms");
+});
+console.log("Generated " + fullFilePaths.length + " files for " + (Date.now() - begin) + " ms");

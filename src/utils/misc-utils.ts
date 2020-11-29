@@ -7,7 +7,7 @@ import { StringMap } from "gtools/types";
 export function parseCookies(cookies: string): StringMap {
     const list: StringMap = {};
     const data            = cookies ? cookies.toString()
-                                             .split(";") : [];
+        .split(";") : [];
     data.forEach((cookie) => {
         const parts     = cookie.split("=");
         const shiftPart = parts.shift();
@@ -90,8 +90,8 @@ export function getCookie(cname: string, source = typeof document !== "undefined
  *  parseParams<any>("name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test").email[2] => test
  */
 export function parseParams<T>(query     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
-                               separator = "&",
-                               delimiter = "="): T {
+    separator = "&",
+    delimiter = "="): T {
     const queryString: any = {};
     const vars: string[]   = query.split(separator);
     for (const pair of vars) {

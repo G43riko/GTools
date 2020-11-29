@@ -97,7 +97,7 @@ describe("StringCheckers", () => {
         });
     });
     describe("IsTimeFormat", () => {
-        it("It should return true if time is in HH:mm format", () => {
+        it("It should return true if time is in HH:mm formatTime", () => {
             MockData.timesHHmm.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm"), `time ${time} is in HH:mm:ss format`).to.be.true;
             });
@@ -106,7 +106,7 @@ describe("StringCheckers", () => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm"), `'${time}' is not valid time in HH:mm format`).to.be.false;
             });
         });
-        it("It should return true if time is in H:mm format", () => {
+        it("It should return true if time is in H:mm formatTime", () => {
             MockData.timesHmm.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "H:mm"), `time ${time} is in H:mm:ss format`).to.be.true;
             });
@@ -116,7 +116,7 @@ describe("StringCheckers", () => {
             });
 
         });
-        it("It should return true if time is in HH:mm:ss format", () => {
+        it("It should return true if time is in HH:mm:ss formatTime", () => {
             MockData.timesHHmmss.forEach((time) => {
                 expect(StringCheckers.isTimeFormat(time, "HH:mm:ss"), `time ${time} is in HH:mm:ss format`).to.be.true;
             });
@@ -126,7 +126,7 @@ describe("StringCheckers", () => {
             });
 
         });
-        it("It should return true if time is in required format", () => {
+        it("It should return true if time is in required formatTime", () => {
             expect(StringCheckers.isTimeFormat("9:9", "H:m")).to.be.true;
 
             expect(StringCheckers.isTimeFormat("9:09:09", "HH:mm:ss")).to.be.false;
@@ -134,7 +134,7 @@ describe("StringCheckers", () => {
             expect(StringCheckers.isTimeFormat("9:9:9", "HH:mm:ss")).to.be.false;
 
         });
-        it("It should return false if string is invalid time format", () => {
+        it("It should return false if string is invalid time formatTime", () => {
             MockData.invalidTimes.forEach((time) => {
                 [
                     "HH:mm:ss",
