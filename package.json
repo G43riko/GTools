@@ -24,16 +24,16 @@
         "url": "https://github.com/G43riko/GTools/issues"
     },
     "scripts": {
-        "prepare": "npm run clean && npm run build:new && npm run doc",
-        "test": "npm run lint && mocha --require ts-node/register ./src/**/*.spec.ts",
+        "prepare": "npm run clean",
+        "test": "ts-mocha --paths -p ./tsconfig.json ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
         "coverage2": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts --reporter=lcov npm test",
         "tsc": "tsc",
         "eslint": "eslint src/**/*.ts",
         "eslint:fix": "eslint --fix src/**/*.ts",
         "tslint": "tslint --project .",
-        "build": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && npm run build:webpack:prod && npm run copy",
-        "build:new": "npm run build:ts && npm run build:webpack:prod && npm run copy",
+        "build:old": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && npm run build:webpack:prod && npm run copy",
+        "build": "npm run build:ts && npm run build:webpack:prod && npm run copy",
         "build:webpack:prod": "webpack --config webpack.prod.js",
         "build:ts": "tsc -b ./src/tsconfig.cjs.json ./src/tsconfig.esm.json ./src/tsconfig.esm5.json ./src/tsconfig.types.json",
         "release": "npm publish dist",
@@ -62,12 +62,10 @@
     "license": "ISC",
     "devDependencies": {
         "@types/chai": "^4.2.14",
-        "@types/mocha": "^8.0.4",
         "@types/node": "^14.14.7",
         "@typescript-eslint/eslint-plugin": "^4.7.0",
         "@typescript-eslint/parser": "^4.7.0",
         "awesome-typescript-loader": "^5.2.1",
-        "chai": "^4.2.0",
         "copy": "^0.3.2",
         "coveralls": "^3.1.0",
         "eslint": "^7.13.0",
@@ -87,6 +85,7 @@
     },
     "dependencies": {
         "glob": "^7.1.6",
-        "moment": "^2.29.1"
+        "moment": "^2.29.1",
+        "ts-mocha": "^8.0.0"
     }
 }

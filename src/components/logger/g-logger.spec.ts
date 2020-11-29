@@ -12,9 +12,9 @@ class TmpClass {
 describe("GLoggerDefaultFormatter", () => {
     it("It should test formatting", () => {
         const formatter = new GLoggerDefaultFormatter();
-        expect(formatter.format(GLoggerPriority.LOG, ["item"])).to.be.equal("[LOG] item");
-        expect(formatter.format(GLoggerPriority.ERROR, ["random", "item"])).to.be.equal("[ERROR] random item");
-        expect(formatter.format(GLoggerPriority.WARN, ["item"], "someContext")).to.be.equal("[WARN] someContext: item");
+        expect(formatter.format(GLoggerPriority.LOG, ["item"])).to.be.equal("item");
+        expect(formatter.format(GLoggerPriority.ERROR, ["random", "item"])).to.be.equal("random item");
+        expect(formatter.format(GLoggerPriority.WARN, ["item"], "someContext")).to.be.equal("someContext: item");
     });
 });
 

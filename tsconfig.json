@@ -41,7 +41,6 @@
         "noEmit": true,
         "sourceMap": true,
         "removeComments": true
-//        "preserveConstEnums": true
     },
     "jsdoc": "out"
 }
