@@ -38,7 +38,7 @@
             "gtools/components": ["./src/components"]
         },
         "incremental": true,
-        "noEmit": true,
+//        "noEmit": true,
         "sourceMap": true,
         "removeComments": true
     },
