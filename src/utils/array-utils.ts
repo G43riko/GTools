@@ -31,7 +31,7 @@ export function where<T extends Record<string, unknown>>(array: T[], condition: 
  * @example
  *  compareArrays(["a", "b", "c"], ["a", "b", "c"]) => true
  *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}]) => false
- *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], function(a, b){return a.v === b.v}) => true
+ *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v) => true
  */
 export function compareArrays<T>(
     prev: T[],

@@ -118,7 +118,7 @@ const regexps = {
     endComment: "\\*\\/",
     endLine: "(\\n|\\r)",
     anyChar: "(.|\\n|\\r)",
-    operatorPattern: /(={1,2}>|typeof)/,
+    operatorPattern: new RegExp("(={1,2}>|typeof)(?!.*(={1,2}>|typeof))"),
     nextJsDocOrEnd: "(@\\w|\\*\\/)",
 };
 const commentRegexp = new RegExp(
@@ -212,7 +212,7 @@ ${utils.tabs(1)}});`;
 const myArgs = process.argv.slice(2);
 const filePattern = myArgs[0];
 
-const fullFilePaths = glob.sync(filePattern).filter(e => fs.statSync(e).isFile()).map((e) => {
+const fullFilePaths = glob.sync(filePattern).filter((e) => fs.statSync(e).isFile()).map((e) => {
     console.log(e);
 
     return path.resolve(e);
