@@ -40,8 +40,17 @@ const utils = {
             return parsedValue;
         }
 
+        if (replacedValue.indexOf("{}") === 0) {
+            return {};
+        }
+        if (replacedValue.indexOf("{") === 0 && replacedValue.lastIndexOf("}") === replacedValue.length - 1) {
+            return eval(`(${replacedValue})`);
+        }
+        if (replacedValue.indexOf("[]") === 0) {
+            return [];
+        }
         if (replacedValue.indexOf("[") === 0 && replacedValue.lastIndexOf("]") === replacedValue.length - 1) {
-            const arrayItems = replacedValue.substring(1, replacedValue.length - 1).split(", ");
+            const arrayItems = replacedValue.substring(1, replacedValue.length - 1).split(",");
 
             return arrayItems.map(utils.parseResultValue);
         }
@@ -82,8 +91,12 @@ const utils = {
             return value;
         }
 
-        if (Array.isArray(value)) {
-            return `[${value.map((utils.stringifyResultValue)).join(", ")}]`;
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                return `[${value.map((utils.stringifyResultValue)).join(", ")}]`;
+            }
+
+            return JSON.stringify(value);
         }
 
         return `"${value}"`;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.eachOther = exports.makeUnique = exports.getNRandom = exports.getRandomItem = exports.getLast = exports.join = exports.avg = exports.sum = exports.min = exports.max = exports.subArray = exports.where = void 0;
+exports.eachOther = exports.makeUnique = exports.getNRandom = exports.getRandomItem = exports.getLast = exports.join = exports.avg = exports.sum = exports.min = exports.max = exports.subArray = exports.analyzeArrayChanges = exports.compareArrays = exports.where = void 0;
 function where(array, condition) {
     if (!Array.isArray(array)) {
         return array;
@@ -19,6 +19,42 @@ function where(array, condition) {
     return result;
 }
 exports.where = where;
+function compareArrays(prev, act, comparator) {
+    if (comparator === void 0) { comparator = function (a, b) { return a === b; }; }
+    if (prev.length !== act.length) {
+        return false;
+    }
+    for (var i = 0; i < prev.length; i++) {
+        if (!comparator(prev[i], act[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+exports.compareArrays = compareArrays;
+function analyzeArrayChanges(prev, act, comparator) {
+    if (comparator === void 0) { comparator = function (a, b) { return a === b; }; }
+    var existingPrevIndices = {};
+    var toRemove = [];
+    var toAdd = [];
+    act.forEach(function (e) {
+        var prevIndex = prev.findIndex(function (item) { return comparator(e, item); });
+        if (prevIndex < 0) {
+            toAdd.push(e);
+        }
+        else {
+            existingPrevIndices[prevIndex] = true;
+        }
+    });
+    prev.forEach(function (e, i) {
+        if (i in existingPrevIndices) {
+            return;
+        }
+        toRemove.push(e);
+    });
+    return { toAdd: toAdd, toRemove: toRemove };
+}
+exports.analyzeArrayChanges = analyzeArrayChanges;
 function subArray(array, minIndex, maxIndex) {
     if (minIndex === void 0) { minIndex = 0; }
     if (maxIndex === void 0) { maxIndex = array.length - 1; }

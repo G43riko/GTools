@@ -1,4 +1,9 @@
 export declare function where<T extends Record<string, unknown>>(array: T[], condition: Partial<T>): T[];
+export declare function compareArrays<T>(prev: T[], act: T[], comparator?: (a: T, b: T) => boolean): boolean;
+export declare function analyzeArrayChanges<T>(prev: T[], act: T[], comparator?: (a: T, b: T) => boolean): {
+    toAdd: T[];
+    toRemove: T[];
+};
 export declare function subArray<T = any>(array: T[], minIndex?: number, maxIndex?: number): T[];
 export declare function max(array: number[]): number;
 export declare function min(array: number[]): number;

@@ -14,4 +14,5 @@ __exportStar(require("./gender.model"), exports);
 __exportStar(require("./color.model"), exports);
 __exportStar(require("./transform"), exports);
 __exportStar(require("./range"), exports);
+__exportStar(require("./path"), exports);
 //# sourceMappingURL=index.js.map

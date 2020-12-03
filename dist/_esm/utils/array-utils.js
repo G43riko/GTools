@@ -15,6 +15,38 @@ export function where(array, condition) {
     });
     return result;
 }
+export function compareArrays(prev, act, comparator = (a, b) => a === b) {
+    if (prev.length !== act.length) {
+        return false;
+    }
+    for (let i = 0; i < prev.length; i++) {
+        if (!comparator(prev[i], act[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+export function analyzeArrayChanges(prev, act, comparator = (a, b) => a === b) {
+    const existingPrevIndices = {};
+    const toRemove = [];
+    const toAdd = [];
+    act.forEach((e) => {
+        const prevIndex = prev.findIndex((item) => comparator(e, item));
+        if (prevIndex < 0) {
+            toAdd.push(e);
+        }
+        else {
+            existingPrevIndices[prevIndex] = true;
+        }
+    });
+    prev.forEach((e, i) => {
+        if (i in existingPrevIndices) {
+            return;
+        }
+        toRemove.push(e);
+    });
+    return { toAdd, toRemove };
+}
 export function subArray(array, minIndex = 0, maxIndex = array.length - 1) {
     if (!Array.isArray(array)) {
         return array;

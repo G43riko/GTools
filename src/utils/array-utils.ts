@@ -28,6 +28,65 @@ export function where<T extends Record<string, unknown>>(array: T[], condition: 
 }
 
 /**
+ * @example
+ *  compareArrays(["a", "b", "c"], ["a", "b", "c"]) => true
+ *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}]) => false
+ *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], function(a, b){return a.v === b.v}) => true
+ */
+export function compareArrays<T>(
+    prev: T[],
+    act: T[],
+    comparator: (a: T, b: T) => boolean = (a, b) => a === b,
+): boolean {
+    if (prev.length !== act.length) {
+        return false;
+    }
+
+    for (let i = 0; i < prev.length; i++) {
+        if (!comparator(prev[i], act[i])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ *
+ * @example
+ *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]) ==> {toAdd: [], toRemove: []}
+ *  analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"]) ==> {toAdd: ["d"], toRemove: ["a"]}
+ */
+export function analyzeArrayChanges<T>(
+    prev: T[],
+    act: T[],
+    comparator: (a: T, b: T) => boolean = (a, b) => a === b,
+): { toAdd: T[], toRemove: T[] } {
+    const existingPrevIndices: { [key: number]: true } = {};
+
+    const toRemove: T[] = [];
+    const toAdd: T[]    = [];
+    act.forEach((e) => {
+        const prevIndex = prev.findIndex((item) => comparator(e, item));
+
+        if (prevIndex < 0) {
+            toAdd.push(e);
+        } else {
+            existingPrevIndices[prevIndex] = true;
+        }
+    });
+
+    prev.forEach((e, i) => {
+        if (i in existingPrevIndices) {
+            return;
+        }
+        toRemove.push(e);
+    });
+
+    return {toAdd, toRemove};
+}
+
+/**
  * Return sub array from array
  *
  * @deprecated use {@link Array.prototype.slice} instead
