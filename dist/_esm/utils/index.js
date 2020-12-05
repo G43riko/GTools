@@ -8,6 +8,7 @@ export * from "./image-utils";
 export * from "./math-utils";
 export * from "./misc-utils";
 export * from "./time-utils";
+export * from "./sorted-array-utils";
 export * from "./input-utils";
 export * from "./object-utils";
 export * from "./parser-utils";

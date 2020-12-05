@@ -2,6 +2,9 @@ import { GLoggerCallbackHolder } from "./g-logger-callback-holder";
 import { GLoggerInstance } from "./g-logger-instance";
 import { GLoggerPriority } from "./g-logger-priority";
 export class GLogger extends GLoggerInstance {
+    constructor(context, callbacks = GLogger.staticCallbacks.copy()) {
+        super(callbacks, context);
+    }
     static setCallbacks(callbackHolder) {
         GLogger.staticCallbacks.set(callbackHolder);
     }
@@ -42,25 +45,13 @@ export class GLogger extends GLoggerInstance {
     static warn(message, context) {
         GLogger.print(GLoggerPriority.WARN, context, ...(Array.isArray(message) ? message : [message]));
     }
-    static getContextString(context) {
-        var _a;
-        if (typeof context === "string") {
-            return context;
-        }
-        if (typeof ((_a = context === null || context === void 0 ? void 0 : context.constructor) === null || _a === void 0 ? void 0 : _a.name) === "string") {
-            return context.constructor.name;
-        }
-        if (typeof (context === null || context === void 0 ? void 0 : context.name) === "string") {
-            return context.name;
-        }
-        return undefined;
-    }
     extends(subContext) {
         const currentContext = GLogger.getContextString(this.context);
-        return new GLogger(currentContext ? `${currentContext}:${subContext}` : subContext);
+        const subContextNameContext = GLogger.getContextString(subContext);
+        return new GLogger(currentContext ? `${currentContext}:${subContextNameContext}` : subContextNameContext, this.loggerCallbacks.copy());
     }
 }
-GLogger.staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
 GLogger.skipContexts = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
 GLogger.skipRegexp = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
+GLogger.staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
 //# sourceMappingURL=g-logger.js.map

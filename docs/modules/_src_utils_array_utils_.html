@@ -104,16 +104,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L62">src/utils/array-utils.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L60">src/utils/array-utils.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p> analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]).toAdd ==&gt; []
-											analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]).toRemove ==&gt; []
-											analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]).toAdd ==&gt; [&quot;d&quot;]
-										analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]).toRemove ==&gt; [&quot;a&quot;]</p>
+									<dd><p> analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]) ==&gt; {toAdd: [], toRemove: []}
+										analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;]) ==&gt; {toAdd: [&quot;d&quot;], toRemove: [&quot;a&quot;]}</p>
 									</dd>
 								</dl>
 							</div>
@@ -178,7 +176,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L174">src/utils/array-utils.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L172">src/utils/array-utils.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,15 +213,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L36">src/utils/array-utils.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L36">src/utils/array-utils.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p> analyzeArrayChanges([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]) =&gt; true
-											analyzeArrayChanges([{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], [{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}]) =&gt; false
-										analyzeArrayChanges([{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], [{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], function(a, b){return a.v === b.v}) =&gt; true</p>
+									<dd><p> compareArrays([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]) =&gt; true
+											compareArrays([{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], [{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}]) =&gt; false
+										compareArrays([{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], [{v: &quot;a&quot;}, {v: &quot;b&quot;}, {v: &quot;c&quot;}], (a, b) =&gt; a.v === b.v) =&gt; true</p>
 									</dd>
 								</dl>
 							</div>
@@ -280,7 +278,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L283">src/utils/array-utils.ts:283</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L281">src/utils/array-utils.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -340,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L214">src/utils/array-utils.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L212">src/utils/array-utils.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L239">src/utils/array-utils.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L237">src/utils/array-utils.ts:237</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -417,7 +415,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L228">src/utils/array-utils.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L226">src/utils/array-utils.ts:226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L197">src/utils/array-utils.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L195">src/utils/array-utils.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +516,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L270">src/utils/array-utils.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L268">src/utils/array-utils.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +560,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L120">src/utils/array-utils.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L118">src/utils/array-utils.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -599,7 +597,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L138">src/utils/array-utils.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L136">src/utils/array-utils.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -636,7 +634,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L100">src/utils/array-utils.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L98">src/utils/array-utils.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -691,7 +689,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L156">src/utils/array-utils.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L154">src/utils/array-utils.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -728,7 +726,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/ae84246/src/utils/array-utils.ts#L8">src/utils/array-utils.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/918b5af/src/utils/array-utils.ts#L8">src/utils/array-utils.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

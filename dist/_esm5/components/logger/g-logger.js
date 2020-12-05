@@ -4,8 +4,9 @@ import { GLoggerInstance } from "./g-logger-instance";
 import { GLoggerPriority } from "./g-logger-priority";
 var GLogger = (function (_super) {
     __extends(GLogger, _super);
-    function GLogger() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function GLogger(context, callbacks) {
+        if (callbacks === void 0) { callbacks = GLogger.staticCallbacks.copy(); }
+        return _super.call(this, callbacks, context) || this;
     }
     GLogger.setCallbacks = function (callbackHolder) {
         GLogger.staticCallbacks.set(callbackHolder);
@@ -53,26 +54,14 @@ var GLogger = (function (_super) {
     GLogger.warn = function (message, context) {
         GLogger.print.apply(GLogger, __spreadArrays([GLoggerPriority.WARN, context], (Array.isArray(message) ? message : [message])));
     };
-    GLogger.getContextString = function (context) {
-        var _a;
-        if (typeof context === "string") {
-            return context;
-        }
-        if (typeof ((_a = context === null || context === void 0 ? void 0 : context.constructor) === null || _a === void 0 ? void 0 : _a.name) === "string") {
-            return context.constructor.name;
-        }
-        if (typeof (context === null || context === void 0 ? void 0 : context.name) === "string") {
-            return context.name;
-        }
-        return undefined;
-    };
     GLogger.prototype.extends = function (subContext) {
         var currentContext = GLogger.getContextString(this.context);
-        return new GLogger(currentContext ? currentContext + ":" + subContext : subContext);
+        var subContextNameContext = GLogger.getContextString(subContext);
+        return new GLogger(currentContext ? currentContext + ":" + subContextNameContext : subContextNameContext, this.loggerCallbacks.copy());
     };
-    GLogger.staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
     GLogger.skipContexts = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
     GLogger.skipRegexp = new RegExp("" + GLogger.skipContexts.join("|"), "gi");
+    GLogger.staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
     return GLogger;
 }(GLoggerInstance));
 export { GLogger };

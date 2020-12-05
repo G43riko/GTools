@@ -1,12 +1,24 @@
-import { GLogger } from "./g-logger";
 import { GLoggerPriority } from "./g-logger-priority";
 export class GLoggerInstance {
-    constructor(context, loggerCallbacks) {
-        this.context = context;
+    constructor(loggerCallbacks, context) {
         this.loggerCallbacks = loggerCallbacks;
+        this.context = context;
     }
     static localPrint(type, data, callbacks, context) {
         callbacks.getCallback(type)(data, context);
+    }
+    static getContextString(context) {
+        var _a;
+        if (typeof context === "string") {
+            return context;
+        }
+        if (typeof ((_a = context === null || context === void 0 ? void 0 : context.constructor) === null || _a === void 0 ? void 0 : _a.name) === "string") {
+            return context.constructor.name;
+        }
+        if (typeof (context === null || context === void 0 ? void 0 : context.name) === "string") {
+            return context.name;
+        }
+        return undefined;
     }
     setLogCallback(priority, callback) {
         var _a;
@@ -16,14 +28,18 @@ export class GLoggerInstance {
         var _a;
         (_a = this.loggerCallbacks) === null || _a === void 0 ? void 0 : _a.set(callbackHolder);
     }
+    print(type, context = "", ...data) {
+        const realContext = GLoggerInstance.getContextString(context);
+        GLoggerInstance.localPrint(type, data, this.loggerCallbacks, realContext);
+    }
     log(...messages) {
-        GLogger.print(GLoggerPriority.LOG, this.context, ...messages);
+        this.print(GLoggerPriority.LOG, this.context, ...messages);
     }
     warn(...messages) {
-        GLogger.print(GLoggerPriority.WARN, this.context, ...messages);
+        this.print(GLoggerPriority.WARN, this.context, ...messages);
     }
     error(...messages) {
-        GLogger.print(GLoggerPriority.ERROR, this.context, ...messages);
+        this.print(GLoggerPriority.ERROR, this.context, ...messages);
     }
 }
 //# sourceMappingURL=g-logger-instance.js.map

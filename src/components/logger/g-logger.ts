@@ -10,6 +10,8 @@ export interface GLoggerFormatter {
 }
 
 export class GLogger extends GLoggerInstance {
+    private static readonly skipContexts = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
+    private static readonly skipRegexp   = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
     private static readonly staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
 
     public static setCallbacks(callbackHolder: GLoggerCallbackHolder): void {
@@ -37,16 +39,9 @@ export class GLogger extends GLoggerInstance {
         return new GLogger(context?.constructor?.name);
     }
 
-    private static readonly skipContexts = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
-    private static readonly skipRegexp   = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
-
     public static createArrayLogger(array: unknown[], context?: GLoggerContextType, mapper?: (priority: GLoggerPriority, messages: unknown[], context?: string) => unknown): GLogger {
         return new GLogger(context, GLoggerCallbackHolder.createArrayCallbacks(array, {mapper}));
     }
-
-    // public static createFileLogger(file: string, context?: GLoggerContextType, encoding: "utf8" = "utf8"): GLogger {
-    //     return new GLogger(context, GLoggerCallbackHolder.createFileCallbacks(file, {encoding}));
-    // }
 
     public static print(type: GLoggerPriority, context: GLoggerContextType = "", ...data: unknown[]): void {
         const realContext: string = GLogger.getContextString(context);
@@ -69,25 +64,20 @@ export class GLogger extends GLoggerInstance {
         GLogger.print(GLoggerPriority.WARN, context, ...(Array.isArray(message) ? message : [message]));
     }
 
-    private static getContextString(context?: GLoggerContextType): string {
-        if (typeof context === "string") {
-            return context;
-        }
-
-        if (typeof context?.constructor?.name === "string") {
-            return context.constructor.name;
-        }
-
-        if (typeof context?.name === "string") {
-            return context.name;
-        }
-
-        return undefined as any;
+    public constructor(
+        context?: GLoggerContextType,
+        callbacks = GLogger.staticCallbacks.copy(),
+    ) {
+        super(callbacks, context);
     }
 
-    public extends(subContext: string): GLogger {
-        const currentContext = GLogger.getContextString(this.context);
+    public extends(subContext: any): GLogger {
+        const currentContext        = GLogger.getContextString(this.context);
+        const subContextNameContext = GLogger.getContextString(subContext);
 
-        return new GLogger(currentContext ? `${currentContext}:${subContext}` : subContext);
+        return new GLogger(
+            currentContext ? `${currentContext}:${subContextNameContext}` : subContextNameContext,
+            this.loggerCallbacks.copy(),
+        );
     }
 }

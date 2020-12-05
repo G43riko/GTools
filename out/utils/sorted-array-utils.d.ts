@@ -1,0 +1,9 @@
+export declare function binarySearch<T>(array: readonly T[], item: T, comparator: (a: T, b: T) => number): number;
+export declare function sortedFind<T>(array: readonly T[], el: T, compare: (left: T, right: T) => number): T | undefined;
+export declare function sortedInsert<T>(array: T[], value: T, compare: (left: T, right: T) => number): number;
+export declare function sortedInsertAll<T>(array: T[], values: T[], compare: (left: T, right: T) => number, skipDuplicates?: boolean): number;
+export declare function sortedRemove<T>(array: T[], value: T, compare: (left: T, right: T) => number): T | undefined;
+export declare function sortedPickAll<T>(array: readonly T[], values: readonly T[], compare: (left: T, right: T) => number): T[];
+export declare function SortedDifference<T>(array: readonly T[], values: readonly T[], compare: (left: T, right: T) => number): T[];
+export declare function SortedPartition<T>(array: readonly T[], values: readonly T[], compare: (left: T, right: T) => number): [T[], T[]];
+export declare function sortedMerge<T>(array: readonly T[], values: readonly T[], compare: (left: T, right: T) => number): T[];

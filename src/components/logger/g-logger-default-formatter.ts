@@ -25,13 +25,14 @@ export class ColorGenerator {
 
 export class SimpleColorFormatter implements GLoggerFormatter {
     private readonly colorGenerator = new ColorGenerator();
-    public pattern = "[{{priority}}] {{context}}: {{data}}";
-    private readonly colorMap = {
+    public readonly colorMap = {
         priority: "red",
         context: "blue",
-        data: "green",
+        data: "black",
         default: "black",
     };
+    public constructor(private readonly pattern = "[{{priority}}] {{context}}: {{data}}") {
+    }
     public format(priority: GLoggerPriority, data: unknown[], context?: string): string {
         const dataPlaceholders = data.map((item) => {
             switch (typeof item) {

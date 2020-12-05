@@ -20,6 +20,7 @@ __exportStar(require("./image-utils"), exports);
 __exportStar(require("./math-utils"), exports);
 __exportStar(require("./misc-utils"), exports);
 __exportStar(require("./time-utils"), exports);
+__exportStar(require("./sorted-array-utils"), exports);
 __exportStar(require("./input-utils"), exports);
 __exportStar(require("./object-utils"), exports);
 __exportStar(require("./parser-utils"), exports);

@@ -8,18 +8,16 @@
 export declare function where<T extends Record<string, unknown>>(array: T[], condition: Partial<T>): T[];
 /**
  * @example
- *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]) => true
- *  analyzeArrayChanges([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}]) => false
- *  analyzeArrayChanges([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], function(a, b){return a.v === b.v}) => true
+ *  compareArrays(["a", "b", "c"], ["a", "b", "c"]) => true
+ *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}]) => false
+ *  compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v) => true
  */
 export declare function compareArrays<T>(prev: T[], act: T[], comparator?: (a: T, b: T) => boolean): boolean;
 /**
  *
  * @example
- *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]).toAdd ==> []
- *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]).toRemove ==> []
- *  analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"]).toAdd ==> ["d"]
- *  analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"]).toRemove ==> ["a"]
+ *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]) ==> {toAdd: [], toRemove: []}
+ *  analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"]) ==> {toAdd: ["d"], toRemove: ["a"]}
  */
 export declare function analyzeArrayChanges<T>(prev: T[], act: T[], comparator?: (a: T, b: T) => boolean): {
     toAdd: T[];

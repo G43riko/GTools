@@ -1,10 +1,13 @@
-import { GLoggerDefaultFormatter } from "./g-logger-default-formatter";
+import { SimpleColorFormatter } from "./g-logger-default-formatter";
 import { GLoggerPriority } from "./g-logger-priority";
 export class GLoggerCallbackHolder {
     constructor(callbacks) {
         this.callbacks = callbacks;
     }
-    static createConsoleCallbacks(formatter = new GLoggerDefaultFormatter()) {
+    copy() {
+        return new GLoggerCallbackHolder(this.callbacks);
+    }
+    static createConsoleCallbacks(formatter = new SimpleColorFormatter()) {
         return new GLoggerCallbackHolder({
             [GLoggerPriority.LOG]: (message, context) => console.log(...formatter.formatColored(GLoggerPriority.LOG, message, context)),
             [GLoggerPriority.WARN]: (message, context) => console.warn(...formatter.formatColored(GLoggerPriority.WARN, message, context)),

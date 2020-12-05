@@ -1,12 +1,15 @@
-import { GLoggerDefaultFormatter } from "./g-logger-default-formatter";
+import { SimpleColorFormatter } from "./g-logger-default-formatter";
 import { GLoggerPriority } from "./g-logger-priority";
 var GLoggerCallbackHolder = (function () {
     function GLoggerCallbackHolder(callbacks) {
         this.callbacks = callbacks;
     }
+    GLoggerCallbackHolder.prototype.copy = function () {
+        return new GLoggerCallbackHolder(this.callbacks);
+    };
     GLoggerCallbackHolder.createConsoleCallbacks = function (formatter) {
         var _a;
-        if (formatter === void 0) { formatter = new GLoggerDefaultFormatter(); }
+        if (formatter === void 0) { formatter = new SimpleColorFormatter(); }
         return new GLoggerCallbackHolder((_a = {},
             _a[GLoggerPriority.LOG] = function (message, context) { return console.log.apply(console, formatter.formatColored(GLoggerPriority.LOG, message, context)); },
             _a[GLoggerPriority.WARN] = function (message, context) { return console.warn.apply(console, formatter.formatColored(GLoggerPriority.WARN, message, context)); },

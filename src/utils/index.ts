@@ -8,6 +8,7 @@ export * from "./image-utils";
 export * from "./math-utils";
 export * from "./misc-utils";
 export * from "./time-utils";
+export * from "./sorted-array-utils";
 
 // TODO: should be import directly to file
 // export * from "./net-client-utils";

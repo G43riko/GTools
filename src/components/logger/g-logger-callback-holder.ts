@@ -1,9 +1,13 @@
 import { GLoggerCallback } from "./g-logger";
-import { GLoggerDefaultFormatter, SimpleColorFormatter } from "./g-logger-default-formatter";
+import { SimpleColorFormatter } from "./g-logger-default-formatter";
 import { GLoggerPriority } from "./g-logger-priority";
 
 export class GLoggerCallbackHolder {
     private constructor(private readonly callbacks: { [key in GLoggerPriority]: GLoggerCallback }) {
+    }
+
+    public copy(): GLoggerCallbackHolder {
+        return new GLoggerCallbackHolder(this.callbacks);
     }
 
     public static createConsoleCallbacks(formatter = new SimpleColorFormatter()): GLoggerCallbackHolder {

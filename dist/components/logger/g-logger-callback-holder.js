@@ -7,9 +7,12 @@ var GLoggerCallbackHolder = (function () {
     function GLoggerCallbackHolder(callbacks) {
         this.callbacks = callbacks;
     }
+    GLoggerCallbackHolder.prototype.copy = function () {
+        return new GLoggerCallbackHolder(this.callbacks);
+    };
     GLoggerCallbackHolder.createConsoleCallbacks = function (formatter) {
         var _a;
-        if (formatter === void 0) { formatter = new g_logger_default_formatter_1.GLoggerDefaultFormatter(); }
+        if (formatter === void 0) { formatter = new g_logger_default_formatter_1.SimpleColorFormatter(); }
         return new GLoggerCallbackHolder((_a = {},
             _a[g_logger_priority_1.GLoggerPriority.LOG] = function (message, context) { return console.log.apply(console, formatter.formatColored(g_logger_priority_1.GLoggerPriority.LOG, message, context)); },
             _a[g_logger_priority_1.GLoggerPriority.WARN] = function (message, context) { return console.warn.apply(console, formatter.formatColored(g_logger_priority_1.GLoggerPriority.WARN, message, context)); },
