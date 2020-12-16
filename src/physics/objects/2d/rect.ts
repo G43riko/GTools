@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2, Vector2 } from "gtools/math";
 import { MinMax } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
 import { Sphere } from "./sphere";
@@ -31,6 +31,25 @@ export class Rect {
             max: {
                 x: center.x + radius,
                 y: center.y + radius,
+            },
+        });
+    }
+
+    public static fromPoints(points: SimpleVector2[], offsetX = 0, offsetY = offsetX): Rect {
+        const range = Vector2.createOutlineRange(points);
+
+        if (!offsetX && !offsetY) {
+            return Rect.fromMinMax(range);
+        }
+
+        return Rect.fromMinMax({
+            min: {
+                x: range.min.x - offsetX,
+                y: range.min.y - offsetY,
+            },
+            max: {
+                x: range.max.x + offsetX,
+                y: range.max.y + offsetY,
             },
         });
     }

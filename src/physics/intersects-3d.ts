@@ -1,6 +1,6 @@
 import { SimpleVector3, Vector3 } from "../math";
 
-export function vectorSquareIntersect3d(
+export function vectorSquare3dIntersect(
     r1x: number,
     r1y: number,
     r1z: number,
@@ -17,7 +17,7 @@ export function vectorSquareIntersect3d(
     s3y: number,
     s3z: number,
 ): boolean {
-    return vectorSquareIntersect3d_2(
+    return vectorSquare3dIntersect_2(
         new Vector3(r1x, r1y, r1z),
         new Vector3(r2x, r2y, r2z),
         new Vector3(s1x, s1y, s1z),
@@ -26,7 +26,7 @@ export function vectorSquareIntersect3d(
     );
 }
 
-export function vectorSquareIntersect3d_2(
+export function vectorSquare3dIntersect_2(
     R1: SimpleVector3,
     R2: SimpleVector3,
     S1: SimpleVector3,

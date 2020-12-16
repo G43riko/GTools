@@ -68,6 +68,7 @@ export class Vector2 implements SimpleVector2 {
             px - obsX,
         ) <= cutOff;
     }
+
     public static createOutlineRange(points: readonly SimpleVector2[]): Range<SimpleVector2> {
         const min = {
             x: Infinity,
@@ -95,6 +96,7 @@ export class Vector2 implements SimpleVector2 {
 
         return new Range(min, max);
     }
+
     public static angleBetweenPoints(obsX: number, obsY: number, px1: number, py1: number, px2: number, py2: number): number {
         return Math.atan2(
             py1 - obsY,

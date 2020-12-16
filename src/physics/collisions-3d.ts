@@ -2,7 +2,7 @@ import { SimpleVector2, Vector3 } from "../math";
 import { getClosestPointOnLine } from "./closest-3d";
 import { pointPoint2dDistance } from "./distances-2d";
 import { pointLine3dDistance, pointPoint3dDistance } from "./distances-3d";
-import { vectorSquareIntersect3d } from "./intersects-3d";
+import { vectorSquare3dIntersect } from "./intersects-3d";
 
 export function sphereSphere(
     ax: number,
@@ -181,32 +181,32 @@ export function lineBox(
     bSizeY: number,
     bSizeZ: number,
 ): boolean {
-    return vectorSquareIntersect3d(a1x, a1y, a1z,
+    return vectorSquare3dIntersect(a1x, a1y, a1z,
         a2x, a2y, a2z,
         bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ,
         bPosX - bSizeX, bPosY - bSizeY, bPosZ - bSizeZ,
         bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquareIntersect3d(a1x, a1y, a1z,
+        vectorSquare3dIntersect(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ) ||
-        vectorSquareIntersect3d(a1x, a1y, a1z,
+        vectorSquare3dIntersect(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquareIntersect3d(a1x, a1y, a1z,
+        vectorSquare3dIntersect(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquareIntersect3d(a1x, a1y, a1z,
+        vectorSquare3dIntersect(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquareIntersect3d(a1x, a1y, a1z,
+        vectorSquare3dIntersect(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,

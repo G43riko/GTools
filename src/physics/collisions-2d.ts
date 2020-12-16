@@ -90,6 +90,30 @@ export function lineLine2dCollision(
     return r >= 0 && r <= 1 && (s >= 0 && s <= 1);
 }
 
+/**
+ * @returns true if the line from (a,b)->(c,d) intersects with (p,q)->(r,s)
+ */
+export function lineLine2dCollision2(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    p: number,
+    q: number,
+    r: number,
+    s: number,
+): boolean {
+    const det = (c - a) * (s - q) - (r - p) * (d - b);
+    if (det === 0) {
+        return false;
+    }
+
+    const lambda = ((s - q) * (r - a) + (p - r) * (s - b)) / det;
+    const gamma  = ((b - d) * (r - a) + (c - a) * (s - b)) / det;
+
+    return (0 < lambda && lambda < 1) && (0 < gamma && gamma < 1);
+}
+
 export function rectRect2dCollision(
     ax: number,
     ay: number,
@@ -150,4 +174,73 @@ export function pointCircle2dCollision(
     circleRadius: number,
 ): boolean {
     return pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
+}
+
+export function pointMultiPolygon2dCollision(
+    pointX: number,
+    pointY: number,
+    polys: [number, number][][],
+    ignoreBoundary = false,
+): boolean {
+    const multipolygon = [polys];
+    const pt           = [pointX, pointY];
+    let insidePoly     = false;
+    for (let i = 0; i < multipolygon.length && !insidePoly; i++) {
+        // check if it is not in the outer ring first
+        // tslint:disable-next-line:early-exit
+        if (pointPolygon2dCollision(pt, multipolygon[i][0], ignoreBoundary)) {
+            let inHole = false;
+            // for(let k=1; k < k < multipolygon[i].length && !inHole; k++) {
+            //
+            // }
+            let k = 1;
+            while (k < multipolygon[i].length && !inHole) {
+                if (pointPolygon2dCollision(pt, multipolygon[i][k], !ignoreBoundary)) {
+                    inHole = true;
+                }
+                k++;
+            }
+            if (!inHole) {
+                insidePoly = true;
+            }
+        }
+    }
+
+    return insidePoly;
+}
+
+/**
+ * pointPolygon2dCollision
+ *
+ * @private
+ * @param {Array<number>} pt [x,y]
+ * @param {Array<Array<number>>} ring [[x,y], [x,y],..]
+ * @param {boolean} ignoreBoundary ignoreBoundary
+ * @returns {boolean} inRing
+ */
+export function pointPolygon2dCollision(pt: number[], ring: number[][], ignoreBoundary: boolean): boolean {
+    let isInside = false;
+    if (
+        ring[0][0] === ring[ring.length - 1][0] &&
+        ring[0][1] === ring[ring.length - 1][1]
+    ) {
+        ring = ring.slice(0, ring.length - 1);
+    }
+    // tslint:disable-next-line:one-variable-per-declaration
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const xi         = ring[i][0];
+        const yi         = ring[i][1];
+        const xj         = ring[j][0];
+        const yj         = ring[j][1];
+        const onBoundary = pt[1] * (xi - xj) + yi * (xj - pt[0]) + yj * (pt[0] - xi) === 0 && (xi - pt[0]) * (xj - pt[0]) <= 0 && (yi - pt[1]) * (yj - pt[1]) <= 0;
+        if (onBoundary) {
+            return !ignoreBoundary;
+        }
+        const intersect = yi > pt[1] !== yj > pt[1] && pt[0] < ((xj - xi) * (pt[1] - yi)) / (yj - yi) + xi;
+        if (intersect) {
+            isInside = !isInside;
+        }
+    }
+
+    return isInside;
 }

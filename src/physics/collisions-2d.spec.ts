@@ -1,6 +1,14 @@
 import { expect } from "chai";
 import "mocha";
-import { circleCircle2dCollision, circleRect2dCollision, lineRectangle2dCollision, pointCircle2dCollision, pointRect2dCollision, rectRect2dCollision } from "./collisions-2d";
+import {
+    circleCircle2dCollision,
+    circleRect2dCollision,
+    lineRectangle2dCollision,
+    pointCircle2dCollision,
+    pointMultiPolygon2dCollision,
+    pointRect2dCollision,
+    rectRect2dCollision,
+} from "./collisions-2d";
 
 describe("Collisions2d", () => {
     describe("point-rect", () => {
@@ -162,6 +170,37 @@ describe("Collisions2d", () => {
             expect(circleRect2dCollision(15, -5, 5, 0, 0, 10, 10)).to.be.false;
             expect(circleRect2dCollision(-5, 15, 5, 0, 0, 10, 10)).to.be.false;
             expect(circleRect2dCollision(15, 15, 5, 0, 0, 10, 10)).to.be.false;
+        });
+    });
+
+    describe("point-polygon", () => {
+        describe("rect like polygon", () => {
+            const createPolygonFromRect = (minX: number, minY: number, maxX: number, maxY: number): [number, number][] => [[minX, minY], [minX, maxY], [maxY, maxY], [maxY, minY]];
+
+            it("It should test point inside small rect hole in polygon", () => {
+                expect(pointMultiPolygon2dCollision(1, 1, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(9, 1, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(1, 9, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(9, 9, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(5, 5, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+            });
+            it("It should test point inside rect", () => {
+                expect(pointMultiPolygon2dCollision(0, 0, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;
+                expect(pointMultiPolygon2dCollision(10, 0, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;
+                expect(pointMultiPolygon2dCollision(0, 10, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;
+                expect(pointMultiPolygon2dCollision(10, 10, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;
+                expect(pointMultiPolygon2dCollision(5, 5, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;
+            });
+            it("It should test point outside rect", () => {
+                expect(pointMultiPolygon2dCollision(-1, 5, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(11, 5, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(5, -1, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(5, 11, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(-1, -1, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(11, -1, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(-1, 11, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(pointMultiPolygon2dCollision(11, 11, [createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+            });
         });
     });
 });
