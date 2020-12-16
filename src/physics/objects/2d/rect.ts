@@ -1,6 +1,7 @@
 import { SimpleVector2, Vector2 } from "gtools/math";
 import { MinMax } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
+import { Ray } from "./ray";
 import { Sphere } from "./sphere";
 
 export class Rect {
@@ -31,6 +32,27 @@ export class Rect {
             max: {
                 x: center.x + radius,
                 y: center.y + radius,
+            },
+        });
+    }
+
+    public static fromRay({origin, direction, length}: Pick<Ray, "origin" | "direction" | "length">, realLength = length): Rect {
+        if (realLength === Infinity) {
+            throw new Error("Cannot create rectangle from infinite ray");
+        }
+        const end = {
+            x: origin.x + direction.x * realLength,
+            y: origin.y + direction.y * realLength,
+        };
+
+        return Rect.fromMinMax({
+            min: {
+                x: Math.min(end.x, origin.x),
+                y: Math.min(end.y, origin.y),
+            },
+            max: {
+                x: Math.max(end.x, origin.x),
+                y: Math.max(end.y, origin.y),
             },
         });
     }

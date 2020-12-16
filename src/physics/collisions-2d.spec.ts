@@ -2,7 +2,7 @@ import { expect } from "chai";
 import "mocha";
 import {
     circleCircle2dCollision,
-    circleRect2dCollision,
+    circleRect2dCollision, lineLine2dCollision,
     lineRectangle2dCollision,
     pointCircle2dCollision,
     pointMultiPolygon2dCollision,
@@ -170,6 +170,52 @@ describe("Collisions2d", () => {
             expect(circleRect2dCollision(15, -5, 5, 0, 0, 10, 10)).to.be.false;
             expect(circleRect2dCollision(-5, 15, 5, 0, 0, 10, 10)).to.be.false;
             expect(circleRect2dCollision(15, 15, 5, 0, 0, 10, 10)).to.be.false;
+        });
+    });
+
+    describe("line-line", () => {
+        it("It should test point inside small rect hole in polygon", () => {
+            /**
+             * X-A-X-B-X
+             */
+            expect(lineLine2dCollision(0, 0, 5, 0, 5, 0, 10, 0)).to.be.true;
+
+            /**
+             * X
+             * |
+             * A
+             * |
+             * X
+             * |
+             * B
+             * |
+             * X
+             */
+            expect(lineLine2dCollision(0, 0, 0, 5, 0, 5, 0, 10)).to.be.true;
+            /**
+             *   X
+             *   |
+             * X-X-X
+             *   |
+             *   X
+             */
+            expect(lineLine2dCollision(5, 0, 5, 10, 0, 5, 10, 5)).to.be.true;
+
+
+            /**
+             * X-A-X
+             * X-B-X
+             */
+            expect(lineLine2dCollision(0, 0, 5, 0, 0, 1, 5, 1)).to.be.false;
+
+            /**
+             * XX
+             * ||
+             * AB
+             * ||
+             * XX
+             */
+            expect(lineLine2dCollision(0, 0, 0, 5, 1, 0, 1, 5)).to.be.false;
         });
     });
 

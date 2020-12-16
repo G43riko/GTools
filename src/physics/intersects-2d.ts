@@ -1,4 +1,4 @@
-export function intersects(
+export function lineLine2dIntersect(
     x1: number,
     y1: number,
     x2: number,

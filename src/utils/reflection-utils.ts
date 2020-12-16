@@ -12,6 +12,11 @@ export function createClass(name: any, args: any[]): any {
     return temp;
 }
 
+
+export function createInstance<T, S extends new (...args: any[]) => T> (type: S, ...params: ConstructorParameters<S>): T {
+    return new type(...params);
+}
+
 export async function callFirstFunction(...functions: any[]): Promise<any> {
     for (const func of functions) {
         if (typeof func === "function") {

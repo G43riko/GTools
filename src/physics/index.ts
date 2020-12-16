@@ -6,4 +6,5 @@ export * from "./distances-2d";
 export * from "./distances-3d";
 export * from "./bounders-2d";
 export * from "./objects";
+export * from "./intersects-2d";
 export * from "./intersects-3d";

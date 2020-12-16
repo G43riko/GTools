@@ -16,7 +16,7 @@ describe("sorted-array-utils", () => {
 	});
 
 	it("It should test function SortedDifference", () => {
-		expect(TESTED_OBJ.SortedDifference(["a", "b", "c"], ["b", "c", "d"], (a, b) => a.localeCompare(b))).to.deep.equal(["a", "d"]);
+		expect(TESTED_OBJ.SortedDifference(["a", "b", "c"], ["b", "c", "d"], (a, b) => a.localeCompare(b))).to.deep.equal(["a"]);
 	});
 
 	it("It should test function sortedMerge", () => {

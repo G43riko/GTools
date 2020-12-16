@@ -91,7 +91,7 @@ export function lineLine2dCollision(
 }
 
 /**
- * @returns true if the line from (a,b)->(c,d) intersects with (p,q)->(r,s)
+ * @returns true if the line from (a,b)->(c,d) lineLine2dIntersect with (p,q)->(r,s)
  */
 export function lineLine2dCollision2(
     a: number,
