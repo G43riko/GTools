@@ -151,7 +151,7 @@ export function isPlain<T extends Record<string, unknown>>(object: T): boolean {
 
 /**
  *
- * @param list - list to flat
+ * @param list - data-structures to flat
  * @param propertyPath - path to property
  * @param separator - separator in propertyPath
  * @param skipUndefined - true if undefined should be skipped

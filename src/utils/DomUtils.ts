@@ -87,7 +87,7 @@ export class DomUtils {
      * Function returns, add, remove or toggle elements classes
      *
      * @param element - input element
-     * @param name - class name or list of class names
+     * @param name - class name or data-structures of class names
      * @param force - flag if class should be toggled false
      * @returns boolean if function is used to check class presence otherwise element given as input
      */

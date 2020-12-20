@@ -1,5 +1,5 @@
 /**
- * Create class by name and list of parameters
+ * Create class by name and data-structures of parameters
  *
  * @param name - class name
  * @param args - constructor parameter

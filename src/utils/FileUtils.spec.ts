@@ -5,7 +5,7 @@ import { FileUtils } from "./FileUtils";
 
 describe("File utils", () => {
     describe("scanDirRecursive", () => {
-        it("it should return list of files in folder", (done) => {
+        it("it should return data-structures of files in folder", (done) => {
             FileUtils.scanDirRecursive("src/utils").then((data) => {
                 const changedData = data.map((e) =>
                     e.replace(__dirname, "").replace(/^\W*/, ""),
