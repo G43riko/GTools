@@ -43,7 +43,7 @@ export class Vector2 implements SimpleVector2 {
     }
 
     public get length(): number {
-        return Math.sqrt(this.x * this.x + this.y * this.y);
+        return Vector2.size(this);
     }
 
     public static equals(vecA: SimpleVector2, vecB: SimpleVector2): boolean {
@@ -54,8 +54,22 @@ export class Vector2 implements SimpleVector2 {
         return vecA.x === vecB.x && vecA.y === vecB.y;
     }
 
-    public static sub(vecA: SimpleVector2, vecB: SimpleVector2): Vector2 {
-        return new Vector2(vecA.x - vecB.x, vecA.y - vecB.y);
+    public static sub(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+        return result.setData(vecA.x - vecB.x, vecA.y - vecB.y);
+    }
+
+    public static dot(vecA: SimpleVector2, vecB: SimpleVector2): number {
+        return vecA.x * vecB.x + vecA.y * vecB.y;
+    }
+
+    public static lerp<T extends SimpleVector2>(start: SimpleVector2, end: SimpleVector2, ratio: number): SimpleVector2 {
+        const dir = Vector2.sub(end, start);
+
+        return Vector2.mulNum(dir, ratio, dir).add(start);
+    }
+
+    public static getAbs(vec: SimpleVector2, result = new Vector2()): Vector2 {
+        return result.setData(Math.abs(vec.x), Math.abs(vec.y));
     }
 
     public static from(valA: number, valB = valA): Vector2 {
@@ -111,44 +125,60 @@ export class Vector2 implements SimpleVector2 {
         return item && !isNaN(item.x) && !isNaN(item.y);
     }
 
-    public static sum(vecA: SimpleVector2, vecB: SimpleVector2): Vector2 {
-        return new Vector2(vecA.x + vecB.x, vecA.y + vecB.y);
+    public static sum(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+        return result.setData(vecA.x + vecB.x, vecA.y + vecB.y);
     }
 
-    public static min(vecA: SimpleVector2, vecB: SimpleVector2): Vector2 {
-        return new Vector2(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y));
+    public static min(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+        return result.setData(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y));
     }
 
-    public static max(vecA: SimpleVector2, vecB: SimpleVector2): Vector2 {
-        return new Vector2(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y));
+    public static max(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+        return result.setData(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y));
     }
 
     public static dist(vecA: SimpleVector2, vecB: SimpleVector2): number {
         return Math.sqrt(Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2));
     }
 
-    public isZero(): boolean {
-        return this.x === 0 && this.y === 0;
+    public static size(vec: SimpleVector2): number {
+        return Math.sqrt(vec.x * vec.x + vec.y * vec.y);
     }
 
-    public getNormalized(): SimpleVector2 {
-        return this.clone().normalize();
+    public isZero(): boolean {
+        return this.x === 0 && this.y === 0;
     }
 
     public clone(): Vector2 {
         return new Vector2(this.x, this.y);
     }
 
+
+    public getNormalized(result = this.clone()): SimpleVector2 {
+        return Vector2.normalize(this, result);
+    }
     public normalize(): this {
-        const length = this.length;
+        const length = Vector2.size(this);
         this.x /= length;
         this.y /= length;
 
         return this;
     }
 
-    public static mulNum(vecA: SimpleVector2, val: number): Vector2 {
-        return new Vector2(vecA.x * val, vecA.y * val);
+    public static normalize(vec: SimpleVector2, result = vec): SimpleVector2 {
+        const length = Vector2.size(vec);
+
+        result.x = vec.x / length;
+        result.y = vec.y / length;
+
+        return result;
+    }
+
+    public static mulNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
+        return result.setData(vecA.x * val, vecA.y * val);
+    }
+    public static addNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
+        return result.setData(vecA.x + val, vecA.y + val);
     }
 
     public mul(value: SimpleVector2 | number): this {

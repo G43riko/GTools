@@ -7,6 +7,7 @@ export * from "./color.model";
 export * from "./transform";
 export * from "./range";
 export * from "./path";
+export * from "./path/djikstra";
 
 // TODO: Cannot import countries.data.json
 // export * from "./countries/country.interface";

@@ -4,6 +4,7 @@ export * from "./g-map";
 export * from "./key-value-counter";
 export * from "./number-counter";
 export * from "./paginator";
+export * from "./bidirectional-graph";
 export { GLoggerPriority } from "./logger/g-logger-priority";
 export { GLoggerDefaultFormatter, SimpleColorFormatter } from "./logger/g-logger-default-formatter";
 export { GLoggerCallbackHolder } from "./logger/g-logger-callback-holder";

@@ -1,3 +1,4 @@
+import { SimpleVector2 } from "./simple-vector2";
 import { SimpleVector3 } from "./simple-vector3";
 import { Vector2 } from "./vector2";
 
@@ -45,6 +46,9 @@ export class Vector3 implements SimpleVector3 {
 
     public static sum(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
+    }
+    public static dot(vecA: SimpleVector3, vecB: SimpleVector3): number {
+        return vecA.x * vecB.x + vecA.y * vecB.y + vecA.z * vecB.z;
     }
 
     public static mulNum(vecA: SimpleVector3, val: number): Vector3 {

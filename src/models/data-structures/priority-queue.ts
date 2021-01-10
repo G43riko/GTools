@@ -27,6 +27,10 @@ export class PriorityQueue<T> {
         return this.heap[0];
     }
 
+    public get length(): number {
+        return this.heap.length;
+    }
+
     public add(element: T): void {
         // push element to the end of the heap
         this.heap.push(element);

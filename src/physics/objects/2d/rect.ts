@@ -1,10 +1,14 @@
 import { SimpleVector2, Vector2 } from "gtools/math";
 import { MinMax } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
+import { MassAble } from "./object-2d";
 import { Ray } from "./ray";
 import { Sphere } from "./sphere";
 
-export class Rect {
+/**
+ * https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
+ */
+export class Rect implements MassAble {
     public constructor(
         public readonly position: SimpleVector2,
         public readonly size: SimpleVector2,
@@ -13,6 +17,14 @@ export class Rect {
 
     public get area(): number {
         return this.size.x * this.size.y;
+    }
+
+    public get momentOfInertia(): number {
+        return (this.size.x * this.size.x + this.size.y * this.size.y) / 12;
+    }
+
+    public get boundingRadius(): number {
+        return Math.sqrt(this.size.x * this.size.x + this.size.y * this.size.y) / 2;
     }
 
     public get circuit(): number {

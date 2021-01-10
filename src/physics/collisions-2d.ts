@@ -176,6 +176,25 @@ export function pointCircle2dCollision(
     return pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
 }
 
+export function pointPolygon2dCollision2(x: number, y: number, vs: [number, number][]): boolean {
+    let inside = false;
+    let i = 0;
+    let j = vs.length - 1;
+    for (; i < vs.length; j = i++) {
+        const xi = vs[i][0];
+        const yi = vs[i][1];
+        const xj = vs[j][0];
+        const yj = vs[j][1];
+
+        const intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+        if (intersect) {
+            inside = !inside;
+        }
+    }
+
+    return inside;
+}
+
 export function pointMultiPolygon2dCollision(
     pointX: number,
     pointY: number,
