@@ -1,8 +1,4 @@
-import { FileTypes } from "../enums/file-types.enum";
-
-/**
- *  FileManager is class used for open and save files
- */
+import { FileTypes } from "gtools/enums";
 
 export class FileManager {
     /**
@@ -55,9 +51,11 @@ export class FileManager {
      *
      * @param  func loading callback
      */
-    public loadImage(func: (result: any, fileName: string) => any): void {
+    public loadImage(func: (result: HTMLImageElement, fileName: File) => void): void {
+        this.input.multiple = false;
+        this.input.accept = "image/*";
         this.input.onchange = (event: any) => {
-            const files              = event.target.files;
+            const files = event.target.files;
             if (files.length <= 0) {
                 return;
             }
@@ -76,16 +74,23 @@ export class FileManager {
      * Load file using system file picker
      *
      * @param func loading callback
+     * @param encoding file encoding
      */
-    public loadFile(func: (result: any, files: any) => any): void {
+    public loadFile(func: (result: string, file: File) => void, encoding?: string): void {
+        this.input.multiple = false;
         this.input.onchange = (e: Event) => {
             const reader = new FileReader();
-            const files  = (e.target as any).files;
-            if (files.length > 0) {
-                reader.onload = () => func(reader.result, files);
-                reader.readAsText(files[0]);
+            const files  = (e.target as HTMLInputElement).files;
+            if (files && files.length > 0) {
+                reader.onload = () => func(String(reader.result), files[0]);
+                reader.readAsText(files[0], encoding);
             }
         };
+        this.input.click();
+    }
+    public loadFiles(func: (files: FileList | null) => void): void {
+        this.input.multiple = true;
+        this.input.onchange = (e: Event) => func((e.target as HTMLInputElement).files);
         this.input.click();
     }
 
@@ -94,11 +99,11 @@ export class FileManager {
      *
      * @param func loading callback
      */
-    public loadBinaryFile(func: (result: any, fileName: string) => any): void {
-        this.input.onchange = (event: any) => {
+    public loadBinaryFile(func: (result: ArrayBuffer | string | null, fileName: string) => void): void {
+        (this.input as any).onchange = (event: InputEvent) => {
             const reader = new FileReader();
-            const files  = event.target.files;
-            if (files.length > 0) {
+            const files  = (event.target as HTMLInputElement).files;
+            if (files && files.length > 0) {
                 reader.onload = () => func(reader.result, files[0].name);
                 reader.readAsBinaryString(files[0]);
             }
