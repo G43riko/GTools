@@ -8,9 +8,6 @@ export interface ObjectOptions {
     shadow?: CanvasShadowConfig;
 }
 
-export type CanvasLineCap = "butt" | "round" | "square";
-export type CanvasLineJoin = "bevel" | "round" | "miter";
-
 export interface StrokeOptions extends ObjectOptions {
     width?: number;
     strokeColor?: string;
