@@ -145,6 +145,10 @@ export class Vector2 implements SimpleVector2 {
         return Math.sqrt(vec.x * vec.x + vec.y * vec.y);
     }
 
+    public static fromVec(vec: SimpleVector2): Vector2 {
+        return new Vector2(vec.x, vec.y);
+    }
+
     public isZero(): boolean {
         return this.x === 0 && this.y === 0;
     }
@@ -153,10 +157,10 @@ export class Vector2 implements SimpleVector2 {
         return new Vector2(this.x, this.y);
     }
 
-
     public getNormalized(result = this.clone()): SimpleVector2 {
         return Vector2.normalize(this, result);
     }
+
     public normalize(): this {
         const length = Vector2.size(this);
         this.x /= length;
@@ -177,6 +181,7 @@ export class Vector2 implements SimpleVector2 {
     public static mulNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
         return result.setData(vecA.x * val, vecA.y * val);
     }
+
     public static addNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
         return result.setData(vecA.x + val, vecA.y + val);
     }

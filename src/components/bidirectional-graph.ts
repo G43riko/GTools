@@ -40,7 +40,7 @@ export class BidirectionalGraph<T> {
         }
 
         if (!force && itemValues.length) {
-            console.warn("Vertex has connections");
+            console.warn("Vertex contains connections");
 
             return;
         }

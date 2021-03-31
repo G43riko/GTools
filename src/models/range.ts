@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2, SimpleVector3, SimpleVector4 } from "gtools/math";
 import { randomFloatBetween, randomIntBetween } from "../utils";
 import { Color } from "./color.model";
 
@@ -9,11 +9,51 @@ export class Range<T> {
     public static random(range: Range<number>): number {
         return randomFloatBetween(range.min, range.max);
     }
+    public static randomVector2i(range: Range<SimpleVector2>): SimpleVector2 {
+        return {
+            x: randomIntBetween(range.min.x, range.max.x),
+            y: randomIntBetween(range.min.y, range.max.y),
+        };
+    }
 
-    public static randomVector(range: Range<SimpleVector2>): SimpleVector2 {
+    public static randomVector3i(range: Range<SimpleVector3>): SimpleVector3 {
+        return {
+            x: randomIntBetween(range.min.x, range.max.x),
+            y: randomIntBetween(range.min.y, range.max.y),
+            z: randomIntBetween(range.min.z, range.max.z),
+        };
+    }
+
+    public static randomVector4i(range: Range<SimpleVector4>): SimpleVector4 {
+        return {
+            x: randomIntBetween(range.min.x, range.max.x),
+            y: randomIntBetween(range.min.y, range.max.y),
+            z: randomIntBetween(range.min.z, range.max.z),
+            w: randomIntBetween(range.min.w, range.max.w),
+        };
+    }
+
+    public static randomVector2f(range: Range<SimpleVector2>): SimpleVector2 {
         return {
             x: randomFloatBetween(range.min.x, range.max.x),
             y: randomFloatBetween(range.min.y, range.max.y),
+        };
+    }
+
+    public static randomVector3f(range: Range<SimpleVector3>): SimpleVector3 {
+        return {
+            x: randomFloatBetween(range.min.x, range.max.x),
+            y: randomFloatBetween(range.min.y, range.max.y),
+            z: randomFloatBetween(range.min.z, range.max.z),
+        };
+    }
+
+    public static randomVector4f(range: Range<SimpleVector4>): SimpleVector4 {
+        return {
+            x: randomFloatBetween(range.min.x, range.max.x),
+            y: randomFloatBetween(range.min.y, range.max.y),
+            z: randomFloatBetween(range.min.z, range.max.z),
+            w: randomFloatBetween(range.min.w, range.max.w),
         };
     }
 

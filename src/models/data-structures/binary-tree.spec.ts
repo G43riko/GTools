@@ -26,13 +26,13 @@ describe("Binary tree", () => {
         }
 
         const BST = new BinarySearchTree<number>(6);
-        BST.insertBST(0);
-        BST.insertBST(8);
-        BST.insertBST(-1);
-        BST.insertBST(19);
-        BST.insertBST(15);
-        BST.insertBST(20);
-        BST.insertBST(4);
+        BST.add(0);
+        BST.add(8);
+        BST.add(-1);
+        BST.add(19);
+        BST.add(15);
+        BST.add(20);
+        BST.add(4);
 
         const minResult = findMin(BST.root);
         const maxResult = findMax(BST.root);

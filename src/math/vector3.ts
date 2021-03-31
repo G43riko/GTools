@@ -1,4 +1,3 @@
-import { SimpleVector2 } from "./simple-vector2";
 import { SimpleVector3 } from "./simple-vector3";
 import { Vector2 } from "./vector2";
 
@@ -40,27 +39,63 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     }
 
+    /**
+     * @deprecated use {@link sum} instead
+     */
     public static add(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     }
 
-    public static sum(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
-        return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
+    public static sum<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+        result.x = vecA.x + vecB.x;
+        result.y = vecA.y + vecB.y;
+        result.z = vecA.z + vecB.z;
+
+        return result as T;
     }
+
+    public static sumNum<T extends SimpleVector3>(vecA: SimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+        result.x = vecA.x + val;
+        result.y = vecA.y + val;
+        result.z = vecA.z + val;
+
+        return result as T;
+    }
+
     public static dot(vecA: SimpleVector3, vecB: SimpleVector3): number {
         return vecA.x * vecB.x + vecA.y * vecB.y + vecA.z * vecB.z;
     }
 
-    public static mulNum(vecA: SimpleVector3, val: number): Vector3 {
-        return new Vector3(vecA.x * val, vecA.y * val, vecA.z * val);
+    public static mul<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+        result.x = vecA.x * vecB.x;
+        result.y = vecA.y * vecB.y;
+        result.z = vecA.z * vecB.z;
+
+        return result as T;
     }
 
-    public static mul(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
-        return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
+    public static mulNum<T extends SimpleVector3>(vecA: SimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+        result.x = vecA.x * val;
+        result.y = vecA.y * val;
+        result.z = vecA.z * val;
+
+        return result as T;
     }
 
-    public static min(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
-        return new Vector3(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y), Math.min(vecA.z, vecB.z));
+    public static min<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+        result.x = Math.min(vecA.x, vecB.x);
+        result.y = Math.min(vecA.y, vecB.y);
+        result.z = Math.min(vecA.z, vecB.z);
+
+        return result as T;
+    }
+
+    public static max<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+        result.x = Math.max(vecA.x, vecB.x);
+        result.y = Math.max(vecA.y, vecB.y);
+        result.z = Math.max(vecA.z, vecB.z);
+
+        return result as T;
     }
 
     public static createFromSphericalCoords(radius: number, phi: number, theta: number): Vector3 {
@@ -73,12 +108,12 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(x, y, z);
     }
 
-    public static max(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
-        return new Vector3(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y), Math.max(vecA.z, vecB.z));
+    public static distSqrt(vecA: SimpleVector3, vecB: SimpleVector3): number {
+        return Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2) + Math.pow(vecA.z - vecB.z, 2);
     }
 
     public static dist(vecA: SimpleVector3, vecB: SimpleVector3): number {
-        return Math.sqrt(Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2) + Math.pow(vecA.z - vecB.z, 2));
+        return Math.sqrt(Vector3.distSqrt(vecA, vecB));
     }
 
     public static normalize<T extends SimpleVector3>(vec: T): T {
@@ -96,6 +131,14 @@ export class Vector3 implements SimpleVector3 {
 
     public static from(valA: number, valB = valA, valC = valA): Vector3 {
         return new Vector3(valA, valB, valC);
+    }
+
+    public static fromVec(vec: SimpleVector3): Vector3 {
+        return new Vector3(vec.x, vec.y, vec.z);
+    }
+
+    public static fromArray(value: [number, number, number] | Float32Array): Vector3 {
+        return new Vector3(value[0], value[1], value[2]);
     }
 
     public static isVector(item: any): item is SimpleVector3 {
@@ -203,9 +246,5 @@ export class Vector3 implements SimpleVector3 {
 
     public get zx(): Vector2 {
         return new Vector2(this.z, this.x);
-    }
-
-    public static fromArray(value: [number, number, number] | Float32Array): Vector3 {
-        return new Vector3(value[0], value[1], value[2]);
     }
 }

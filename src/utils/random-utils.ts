@@ -3,7 +3,7 @@ export function randomFloatBetween(min: number, max: number): number {
 }
 
 export function randomIntBetween(min: number, max: number): number {
-    return Math.floor(randomFloatBetween(min, max));
+    return Math.round(randomFloatBetween(min, max));
 }
 
 export function randomBoolean(): boolean {

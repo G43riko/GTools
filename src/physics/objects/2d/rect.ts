@@ -1,4 +1,4 @@
-import { SimpleVector2, Vector2 } from "gtools/math";
+import { SimpleVector2, Vector2 } from "../../../math";
 import { MinMax } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
 import { MassAble } from "./object-2d";

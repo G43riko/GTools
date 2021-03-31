@@ -50,7 +50,7 @@ const astar = {
             // Grab the lowest f(x) to process next.  Heap keeps this sorted for us.
             const currentNode = openHeap.pop();
 
-            // End case -- result has been found, return the traced path.
+            // End case -- result contains been found, return the traced path.
             if (currentNode === end) {
                 return pathTo(currentNode);
             }
@@ -84,7 +84,7 @@ const astar = {
                     neighbor.f       = neighbor.g + neighbor.h;
                     graph.markDirty(neighbor);
                     if (closest) {
-                        // If the neighbour is closer than the current closestNode or if it's equally close but has
+                        // If the neighbour is closer than the current closestNode or if it's equally close but contains
                         // a cheaper path than the current closest node then it becomes the closest node
                         if (neighbor.h < closestNode.h || (neighbor.h === closestNode.h && neighbor.g < closestNode.g)) {
                             closestNode = neighbor;
@@ -95,7 +95,7 @@ const astar = {
                         // Pushing to heap will put it in proper place based on the 'f' value.
                         openHeap.push(neighbor);
                     } else {
-                        // Already seen the node, but since it has been rescored we need to reorder it in the heap
+                        // Already seen the node, but since it contains been rescored we need to reorder it in the heap
                         openHeap.rescoreElement(neighbor);
                     }
                 }

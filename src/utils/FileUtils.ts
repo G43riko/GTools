@@ -52,7 +52,7 @@ export class FileUtils {
                     if (err) {
                         return reject(err);
                     }
-                    success(data);
+                    success(data as string[]);
                 });
             });
         });

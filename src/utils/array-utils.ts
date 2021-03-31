@@ -52,6 +52,13 @@ export function compareArrays<T>(
 }
 
 /**
+ * @example
+ *  groupByLast([{a: "a", b: "A"}, {a: "b", b: "B"}, {a: "c", b: "C"}, {a: "a", b: "D"}], "a") ==> {a: {a: "a", b: "D"}, b: {a: "b", b: "B"}, c: {a: "c", b: "C"}}
+ */
+export function groupByLast<T, S extends keyof T>(arr: T[], key: S): {[k in S]: T} {
+    return arr.reduce((acc, curr) => Object.assign({}, acc, {[curr[key] as any]: curr}), {}) as {[k in S]: T};
+}
+/**
  *
  * @example
  *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]) ==> {toAdd: [], toRemove: []}
@@ -275,8 +282,6 @@ export function makeUnique<T>(array: T[]): T[] {
 
 /**
  * Combine 2 array each other
- * @param arr
- * @param callback
  */
 export function eachOther<T>(arr: T[], callback: (a: T, b: T) => void): void {
     arr.forEach((e, i) => {
@@ -284,4 +289,29 @@ export function eachOther<T>(arr: T[], callback: (a: T, b: T) => void): void {
             callback(e, arr[j]);
         }
     });
+}
+
+// tslint:disable:no-for-each-push
+export function mergeArrays2<S, T, R>(arr1: S[], arr2: T[], callback: (item1: S, item2: T) => R): R[] {
+    const result: R[] = [];
+    arr1.forEach((item1) => {
+        arr2.forEach((item2) => {
+            result.push(callback(item1, item2));
+        });
+    });
+
+    return result;
+}
+
+export function mergeArrays3<S, T, U, R>(arr1: S[], arr2: T[], arr3: U[], callback: (item1: S, item2: T, item3: U) => R): R[] {
+    const result: R[] = [];
+    arr1.forEach((item1) => {
+        arr2.forEach((item2) => {
+            arr3.forEach((item3) => {
+                result.push(callback(item1, item2, item3));
+            });
+        });
+    });
+
+    return result;
 }

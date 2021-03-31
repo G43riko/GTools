@@ -136,6 +136,25 @@ export function lineBox2(
     return type;
 }
 
+export function BoxBoxMinMax(
+    ax: number,
+    ay: number,
+    az: number,
+    aWidth: number,
+    aHeight: number,
+    aDepth: number,
+    minX: number,
+    minY: number,
+    minZ: number,
+    maxX: number,
+    maxY: number,
+    maxZ: number,
+): boolean {
+    return ax + aWidth > minX && ax < maxX
+        && ay + aHeight > minY && ay < maxY
+        && az + aDepth > minZ && az < maxZ;
+}
+
 export function pointBox(
     bx: number,
     by: number,
@@ -147,9 +166,9 @@ export function pointBox(
     aHeight: number,
     aDepth: number,
 ): boolean {
-    return ax < bx && ax + aWidth > bx &&
-        ay < by && ay + aHeight > by &&
-        az < bz && az + aDepth > bz;
+    return ax < bx && ax + aWidth > bx
+        && ay < by && ay + aHeight > by
+        && az < bz && az + aDepth > bz;
 }
 
 export function pointBoxMinMax(
@@ -163,8 +182,9 @@ export function pointBoxMinMax(
     maxY: number,
     maxZ: number,
 ): boolean {
-    return bPosX >= minX && bPosY >= minY && bPosZ >= minZ &&
-        bPosX <= maxX && bPosY >= minY && bPosZ <= maxZ;
+    return bPosX >= minX && bPosX <= maxX
+        && bPosY >= minY && bPosY >= minY
+        && bPosZ >= minZ && bPosZ <= maxZ;
 }
 
 export function lineBox(
@@ -239,7 +259,7 @@ export function lineSphere2(
         dX = p1X - centerX;
         dY = p1Y - centerY;
         dZ = p1Z - centerZ;
-    } else { // has to be >= 0 and <= 1
+    } else { // contains to be >= 0 and <= 1
         const pX = p0X + u * dX;
         const pY = p0Y + u * dY;
         const pZ = p0Z + u * dZ;

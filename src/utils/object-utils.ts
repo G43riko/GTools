@@ -2,11 +2,11 @@ import { ObjectEntry } from "gtools/types";
 
 export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))
-        .reduce((prev, entry) => {
-            prev[entry.key] = entry.value;
+                                .reduce((prev, entry) => {
+                                    prev[entry.key] = entry.value;
 
-            return prev;
-        }, {} as T);
+                                    return prev;
+                                }, {} as T);
 }
 
 export function deepEqual<T>(objA: T, objB: T): boolean {
@@ -28,7 +28,7 @@ export function deepEqual<T>(objA: T, objB: T): boolean {
             return false;
         }
 
-        for(const key of keys) {
+        for (const key of keys) {
             if (!deepEqual(objA[key], objB[key])) {
                 return false;
             }
@@ -56,7 +56,6 @@ export function deepCopy<T>(source: T): T {
             throw new Error("This method cannot copy class instances");
         }
 
-
         const result: Partial<T> = {};
 
         Object.entries(source).forEach(([key, value]) => {
@@ -71,6 +70,16 @@ export function deepCopy<T>(source: T): T {
     }
 
     return source;
+}
+
+export function getOrSetProperty<S, T extends keyof S>(obj: S, index: T, value: S[T]): S[T] {
+    const result = obj[index];
+    if (result) {
+        return result;
+    }
+    obj[index] = value;
+
+    return value;
 }
 
 export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {
@@ -92,6 +101,10 @@ export function getNestedProperty(object: any, propertyPath: string, separator =
     const propertyList = propertyPath.split(separator);
 
     return propertyList.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+}
+
+export function createMergedObject<T>(source: T, ...updates: Partial<T>[]): T {
+    return Object.assign({}, source, ...updates);
 }
 
 export function setNestedProperty<T>(key: string, item: any, value: T): void {

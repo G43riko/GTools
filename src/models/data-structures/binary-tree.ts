@@ -1,92 +1,124 @@
+import { G43Collection } from "./g43-collection";
+
 class Node<T> {
-    public leftChild: Node<T> | null = null;
+    public leftChild: Node<T> | null  = null;
     public rightChild: Node<T> | null = null;
 
     public constructor(public val: T) {
     }
 }
 
-export class BinarySearchTree<T extends number> {
+/**
+ * TODO: add comparator
+ */
+export class BinarySearchTree<T extends number> implements G43Collection<T> {
     public root: Node<T> | null;
+    private _length = 0;
+
+    public get length(): number {
+        return this._length;
+    }
 
     public constructor(rootValue: T) {
         this.root = new Node(rootValue);
     }
 
-    public insert(currentNode: Node<T> | null, newValue: T): Node<T> {
+    public clear(): void {
+        this._length = 0;
+        this.root    = null;
+    }
+
+    private addInternally(currentNode: Node<T> | null, newValue: T): Node<T> {
         if (currentNode === null) {
             currentNode = new Node(newValue);
         } else if (newValue < currentNode.val) {
-            currentNode.leftChild = this.insert(currentNode.leftChild, newValue);
+            currentNode.leftChild = this.addInternally(currentNode.leftChild, newValue);
         } else {
-            currentNode.rightChild = this.insert(currentNode.rightChild, newValue);
+            currentNode.rightChild = this.addInternally(currentNode.rightChild, newValue);
         }
+        this._length++;
 
         return currentNode;
     }
 
-    public insertBST(newValue: T): void {
+    public add(newValue: T): void {
         if (!this.root) {
             this.root = new Node(newValue);
 
             return;
         }
-        this.insert(this.root, newValue);
+        this.addInternally(this.root, newValue);
     }
 
-    public preOrderPrint(currentNode: Node<T> | null): void {
+    public forEach(callback: (item: T, index: number) => boolean): void {
+        this.forEachInternally(this.root, callback);
+    }
+
+    public forEachOrderedInternally(currentNode: Node<T> | null, callback: (item: T, index: number) => boolean, order: "POST" | "PRE"): void {
         if (!currentNode) {
             return;
         }
-        console.log(currentNode.val);
-        this.preOrderPrint(currentNode.leftChild);
-        this.preOrderPrint(currentNode.rightChild);
+        if (order === "PRE") {
+            callback(currentNode.val, NaN);
+        }
+        this.forEachOrderedInternally(currentNode.leftChild, callback, order);
 
+        if (!order) {
+            callback(currentNode.val, NaN);
+        }
+
+        this.forEachOrderedInternally(currentNode.rightChild, callback, order);
+
+        if (order === "POST") {
+            callback(currentNode.val, NaN);
+        }
     }
 
-    public inOrderPrint(currentNode: Node<T> | null): void {
+    public forEachInternally(currentNode: Node<T> | null, callback: (item: T, index: number) => boolean): void {
         if (!currentNode) {
             return;
         }
-        this.inOrderPrint(currentNode.leftChild);
-        console.log(currentNode.val);
-        this.inOrderPrint(currentNode.rightChild);
-
+        this.forEachInternally(currentNode.leftChild, callback);
+        callback(currentNode.val, NaN);
+        this.forEachInternally(currentNode.rightChild, callback);
     }
 
-    public postOrderPrint(currentNode: Node<T> | null): void {
-        if (!currentNode) {
-            return;
-        }
-        this.postOrderPrint(currentNode.leftChild);
-        this.postOrderPrint(currentNode.rightChild);
-        console.log(currentNode.val);
-
-    }
-
-    private search(currentNode: Node<T> | null, value: T): Node<T> | null {
-
+    private searchInternally(currentNode: Node<T> | null, value: T): Node<T> | null {
         if (currentNode) {
             if (value === currentNode.val) {
 
                 return currentNode;
             }
             if (value < currentNode.val) {
-                return this.search(currentNode.leftChild, value);
+                return this.searchInternally(currentNode.leftChild, value);
             }
 
-            return this.search(currentNode.rightChild, value);
+            return this.searchInternally(currentNode.rightChild, value);
         }
 
         return null;
 
     }
 
-    private searchBST(value: T): Node<T> | null {
-        return this.search(this.root, value);
+    public search(value: T): Node<T> | null {
+        return this.searchInternally(this.root, value);
     }
 
-    private delete(currentNode: Node<T> | null, value: T): boolean {
+    public contains(value: T): boolean {
+        return !!this.search(value);
+    }
+
+    public remove(value: T): boolean {
+        const removed = this.removeInternally(this.root, value);
+
+        if (removed) {
+            this._length--;
+        }
+
+        return removed;
+    }
+
+    private removeInternally(currentNode: Node<T> | null, value: T): boolean {
         if (!currentNode) {
             return false;
         }
@@ -161,7 +193,7 @@ export class BinarySearchTree<T extends number> {
             minRight = minRight.leftChild;
         }
         const temp = minRight.val;
-        this.delete(this.root, minRight.val);
+        this.removeInternally(this.root, minRight.val);
         currentNode.val = temp;
 
         return true;

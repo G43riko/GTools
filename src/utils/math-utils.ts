@@ -19,6 +19,16 @@ export function hash2Numbers(x: number, y: number): number {
     return (xFinal + yFinal) * (xFinal + yFinal + 1) / 2 + yFinal;
 }
 
+export function hash3Numbers(x: number, y: number, z: number): number {
+    const xFinal = x >= 0 ? x * 2 : -x * 2 - 1;
+    const yFinal = y >= 0 ? y * 2 : -y * 2 - 1;
+    const zFinal = z >= 0 ? z * 2 : -z * 2 - 1;
+
+    const xyHash = (xFinal + yFinal) * (xFinal + yFinal + 1) / 2 + yFinal;
+
+    return (xyHash + zFinal) * (xyHash + zFinal + 1) / 2 + zFinal;
+}
+
 export function clamp(value: number, min: number, max: number): number {
     return Math.max(min, Math.min(value, max));
 }

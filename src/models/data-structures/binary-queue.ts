@@ -54,7 +54,7 @@ export class BinaryHeap<T> {
     }
 
     public sinkDown(n: number): void {
-        // Fetch the element that has to be sunk.
+        // Fetch the element that contains to be sunk.
         const element = this.content[n];
 
         // When at 0, an element can not sink any further.

@@ -79,7 +79,7 @@ export function lineLine2dCollision(
     const numerator1  = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
     const numerator2  = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
 
-    // Detect coincident lines (has a problem, read below)
+    // Detect coincident lines (contains a problem, read below)
     if (denominator === 0) {
         return numerator1 === 0 && numerator2 === 0;
     }

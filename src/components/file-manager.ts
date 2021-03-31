@@ -1,4 +1,4 @@
-import { FileTypes } from "gtools/enums";
+import { FileTypes } from "../enums";
 
 export class FileManager {
     /**

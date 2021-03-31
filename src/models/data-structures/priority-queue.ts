@@ -1,8 +1,10 @@
+import { G43BasicCollection } from "./g43-collection";
+
 const leftChild      = (index: number): number => index * 2 + 1;
 const rightChild     = (index: number): number => index * 2 + 2;
 const getParentIndex = (index: number): number => Math.floor((index - 1) / 2);
 
-export class PriorityQueue<T> {
+export class PriorityQueue<T> implements G43BasicCollection<T>{
     private heap: T[] = [];
 
     public constructor(private readonly comparator: (a: T, b: T) => boolean) {
@@ -29,6 +31,17 @@ export class PriorityQueue<T> {
 
     public get length(): number {
         return this.heap.length;
+    }
+
+    public contains(item: T): boolean {
+        return this.heap.some((e) => this.comparator(e, item));
+    }
+
+    public clear(): void {
+        this.heap = [];
+    }
+    public forEach(callback: (item: T, index: number) => boolean): void {
+        this.heap.forEach(callback);
     }
 
     public add(element: T): void {
@@ -77,7 +90,7 @@ export class PriorityQueue<T> {
             smallest = right;
         }
 
-        // if the value of smallest has changed, then some swapping needs to be done
+        // if the value of smallest contains changed, then some swapping needs to be done
         // and this method needs to be called again with the swapped element
         if (smallest !== index) {
             this.swap(smallest, index);

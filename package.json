@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.50",
+    "version": "0.2.53",
     "description": "Small library including utils methods for easier life",
     "main": "./index.js",
     "module": "./_esm5/index.js",
@@ -61,17 +61,17 @@
     },
     "license": "ISC",
     "devDependencies": {
-        "@types/chai": "^4.2.14",
+        "@types/chai": "^4.2.15",
         "@types/mocha": "^8.2.0",
-        "@types/node": "^14.14.20",
-        "@typescript-eslint/eslint-plugin": "^4.12.0",
-        "@typescript-eslint/parser": "^4.12.0",
+        "@types/node": "^14.14.27",
+        "@typescript-eslint/eslint-plugin": "^4.15.0",
+        "@typescript-eslint/parser": "^4.15.0",
         "awesome-typescript-loader": "^5.2.1",
         "copy": "^0.3.2",
         "coveralls": "^3.1.0",
-        "eslint": "^7.17.0",
-        "chai": "^4.2.0",
-        "mocha": "^8.2.1",
+        "eslint": "^7.20.0",
+        "chai": "^4.3.0",
+        "mocha": "^8.3.0",
         "mocha-lcov-reporter": "^1.3.0",
         "nyc": "^15.1.0",
         "terser-webpack-plugin": "^5.1.1",
@@ -80,15 +80,16 @@
         "tslint-clean-code": "^0.2.10",
         "tslint-consistent-codestyle": "^1.16.0",
         "tslint-sonarts": "^1.9.0",
-        "typedoc": "^0.20.14",
-        "typescript": "^4.1.3",
-        "webpack": "^5.12.2",
-        "webpack-cli": "^4.3.1"
+        "typedoc": "^0.20.24",
+        "typescript": "^4.1.5",
+        "webpack": "^5.21.2",
+        "webpack-cli": "^4.5.0"
     },
     "dependencies": {
         "glob": "^7.1.6",
         "moment": "^2.29.1",
-        "ts-loader": "^8.0.14",
+        "rimraf": "^3.0.2",
+        "ts-loader": "^8.0.17",
         "ts-mocha": "^8.0.0"
     }
 }

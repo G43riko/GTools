@@ -26,3 +26,24 @@ export function createImage(callback: (context: CanvasRenderingContext2D) => voi
     return canvas;
 
 }
+
+export function imageAsPromise(src: string): Promise<HTMLImageElement> {
+    return new Promise<HTMLImageElement>((success, reject) => {
+        const image = document.createElement("img");
+        const callback = (e: any): void => {
+            image.dataset.hasError = e ? "true" : "false";
+            if (e.type === "error") {
+                reject(e);
+
+                return console.error("Error during loading image ", src);
+            }
+            image.removeEventListener("load", callback);
+            image.removeEventListener("error", callback);
+            success(image);
+        };
+        image.addEventListener("load", callback);
+        image.addEventListener("error", callback);
+
+        image.src = src;
+    });
+}
