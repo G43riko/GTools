@@ -1,5 +1,10 @@
 import { clamp } from "./math-utils";
 
+/**
+ * TODO: Implements https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/units/ColorUtils.java
+ */
+
+
 const colors: { [color: string]: [number, number, number] } = {
     black: [0, 0, 0],
     white: [255, 255, 255],

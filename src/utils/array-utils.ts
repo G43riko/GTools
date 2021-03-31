@@ -55,9 +55,10 @@ export function compareArrays<T>(
  * @example
  *  groupByLast([{a: "a", b: "A"}, {a: "b", b: "B"}, {a: "c", b: "C"}, {a: "a", b: "D"}], "a") ==> {a: {a: "a", b: "D"}, b: {a: "b", b: "B"}, c: {a: "c", b: "C"}}
  */
-export function groupByLast<T, S extends keyof T>(arr: T[], key: S): {[k in S]: T} {
-    return arr.reduce((acc, curr) => Object.assign({}, acc, {[curr[key] as any]: curr}), {}) as {[k in S]: T};
+export function groupByLast<T, S extends keyof T>(arr: T[], key: S): { [k in S]: T } {
+    return arr.reduce((acc, curr) => Object.assign({}, acc, {[curr[key] as any]: curr}), {}) as { [k in S]: T };
 }
+
 /**
  *
  * @example
@@ -278,6 +279,14 @@ export function makeUnique<T>(array: T[]): T[] {
     }
 
     return Array.from(new Set<T>(array));
+}
+
+export function createFilledArray<T>(length: number, provider: (() => T) | T): T[] {
+    if (typeof provider === "function") {
+        return new Array<T | null>(length).fill(null).map(() => (provider as () => T)());
+    }
+
+    return new Array<T>(length).fill(provider);
 }
 
 /**

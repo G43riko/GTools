@@ -55,6 +55,13 @@ const min = ArrayUtils.min([1, 2, 3]);
 ## List of methods
 
 **TODO**
+##Implements
+https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/QuadIterator.java
+https://github.com/G43riko/JavaUtils/tree/master/GLib2/src/main/java/org/utils/noises
+https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/test/java/org/glib2/math/Bresenhams3D.java
+https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/GeometryUtils.java
+
+
 
 ## Structure of src directory
 
