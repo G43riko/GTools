@@ -1,4 +1,4 @@
-import { getOrSetProperty } from "gtools/utils";
+import { getOrSetProperty } from "../../../../utils/object-utils";
 
 export class Grid3ObjectHolder<T> {
     private readonly data: { [x: number]: { [y: number]: { [z: number]: T } } } = {};

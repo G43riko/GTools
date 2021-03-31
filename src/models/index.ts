@@ -9,12 +9,13 @@ export * from "./range";
 export * from "./path";
 export * from "./path/djikstra";
 
+export * from "./sorting";
+
 export * from "./data-structures/priority-queue";
 export * from "./data-structures/binary-queue";
 export * from "./data-structures/binary-tree";
 
 export * from "./data-structures/quad-tree/quad-tree";
-
 
 export * from "./data-structures/grid-accessor";
 export * from "./data-structures/list";
