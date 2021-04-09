@@ -101,7 +101,6 @@
         "no-construct": true,
         "no-string-literal": true,
         "no-switch-case-fall-through": true,
-        "no-use-before-declare": true,
         "unified-signatures": true,
         "no-bitwise": false,
         "no-conditional-assignment": true,

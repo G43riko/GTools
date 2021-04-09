@@ -231,7 +231,6 @@ export function pointMultiPolygon2dCollision(
 /**
  * pointPolygon2dCollision
  *
- * @private
  * @param {Array<number>} pt [x,y]
  * @param {Array<Array<number>>} ring [[x,y], [x,y],..]
  * @param {boolean} ignoreBoundary ignoreBoundary

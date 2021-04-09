@@ -23,7 +23,6 @@ const checkConfig = (): GToolsConfigInterface => {
  *
  * export const OwnConfig = new ClassOwnConfig();
  *
- * @see GToolsConfigInterface
  */
 export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
