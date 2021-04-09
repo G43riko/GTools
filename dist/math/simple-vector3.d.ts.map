@@ -1,0 +1,1 @@
+{"version":3,"file":"simple-vector3.d.ts","sourceRoot":"","sources":["../../src/math/simple-vector3.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,kBAAkB,CAAC;AAEjD,MAAM,WAAW,aAAc,SAAQ,aAAa;IAChD,CAAC,EAAE,MAAM,CAAC;CACb;AAED,oBAAY,qBAAqB,GAAG,QAAQ,CAAC,aAAa,CAAC,CAAC"}

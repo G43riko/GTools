@@ -20,12 +20,14 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
         delete row[y];
     }
 
-    public forEach(callback: (item: T, x: number, y: number) => void): void {
+    public forEach(callback: (item: T, x: number, y: number) => void): boolean {
         Object.entries(this.data).forEach(([x, chunkRows]) => {
             Object.entries(chunkRows).forEach(([y, chunk]) => {
                 callback(chunk, +x, +y);
             });
         });
+
+        return true;
     }
 
     public set(x: number, y: number, value: T): void {

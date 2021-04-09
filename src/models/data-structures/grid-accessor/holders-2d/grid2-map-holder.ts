@@ -43,12 +43,14 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
         this.data[x][y] = undefined as unknown as T;
     }
 
-    public forEach(callback: (block: T, x: number, y: number) => void): void {
+    public forEach(callback: (block: T, x: number, y: number) => void): boolean {
         for (let i = 0; i < this.data.length; i++) {
             for (let j = 0; j < this.data[i].length; j++) {
                 callback(this.data[i][j], i, j);
             }
         }
+
+        return true;
     }
 
     public getArea(position: SimpleVector2, size: SimpleVector2): T[] {

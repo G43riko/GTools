@@ -19,8 +19,10 @@ export class Grid2ObjectMapHolder<T> implements Grid2Holder<T> {
         return this.chunks.get(x)?.delete(y) ?? false;
     }
 
-    public forEach(callback: (item: T, x: number, y: number) => void): void {
+    public forEach(callback: (item: T, x: number, y: number) => void): boolean {
         this.chunks.forEach((row, x) => row.forEach((item, y) => callback(item, x, y)));
+
+        return true;
     }
 
     public set(x: number, y: number, value: T): void {

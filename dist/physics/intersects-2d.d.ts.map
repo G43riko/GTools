@@ -1,0 +1,1 @@
+{"version":3,"file":"intersects-2d.d.ts","sourceRoot":"","sources":["../../src/physics/intersects-2d.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,qBAAqB,EAAE,MAAM,aAAa,CAAC;AAEpD,wBAAgB,sBAAsB,CAClC,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,EACV,EAAE,EAAE,MAAM,GACX,IAAI,GAAG,qBAAqB,CAoB9B"}

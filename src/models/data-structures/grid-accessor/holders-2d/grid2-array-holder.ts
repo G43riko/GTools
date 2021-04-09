@@ -282,12 +282,14 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return result.map((index) => this.data[index]);
     }
 
-    public forEach(callback: (item: T, x: number, y: number) => void | boolean): void {
+    public forEach(callback: (item: T, x: number, y: number) => void | boolean): boolean {
         for (let i = 0; i < this.data.length; i++) {
             if (callback(this.data[i], i % this.size.x, Math.floor(i / this.size.x)) === false) {
-                return;
+                return false;
             }
         }
+
+        return true;
     }
 
     public getRandomBlockOfSize(size: SimpleVector2, filter: GridBlockItemFilter<T>): Grid2Block<T> | null {

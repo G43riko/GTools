@@ -17,8 +17,10 @@ export class Grid2HashHolder<T> implements Grid2Holder<T> {
         this.data[hash2Numbers(x, y)] = {x, y, value};
     }
 
-    public forEach(callback: (value: T, x: number, y: number) => void): void {
+    public forEach(callback: (value: T, x: number, y: number) => void): boolean {
         Object.values(this.data).forEach((item) => (callback(item.value, item.x, item.y)));
+
+        return true;
     }
 
     public getArea(position: SimpleVector2, size: SimpleVector2): T[] {
