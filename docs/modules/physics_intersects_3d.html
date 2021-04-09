@@ -1,0 +1,372 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>physics/intersects-3d | gtools</title>
+	<meta name="description" content="Documentation for gtools">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">gtools</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">gtools</a>
+				</li>
+				<li>
+					<a href="physics_intersects_3d.html">physics/intersects-3d</a>
+				</li>
+			</ul>
+			<h1>Module physics/intersects-3d</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_intersects_3d.html#intersection3dplaneline" class="tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_intersects_3d.html#intersection3dplanelineintersectionadvanced" class="tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line<wbr>Intersection<wbr>Advanced</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_intersects_3d.html#intersection3dvectorsquare" class="tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_intersects_3d.html#intersection3dvectorsquare_2" class="tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square_<wbr>2</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="intersection3dplaneline" class="tsd-anchor"></a>
+					<h3>intersection3d<wbr>Plane<wbr>Line</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line<span class="tsd-signature-symbol">(</span>planePointX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, planePointY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, planePointZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, planeNormalX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, planeNormalY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, planeNormalZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, linePointX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, linePointY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, linePointZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, lineDirectionX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, lineDirectionY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, lineDirectionZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_simple_vector3.html#readonlysimplevector3" class="tsd-signature-type" data-tsd-kind="Type alias">ReadonlySimpleVector3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/intersects-3d.ts#L67">src/physics/intersects-3d.ts:67</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>planePointX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>planePointY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>planePointZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>planeNormalX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>planeNormalY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>planeNormalZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>linePointX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>linePointY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>linePointZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>lineDirectionX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>lineDirectionY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>lineDirectionZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_simple_vector3.html#readonlysimplevector3" class="tsd-signature-type" data-tsd-kind="Type alias">ReadonlySimpleVector3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="intersection3dplanelineintersectionadvanced" class="tsd-anchor"></a>
+					<h3>intersection3d<wbr>Plane<wbr>Line<wbr>Intersection<wbr>Advanced</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line<wbr>Intersection<wbr>Advanced<span class="tsd-signature-symbol">(</span>planePoint<span class="tsd-signature-symbol">: </span><a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a>, planeNormal<span class="tsd-signature-symbol">: </span><a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a>, linePoint<span class="tsd-signature-symbol">: </span><a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a>, lineDirection<span class="tsd-signature-symbol">: </span><a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_simple_vector3.html#readonlysimplevector3" class="tsd-signature-type" data-tsd-kind="Type alias">ReadonlySimpleVector3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/intersects-3d.ts#L101">src/physics/intersects-3d.ts:101</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines the point of intersection between a plane defined by a point and a normal vector and a line defined by a point and a direction vector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>planePoint: <a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A point on the plane.</p>
+									</div>
+								</li>
+								<li>
+									<h5>planeNormal: <a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The normal vector of the plane.</p>
+									</div>
+								</li>
+								<li>
+									<h5>linePoint: <a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A point on the line.</p>
+									</div>
+								</li>
+								<li>
+									<h5>lineDirection: <a href="../classes/math_vector3.vector3.html" class="tsd-signature-type" data-tsd-kind="Class">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The direction vector of the line.</p>
+									</div>
+								</li>
+								<li>
+									<h5>limit: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1e-6</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_simple_vector3.html#readonlysimplevector3" class="tsd-signature-type" data-tsd-kind="Type alias">ReadonlySimpleVector3</a></h4>
+							<p>The point of intersection between the line and the plane, null if the line is parallel to the plane.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="intersection3dvectorsquare" class="tsd-anchor"></a>
+					<h3>intersection3d<wbr>Vector<wbr>Square</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square<span class="tsd-signature-symbol">(</span>r1x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r1y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r1z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r2x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r2y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, r2z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s1x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s1y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s1z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s2x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s2y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s2z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s3x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s3y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s3z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/intersects-3d.ts#L3">src/physics/intersects-3d.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>r1x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>r1y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>r1z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>r2x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>r2y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>r2z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s1x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s1y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s1z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s2x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s2y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s2z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s3x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s3y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>s3z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="intersection3dvectorsquare_2" class="tsd-anchor"></a>
+					<h3>intersection3d<wbr>Vector<wbr>Square_<wbr>2</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square_<wbr>2<span class="tsd-signature-symbol">(</span>R1<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, R2<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, S1<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, S2<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, S3<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/intersects-3d.ts#L37">src/physics/intersects-3d.ts:37</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>R1: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>point 1 of vector</p>
+									</div>
+								</li>
+								<li>
+									<h5>R2: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>point 2 of vector</p>
+									</div>
+								</li>
+								<li>
+									<h5>S1: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>S2: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>S3: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>limit: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1e-6</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="physics_intersects_3d.html">physics/intersects-<wbr>3d</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_intersects_3d.html#intersection3dplaneline" class="tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_intersects_3d.html#intersection3dplanelineintersectionadvanced" class="tsd-kind-icon">intersection3d<wbr>Plane<wbr>Line<wbr>Intersection<wbr>Advanced</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_intersects_3d.html#intersection3dvectorsquare" class="tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_intersects_3d.html#intersection3dvectorsquare_2" class="tsd-kind-icon">intersection3d<wbr>Vector<wbr>Square_<wbr>2</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
