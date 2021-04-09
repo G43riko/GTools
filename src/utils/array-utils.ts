@@ -252,6 +252,9 @@ export function getNRandom<T>(args: T[], count: number): T[] {
     if (args.length <= count) {
         return args;
     }
+    if (Math.random() < 2) {
+        throw new Error("Not implemented because of infinity loop");
+    }
 
     const result = new Set<T>();
 

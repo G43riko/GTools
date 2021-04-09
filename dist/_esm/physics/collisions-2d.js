@@ -1,4 +1,4 @@
-import { pointPoint2dDistance } from "./distances-2d";
+import { distance2dPointPoint } from "./distances-2d";
 export function circleRect2dCollision(cPosX, cPosY, cRadius, rPosX, rPosY, rSizeX, rSizeY) {
     const circleDistanceX = Math.abs(cPosX - rPosX);
     const circleDistanceY = Math.abs(cPosY - rPosY);
@@ -48,7 +48,7 @@ export function rectRect2dCollision(ax, ay, aw, ah, bx, by, bw, bh) {
     return bx + bw >= ax && by + bh >= ay && bx <= ax + aw && by <= ay + ah;
 }
 export function circleCircle2dCollision(aX, aY, aRadius, bX, bY, bRadius) {
-    return pointPoint2dDistance(aX, aY, bX, bY) <= aRadius + bRadius;
+    return distance2dPointPoint(aX, aY, bX, bY) <= aRadius + bRadius;
 }
 export function pointRect2dCollision(pointX, pointY, rectX, rectY, rectW, rectH) {
     return pointX >= rectX &&
@@ -63,7 +63,7 @@ export function pointRectMinMax2dCollision(pointX, pointY, minX, minY, maxX, max
         pointY <= maxY;
 }
 export function pointCircle2dCollision(pointX, pointY, circleX, circleY, circleRadius) {
-    return pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
+    return distance2dPointPoint(pointX, pointY, circleX, circleY) <= circleRadius;
 }
 export function pointPolygon2dCollision2(x, y, vs) {
     let inside = false;

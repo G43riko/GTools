@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lineLine2dIntersect = void 0;
-function lineLine2dIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+exports.intersection2dLineLine = void 0;
+function intersection2dLineLine(x1, y1, x2, y2, x3, y3, x4, y4) {
     var denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
     if (denom === 0) {
         return null;
@@ -17,5 +17,5 @@ function lineLine2dIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
     }
     return null;
 }
-exports.lineLine2dIntersect = lineLine2dIntersect;
+exports.intersection2dLineLine = intersection2dLineLine;
 //# sourceMappingURL=intersects-2d.js.map

@@ -1,5 +1,5 @@
+import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
 import { SimpleVector2, Vector2 } from "../../../../math";
-import { Grid2Block, GridBlockItemFilter, Grid2Holder } from "gtools/models";
 
 function getMapIndex(x: number, y: number, width: number): number {
     return y * width + x;
@@ -12,8 +12,12 @@ function getCoordinates(index: number, width: number): SimpleVector2 {
     };
 }
 
-export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
+export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public constructor(public readonly size: SimpleVector2, public readonly data: T[]) {
+    }
+
+    public get length(): number {
+        return this.data.length;
     }
 
     public static initEmpty<T>(x: number, y: number, defaultValue: T = null as unknown as T): Grid2ArrayHolder<T> {
@@ -26,12 +30,35 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
         return new Grid2ArrayHolder<T>({x, y}, result);
     }
 
+    public static initWithProvider<T>(x: number, y: number, provider: (x: number, y: number) => T): Grid2ArrayHolder<T> {
+        const size   = x * y;
+        const result = new Array<T>(size);
+        for (let i = 0; i < size; i++) {
+            result[i] = provider(x, y);
+        }
+
+        return new Grid2ArrayHolder<T>({x, y}, result);
+    }
+
+    public setData(data: T[]): void {
+        if (data.length !== this.data.length) {
+            throw new Error("Array with new data mush be same size");
+        }
+
+        this.data.length = 0;
+        this.data.push(...data);
+    }
+
     public get(x: number, y: number): T {
         return this.data[this.getIndex(x, y)];
     }
 
     public set(x: number, y: number, value: T): void {
         this.data[this.getIndex(x, y)] = value;
+    }
+
+    public delete(x: number, y: number): void {
+        this.data[this.getIndex(x, y)] = undefined as unknown as T;
     }
 
     private getIndex(x: number, y: number): number {
@@ -255,12 +282,14 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
         return result.map((index) => this.data[index]);
     }
 
-    public forEach(callback: (item: T, x: number, y: number) => void | boolean): void {
+    public forEach(callback: (item: T, x: number, y: number) => void | boolean): boolean {
         for (let i = 0; i < this.data.length; i++) {
             if (callback(this.data[i], i % this.size.x, Math.floor(i / this.size.x)) === false) {
-                return;
+                return false;
             }
         }
+
+        return true;
     }
 
     public getRandomBlockOfSize(size: SimpleVector2, filter: GridBlockItemFilter<T>): Grid2Block<T> | null {
@@ -276,7 +305,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
         }
     }
 
-    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | null {
+    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         while (true) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
             const item        = this.data[randomIndex];
@@ -289,7 +318,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
         }
     }
 
-    public getRandomBlock2(filter?: GridBlockItemFilter<T>): Grid2Block<T> | null {
+    public getRandomBlock2(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         if (!filter) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
 
@@ -303,7 +332,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T>{
         const result      = sortedArray.find((e) => filter(e.item));
 
         if (!result) {
-            return null;
+            return;
         }
 
         return {

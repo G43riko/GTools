@@ -1,37 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pointLineSqr2dDistance = exports.pointLine2dDistance = exports.pointCircleSqr2dDistance = exports.pointCircle2dDistance = exports.circleCircleSqr2dDistance = exports.circleCircle2dDistance = exports.pointPointSqr2dDistance = exports.pointPoint2dDistance = void 0;
-function pointPoint2dDistance(ax, ay, bx, by) {
-    return Math.sqrt(pointPointSqr2dDistance(ax, ay, bx, by));
+exports.distance2dPointLineSqr = exports.distance2dPointLine = exports.distance2dPointCircleSqr = exports.distance2dPointCircle = exports.distance2dCircleCircleSqr = exports.distance2dCircleCircle = exports.distance2dPointPointSqr = exports.distance2dPointPoint = void 0;
+function distance2dPointPoint(ax, ay, bx, by) {
+    return Math.sqrt(distance2dPointPointSqr(ax, ay, bx, by));
 }
-exports.pointPoint2dDistance = pointPoint2dDistance;
-function pointPointSqr2dDistance(ax, ay, bx, by) {
+exports.distance2dPointPoint = distance2dPointPoint;
+function distance2dPointPointSqr(ax, ay, bx, by) {
     var distX = ax - bx;
     var distY = ay - by;
     return distX * distX + distY * distY;
 }
-exports.pointPointSqr2dDistance = pointPointSqr2dDistance;
-function circleCircle2dDistance(ax, ay, ar, bx, by, br) {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br - ar, 0);
+exports.distance2dPointPointSqr = distance2dPointPointSqr;
+function distance2dCircleCircle(ax, ay, ar, bx, by, br) {
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br - ar, 0);
 }
-exports.circleCircle2dDistance = circleCircle2dDistance;
-function circleCircleSqr2dDistance(ax, ay, ar, bx, by, br) {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br - ar);
+exports.distance2dCircleCircle = distance2dCircleCircle;
+function distance2dCircleCircleSqr(ax, ay, ar, bx, by, br) {
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br - ar);
 }
-exports.circleCircleSqr2dDistance = circleCircleSqr2dDistance;
-function pointCircle2dDistance(ax, ay, bx, by, br) {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br, 0);
+exports.distance2dCircleCircleSqr = distance2dCircleCircleSqr;
+function distance2dPointCircle(ax, ay, bx, by, br) {
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br, 0);
 }
-exports.pointCircle2dDistance = pointCircle2dDistance;
-function pointCircleSqr2dDistance(ax, ay, bx, by, br) {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br, 0);
+exports.distance2dPointCircle = distance2dPointCircle;
+function distance2dPointCircleSqr(ax, ay, bx, by, br) {
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br, 0);
 }
-exports.pointCircleSqr2dDistance = pointCircleSqr2dDistance;
-function pointLine2dDistance(aX, aY, bX, bY, pX, pY) {
-    return Math.sqrt(pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY));
+exports.distance2dPointCircleSqr = distance2dPointCircleSqr;
+function distance2dPointLine(aX, aY, bX, bY, pX, pY) {
+    return Math.sqrt(distance2dPointLineSqr(aX, aY, bX, bY, pX, pY));
 }
-exports.pointLine2dDistance = pointLine2dDistance;
-function pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY) {
+exports.distance2dPointLine = distance2dPointLine;
+function distance2dPointLineSqr(aX, aY, bX, bY, pX, pY) {
     var A = pX - aX;
     var B = pY - aY;
     var C = bX - aX;
@@ -60,5 +60,5 @@ function pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY) {
     var dy = pY - yy;
     return dx * dx + dy * dy;
 }
-exports.pointLineSqr2dDistance = pointLineSqr2dDistance;
+exports.distance2dPointLineSqr = distance2dPointLineSqr;
 //# sourceMappingURL=distances-2d.js.map

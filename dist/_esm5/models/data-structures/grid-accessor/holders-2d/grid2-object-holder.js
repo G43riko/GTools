@@ -23,10 +23,11 @@ var Grid2ObjectHolder = (function () {
                 callback(chunk, +x, +y);
             });
         });
+        return true;
     };
     Grid2ObjectHolder.prototype.set = function (x, y, value) {
         var row = getOrSetProperty(this.data, x, {});
-        if (!row[y]) {
+        if (typeof row[y] === "undefined") {
             this._length++;
         }
         row[y] = value;

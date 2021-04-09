@@ -16,6 +16,13 @@ var Grid2ArrayHolder = (function () {
         this.size = size;
         this.data = data;
     }
+    Object.defineProperty(Grid2ArrayHolder.prototype, "length", {
+        get: function () {
+            return this.data.length;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Grid2ArrayHolder.initEmpty = function (x, y, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
         var size = x * y;
@@ -25,11 +32,30 @@ var Grid2ArrayHolder = (function () {
         }
         return new Grid2ArrayHolder({ x: x, y: y }, result);
     };
+    Grid2ArrayHolder.initWithProvider = function (x, y, provider) {
+        var size = x * y;
+        var result = new Array(size);
+        for (var i = 0; i < size; i++) {
+            result[i] = provider(x, y);
+        }
+        return new Grid2ArrayHolder({ x: x, y: y }, result);
+    };
+    Grid2ArrayHolder.prototype.setData = function (data) {
+        var _a;
+        if (data.length !== this.data.length) {
+            throw new Error("Array with new data mush be same size");
+        }
+        this.data.length = 0;
+        (_a = this.data).push.apply(_a, data);
+    };
     Grid2ArrayHolder.prototype.get = function (x, y) {
         return this.data[this.getIndex(x, y)];
     };
     Grid2ArrayHolder.prototype.set = function (x, y, value) {
         this.data[this.getIndex(x, y)] = value;
+    };
+    Grid2ArrayHolder.prototype.delete = function (x, y) {
+        this.data[this.getIndex(x, y)] = undefined;
     };
     Grid2ArrayHolder.prototype.getIndex = function (x, y) {
         return getMapIndex(x, y, this.size.x);
@@ -217,9 +243,10 @@ var Grid2ArrayHolder = (function () {
     Grid2ArrayHolder.prototype.forEach = function (callback) {
         for (var i = 0; i < this.data.length; i++) {
             if (callback(this.data[i], i % this.size.x, Math.floor(i / this.size.x)) === false) {
-                return;
+                return false;
             }
         }
+        return true;
     };
     Grid2ArrayHolder.prototype.getRandomBlockOfSize = function (size, filter) {
         while (true) {
@@ -256,7 +283,7 @@ var Grid2ArrayHolder = (function () {
         var sortedArray = this.data.map(function (item, index) { return ({ item: item, index: index }); }).sort(function () { return Math.random() - 0.5; });
         var result = sortedArray.find(function (e) { return filter(e.item); });
         if (!result) {
-            return null;
+            return;
         }
         return {
             item: result.item,

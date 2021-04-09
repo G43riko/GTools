@@ -13,6 +13,9 @@ export class Grid2ArrayHolder {
         this.size = size;
         this.data = data;
     }
+    get length() {
+        return this.data.length;
+    }
     static initEmpty(x, y, defaultValue = null) {
         const size = x * y;
         const result = new Array(size);
@@ -21,11 +24,29 @@ export class Grid2ArrayHolder {
         }
         return new Grid2ArrayHolder({ x, y }, result);
     }
+    static initWithProvider(x, y, provider) {
+        const size = x * y;
+        const result = new Array(size);
+        for (let i = 0; i < size; i++) {
+            result[i] = provider(x, y);
+        }
+        return new Grid2ArrayHolder({ x, y }, result);
+    }
+    setData(data) {
+        if (data.length !== this.data.length) {
+            throw new Error("Array with new data mush be same size");
+        }
+        this.data.length = 0;
+        this.data.push(...data);
+    }
     get(x, y) {
         return this.data[this.getIndex(x, y)];
     }
     set(x, y, value) {
         this.data[this.getIndex(x, y)] = value;
+    }
+    delete(x, y) {
+        this.data[this.getIndex(x, y)] = undefined;
     }
     getIndex(x, y) {
         return getMapIndex(x, y, this.size.x);
@@ -205,9 +226,10 @@ export class Grid2ArrayHolder {
     forEach(callback) {
         for (let i = 0; i < this.data.length; i++) {
             if (callback(this.data[i], i % this.size.x, Math.floor(i / this.size.x)) === false) {
-                return;
+                return false;
             }
         }
+        return true;
     }
     getRandomBlockOfSize(size, filter) {
         while (true) {
@@ -244,7 +266,7 @@ export class Grid2ArrayHolder {
         const sortedArray = this.data.map((item, index) => ({ item, index })).sort(() => Math.random() - 0.5);
         const result = sortedArray.find((e) => filter(e.item));
         if (!result) {
-            return null;
+            return;
         }
         return {
             item: result.item,

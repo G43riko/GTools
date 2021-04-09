@@ -1,34 +1,32 @@
 const validEmailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const validPhoneNumberRegex = /^([+]|00)?[(]?[0-9]{3,4}[)]?[-\s.]?[0-9]{2,3}[-\s.]?[0-9]{2,6}([-\s.]?[0-9]{3})?$/im;
-function typeOf(arg) {
-    return typeof arg;
-}
 export function isFunction(arg) {
-    return typeOf(arg) === "function";
+    return typeof arg === "function";
 }
 export function isString(arg) {
-    return typeOf(arg) === "string";
+    return typeof arg === "string";
 }
-export function isObject(arg) {
-    return typeOf(arg) === "object";
+export function isObject(value) {
+    const type = typeof value;
+    return value !== null && (type === "object" || type === "function");
 }
 export function isNumber(arg) {
-    return typeOf(arg) === "number";
+    return typeof arg === "number";
 }
 export function isBoolean(arg) {
-    return typeOf(arg) === "boolean";
+    return typeof arg === "boolean";
 }
 export function isArray(arg) {
     return Array.isArray(arg);
 }
 export function isInt(arg) {
-    return typeOf(arg) === "number" && arg % 1 === 0;
+    return typeof arg === "number" && arg % 1 === 0;
 }
 export function isFloat(arg) {
-    return typeOf(arg) === "number" && arg % 1 !== 0;
+    return typeof arg === "number" && arg % 1 !== 0;
 }
 export function isUndefined(arg) {
-    return typeOf(arg) === "undefined";
+    return typeof arg === "undefined";
 }
 export function isElement(obj) {
     try {
@@ -51,7 +49,7 @@ export function isEmpty(value) {
     if (Array.isArray(value)) {
         return value.length === 0;
     }
-    if (value.constructor === Object) {
+    if (isObject(value)) {
         return Object.keys(value).length === 0;
     }
     return false;

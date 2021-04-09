@@ -1,11 +1,11 @@
 import { SimpleVector2, Vector2 } from "gtools/math";
-import { MinMax } from "gtools/types";
-import { MassAble } from "./object-2d";
+import { MinMax2D } from "gtools/types";
+import { MassAble2D } from "./object2-d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
  */
-export class Triangle implements MassAble {
+export class Triangle implements MassAble2D {
     public constructor(
         private readonly pointA: SimpleVector2,
         private readonly pointB: SimpleVector2,
@@ -42,7 +42,7 @@ export class Triangle implements MassAble {
         throw new Error("Not implemented");
     }
 
-    public toMinMax(): MinMax {
+    public toMinMax(): MinMax2D {
         return Vector2.createOutlineRange([this.pointA, this.pointB, this.pointC]);
     }
 }

@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./simple-vector2"), exports);
 __exportStar(require("./simple-vector3"), exports);
 __exportStar(require("./simple-vector4"), exports);
+__exportStar(require("./simple-vector-xz"), exports);
 __exportStar(require("./vector"), exports);
 __exportStar(require("./vector2"), exports);
 __exportStar(require("./vector2f"), exports);

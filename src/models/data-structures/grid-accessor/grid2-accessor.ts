@@ -26,7 +26,7 @@ export class Grid2Accessor<T> {
     ) {
     }
 
-    public get(position: SimpleVector2): T {
+    public get(position: SimpleVector2): T | undefined {
         return this.holder.get(position.x, position.y);
     }
 
@@ -37,7 +37,7 @@ export class Grid2Accessor<T> {
         return this.holder.getAroundData(position.x, position.y, radius).sort(Math.random).find(condition);
     }
 
-    public getRandomBlock(filter: GridBlockItemFilter<T>): Grid2Block<T> | null {
+    public getRandomBlock(filter: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         return this.holder.getRandomBlock(filter);
     }
 

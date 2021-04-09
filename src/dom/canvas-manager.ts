@@ -1,5 +1,5 @@
 import { NotBrowserException } from "../errors";
-import { Transform } from "gtools/models";
+import { Transform2D } from "gtools/models";
 
 class AbstractCanvasManager {
     private readonly localCanvas: HTMLCanvasElement;
@@ -34,7 +34,7 @@ class AbstractCanvasManager {
         return this.localContext;
     }
 
-    public setTransform(transform: Transform): void {
+    public setTransform(transform: Transform2D): void {
         this.setTransformRaw(transform.offset.x, transform.offset.y, transform.scale);
     }
 

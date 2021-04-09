@@ -1,10 +1,10 @@
 import { SimpleVector2 } from "gtools/math";
-import { MinMax } from "gtools/types";
-import { MassAble } from "./object-2d";
+import { MinMax2D } from "gtools/types";
+import { MassAble2D } from "./object2-d";
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
  */
-export declare class Capsule implements MassAble {
+export declare class Capsule implements MassAble2D {
     private readonly start;
     private readonly end;
     private readonly radius;
@@ -12,7 +12,7 @@ export declare class Capsule implements MassAble {
     get boundingRadius(): number;
     get area(): number;
     get circuit(): number;
-    toMinMax(): MinMax;
+    toMinMax(): MinMax2D;
     get momentOfInertia(): number;
     get length(): number;
 }

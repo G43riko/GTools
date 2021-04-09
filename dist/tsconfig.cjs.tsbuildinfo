@@ -201,6 +201,11 @@
         "signature": "0287860853f48f9d38f275000a66f84960dae622ee07bf479c5f3372851fb10f",
         "affectsGlobalScope": false
       },
+      "../src/math/simple-vector-xz.ts": {
+        "version": "e69a9ec9c1cc9e8a2f2eb4ba03004277657eae50a29397028e3e9b0baf6d1db7",
+        "signature": "7ceb21ba1e1525d5906df1e8b9aa68ec219abd6bb9f6150adbc83f9f6a311378",
+        "affectsGlobalScope": false
+      },
       "../src/math/vector.ts": {
         "version": "6b89380b6e3149d20d0ca39499b73a29a9b1afa867ac38c6460e8104abec5720",
         "signature": "ed564b28801d51e6448d794401b6d9476e55f479b9e19e14ce5d07a407fe607f",
@@ -217,7 +222,7 @@
         "affectsGlobalScope": false
       },
       "../src/utils/array-utils.ts": {
-        "version": "8eeaa76a6e9076e9e4bb493a5eb76e13ba20d34691ab116e85955b86d906dc48",
+        "version": "0a3fbbae03181f578627838ee3644e5dde88ff68ac875a728e587760a6b2a9ff",
         "signature": "5e3e18271dc1c1bfe3222c25b45cac9e1502c7b21016a47cbba3ec7e976aeec1",
         "affectsGlobalScope": false
       },
@@ -237,7 +242,7 @@
         "affectsGlobalScope": false
       },
       "../src/utils/color-utils.ts": {
-        "version": "23e4a2b357d4bbae0007008e60a4d5e6399428837e0fe8282cc19958d2a74979",
+        "version": "b1a7daa04816a62243e8a9de44d83e2f14fea57868f372fb34cc4b70fb97fed2",
         "signature": "057993534c988f4a46b9aad2b8a5e1698ac87a35ac30ecb13bf0a4853cf68760",
         "affectsGlobalScope": false
       },
@@ -282,8 +287,8 @@
         "affectsGlobalScope": false
       },
       "../src/utils/object-utils.ts": {
-        "version": "1777773ee1ca071f5a10717cc4947b17bc451c3310ef98a4dfceedaa6f0fee86",
-        "signature": "de9f729f847a03b1d21151800a591bf42c1263dacc3ef636ab265b76c34f3988",
+        "version": "86955e6e55d3d74525667034238431f630585c24b46574d6e3026073b024e2f4",
+        "signature": "7354537a868d8db11316b7ecbbd79680f4a236b1edad9f1d65dbb52d133fe415",
         "affectsGlobalScope": false
       },
       "../src/utils/parser-utils.ts": {
@@ -302,8 +307,8 @@
         "affectsGlobalScope": false
       },
       "../src/validators/misc-validators.ts": {
-        "version": "09d7c81d2a2f6ab3b27dc87d6dabf4745166d9ec8c8f51ff176c8287dc57dc7b",
-        "signature": "6a88a55def28cf51d8bce4a5744b650076334df12544321a51b7df7884fef02a",
+        "version": "f8a70f820a5cab033987717bc2aec3efc4b26bc8065d9d905b37e4a82b84f58c",
+        "signature": "91980d7ad79023a898afb63323530c75c7750cc9edab3b966f50010c145d24d6",
         "affectsGlobalScope": false
       },
       "../src/utils/string-checkers.ts": {
@@ -331,9 +336,9 @@
         "signature": "aff357a9a89f0c7b85b8d0c5061731af7505ef541ab980bf356e4586529f9304",
         "affectsGlobalScope": false
       },
-      "../src/models/transform.ts": {
-        "version": "9ff9f2a6443c6bef27cb7772d7c3459df092d9e6a0de3998678f922011a2f09a",
-        "signature": "bddcad6f2b398e1c90c21721e1d3d2dedf7a1cbac17ab3abd43a2ff2639f91bd",
+      "../src/models/transform-2d.ts": {
+        "version": "13719834050bd0e27ae58038ae4a6f428db75a52e5c3de530eb82e79d3a1c7ff",
+        "signature": "aacdf251efa1e5c9a1ceaa58f84ee68e6db05a08807c7c62eea0fd462bd3f9c7",
         "affectsGlobalScope": false
       },
       "../src/models/range.ts": {
@@ -341,12 +346,12 @@
         "signature": "f0361570883ac73a6dbbe01cbcb471e27cfa190584d9aba1d3639617b9b27230",
         "affectsGlobalScope": false
       },
-      "../src/models/path.ts": {
-        "version": "2cb3b94ed5284fc9ac7ba36cfbbf44dcfb5cd7c51b6c9a163a31d75a319b3b82",
-        "signature": "cdbfb54b7e37a403113a95effe6ebb98ac8b6500e4b1ae83a06e941667ee6e2d",
+      "../src/models/path-2d.ts": {
+        "version": "4231db73734d02129ed02a6a05fc82e3bec213344223fc1c1d4a583b756c1b2b",
+        "signature": "99ef7180919cc31f0e7c4dd5d81d2f41eba5c15dab215a75d30180f4ac0bbb82",
         "affectsGlobalScope": false
       },
-      "../src/models/path/djikstra.ts": {
+      "../src/models/path/djikstra/djikstra.ts": {
         "version": "ada966ef7a16ee7fd377515d18a7a934734026ff85538ad22465ef6fc2599e70",
         "signature": "dcc5fec32da18167a6a2eeac0c1ba1cbc4dd293fffab77e8d21e8905182f208c",
         "affectsGlobalScope": false
@@ -417,12 +422,12 @@
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-holder.ts": {
-        "version": "f71f624c4796eddc199899db54d4b92a4dfd80a8c8aaac97049fe624022d5e25",
-        "signature": "95c018cd835cd07a5468da9507600474dfd9fef72362abb8d9b75f67f046ad4b",
+        "version": "8fa132202258e51203aa89aedfdc7cf6cecfd1da59681b0409e6efc5decdcc58",
+        "signature": "e5aff4adb33c5aecd93fba3e3161a30d7910445c5983b976ea5f262cd9085fe2",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/grid2-block-accessor.ts": {
-        "version": "d05817ede7acc08010f76262ae72210323040399bf1940dac8173968a3d24268",
+        "version": "07a8b76963bb23ab2b00ada85c87498ee71632399ee0c845742c35376b722cd5",
         "signature": "b339503e7cbe900de0526f42342633a464dbad618c373293a15f3ca995d07631",
         "affectsGlobalScope": false
       },
@@ -437,28 +442,28 @@
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/grid2-accessor.ts": {
-        "version": "c2c25f2e8d93be4f5dd713bf4d6b756bd68c378371043cca11aace2a59bbd68a",
-        "signature": "19c9bcd826e357c16f9ba2be89d601a350df56d48bce2d709f164131ea655ad5",
+        "version": "96a463327277ce295d2a9ca78f31c2d74ffd15983957190c3fae2b3ca9081126",
+        "signature": "94a20cdb32c9a8a5819b9401e1bb95af366bcc05b3c6e6356ac6bd47dadd19ec",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-array-holder.ts": {
-        "version": "dc55a8a147af8b76463f6b3421d833108322e72cb8577a1e6c178a5ee4b22836",
-        "signature": "4f9aeeaf7ecf93021011f58c7f9e24caa734fe0174aa1dcb29f2330e54bd94e9",
+        "version": "29d80a04115c8635e6b0b24ecc98f7e16ce58d4c0b8a37063207434e94eb98cf",
+        "signature": "f249d93fd0d9da3c6f5887a7c8a5fda1ecfd8af1301a9b7872dafc4cdecf0e24",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-hash-holder.ts": {
-        "version": "f85c934e17efe0c29fc3f003b251ab953a2ab7f9ce1c3c44ddad6715a77524c6",
-        "signature": "391ac81244c89039c480710c400fe42c4deeca92ddf9790357b4219d0128bd36",
+        "version": "86de318f728a60ca3bf5401a67408101cd98f77525a2d65d10598d81b3ddf188",
+        "signature": "0fc33a551fb7744d0eef4c40cf2731388f59f44121355b3c3500450189f43265",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-map-holder.ts": {
-        "version": "f0d459d03b49b90deb363240f3610c6ce2e7ce9c946e0414400890a8ecf9bcdd",
-        "signature": "7a2997bb378b882b1643c7873198adb98dce0804b8f649db51ba5e8323200eb9",
+        "version": "824986806ea8d9f18c11ce093e65c999fae5ce390dd7e33814b0797d6a246c06",
+        "signature": "e0fbd7048f44fdcd7dd56f20dcf931fd7457e41425ca06e1a015999d3702734d",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-holder.ts": {
-        "version": "84ef8552c07e57d647b1c2d5665c97974ce2a7367bf2361f6b6d351c96113260",
-        "signature": "9fb548728a429333420a05e4c6f41bfc890600758a9323744bd92662c2e8e631",
+        "version": "c755274560b257a713c780ba8590bdff31d9d29c47ba4cfc85886ad2cda52c8c",
+        "signature": "1af16b4f587f08a9500636b75dfc434fd4c7dc18b1c98d2d9caa1a338648956b",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-array-holder.ts": {
@@ -467,8 +472,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-hash-holder.ts": {
-        "version": "57b9c5ff3eb6f6036387d6403373fbde2050eb239307a404c6844d502c8579b3",
-        "signature": "1eaec62c50be58a38459efc9c87f436c5828e408eb8615fa554865e56c48442d",
+        "version": "bf6eda0dc000371278644110ca27282397bc8a8ad82fd85cb88e335a6f75a496",
+        "signature": "8a1fd266929ab3cf53371a7c1b717c2eb84b4ef047601d2cf449617b0c8fb90e",
         "affectsGlobalScope": false
       },
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-map-holder.ts": {
@@ -522,8 +527,8 @@
         "affectsGlobalScope": false
       },
       "../src/models/index.ts": {
-        "version": "ea9e3d0696f5f684155ca98f09b9626e7f050be94e89ac7239bf23408784c949",
-        "signature": "6139ac28ae50b67edb67a6ed516624d25aef0d981dc7ac401f6b36ca1a120e6c",
+        "version": "d2da69f5e5dd6b37e959fd863a802128dcac9cc2fbe98b3bbb51a5dcb4c0794f",
+        "signature": "df8689b1080d4d4cfdde1f31b6b7ea8d753f4b46a7d9d131c8ca1988a9b11b60",
         "affectsGlobalScope": false
       },
       "../src/math/vector2.ts": {
@@ -537,8 +542,8 @@
         "affectsGlobalScope": false
       },
       "../src/math/vector3.ts": {
-        "version": "5194a73527179ed493756f40a77a8ab69dc37545f73a37107aaeb9501db019d1",
-        "signature": "a0e800a4ad82e634ab29ca696b079d64d342a294f6d78d88f83f394400126ac3",
+        "version": "0d403a453b972a684c05fdbabfb5b70c7e389905d1f9d4a483ea0fd351c39558",
+        "signature": "55d7e0e90e70c571f6282c2a2cf7d8ab145ff46d3c4728793ee001992568eecb",
         "affectsGlobalScope": false
       },
       "../src/math/vector4.ts": {
@@ -552,28 +557,38 @@
         "affectsGlobalScope": false
       },
       "../src/math/index.ts": {
-        "version": "a668b4a2223cd971ef6e3245af1ba09a4705ebb6bf632fcb0749ae852e06e334",
-        "signature": "a668b4a2223cd971ef6e3245af1ba09a4705ebb6bf632fcb0749ae852e06e334",
+        "version": "4258d5499ff9f2e172bc3610870a934e344badf88e240240b26e1e3a542675d1",
+        "signature": "63b0eef4c9792504d1eaef92d614fe2d7f12bd3d500d7e33c37e2e5a07c77d65",
         "affectsGlobalScope": false
       },
-      "../src/types/helpers/min-max.interface.ts": {
-        "version": "9bd4686e710eeac445f2b987ac3f527ca1ebfca50e45600247ab9b619b892a61",
-        "signature": "9e3a738425c2c2453b7a229a6e74484422116ffddbb2dd4be12f3200af101134",
+      "../src/types/helpers/min-max-2d.interface.ts": {
+        "version": "9d51a573f378e14c274418a605f66c21c430fe4cc7b021144d90993fbdcd63d0",
+        "signature": "ade565f39670710be3e5b076faeb6746f9db5b7e403316c101ade466f25c9aa2",
+        "affectsGlobalScope": false
+      },
+      "../src/types/helpers/min-max-3d.interface.ts": {
+        "version": "109172f30136e4a2883cef0d4744a6a9eff312e7b51a408ccd5bef44d3b84247",
+        "signature": "855f4dd6b62df6dc1c60d542cdcf0b51def2b735eb7010f22247efd5b7daf034",
         "affectsGlobalScope": false
       },
       "../src/types/helpers/xywh.ts": {
-        "version": "3ec677e1107bd578add51c7e7445289f70a5d2e476a6afda7a8b8366158f96fc",
-        "signature": "dadb979f4147b3330f7cf448699464d94eeb3b7528b515246c93e4dd347d3a7f",
+        "version": "04bf6473f1eac63f9a79cc38e67709d4c805c54e2fc5af322e16fa1f3b07444d",
+        "signature": "15e87df320d6cdd970d63692cf2aff06872df87832ee40a4a6ef2b2220fcddf1",
         "affectsGlobalScope": false
       },
       "../src/types/helpers/xyzwhd.ts": {
-        "version": "1266f661a1c83b755ad630b2312d299bb95120b49e813c7472fe39adbb6d797e",
-        "signature": "d2719584ab543cb7b0ecb5ee54a57aee9137ad3cd6bf2186acc6333b23ffa4fb",
+        "version": "4380cd1db1f0a315cafef3dc0d1cae48e0c5548bfd92077fe803d29a3db6993c",
+        "signature": "9ac9ded8a43336d4f2a4f0a0e2358dfa1ad9ba32b5458f327a847d87175f1374",
         "affectsGlobalScope": false
       },
-      "../src/types/helpers/pos-size.ts": {
-        "version": "20266039403b5dfce26b11a5dd7db0279deb5d8eea1b2fc6cf82a75c46ca3d10",
-        "signature": "16ba34783862bb30e2dfa26a4621b36154e3a1f1280698505acccf539e893f85",
+      "../src/types/helpers/pos-size-2d.ts": {
+        "version": "95a7b1acee9e3fe6ed3fdc75291255e2c74c5387e0d0b50aad2657b9fa9b66b1",
+        "signature": "4748d9a2c21bb4d6df6220ce86bb3886009d72cf9524369ac17ed20bbc10a3ca",
+        "affectsGlobalScope": false
+      },
+      "../src/types/helpers/pos-size-3d.ts": {
+        "version": "1a09dc77656bf3fda15451f1185b29f4b7f1794424fe806b253c58bc7234f5a4",
+        "signature": "49c4ae94c87f582936792dad6cc64e96ffcba0a6464e60a45f645d4cae22bf33",
         "affectsGlobalScope": false
       },
       "../src/types/horizontal-align.type.ts": {
@@ -611,14 +626,14 @@
         "signature": "3dde93e76ac376c7f7fc9e3e9b2f71dcd586d6b58a4bc224a54c8fe4f79f2963",
         "affectsGlobalScope": false
       },
-      "../src/types/ray2.ts": {
-        "version": "ae840de7b92f17e6130edd4a3401f9e5a97b8643674ec22d3e3e2ce87757921a",
-        "signature": "9bcd61696a1cdbde3ef4ae8c2b40031fe4d4fc41d10fe757c52bd1dffba3def0",
+      "../src/types/ray2d.ts": {
+        "version": "99e3cf17e8d6c9df593bdaa44193233da0e7d07b58cd88c2d34c2eb154f7aac6",
+        "signature": "f920c4be30195aa7d6857635352f2b3d15c4e9defee5998b78b6e04ce861b739",
         "affectsGlobalScope": false
       },
-      "../src/types/ray3.ts": {
-        "version": "fc10ca50b51acfcc347773535cf26b99c33078b1a5e3796a7f378b5b0723222b",
-        "signature": "c3487fc8f04e288b49de10b1415814dcf0cb130c66a264cf766cf1f44cd3f9fe",
+      "../src/types/ray3d.ts": {
+        "version": "7eabde7d54f900db71c2d174506d4c10dbca9a08154fea4228e7cf8d921ce532",
+        "signature": "9c6b270ae159c7c5e79122d37b8bbe06d17e6a3861bd334714aedc987b1dd2d5",
         "affectsGlobalScope": false
       },
       "../src/types/round-data.type.ts": {
@@ -657,8 +672,8 @@
         "affectsGlobalScope": false
       },
       "../src/types/index.ts": {
-        "version": "ee59e966fc842285de6b804f4ca9657b4175ca9add5cdad1833ee94762dadf52",
-        "signature": "ad277297e8e3cc6c6358ad2d69353cfcd12684e8cd35b8c035bac015aa539bef",
+        "version": "661d955487f751a303b88bbddb52ebc9306fed67e9f92022cd8686787718ffea",
+        "signature": "5e78289f84211e154a1f54213c4928913bcbe7fea15dcfdc9c2311bbf215793a",
         "affectsGlobalScope": false
       },
       "../src/decorators/deprecated.decorator.ts": {
@@ -727,8 +742,8 @@
         "affectsGlobalScope": false
       },
       "../src/dom/canvas-manager.ts": {
-        "version": "6318085e2bb4df7652dc5bae5e8d40c6c20ba6530fd6f638bc98d7da9b29fabb",
-        "signature": "ce5013c057822289d17411453461314e3c657d3138ad557367f98789776c31f3",
+        "version": "704a103f3a2ab7f645caee9d1458c81ce4778f376869e400ec5f901d2b57eb07",
+        "signature": "38df54fe86efdedd2c8a9dfec356e5f0d535eb03892ed26675b10957ba01b71c",
         "affectsGlobalScope": false
       },
       "../src/dom/types/canvas-shadow-config.ts": {
@@ -852,12 +867,12 @@
         "affectsGlobalScope": false
       },
       "../src/physics/distances-2d.ts": {
-        "version": "d938870c049964b81ebd3282b1c000a41d5b33eeb3ce744c7c21e8d6d1d60828",
-        "signature": "bd5eb20c7dcd6577b82ceba335e5f9654a05ea10a28e249bd6eb63abe630576d",
+        "version": "b0151f7046ff0444d1f2382a3f58fbe663920c6565ad0219be52ee265ec2ee79",
+        "signature": "ef5b2120ebfce476d2295100363146af7a3cccb939a01c235a418d41360e45d3",
         "affectsGlobalScope": false
       },
       "../src/physics/collisions-2d.ts": {
-        "version": "58bb4e24d406ed26be69426b921cdc244d574fe61a604005bcecf8a09cea3a21",
+        "version": "06144ab2cc324d688c3e83d3078f9bc8e86f4cf0ba59de534d442810263b072d",
         "signature": "5cbeca0bb58b5504c2573890a3f710cb386fcd2b2260ad39508f57f92e023f80",
         "affectsGlobalScope": false
       },
@@ -867,43 +882,43 @@
         "affectsGlobalScope": false
       },
       "../src/physics/intersects-3d.ts": {
-        "version": "2637ea4f4ef4930ec9c9f554af89f1b8292ba803f88596e5bde51df13413bbbb",
-        "signature": "9f3bafa4e121cace6018217174d724f1585004e263a1e381617b0bd5d6f18662",
+        "version": "c16ac35d28ebb83f247eb5c6aab289e818218e231ae4e8347b421e121651152b",
+        "signature": "4a5c737cec4c5e97ac063fd7a7bb79823a12e3a158d208153ef421993a9827b6",
         "affectsGlobalScope": false
       },
       "../src/physics/collisions-3d.ts": {
-        "version": "a2072beb7ce7785332c07c68ff97b42c983fd66065394bd06ef774e910b2b7a9",
-        "signature": "8ccf4ea78e3135203814e264c4b5dbabd158c089b1e0700d7c3db402743cf370",
+        "version": "e9070b9f5b4255f97935125c7cdeb53823bae23ede5afdd7932b8069f76d886f",
+        "signature": "6ede89f2bc636d58fc256d3e44014f9d65285f0505ce4dba4e713d5efdd3e81b",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/object-convertors.ts": {
-        "version": "c7ca0e3d36f659d1eddad5aad8b5911fa8d713014e65ab46b22f0ed64485e3bc",
-        "signature": "098db7f4fa92ef419001d9d2833942bdb11c3903ab9aab6d3754fd8355c827b0",
+        "version": "5cfe350a5a71db156ae34cdebb9659eab327dd19e6477dadd06e2d2579adb186",
+        "signature": "57bd6f64232764990bb1d877c29c8c4b3cc77cd78267d47b65fddbb73997afa4",
         "affectsGlobalScope": false
       },
-      "../src/physics/objects/2d/ray.ts": {
-        "version": "1b620790a4ecdcbbbbe5a10bf9aecde96e14f4b84d015d812bbcc141e6fafedc",
-        "signature": "de5bf308b7cb76eec93c6e5c9aa60b734b8e1969f7e56944d75173c0559b1240",
+      "../src/physics/objects/2d/ray-2d.ts": {
+        "version": "985de7949c35d39c15fd4d6b244a3f70feabed52054ce21bf0b67740cf16afd0",
+        "signature": "3000b6e35b3fecb95a4c268c6bf225b0bf2415e949f347a68727cb2f77adcdc8",
         "affectsGlobalScope": false
       },
-      "../src/physics/objects/2d/object-2d.ts": {
-        "version": "eaa026f11cd5ca3895070dfcfe7bef06261086a2592254d019942c7378d6902a",
-        "signature": "cc4e84decaa3f74999b5c628de34eae7464a25f2c6da981e61c2d193081cac94",
+      "../src/physics/objects/2d/object2-d.ts": {
+        "version": "9452670a2067e2a1f31316fa9051e0d6be7caa13870e18eb280291a491e6900c",
+        "signature": "dd7fb9327c53dfcb289884fe0344d94c97ee63a1616191632703cdf071d89c77",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/2d/sphere.ts": {
-        "version": "7d244c52379398ec1b0f157f3eb582034b7ae88611fa733a9897bc95f20473ac",
-        "signature": "b737ffb83618317cc657b4d330a6290e7c8149b8bfe46358b4455a30f4c0505c",
+        "version": "7fa784ed4b1b7f6144cf3921edb7bc797d82b74397157e92311f28ffa2a766f0",
+        "signature": "2fb382a291e244f73d43ad20f46a99786f5bce47a4a52f88d0ada278b06d25de",
         "affectsGlobalScope": false
       },
       "../src/physics/bounders-2d.ts": {
-        "version": "fd29330afe174c0744144b8a5f2358e1d14357a12ff2fc3b01b51b7b6073e706",
-        "signature": "18ab55fa4a647d030abebab0c523b42a4cb1f501fc49a5060fb18dd943d7fccf",
+        "version": "d477990b0e1a0ac464bfcda31561fb3b334580bbce81217815ab0c0c73bea4a8",
+        "signature": "34411f5ca9c07bc8264fbca05f9778ef816c6c01317405794d162b5c33dc11fb",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/2d/rect.ts": {
-        "version": "26e2a3560ffc32449ce7ccbef2780e5e422759ceaef93d6e832ca6e96fcce38a",
-        "signature": "f80bbbbd77022d8bdb38dcca6a8a7a486aedf29c6039c812415b03076c85edd1",
+        "version": "d10f001dc7fcb86dd3b1314da4cb15d1c6bad835b3728d8f631a02d77ca0bcae",
+        "signature": "886ece4475d033c76ca56099404a6ff3eb212e4b985a2d39761d19c84e152a94",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/index.ts": {
@@ -912,8 +927,8 @@
         "affectsGlobalScope": false
       },
       "../src/physics/intersects-2d.ts": {
-        "version": "9ea26a33d970cdfc6a800abd4dfa07875dd549eb63b3fd8ba5eea0b6bf152923",
-        "signature": "87def8fe2ae97c79ac932f9f4dd37c3653ce1ce9e5478ab734d534fbc70f55a0",
+        "version": "4323af0c0af0ba6ea021ed5e28975db23be983eff8d6e018765c594fa52a3a37",
+        "signature": "d3cbba6a7adfa0ce84b393f9df210ffb259d7b34078daa0ca6b354d98286e418",
         "affectsGlobalScope": false
       },
       "../src/physics/index.ts": {
@@ -1021,34 +1036,59 @@
         "signature": "67ecaf5354bbaa4b5bd6a0868c97d2ed404e981840f986aefe2c92f074dc7ddb",
         "affectsGlobalScope": false
       },
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-map-holder.ts": {
+        "version": "973392b476ce717b24accaf327ab93d6b8fdb8b3900cc460f1770cd7720a2cfe",
+        "signature": "1c02d1c6ffe3e006a77ec1951955b9a8803a6f31e92e9ab4bf2ce0182891a1d3",
+        "affectsGlobalScope": false
+      },
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-string-holder.ts": {
+        "version": "59ac9d02f3adb87bc6753d263bfeefe1548d07f373bd574b58cbea05b4e2d5a2",
+        "signature": "3fb6574da6d5c3a4a2830d14c950b5346136b7125bdab011d9d89e051071095f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/mocha/index.d.ts": {
+        "version": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
+        "signature": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
+        "affectsGlobalScope": true
+      },
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2.perf.ts": {
+        "version": "1e29c7fb52b89d69500edf01dbd3c4248a09f30cc33f85d13e951af55ad5b4f8",
+        "signature": "e0c0d55d0b3a14a888989df248d2817b1c684e70531ad07a26677c993463818a",
+        "affectsGlobalScope": false
+      },
+      "../src/models/data-structures/grid-accessor/holders-3d/grid3.perf.ts": {
+        "version": "504d4a8c02830dc7ea9d80f22af6f0a225cdab817f46d7bb3193a3053f87aa11",
+        "signature": "e0c0d55d0b3a14a888989df248d2817b1c684e70531ad07a26677c993463818a",
+        "affectsGlobalScope": false
+      },
       "../src/models/data-structures/list/test-list.ts": {
         "version": "44726fcd1f6f7102248e882e318f7778b5a1527244680c26f04e2f6f7fc50c91",
         "signature": "38d3a1989f758c08cec83245796865fd64101a0969e5fb8f8773688b0e5adbd2",
         "affectsGlobalScope": false
       },
-      "../src/models/path/a-star.ts": {
+      "../src/models/path/nearest-item.ts": {
+        "version": "4646a4b85e4ff83c29baf51a234126ca299e22fb8a90bfab32a8db950331f102",
+        "signature": "5197c86ccd3aafc3751bb9f190770574c128096d53a0f346662b6865dc012531",
+        "affectsGlobalScope": false
+      },
+      "../src/models/path/a-star/a-star.ts": {
         "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
-      "../src/models/path/grid-node_download.ts": {
+      "../src/models/path/a-star/grid-node_download.ts": {
         "version": "cda59720c81e8c9f62f06e0786c079e1df21a9bc3886f2b7cb97ad362340cdd8",
         "signature": "5b2fd1cf8bce1994ad8288b444fe47b504b0bd43444cb03c83ec7e71261418ee",
         "affectsGlobalScope": false
       },
-      "../src/models/path/graph_download.ts": {
+      "../src/models/path/a-star/graph_download.ts": {
         "version": "52e49884568177fcf39efd49781fc1a6673f6df37eb8728b81a9779f7a93d3f9",
         "signature": "40b3f2a8f10d4dc70ef53e5518108bee8e9edd6d1a090a1df5df840eb3b23d18",
         "affectsGlobalScope": false
       },
-      "../src/models/path/a-star_download.ts": {
-        "version": "fc25e4b3333dfd60c66fe6d959791a7e55674488787f424721655c32cc18ce59",
+      "../src/models/path/a-star/a-star_download.ts": {
+        "version": "5a4893e97ce499c8ea1ec1369216272990535c708473159c8b1b097a9bc648d3",
         "signature": "eb797cf8c54f7a5645a14ae87c86a8392d58dbf8c9770996455b94b0e68572df",
-        "affectsGlobalScope": false
-      },
-      "../src/models/path/nearest-item.ts": {
-        "version": "b5071928a1ca5e9ce07ad39d63cc27eeda3d36fa053b1f54bc34d580d025f741",
-        "signature": "5197c86ccd3aafc3751bb9f190770574c128096d53a0f346662b6865dc012531",
         "affectsGlobalScope": false
       },
       "../src/models/selection/selection-holder.ts": {
@@ -1061,29 +1101,24 @@
         "signature": "32b66b1d55f5f5e262c494e7088b4d96664bee6e43c19f692d88843339a42a99",
         "affectsGlobalScope": false
       },
-      "../src/physics/ray.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../src/physics/bounding-boxes/aabb.ts": {
-        "version": "d5c89fa97c5516c3a5561138bb3bb3a65632f62c61cc87a7d3f16dddbf7bd81b",
-        "signature": "b8daead30473d11540aaf6004b7197a934bb89fc515386226bb1bbf019d39f6f",
+      "../src/physics/bounding-boxes/aabb3.ts": {
+        "version": "efe80cf839597d19fe42b5618905862e2c435e192366c5313760e45fe69521b5",
+        "signature": "a3b949bf8b44a4fe34f08efba79a27fc7d5cf9e19192342970f76027f521ffa9",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/2d/capsule.ts": {
-        "version": "eaabb3b62f565537d30bc0034732ae1ad4be085366ad0b132ff6a7d775b7f302",
-        "signature": "cceb4d798c1029f1c5ca7afe5d5aead405f7ba1b3202778ae9f919c927b28c36",
+        "version": "d1f952b2ef4bd0a6947301f69141d84934e7c3c28056926fb90cf89fb70c29f6",
+        "signature": "72657a17bef86c97c10a8f90125c0823dd7ccdbad32afbdf37a43f1f4ab1553c",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/2d/line.ts": {
-        "version": "660bde985c9de7eec9006005bc10ae10eee46c4951f2abfc6fd435ebac992ad0",
-        "signature": "a65673dcdedd983d314611e33d4542c6572721c81e3fae01ca3e864345d406da",
+        "version": "d649540f390bef131b1c0380831a9086cd746c0f004d71c095590a55e149d3aa",
+        "signature": "c99648fb327ac35ae9eade9cef7e17a5272d349343a8375c82f87df9b9e39abc",
         "affectsGlobalScope": false
       },
       "../src/physics/objects/2d/triangle.ts": {
-        "version": "82d014fad3a054f4662d5b908e2b3a59db80b3f5b6d0e435b47981152a285230",
-        "signature": "3c3d3c69cd1e5b102fa1b6765342b8a754d9ff21938c67157cd43a3de1239247",
+        "version": "f8af68568738ce2e8087acb36753aeb5ac094e18bc8e5a3b384a5def43c49f8d",
+        "signature": "cfee0b2219fb8b5225953545e9c97bf290ad377c944f7b4b75d7f337b1f7742b",
         "affectsGlobalScope": false
       },
       "../src/utils/runtime.ts": {
@@ -1135,11 +1170,6 @@
         "version": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "signature": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "affectsGlobalScope": false
-      },
-      "../node_modules/@types/mocha/index.d.ts": {
-        "version": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
-        "signature": "a3a5fc3a8b77a1b96277eff237a15d065d525a6c1c66b303dc98be708e30e7f8",
-        "affectsGlobalScope": true
       },
       "../node_modules/@types/node/globals.d.ts": {
         "version": "215d8d9a2c480fd460127edc048d68d9931d3b27f95132253a6e71975f060bb1",
@@ -1827,6 +1857,7 @@
       ],
       "../src/math/index.ts": [
         "../src/math/mat4.ts",
+        "../src/math/simple-vector-xz.ts",
         "../src/math/simple-vector2.ts",
         "../src/math/simple-vector3.ts",
         "../src/math/simple-vector4.ts",
@@ -1911,6 +1942,24 @@
         "../src/models/index.ts",
         "../src/utils/object-utils.ts"
       ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-map-holder.ts": [
+        "../src/math/index.ts",
+        "../src/models/index.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-string-holder.ts": [
+        "../src/math/index.ts",
+        "../src/models/index.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2.perf.ts": [
+        "../node_modules/@types/mocha/index.d.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-array-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-hash-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-map-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-map-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-2d/grid2-string-holder.ts"
+      ],
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-array-holder.ts": [
         "../src/math/index.ts",
         "../src/models/data-structures/grid-accessor/holders-3d/grid3-holder.ts"
@@ -1930,6 +1979,14 @@
       ],
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts": [
         "../src/utils/object-utils.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-3d/grid3.perf.ts": [
+        "../node_modules/@types/mocha/index.d.ts",
+        "../src/models/data-structures/grid-accessor/holders-3d/grid3-array-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-3d/grid3-hash-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-3d/grid3-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-3d/grid3-map-holder.ts",
+        "../src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts"
       ],
       "../src/models/data-structures/grid-accessor/index.ts": [
         "../src/models/data-structures/grid-accessor/grid-filters.ts",
@@ -1990,24 +2047,24 @@
         "../src/models/data-structures/priority-queue.ts",
         "../src/models/data-structures/quad-tree/quad-tree.ts",
         "../src/models/gender.model.ts",
-        "../src/models/path.ts",
-        "../src/models/path/djikstra.ts",
+        "../src/models/path-2d.ts",
+        "../src/models/path/djikstra/djikstra.ts",
         "../src/models/range.ts",
         "../src/models/sorting/index.ts",
-        "../src/models/transform.ts"
+        "../src/models/transform-2d.ts"
       ],
-      "../src/models/path.ts": [
+      "../src/models/path-2d.ts": [
         "../src/math/index.ts"
       ],
-      "../src/models/path/a-star_download.ts": [
+      "../src/models/path/a-star/a-star_download.ts": [
         "../src/math/index.ts",
         "../src/models/data-structures/binary-queue.ts",
-        "../src/models/path/graph_download.ts",
-        "../src/models/path/grid-node_download.ts"
+        "../src/models/path/a-star/graph_download.ts",
+        "../src/models/path/a-star/grid-node_download.ts"
       ],
-      "../src/models/path/graph_download.ts": [
-        "../src/models/path/a-star_download.ts",
-        "../src/models/path/grid-node_download.ts"
+      "../src/models/path/a-star/graph_download.ts": [
+        "../src/models/path/a-star/a-star_download.ts",
+        "../src/models/path/a-star/grid-node_download.ts"
       ],
       "../src/models/path/nearest-item.ts": [
         "../src/models/data-structures/priority-queue.ts"
@@ -2029,7 +2086,7 @@
         "../src/models/sorting/quick-sort.ts",
         "../src/models/sorting/radix-sort.ts"
       ],
-      "../src/models/transform.ts": [
+      "../src/models/transform-2d.ts": [
         "../src/math/index.ts"
       ],
       "../src/node.ts": [
@@ -2049,9 +2106,9 @@
         "../src/physics/objects/2d/sphere.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/bounding-boxes/aabb.ts": [
+      "../src/physics/bounding-boxes/aabb3.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/closest-3d.ts": [
@@ -2063,6 +2120,7 @@
       "../src/physics/collisions-3d.ts": [
         "../src/math/index.ts",
         "../src/physics/closest-3d.ts",
+        "../src/physics/collisions-2d.ts",
         "../src/physics/distances-2d.ts",
         "../src/physics/distances-3d.ts",
         "../src/physics/intersects-3d.ts"
@@ -2082,44 +2140,47 @@
         "../src/physics/intersects-3d.ts",
         "../src/physics/objects/index.ts"
       ],
+      "../src/physics/intersects-2d.ts": [
+        "../src/math/index.ts"
+      ],
       "../src/physics/intersects-3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/physics/objects/2d/capsule.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/line.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/objects/2d/object-2d.ts": [
-        "../src/physics/objects/2d/ray.ts",
+      "../src/physics/objects/2d/object2-d.ts": [
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/objects/2d/ray.ts": [
+      "../src/physics/objects/2d/ray-2d.ts": [
         "../src/math/index.ts"
       ],
       "../src/physics/objects/2d/rect.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/object2-d.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/physics/objects/2d/sphere.ts",
         "../src/physics/objects/object-convertors.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/sphere.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/object2-d.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/physics/objects/object-convertors.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/triangle.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/index.ts": [
@@ -2134,10 +2195,16 @@
         "../src/tests/abstract.fixture.ts",
         "../src/tests/abstract.mapper.ts"
       ],
-      "../src/types/helpers/min-max.interface.ts": [
+      "../src/types/helpers/min-max-2d.interface.ts": [
         "../src/math/index.ts"
       ],
-      "../src/types/helpers/pos-size.ts": [
+      "../src/types/helpers/min-max-3d.interface.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/types/helpers/pos-size-2d.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/types/helpers/pos-size-3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/types/helpers/xywh.ts": [
@@ -2147,8 +2214,10 @@
         "../src/math/index.ts"
       ],
       "../src/types/index.ts": [
-        "../src/types/helpers/min-max.interface.ts",
-        "../src/types/helpers/pos-size.ts",
+        "../src/types/helpers/min-max-2d.interface.ts",
+        "../src/types/helpers/min-max-3d.interface.ts",
+        "../src/types/helpers/pos-size-2d.ts",
+        "../src/types/helpers/pos-size-3d.ts",
         "../src/types/helpers/xywh.ts",
         "../src/types/helpers/xyzwhd.ts",
         "../src/types/horizontal-align.type.ts",
@@ -2158,8 +2227,8 @@
         "../src/types/optional.type.ts",
         "../src/types/prop.type.ts",
         "../src/types/property-decorator.type.ts",
-        "../src/types/ray2.ts",
-        "../src/types/ray3.ts",
+        "../src/types/ray2d.ts",
+        "../src/types/ray3d.ts",
         "../src/types/round-data.type.ts",
         "../src/types/size.interaface.ts",
         "../src/types/string-map.interface.ts",
@@ -2171,10 +2240,10 @@
       "../src/types/object-entry.interface.ts": [
         "../src/types/key-value.interface.ts"
       ],
-      "../src/types/ray2.ts": [
+      "../src/types/ray2d.ts": [
         "../src/math/index.ts"
       ],
-      "../src/types/ray3.ts": [
+      "../src/types/ray3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/types/text-options.interface.ts": [
@@ -2658,6 +2727,7 @@
       ],
       "../src/math/index.ts": [
         "../src/math/mat4.ts",
+        "../src/math/simple-vector-xz.ts",
         "../src/math/simple-vector2.ts",
         "../src/math/simple-vector3.ts",
         "../src/math/simple-vector4.ts",
@@ -2736,6 +2806,17 @@
         "../src/math/index.ts",
         "../src/models/index.ts"
       ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-map-holder.ts": [
+        "../src/math/index.ts",
+        "../src/models/index.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-string-holder.ts": [
+        "../src/math/index.ts",
+        "../src/models/index.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2.perf.ts": [
+        "../node_modules/@types/mocha/index.d.ts"
+      ],
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-array-holder.ts": [
         "../src/math/index.ts",
         "../src/models/data-structures/grid-accessor/holders-3d/grid3-holder.ts"
@@ -2750,6 +2831,9 @@
         "../src/math/index.ts",
         "../src/models/data-structures/grid-accessor/holders-3d/grid3-holder.ts",
         "../src/models/index.ts"
+      ],
+      "../src/models/data-structures/grid-accessor/holders-3d/grid3.perf.ts": [
+        "../node_modules/@types/mocha/index.d.ts"
       ],
       "../src/models/data-structures/grid-accessor/index.ts": [
         "../src/models/data-structures/grid-accessor/grid-filters.ts",
@@ -2808,22 +2892,22 @@
         "../src/models/data-structures/priority-queue.ts",
         "../src/models/data-structures/quad-tree/quad-tree.ts",
         "../src/models/gender.model.ts",
-        "../src/models/path.ts",
-        "../src/models/path/djikstra.ts",
+        "../src/models/path-2d.ts",
+        "../src/models/path/djikstra/djikstra.ts",
         "../src/models/range.ts",
         "../src/models/sorting/index.ts",
-        "../src/models/transform.ts"
+        "../src/models/transform-2d.ts"
       ],
-      "../src/models/path.ts": [
+      "../src/models/path-2d.ts": [
         "../src/math/index.ts"
       ],
-      "../src/models/path/a-star_download.ts": [
+      "../src/models/path/a-star/a-star_download.ts": [
         "../src/math/index.ts",
-        "../src/models/path/graph_download.ts",
-        "../src/models/path/grid-node_download.ts"
+        "../src/models/path/a-star/graph_download.ts",
+        "../src/models/path/a-star/grid-node_download.ts"
       ],
-      "../src/models/path/graph_download.ts": [
-        "../src/models/path/grid-node_download.ts"
+      "../src/models/path/a-star/graph_download.ts": [
+        "../src/models/path/a-star/grid-node_download.ts"
       ],
       "../src/models/range.ts": [
         "../src/math/index.ts",
@@ -2838,7 +2922,7 @@
         "../src/models/sorting/quick-sort.ts",
         "../src/models/sorting/radix-sort.ts"
       ],
-      "../src/models/transform.ts": [
+      "../src/models/transform-2d.ts": [
         "../src/math/index.ts"
       ],
       "../src/node.ts": [
@@ -2858,9 +2942,9 @@
         "../src/physics/objects/2d/sphere.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/bounding-boxes/aabb.ts": [
+      "../src/physics/bounding-boxes/aabb3.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/closest-3d.ts": [
@@ -2884,42 +2968,45 @@
         "../src/physics/intersects-3d.ts",
         "../src/physics/objects/index.ts"
       ],
+      "../src/physics/intersects-2d.ts": [
+        "../src/math/index.ts"
+      ],
       "../src/physics/intersects-3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/physics/objects/2d/capsule.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/line.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/objects/2d/object-2d.ts": [
-        "../src/physics/objects/2d/ray.ts",
+      "../src/physics/objects/2d/object2-d.ts": [
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/types/index.ts"
       ],
-      "../src/physics/objects/2d/ray.ts": [
+      "../src/physics/objects/2d/ray-2d.ts": [
         "../src/math/index.ts"
       ],
       "../src/physics/objects/2d/rect.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/object2-d.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/physics/objects/2d/sphere.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/sphere.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
-        "../src/physics/objects/2d/ray.ts",
+        "../src/physics/objects/2d/object2-d.ts",
+        "../src/physics/objects/2d/ray-2d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/2d/triangle.ts": [
         "../src/math/index.ts",
-        "../src/physics/objects/2d/object-2d.ts",
+        "../src/physics/objects/2d/object2-d.ts",
         "../src/types/index.ts"
       ],
       "../src/physics/objects/index.ts": [
@@ -2934,10 +3021,16 @@
         "../src/tests/abstract.fixture.ts",
         "../src/tests/abstract.mapper.ts"
       ],
-      "../src/types/helpers/min-max.interface.ts": [
+      "../src/types/helpers/min-max-2d.interface.ts": [
         "../src/math/index.ts"
       ],
-      "../src/types/helpers/pos-size.ts": [
+      "../src/types/helpers/min-max-3d.interface.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/types/helpers/pos-size-2d.ts": [
+        "../src/math/index.ts"
+      ],
+      "../src/types/helpers/pos-size-3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/types/helpers/xywh.ts": [
@@ -2947,8 +3040,10 @@
         "../src/math/index.ts"
       ],
       "../src/types/index.ts": [
-        "../src/types/helpers/min-max.interface.ts",
-        "../src/types/helpers/pos-size.ts",
+        "../src/types/helpers/min-max-2d.interface.ts",
+        "../src/types/helpers/min-max-3d.interface.ts",
+        "../src/types/helpers/pos-size-2d.ts",
+        "../src/types/helpers/pos-size-3d.ts",
         "../src/types/helpers/xywh.ts",
         "../src/types/helpers/xyzwhd.ts",
         "../src/types/horizontal-align.type.ts",
@@ -2958,8 +3053,8 @@
         "../src/types/optional.type.ts",
         "../src/types/prop.type.ts",
         "../src/types/property-decorator.type.ts",
-        "../src/types/ray2.ts",
-        "../src/types/ray3.ts",
+        "../src/types/ray2d.ts",
+        "../src/types/ray3d.ts",
         "../src/types/round-data.type.ts",
         "../src/types/size.interaface.ts",
         "../src/types/string-map.interface.ts",
@@ -2971,10 +3066,10 @@
       "../src/types/object-entry.interface.ts": [
         "../src/types/key-value.interface.ts"
       ],
-      "../src/types/ray2.ts": [
+      "../src/types/ray2d.ts": [
         "../src/math/index.ts"
       ],
-      "../src/types/ray3.ts": [
+      "../src/types/ray3d.ts": [
         "../src/math/index.ts"
       ],
       "../src/types/text-options.interface.ts": [
@@ -3171,6 +3266,7 @@
       "../src/index.ts",
       "../src/math/index.ts",
       "../src/math/mat4.ts",
+      "../src/math/simple-vector-xz.ts",
       "../src/math/simple-vector2.ts",
       "../src/math/simple-vector3.ts",
       "../src/math/simple-vector4.ts",
@@ -3200,11 +3296,15 @@
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-map-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-holder.ts",
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-object-map-holder.ts",
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2-string-holder.ts",
+      "../src/models/data-structures/grid-accessor/holders-2d/grid2.perf.ts",
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-array-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-hash-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-map-holder.ts",
       "../src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts",
+      "../src/models/data-structures/grid-accessor/holders-3d/grid3.perf.ts",
       "../src/models/data-structures/grid-accessor/index.ts",
       "../src/models/data-structures/list/abstract-linked-list.ts",
       "../src/models/data-structures/list/bi-directional-linked-list.ts",
@@ -3218,12 +3318,12 @@
       "../src/models/data-structures/quad-tree/quad-tree.ts",
       "../src/models/gender.model.ts",
       "../src/models/index.ts",
-      "../src/models/path.ts",
-      "../src/models/path/a-star.ts",
-      "../src/models/path/a-star_download.ts",
-      "../src/models/path/djikstra.ts",
-      "../src/models/path/graph_download.ts",
-      "../src/models/path/grid-node_download.ts",
+      "../src/models/path-2d.ts",
+      "../src/models/path/a-star/a-star.ts",
+      "../src/models/path/a-star/a-star_download.ts",
+      "../src/models/path/a-star/graph_download.ts",
+      "../src/models/path/a-star/grid-node_download.ts",
+      "../src/models/path/djikstra/djikstra.ts",
       "../src/models/path/nearest-item.ts",
       "../src/models/range.ts",
       "../src/models/selection/selection-holder.ts",
@@ -3236,10 +3336,10 @@
       "../src/models/sorting/merge-sort.ts",
       "../src/models/sorting/quick-sort.ts",
       "../src/models/sorting/radix-sort.ts",
-      "../src/models/transform.ts",
+      "../src/models/transform-2d.ts",
       "../src/node.ts",
       "../src/physics/bounders-2d.ts",
-      "../src/physics/bounding-boxes/aabb.ts",
+      "../src/physics/bounding-boxes/aabb3.ts",
       "../src/physics/closest-2d.ts",
       "../src/physics/closest-3d.ts",
       "../src/physics/collisions-2d.ts",
@@ -3251,20 +3351,21 @@
       "../src/physics/intersects-3d.ts",
       "../src/physics/objects/2d/capsule.ts",
       "../src/physics/objects/2d/line.ts",
-      "../src/physics/objects/2d/object-2d.ts",
-      "../src/physics/objects/2d/ray.ts",
+      "../src/physics/objects/2d/object2-d.ts",
+      "../src/physics/objects/2d/ray-2d.ts",
       "../src/physics/objects/2d/rect.ts",
       "../src/physics/objects/2d/sphere.ts",
       "../src/physics/objects/2d/triangle.ts",
       "../src/physics/objects/index.ts",
       "../src/physics/objects/object-convertors.ts",
-      "../src/physics/ray.ts",
       "../src/tests/abstract-database.fixture.ts",
       "../src/tests/abstract.fixture.ts",
       "../src/tests/abstract.mapper.ts",
       "../src/tests/paginate.model.ts",
-      "../src/types/helpers/min-max.interface.ts",
-      "../src/types/helpers/pos-size.ts",
+      "../src/types/helpers/min-max-2d.interface.ts",
+      "../src/types/helpers/min-max-3d.interface.ts",
+      "../src/types/helpers/pos-size-2d.ts",
+      "../src/types/helpers/pos-size-3d.ts",
       "../src/types/helpers/xywh.ts",
       "../src/types/helpers/xyzwhd.ts",
       "../src/types/horizontal-align.type.ts",
@@ -3275,8 +3376,8 @@
       "../src/types/optional.type.ts",
       "../src/types/prop.type.ts",
       "../src/types/property-decorator.type.ts",
-      "../src/types/ray2.ts",
-      "../src/types/ray3.ts",
+      "../src/types/ray2d.ts",
+      "../src/types/ray3d.ts",
       "../src/types/round-data.type.ts",
       "../src/types/size.interaface.ts",
       "../src/types/string-map.interface.ts",

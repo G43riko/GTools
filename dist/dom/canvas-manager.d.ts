@@ -1,11 +1,11 @@
-import { Transform } from "gtools/models";
+import { Transform2D } from "gtools/models";
 declare class AbstractCanvasManager {
     private readonly localCanvas;
     private readonly localContext;
     constructor(arg1: HTMLCanvasElement | HTMLImageElement, arg2: number, arg3: number);
     get canvas(): HTMLCanvasElement;
     get context(): CanvasRenderingContext2D | null;
-    setTransform(transform: Transform): void;
+    setTransform(transform: Transform2D): void;
     setTransformRaw(translationX: number, translationY: number, scaleX: number, scaleY?: number): void;
     getImage(): HTMLImageElement;
     setShadow(x: number, y: number, color: string, blur: number): void;

@@ -12,10 +12,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./gender.model"), exports);
 __exportStar(require("./color.model"), exports);
-__exportStar(require("./transform"), exports);
+__exportStar(require("./transform-2d"), exports);
 __exportStar(require("./range"), exports);
-__exportStar(require("./path"), exports);
-__exportStar(require("./path/djikstra"), exports);
+__exportStar(require("./path-2d"), exports);
+__exportStar(require("./path/djikstra/djikstra"), exports);
 __exportStar(require("./sorting"), exports);
 __exportStar(require("./data-structures/priority-queue"), exports);
 __exportStar(require("./data-structures/binary-queue"), exports);

@@ -1,9 +1,9 @@
-export declare function pointPoint2dDistance(ax: number, ay: number, bx: number, by: number): number;
-export declare function pointPointSqr2dDistance(ax: number, ay: number, bx: number, by: number): number;
-export declare function circleCircle2dDistance(ax: number, ay: number, ar: number, bx: number, by: number, br: number): number;
-export declare function circleCircleSqr2dDistance(ax: number, ay: number, ar: number, bx: number, by: number, br: number): number;
-export declare function pointCircle2dDistance(ax: number, ay: number, bx: number, by: number, br: number): number;
-export declare function pointCircleSqr2dDistance(ax: number, ay: number, bx: number, by: number, br: number): number;
-export declare function pointLine2dDistance(aX: number, aY: number, bX: number, bY: number, pX: number, pY: number): number;
-export declare function pointLineSqr2dDistance(aX: number, aY: number, bX: number, bY: number, pX: number, pY: number): number;
+export declare function distance2dPointPoint(ax: number, ay: number, bx: number, by: number): number;
+export declare function distance2dPointPointSqr(ax: number, ay: number, bx: number, by: number): number;
+export declare function distance2dCircleCircle(ax: number, ay: number, ar: number, bx: number, by: number, br: number): number;
+export declare function distance2dCircleCircleSqr(ax: number, ay: number, ar: number, bx: number, by: number, br: number): number;
+export declare function distance2dPointCircle(ax: number, ay: number, bx: number, by: number, br: number): number;
+export declare function distance2dPointCircleSqr(ax: number, ay: number, bx: number, by: number, br: number): number;
+export declare function distance2dPointLine(aX: number, aY: number, bX: number, bY: number, pX: number, pY: number): number;
+export declare function distance2dPointLineSqr(aX: number, aY: number, bX: number, bY: number, pX: number, pY: number): number;
 //# sourceMappingURL=distances-2d.d.ts.map

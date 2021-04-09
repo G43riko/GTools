@@ -1,4 +1,6 @@
-export function lineLine2dIntersect(
+import { ReadonlySimpleVector2 } from "gtools/math";
+
+export function intersection2dLineLine(
     x1: number,
     y1: number,
     x2: number,
@@ -7,7 +9,7 @@ export function lineLine2dIntersect(
     y3: number,
     x4: number,
     y4: number,
-): null | { x: number, y: number } {
+): null | ReadonlySimpleVector2 {
     const denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
     if (denom === 0) {
         return null;

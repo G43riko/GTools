@@ -17,6 +17,9 @@ export class Vector3 {
     get avg() {
         return (this.x + this.y + this.z) / 3;
     }
+    static lengthOf(vector) {
+        return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
+    }
     get length() {
         return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
@@ -90,9 +93,6 @@ export class Vector3 {
         vec.y /= length;
         vec.z /= length;
         return vec;
-    }
-    get xy() {
-        return new Vector2(this.x, this.y);
     }
     static from(valA, valB = valA, valC = valA) {
         return new Vector3(valA, valB, valC);
@@ -170,6 +170,9 @@ export class Vector3 {
         this.y = vec.y;
         this.z = vec.z;
         return this;
+    }
+    get xy() {
+        return new Vector2(this.x, this.y);
     }
     get yx() {
         return new Vector2(this.y, this.x);

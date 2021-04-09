@@ -1,15 +1,15 @@
-export function pointPoint2dDistance(ax: number, ay: number, bx: number, by: number): number {
-    return Math.sqrt(pointPointSqr2dDistance(ax, ay, bx, by));
+export function distance2dPointPoint(ax: number, ay: number, bx: number, by: number): number {
+    return Math.sqrt(distance2dPointPointSqr(ax, ay, bx, by));
 }
 
-export function pointPointSqr2dDistance(ax: number, ay: number, bx: number, by: number): number {
+export function distance2dPointPointSqr(ax: number, ay: number, bx: number, by: number): number {
     const distX = ax - bx;
     const distY = ay - by;
 
     return distX * distX + distY * distY;
 }
 
-export function circleCircle2dDistance(
+export function distance2dCircleCircle(
     ax: number,
     ay: number,
     ar: number,
@@ -17,10 +17,10 @@ export function circleCircle2dDistance(
     by: number,
     br: number,
 ): number {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br - ar, 0);
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br - ar, 0);
 }
 
-export function circleCircleSqr2dDistance(
+export function distance2dCircleCircleSqr(
     ax: number,
     ay: number,
     ar: number,
@@ -28,30 +28,30 @@ export function circleCircleSqr2dDistance(
     by: number,
     br: number,
 ): number {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br - ar);
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br - ar);
 }
 
-export function pointCircle2dDistance(
+export function distance2dPointCircle(
     ax: number,
     ay: number,
     bx: number,
     by: number,
     br: number,
 ): number {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br, 0);
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br, 0);
 }
 
-export function pointCircleSqr2dDistance(
+export function distance2dPointCircleSqr(
     ax: number,
     ay: number,
     bx: number,
     by: number,
     br: number,
 ): number {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br, 0);
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br, 0);
 }
 
-export function pointLine2dDistance(
+export function distance2dPointLine(
     aX: number,
     aY: number,
     bX: number,
@@ -59,10 +59,10 @@ export function pointLine2dDistance(
     pX: number,
     pY: number,
 ): number {
-    return Math.sqrt(pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY));
+    return Math.sqrt(distance2dPointLineSqr(aX, aY, bX, bY, pX, pY));
 }
 
-export function pointLineSqr2dDistance(
+export function distance2dPointLineSqr(
     aX: number,
     aY: number,
     bX: number,
@@ -101,5 +101,3 @@ export function pointLineSqr2dDistance(
 
     return dx * dx + dy * dy;
 }
-
-

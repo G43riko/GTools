@@ -4,10 +4,10 @@
 
 export * from "./gender.model";
 export * from "./color.model";
-export * from "./transform";
+export * from "./transform-2d";
 export * from "./range";
-export * from "./path";
-export * from "./path/djikstra";
+export * from "./path-2d";
+export * from "./path/djikstra/djikstra";
 
 export * from "./sorting";
 

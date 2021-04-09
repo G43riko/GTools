@@ -1,11 +1,11 @@
 import { SimpleVector2, Vector2 } from "gtools/math";
-import { MinMax } from "gtools/types";
-import { Object2d } from "./object-2d";
+import { MinMax2D } from "gtools/types";
+import { Object2D } from "./object2-d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
-export class Line implements Object2d{
+export class Line implements Object2D{
     public constructor(public readonly pointA: SimpleVector2,
                        public readonly pointB: SimpleVector2) {
     }
@@ -45,7 +45,7 @@ export class Line implements Object2d{
         return  Math.pow(this.length, 2) / 12;
     }
 
-    public toMinMax(): MinMax {
+    public toMinMax(): MinMax2D {
         return {
             min: Vector2.min(this.pointA, this.pointB),
             max: Vector2.max(this.pointA, this.pointB),

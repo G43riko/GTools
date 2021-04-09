@@ -21,10 +21,11 @@ export class Grid2ObjectHolder {
                 callback(chunk, +x, +y);
             });
         });
+        return true;
     }
     set(x, y, value) {
         const row = getOrSetProperty(this.data, x, {});
-        if (!row[y]) {
+        if (typeof row[y] === "undefined") {
             this._length++;
         }
         row[y] = value;

@@ -81,8 +81,20 @@ export function getObjectEntries(obj) {
 }
 export function getNestedProperty(object, propertyPath, separator) {
     if (separator === void 0) { separator = "."; }
-    var propertyList = propertyPath.split(separator);
-    return propertyList.reduce(function (currentNestedPropertyValue, propertyName) { return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined; }, object);
+    if (typeof propertyPath === "string") {
+        return getNestedProperty(object, propertyPath.split(separator));
+    }
+    return propertyPath.reduce(function (currentNestedPropertyValue, propertyName) { return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined; }, object);
+}
+export function setNestedProperty(item, key, value) {
+    if (typeof key === "string") {
+        return setNestedProperty(item, key.split("."), value);
+    }
+    var obj = item;
+    for (var i = 0; i < key.length - 1; i++) {
+        obj = obj[key[i]];
+    }
+    obj[key[key.length - 1]] = value;
 }
 export function createMergedObject(source) {
     var updates = [];
@@ -90,14 +102,6 @@ export function createMergedObject(source) {
         updates[_i - 1] = arguments[_i];
     }
     return Object.assign.apply(Object, __spreadArrays([{}, source], updates));
-}
-export function setNestedProperty(key, item, value) {
-    var obj = item;
-    var splitKey = key.split(".");
-    for (var i = 0; i < splitKey.length - 1; i++) {
-        obj = obj[splitKey[i]];
-    }
-    obj[splitKey[splitKey.length - 1]] = value;
 }
 export function roughSizeOfObject(object) {
     var objectList = [];
@@ -125,6 +129,22 @@ export function roughSizeOfObject(object) {
     }
     return bytes;
 }
+export function deepFreeze(o) {
+    Object.freeze(o);
+    var oIsFunction = typeof o === "function";
+    var hasOwnProp = Object.prototype.hasOwnProperty;
+    var item = null;
+    Object.getOwnPropertyNames(o).forEach(function (prop) {
+        item = o[prop];
+        if (hasOwnProp.call(o, prop) &&
+            (oIsFunction ? prop !== "caller" && prop !== "callee" && prop !== "arguments" : true) &&
+            item !== null && (typeof item === "object" || typeof item === "function")
+            && !Object.isFrozen(item)) {
+            deepFreeze(item);
+        }
+    });
+    return o;
+}
 export function size(object) {
     var result = 0;
     for (var i in object) {
@@ -141,6 +161,12 @@ export function isPlain(object) {
         }
     }
     return true;
+}
+export function toBoolean(value) {
+    return value !== null && "" + value !== "false";
+}
+export function isNotInstance(value) {
+    return toBoolean(value) && value.constructor.name === "Object";
 }
 export function makeFlat(list, propertyPath, separator, skipUndefined) {
     if (separator === void 0) { separator = "."; }

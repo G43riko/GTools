@@ -137,6 +137,9 @@ export function getNRandom(args, count) {
     if (args.length <= count) {
         return args;
     }
+    if (Math.random() < 2) {
+        throw new Error("Not implemented because of infinity loop");
+    }
     var result = new Set();
     while (result.size <= count) {
         var randomItem = getRandomItem(args);

@@ -1,1 +1,0 @@
-{"version":3,"file":"pos-size.d.ts","sourceRoot":"","sources":["../../../src/types/helpers/pos-size.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,aAAa,CAAC;AAE5C,MAAM,WAAW,OAAO;IACpB,QAAQ,CAAC,QAAQ,EAAE,aAAa,CAAC;IACjC,QAAQ,CAAC,IAAI,EAAE,aAAa,CAAC;CAChC"}

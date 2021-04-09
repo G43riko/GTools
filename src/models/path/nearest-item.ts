@@ -32,7 +32,6 @@ export class NearestItem {
         delete this.vertices[vertex.name];
     }
 
-
     public requireVertex(name: string, type: string): NearestVertex {
         const result = this.vertices[name];
         if (result) {

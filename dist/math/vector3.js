@@ -39,6 +39,9 @@ var Vector3 = (function () {
         enumerable: false,
         configurable: true
     });
+    Vector3.lengthOf = function (vector) {
+        return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
+    };
     Object.defineProperty(Vector3.prototype, "length", {
         get: function () {
             return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
@@ -123,13 +126,6 @@ var Vector3 = (function () {
         vec.z /= length;
         return vec;
     };
-    Object.defineProperty(Vector3.prototype, "xy", {
-        get: function () {
-            return new vector2_1.Vector2(this.x, this.y);
-        },
-        enumerable: false,
-        configurable: true
-    });
     Vector3.from = function (valA, valB, valC) {
         if (valB === void 0) { valB = valA; }
         if (valC === void 0) { valC = valA; }
@@ -209,6 +205,13 @@ var Vector3 = (function () {
         this.z = vec.z;
         return this;
     };
+    Object.defineProperty(Vector3.prototype, "xy", {
+        get: function () {
+            return new vector2_1.Vector2(this.x, this.y);
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Vector3.prototype, "yx", {
         get: function () {
             return new vector2_1.Vector2(this.y, this.x);

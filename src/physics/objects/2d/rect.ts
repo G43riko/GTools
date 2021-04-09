@@ -1,14 +1,14 @@
 import { SimpleVector2, Vector2 } from "../../../math";
-import { MinMax } from "gtools/types";
+import { MinMax2D } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
-import { MassAble } from "./object-2d";
-import { Ray } from "./ray";
+import { MassAble2D } from "./object2-d";
+import { Ray2D } from "./ray-2d";
 import { Sphere } from "./sphere";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
  */
-export class Rect implements MassAble {
+export class Rect implements MassAble2D {
     public constructor(
         public readonly position: SimpleVector2,
         public readonly size: SimpleVector2,
@@ -31,7 +31,7 @@ export class Rect implements MassAble {
         return this.size.x + this.size.x + this.size.y + this.size.y;
     }
 
-    public toMinMax(): MinMax {
+    public toMinMax(): MinMax2D {
         return convertPosSizeToMinMax(this);
     }
 
@@ -48,7 +48,7 @@ export class Rect implements MassAble {
         });
     }
 
-    public static fromRay({origin, direction, length}: Pick<Ray, "origin" | "direction" | "length">, realLength = length): Rect {
+    public static fromRay({origin, direction, length}: Pick<Ray2D, "origin" | "direction" | "length">, realLength = length): Rect {
         if (realLength === Infinity) {
             throw new Error("Cannot create rectangle from infinite ray");
         }
@@ -88,7 +88,7 @@ export class Rect implements MassAble {
         });
     }
 
-    public static fromMinMax({min, max}: MinMax): Rect {
+    public static fromMinMax({min, max}: MinMax2D): Rect {
         const size = {
             x: max.x - min.x,
             y: max.y - min.y,

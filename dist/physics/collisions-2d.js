@@ -56,7 +56,7 @@ function rectRect2dCollision(ax, ay, aw, ah, bx, by, bw, bh) {
 }
 exports.rectRect2dCollision = rectRect2dCollision;
 function circleCircle2dCollision(aX, aY, aRadius, bX, bY, bRadius) {
-    return distances_2d_1.pointPoint2dDistance(aX, aY, bX, bY) <= aRadius + bRadius;
+    return distances_2d_1.distance2dPointPoint(aX, aY, bX, bY) <= aRadius + bRadius;
 }
 exports.circleCircle2dCollision = circleCircle2dCollision;
 function pointRect2dCollision(pointX, pointY, rectX, rectY, rectW, rectH) {
@@ -74,7 +74,7 @@ function pointRectMinMax2dCollision(pointX, pointY, minX, minY, maxX, maxY) {
 }
 exports.pointRectMinMax2dCollision = pointRectMinMax2dCollision;
 function pointCircle2dCollision(pointX, pointY, circleX, circleY, circleRadius) {
-    return distances_2d_1.pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
+    return distances_2d_1.distance2dPointPoint(pointX, pointY, circleX, circleY) <= circleRadius;
 }
 exports.pointCircle2dCollision = pointCircle2dCollision;
 function pointPolygon2dCollision2(x, y, vs) {

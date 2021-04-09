@@ -10,7 +10,7 @@ export class Grid2BlockAccessor<T> {
     }
 
     public check(filter: GridBlockItemFilter<T>): boolean {
-        return filter(this.holder.get(this.position.x, this.position.y));
+        return filter(this.holder.get(this.position.x, this.position.y) as T);
     }
 
     public getByOffset(x = 0, y = 0): Grid2BlockAccessor<T> {

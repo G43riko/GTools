@@ -1,7 +1,7 @@
 import { clamp } from "./math-utils";
 
 /**
- * TODO: Implements https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/units/ColorUtils.java
+ * TODO: Implement https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/units/ColorUtils.java
  */
 
 

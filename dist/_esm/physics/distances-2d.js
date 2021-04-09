@@ -1,27 +1,27 @@
-export function pointPoint2dDistance(ax, ay, bx, by) {
-    return Math.sqrt(pointPointSqr2dDistance(ax, ay, bx, by));
+export function distance2dPointPoint(ax, ay, bx, by) {
+    return Math.sqrt(distance2dPointPointSqr(ax, ay, bx, by));
 }
-export function pointPointSqr2dDistance(ax, ay, bx, by) {
+export function distance2dPointPointSqr(ax, ay, bx, by) {
     const distX = ax - bx;
     const distY = ay - by;
     return distX * distX + distY * distY;
 }
-export function circleCircle2dDistance(ax, ay, ar, bx, by, br) {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br - ar, 0);
+export function distance2dCircleCircle(ax, ay, ar, bx, by, br) {
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br - ar, 0);
 }
-export function circleCircleSqr2dDistance(ax, ay, ar, bx, by, br) {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br - ar);
+export function distance2dCircleCircleSqr(ax, ay, ar, bx, by, br) {
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br - ar);
 }
-export function pointCircle2dDistance(ax, ay, bx, by, br) {
-    return Math.max(pointPoint2dDistance(ax, ay, bx, by) - br, 0);
+export function distance2dPointCircle(ax, ay, bx, by, br) {
+    return Math.max(distance2dPointPoint(ax, ay, bx, by) - br, 0);
 }
-export function pointCircleSqr2dDistance(ax, ay, bx, by, br) {
-    return Math.max(pointPointSqr2dDistance(ax, ay, bx, by) - br, 0);
+export function distance2dPointCircleSqr(ax, ay, bx, by, br) {
+    return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br, 0);
 }
-export function pointLine2dDistance(aX, aY, bX, bY, pX, pY) {
-    return Math.sqrt(pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY));
+export function distance2dPointLine(aX, aY, bX, bY, pX, pY) {
+    return Math.sqrt(distance2dPointLineSqr(aX, aY, bX, bY, pX, pY));
 }
-export function pointLineSqr2dDistance(aX, aY, bX, bY, pX, pY) {
+export function distance2dPointLineSqr(aX, aY, bX, bY, pX, pY) {
     const A = pX - aX;
     const B = pY - aY;
     const C = bX - aX;

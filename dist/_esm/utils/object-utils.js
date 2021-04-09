@@ -77,19 +77,23 @@ export function getObjectEntries(obj) {
     return result;
 }
 export function getNestedProperty(object, propertyPath, separator = ".") {
-    const propertyList = propertyPath.split(separator);
-    return propertyList.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+    if (typeof propertyPath === "string") {
+        return getNestedProperty(object, propertyPath.split(separator));
+    }
+    return propertyPath.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+}
+export function setNestedProperty(item, key, value) {
+    if (typeof key === "string") {
+        return setNestedProperty(item, key.split("."), value);
+    }
+    let obj = item;
+    for (let i = 0; i < key.length - 1; i++) {
+        obj = obj[key[i]];
+    }
+    obj[key[key.length - 1]] = value;
 }
 export function createMergedObject(source, ...updates) {
     return Object.assign({}, source, ...updates);
-}
-export function setNestedProperty(key, item, value) {
-    let obj = item;
-    const splitKey = key.split(".");
-    for (let i = 0; i < splitKey.length - 1; i++) {
-        obj = obj[splitKey[i]];
-    }
-    obj[splitKey[splitKey.length - 1]] = value;
 }
 export function roughSizeOfObject(object) {
     const objectList = [];
@@ -117,6 +121,22 @@ export function roughSizeOfObject(object) {
     }
     return bytes;
 }
+export function deepFreeze(o) {
+    Object.freeze(o);
+    const oIsFunction = typeof o === "function";
+    const hasOwnProp = Object.prototype.hasOwnProperty;
+    let item = null;
+    Object.getOwnPropertyNames(o).forEach((prop) => {
+        item = o[prop];
+        if (hasOwnProp.call(o, prop) &&
+            (oIsFunction ? prop !== "caller" && prop !== "callee" && prop !== "arguments" : true) &&
+            item !== null && (typeof item === "object" || typeof item === "function")
+            && !Object.isFrozen(item)) {
+            deepFreeze(item);
+        }
+    });
+    return o;
+}
 export function size(object) {
     let result = 0;
     for (const i in object) {
@@ -133,6 +153,12 @@ export function isPlain(object) {
         }
     }
     return true;
+}
+export function toBoolean(value) {
+    return value !== null && `${value}` !== "false";
+}
+export function isNotInstance(value) {
+    return toBoolean(value) && value.constructor.name === "Object";
 }
 export function makeFlat(list, propertyPath, separator = ".", skipUndefined = false) {
     const propertyList = propertyPath.indexOf(separator) >= 0 ? propertyPath.split(separator) : [propertyPath];

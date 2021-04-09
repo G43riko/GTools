@@ -2,7 +2,7 @@ export declare function circleRect2dCollision(cPosX: number, cPosY: number, cRad
 export declare function lineRectangle2dCollision(aStartX: number, aStartY: number, aEndX: number, aEndY: number, bPosX: number, bPosY: number, bSizeX: number, bSizeY: number): boolean;
 export declare function lineLine2dCollision(aStartX: number, aStartY: number, aEndX: number, aEndY: number, bStartX: number, bStartY: number, bEndX: number, bEndY: number): boolean;
 /**
- * @returns true if the line from (a,b)->(c,d) lineLine2dIntersect with (p,q)->(r,s)
+ * @returns true if the line from (a,b)->(c,d) intersection2dLineLine with (p,q)->(r,s)
  */
 export declare function lineLine2dCollision2(a: number, b: number, c: number, d: number, p: number, q: number, r: number, s: number): boolean;
 export declare function rectRect2dCollision(ax: number, ay: number, aw: number, ah: number, bx: number, by: number, bw: number, bh: number): boolean;

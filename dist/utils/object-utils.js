@@ -7,7 +7,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeFlat = exports.isPlain = exports.size = exports.roughSizeOfObject = exports.setNestedProperty = exports.createMergedObject = exports.getNestedProperty = exports.getObjectEntries = exports.getOrSetProperty = exports.deepCopy = exports.deepEqual = exports.without = void 0;
+exports.makeFlat = exports.isNotInstance = exports.toBoolean = exports.isPlain = exports.size = exports.deepFreeze = exports.roughSizeOfObject = exports.createMergedObject = exports.setNestedProperty = exports.getNestedProperty = exports.getObjectEntries = exports.getOrSetProperty = exports.deepCopy = exports.deepEqual = exports.without = void 0;
 function without(obj, items) {
     return getObjectEntries(obj).filter(function (entry) { return !items.includes(entry.key); })
         .reduce(function (prev, entry) {
@@ -95,10 +95,23 @@ function getObjectEntries(obj) {
 exports.getObjectEntries = getObjectEntries;
 function getNestedProperty(object, propertyPath, separator) {
     if (separator === void 0) { separator = "."; }
-    var propertyList = propertyPath.split(separator);
-    return propertyList.reduce(function (currentNestedPropertyValue, propertyName) { return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined; }, object);
+    if (typeof propertyPath === "string") {
+        return getNestedProperty(object, propertyPath.split(separator));
+    }
+    return propertyPath.reduce(function (currentNestedPropertyValue, propertyName) { return currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined; }, object);
 }
 exports.getNestedProperty = getNestedProperty;
+function setNestedProperty(item, key, value) {
+    if (typeof key === "string") {
+        return setNestedProperty(item, key.split("."), value);
+    }
+    var obj = item;
+    for (var i = 0; i < key.length - 1; i++) {
+        obj = obj[key[i]];
+    }
+    obj[key[key.length - 1]] = value;
+}
+exports.setNestedProperty = setNestedProperty;
 function createMergedObject(source) {
     var updates = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -107,15 +120,6 @@ function createMergedObject(source) {
     return Object.assign.apply(Object, __spreadArrays([{}, source], updates));
 }
 exports.createMergedObject = createMergedObject;
-function setNestedProperty(key, item, value) {
-    var obj = item;
-    var splitKey = key.split(".");
-    for (var i = 0; i < splitKey.length - 1; i++) {
-        obj = obj[splitKey[i]];
-    }
-    obj[splitKey[splitKey.length - 1]] = value;
-}
-exports.setNestedProperty = setNestedProperty;
 function roughSizeOfObject(object) {
     var objectList = [];
     var stack = [object];
@@ -143,6 +147,23 @@ function roughSizeOfObject(object) {
     return bytes;
 }
 exports.roughSizeOfObject = roughSizeOfObject;
+function deepFreeze(o) {
+    Object.freeze(o);
+    var oIsFunction = typeof o === "function";
+    var hasOwnProp = Object.prototype.hasOwnProperty;
+    var item = null;
+    Object.getOwnPropertyNames(o).forEach(function (prop) {
+        item = o[prop];
+        if (hasOwnProp.call(o, prop) &&
+            (oIsFunction ? prop !== "caller" && prop !== "callee" && prop !== "arguments" : true) &&
+            item !== null && (typeof item === "object" || typeof item === "function")
+            && !Object.isFrozen(item)) {
+            deepFreeze(item);
+        }
+    });
+    return o;
+}
+exports.deepFreeze = deepFreeze;
 function size(object) {
     var result = 0;
     for (var i in object) {
@@ -162,6 +183,14 @@ function isPlain(object) {
     return true;
 }
 exports.isPlain = isPlain;
+function toBoolean(value) {
+    return value !== null && "" + value !== "false";
+}
+exports.toBoolean = toBoolean;
+function isNotInstance(value) {
+    return toBoolean(value) && value.constructor.name === "Object";
+}
+exports.isNotInstance = isNotInstance;
 function makeFlat(list, propertyPath, separator, skipUndefined) {
     if (separator === void 0) { separator = "."; }
     if (skipUndefined === void 0) { skipUndefined = false; }

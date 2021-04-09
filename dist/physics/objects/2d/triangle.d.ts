@@ -1,10 +1,10 @@
 import { SimpleVector2 } from "gtools/math";
-import { MinMax } from "gtools/types";
-import { MassAble } from "./object-2d";
+import { MinMax2D } from "gtools/types";
+import { MassAble2D } from "./object2-d";
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
  */
-export declare class Triangle implements MassAble {
+export declare class Triangle implements MassAble2D {
     private readonly pointA;
     private readonly pointB;
     private readonly pointC;
@@ -16,6 +16,6 @@ export declare class Triangle implements MassAble {
      * http://www.gamedev.net/topic/342822-moment-of-inertia-of-a-polygon-2d/
      */
     get momentOfInertia(): number;
-    toMinMax(): MinMax;
+    toMinMax(): MinMax2D;
 }
 //# sourceMappingURL=triangle.d.ts.map

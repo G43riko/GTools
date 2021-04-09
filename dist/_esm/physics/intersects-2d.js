@@ -1,4 +1,4 @@
-export function lineLine2dIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+export function intersection2dLineLine(x1, y1, x2, y2, x3, y3, x4, y4) {
     const denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
     if (denom === 0) {
         return null;

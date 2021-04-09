@@ -1,6 +1,6 @@
-import { MinMax, PosSize } from "gtools/types";
+import { MinMax2D, PosSize2d } from "gtools/types";
 
-export function convertMinMaxToPosSize({min, max}: MinMax): PosSize {
+export function convertMinMaxToPosSize({min, max}: MinMax2D): PosSize2d {
     return {
         position: {
             x: min.x,
@@ -12,7 +12,7 @@ export function convertMinMaxToPosSize({min, max}: MinMax): PosSize {
         },
     };
 }
-export function convertPosSizeToMinMax({position, size}: PosSize): MinMax {
+export function convertPosSizeToMinMax({position, size}: PosSize2d): MinMax2D {
     return {
         min: {
             x: position.x,
