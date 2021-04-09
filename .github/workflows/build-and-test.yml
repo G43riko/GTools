@@ -2,7 +2,7 @@ name: Buld and test
 
 on:
   push:
-    branches: [ master, development ]
+    branches: [ master22, development22 ]
 
 jobs:
   build:
