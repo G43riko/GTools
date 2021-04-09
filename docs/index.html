@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>gtools</title>
+	<meta name="description" content="Documentation for gtools">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">gtools</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>gtools</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://github.com/G43riko/GTools/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license"></a>
+					<img src="https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square" alt="REPO SIZE">
+					<img src="https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square" alt="CODE SIZE">
+					<a href="https://travis-ci.org/G43riko/GTools"><img src="https://api.travis-ci.org/G43riko/GTools.svg?branch=master" alt="Build Status"></a>
+					<a href="https://coveralls.io/github/G43riko/GTools?branch=master"><img src="https://coveralls.io/repos/github/G43riko/GTools/badge.svg?branch=master" alt="Coverage Status"></a>
+					<a href="https://codeclimate.com/github/G43riko/GTools/test_coverage"><img src="https://api.codeclimate.com/v1/badges/bbb0af52dcd730cdc422/test_coverage" alt="Test Coverage"></a>
+					<a href="https://codeclimate.com/github/G43riko/GTools"><img src="https://codeclimate.com/github/G43riko/GTools.svg" alt="Code Climate"></a>
+					<a href="https://badge.fury.io/gh/G43riko%2FGTools"><img src="https://badge.fury.io/gh/G43riko%2FGTools.svg" alt="GitHub version"></a>
+					<a href="https://badge.fury.io/js/gtools"><img src="https://badge.fury.io/js/gtools.svg" alt="npm version"></a>
+					<a href="https://david-dm.org/G43riko/GTools"><img src="https://david-dm.org/G43riko/GTools.svg" alt="Dependency Status"></a>
+					<a href="https://david-dm.org/G43riko/GTools?type=dev"><img src="https://david-dm.org/G43riko/GTools/dev-status.svg" alt="devDependencies Status"></a>
+				<a href="http://hits.dwyl.io/G43riko/GToools"><img src="http://hits.dwyl.io/G43riko/GToools.svg" alt="HitCount"></a></p>
+				<a href="#gtools" id="gtools" style="color: inherit; text-decoration: none;">
+					<h1>GTools</h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/gtools"><img src="https://nodei.co/npm/gtools.png" alt="NPM"></a></p>
+				<p><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/G43riko/GTools/master/doc/index.html">Documentation</a></p>
+				<a href="#contents" id="contents" style="color: inherit; text-decoration: none;">
+					<h2>Contents</h2>
+				</a>
+				<ul>
+					<li><a href="#installation">Installation</a><ul>
+							<li><a href="#nodejs">NodeJS</a></li>
+							<li><a href="#browser">Browser</a></li>
+						</ul>
+					</li>
+					<li><a href="#list-of-methods">List of methods</a></li>
+					<li><a href="#structure-of-src-directory">Structure of src directory</a></li>
+					<li><a href="#release-steps">Release steps</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+					<h3>NodeJS</h3>
+				</a>
+				<p>run <code>npm install gtools</code></p>
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">ArrayUtils</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;gtools&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">min</span><span style="color: #000000"> = </span><span style="color: #001080">ArrayUtils</span><span style="color: #000000">.</span><span style="color: #795E26">min</span><span style="color: #000000">([</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">]);</span>
+
+</code></pre>
+				<a href="#browser" id="browser" style="color: inherit; text-decoration: none;">
+					<h3>Browser</h3>
+				</a>
+				<pre><code class="language-html"><span style="color: #800000">&lt;!DOCTYPE</span><span style="color: #000000"> </span><span style="color: #FF0000">html</span><span style="color: #800000">&gt;</span>
+<span style="color: #800000">&lt;html&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;head&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;title&gt;</span><span style="color: #000000">Test</span><span style="color: #800000">&lt;/title&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;gtools.web.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/head&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;body&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000FF">        </span>
+<span style="color: #000000FF">        </span><span style="color: #0000FF">const</span><span style="color: #000000FF"> </span><span style="color: #0070C1">min</span><span style="color: #000000FF"> </span><span style="color: #000000">=</span><span style="color: #000000FF"> </span><span style="color: #0070C1">G</span><span style="color: #000000FF">.</span><span style="color: #001080">array</span><span style="color: #000000FF">.</span><span style="color: #795E26">min</span><span style="color: #000000FF">([</span><span style="color: #098658">1</span><span style="color: #000000FF">, </span><span style="color: #098658">2</span><span style="color: #000000FF">, </span><span style="color: #098658">3</span><span style="color: #000000FF">]);</span>
+<span style="color: #000000FF">        </span><span style="color: #800000">&lt;/script&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/body&gt;</span>
+<span style="color: #800000">&lt;/html&gt;</span>
+</code></pre>
+				<a href="#list-of-methods" id="list-of-methods" style="color: inherit; text-decoration: none;">
+					<h2>List of methods</h2>
+				</a>
+				<p><strong>TODO</strong>
+					##Implements
+					<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/QuadIterator.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/QuadIterator.java</a>
+					<a href="https://github.com/G43riko/JavaUtils/tree/master/GLib2/src/main/java/org/utils/noises">https://github.com/G43riko/JavaUtils/tree/master/GLib2/src/main/java/org/utils/noises</a>
+					<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/test/java/org/glib2/math/Bresenhams3D.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/test/java/org/glib2/math/Bresenhams3D.java</a>
+				<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/GeometryUtils.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/GeometryUtils.java</a></p>
+				<a href="#structure-of-src-directory" id="structure-of-src-directory" style="color: inherit; text-decoration: none;">
+					<h2>Structure of src directory</h2>
+				</a>
+				<ul>
+					<li><a href="src/index.html">index</a></li>
+					<li><a href="src/MockData.ts">MockData</a></li>
+					<li><em><a href="src/components">components</a></em><ul>
+							<li><a href="src/components/file-manager.ts">FileManager</a></li>
+							<li><a href="src/components/paginator.ts">paginator</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/dom">dom</a></em><ul>
+							<li><a href="src/dom/canvas-manager.ts">CanvasManager</a></li>
+							<li><a href="src/dom/canvas-utils.ts">CanvasUtils</a></li>
+							<li><a href="src/dom/deprecated/Checkers.ts">Checkers</a></li>
+							<li><a href="src/dom/element-builder.ts">ElementBuilder</a></li>
+							<li><a href="src/dom/dom-get.ts">DomGet</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/enums">enums</a></em><ul>
+							<li><a href="src/enums/enodings.enum.ts">encodings</a></li>
+							<li><a href="src/enums/file-types.enum.ts">file-types</a></li>
+							<li><a href="src/enums/http-status-codes.enum.ts">http-status-codes</a></li>
+							<li><a href="src/enums/keys.enum.ts">keys</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/errors">errors</a></em><ul>
+							<li><a href="src/components/logger/g-logger.ts">GLogger</a></li>
+							<li><a href="src/errors/not-browser.exception.ts">NotBrowserException</a></li>
+							<li><a href="src/errors/null-pointer.exception.ts">NullPointerException</a></li>
+							<li><a href="src/errors/wrong-parameter.exception.ts">WrongParameterException</a></li>
+							<li><a href="src/errors/wrong-type.exception.ts">WrongTypeException</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/math">math</a></em><ul>
+							<li><a href="src/math/vector2f.ts">Vector2f</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/models">models</a></em><ul>
+							<li><a href="src/models/gender.ts">gender</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/utils">utils</a></em><ul>
+							<li><a href="src/utils/deprecated/ArrayUtils.ts">ArrayUtils</a></li>
+							<li><a href="src/utils/DomUtils.ts">DomUtils</a></li>
+							<li><a href="src/utils/FileUtils.ts">FileUtils</a></li>
+							<li><a href="src/utils/deprecated/MathUtils.ts">MathUtils</a></li>
+							<li><a href="src/utils/deprecated/MiscUtils.ts">MiscUtils</a></li>
+							<li><a href="src/utils/deprecated/ObjectUtils.ts">ObjectUtils</a></li>
+							<li><a href="src/utils/deprecated/ProcessUtils.ts">ProcessUtils</a></li>
+							<li><a href="src/utils/Runtime.ts">Runtime</a></li>
+							<li><a href="src/utils/deprecated/StringCheckers.ts">StringCheckers</a></li>
+							<li><a href="src/utils/deprecated/StringUtils.ts">StringUtils</a></li>
+							<li><a href="src/utils/time-utils.ts">TimeUtils</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#release-steps" id="release-steps" style="color: inherit; text-decoration: none;">
+					<h2>Release steps</h2>
+				</a>
+				<ol>
+					<li>change version in <code>package.json</code></li>
+					<li>run all tests with <code>npm test</code></li>
+					<li>run <code>npm run release</code></li>
+					<li>run <code>npm publish</code></li>
+					<li>commit and push data to <a href="https://github.com/G43riko/GTools">github</a></li>
+					<li>wait for the build to complete on <a href="https://travis-ci.org/G43riko/GTools">travis</a> and check for success</li>
+					<li>create new release on <a href="https://github.com/G43riko/GTools/releases">github</a></li>
+				</ol>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

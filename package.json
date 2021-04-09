@@ -40,7 +40,7 @@
         "release:major": "npm version major && npm publish",
         "release:minor": "npm version minor && npm publish",
         "release:patch": "npm version patch && npm publish",
-        "doc": "typedoc --out docs",
+        "doc": "typedoc dist --out docs",
         "pack_old": "npm run tsc && webpack",
         "copy": "node copy-package.js",
         "clean": "rimraf out doc dist docs coverage bin .nyc_output _bundles lib lib-esm",
