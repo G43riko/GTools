@@ -1,1 +1,0 @@
-{"version":3,"file":"list.d.ts","sourceRoot":"","sources":["../../../../src/models/data-structures/list/list.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,mBAAmB,CAAC;AAElD,MAAM,WAAW,IAAI,CAAC,CAAC,CAAE,SAAQ,QAAQ,CAAC,CAAC,CAAC,EAAE,aAAa,CAAC,CAAC,CAAC;IAC1D,QAAQ,CAAC,KAAK,EAAE,OAAO,CAAC;IAExB,OAAO,IAAI,CAAC,EAAE,CAAC;CAClB"}

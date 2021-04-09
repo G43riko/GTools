@@ -74,7 +74,7 @@ describe("Grid2", () => {
             sorts.forEach((holder) => {
                 const start = Date.now();
 
-                holder.forEach(() => null);
+                // holder.forEach(() => null);
 
                 const diff = Date.now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");

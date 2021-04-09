@@ -1,1 +1,0 @@
-{"version":3,"file":"transform.d.ts","sourceRoot":"","sources":["../../src/models/transform.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,aAAa,CAAC;AAE5C,MAAM,WAAW,SAAS;IACtB,QAAQ,CAAC,MAAM,EAAE,QAAQ,CAAC,aAAa,CAAC,CAAC;IACzC,QAAQ,CAAC,KAAK,EAAE,MAAM,CAAC;IACvB,QAAQ,CAAC,QAAQ,EAAE,MAAM,CAAC;CAC7B;AAED,wBAAgB,mBAAmB,IAAI,SAAS,CAS/C"}

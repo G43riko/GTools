@@ -1,1 +1,0 @@
-{"version":3,"file":"paginate.model.d.ts","sourceRoot":"","sources":["../../src/tests/paginate.model.ts"],"names":[],"mappings":"AAAA,qBAAa,aAAa;IACtB,OAAc,cAAc,SAAM;IAC3B,KAAK,EAAE,MAAM,CAAC;IACd,MAAM,EAAE,MAAM,CAAC;gBAEH,KAAK,SAA+B,EAAE,MAAM,SAAI;WAKrD,QAAQ,CAAC,QAAQ,CAAC,EAAE,aAAa,GAAG,aAAa;CAUlE"}
