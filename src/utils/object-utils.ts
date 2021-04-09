@@ -97,23 +97,27 @@ export function getObjectEntries<T extends Record<string, unknown>>(obj: T): Obj
     return result;
 }
 
-export function getNestedProperty(object: any, propertyPath: string, separator = "."): any {
-    const propertyList = propertyPath.split(separator);
+export function getNestedProperty(object: any, propertyPath: string | string[], separator = "."): any {
+    if (typeof propertyPath === "string") {
+        return getNestedProperty(object, propertyPath.split(separator));
+    }
 
-    return propertyList.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+    return propertyPath.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+}
+
+export function setNestedProperty<T>(item: any, key: string | string[], value: T): void {
+    if (typeof key === "string") {
+        return setNestedProperty(item, key.split("."), value);
+    }
+    let obj = item;
+    for (let i = 0; i < key.length - 1; i++) {
+        obj = obj[key[i]];
+    }
+    obj[key[key.length - 1]] = value;
 }
 
 export function createMergedObject<T>(source: T, ...updates: Partial<T>[]): T {
     return Object.assign({}, source, ...updates);
-}
-
-export function setNestedProperty<T>(key: string, item: any, value: T): void {
-    let obj        = item;
-    const splitKey = key.split(".");
-    for (let i = 0; i < splitKey.length - 1; i++) {
-        obj = obj[splitKey[i]];
-    }
-    obj[splitKey[splitKey.length - 1]] = value;
 }
 
 export function roughSizeOfObject<T>(object: T): number {
@@ -141,6 +145,34 @@ export function roughSizeOfObject<T>(object: T): number {
     return bytes;
 }
 
+/**
+ * Freeze object recursively
+ * @param o - object to be freeze
+ */
+export function deepFreeze<T>(o: T): T {
+    Object.freeze(o);
+
+    const oIsFunction = typeof o === "function";
+    const hasOwnProp  = Object.prototype.hasOwnProperty;
+
+    let item: unknown = null;
+    Object.getOwnPropertyNames(o).forEach((prop: any) => {
+        item = (o as any)[prop];
+        if (hasOwnProp.call(o, prop) &&
+            (oIsFunction ? prop !== "caller" && prop !== "callee" && prop !== "arguments" : true) &&
+            item !== null && (typeof item === "object" || typeof item === "function")
+            && !Object.isFrozen(item)
+        ) {
+            deepFreeze(item);
+        }
+    });
+
+    return o;
+}
+
+/**
+ * @deprecated use {@link Object.keys(object).length}
+ */
 export function size<T extends (Record<string, unknown> | unknown[])>(object: T): number {
     let result = 0;
     for (const i in object) {
@@ -160,6 +192,14 @@ export function isPlain<T extends Record<string, unknown>>(object: T): boolean {
     }
 
     return true;
+}
+
+export function toBoolean<T>(value: T): boolean {
+    return value !== null && `${value}` !== "false";
+}
+
+export function isNotInstance<T extends Record<string, unknown>>(value: T): boolean {
+    return toBoolean(value) && value.constructor.name === "Object";
 }
 
 /**
@@ -202,16 +242,16 @@ export function isPlain<T extends Record<string, unknown>>(object: T): boolean {
  * // ["Gabriel", "Ella", "Joe"]
  * ```
  */
-export function makeFlat(list: any[], propertyPath: string, separator = ".", skipUndefined = false): any {
+export function makeFlat<T>(list: T[], propertyPath: string, separator = ".", skipUndefined = false): T[] {
     const propertyList = propertyPath.indexOf(separator) >= 0 ? propertyPath.split(separator) : [propertyPath];
 
     return list.reduce((acc, curr) => {
-        const value = propertyList.reduce((propVal, propertyName) => propVal ? propVal[propertyName] : undefined, curr);
+        const value = propertyList.reduce((propVal: any, propertyName) => propVal ? propVal[propertyName] : undefined, curr);
         if (typeof value === "undefined" && skipUndefined) {
             return acc;
         }
         acc.push(value);
 
         return acc;
-    }, []);
+    }, [] as T[]);
 }

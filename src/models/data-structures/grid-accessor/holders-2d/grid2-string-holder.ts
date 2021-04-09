@@ -1,20 +1,19 @@
 import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
 import { SimpleVector2 } from "../../../../math";
-import { hash2Numbers } from "../../../../utils/math-utils";
 
-export class Grid2HashHolder<T> implements Grid2Holder<T> {
-    private readonly data: { [key: number]: { value: T, x: number, y: number } } = {};
+export class Grid2StringHolder<T> implements Grid2Holder<T> {
+    private readonly data: { [key: string]: { value: T, x: number, y: number } } = {};
 
     public get length(): number {
         return Object.keys(this.data).length;
     }
 
-    public get(x: number, y: number): T | undefined{
-        return this.data[hash2Numbers(x, y)]?.value;
+    public get(x: number, y: number): T | undefined {
+        return this.data[`${x}_${y}`].value;
     }
 
     public set(x: number, y: number, value: T): void {
-        this.data[hash2Numbers(x, y)] = {x, y, value};
+        this.data[`${x}_${y}`] = {x, y, value};
     }
 
     public forEach(callback: (value: T, x: number, y: number) => void): void {
@@ -26,7 +25,7 @@ export class Grid2HashHolder<T> implements Grid2Holder<T> {
     }
 
     public delete(x: number, y: number): void {
-        delete this.data[hash2Numbers(x, y)];
+        delete this.data[`${x}_${y}`];
     }
 
     public getAroundData(x: number, y: number, size?: number): Grid2Block<T>[] {

@@ -1,4 +1,4 @@
-import { SimpleVector3 } from "./simple-vector3";
+import { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3";
 import { Vector2 } from "./vector2";
 
 export class Vector3 implements SimpleVector3 {
@@ -23,11 +23,15 @@ export class Vector3 implements SimpleVector3 {
         return (this.x + this.y + this.z) / 3;
     }
 
+    public static lengthOf(vector: ReadonlySimpleVector3): number {
+        return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
+    }
+
     public get length(): number {
         return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
-    public static equals(vecA: SimpleVector3, vecB: SimpleVector3): boolean {
+    public static equals(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): boolean {
         if (vecA === vecB) {
             return true;
         }
@@ -35,18 +39,18 @@ export class Vector3 implements SimpleVector3 {
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z;
     }
 
-    public static sub(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
+    public static sub(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): Vector3 {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     }
 
     /**
      * @deprecated use {@link sum} instead
      */
-    public static add(vecA: SimpleVector3, vecB: SimpleVector3): Vector3 {
+    public static add(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): Vector3 {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     }
 
-    public static sum<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static sum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
         result.x = vecA.x + vecB.x;
         result.y = vecA.y + vecB.y;
         result.z = vecA.z + vecB.z;
@@ -54,7 +58,7 @@ export class Vector3 implements SimpleVector3 {
         return result as T;
     }
 
-    public static sumNum<T extends SimpleVector3>(vecA: SimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+    public static sumNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
         result.x = vecA.x + val;
         result.y = vecA.y + val;
         result.z = vecA.z + val;
@@ -62,11 +66,11 @@ export class Vector3 implements SimpleVector3 {
         return result as T;
     }
 
-    public static dot(vecA: SimpleVector3, vecB: SimpleVector3): number {
+    public static dot(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
         return vecA.x * vecB.x + vecA.y * vecB.y + vecA.z * vecB.z;
     }
 
-    public static mul<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static mul<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
         result.x = vecA.x * vecB.x;
         result.y = vecA.y * vecB.y;
         result.z = vecA.z * vecB.z;
@@ -74,7 +78,7 @@ export class Vector3 implements SimpleVector3 {
         return result as T;
     }
 
-    public static mulNum<T extends SimpleVector3>(vecA: SimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+    public static mulNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
         result.x = vecA.x * val;
         result.y = vecA.y * val;
         result.z = vecA.z * val;
@@ -82,7 +86,7 @@ export class Vector3 implements SimpleVector3 {
         return result as T;
     }
 
-    public static min<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static min<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
         result.x = Math.min(vecA.x, vecB.x);
         result.y = Math.min(vecA.y, vecB.y);
         result.z = Math.min(vecA.z, vecB.z);
@@ -90,7 +94,7 @@ export class Vector3 implements SimpleVector3 {
         return result as T;
     }
 
-    public static max<T extends SimpleVector3>(vecA: SimpleVector3, vecB: SimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static max<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
         result.x = Math.max(vecA.x, vecB.x);
         result.y = Math.max(vecA.y, vecB.y);
         result.z = Math.max(vecA.z, vecB.z);
@@ -108,11 +112,11 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(x, y, z);
     }
 
-    public static distSqrt(vecA: SimpleVector3, vecB: SimpleVector3): number {
+    public static distSqrt(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
         return Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2) + Math.pow(vecA.z - vecB.z, 2);
     }
 
-    public static dist(vecA: SimpleVector3, vecB: SimpleVector3): number {
+    public static dist(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
         return Math.sqrt(Vector3.distSqrt(vecA, vecB));
     }
 
@@ -125,15 +129,11 @@ export class Vector3 implements SimpleVector3 {
         return vec;
     }
 
-    public get xy(): Vector2 {
-        return new Vector2(this.x, this.y);
-    }
-
     public static from(valA: number, valB = valA, valC = valA): Vector3 {
         return new Vector3(valA, valB, valC);
     }
 
-    public static fromVec(vec: SimpleVector3): Vector3 {
+    public static fromVec(vec: ReadonlySimpleVector3): Vector3 {
         return new Vector3(vec.x, vec.y, vec.z);
     }
 
@@ -170,7 +170,7 @@ export class Vector3 implements SimpleVector3 {
         return this;
     }
 
-    public mul(value: SimpleVector3 | number): this {
+    public mul(value: ReadonlySimpleVector3 | number): this {
         if (typeof value === "number") {
             this.x *= value;
             this.y *= value;
@@ -184,7 +184,7 @@ export class Vector3 implements SimpleVector3 {
         return this;
     }
 
-    public add(vec: SimpleVector3): this {
+    public add(vec: ReadonlySimpleVector3): this {
         this.x += vec.x;
         this.y += vec.y;
         this.z += vec.z;
@@ -192,7 +192,7 @@ export class Vector3 implements SimpleVector3 {
         return this;
     }
 
-    public cross(v: SimpleVector3): Vector3 {
+    public cross(v: ReadonlySimpleVector3): Vector3 {
         const localX = this.y * v.z - this.z * v.y;
         const localY = this.z * v.x - this.x * v.z;
         const localZ = this.x * v.y - this.y * v.x;
@@ -200,11 +200,11 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(localX, localY, localZ);
     }
 
-    public dot(v: SimpleVector3): number {
+    public dot(v: ReadonlySimpleVector3): number {
         return this.x * v.x + this.y * v.y + this.z * v.z;
     }
 
-    public sub(vec: SimpleVector3): this {
+    public sub(vec: ReadonlySimpleVector3): this {
         this.x -= vec.x;
         this.y -= vec.y;
         this.z -= vec.z;
@@ -220,12 +220,16 @@ export class Vector3 implements SimpleVector3 {
         return this;
     }
 
-    public set(vec: SimpleVector3): this {
+    public set(vec: ReadonlySimpleVector3): this {
         this.x = vec.x;
         this.y = vec.y;
         this.z = vec.z;
 
         return this;
+    }
+
+    public get xy(): Vector2 {
+        return new Vector2(this.x, this.y);
     }
 
     public get yx(): Vector2 {

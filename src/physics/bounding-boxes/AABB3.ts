@@ -1,8 +1,8 @@
-import { MinMax } from "gtools/types";
+import { MinMax2D } from "gtools/types";
 import { SimpleVector3, Vector2 } from "../../math";
-import { RayCast, RaycastResult } from "../objects/2d/ray";
+import { RayCast, RaycastResult } from "../objects/2d/ray-2d";
 
-export class AABB {
+export class AABB3 {
     public constructor(protected readonly min: SimpleVector3, protected readonly max: SimpleVector3) {
     }
 
@@ -96,7 +96,7 @@ export class AABB {
         this.max.z = Math.max(this.max.z, point.z);
     }
 
-    public expandBtAABB(other: AABB): void {
+    public expandBtAABB(other: AABB3): void {
         this.min.x = Math.min(this.min.x, other.min.x);
         this.min.y = Math.min(this.min.y, other.min.y);
         this.min.z = Math.min(this.min.z, other.min.z);
@@ -146,15 +146,15 @@ export class AABB {
         this.max.z += vec.z;
     }
 
-    public getMinMax(): MinMax {
+    public getMinMax(): MinMax2D {
         return {
             min: this.min,
             max: this.max,
         };
     }
 
-    public static fromPosAndSize(pos: SimpleVector3, size: SimpleVector3): AABB {
-        return new AABB(
+    public static fromPosAndSize(pos: SimpleVector3, size: SimpleVector3): AABB3 {
+        return new AABB3(
             {
                 x: pos.x,
                 y: pos.y,
@@ -176,14 +176,14 @@ export class AABB {
         };
     }
 
-    public static fromCenterAndSize(center: SimpleVector3, size: SimpleVector3): AABB {
+    public static fromCenterAndSize(center: SimpleVector3, size: SimpleVector3): AABB3 {
         const halfSize = {
             x: size.x / 2,
             y: size.y / 2,
             z: size.z / 2,
         };
 
-        return new AABB(
+        return new AABB3(
             {
                 x: center.x + halfSize.x,
                 y: center.y + halfSize.y,

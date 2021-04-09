@@ -436,7 +436,7 @@
         "signature": "dadb979f4147b3330f7cf448699464d94eeb3b7528b515246c93e4dd347d3a7f",
         "affectsGlobalScope": false
       },
-      "./src/types/min-max.interface.ts": {
+      "./src/types/min-max-2d.interface.ts": {
         "version": "2fa130c6f611bee66110456d3b51b33c6bb281d6b580da1e9cdf8b50540f1761",
         "signature": "2fa130c6f611bee66110456d3b51b33c6bb281d6b580da1e9cdf8b50540f1761",
         "affectsGlobalScope": false
@@ -1510,7 +1510,7 @@
       "./src/types/index.ts": [
         "./src/types/horizontal-align.type.ts",
         "./src/types/key-value.interface.ts",
-        "./src/types/min-max.interface.ts",
+        "./src/types/min-max-2d.interface.ts",
         "./src/types/nested-string-map.interface.ts",
         "./src/types/object-entry.interface.ts",
         "./src/types/optional.type.ts",
@@ -2033,7 +2033,7 @@
       "./src/types/index.ts": [
         "./src/types/horizontal-align.type.ts",
         "./src/types/key-value.interface.ts",
-        "./src/types/min-max.interface.ts",
+        "./src/types/min-max-2d.interface.ts",
         "./src/types/nested-string-map.interface.ts",
         "./src/types/object-entry.interface.ts",
         "./src/types/optional.type.ts",
@@ -2305,7 +2305,7 @@
       "./src/types/horizontal-align.type.ts",
       "./src/types/index.ts",
       "./src/types/key-value.interface.ts",
-      "./src/types/min-max.interface.ts",
+      "./src/types/min-max-2d.interface.ts",
       "./src/types/nested-string-map.interface.ts",
       "./src/types/object-entry.interface.ts",
       "./src/types/optional.type.ts",
@@ -2923,7 +2923,7 @@
         1
       ],
       [
-        "./src/types/min-max.interface.ts",
+        "./src/types/min-max-2d.interface.ts",
         1
       ],
       [

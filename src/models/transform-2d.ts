@@ -1,12 +1,12 @@
 import { SimpleVector2 } from "gtools/math";
 
-export interface Transform {
+export interface Transform2D {
     readonly offset: Readonly<SimpleVector2>;
     readonly scale: number;
     readonly rotation: number;
 }
 
-export function getDefaultTransform(): Transform {
+export function getDefaultTransform2D(): Transform2D {
     return {
         offset  : {
             x: 0,

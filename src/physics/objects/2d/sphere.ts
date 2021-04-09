@@ -1,13 +1,13 @@
 import { SimpleVector2, Vector2 } from "../../../math";
-import { MinMax, PosSize } from "gtools/types";
+import { MinMax2D, PosSize2d } from "gtools/types";
 import { convertPosSizeToMinMax } from "../object-convertors";
-import { MassAble } from "./object-2d";
-import { RayCast, RaycastResult } from "./ray";
+import { MassAble2D } from "./object2-d";
+import { RayCast, RaycastResult } from "./ray-2d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Circle.js
  */
-export class Sphere implements MassAble {
+export class Sphere implements MassAble2D {
     public constructor(
         public readonly radius: number,
         public readonly center: SimpleVector2,
@@ -32,7 +32,7 @@ export class Sphere implements MassAble {
         return Math.PI * this.radius * this.radius;
     }
 
-    public static fromMinMax({min, max}: MinMax, chooseSize: "min" | "max" = "max"): Sphere {
+    public static fromMinMax({min, max}: MinMax2D, chooseSize: "min" | "max" = "max"): Sphere {
         const center = {
             x: (min.x + max.x) / 2,
             y: (min.y + max.y) / 2,
@@ -46,11 +46,11 @@ export class Sphere implements MassAble {
         return new Sphere(radius, center);
     }
 
-    public static fromPosSize(posSize: PosSize, chooseSize: "min" | "max" = "max"): Sphere {
+    public static fromPosSize(posSize: PosSize2d, chooseSize: "min" | "max" = "max"): Sphere {
         return Sphere.fromMinMax(convertPosSizeToMinMax(posSize), chooseSize);
     }
 
-    public toMinMax(): MinMax {
+    public toMinMax(): MinMax2D {
         return {
             min: Vector2.addNum(this.center, -this.radius),
             max: Vector2.addNum(this.center, this.radius),

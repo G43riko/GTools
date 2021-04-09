@@ -1,11 +1,11 @@
 import { SimpleVector2, Vector2 } from "gtools/math";
-import { MinMax } from "gtools/types";
-import { MassAble } from "./object-2d";
+import { MinMax2D } from "gtools/types";
+import { MassAble2D } from "./object2-d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
  */
-export class Capsule implements MassAble {
+export class Capsule implements MassAble2D {
     public constructor(
         private readonly start: SimpleVector2,
         private readonly end: SimpleVector2,
@@ -25,7 +25,7 @@ export class Capsule implements MassAble {
         return 2 * Math.PI * this.radius + 2 * Vector2.dist(this.start, this.end);
     }
 
-    public toMinMax(): MinMax {
+    public toMinMax(): MinMax2D {
         throw new Error("Not implemented");
     }
 

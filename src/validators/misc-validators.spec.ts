@@ -46,7 +46,7 @@ describe("Checkers", () => {
         expect(Checkers.isBoolean("")).to.be.false;
     });
     it("It check if parameter is object", () => {
-        expect(Checkers.isObject(() => undefined)).to.be.false;
+        expect(Checkers.isObject(() => undefined)).to.be.true;
         expect(Checkers.isObject(false)).to.be.false;
         expect(Checkers.isObject(12)).to.be.false;
         expect(Checkers.isObject(1.2)).to.be.false;
@@ -55,7 +55,7 @@ describe("Checkers", () => {
         expect(Checkers.isObject({a: "aa"})).to.be.true;
         expect(Checkers.isObject([1, "a"])).to.be.true;
         expect(Checkers.isObject(undefined)).to.be.false;
-        expect(Checkers.isObject(null)).to.be.true;
+        expect(Checkers.isObject(null)).to.be.false;
         expect(Checkers.isObject("test")).to.be.false;
         expect(Checkers.isObject("")).to.be.false;
     });
@@ -102,7 +102,7 @@ describe("Checkers", () => {
         expect(Checkers.isInt("")).to.be.false;
     });
     it("It check if parameter is empty", () => {
-        expect(Checkers.isEmpty(() => undefined)).to.be.false;
+        expect(Checkers.isEmpty(() => undefined)).to.be.true;
         expect(Checkers.isEmpty(false)).to.be.false;
         expect(Checkers.isEmpty(12)).to.be.false;
         expect(Checkers.isEmpty(1.2)).to.be.false;

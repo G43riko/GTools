@@ -31,7 +31,7 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
     public set(x: number, y: number, value: T): void {
         const row = getOrSetProperty(this.data, x, {});
 
-        if (!row[y]) {
+        if (typeof row[y] === "undefined") {
             this._length++;
         }
 
@@ -46,7 +46,7 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
         throw new Error("Not implemented");
     }
 
-    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | null {
+    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         throw new Error("Not implemented");
     }
 }

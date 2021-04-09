@@ -1,10 +1,11 @@
 import { SimpleVector2, Vector3 } from "../math";
 import { getClosestPointOnLine } from "./closest-3d";
-import { pointPoint2dDistance } from "./distances-2d";
+import { circleRect2dCollision } from "./collisions-2d";
+import { distance2dPointPoint } from "./distances-2d";
 import { pointLine3dDistance, pointPoint3dDistance } from "./distances-3d";
-import { vectorSquare3dIntersect } from "./intersects-3d";
+import { intersection3dVectorSquare } from "./intersects-3d";
 
-export function sphereSphere(
+export function collision3dSphereSphere(
     ax: number,
     ay: number,
     az: number,
@@ -19,7 +20,7 @@ export function sphereSphere(
     return dist <= aRadius + bRadius;
 }
 
-export function pointSphere(
+export function collision3dPointSphere(
     ax: number,
     ay: number,
     az: number,
@@ -33,7 +34,7 @@ export function pointSphere(
     return dist <= bRadius;
 }
 
-export function lineSphere(
+export function collision3dLineSphere(
     ax: number,
     ay: number,
     az: number,
@@ -56,7 +57,7 @@ export enum IntersectionType {
 }
 
 // tslint:disable-next-line:cyclomatic-complexity
-export function lineBox2(
+export function collision3dLineBox2(
     p0X: number,
     p0Y: number,
     p0Z: number,
@@ -136,7 +137,7 @@ export function lineBox2(
     return type;
 }
 
-export function BoxBoxMinMax(
+export function collision3dBoxBoxMinMax(
     ax: number,
     ay: number,
     az: number,
@@ -155,7 +156,26 @@ export function BoxBoxMinMax(
         && az + aDepth > minZ && az < maxZ;
 }
 
-export function pointBox(
+export function collision3dMinMaxMinMax(
+    minAX: number,
+    minAY: number,
+    minAZ: number,
+    maxAX: number,
+    maxAY: number,
+    maxAZ: number,
+    minBX: number,
+    minBY: number,
+    minBZ: number,
+    maxBX: number,
+    maxBY: number,
+    maxBZ: number,
+): boolean {
+    return maxAX > minBX && minAX < maxBX
+        && maxAY > minBY && minAY < maxBY
+        && maxAZ > minBZ && minAZ < maxBZ;
+}
+
+export function collision3dPointBox(
     bx: number,
     by: number,
     bz: number,
@@ -171,7 +191,7 @@ export function pointBox(
         && az < bz && az + aDepth > bz;
 }
 
-export function pointBoxMinMax(
+export function collision3dPointBoxMinMax(
     bPosX: number,
     bPosY: number,
     bPosZ: number,
@@ -187,7 +207,7 @@ export function pointBoxMinMax(
         && bPosZ >= minZ && bPosZ <= maxZ;
 }
 
-export function lineBox(
+export function collision3dLineBox(
     a1x: number,
     a1y: number,
     a1z: number,
@@ -201,39 +221,39 @@ export function lineBox(
     bSizeY: number,
     bSizeZ: number,
 ): boolean {
-    return vectorSquare3dIntersect(a1x, a1y, a1z,
+    return intersection3dVectorSquare(a1x, a1y, a1z,
         a2x, a2y, a2z,
         bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ,
         bPosX - bSizeX, bPosY - bSizeY, bPosZ - bSizeZ,
         bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquare3dIntersect(a1x, a1y, a1z,
+        intersection3dVectorSquare(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ) ||
-        vectorSquare3dIntersect(a1x, a1y, a1z,
+        intersection3dVectorSquare(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquare3dIntersect(a1x, a1y, a1z,
+        intersection3dVectorSquare(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquare3dIntersect(a1x, a1y, a1z,
+        intersection3dVectorSquare(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        vectorSquare3dIntersect(a1x, a1y, a1z,
+        intersection3dVectorSquare(a1x, a1y, a1z,
             a2x, a2y, a2z,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
             bPosX + bSizeX, bPosY - bSizeY, bPosZ - bSizeZ);
 }
 
-export function lineSphere2(
+export function collision3dLineSphere2(
     p0X: number,
     p0Y: number,
     p0Z: number,
@@ -272,7 +292,7 @@ export function lineSphere2(
     return dist <= radiusSquared;
 }
 
-export function boxBox(
+export function collision3dBoxBox(
     ax: number,
     ay: number,
     az: number,
@@ -291,7 +311,7 @@ export function boxBox(
         az + ad > bz && bz + bd > az;
 }
 
-export function pointEllipsoid(
+export function collision3dPointEllipsoid(
     ax: number,
     ay: number,
     az: number,
@@ -313,7 +333,7 @@ export function pointEllipsoid(
     return xa + yb + zc <= 1;
 }
 
-export function lineEllipsoid(
+export function collision3dLineEllipsoid(
     aStartX: number,
     aStartY: number,
     aStartZ: number,
@@ -339,10 +359,10 @@ export function lineEllipsoid(
         bPosZ,
     );
 
-    return pointEllipsoid(point.x, point.y, point.z, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ);
+    return collision3dPointEllipsoid(point.x, point.y, point.z, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ);
 }
 
-export function pointCylinder(
+export function collision3dPointCylinder(
     ax: number,
     ay: number,
     az: number,
@@ -353,12 +373,40 @@ export function pointCylinder(
     bHeight: number,
 ): boolean {
     const conditionOne = ay > by && ay < by + bHeight;
-    const conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < bRadius;
+    const conditionTwo = distance2dPointPoint(ax, az, bx, bz) < bRadius;
 
     return conditionOne && conditionTwo;
 }
 
-export function sphereCylinder(
+export function collision3dBoxCylinder(
+    ax: number,
+    ay: number,
+    az: number,
+    aSizeX: number,
+    aSizeY: number,
+    aSizeZ: number,
+    bx: number,
+    by: number,
+    bz: number,
+    bRadius: number,
+    bHeight: number,
+): boolean {
+    if (ay < by + bHeight || ay + aSizeY > by) {
+        return false;
+    }
+
+    return circleRect2dCollision(
+        bx,
+        bz,
+        bRadius,
+        ax,
+        az,
+        aSizeX,
+        aSizeZ,
+    );
+}
+
+export function collision3dSphereCylinder(
     ax: number,
     ay: number,
     az: number,
@@ -370,12 +418,12 @@ export function sphereCylinder(
     bHeight: number,
 ): boolean {
     const conditionOne = ay + aRadius > by && ay - aRadius < by + bHeight;
-    const conditionTwo = pointPoint2dDistance(ax, az, bx, bz) < aRadius + bRadius;
+    const conditionTwo = distance2dPointPoint(ax, az, bx, bz) < aRadius + bRadius;
 
     return conditionOne && conditionTwo;
 }
 
-export function testSphereBoxMinMax(
+export function collision3dSphereBoxMinMax(
     centerX: number,
     centerY: number,
     centerZ: number,

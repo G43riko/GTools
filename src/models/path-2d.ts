@@ -1,6 +1,6 @@
 import { SimpleVector2 } from "gtools/math";
 
-export class Path<T extends SimpleVector2> {
+export class Path2D<T extends SimpleVector2> {
     public constructor(protected readonly points: readonly T[]) {
         if (points.length < 2) {
             throw new Error("Cannot create path with less than 2 points");

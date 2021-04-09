@@ -1,6 +1,6 @@
 import { SimpleVector2, Vector2 } from "../../../math";
 
-export class Ray {
+export class Ray2D {
     public constructor(
         public readonly origin: SimpleVector2,
         public readonly direction: SimpleVector2,
@@ -12,11 +12,11 @@ export class Ray {
         return Vector2.from(this.direction.x, this.direction.y).mul(this.length).add(this.origin);
     }
 
-    public static fromLine(start: SimpleVector2, end: SimpleVector2): Ray {
+    public static fromLine(start: SimpleVector2, end: SimpleVector2): Ray2D {
         const direction = Vector2.sub(end, start);
         const length    = direction.length;
 
-        return new Ray(start, Vector2.normalize(direction), length);
+        return new Ray2D(start, Vector2.normalize(direction), length);
     }
 
 }
@@ -24,11 +24,11 @@ export class Ray {
 export enum RayMode {
 
     /**
-     * This raycasting mode will make the Ray stop when it finds the first intersection point.
+     * This raycasting mode will make the Ray2D stop when it finds the first intersection point.
      */
     ANY     = "ANY",
     /**
-     * This raycasting mode will make the Ray traverse through all intersection points and only return the closest one.
+     * This raycasting mode will make the Ray2D traverse through all intersection points and only return the closest one.
      */
     CLOSEST = "CLOSEST",
     /**
@@ -108,7 +108,7 @@ export class RayCast {
         return this.ray.direction;
     }
 
-    public constructor(public readonly ray: Ray) {
+    public constructor(public readonly ray: Ray2D) {
     }
 
     public reportIntersection(result: RaycastResult, fraction: number, normal: SimpleVector2, faceIndex: number): void {

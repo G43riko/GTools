@@ -1,4 +1,4 @@
-import { pointPoint2dDistance } from "./distances-2d";
+import { distance2dPointPoint } from "./distances-2d";
 
 export function circleRect2dCollision(
     cPosX: number,
@@ -91,7 +91,7 @@ export function lineLine2dCollision(
 }
 
 /**
- * @returns true if the line from (a,b)->(c,d) lineLine2dIntersect with (p,q)->(r,s)
+ * @returns true if the line from (a,b)->(c,d) intersection2dLineLine with (p,q)->(r,s)
  */
 export function lineLine2dCollision2(
     a: number,
@@ -135,7 +135,7 @@ export function circleCircle2dCollision(
     bY: number,
     bRadius: number,
 ): boolean {
-    return pointPoint2dDistance(aX, aY, bX, bY) <= aRadius + bRadius;
+    return distance2dPointPoint(aX, aY, bX, bY) <= aRadius + bRadius;
 }
 
 export function pointRect2dCollision(
@@ -173,13 +173,13 @@ export function pointCircle2dCollision(
     circleY: number,
     circleRadius: number,
 ): boolean {
-    return pointPoint2dDistance(pointX, pointY, circleX, circleY) <= circleRadius;
+    return distance2dPointPoint(pointX, pointY, circleX, circleY) <= circleRadius;
 }
 
 export function pointPolygon2dCollision2(x: number, y: number, vs: [number, number][]): boolean {
     let inside = false;
-    let i = 0;
-    let j = vs.length - 1;
+    let i      = 0;
+    let j      = vs.length - 1;
     for (; i < vs.length; j = i++) {
         const xi = vs[i][0];
         const yi = vs[i][1];

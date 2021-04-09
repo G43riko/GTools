@@ -21,6 +21,29 @@ describe("ObjectUtils", () => {
         });
     });
     describe("DeepEqual", () => {
+        const items = new Array(10000).fill({});
+
+        const arr = [
+            {
+                name: "default",
+                test: (obj: unknown) => (typeof obj === "object"),
+            },
+            {
+                name: "default",
+                test: (obj: unknown) => (typeof obj === "object"),
+            },
+        ];
+
+        arr.forEach((holder) => {
+            const startTime = Date.now();
+            items.forEach((item) => holder.test(item));
+
+            console.log(holder.name + " takes " + (Date.now() - startTime));
+
+        });
+
+    });
+    describe("DeepEqual", () => {
         const createFlatObject = (): any => ({a: "a", b: 23, c: true});
         const createFlatArray  = (): any => ["a", 23, true];
 
