@@ -112,3 +112,5 @@ https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/G
 5. commit and push data to [github](https://github.com/G43riko/GTools)
 6. wait for the build to complete on [travis](https://travis-ci.org/G43riko/GTools) and check for success
 7. create new release on [github](https://github.com/G43riko/GTools/releases)
+
+_Automatic deployed_
