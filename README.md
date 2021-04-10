@@ -14,7 +14,7 @@
 # GTools
 [![NPM](https://nodei.co/npm/gtools.png)](https://www.npmjs.com/package/gtools)
 
-[Documentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/G43riko/GTools/master/doc/index.html)
+[Documentation](https://g43riko.github.io/GTools/)
 
 ## Contents
 
@@ -112,5 +112,3 @@ https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/G
 5. commit and push data to [github](https://github.com/G43riko/GTools)
 6. wait for the build to complete on [travis](https://travis-ci.org/G43riko/GTools) and check for success
 7. create new release on [github](https://github.com/G43riko/GTools/releases)
-
-_Automatic deployed_
