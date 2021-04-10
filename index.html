@@ -1,0 +1,841 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>gtools</title>
+	<meta name="description" content="Documentation for gtools">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">gtools</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>gtools</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://github.com/G43riko/GTools/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license"></a>
+					<img src="https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square" alt="REPO SIZE">
+					<img src="https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square" alt="CODE SIZE">
+					<a href="https://travis-ci.org/G43riko/GTools"><img src="https://api.travis-ci.org/G43riko/GTools.svg?branch=master" alt="Build Status"></a>
+					<a href="https://coveralls.io/github/G43riko/GTools?branch=master"><img src="https://coveralls.io/repos/github/G43riko/GTools/badge.svg?branch=master" alt="Coverage Status"></a>
+					<a href="https://codeclimate.com/github/G43riko/GTools/test_coverage"><img src="https://api.codeclimate.com/v1/badges/bbb0af52dcd730cdc422/test_coverage" alt="Test Coverage"></a>
+					<a href="https://codeclimate.com/github/G43riko/GTools"><img src="https://codeclimate.com/github/G43riko/GTools.svg" alt="Code Climate"></a>
+					<a href="https://badge.fury.io/gh/G43riko%2FGTools"><img src="https://badge.fury.io/gh/G43riko%2FGTools.svg" alt="GitHub version"></a>
+					<a href="https://badge.fury.io/js/gtools"><img src="https://badge.fury.io/js/gtools.svg" alt="npm version"></a>
+					<a href="https://david-dm.org/G43riko/GTools"><img src="https://david-dm.org/G43riko/GTools.svg" alt="Dependency Status"></a>
+					<a href="https://david-dm.org/G43riko/GTools?type=dev"><img src="https://david-dm.org/G43riko/GTools/dev-status.svg" alt="devDependencies Status"></a>
+				<a href="http://hits.dwyl.io/G43riko/GToools"><img src="http://hits.dwyl.io/G43riko/GToools.svg" alt="HitCount"></a></p>
+				<a href="#gtools" id="gtools" style="color: inherit; text-decoration: none;">
+					<h1>GTools</h1>
+				</a>
+				<p><a href="https://www.npmjs.com/package/gtools"><img src="https://nodei.co/npm/gtools.png" alt="NPM"></a></p>
+				<p><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/G43riko/GTools/master/doc/index.html">Documentation</a></p>
+				<a href="#contents" id="contents" style="color: inherit; text-decoration: none;">
+					<h2>Contents</h2>
+				</a>
+				<ul>
+					<li><a href="#installation">Installation</a><ul>
+							<li><a href="#nodejs">NodeJS</a></li>
+							<li><a href="#browser">Browser</a></li>
+						</ul>
+					</li>
+					<li><a href="#list-of-methods">List of methods</a></li>
+					<li><a href="#structure-of-src-directory">Structure of src directory</a></li>
+					<li><a href="#release-steps">Release steps</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+					<h3>NodeJS</h3>
+				</a>
+				<p>run <code>npm install gtools</code></p>
+				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">ArrayUtils</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;gtools&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">min</span><span style="color: #000000"> = </span><span style="color: #001080">ArrayUtils</span><span style="color: #000000">.</span><span style="color: #795E26">min</span><span style="color: #000000">([</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">]);</span>
+
+</code></pre>
+				<a href="#browser" id="browser" style="color: inherit; text-decoration: none;">
+					<h3>Browser</h3>
+				</a>
+				<pre><code class="language-html"><span style="color: #800000">&lt;!DOCTYPE</span><span style="color: #000000"> </span><span style="color: #FF0000">html</span><span style="color: #800000">&gt;</span>
+<span style="color: #800000">&lt;html&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;head&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;title&gt;</span><span style="color: #000000">Test</span><span style="color: #800000">&lt;/title&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;gtools.web.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/head&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;body&gt;</span>
+<span style="color: #000000">        </span><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">type</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;text/javascript&quot;</span><span style="color: #800000">&gt;</span>
+<span style="color: #000000FF">        </span>
+<span style="color: #000000FF">        </span><span style="color: #0000FF">const</span><span style="color: #000000FF"> </span><span style="color: #0070C1">min</span><span style="color: #000000FF"> </span><span style="color: #000000">=</span><span style="color: #000000FF"> </span><span style="color: #0070C1">G</span><span style="color: #000000FF">.</span><span style="color: #001080">array</span><span style="color: #000000FF">.</span><span style="color: #795E26">min</span><span style="color: #000000FF">([</span><span style="color: #098658">1</span><span style="color: #000000FF">, </span><span style="color: #098658">2</span><span style="color: #000000FF">, </span><span style="color: #098658">3</span><span style="color: #000000FF">]);</span>
+<span style="color: #000000FF">        </span><span style="color: #800000">&lt;/script&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/body&gt;</span>
+<span style="color: #800000">&lt;/html&gt;</span>
+</code></pre>
+				<a href="#list-of-methods" id="list-of-methods" style="color: inherit; text-decoration: none;">
+					<h2>List of methods</h2>
+				</a>
+				<p><strong>TODO</strong>
+					##Implements
+					<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/QuadIterator.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/QuadIterator.java</a>
+					<a href="https://github.com/G43riko/JavaUtils/tree/master/GLib2/src/main/java/org/utils/noises">https://github.com/G43riko/JavaUtils/tree/master/GLib2/src/main/java/org/utils/noises</a>
+					<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/test/java/org/glib2/math/Bresenhams3D.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/test/java/org/glib2/math/Bresenhams3D.java</a>
+				<a href="https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/GeometryUtils.java">https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/GeometryUtils.java</a></p>
+				<a href="#structure-of-src-directory" id="structure-of-src-directory" style="color: inherit; text-decoration: none;">
+					<h2>Structure of src directory</h2>
+				</a>
+				<ul>
+					<li><a href="src/index.html">index</a></li>
+					<li><a href="src/MockData.ts">MockData</a></li>
+					<li><em><a href="src/components">components</a></em><ul>
+							<li><a href="src/components/file-manager.ts">FileManager</a></li>
+							<li><a href="src/components/paginator.ts">paginator</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/dom">dom</a></em><ul>
+							<li><a href="src/dom/canvas-manager.ts">CanvasManager</a></li>
+							<li><a href="src/dom/canvas-utils.ts">CanvasUtils</a></li>
+							<li><a href="src/dom/deprecated/Checkers.ts">Checkers</a></li>
+							<li><a href="src/dom/element-builder.ts">ElementBuilder</a></li>
+							<li><a href="src/dom/dom-get.ts">DomGet</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/enums">enums</a></em><ul>
+							<li><a href="src/enums/enodings.enum.ts">encodings</a></li>
+							<li><a href="src/enums/file-types.enum.ts">file-types</a></li>
+							<li><a href="src/enums/http-status-codes.enum.ts">http-status-codes</a></li>
+							<li><a href="src/enums/keys.enum.ts">keys</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/errors">errors</a></em><ul>
+							<li><a href="src/components/logger/g-logger.ts">GLogger</a></li>
+							<li><a href="src/errors/not-browser.exception.ts">NotBrowserException</a></li>
+							<li><a href="src/errors/null-pointer.exception.ts">NullPointerException</a></li>
+							<li><a href="src/errors/wrong-parameter.exception.ts">WrongParameterException</a></li>
+							<li><a href="src/errors/wrong-type.exception.ts">WrongTypeException</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/math">math</a></em><ul>
+							<li><a href="src/math/vector2f.ts">Vector2f</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/models">models</a></em><ul>
+							<li><a href="src/models/gender.ts">gender</a></li>
+						</ul>
+					</li>
+					<li><em><a href="src/utils">utils</a></em><ul>
+							<li><a href="src/utils/deprecated/ArrayUtils.ts">ArrayUtils</a></li>
+							<li><a href="src/utils/DomUtils.ts">DomUtils</a></li>
+							<li><a href="src/utils/FileUtils.ts">FileUtils</a></li>
+							<li><a href="src/utils/deprecated/MathUtils.ts">MathUtils</a></li>
+							<li><a href="src/utils/deprecated/MiscUtils.ts">MiscUtils</a></li>
+							<li><a href="src/utils/deprecated/ObjectUtils.ts">ObjectUtils</a></li>
+							<li><a href="src/utils/deprecated/ProcessUtils.ts">ProcessUtils</a></li>
+							<li><a href="src/utils/Runtime.ts">Runtime</a></li>
+							<li><a href="src/utils/deprecated/StringCheckers.ts">StringCheckers</a></li>
+							<li><a href="src/utils/deprecated/StringUtils.ts">StringUtils</a></li>
+							<li><a href="src/utils/time-utils.ts">TimeUtils</a></li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#release-steps" id="release-steps" style="color: inherit; text-decoration: none;">
+					<h2>Release steps</h2>
+				</a>
+				<ol>
+					<li>change version in <code>package.json</code></li>
+					<li>run all tests with <code>npm test</code></li>
+					<li>run <code>npm run release</code></li>
+					<li>run <code>npm publish</code></li>
+					<li>commit and push data to <a href="https://github.com/G43riko/GTools">github</a></li>
+					<li>wait for the build to complete on <a href="https://travis-ci.org/G43riko/GTools">travis</a> and check for success</li>
+					<li>create new release on <a href="https://github.com/G43riko/GTools/releases">github</a></li>
+				</ol>
+				<p><em>Automatic deployed</em></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/gutils.html">GUtils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/mockdata.html">Mock<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/common.html">common</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components.html">components</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_bidirectional_graph.html">components/bidirectional-<wbr>graph</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_file_manager.html">components/file-<wbr>manager</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_g_map.html">components/g-<wbr>map</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_key_value_counter.html">components/key-<wbr>value-<wbr>counter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_logger_g_logger.html">components/logger/g-<wbr>logger</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_logger_g_logger_callback_holder.html">components/logger/g-<wbr>logger-<wbr>callback-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_logger_g_logger_default_formatter.html">components/logger/g-<wbr>logger-<wbr>default-<wbr>formatter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_logger_g_logger_instance.html">components/logger/g-<wbr>logger-<wbr>instance</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_logger_g_logger_priority.html">components/logger/g-<wbr>logger-<wbr>priority</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_number_counter.html">components/number-<wbr>counter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_paginator.html">components/paginator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/config_gtools_config.html">config/gtools-<wbr>config</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/config_gtools_config_interface.html">config/gtools-<wbr>config.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/constants.html">constants</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators.html">decorators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators_deprecated_decorator.html">decorators/deprecated.decorator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators_final_class_decorator.html">decorators/final-<wbr>class.decorator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators_mapper_decorator.html">decorators/mapper.decorator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators_singleton_decorator.html">decorators/singleton.decorator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/decorators_watch_decorator.html">decorators/watch.decorator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_camera.html">dom/canvas-<wbr>camera</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_drawer.html">dom/canvas-<wbr>drawer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_drawer_advanced.html">dom/canvas-<wbr>drawer-<wbr>advanced</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_manager.html">dom/canvas-<wbr>manager</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_misc_utilts.html">dom/canvas-<wbr>misc-<wbr>utilts</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_canvas_utils.html">dom/canvas-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_dom_get.html">dom/dom-<wbr>get</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_drawer.html">dom/drawer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_element_builder.html">dom/element-<wbr>builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/dom_types_canvas_shadow_config.html">dom/types/canvas-<wbr>shadow-<wbr>config</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums.html">enums</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_button_enum.html">enums/button.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_days_enum.html">enums/days.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_encodings_enum.html">enums/encodings.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_file_types_enum.html">enums/file-<wbr>types.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_http_status_codes_enum.html">enums/http-<wbr>status-<wbr>codes.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/enums_keys_enum.html">enums/keys.enum</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_missing_parameter_error.html">errors/missing-<wbr>parameter.error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_no_database_connection_error.html">errors/no-<wbr>database-<wbr>connection.error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_not_browser_exception.html">errors/not-<wbr>browser.exception</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_null_pointer_exception.html">errors/null-<wbr>pointer.exception</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_wrong_parameter_exception.html">errors/wrong-<wbr>parameter.exception</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors_wrong_type_exception.html">errors/wrong-<wbr>type.exception</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math.html">math</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_mat4.html">math/mat4</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_simple_vector_xz.html">math/simple-<wbr>vector-<wbr>xz</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_simple_vector2.html">math/simple-<wbr>vector2</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_simple_vector3.html">math/simple-<wbr>vector3</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_simple_vector4.html">math/simple-<wbr>vector4</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_vector.html">math/vector</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_vector2.html">math/vector2</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_vector2f.html">math/vector2f</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_vector3.html">math/vector3</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/math_vector4.html">math/vector4</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc.html">misc</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc_ajax.html">misc/ajax</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc_file_size_formatter.html">misc/file-<wbr>size-<wbr>formatter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc_runtime_validators.html">misc/runtime-<wbr>validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc_simple_loop.html">misc/simple-<wbr>loop</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/misc_slovak_stemmer.html">misc/slovak-<wbr>stemmer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models.html">models</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_color_model.html">models/color.model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_countries_country_interface.html">models/countries/country.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_countries_country_model.html">models/countries/country.model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_binary_queue.html">models/data-<wbr>structures/binary-<wbr>queue</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_binary_tree.html">models/data-<wbr>structures/binary-<wbr>tree</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_g43_collection.html">models/data-<wbr>structures/g43-<wbr>collection</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor.html">models/data-<wbr>structures/grid-<wbr>accessor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_grid_filters.html">models/data-<wbr>structures/grid-<wbr>accessor/grid-<wbr>filters</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_grid2_accessor.html">models/data-<wbr>structures/grid-<wbr>accessor/grid2-<wbr>accessor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_grid2_block_accessor.html">models/data-<wbr>structures/grid-<wbr>accessor/grid2-<wbr>block-<wbr>accessor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_array_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>array-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_hash_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>hash-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_map_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>map-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_object_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>object-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_object_map_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>object-<wbr>map-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_string_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2-<wbr>string-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_2d_grid2_perf.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>2d/grid2.perf</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_array_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3-<wbr>array-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_hash_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3-<wbr>hash-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_map_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3-<wbr>map-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_object_holder.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3-<wbr>object-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_grid_accessor_holders_3d_grid3_perf.html">models/data-<wbr>structures/grid-<wbr>accessor/holders-<wbr>3d/grid3.perf</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list.html">models/data-<wbr>structures/list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_abstract_linked_list.html">models/data-<wbr>structures/list/abstract-<wbr>linked-<wbr>list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_bi_directional_linked_list.html">models/data-<wbr>structures/list/bi-<wbr>directional-<wbr>linked-<wbr>list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_linked_list_entry.html">models/data-<wbr>structures/list/linked-<wbr>list-<wbr>entry</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_list.html">models/data-<wbr>structures/list/list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_one_directional_linked_list.html">models/data-<wbr>structures/list/one-<wbr>directional-<wbr>linked-<wbr>list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_sorted_array_list.html">models/data-<wbr>structures/list/sorted-<wbr>array-<wbr>list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_list_test_list.html">models/data-<wbr>structures/list/test-<wbr>list</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_priority_queue.html">models/data-<wbr>structures/priority-<wbr>queue</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_data_structures_quad_tree_quad_tree.html">models/data-<wbr>structures/quad-<wbr>tree/quad-<wbr>tree</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_gender_model.html">models/gender.model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_2d.html">models/path-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_a_star_a_star.html">models/path/a-<wbr>star/a-<wbr>star</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_a_star_a_star_download.html">models/path/a-<wbr>star/a-<wbr>star_<wbr>download</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_a_star_graph_download.html">models/path/a-<wbr>star/graph_<wbr>download</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_a_star_grid_node_download.html">models/path/a-<wbr>star/grid-<wbr>node_<wbr>download</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_djikstra_djikstra.html">models/path/djikstra/djikstra</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_path_nearest_item.html">models/path/nearest-<wbr>item</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_range.html">models/range</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_selection_selection.html">models/selection/selection</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_selection_selection_holder.html">models/selection/selection-<wbr>holder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting.html">models/sorting</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_bucket_sort.html">models/sorting/bucket-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_counting_sort.html">models/sorting/counting-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_heap_sort.html">models/sorting/heap-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_insertion_sort.html">models/sorting/insertion-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_merge_sort.html">models/sorting/merge-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_quick_sort.html">models/sorting/quick-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_sorting_radix_sort.html">models/sorting/radix-<wbr>sort</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_transform_2d.html">models/transform-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/node.html">node</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics.html">physics</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_bounders_2d.html">physics/bounders-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_bounding_boxes_aabb3.html">physics/bounding-<wbr>boxes/AABB3</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_closest_2d.html">physics/closest-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_closest_3d.html">physics/closest-<wbr>3d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_collisions_2d.html">physics/collisions-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_collisions_3d.html">physics/collisions-<wbr>3d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_distances_2d.html">physics/distances-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_distances_3d.html">physics/distances-<wbr>3d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_intersects_2d.html">physics/intersects-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_intersects_3d.html">physics/intersects-<wbr>3d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects.html">physics/objects</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_capsule.html">physics/objects/2d/capsule</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_line.html">physics/objects/2d/line</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_object2_d.html">physics/objects/2d/object2-<wbr>d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_ray_2d.html">physics/objects/2d/ray-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_rect.html">physics/objects/2d/rect</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_sphere.html">physics/objects/2d/sphere</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_2d_triangle.html">physics/objects/2d/triangle</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/physics_objects_object_convertors.html">physics/objects/object-<wbr>convertors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tests_abstract_database_fixture.html">tests/abstract-<wbr>database.fixture</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tests_abstract_fixture.html">tests/abstract.fixture</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tests_abstract_mapper.html">tests/abstract.mapper</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tests_paginate_model.html">tests/paginate.model</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types.html">types</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_min_max_2d_interface.html">types/helpers/min-<wbr>max-<wbr>2d.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_min_max_3d_interface.html">types/helpers/min-<wbr>max-<wbr>3d.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_pos_size_2d.html">types/helpers/pos-<wbr>size-<wbr>2d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_pos_size_3d.html">types/helpers/pos-<wbr>size-<wbr>3d</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_xywh.html">types/helpers/xywh</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_helpers_xyzwhd.html">types/helpers/xyzwhd</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_horizontal_align_type.html">types/horizontal-<wbr>align.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_key_value_interface.html">types/key-<wbr>value.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_nested_string_map_interface.html">types/nested-<wbr>string-<wbr>map.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_object_entry_interface.html">types/object-<wbr>entry.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_optional_type.html">types/optional.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_prop_type.html">types/prop.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_property_decorator_type.html">types/property-<wbr>decorator.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_ray2d.html">types/ray2D</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_ray3d.html">types/ray3D</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_round_data_type.html">types/round-<wbr>data.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_size_interaface.html">types/size.interaface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_string_map_interface.html">types/string-<wbr>map.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_text_options_interface.html">types/text-<wbr>options.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_type_interface.html">types/type.interface</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_unit_number_type.html">types/unit-<wbr>number.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types_vertical_align_type.html">types/vertical-<wbr>align.type</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils.html">utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_domutils.html">utils/<wbr>Dom<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_fileutils.html">utils/<wbr>File<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_runtime.html">utils/<wbr>Runtime</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_analytics_utils.html">utils/analytics-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_array_utils.html">utils/array-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_coerce_util.html">utils/coerce-<wbr>util</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_color_utils.html">utils/color-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_date_utils.html">utils/date-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_html_utils.html">utils/html-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_image_utils.html">utils/image-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_input_utils.html">utils/input-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_math_utils.html">utils/math-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_misc_utils.html">utils/misc-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_net_client_utils.html">utils/net-<wbr>client-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_net_server_utils.html">utils/net-<wbr>server-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_object_utils.html">utils/object-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_parser_utils.html">utils/parser-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_process_utils.html">utils/process-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_random_utils.html">utils/random-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_reflection_utils.html">utils/reflection-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_sorted_array_utils.html">utils/sorted-<wbr>array-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_string_checkers.html">utils/string-<wbr>checkers</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_string_utils.html">utils/string-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_svg_utils.html">utils/svg-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_time_utils.html">utils/time-<wbr>utils</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/validators.html">validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/validators_misc_validators.html">validators/misc-<wbr>validators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/web.html">web</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
