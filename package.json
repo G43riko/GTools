@@ -1,9 +1,9 @@
 {
     "name": "gtools",
-    "version": "0.2.56",
+    "version": "0.2.57",
     "description": "Small library including utils methods for easier life",
-    "main": "./index.js",
-    "module": "./_esm5/index.js",
+    "main": "./_cjs-index.js",
+    "module": "./index.js",
     "es2015": "./_esm/index.js",
     "types": "./types/index.d.ts",
     "sideEffects": false,

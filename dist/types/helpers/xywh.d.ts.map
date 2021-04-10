@@ -1,1 +1,0 @@
-{"version":3,"file":"xywh.d.ts","sourceRoot":"","sources":["../../../src/types/helpers/xywh.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,qBAAqB,EAAE,aAAa,EAAE,MAAM,aAAa,CAAC;AAEnE,MAAM,WAAW,IAAK,SAAQ,aAAa;IACvC,CAAC,EAAE,MAAM,CAAC;IACV,CAAC,EAAE,MAAM,CAAC;CACb;AAED,MAAM,WAAW,YAAa,SAAQ,qBAAqB;IACvD,QAAQ,CAAC,CAAC,EAAE,MAAM,CAAC;IACnB,QAAQ,CAAC,CAAC,EAAE,MAAM,CAAC;CACtB"}
