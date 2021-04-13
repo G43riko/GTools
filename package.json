@@ -5,11 +5,9 @@
     "main": "./index.js",
     "module": "./_esm5/index.js",
     "es2015": "./_esm/index.js",
-    "types": "./types/index.d.ts",
+    "types": "./index.d.ts",
+    "type": "commonjs",
     "sideEffects": false,
-    "exports": {
-        "import": "./esm5"
-    },
     "type2": "module",
     "homepage": "https://g43riko.github.io/GTools",
     "keywords": [

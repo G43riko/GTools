@@ -19,6 +19,7 @@ export * from "./data-structures/quad-tree/quad-tree";
 
 export * from "./data-structures/grid-accessor";
 export * from "./data-structures/list";
+export * from "./paginate.model";
 
 // TODO: Cannot import countries.data.json
 // export * from "./countries/country.interface";

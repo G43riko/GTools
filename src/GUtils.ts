@@ -28,7 +28,7 @@ export * from "./models";
 export * from "./tests/abstract-database.fixture";
 export * from "./tests/abstract.fixture";
 export * from "./tests/abstract.mapper";
-export * from "./tests/paginate.model";
+export * from "./models/paginate.model";
 
 export * from "./types";
 export * from "./utils";

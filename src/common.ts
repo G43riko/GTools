@@ -39,4 +39,4 @@ export * from "./types/size.interaface";
 export * from "./tests/abstract-database.fixture";
 export * from "./tests/abstract.fixture";
 export * from "./tests/abstract.mapper";
-export * from "./tests/paginate.model";
+export * from "./models/paginate.model";
