@@ -6,8 +6,7 @@ import { StringMap } from "../types";
  */
 export function parseCookies(cookies: string): StringMap {
     const list: StringMap = {};
-    const data            = cookies ? cookies.toString()
-        .split(";") : [];
+    const data            = cookies ? cookies.toString().split(";") : [];
     data.forEach((cookie) => {
         const parts     = cookie.split("=");
         const shiftPart = parts.shift();
@@ -89,9 +88,11 @@ export function getCookie(cname: string, source = typeof document !== "undefined
  *  parseParams<any>("name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test").email[1] => gabrielcsollei
  *  parseParams<any>("name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test").email[2] => test
  */
-export function parseParams<T>(query     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
+export function parseParams<T>(
+    query     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
     separator = "&",
-    delimiter = "="): T {
+    delimiter = "=",
+): T {
     const queryString: any = {};
     const vars: string[]   = query.split(separator);
     for (const pair of vars) {
@@ -155,6 +156,30 @@ export function parse<T>(obj: string): T {
     return result;
 }
 
+/**
+ * @example
+ *  map({name: "gabriel", age: 29.534}, {name: {mapper: (e) => e.toUpperCase(), destVal: "firstName"}, age: {mapper: Math.round}) ==> {surName: "GABRIEL", age: 30}
+ */
+export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: { mapper: (sourceVal: S[attr]) => T[keyof T]; destVal: keyof T } }): T {
+    const result: Partial<T> = {};
+
+    for (const key in data) {
+        if (!data.hasOwnProperty(key)) {
+            continue;
+        }
+
+        const item      = data[key];
+        const realKey   = item.destVal ?? key;
+        result[realKey] = item.mapper(source[key]);
+    }
+
+    return result as T;
+}
+
+/**
+ * @example
+ *  map({name: "gabriel", age: 29.534}, [{attrS: name}])
+ */
 export function map<S = any, T = S>(source: S, data: { attrS: keyof S, attrD?: keyof T, mapFunction: (src: any) => any }[]): T {
     const destination: any = {};
 

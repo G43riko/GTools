@@ -7,13 +7,13 @@ const serverConfig = {
     ],
     target: "node",
     node: {
-        fs: 'empty'
+        fs: "empty",
     },
     output: {
         filename: "gtools.min.js",
-        path: path.resolve(__dirname, "bin")
+        path: path.resolve(__dirname, "bin"),
     },
-    mode: "production"
+    mode: "production",
 };
 const webConfig = {
     entry: [
@@ -22,13 +22,13 @@ const webConfig = {
     ],
     target: "web",
     node: {
-        fs: 'empty'
+        fs: "empty",
     },
     output: {
         filename: "gtools.web.min.js",
-        path: path.resolve(__dirname, "bin")
+        path: path.resolve(__dirname, "bin"),
     },
-    mode: "production"
+    mode: "production",
 };
 
 module.exports = [serverConfig, webConfig];
