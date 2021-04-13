@@ -1,5 +1,6 @@
-import { SimpleVector2 } from "gtools/math";
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
+import { SimpleVector2 } from "../../../../math";
+import { GridBlockItemFilter } from "../grid-filters";
+import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2ObjectMapHolder<T> implements Grid2Holder<T> {
     private readonly chunks = new Map<number, Map<number, T>>();

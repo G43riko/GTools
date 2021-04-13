@@ -5,7 +5,7 @@
 // Includes Binary Heap (with modifications) from Marijn Haverbeke.
 // http://eloquentjavascript.net/appendix2.html
 
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../../../math";
 import { BinaryHeap } from "../../data-structures/binary-queue";
 import { Graph } from "./graph_download";
 import { GridNode } from "./grid-node_download";

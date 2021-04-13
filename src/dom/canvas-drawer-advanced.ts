@@ -1,4 +1,4 @@
-import { XYWH } from "gtools/types";
+import { XYWH } from "../types";
 import { CanvasDrawer } from "./canvas-drawer";
 import { CanvasManager } from "./canvas-manager";
 import { CanvasShadowConfig } from "./types/canvas-shadow-config";

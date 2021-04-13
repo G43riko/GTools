@@ -1,4 +1,4 @@
-import { SimpleVector2, SimpleVector3, SimpleVector4 } from "gtools/math";
+import { SimpleVector2, SimpleVector3, SimpleVector4 } from "../math";
 import { randomFloatBetween, randomIntBetween } from "../utils";
 import { Color } from "./color.model";
 

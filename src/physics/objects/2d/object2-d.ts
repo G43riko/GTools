@@ -1,4 +1,4 @@
-import { MinMax2D } from "gtools/types";
+import { MinMax2D } from "../../../types";
 import { Ray2D, RayCast } from "./ray-2d";
 
 export interface Object2D {

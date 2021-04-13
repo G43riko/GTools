@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../../../math";
 import { Grid2BlockFilter, GridBlockItemFilter } from "./grid-filters";
 import { Grid2BlockAccessor } from "./grid2-block-accessor";
 import { Grid2Block, Grid2Holder } from "./holders-2d/grid2-holder";

@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector2 } from "gtools/math";
+import { ReadonlySimpleVector2 } from "../math";
 
 export function intersection2dLineLine(
     x1: number,

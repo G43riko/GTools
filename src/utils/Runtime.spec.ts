@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { NullPointerException, WrongParameterException, WrongTypeException } from "gtools/errors";
+import { NullPointerException, WrongParameterException, WrongTypeException } from "../errors";
 import "mocha";
 import { MockData } from "../MockData";
 import { Runtime } from "./Runtime";

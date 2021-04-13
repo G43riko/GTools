@@ -1,5 +1,5 @@
 import { SimpleVector2, Vector2 } from "../../../math";
-import { MinMax2D, PosSize2d } from "gtools/types";
+import { MinMax2D, PosSize2d } from "../../../types";
 import { convertPosSizeToMinMax } from "../object-convertors";
 import { MassAble2D } from "./object2-d";
 import { RayCast, RaycastResult } from "./ray-2d";

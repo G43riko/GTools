@@ -1,5 +1,5 @@
-import { SimpleVector2 } from "gtools/math";
-import { RoundData, TextOptionsInterface } from "gtools/types";
+import { SimpleVector2 } from "../math";
+import { RoundData, TextOptionsInterface } from "../types";
 import { makeRoundedRect } from "./canvas-misc-utilts";
 import { Drawer } from "./drawer";
 

@@ -1,4 +1,4 @@
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
+import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "../../../../models";
 import { SimpleVector2 } from "../../../../math";
 import { hash2Numbers } from "../../../../utils/math-utils";
 

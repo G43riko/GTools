@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../math";
 
 export interface Transform2D {
     readonly offset: Readonly<SimpleVector2>;

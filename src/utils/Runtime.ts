@@ -1,4 +1,4 @@
-import { NullPointerException, WrongParameterException, WrongTypeException } from "gtools/errors";
+import { NullPointerException, WrongParameterException, WrongTypeException } from "../errors";
 import * as Checkers from "../validators/misc-validators";
 
 let useRuntimeCheckers = true;

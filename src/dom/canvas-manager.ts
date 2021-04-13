@@ -1,5 +1,5 @@
 import { NotBrowserException } from "../errors";
-import { Transform2D } from "gtools/models";
+import { Transform2D } from "../models";
 
 class AbstractCanvasManager {
     private readonly localCanvas: HTMLCanvasElement;

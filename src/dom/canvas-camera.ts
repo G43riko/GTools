@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../math";
 
 export interface CanvasCameraSettings {
     readonly fieldOfView?: number;

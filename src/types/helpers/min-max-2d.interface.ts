@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector2, SimpleVector2 } from "gtools/math";
+import { ReadonlySimpleVector2, SimpleVector2 } from "../../math";
 
 export interface MinMaxFlat2D {
     minX: number;

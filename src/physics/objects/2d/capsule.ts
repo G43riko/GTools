@@ -1,5 +1,5 @@
-import { SimpleVector2, Vector2 } from "gtools/math";
-import { MinMax2D } from "gtools/types";
+import { SimpleVector2, Vector2 } from "../../../math";
+import { MinMax2D } from "../../../types";
 import { MassAble2D } from "./object2-d";
 
 /**

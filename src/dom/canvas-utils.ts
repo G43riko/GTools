@@ -1,4 +1,4 @@
-import { Vector2f } from "gtools/math";
+import { Vector2f } from "../math";
 import { CanvasManager } from "./canvas-manager";
 import { CanvasShadowConfig } from "./types/canvas-shadow-config";
 

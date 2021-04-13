@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector3, SimpleVector3 } from "gtools/math";
+import { ReadonlySimpleVector3, SimpleVector3 } from "../../math";
 
 export interface PosSize3D {
     readonly position: SimpleVector3;

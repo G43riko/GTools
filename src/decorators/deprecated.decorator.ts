@@ -1,4 +1,4 @@
-import { PropertyDecorator } from "gtools/types";
+import { PropertyDecorator } from "../types";
 
 export function Deprecated(value?: string): PropertyDecorator {
     return (target: any, propertyKey: string, descriptor: PropertyDescriptor): any => {

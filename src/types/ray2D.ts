@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../math";
 
 export interface Ray2D {
     origin: SimpleVector2;

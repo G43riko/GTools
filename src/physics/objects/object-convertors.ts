@@ -1,4 +1,4 @@
-import { MinMax2D, PosSize2d } from "gtools/types";
+import { MinMax2D, PosSize2d } from "../../types";
 
 export function convertMinMaxToPosSize({min, max}: MinMax2D): PosSize2d {
     return {

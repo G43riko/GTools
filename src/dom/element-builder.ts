@@ -1,4 +1,4 @@
-import { StringMap } from "gtools/types";
+import { StringMap } from "../types";
 
 // TODO: need to be checked if app is running in browser
 

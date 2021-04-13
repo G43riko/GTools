@@ -1,5 +1,5 @@
-import { SimpleVector2 } from "gtools/math";
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
+import { SimpleVector2 } from "../../../../math";
+import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "../../../../models";
 
 export class Grid2MapHolder<T> implements Grid2Holder<T> {
     public readonly length = this.data.length * this.data[0].length;

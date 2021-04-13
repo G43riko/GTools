@@ -1,4 +1,4 @@
-import { SimpleVector2 } from "gtools/math";
+import { SimpleVector2 } from "../math";
 
 export class Path2D<T extends SimpleVector2> {
     public constructor(protected readonly points: readonly T[]) {

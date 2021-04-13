@@ -1,4 +1,4 @@
-import { StringMap } from "gtools/types";
+import { StringMap } from "../types";
 import { join } from "./array-utils";
 import * as StringCheckers from "./string-checkers";
 

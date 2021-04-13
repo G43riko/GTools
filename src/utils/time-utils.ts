@@ -1,4 +1,4 @@
-import { StringMap } from "gtools/types";
+import { StringMap } from "../types";
 
 const intervals: StringMap<number> = {
     "year"  : 31536000,

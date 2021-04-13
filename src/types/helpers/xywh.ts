@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector2, SimpleVector2 } from "gtools/math";
+import { ReadonlySimpleVector2, SimpleVector2 } from "../../math";
 
 export interface XYWH extends SimpleVector2 {
     w: number;

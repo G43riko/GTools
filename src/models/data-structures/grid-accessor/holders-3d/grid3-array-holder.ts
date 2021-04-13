@@ -1,4 +1,4 @@
-import { SimpleVector3 } from "gtools/math";
+import { SimpleVector3 } from "../../../../math";
 import { Grid3Holder } from "./grid3-holder";
 
 

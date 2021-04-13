@@ -1,4 +1,4 @@
-import { SimpleVector3 } from "gtools/math";
+import { SimpleVector3 } from "../../../../math";
 import { GridBlockItemFilter } from "../grid-filters";
 
 export interface Grid3Block<T> {

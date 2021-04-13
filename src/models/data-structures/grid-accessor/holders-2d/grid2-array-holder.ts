@@ -1,4 +1,4 @@
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "gtools/models";
+import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "../../../../models";
 import { SimpleVector2, Vector2 } from "../../../../math";
 
 function getMapIndex(x: number, y: number, width: number): number {

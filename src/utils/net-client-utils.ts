@@ -1,4 +1,4 @@
-import { NotBrowserException } from "gtools/errors";
+import { NotBrowserException } from "../errors";
 import { CreateElement, CreateImage } from "./html-utils";
 
 export async function uploadImage(): Promise<HTMLImageElement> {

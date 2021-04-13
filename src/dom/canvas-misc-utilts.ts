@@ -1,4 +1,4 @@
-import { RoundData } from "gtools/types";
+import { RoundData } from "../types";
 
 export function makeRoundedRect(
     context: CanvasRenderingContext2D,

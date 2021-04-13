@@ -1,4 +1,4 @@
-import { deepEqual } from "gtools/utils";
+import { deepEqual } from "../../../utils";
 import { List } from "./list";
 
 export function testList(list: List<string>, testOrder = false): void {

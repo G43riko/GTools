@@ -1,4 +1,4 @@
-import { MinMax2D } from "gtools/types";
+import { MinMax2D } from "../../types";
 import { SimpleVector3, Vector2 } from "../../math";
 import { RayCast, RaycastResult } from "../objects/2d/ray-2d";
 

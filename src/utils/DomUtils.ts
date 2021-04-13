@@ -1,6 +1,6 @@
-import { NotBrowserException } from "gtools/errors";
-import { SimpleVector2 } from "gtools/math";
-import { Size, StringMap } from "gtools/types";
+import { NotBrowserException } from "../errors";
+import { SimpleVector2 } from "../math";
+import { Size, StringMap } from "../types";
 import { DomGet } from "../dom/dom-get";
 import * as Checkers from "../validators/misc-validators";
 
