@@ -54,7 +54,7 @@ export class RaycastResult {
         this.isStopped = false;
     }
 
-    public getHitDistance(ray: RayCast): number {
+    public getHitDistance(ray: RayCast2D): number {
         return Vector2.dist(ray.from, ray.to) * this.fraction;
     }
 
@@ -62,7 +62,7 @@ export class RaycastResult {
         return this.fraction !== -1;
     }
 
-    public getHitPoint(ray: RayCast): SimpleVector2 {
+    public getHitPoint(ray: RayCast2D): SimpleVector2 {
         return Vector2.lerp(ray.from, ray.to, this.fraction);
     }
 
@@ -70,7 +70,7 @@ export class RaycastResult {
         this.isStopped = true;
     }
 
-    public shouldStop(ray: RayCast): boolean {
+    public shouldStop(ray: RayCast2D): boolean {
         return this.isStopped || (this.fraction !== -1 && ray.mode === RayMode.ANY);
     }
 
@@ -89,7 +89,7 @@ export class RaycastResult {
     }
 }
 
-export class RayCast {
+export class RayCast2D {
     public checkCollisionResponse = true;
     public skipBackfaces          = false;
     public collisionMask          = -1;

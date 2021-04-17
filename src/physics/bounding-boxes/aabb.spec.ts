@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import { Ray2D } from "../objects/2d/ray-2d";
-import { AABB3 } from "./AABB3";
+import { AABB3 } from "./aabb3";
 
 // describe("AABB3", () => {
 //     describe("ray cast", () => {

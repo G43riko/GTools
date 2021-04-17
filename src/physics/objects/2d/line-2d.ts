@@ -1,11 +1,11 @@
 import { SimpleVector2, Vector2 } from "../../../math";
 import { MinMax2D } from "../../../types";
-import { Object2D } from "./object2-d";
+import { Object2D } from "./object-2d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
-export class Line implements Object2D{
+export class Line2D implements Object2D{
     public constructor(public readonly pointA: SimpleVector2,
                        public readonly pointB: SimpleVector2) {
     }
@@ -28,8 +28,8 @@ export class Line implements Object2D{
     }
 
 
-    public static fromPoints(aX: number, aY: number, bX: number, bY: number): Line {
-        return new Line(
+    public static fromPoints(aX: number, aY: number, bX: number, bY: number): Line2D {
+        return new Line2D(
             {
                 x: aX,
                 y: aY,

@@ -17,7 +17,7 @@ export * from "./enums/keys.enum";
 
 export * from "./components/key-value-counter";
 export * from "./components/number-counter";
-export * from "./components/file-manager";
+// export * from "./components/file-manager";
 export * from "./components/paginator";
 
 // MATHS

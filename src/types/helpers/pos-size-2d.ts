@@ -1,6 +1,6 @@
 import { ReadonlySimpleVector2, SimpleVector2 } from "../../math";
 
-export interface PosSize2d {
+export interface PosSize2D {
     readonly position: SimpleVector2;
     readonly size: SimpleVector2;
 }

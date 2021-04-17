@@ -1,17 +1,17 @@
-import { SimpleVector2, Vector2 } from "../../../math";
+import { ReadonlySimpleVector2, SimpleVector2, Vector2 } from "../../../math";
 import { MinMax2D } from "../../../types";
-import { convertPosSizeToMinMax } from "../object-convertors";
-import { MassAble2D } from "./object2-d";
+import { convertPosSizeToMinMax2D } from "../object-2d-convertors";
+import { Circle } from "./circle";
+import { MassAble2D } from "./object-2d";
 import { Ray2D } from "./ray-2d";
-import { Sphere } from "./sphere";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
  */
 export class Rect implements MassAble2D {
     public constructor(
-        public readonly position: SimpleVector2,
-        public readonly size: SimpleVector2,
+        public readonly position: ReadonlySimpleVector2,
+        public readonly size: ReadonlySimpleVector2,
     ) {
     }
 
@@ -31,11 +31,18 @@ export class Rect implements MassAble2D {
         return this.size.x + this.size.x + this.size.y + this.size.y;
     }
 
-    public toMinMax(): MinMax2D {
-        return convertPosSizeToMinMax(this);
+    public get center(): ReadonlySimpleVector2 {
+        return {
+            x: this.position.x + this.size.x / 2,
+            y: this.position.y + this.size.y / 2,
+        };
     }
 
-    public static fromSphere({radius, center}: Pick<Sphere, "radius" | "center">): Rect {
+    public toMinMax(): MinMax2D {
+        return convertPosSizeToMinMax2D(this);
+    }
+
+    public static fromSphere({radius, center}: Pick<Circle, "radius" | "center">): Rect {
         return Rect.fromMinMax({
             min: {
                 x: center.x - radius,

@@ -108,8 +108,9 @@ export class Grid3MapHolder<T> implements Grid3Holder<T>{
         }
     }
 
-    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid3Block<T> | null {
-        while (true) {
+    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid3Block<T> | undefined {
+        let limit = 1000;
+        while (limit-- >= 0) {
             const x    = Math.floor(Math.random() * this.data.length);
             const y    = Math.floor(Math.random() * this.data[x].length);
             const z    = Math.floor(Math.random() * this.data[x][y].length);

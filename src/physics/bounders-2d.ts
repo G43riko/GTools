@@ -1,6 +1,6 @@
 import { SimpleVector2 } from "../math";
-import { MinMax2D, PosSize2d, XYWH } from "../types";
-import { Sphere } from "./objects/2d/sphere";
+import { MinMax2D, PosSize2D, XYWH } from "../types";
+import { Circle } from "./objects/2d/circle";
 
 export function fixXYWH(minMax: MinMax2D, xywh: XYWH): SimpleVector2 {
     const result = {x: xywh.x, y: xywh.y};
@@ -20,7 +20,7 @@ export function fixXYWH(minMax: MinMax2D, xywh: XYWH): SimpleVector2 {
     return result;
 }
 
-export function fixPosSize(minMax: MinMax2D, target: PosSize2d): SimpleVector2 {
+export function fixPosSize(minMax: MinMax2D, target: PosSize2D): SimpleVector2 {
     const result = {...target.position};
     if (target.position.x < minMax.min.x) {
         result.x = minMax.min.x;
@@ -37,7 +37,7 @@ export function fixPosSize(minMax: MinMax2D, target: PosSize2d): SimpleVector2 {
     return result;
 }
 
-export function fixSphere(minMax: MinMax2D, sphere: Sphere): SimpleVector2 {
+export function fixSphere(minMax: MinMax2D, sphere: Circle): SimpleVector2 {
     const result     = {...sphere.center};
     const halfRadius = sphere.radius / 2;
 

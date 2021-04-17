@@ -80,8 +80,8 @@ export class BinaryHeap<T> {
         const length    = this.content.length;
         const element   = this.content[n];
         const elemScore = this.scoreFunction(element);
-
-        while (true) {
+        let limit = 1000;
+        while (limit-- >= 0) {
             // Compute the indices of the child elements.
             const child2N = (n + 1) << 1;
             const child1N = child2N - 1;

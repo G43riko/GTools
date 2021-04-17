@@ -1,4 +1,4 @@
-import { Range } from "../models";
+import { Range } from "../models/range";
 import { SimpleVector2 } from "./simple-vector2";
 
 export class Vector2 implements SimpleVector2 {

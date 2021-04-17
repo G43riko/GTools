@@ -1,6 +1,7 @@
 import { SimpleVector2 } from "../../../../math";
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "../../../../models";
 import { getOrSetProperty } from "../../../../utils/object-utils";
+import { GridBlockItemFilter } from "../grid-filters";
+import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
     private readonly data: { [x: number]: { [y: number]: T } } = {};

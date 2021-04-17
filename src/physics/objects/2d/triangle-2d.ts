@@ -1,16 +1,24 @@
 import { SimpleVector2, Vector2 } from "../../../math";
 import { MinMax2D } from "../../../types";
-import { MassAble2D } from "./object2-d";
+import { Circle } from "./circle";
+import { MassAble2D } from "./object-2d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
  */
-export class Triangle implements MassAble2D {
+export class Triangle2D implements MassAble2D {
     public constructor(
         private readonly pointA: SimpleVector2,
         private readonly pointB: SimpleVector2,
         private readonly pointC: SimpleVector2,
     ) {
+    }
+
+    /**
+     * https://en.wikipedia.org/wiki/Circumscribed_circle
+     */
+    public getCircumscribedCircle(): Circle {
+        throw new Error("Not implemented");
     }
 
     public get area(): number {
@@ -26,7 +34,6 @@ export class Triangle implements MassAble2D {
             Vector2.dist(this.pointB, this.pointC),
             Vector2.dist(this.pointA, this.pointC),
         ) / 2;
-
     }
 
     public get circuit(): number {

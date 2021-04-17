@@ -1,6 +1,6 @@
 import { SimpleVector2, Vector3 } from "../math";
 import { getClosestPointOnLine } from "./closest-3d";
-import { circleRect2dCollision } from "./collisions-2d";
+import { circleCircle2dCollision, circleRect2dCollision } from "./collisions-2d";
 import { distance2dPointPoint } from "./distances-2d";
 import { pointLine3dDistance, pointPoint3dDistance } from "./distances-3d";
 import { intersection3dVectorSquare } from "./intersects-3d";
@@ -362,6 +362,25 @@ export function collision3dLineEllipsoid(
     return collision3dPointEllipsoid(point.x, point.y, point.z, bPosX, bPosY, bPosZ, bSizeX, bSizeY, bSizeZ);
 }
 
+export function collision3dCylinderCylinder(
+    aX: number,
+    aY: number,
+    aZ: number,
+    aR: number,
+    aH: number,
+    bX: number,
+    bY: number,
+    bZ: number,
+    bR: number,
+    bH: number,
+): boolean {
+    if (aY < bY + bH || aY + aH > bY) {
+        return false;
+    }
+
+    return circleCircle2dCollision(aX, aZ, aR, bX, bZ, bR);
+}
+
 export function collision3dPointCylinder(
     ax: number,
     ay: number,
@@ -403,6 +422,34 @@ export function collision3dBoxCylinder(
         az,
         aSizeX,
         aSizeZ,
+    );
+}
+
+export function collision3dBoxMinMaxCylinder(
+    minX: number,
+    minY: number,
+    minZ: number,
+    maxX: number,
+    maxY: number,
+    maxZ: number,
+    bx: number,
+    by: number,
+    bz: number,
+    bRadius: number,
+    bHeight: number,
+): boolean {
+    if (minY < by + bHeight || maxY > by) {
+        return false;
+    }
+
+    return circleRect2dCollision(
+        bx,
+        bz,
+        bRadius,
+        minX,
+        minZ,
+        maxX - minX,
+        maxZ - minZ,
     );
 }
 

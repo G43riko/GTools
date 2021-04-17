@@ -1,13 +1,13 @@
 import { SimpleVector2, Vector2 } from "../../../math";
-import { MinMax2D, PosSize2d } from "../../../types";
-import { convertPosSizeToMinMax } from "../object-convertors";
-import { MassAble2D } from "./object2-d";
-import { RayCast, RaycastResult } from "./ray-2d";
+import { MinMax2D, PosSize2D } from "../../../types";
+import { convertPosSizeToMinMax2D } from "../object-2d-convertors";
+import { MassAble2D } from "./object-2d";
+import { RayCast2D, RaycastResult } from "./ray-2d";
 
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Circle.js
  */
-export class Sphere implements MassAble2D {
+export class Circle implements MassAble2D {
     public constructor(
         public readonly radius: number,
         public readonly center: SimpleVector2,
@@ -32,7 +32,7 @@ export class Sphere implements MassAble2D {
         return Math.PI * this.radius * this.radius;
     }
 
-    public static fromMinMax({min, max}: MinMax2D, chooseSize: "min" | "max" = "max"): Sphere {
+    public static fromMinMax({min, max}: MinMax2D, chooseSize: "min" | "max" = "max"): Circle {
         const center = {
             x: (min.x + max.x) / 2,
             y: (min.y + max.y) / 2,
@@ -43,11 +43,11 @@ export class Sphere implements MassAble2D {
 
         const radius = chooseSize === "min" ? Math.min(sizeX, sizeY) : Math.max(sizeX, sizeY);
 
-        return new Sphere(radius, center);
+        return new Circle(radius, center);
     }
 
-    public static fromPosSize(posSize: PosSize2d, chooseSize: "min" | "max" = "max"): Sphere {
-        return Sphere.fromMinMax(convertPosSizeToMinMax(posSize), chooseSize);
+    public static fromPosSize(posSize: PosSize2D, chooseSize: "min" | "max" = "max"): Circle {
+        return Circle.fromMinMax(convertPosSizeToMinMax2D(posSize), chooseSize);
     }
 
     public toMinMax(): MinMax2D {
@@ -57,7 +57,7 @@ export class Sphere implements MassAble2D {
         };
     }
 
-    public raycast(result: RaycastResult, ray: RayCast): void {
+    public raycast(result: RaycastResult, ray: RayCast2D): void {
         const from = ray.from;
         const to   = ray.to;
         const r    = this.radius;

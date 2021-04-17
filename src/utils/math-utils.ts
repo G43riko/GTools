@@ -1,5 +1,9 @@
 import * as Random from "./random-utils";
 
+/*
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/MathUtils.js
+ */
+
 export function pad(num: number, size: number): string {
     const s = "00000000000000" + num;
 

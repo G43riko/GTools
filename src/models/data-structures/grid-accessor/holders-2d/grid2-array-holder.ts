@@ -1,5 +1,6 @@
-import { Grid2Block, Grid2Holder, GridBlockItemFilter } from "../../../../models";
 import { SimpleVector2, Vector2 } from "../../../../math";
+import { GridBlockItemFilter } from "../grid-filters";
+import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 function getMapIndex(x: number, y: number, width: number): number {
     return y * width + x;
@@ -292,8 +293,9 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return true;
     }
 
-    public getRandomBlockOfSize(size: SimpleVector2, filter: GridBlockItemFilter<T>): Grid2Block<T> | null {
-        while (true) {
+    public getRandomBlockOfSize(size: SimpleVector2, filter: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
+        let limit = 1000;
+        while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
             const blocks      = this.getArea(this.getCoordinates(randomIndex), size);
             if (blocks.every((item) => filter(item))) {
@@ -306,7 +308,8 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     }
 
     public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
-        while (true) {
+        let limit = 1000;
+        while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
             const item        = this.data[randomIndex];
             if (!filter || filter(item)) {
