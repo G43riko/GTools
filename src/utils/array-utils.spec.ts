@@ -13,6 +13,21 @@ describe("Array utils", () => {
             expect(ArrayUtils.min([])).to.equal(0);
         });
     });
+    describe("FindArrayDiff", () => {
+        it("It compare string arrays", () => {
+            expect(ArrayUtils.findArrayDiff(["a", "d", "e"], ["b", "d", "g"], (a, b) => a.localeCompare(b))).to.deep.equal({
+                same: ["d"],
+                missingInA: ["b", "g"],
+                missingInB: ["a", "e"],
+            });
+
+            expect(ArrayUtils.findArrayDiff(["a", "e", "d"], ["b", "g", "d"], (a, b) => a.localeCompare(b))).to.deep.equal({
+                same: ["d"],
+                missingInA: ["b", "g"],
+                missingInB: ["a", "e"],
+            });
+        });
+    });
     describe("Max", () => {
         it("It should find maximum from array", () => {
             expect(ArrayUtils.max(notArray)).to.equal(notArray);

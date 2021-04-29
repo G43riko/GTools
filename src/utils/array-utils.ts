@@ -284,9 +284,9 @@ export function makeUnique<T>(array: T[]): T[] {
     return Array.from(new Set<T>(array));
 }
 
-export function createFilledArray<T>(length: number, provider: (() => T) | T): T[] {
+export function createFilledArray<T>(length: number, provider: ((index: number) => T) | T): T[] {
     if (typeof provider === "function") {
-        return new Array<T | null>(length).fill(null).map(() => (provider as () => T)());
+        return new Array<T | null>(length).fill(null).map((_, i) => (provider as (index: number) => T)(i));
     }
 
     return new Array<T>(length).fill(provider);
@@ -326,4 +326,41 @@ export function mergeArrays3<S, T, U, R>(arr1: S[], arr2: T[], arr3: U[], callba
     });
 
     return result;
+}
+
+export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: T[], missingInA: T[], missingInB: T[] } {
+    const sortedArrayA = [...arrA].sort(comparator);
+    const sortedArrayB = [...arrB].sort(comparator);
+
+    const same: T[]       = [];
+    const missingInA: T[] = [];
+    const missingInB: T[] = [];
+    let i                 = 0;
+    let j                 = 0;
+    while (i < sortedArrayA.length || j < sortedArrayB.length) {
+        if (i === sortedArrayA.length) {
+            missingInA.push(sortedArrayB[j]);
+            j++;
+            continue;
+        }
+        if (j === sortedArrayB.length) {
+            missingInB.push(sortedArrayA[i]);
+            i++;
+            continue;
+        }
+        const comparatorResult = comparator(sortedArrayA[i], sortedArrayB[j]);
+        if (comparatorResult === 0) {
+            same.push(merger ? merger(sortedArrayA[i], sortedArrayB[j]) : sortedArrayA[i]);
+            i++;
+            j++;
+        } else if (comparatorResult < 0) {
+            missingInB.push(sortedArrayA[i]);
+            i++;
+        } else if (comparatorResult > 0) {
+            missingInA.push(sortedArrayB[j]);
+            j++;
+        }
+    }
+
+    return {same, missingInA, missingInB};
 }
