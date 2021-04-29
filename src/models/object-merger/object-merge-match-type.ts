@@ -27,10 +27,6 @@ export enum ObjectMergeMatchType {
     VALUE_B              = "VALUE_B",
 
     /**
-     * When both values are falsy or is empty object or array
-     */
-    EMPTY                = "EMPTY",
-    /**
      * If all properties were merged
      */
     FULLY_MERGED         = "FULLY_MERGED",

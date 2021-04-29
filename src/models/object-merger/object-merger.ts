@@ -79,8 +79,8 @@ export class ObjectMerger {
                 arrayResult : diff.same.map((value, index) => {
                     return {
                         matchType   : ObjectMergeMatchType.EQUALS,
-                        parent      : parent + "." + index,
-                        key         : String(index),
+                        // parent      : parent + "." + index,
+                        // key         : String(index),
                         valueA      : value,
                         valueB      : value,
                         mergedResult: value,
@@ -134,7 +134,7 @@ export class ObjectMerger {
             valueA,
             valueB,
             mergedResult: arrayResult.map((e) => e.mergedResult),
-            matchType   : ObjectMergeMatchType.FULLY_MERGED,
+            matchType   : ObjectMerger.getTypeFromResults(arrayResult),
         };
     }
 
@@ -173,7 +173,7 @@ export class ObjectMerger {
         };
     }
 
-    private static getTypeFromResults<T>(data: ObjectMergerResult<T>[]): ObjectMergeMatchType {
+    private static getTypeFromResults<T>(data: readonly ObjectMergerResult<T>[]): ObjectMergeMatchType {
         let resolved   = 0;
         let unresolved = 0;
         let equals = 0;
@@ -189,13 +189,12 @@ export class ObjectMerger {
             }
         });
 
+        console.assert(resolved + unresolved > 0, "Empty array should be caught earlier");
+
         if (equals === data.length) {
             return ObjectMergeMatchType.EQUALS;
         }
 
-        if (resolved === 0 && unresolved === 0) {
-            return ObjectMergeMatchType.EMPTY;
-        }
         if (resolved && unresolved) {
             return ObjectMergeMatchType.PARTIALLY_MERGED;
         }
@@ -208,6 +207,20 @@ export class ObjectMerger {
 
     public static mergeObject<T>(objA: Partial<T>, objB: Partial<T>, config: ObjectMergeDefinitions<T>, parent?: string): ObjectMergerResult<T> {
         const uniqueKeys = Array.from(new Set([...Object.keys(objA), ...Object.keys(objB)] as (string & keyof T)[]));
+
+        // TODO: What is objects are empty?
+        //  what is one of objects is nill
+
+        // if (uniqueKeys.length === 0) {
+        //     return {
+        //         valueA: objA,
+        //         valueB: objB,
+        //         mergedResult: {},
+        //         matchType: ObjectMergeMatchType.EQUALS,
+        //     }
+        // }
+
+
         const globalMergeResult: Partial<T> = {};
 
         const objectResult = uniqueKeys.reduce((acc, key) => {
@@ -229,6 +242,27 @@ export class ObjectMerger {
 
     public static mergeProperty<T>(valueA: T, valueB: T, config: ObjectMergeDefinitions<T>, parent?: string): ObjectMergerResult<T> {
         if (isNil(valueA) || isNil(valueB)) {
+            // null === null or undefined === undefined
+            if (valueA === valueB) {
+                return {
+                    valueA,
+                    valueB,
+                    mergedResult: valueA,
+                    matchType   : ObjectMergeMatchType.EQUALS,
+                };
+            }
+
+            // null ==== undefined or undefined === null
+            if (isNil(valueA) && isNil(valueB)) {
+                return {
+                    valueA,
+                    valueB,
+                    mergedResult: valueA,
+                    matchType   : ObjectMergeMatchType.MISS_TYPE,
+                };
+            }
+
+            // something - null | undefined
             if (isNil(valueB)) {
                 return {
                     valueA,
@@ -237,20 +271,13 @@ export class ObjectMerger {
                     matchType   : ObjectMergeMatchType.VALUE_A,
                 };
             }
-            if (isNil(valueA)) {
-                return {
-                    valueA,
-                    valueB,
-                    mergedResult: valueB,
-                    matchType   : ObjectMergeMatchType.VALUE_B,
-                };
-            }
+            // null | undefined === something
 
             return {
                 valueA,
                 valueB,
-                mergedResult: valueA,
-                matchType   : ObjectMergeMatchType.EMPTY,
+                mergedResult: valueB,
+                matchType   : ObjectMergeMatchType.VALUE_B,
             };
         }
 
