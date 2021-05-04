@@ -16,12 +16,13 @@ export function parseGender(gender: string): Gender | null {
         return null;
     }
     const genderLowerCase = gender.trim().toLowerCase().replace("ž", "z").replace("č", "c");
-    if (genderLowerCase.match(maleRegexp)) {
-        return Gender.MAN;
-    }
 
     if (genderLowerCase.match(femaleRegexp)) {
         return Gender.WOMAN;
+    }
+
+    if (genderLowerCase.match(maleRegexp)) {
+        return Gender.MAN;
     }
 
     return null;

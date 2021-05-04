@@ -1,4 +1,7 @@
-export interface ObjectMergeDefinitions<T, S = unknown> {
+/**
+ * TODO: Add option to ignore case
+ */
+export interface ObjectMergeDefinitions<T> {
     readonly keepIndent?: boolean;
     readonly keepTypes?: boolean;
     readonly comparator?: (a: T, b: T) => number;

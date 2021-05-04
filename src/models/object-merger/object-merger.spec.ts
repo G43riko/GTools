@@ -6,7 +6,24 @@ import { ObjectMerger } from "./object-merger";
 
 describe("ObjectMerger", () => {
     it("It should test basic types merging", () => {
-
+        // expect(ObjectMerger.mergeObject(null as any, null as any, {})).to.deep.equal({
+        //     mergedResult: null,
+        //     matchType   : ObjectMergeMatchType.EQUALS,
+        //     valueA      : null,
+        //     valueB      : null,
+        // });
+        expect(ObjectMerger.mergeProperty("gabo", "", {})).to.deep.equal({
+            mergedResult: "gabo",
+            matchType   : ObjectMergeMatchType.VALUE_A,
+            valueA      : "gabo",
+            valueB      : "",
+        });
+        expect(ObjectMerger.mergeProperty("", "gabo", {})).to.deep.equal({
+            mergedResult: "gabo",
+            matchType   : ObjectMergeMatchType.VALUE_B,
+            valueA      : "",
+            valueB      : "gabo",
+        });
         expect(ObjectMerger.mergeProperty("gabo", "gabo", {})).to.deep.equal({
             mergedResult: "gabo",
             matchType   : ObjectMergeMatchType.EQUALS,
@@ -599,5 +616,74 @@ describe("ObjectMerger", () => {
             },
             matchType   : ObjectMergeMatchType.FULLY_MERGED,
         });
+    });
+
+    it("It should test deep object object-merger", () => {
+        const objA = {
+            levelA: {
+                levelB: {
+                    levelC: {
+                        levelD: {
+                            value: "A",
+                        },
+                    },
+                },
+            },
+        };
+        expect(ObjectMerger.mergeObject(objA, objA, {})).to.deep.equal({
+            matchType   : ObjectMergeMatchType.EQUALS,
+            valueA      : objA,
+            valueB      : objA,
+            mergedResult: objA,
+            objectResult: {
+                levelA: {
+                    matchType   : ObjectMergeMatchType.EQUALS,
+                    mergedResult: {
+                        levelB: {
+                            levelC: {
+                                levelD: {
+                                    value: "A",
+                                },
+                            },
+                        },
+                    },
+                    valueA      : {
+                        levelB: {
+                            levelC: {
+                                levelD: {
+                                    value: "A",
+                                },
+                            },
+                        },
+                    },
+                    valueB      : {
+                        levelB: {
+                            levelC: {
+                                levelD: {
+                                    value: "A",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        });
+    });
+
+    it("It should test different arrays", () => {
+        const objA = {
+            items: [
+                {
+                    name: "nameA",
+                },
+                {
+                    name: "nameB",
+                },
+            ],
+        };
+        const objB = {
+            items: [],
+        };
+        expect(ObjectMerger.mergeObject(objA, objB, {})).to.deep.equal({});
     });
 });

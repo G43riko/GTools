@@ -1,3 +1,6 @@
+/**
+ * TODO: if valueA is substring of valueB or the other way
+ */
 export enum ObjectMergeMatchType {
     /**
      * If some properties were merged
