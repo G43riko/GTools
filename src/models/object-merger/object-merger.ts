@@ -78,7 +78,7 @@ export class ObjectMerger {
                 mergedResult: diff.same,
                 arrayResult : diff.same.map((value, index) => {
                     return {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         // parent      : parent + "." + index,
                         // key         : String(index),
                         valueA      : value,
@@ -176,7 +176,7 @@ export class ObjectMerger {
     private static getTypeFromResults<T>(data: readonly ObjectMergerResult<T>[]): ObjectMergeMatchType {
         let resolved   = 0;
         let unresolved = 0;
-        let equals = 0;
+        let equals     = 0;
 
         data.forEach((result) => {
             if (result.matchType === ObjectMergeMatchType.UNRESOLVED) {
@@ -219,7 +219,6 @@ export class ObjectMerger {
         //         matchType: ObjectMergeMatchType.EQUALS,
         //     }
         // }
-
 
         const globalMergeResult: Partial<T> = {};
 
@@ -334,7 +333,7 @@ export class ObjectMerger {
             return {
                 valueA,
                 valueB,
-                matchType: ObjectMergeMatchType.VALUE_B,
+                matchType   : ObjectMergeMatchType.VALUE_B,
                 mergedResult: valueB,
             };
         }
@@ -342,7 +341,7 @@ export class ObjectMerger {
             return {
                 valueA,
                 valueB,
-                matchType: ObjectMergeMatchType.VALUE_A,
+                matchType   : ObjectMergeMatchType.VALUE_A,
                 mergedResult: valueA,
             };
         }

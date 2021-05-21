@@ -2,7 +2,6 @@ import { expect } from "chai";
 import { astar } from "./a-star_download";
 import { Graph } from "./graph_download";
 
-
 describe("AStart", () => {
     const grid = [
         [1, 1, 1, 1, 1],
@@ -13,7 +12,7 @@ describe("AStart", () => {
     ];
 
     it("Should find simple path", () => {
-        const graph = new Graph(grid);
+        const graph  = new Graph(grid);
         const result = astar.search(
             graph,
             graph.get(0, 0),
@@ -25,7 +24,7 @@ describe("AStart", () => {
     });
 
     it("Should find simple path wit diagonal movement", () => {
-        const graph = new Graph(grid, {diagonal: true});
+        const graph  = new Graph(grid, {diagonal: true});
         const result = astar.search(
             graph,
             graph.get(0, 0),

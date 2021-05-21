@@ -21,7 +21,7 @@ export class Selection<T> {
 
     public constructor(
         private allValues: readonly T[] = [],
-        private readonly options                 = {
+        private readonly options        = {
             mode        : "single",
             unselectable: false,
         },

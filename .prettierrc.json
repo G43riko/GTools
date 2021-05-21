@@ -1,8 +1,0 @@
-{
-    "arrowParens": "always",
-    "bracketSpacing": false,
-    "endOfLine": "lf",
-    "printWidth": 190,
-    "tabWidth": 4,
-    "trailingComma": "es5"
-}

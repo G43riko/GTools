@@ -88,8 +88,8 @@ export class Box {
 
 // tslint:disable-next-line:max-classes-per-file
 export class QuadTree<T> {
-    private children: [QuadTree<T>, QuadTree<T>, QuadTree<T>, QuadTree<T>] | null      = null;
-    private value: { point: Point, value: T }[] = [];
+    private children: [QuadTree<T>, QuadTree<T>, QuadTree<T>, QuadTree<T>] | null = null;
+    private value: { point: Point, value: T }[]                                   = [];
 
     public constructor(
         private readonly box: Box,
@@ -144,15 +144,15 @@ export class QuadTree<T> {
         });
     }
 
-    public queryRange(box: Box): {point: Point, value: T}[] {
+    public queryRange(box: Box): { point: Point, value: T }[] {
         // return all point/value pairs contained in range
-        const result: {point: Point, value: T}[] = [];
+        const result: { point: Point, value: T }[] = [];
         this._queryRangeRec(box, result);
 
         return result;
     }
 
-    private _queryRangeRec(box: Box, result: {point: Point, value: T}[]): void {
+    private _queryRangeRec(box: Box, result: { point: Point, value: T }[]): void {
         // if query area doesn't overlap this box then return
         if (!this.box.overlaps(box)) {
             return;
@@ -204,7 +204,7 @@ export class QuadTree<T> {
         return null;
     }
 
-    public removePoint(point: Point): void  {
+    public removePoint(point: Point): void {
         // return if tree doesn't contain point
         if (!this.box.contains(point)) {
             return;

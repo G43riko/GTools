@@ -4,7 +4,7 @@ export class GridNode {
     public h = 0;
 
     public visited = false;
-    public closed = false;
+    public closed  = false;
 
     public parent: GridNode | null = null;
 

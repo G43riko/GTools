@@ -156,7 +156,7 @@ export function chooseColorUsingDefaultInput(color = "#000000", onInput?: (value
             type     : "color",
             className: "hidden",
             value    : color,
-            onInput: typeof onInput === "function" ? () => onInput(input.value) : undefined,
+            onInput  : typeof onInput === "function" ? () => onInput(input.value) : undefined,
             onChange : () => {
                 success(input.value);
                 document.body.removeChild(input);

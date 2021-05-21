@@ -17,7 +17,7 @@ export enum ObjectMergeMatchType {
     /**
      * When external function is used to object-merger
      */
-    MERGED_EXTERNALLY = "MERGED_EXTERNALLY",
+    MERGED_EXTERNALLY    = "MERGED_EXTERNALLY",
 
     /**
      * ValueA was used

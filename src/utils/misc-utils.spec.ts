@@ -77,8 +77,8 @@ describe("Misc utils", () => {
         // istanbul ignore next
         it("It should test serialization and deserialization", () => {
             const obj = {
-                funcAvg     : (a: number, b: number) => (a + b) / 2,
-                funcSum     : (a: number, b: number) => a + b,
+                funcAvg: (a: number, b: number) => (a + b) / 2,
+                funcSum: (a: number, b: number) => a + b,
                 // tslint:disable-next-line
                 funcMul     : function(a: number, b: number) {
                     return a * b;

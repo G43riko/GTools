@@ -1,7 +1,6 @@
 import { expect } from "chai";
 import { Dijkstra, DjikstraVertex } from "./djikstra";
 
-
 describe("DJikstra", () => {
     it("Should find simple path", () => {
         const dijkstra = new Dijkstra();

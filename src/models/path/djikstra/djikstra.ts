@@ -29,6 +29,7 @@ export class Dijkstra {
     public removeVertex(vertexName: string): void {
         delete this.vertices[vertexName];
     }
+
     public getVertex(vertexName: string): DjikstraVertex {
         return this.vertices[vertexName];
     }
@@ -67,7 +68,7 @@ export class Dijkstra {
     }
 
     public findShortestWay(start: string, finish: string): DjikstraResult {
-        const nodes: {[key: string]: number}              = {};
+        const nodes: { [key: string]: number } = {};
 
         Object.values(this.vertices).forEach((vertex) => {
             if (vertex.name === start) {
@@ -95,7 +96,7 @@ export class Dijkstra {
 
         return {
             distance: finishWeight,
-            nodes: [...arrayWithVertex, finish],
+            nodes   : [...arrayWithVertex, finish],
         };
     }
 }

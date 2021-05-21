@@ -9,6 +9,7 @@ export class Range<T> {
     public static random(range: Range<number>): number {
         return randomFloatBetween(range.min, range.max);
     }
+
     public static randomVector2i(range: Range<SimpleVector2>): SimpleVector2 {
         return {
             x: randomIntBetween(range.min.x, range.max.x),

@@ -22,21 +22,23 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
     }
 
     public forEach(callback: (item: T, index: number) => boolean): void {
-        let act = this.first;
+        let act   = this.first;
         let index = 0;
-        while(act) {
+        while (act) {
             callback(act.item, index++);
             act = act.next;
         }
     }
+
     public forEachReverse(callback: (item: T, index: number) => boolean): void {
-        let act = this.last;
+        let act   = this.last;
         let index = this.length - 1;
-        while(act) {
+        while (act) {
             callback(act.item, index--);
             act = act.prev;
         }
     }
+
     public clear(): void {
         this.first       = null;
         this.last        = null;
@@ -57,7 +59,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
         for (let current = this.first; current; current = current.next) {
             if (current.item === item) {
                 if (current === this.first) {
-                    this.first        = current.next;
+                    this.first         = current.next;
                     current.next!.prev = null;
                     this.localLength--;
 
@@ -65,7 +67,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
                 }
 
                 if (current === this.last) {
-                    this.last         = current.prev;
+                    this.last          = current.prev;
                     current.prev!.next = null;
                     this.localLength--;
 

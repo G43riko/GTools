@@ -1,6 +1,11 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
     <option name="AUTODETECT_INDENTS" value="false" />
+    <HTMLCodeStyleSettings>
+      <option name="HTML_ATTRIBUTE_WRAP" value="4" />
+      <option name="HTML_ENFORCE_QUOTES" value="true" />
+      <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline" />
+    </HTMLCodeStyleSettings>
     <JetCodeStyleSettings>
       <option name="PACKAGES_TO_USE_STAR_IMPORTS">
         <value>
@@ -24,7 +29,10 @@
       <option name="ALIGN_OBJECT_PROPERTIES" value="2" />
       <option name="ALIGN_VAR_STATEMENTS" value="2" />
       <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
+      <option name="USE_PUBLIC_MODIFIER" value="true" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
+      <option name="PREFER_EXPLICIT_TYPES_FUNCTION_RETURNS" value="true" />
+      <option name="PREFER_EXPLICIT_TYPES_FUNCTION_EXPRESSION_RETURNS" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
       <option name="SPACE_WITHIN_TYPE_ASSERTION" value="true" />
       <option name="IMPORT_SORT_MODULE_NAME" value="true" />

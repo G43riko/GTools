@@ -9,9 +9,9 @@ describe("GToolsConfig", () => {
 
             initConfig({
                 PAGE_LIMIT: 233,
-                URL_API: "https://aahaaa.com",
-                VERSION: "1.0.0",
-                LANGUAGE: "SK",
+                URL_API   : "https://aahaaa.com",
+                VERSION   : "1.0.0",
+                LANGUAGE  : "SK",
             });
 
             expect(GToolsConfig.URL_API).to.be.equal("https://aahaaa.com");
@@ -19,9 +19,9 @@ describe("GToolsConfig", () => {
 
             initConfig({
                 PAGE_LIMIT: 332,
-                URL_API: "https://huraaaaaa.com",
-                VERSION: "1.0.0",
-                LANGUAGE: "SK",
+                URL_API   : "https://huraaaaaa.com",
+                VERSION   : "1.0.0",
+                LANGUAGE  : "SK",
             });
             expect(GToolsConfig.URL_API).to.be.equal("https://huraaaaaa.com");
             expect(GToolsConfig.PAGE_LIMIT).to.be.equal(332);

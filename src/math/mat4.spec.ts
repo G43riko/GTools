@@ -23,7 +23,6 @@ describe("Mat4", () => {
             expect(Mat4.fromTranslation({x: 0, y: 0, z: 0})).to.deep.equal(Mat4.create());
             expect(Mat4.fromRotation(0, {x: Math.random() * 360, y: Math.random() * 360, z: Math.random() * 360})).to.deep.equal(Mat4.create());
 
-
             expect(Mat4.fromXRotation(0).equals(Mat4.create())).to.be.true;
             expect(Mat4.fromYRotation(0).equals(Mat4.create())).to.be.true;
             expect(Mat4.fromZRotation(0).equals(Mat4.create())).to.be.true;

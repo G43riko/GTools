@@ -106,10 +106,10 @@ ElementBuilder.start("div").attribute("class", "main-class").attribute("id", "ma
 ElementBuilder.start("div").clazz("main-class").id("main-id").build();
 
 ElementBuilder.start("table")
-    .id("main-table")
-    .child("tr").clazz("table-row")
-    .child("td").clazz("table-column")
-    .content("hello world")
-    .finish()
-    .finish()
-    .buildAndAppendTo(document.body);
+              .id("main-table")
+              .child("tr").clazz("table-row")
+              .child("td").clazz("table-column")
+              .content("hello world")
+              .finish()
+              .finish()
+              .buildAndAppendTo(document.body);

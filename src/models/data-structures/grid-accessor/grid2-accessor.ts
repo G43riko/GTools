@@ -33,6 +33,7 @@ export class Grid2Accessor<T> {
     public getAccessor(position: SimpleVector2): Grid2BlockAccessor<T> {
         return new Grid2BlockAccessor(this.holder, position);
     }
+
     public getRandomAround(position: SimpleVector2, radius: number, condition: Grid2BlockFilter<T>): Grid2Block<T> | undefined {
         return this.holder.getAroundData(position.x, position.y, radius).sort(Math.random).find(condition);
     }

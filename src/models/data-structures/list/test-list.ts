@@ -25,7 +25,7 @@ export function testList(list: List<string>, testOrder = false): void {
 
     const tmpList = [];
 
-    for(const item of list as any) {
+    for (const item of list as any) {
         tmpList.push(item);
     }
     const listArray = list.toArray();
@@ -33,7 +33,6 @@ export function testList(list: List<string>, testOrder = false): void {
     tmpList.forEach((item) => {
         console.assert(listArray.indexOf(item) >= 0);
     });
-
 
     console.assert(list.length === 5);
     if (testOrder) {

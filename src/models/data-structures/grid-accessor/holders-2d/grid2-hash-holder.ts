@@ -10,7 +10,7 @@ export class Grid2HashHolder<T> implements Grid2Holder<T> {
         return Object.keys(this.data).length;
     }
 
-    public get(x: number, y: number): T | undefined{
+    public get(x: number, y: number): T | undefined {
         return this.data[hash2Numbers(x, y)]?.value;
     }
 

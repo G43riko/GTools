@@ -1,6 +1,6 @@
 export abstract class AbstractLinkedList<T, S extends { next: S | null, item: T }> implements Iterable<T> {
     protected first: S | null = null;
-    protected localLength = 0;
+    protected localLength     = 0;
 
     public get length(): number {
         return this.localLength;

@@ -16,7 +16,7 @@ export class Graph {
      * @param gridIn - 2D array of input weights
      * @param options - diagonal - Specifies whether diagonal moves are allowed
      */
-    public constructor(gridIn: number[][], private readonly options: {diagonal?: boolean} = {}) {
+    public constructor(gridIn: number[][], private readonly options: { diagonal?: boolean } = {}) {
         for (let x = 0; x < gridIn.length; x++) {
             this.grid[x] = [];
 

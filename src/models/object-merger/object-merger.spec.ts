@@ -670,7 +670,7 @@ describe("ObjectMerger", () => {
         });
     });
 
-    it("It should test different arrays", () => {
+    xit("It should test different arrays", () => {
         const objA = {
             items: [
                 {

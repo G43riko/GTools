@@ -53,7 +53,6 @@ describe("Selection holder", () => {
         expect(holder.isSelected("B")).to.be.false;
     });
 
-
     it("It should test selectOnly", () => {
         const holder = new SelectionHolder();
 

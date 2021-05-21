@@ -53,7 +53,7 @@ export class FileManager {
      */
     public loadImage(func: (result: HTMLImageElement, fileName: File) => void): void {
         this.input.multiple = false;
-        this.input.accept = "image/*";
+        this.input.accept   = "image/*";
         this.input.onchange = (event: any) => {
             const files = event.target.files;
             if (files.length <= 0) {
@@ -88,6 +88,7 @@ export class FileManager {
         };
         this.input.click();
     }
+
     public loadFiles(func: (files: FileList | null) => void): void {
         this.input.multiple = true;
         this.input.onchange = (e: Event) => func((e.target as HTMLInputElement).files);

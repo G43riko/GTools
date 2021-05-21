@@ -55,8 +55,8 @@ export function cutUsing(text: string, maxLength: number, suffix = "...", length
 export function toUpperSnakeCase(text: string): string {
     if (StringCheckers.isCamelCase(text)) {
         return text.replace(/([a-z])([A-Z])/g, "$1_$2")
-            .replace(/([A-Z])([A-Z])/g, "$1_$2")
-            .toUpperCase();
+                   .replace(/([A-Z])([A-Z])/g, "$1_$2")
+                   .toUpperCase();
     }
 
     if (StringCheckers.isUpperSnakeCase(text)) {
@@ -64,23 +64,23 @@ export function toUpperSnakeCase(text: string): string {
     }
 
     return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
-        .replace(/^_/, "")
-        .toUpperCase();
+               .replace(/^_/, "")
+               .toUpperCase();
 }
 
 export function toLowerSnakeCase(text: string): string {
     if (StringCheckers.isCamelCase(text)) {
         return text.replace(/([a-z])([A-Z])/g, "$1_$2")
-            .replace(/([A-Z])([A-Z])/g, "$1_$2")
-            .toLowerCase();
+                   .replace(/([A-Z])([A-Z])/g, "$1_$2")
+                   .toLowerCase();
     }
     if (StringCheckers.isLowerSnakeCase(text)) {
         return text;
     }
 
     return text.replace(/(-|_| |\s)+(.)?/g, (i, u, e) => e ? "_" + e : "")
-        .replace(/^_/, "")
-        .toLowerCase();
+               .replace(/^_/, "")
+               .toLowerCase();
 }
 
 export function toLowerCamelCase(text: string): string {
@@ -89,11 +89,11 @@ export function toLowerCamelCase(text: string): string {
     }
 
     return text.trim()
-        .replace(/([a-z])([A-Z])([A-Z])/g, "$1$2_$3")
-        .replace(/([a-z])([A-Z])/g, "$1_$2")
-        .toLowerCase()
-        .replace(/(-|_| |\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "")
-        .replace(/^./, (e) => e.toLowerCase());
+               .replace(/([a-z])([A-Z])([A-Z])/g, "$1$2_$3")
+               .replace(/([a-z])([A-Z])/g, "$1_$2")
+               .toLowerCase()
+               .replace(/(-|_| |\s)+(.)?/g, (math, sep, c) => c ? c.toUpperCase() : "")
+               .replace(/^./, (e) => e.toLowerCase());
 }
 
 export function toUpperCamelCase(text: string): string {
@@ -329,9 +329,9 @@ function fuzzy_match_simple(pattern: string, str: string): boolean {
 
     while (patternIdx !== patternLength && strIdx !== strLength) {
         const patternChar = pattern.charAt(patternIdx)
-            .toLowerCase();
+                                   .toLowerCase();
         const strChar     = str.charAt(strIdx)
-            .toLowerCase();
+                               .toLowerCase();
         if (patternChar === strChar) {
             ++patternIdx;
         }

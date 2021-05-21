@@ -35,6 +35,7 @@ export class Cylinder implements VolumeAble3D, CollideAble3D {
             },
         };
     }
+
     public collideWithCylinder(cylinder: Cylinder): boolean {
         return collision3dCylinderCylinder(
             cylinder.position.x,
@@ -49,6 +50,7 @@ export class Cylinder implements VolumeAble3D, CollideAble3D {
             this.height,
         );
     }
+
     public collideWithPoint(point: ReadonlySimpleVector3): boolean {
         return collision3dPointCylinder(
             point.x,

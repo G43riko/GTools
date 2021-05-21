@@ -4,14 +4,14 @@ export class Grid3ObjectHolder<T> {
     private readonly data: { [x: number]: { [y: number]: { [z: number]: T } } } = {};
 
     public get(x: number, y: number, z: number): T {
-        const row = getOrSetProperty(this.data, x, {});
+        const row    = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
 
         return column[z];
     }
 
     public set(x: number, y: number, z: number, value: T): void {
-        const row = getOrSetProperty(this.data, x, {});
+        const row    = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
 
         column[z] = value;

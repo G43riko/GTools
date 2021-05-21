@@ -36,6 +36,7 @@ export class Box implements VolumeAble3D, CollideAble3D {
             cylinder.height,
         );
     }
+
     public collideWithPoint(point: ReadonlySimpleVector3): boolean {
         return collision3dPointBox(point.x, point.y, point.z, this.position.x, this.position.y, this.position.z, this.size.x, this.size.y, this.size.z);
     }

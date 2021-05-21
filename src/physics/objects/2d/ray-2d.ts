@@ -104,6 +104,7 @@ export class RayCast2D {
     public get to(): SimpleVector2 {
         return this.ray.end;
     }
+
     public get direction(): SimpleVector2 {
         return this.ray.direction;
     }

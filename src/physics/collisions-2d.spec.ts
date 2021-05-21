@@ -2,7 +2,8 @@ import { expect } from "chai";
 import "mocha";
 import {
     circleCircle2dCollision,
-    circleRect2dCollision, lineLine2dCollision,
+    circleRect2dCollision,
+    lineLine2dCollision,
     lineRectangle2dCollision,
     pointCircle2dCollision,
     pointMultiPolygon2dCollision,
@@ -200,7 +201,6 @@ describe("Collisions2d", () => {
              *   X
              */
             expect(lineLine2dCollision(5, 0, 5, 10, 0, 5, 10, 5)).to.be.true;
-
 
             /**
              * X-A-X

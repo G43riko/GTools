@@ -1,14 +1,15 @@
-import { ReadonlySimpleVector2, ReadonlySimpleVector3 } from "../../../math";
-import { MinMax2D, MinMax3D } from "../../../types";
+import { ReadonlySimpleVector2 } from "../../../math";
+import { MinMax2D } from "../../../types";
 import { Cylinder } from "../3d/cylinder";
-import { Sphere } from "../3d/sphere";
 import { Circle } from "./circle";
 import { Ray2D, RayCast2D } from "./ray-2d";
 
 export interface Object2D {
     readonly momentOfInertia: number;
     readonly boundingRadius: number;
+
     rayCast?(ray: Ray2D, result: RayCast2D): void;
+
     toMinMax(): MinMax2D;
 }
 

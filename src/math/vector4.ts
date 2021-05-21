@@ -76,7 +76,6 @@ export class Vector4 implements SimpleVector4 {
         return vec;
     }
 
-
     public static isVector(item: any): item is SimpleVector4 {
         return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
     }

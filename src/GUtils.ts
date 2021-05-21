@@ -12,7 +12,6 @@ export * from "./dom/types/canvas-shadow-config";
 // TODO not work on backend
 // export * from "./dom/element-builder";
 
-
 export * from "./components";
 
 export * from "./errors";

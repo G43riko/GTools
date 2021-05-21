@@ -25,14 +25,16 @@ export class ColorGenerator {
 
 export class SimpleColorFormatter implements GLoggerFormatter {
     private readonly colorGenerator = new ColorGenerator();
-    public readonly colorMap = {
+    public readonly colorMap        = {
         priority: "red",
-        context: "blue",
-        data: "black",
-        default: "black",
+        context : "blue",
+        data    : "black",
+        default : "black",
     };
+
     public constructor(private readonly pattern = "[{{priority}}] {{context}}: {{data}}") {
     }
+
     public format(priority: GLoggerPriority, data: unknown[], context?: string): string {
         const dataPlaceholders = data.map((item) => {
             switch (typeof item) {
@@ -44,15 +46,15 @@ export class SimpleColorFormatter implements GLoggerFormatter {
                     return "%s";
             }
         });
-        const text = template(this.pattern, {
+        const text             = template(this.pattern, {
             priority: "%s",
             context : "%s",
-            data: dataPlaceholders.join(" "),
+            data    : dataPlaceholders.join(" "),
         });
 
         const logFragments: unknown[] = [text];
         this.pattern.replace(/(priority|context|data)/g, (match) => {
-            switch(match) {
+            switch (match) {
                 case "priority":
                     logFragments.push(priority);
                     break;
@@ -83,15 +85,15 @@ export class SimpleColorFormatter implements GLoggerFormatter {
                     return "%s";
             }
         });
-        const text = template(this.pattern, {
+        const text             = template(this.pattern, {
             priority: "%c%s%c",
             context : "%c%s%c",
-            data: `%c${dataPlaceholders.join(" ")}%c`,
+            data    : `%c${dataPlaceholders.join(" ")}%c`,
         });
 
         const logFragments: unknown[] = [text];
         this.pattern.replace(/(priority|context|data)/g, (match) => {
-            switch(match) {
+            switch (match) {
                 case "priority":
                     logFragments.push(`color: ${this.colorMap[match]}`);
                     logFragments.push(priority);
@@ -119,15 +121,14 @@ export class SimpleColorFormatter implements GLoggerFormatter {
     }
 }
 
-
 export class GLoggerDefaultFormatter implements GLoggerFormatter {
-    public showPriority                                             = false;
-    public showContext                                              = true;
-    public showTime                                                 = false;
-    public showTimeOffset                                           = false;
-    public readonly colors: { [key: string]: string }               = {};
-    private readonly colorGenerator = new ColorGenerator();
-    private lastFormatTime                                          = Date.now();
+    public showPriority                               = false;
+    public showContext                                = true;
+    public showTime                                   = false;
+    public showTimeOffset                             = false;
+    public readonly colors: { [key: string]: string } = {};
+    private readonly colorGenerator                   = new ColorGenerator();
+    private lastFormatTime                            = Date.now();
 
     public formatColored(priority: GLoggerPriority, data: unknown[], context?: string): unknown[] {
         const result: string[] = [this.getOutputArray(priority, data, context).join(" ")];
@@ -154,7 +155,6 @@ export class GLoggerDefaultFormatter implements GLoggerFormatter {
     public format(priority: GLoggerPriority, data: unknown[], context?: string): string {
         return this.getOutputArray(priority, data, context).join(" ");
     }
-
 
     private getOutputArray(priority: GLoggerPriority, data: unknown[], context?: string): string[] {
         const partials: string[] = [];

@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import "mocha";
-import { GLogger} from "./g-logger";
+import { GLogger } from "./g-logger";
 import { GLoggerCallbackHolder } from "./g-logger-callback-holder";
 import { GLoggerDefaultFormatter } from "./g-logger-default-formatter";
 import { GLoggerPriority } from "./g-logger-priority";

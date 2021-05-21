@@ -11,7 +11,7 @@ import { Graph } from "./graph_download";
 import { GridNode } from "./grid-node_download";
 
 const pathTo = (node: GridNode): GridNode[] => {
-    let curr = node;
+    let curr   = node;
     const path = [];
     while (curr.parent) {
         path.unshift(curr);
@@ -31,13 +31,13 @@ const astar = {
      * [options.heuristic] Heuristic function (see astar.heuristics).
      *
      */
-    search(graph: Graph, start: GridNode, end: GridNode, options: {heuristic?: any, closest?: boolean} = {}): GridNode[] {
+    search(graph: Graph, start: GridNode, end: GridNode, options: { heuristic?: any, closest?: boolean } = {}): GridNode[] {
         graph.cleanDirty();
-        options       = options || {};
+        options         = options || {};
         const heuristic = options.heuristic || astar.heuristics.manhattan;
         const closest   = options.closest || false;
 
-        const openHeap    = getHeap();
+        const openHeap  = getHeap();
         let closestNode = start; // set the start node to be the closest if required
 
         start.h = heuristic(start, end);
@@ -130,8 +130,5 @@ const astar = {
         node.cleanUp();
     },
 };
-
-
-
 
 export { astar };

@@ -2,7 +2,7 @@ import { SimpleVector3 } from "../../../../math";
 import { GridBlockItemFilter } from "../../../../models";
 import { Grid3Block, Grid3Holder } from "./grid3-holder";
 
-export class Grid3MapHolder<T> implements Grid3Holder<T>{
+export class Grid3MapHolder<T> implements Grid3Holder<T> {
     public constructor(public readonly data: T[][][]) {
     }
 

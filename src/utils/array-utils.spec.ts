@@ -1,7 +1,6 @@
 import { expect } from "chai";
 import "mocha";
 import * as ArrayUtils from "./array-utils";
-import * as MathUtils from "./math-utils";
 
 describe("Array utils", () => {
     const numArray: number[]    = [5, 8, 7, 3, 1, 5, 21, 8];
@@ -16,13 +15,13 @@ describe("Array utils", () => {
     describe("FindArrayDiff", () => {
         it("It compare string arrays", () => {
             expect(ArrayUtils.findArrayDiff(["a", "d", "e"], ["b", "d", "g"], (a, b) => a.localeCompare(b))).to.deep.equal({
-                same: ["d"],
+                same      : ["d"],
                 missingInA: ["b", "g"],
                 missingInB: ["a", "e"],
             });
 
             expect(ArrayUtils.findArrayDiff(["a", "e", "d"], ["b", "g", "d"], (a, b) => a.localeCompare(b))).to.deep.equal({
-                same: ["d"],
+                same      : ["d"],
                 missingInA: ["b", "g"],
                 missingInB: ["a", "e"],
             });

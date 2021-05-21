@@ -71,6 +71,7 @@ export function formatTime(date: Date, pattern: string): string {
         }
     });
 }
+
 export function createStopWatch(): { getDiffMs(): number; getDiff(): string } {
     const start = Date.now();
 

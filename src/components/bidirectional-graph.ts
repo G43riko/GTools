@@ -33,7 +33,7 @@ export class BidirectionalGraph<T> {
         return this.map.has(item);
     }
 
-    public removeVertex(vertex: T, force = false): void{
+    public removeVertex(vertex: T, force = false): void {
         const itemValues = this.map.get(vertex);
         if (!itemValues) {
             return;

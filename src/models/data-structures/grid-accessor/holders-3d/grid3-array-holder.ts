@@ -1,7 +1,6 @@
 import { SimpleVector3 } from "../../../../math";
 import { Grid3Holder } from "./grid3-holder";
 
-
 export function getIndex(x: number, y: number, z: number, width: number, height = width): number {
     return x + (z * width) + (y * width * height);
 }

@@ -3,7 +3,8 @@ import { Grid3Holder } from "./grid3-holder";
 
 export class Grid3HashHolder<T> implements Grid3Holder<T> {
     private readonly data: { [key: number]: { value: T, x: number, y: number, z: number } } = {};
-    private values: { value: T, x: number, y: number, z: number }[]                             = [];
+    private values: { value: T, x: number, y: number, z: number }[]                         = [];
+
     public constructor(private readonly cacheForIteration = false) {
     }
 

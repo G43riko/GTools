@@ -4,7 +4,7 @@ const leftChild      = (index: number): number => index * 2 + 1;
 const rightChild     = (index: number): number => index * 2 + 2;
 const getParentIndex = (index: number): number => Math.floor((index - 1) / 2);
 
-export class PriorityQueue<T> implements G43BasicCollection<T>{
+export class PriorityQueue<T> implements G43BasicCollection<T> {
     private heap: T[] = [];
 
     public constructor(private readonly comparator: (a: T, b: T) => boolean) {
@@ -40,6 +40,7 @@ export class PriorityQueue<T> implements G43BasicCollection<T>{
     public clear(): void {
         this.heap = [];
     }
+
     public forEach(callback: (item: T, index: number) => boolean): void {
         this.heap.forEach(callback);
     }

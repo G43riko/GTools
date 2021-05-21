@@ -29,7 +29,7 @@ export function createImage(callback: (context: CanvasRenderingContext2D) => voi
 
 export function imageAsPromise(src: string): Promise<HTMLImageElement> {
     return new Promise<HTMLImageElement>((success, reject) => {
-        const image = document.createElement("img");
+        const image    = document.createElement("img");
         const callback = (e: any): void => {
             image.dataset.hasError = e ? "true" : "false";
             if (e.type === "error") {

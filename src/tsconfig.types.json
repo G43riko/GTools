@@ -9,5 +9,5 @@
         "declarationMap": true,
         "declarationDir": "../dist",
         "emitDeclarationOnly": true
-    },
+    }
 }

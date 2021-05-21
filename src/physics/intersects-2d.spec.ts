@@ -14,7 +14,6 @@ describe("Intersections2d", () => {
              */
             expect(intersection2dLineLine(5, 0, 5, 10, 0, 5, 10, 5)).to.deep.equal({x: 5, y: 5});
 
-
             /**
              * X-A-X
              * X-B-X

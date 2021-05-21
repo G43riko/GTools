@@ -6,6 +6,7 @@
 export class RadixSort<T> {
     public constructor(private readonly mapper: (item: T) => number) {
     }
+
     public sort(a: T[]): void {
         let m   = a[0];
         let exp = 1;
@@ -34,6 +35,7 @@ export class RadixSort<T> {
             exp *= 10;
         }
     }
+
     public sort2(a: number[]): void {
         let m   = a[0];
         let exp = 1;

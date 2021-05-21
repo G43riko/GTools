@@ -5,7 +5,7 @@ import { Object2D } from "./object-2d";
 /**
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
-export class Line2D implements Object2D{
+export class Line2D implements Object2D {
     public constructor(public readonly pointA: SimpleVector2,
                        public readonly pointB: SimpleVector2) {
     }
@@ -14,8 +14,6 @@ export class Line2D implements Object2D{
         return Vector2.dist(this.pointA, this.pointB);
     }
 
-
-
     public angle(): number {
         return Math.atan2(
             this.pointB.y - this.pointA.y,
@@ -23,10 +21,9 @@ export class Line2D implements Object2D{
         );
     }
 
-    public get boundingRadius(): number{
+    public get boundingRadius(): number {
         return this.length / 2;
     }
-
 
     public static fromPoints(aX: number, aY: number, bX: number, bY: number): Line2D {
         return new Line2D(
@@ -42,7 +39,7 @@ export class Line2D implements Object2D{
     }
 
     public get momentOfInertia(): number {
-        return  Math.pow(this.length, 2) / 12;
+        return Math.pow(this.length, 2) / 12;
     }
 
     public toMinMax(): MinMax2D {

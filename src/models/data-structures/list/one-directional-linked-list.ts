@@ -14,9 +14,9 @@ export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirect
     }
 
     public forEach(callback: (item: T, index: number) => boolean): void {
-        let act = this.first;
+        let act   = this.first;
         let index = 0;
-        while(act) {
+        while (act) {
             callback(act.item, index++);
             act = act.next;
         }

@@ -12,12 +12,12 @@ class AjaxWrapper {
 }
 
 export function ajax({
-    method = "GET",
-    url,
-    onResponse,
-    content,
-    headers = {},
-}: AjaxParams): AjaxWrapper {
+                         method = "GET",
+                         url,
+                         onResponse,
+                         content,
+                         headers = {},
+                     }: AjaxParams): AjaxWrapper {
     const request              = new XMLHttpRequest();
     request.onreadystatechange = () => {
         if (!(request.readyState === 4 && (request.status === 200 || request.status === 201))) {

@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import { BidirectionalGraph } from "./bidirectional-graph";
-import exp = require("constants");
+
 describe("BidirectionalGraph", () => {
 
     it("Test empty object", () => {

@@ -10,8 +10,8 @@ export interface GLoggerFormatter {
 }
 
 export class GLogger extends GLoggerInstance {
-    private static readonly skipContexts = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
-    private static readonly skipRegexp   = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
+    private static readonly skipContexts    = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
+    private static readonly skipRegexp      = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
     private static readonly staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
 
     public static setCallbacks(callbackHolder: GLoggerCallbackHolder): void {

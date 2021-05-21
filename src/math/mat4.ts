@@ -242,9 +242,9 @@ export class SimpleMat4 {
 
                 return data;
             case "Z":
-                data[0]  = cos;
-                data[1]  = sin;
-                data[4]  = -sin;
+                data[0] = cos;
+                data[1] = sin;
+                data[4] = -sin;
                 data[5] = cos;
 
                 return data;

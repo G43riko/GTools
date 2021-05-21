@@ -28,6 +28,7 @@ export abstract class GLoggerInstance {
         public readonly context?: GLoggerContextType,
     ) {
     }
+
     public setLogCallback(priority: GLoggerPriority, callback: GLoggerCallback): void {
         this.loggerCallbacks?.setCallback(priority, callback);
     }
