@@ -1,7 +1,7 @@
+import { DomGet } from "../dom/dom-get";
 import { NotBrowserException } from "../errors";
 import { SimpleVector2 } from "../math";
 import { Size, StringMap } from "../types";
-import { DomGet } from "../dom/dom-get";
 import * as Checkers from "../validators/misc-validators";
 
 export interface ObjectCreatorParams {
