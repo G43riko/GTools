@@ -44,7 +44,7 @@ export function lerpHexaColor(a: string, b: string, amount: number): string {
     const rg = ag + amount * (bg - ag);
     const rb = ab + amount * (bb - ab);
 
-    return "#" + ((1 << 24) + (rr << 16) + (rg << 8) + rb | 0).toString(16).slice(1);
+    return `#${((1 << 24) + (rr << 16) + (rg << 8) + rb | 0).toString(16).slice(1)}`;
 }
 
 export function hex2rgb(color: string): [number, number, number] {
@@ -64,16 +64,16 @@ export function shadeColor(color: string, percent: number): string {
 }
 
 export function rgb2hex(R: number, G: number, B: number): string {
-    return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+    return `#${(0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
         (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
-        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1)}`;
 }
 
 export function int2hex(val: number): string {
     const value  = val.toString(16);
     const result = "000000".substr(0, 6 - value.length) + value;
 
-    return "#" + result.toUpperCase();
+    return `#${result.toUpperCase()}`;
 }
 
 export function int2rgb(val: number): [number, number, number] {
@@ -97,7 +97,7 @@ export function parseColor(color: string): [number, number, number] {
         return colors[color];
     }
 
-    const hexaMatch = color.match(/^#([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/);
+    const hexaMatch = /^#([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/.exec(color);
     if (hexaMatch) {
         return [
             parseInt(hexaMatch[1], 16),
@@ -106,7 +106,7 @@ export function parseColor(color: string): [number, number, number] {
         ];
     }
 
-    const rgbaMath = color.match(/rgba?\((\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3})( *, *\d*.?\d*)\)/);
+    const rgbaMath = /rgba?\((\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3})( *, *\d*.?\d*)\)/.exec(color);
     if (rgbaMath) {
         return [
             parseInt(rgbaMath[1], 10),
@@ -115,5 +115,5 @@ export function parseColor(color: string): [number, number, number] {
         ];
     }
 
-    throw new Error("Cannot parse color: " + color);
+    throw new Error(`Cannot parse color: ${color}`);
 }

@@ -28,14 +28,22 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
         return getCoordinates(index, this.size.x);
     }
 
-    public static initEmpty<T>(x: number, y: number, z: number, defaultValue: T = null as unknown as T): Grid3ArrayHolder<T> {
+    public clear(): void {
+        this.data.splice(this.data.length);
+    }
+
+    public get length(): number {
+        return this.data.length;
+    }
+
+    public static initEmpty<S>(x: number, y: number, z: number, defaultValue: S = null as unknown as S): Grid3ArrayHolder<S> {
         const size   = x * y * z;
-        const result = new Array<T>(size);
+        const result = new Array<S>(size);
         for (let i = 0; i < size; i++) {
             result[i] = defaultValue;
         }
 
-        return new Grid3ArrayHolder<T>({x, y, z}, result);
+        return new Grid3ArrayHolder<S>({x, y, z}, result);
     }
 
     public get(x: number, y: number, z: number): T {

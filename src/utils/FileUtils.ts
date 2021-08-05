@@ -46,7 +46,7 @@ export class FileUtils {
                     return reject(err0);
                 }
                 if (!stats.isDirectory()) {
-                    return reject(dir + " is not directory");
+                    return reject(`${dir} is not directory`);
                 }
                 walk(dir, (err, data) => {
                     if (err) {

@@ -1,6 +1,7 @@
 /**
  * If return positive value so this number is index of the element
  * but if it returns negative value than you can use ~result to determine index of new element
+ *
  * @example
  *  binarySearch(["b",  "d"], "a", (a, b) => a.localeCompare(b)) => -1
  *  binarySearch(["b",  "d"], "b", (a, b) => a.localeCompare(b)) => 0
@@ -94,6 +95,7 @@ export function sortedRemove<T>(array: T[], value: T, compare: (left: T, right: 
 /**
  * Picks values from the 'array' that are present in 'values'.
  * Both 'array' and 'values' are expected to be sorted.
+ *
  * @example
  *  sortedPickAll(["a", "b", "c"], ["b", "c", "d"], (a, b) => a.localeCompare(b)) ==> ["b", "c"]
  */
@@ -126,6 +128,7 @@ export function sortedPickAll<T>(
 /**
  * Picks values from the 'array' that are NOT present in 'values'.
  * Both 'array' and 'values' are expected to be sorted.
+ *
  * @example
  *  SortedDifference(["a", "b", "c"], ["b", "c", "d"], (a, b) => a.localeCompare(b)) ==> ["a"]
  */
@@ -199,6 +202,7 @@ export function SortedPartition<T>(
 /**
  * Merges values from the 'array' and 'values' into one sorted array.
  * Both 'array' and 'values' are expected to be sorted.
+ *
  * @example
  *  sortedMerge(["a", "c", "e"], ["b", "d", "f"], (a, b) => a.localeCompare(b)) ==> ["a", "b", "c", "d", "e"]
  */

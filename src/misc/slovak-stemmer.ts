@@ -64,7 +64,7 @@ function removeCase(key: string): string {
             key.endsWith("emi") || // From cz
             key.endsWith("ému") || // From cz
             key.endsWith("emu") ||
-            /*key.endsWith("iho") ||*/ // Veľmi malý vplyv
+            /* key.endsWith("iho") ||*/ // Veľmi malý vplyv
             key.endsWith("ími") || // From cz
             key.endsWith("imi") ||
             key.endsWith("ách") || // From cz
@@ -87,7 +87,7 @@ function removeCase(key: string): string {
             key.endsWith("ymi") ||
             key.endsWith("ach") ||
             key.endsWith("iam") ||
-            /*key.endsWith("atá") ||*/
+            /* key.endsWith("atá") ||*/
             key.endsWith("iac") ||
             key.endsWith("ite") ||
             key.endsWith("ili") ||
@@ -100,7 +100,7 @@ function removeCase(key: string): string {
     }
 
     if (len > 4 &&
-        (/*key.endsWith("ín") ||*/
+        (/* key.endsWith("ín") ||*/
             key.endsWith("ím") || // From cz
             key.endsWith("ám") || // From cz
             key.endsWith("am") ||
@@ -145,7 +145,7 @@ function removeCase(key: string): string {
             case "é":
             case "í":
             case "ý":
-                /*case "ô":*/
+            /* case "ô":*/
                 return key.substring(0, len - 1);
         }
     }

@@ -36,40 +36,21 @@ export function dateAgo(value: number | string | Date): number | string | Date {
 }
 
 export function formatTime(date: Date, pattern: string): string {
-    const toString = (time: number): string => time < 10 ? "0" + time : "" + time;
+    const toString = (time: number): string => time < 10 ? `0${time}` : `${time}`;
 
-    const regex = new RegExp("(DD|MM|YYYY|YYY|YY|HH|mm|SS)", "g");
-    const DD    = toString(date.getDate());
-    const MM    = toString(date.getMonth() + 1);
-    const YYYY  = date.getFullYear() + "";
-    const YYY   = YYYY.substr(1, 4);
-    const YY    = YYY.substr(1, 4);
-    const HH    = toString(date.getHours());
-    const mm    = toString(date.getMinutes());
-    const SS    = toString(date.getSeconds());
+    const DD   = toString(date.getDate());
+    const MM   = toString(date.getMonth() + 1);
+    const YYYY = `${date.getFullYear()}`;
+    const YYY  = YYYY.substr(1);
+    const YY   = YYY.substr(1);
+    const HH   = toString(date.getHours());
+    const mm   = toString(date.getMinutes());
+    const SS   = toString(date.getSeconds());
 
-    return pattern.replace(regex, (e) => {
-        switch (e) {
-            case "DD":
-                return DD;
-            case "MM":
-                return MM;
-            case "YYYY":
-                return YYYY;
-            case "YYY":
-                return YYY;
-            case "YY":
-                return YY;
-            case "HH":
-                return HH;
-            case "mm":
-                return mm;
-            case "SS":
-                return SS;
-            default:
-                return e;
-        }
-    });
+    const map: { [key: string]: string } = {DD, MM, YYYY, YYY, YY, HH, mm, SS};
+    const regex                          = new RegExp(`(${Object.keys(map).join("|")})`, "g");
+
+    return pattern.replace(regex, (e) => map[e] ?? e);
 }
 
 export function createStopWatch(): { getDiffMs(): number; getDiff(): string } {
@@ -80,12 +61,12 @@ export function createStopWatch(): { getDiffMs(): number; getDiff(): string } {
     return {
         getDiffMs,
         getDiff(): string {
-            return getDiffMs() + "ms";
+            return `${getDiffMs()}ms`;
         },
     };
 }
 
-function setDate(date: Date, opt: { ms: number, s: number, m: number, h: number }): Date {
+function setDate(date: Date, opt: { ms: number; s: number; m: number; h: number }): Date {
     if (!date) {
         return new Date("");
     }
@@ -112,6 +93,24 @@ export function getStartOfTheDay(date: Date): Date {
         s : 0,
         m : 0,
         h : 0,
+    });
+}
+
+export function getStartOfTheHour(date: Date): Date {
+    return setDate(date, {
+        ms: 0,
+        s : 0,
+        m : 0,
+        h : date.getHours(),
+    });
+}
+
+export function getEndOfTheHour(date: Date): Date {
+    return setDate(date, {
+        ms: 999,
+        s : 59,
+        m : 59,
+        h : date.getHours(),
     });
 }
 

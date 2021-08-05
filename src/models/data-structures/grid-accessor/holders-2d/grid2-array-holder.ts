@@ -241,6 +241,9 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public getArea(position: SimpleVector2, size: SimpleVector2): T[] {
         return this.getAreaInternally(position, size, "data");
     }
+    public getAreaBlocks(position: SimpleVector2, size: SimpleVector2): Grid2Block<T>[] {
+        return this.getAreaInternally(position, size, "block");
+    }
 
     private getAreaInternally(position: SimpleVector2, size: SimpleVector2, select: "indices"): number[];
     private getAreaInternally(position: SimpleVector2, size: SimpleVector2, select: "data"): T[];

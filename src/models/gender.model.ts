@@ -35,6 +35,7 @@ export function parseGender(gender: string): Gender | null {
 export class GenderClass {
     /**
      * Method parse string and return GenderType
+     *
      * @deprecated use {@link parseGender} instead
      * @param gender gender in any formatTime
      * @returns parsed gender as {@link GenderType}

@@ -29,6 +29,6 @@ export class NumberCounter {
     }
 
     public addAll(items: number[]): void {
-        items.forEach(this.add, this);
+        items.forEach((item) => this.add(item), this);
     }
 }

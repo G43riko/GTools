@@ -55,7 +55,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = vecA.y + vecB.y;
         result.z = vecA.z + vecB.z;
 
-        return result as T;
+        return result;
     }
 
     public static sumNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
@@ -63,7 +63,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = vecA.y + val;
         result.z = vecA.z + val;
 
-        return result as T;
+        return result;
     }
 
     public static dot(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
@@ -75,7 +75,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = vecA.y * vecB.y;
         result.z = vecA.z * vecB.z;
 
-        return result as T;
+        return result;
     }
 
     public static mulNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
@@ -83,7 +83,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = vecA.y * val;
         result.z = vecA.z * val;
 
-        return result as T;
+        return result;
     }
 
     public static min<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
@@ -91,7 +91,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = Math.min(vecA.y, vecB.y);
         result.z = Math.min(vecA.z, vecB.z);
 
-        return result as T;
+        return result;
     }
 
     public static max<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
@@ -99,7 +99,7 @@ export class Vector3 implements SimpleVector3 {
         result.y = Math.max(vecA.y, vecB.y);
         result.z = Math.max(vecA.z, vecB.z);
 
-        return result as T;
+        return result;
     }
 
     public static createFromSphericalCoords(radius: number, phi: number, theta: number): Vector3 {

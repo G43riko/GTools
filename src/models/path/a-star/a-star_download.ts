@@ -31,7 +31,7 @@ const astar = {
      * [options.heuristic] Heuristic function (see astar.heuristics).
      *
      */
-    search(graph: Graph, start: GridNode, end: GridNode, options: { heuristic?: any, closest?: boolean } = {}): GridNode[] {
+    search(graph: Graph, start: GridNode, end: GridNode, options: { heuristic?: any; closest?: boolean } = {}): GridNode[] {
         graph.cleanDirty();
         options         = options || {};
         const heuristic = options.heuristic || astar.heuristics.manhattan;

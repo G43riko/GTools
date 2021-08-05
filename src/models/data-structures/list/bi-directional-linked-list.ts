@@ -3,9 +3,23 @@ import { BiDirectionalLinkedListEntry } from "./linked-list-entry";
 import { List } from "./list";
 
 export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectionalLinkedListEntry<T>> implements List<T> {
-    private last: BiDirectionalLinkedListEntry<T> | null = null;
+    private last?: BiDirectionalLinkedListEntry<T>;
 
     public add(item: T): boolean {
+        return this.append(item);
+    }
+
+    public prepend(item: T): boolean {
+        const newItem = new BiDirectionalLinkedListEntry(item);
+        newItem.next  = this.first;
+        this.first    = newItem;
+
+        this.localLength++;
+
+        return true;
+    }
+
+    public append(item: T): boolean {
         const newItem = new BiDirectionalLinkedListEntry(item);
         if (this.empty) {
             this.first = newItem;
@@ -17,6 +31,41 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
         this.last    = newItem;
 
         this.localLength++;
+
+        return true;
+    }
+
+    /**
+     * TODO: if index is nearer to the end then iterate from the end
+     *
+     * @param index - index of element to be removed
+     */
+    public removeItemAt(index: number): boolean {
+        if (index < 0 || index >= this.length || this.empty) {
+            return false;
+        }
+        if (index === 0) {
+            this.first       = this.first?.next;
+            this.first!.prev = undefined;
+            this.localLength--;
+
+            return true;
+        }
+        if (index === this.length - 1) {
+            this.last       = this.last?.prev;
+            this.last!.next = undefined;
+            this.localLength--;
+
+            return true;
+        }
+
+        const item = this.getHolderAtNotChecked(index);
+        if (!item) {
+            return false;
+        }
+        item.next!.prev = item?.prev;
+        item.prev!.next = item?.next;
+        this.localLength--;
 
         return true;
     }
@@ -40,8 +89,8 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
     }
 
     public clear(): void {
-        this.first       = null;
-        this.last        = null;
+        this.first       = undefined;
+        this.last        = undefined;
         this.localLength = 0;
     }
 
@@ -50,17 +99,11 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
             return false;
         }
 
-        if (this.length === 1) {
-            this.clear();
-
-            return true;
-        }
-
         for (let current = this.first; current; current = current.next) {
             if (current.item === item) {
                 if (current === this.first) {
                     this.first         = current.next;
-                    current.next!.prev = null;
+                    current.next!.prev = undefined;
                     this.localLength--;
 
                     return true;
@@ -68,7 +111,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
 
                 if (current === this.last) {
                     this.last          = current.prev;
-                    current.prev!.next = null;
+                    current.prev!.next = undefined;
                     this.localLength--;
 
                     return true;
@@ -82,6 +125,6 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
             }
         }
 
-        return true;
+        return false;
     }
 }

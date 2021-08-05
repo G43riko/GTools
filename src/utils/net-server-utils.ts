@@ -72,7 +72,7 @@ export function getContentFromUrl(url: URL): Promise<string> {
         return processClientRequest(url.href, HttpsRequest);
     }
 
-    throw new Error("Unknown protocol " + url.protocol);
+    throw new Error(`Unknown protocol ${url.protocol}`);
 }
 
 export function getContentFromFile(path: PathLike, encoding: "utf8" = "utf8"): Promise<string> {

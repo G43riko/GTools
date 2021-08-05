@@ -11,9 +11,7 @@ describe("array-utils", () => {
     it("It should test function compareArrays", () => {
         expect(TESTED_OBJ.compareArrays(["a", "b", "c"], ["a", "b", "c"])).to.be.true;
         expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}])).to.be.false;
-        expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], function(a, b) {
-            return a.v === b.v;
-        })).to.be.true;
+        expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v)).to.be.true;
         expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v)).to.be.true;
     });
 

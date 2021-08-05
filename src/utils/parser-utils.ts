@@ -1,8 +1,8 @@
 export function parseBooleanValue(key: string): boolean | undefined {
-    if (key.match(/(1|true|yes|ano|áno)/i)) {
+    if (/(1|true|yes|ano|áno)/i.exec(key)) {
         return true;
     }
-    if (key.match(/(0|false|no|nie)/i)) {
+    if (/(0|false|no|nie)/i.exec(key)) {
         return false;
     }
 }

@@ -7,7 +7,7 @@ export function Singleton<T extends new(...args: any[]) => any>(constructor: T):
         public constructor(...args: any[]) {
             super(...args);
             if (instances[className]) {
-                throw new Error("Instance of " + className + " is already created");
+                throw new Error(`Instance of ${className} is already created`);
             }
             instances[className] = this;
         }

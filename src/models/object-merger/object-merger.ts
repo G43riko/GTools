@@ -20,9 +20,9 @@ function isNil(value: any): boolean {
     return typeof value === "undefined" || value === null;
 }
 
-function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number): { same: [T, T][], missingInA: T[], missingInB: T[] };
-function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger: (a: T, b: T) => T): { same: T[], missingInA: T[], missingInB: T[] };
-function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: (T | [T, T])[], missingInA: T[], missingInB: T[] } {
+function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number): { same: [T, T][]; missingInA: T[]; missingInB: T[] };
+function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger: (a: T, b: T) => T): { same: T[]; missingInA: T[]; missingInB: T[] };
+function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: (T | [T, T])[]; missingInA: T[]; missingInB: T[] } {
     const sortedArrayA = [...arrA].sort(comparator);
     const sortedArrayB = [...arrB].sort(comparator);
 
@@ -76,16 +76,14 @@ export class ObjectMerger {
                 valueB,
                 matchType   : ObjectMergeMatchType.EQUALS,
                 mergedResult: diff.same,
-                arrayResult : diff.same.map((value, index) => {
-                    return {
-                        matchType: ObjectMergeMatchType.EQUALS,
-                        // parent      : parent + "." + index,
-                        // key         : String(index),
-                        valueA      : value,
-                        valueB      : value,
-                        mergedResult: value,
-                    } as ObjectMergerResult<any>;
-                }),
+                arrayResult : diff.same.map((value, index) => ({
+                    matchType: ObjectMergeMatchType.EQUALS,
+                    // parent      : parent + "." + index,
+                    // key         : String(index),
+                    valueA      : value,
+                    valueB      : value,
+                    mergedResult: value,
+                } as ObjectMergerResult<any>)),
             };
         }
 
@@ -161,7 +159,7 @@ export class ObjectMerger {
 
         const arrayResult = createFilledArray<ObjectMergerResult<any>>(
             max,
-            (i) => ObjectMerger.mergeProperty(valueA[i], valueB[i], config, parent ? parent + "." + i : String(i)),
+            (i) => ObjectMerger.mergeProperty(valueA[i], valueB[i], config, parent ? `${parent}.${i}` : String(i)),
         );
 
         return {

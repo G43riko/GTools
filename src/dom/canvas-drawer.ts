@@ -180,7 +180,7 @@ export class CanvasDrawer implements Drawer {
 
     public drawText(text: string, x: number, y: number, w: number, h: number, textOptions: TextOptionsInterface): void {
         this.context.fillStyle = textOptions.fontColor;
-        this.context.font      = textOptions.fontSize + "px " + textOptions.font;
+        this.context.font      = `${textOptions.fontSize}px ${textOptions.font}`;
 
         let realX = x;
         let realY = y;

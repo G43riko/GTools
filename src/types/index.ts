@@ -21,3 +21,4 @@ export * from "./text-options.interface";
 export * from "./type.interface";
 export * from "./unit-number.type";
 export * from "./vertical-align.type";
+export * from "./value-of";

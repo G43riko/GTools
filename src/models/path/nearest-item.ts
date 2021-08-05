@@ -47,7 +47,7 @@ export class NearestItem {
     public getNearestItem(name: string, searchedType: string): NearestResult {
         const resultVertices: any[] = [];
 
-        const queue                                    = PriorityQueue.createMinQueue((value: { weight: number, vertices: NearestVertex[] }) => value.weight);
+        const queue                                    = PriorityQueue.createMinQueue((value: { weight: number; vertices: NearestVertex[] }) => value.weight);
         const visitedVertices: { [key: string]: true } = {};
         queue.add({
             weight  : 0,

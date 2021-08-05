@@ -231,10 +231,10 @@ export function pointMultiPolygon2dCollision(
 /**
  * pointPolygon2dCollision
  *
- * @param {Array<number>} pt [x,y]
- * @param {Array<Array<number>>} ring [[x,y], [x,y],..]
- * @param {boolean} ignoreBoundary ignoreBoundary
- * @returns {boolean} inRing
+ * @param pt [x,y]
+ * @param ring [[x,y], [x,y],..]
+ * @param ignoreBoundary ignoreBoundary
+ * @returns inRing
  */
 export function pointPolygon2dCollision(pt: number[], ring: number[][], ignoreBoundary: boolean): boolean {
     let isInside = false;

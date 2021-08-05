@@ -5,7 +5,7 @@ export interface SimpleWrapper {
 
 export class KeyValueCounter {
     private readonly data: { [key: string]: number } = {};
-    private readonly results: SimpleWrapper[]        = [];
+    private results: SimpleWrapper[] = [];
     private processed                                = false;
 
     public add(item: string): void {
@@ -19,11 +19,20 @@ export class KeyValueCounter {
         }
     }
 
-    public addAll(items: string[]): void {
-        items.forEach(this.add, this);
+    public addAll(items: readonly string[]): void {
+        items.forEach((item) => {
+            if (item in this.data) {
+                this.data[item]++;
+            } else {
+                this.data[item] = 1;
+            }
+        });
+        if (this.processed) {
+            this.processed = false;
+        }
     }
 
-    public getAll(): SimpleWrapper[] {
+    public getAll(): readonly SimpleWrapper[] {
         if (!this.processed) {
             this.process();
         }
@@ -31,7 +40,7 @@ export class KeyValueCounter {
         return this.results;
     }
 
-    public getTopN(count: number): SimpleWrapper[] {
+    public getTopN(count: number): readonly SimpleWrapper[] {
         if (!this.processed) {
             this.process();
         }
@@ -39,20 +48,20 @@ export class KeyValueCounter {
         return this.results.slice(0, count);
     }
 
+    public get length(): number {
+        return this.getAll().length;
+    }
+
+    /**
+     * @deprecated use {@link length} instead
+     */
     public getCount(): number {
         return this.getAll().length;
     }
 
     private process(): void {
-        for (const key in this.data) {
-            if (!this.data.hasOwnProperty(key)) {
-                continue;
-            }
-            this.results.push({
-                key,
-                count: this.data[key],
-            });
-        }
+        this.results = Object.entries(this.data).map(([key, count]) => ({key, count}));
+
         this.results.sort((a, b) => b.count - a.count);
         this.processed = true;
     }

@@ -48,7 +48,7 @@ export async function uploadFile(): Promise<string> {
 
 export function clientDownloadFile(text: string, name: string): void {
     const element = CreateElement("a", {
-        href    : "data:text/plain;charset=utf-8," + encodeURIComponent(text),
+        href    : `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
         download: name,
     });
 

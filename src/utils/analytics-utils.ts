@@ -16,14 +16,14 @@ export function isIE6(): boolean {
  * Method check if app is running inside Internet explorer 11
  */
 export function isIE11(): boolean {
-    return !!navigator.userAgent.match(/Trident\/7\./);
+    return !!(/Trident\/7\./.exec(navigator.userAgent));
 }
 
 /**
  * Method check if app is running inside Edge
  */
 export function isEdge(): boolean {
-    return !!navigator.userAgent.match(/Edge\//);
+    return !!(/Edge\//.exec(navigator.userAgent));
 }
 
 /**

@@ -4,7 +4,7 @@ import { GridBlockItemFilter } from "../grid-filters";
 import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2HashHolder<T> implements Grid2Holder<T> {
-    private readonly data: { [key: number]: { value: T, x: number, y: number } } = {};
+    private readonly data: { [key: number]: { value: T; x: number; y: number } } = {};
 
     public get length(): number {
         return Object.keys(this.data).length;

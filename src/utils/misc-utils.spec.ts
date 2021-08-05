@@ -43,9 +43,9 @@ describe("Misc utils", () => {
     describe("Cookies", () => {
         const getCookies      = (): string => {
             let cookies = "";
-            cookies += MiscUtils.setCookie("name", "gabriel", 1) + "; ";
-            cookies += MiscUtils.setCookie("age", 24, 10) + "; ";
-            cookies += MiscUtils.setCookie("real", true, 10) + "; ";
+            cookies += `${MiscUtils.setCookie("name", "gabriel", 1)}; `;
+            cookies += `${MiscUtils.setCookie("age", 24, 10)}; `;
+            cookies += `${MiscUtils.setCookie("real", true, 10)}; `;
             cookies += MiscUtils.setCookie("empty", "", 1);
 
             return cookies;
@@ -80,7 +80,7 @@ describe("Misc utils", () => {
                 funcAvg: (a: number, b: number) => (a + b) / 2,
                 funcSum: (a: number, b: number) => a + b,
                 // tslint:disable-next-line
-                funcMul     : function(a: number, b: number) {
+                funcMul(a: number, b: number) {
                     return a * b;
                 },
                 stringParam : "name",

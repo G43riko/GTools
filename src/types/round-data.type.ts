@@ -1,1 +1,1 @@
-export type RoundData = number | { tr?: number, tl?: number, br?: number, bl?: number };
+export type RoundData = number | { tr?: number; tl?: number; br?: number; bl?: number };

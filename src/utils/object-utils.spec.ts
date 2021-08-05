@@ -38,7 +38,7 @@ describe("ObjectUtils", () => {
             const startTime = Date.now();
             items.forEach((item) => holder.test(item));
 
-            console.log(holder.name + " takes " + (Date.now() - startTime));
+            console.log(`${holder.name} takes ${Date.now() - startTime}`);
 
         });
 

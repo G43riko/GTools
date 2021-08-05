@@ -2,6 +2,7 @@ import { StringMap } from "../types";
 
 /**
  * Method parse cookies
+ *
  * @param cookies - cooke to parse
  */
 export function parseCookies(cookies: string): StringMap {
@@ -20,6 +21,7 @@ export function parseCookies(cookies: string): StringMap {
 
 /**
  * Method check if object is in array
+ *
  * @example
  *  isIn("a", "b", "d", "a") => true
  *  isIn("a", ["b", "d", "a"]) => true
@@ -44,6 +46,7 @@ export function isIn<T>(obj: T, ...data: unknown[]): boolean {
 
 /**
  * Method parse JSON content with comments
+ *
  * @param content - stringify JSON
  */
 export function parseJSONWithComments<T>(content: string): T {
@@ -64,7 +67,7 @@ export function setCookie(name: string, value: string | number | boolean, days: 
 }
 
 export function getCookie(cname: string, source = typeof document !== "undefined" ? document.cookie : ""): string {
-    const name = cname + "=";
+    const name = `${cname}=`;
     const ca   = source.split(";");
     for (let c of ca) {
         while (c.charAt(0) === " ") {
@@ -147,7 +150,7 @@ export function parse<T>(obj: string): T {
         }
         try {
             // tslint:disable-next-line no-eval
-            eval("result[i] = " + result[i]);
+            eval(`result[i] = ${result[i]}`);
         } catch (e) {
             result[i] = e;
         }
@@ -180,7 +183,7 @@ export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: 
  * @example
  *  map({name: "gabriel", age: 29.534}, [{attrS: name}])
  */
-export function map<S = any, T = S>(source: S, data: { attrS: keyof S, attrD?: keyof T, mapFunction: (src: any) => any }[]): T {
+export function map<S = any, T = S>(source: S, data: { attrS: keyof S; attrD?: keyof T; mapFunction: (src: any) => any }[]): T {
     const destination: any = {};
 
     data.forEach((item) => {

@@ -11,6 +11,14 @@ export class SortedArrayList<T> implements List<T> {
         this.data.forEach(callback);
     }
 
+    public getItem(index: number): T | undefined {
+        if (index < 0 || index >= this.length) {
+            return;
+        }
+
+        return this.data[index];
+    }
+
     public [Symbol.iterator](): IterableIterator<T> {
         let current = 0;
 
@@ -27,7 +35,7 @@ export class SortedArrayList<T> implements List<T> {
                 }
 
                 return {
-                    value: null,
+                    value: undefined,
                     done : true,
                 };
             },
@@ -42,8 +50,18 @@ export class SortedArrayList<T> implements List<T> {
         return this.data.length === 0;
     }
 
-    public add(item: T): boolean {
-        return sortedInsert(this.data, item, this.comparator) >= 0;
+    public add(item: T): number {
+        return sortedInsert(this.data, item, this.comparator);
+    }
+
+    public removeItemAt(index: number): boolean {
+        if (index < 0 || index >= this.length) {
+            return false;
+        }
+
+        this.data.splice(index, 1);
+
+        return true;
     }
 
     public clear(): void {

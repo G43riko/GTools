@@ -1,17 +1,19 @@
 import { SimpleVector3 } from "../../../../math";
-import { GridBlockItemFilter } from "../../../../models";
+import { GridBlockItemFilter } from "../grid-filters";
 import { Grid3Block, Grid3Holder } from "./grid3-holder";
 
 export class Grid3MapHolder<T> implements Grid3Holder<T> {
+    public readonly length = this.data.length * this.data[0].length * this.data[0][0].length;
+
     public constructor(public readonly data: T[][][]) {
     }
 
-    public static initEmpty<T>(x: number, y: number, z: number, defaultValue: T = null as unknown as T): Grid3MapHolder<T> {
-        const result = new Array<T[][]>(x);
+    public static initEmpty<S>(x: number, y: number, z: number, defaultValue: S = null as unknown as S): Grid3MapHolder<S> {
+        const result = new Array<S[][]>(x);
         for (let i = 0; i < x; i++) {
-            const resA = new Array<T[]>(y);
+            const resA = new Array<S[]>(y);
             for (let j = 0; j < y; j++) {
-                const resB = new Array<T>(z);
+                const resB = new Array<S>(z);
                 for (let k = 0; k < z; k++) {
                     resB[k] = defaultValue;
                 }
@@ -20,7 +22,19 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
             result[i] = resA;
         }
 
-        return new Grid3MapHolder<T>(result);
+        return new Grid3MapHolder<S>(result);
+    }
+
+
+
+    public clear(): void {
+        for (const row of this.data) {
+            for (const column of row) {
+                for (let k = 0; k < column.length; k++) {
+                    column[k] = undefined as unknown as T;
+                }
+            }
+        }
     }
 
     public get(x: number, y: number, z: number): T {

@@ -23,10 +23,10 @@ export interface ElementAttributes {
 
 export function elementToString(element: HTMLElement): string {
     const classes = Array.from(element.classList).join(".");
-    const id      = element.id ? "#" + element.id : "";
-    const parent  = element.parentElement ? elementToString(element.parentElement) + " > " : "";
+    const id      = element.id ? `#${element.id}` : "";
+    const parent  = element.parentElement ? `${elementToString(element.parentElement)} > ` : "";
 
-    return parent + element.localName + id + (classes ? "." + classes : "");
+    return parent + element.localName + id + (classes ? `.${classes}` : "");
 }
 
 export function dragElement(element: HTMLElement, headerSelector = ".header"): { clear: () => void } {
@@ -42,8 +42,8 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
         pos2               = pos4 - e.clientY;
         pos3               = e.clientX;
         pos4               = e.clientY;
-        element.style.top  = element.offsetTop - pos2 + "px";
-        element.style.left = element.offsetLeft - pos1 + "px";
+        element.style.top  = `${element.offsetTop - pos2}px`;
+        element.style.left = `${element.offsetLeft - pos1}px`;
     };
 
     const dragMouseDown = (e: PointerEvent): void => {

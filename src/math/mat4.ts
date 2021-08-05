@@ -126,11 +126,11 @@ export class SimpleMat4 {
 
     public static from(
         param: {
-            scale?: SimpleVector3 | [number, number, number],
-            translation?: SimpleVector3 | [number, number, number],
-            rotation?: Quaternion,
-            angle?: number,
-            axes?: number | SimpleVector3,
+            scale?: SimpleVector3 | [number, number, number];
+            translation?: SimpleVector3 | [number, number, number];
+            rotation?: Quaternion;
+            angle?: number;
+            axes?: number | SimpleVector3;
             rotX?: number;
             rotY?: number;
             rotZ?: number;
@@ -249,7 +249,7 @@ export class SimpleMat4 {
 
                 return data;
             default:
-                throw new Error("Unknown axe " + axe);
+                throw new Error(`Unknown axe ${axe}`);
         }
     }
 

@@ -5,7 +5,7 @@ export const getAsString = (key: any): string => {
 
     return key;
 };
-export const getAsNumber = (key: any): number => {
+export const getAsNumber = <T>(key: T): number => {
     if (typeof key !== "number") {
         throw new Error(`Variable with value ${key} is not a number`);
     }

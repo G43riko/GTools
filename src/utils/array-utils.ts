@@ -69,7 +69,7 @@ export function analyzeArrayChanges<T>(
     prev: T[],
     act: T[],
     comparator: (a: T, b: T) => boolean = (a, b) => a === b,
-): { toAdd: T[], toRemove: T[] } {
+): { toAdd: T[]; toRemove: T[] } {
     const existingPrevIndices: { [key: number]: true } = {};
 
     const toRemove: T[] = [];
@@ -154,8 +154,9 @@ export function min(array: number[]): number {
 
 /**
  * Function return total value of all elements in numeric array
+ *
  * @example
- *  sum([1, 2, 3, 4, 5]) => 15
+ *    sum([1, 2, 3, 4, 5]) => 15
  * @param array - array of numbers
  * @returns summary of all numbers in array
  */
@@ -172,6 +173,7 @@ export function sum(array: number[]): number {
 
 /**
  * Function returns average of numeric array given as input
+ *
  * @example
  *  avg([1, 2, 3, 4, 5]) => 3
  * @param array - array of numbers
@@ -190,6 +192,7 @@ export function avg(array: number[]): number {
 
 /**
  * Function join array by delimiter and append prefix and postfix
+ *
  * @example
  *  join(["a", "b", "c", "d"], "") => abcd
  *  join(["a", "b", "c", "d"], "=") => a=b=c=d
@@ -210,6 +213,7 @@ export function join<T>(array: T[], delimiter: string, prefix = "", postfix = ""
 
 /**
  * Method returns last element from array or null if array is empty. If argument is not array, method returns argument
+ *
  * @example
  *  getLast([]) => undefined
  *  getLast(["a", "b"]) => b
@@ -270,6 +274,7 @@ export function getNRandom<T>(args: T[], count: number): T[] {
 
 /**
  * Method return copy of array with only distinct elements
+ *
  * @example
  *  makeUnique([5, 5, 3, 2, 1, 4, 5, 4]) ==> [5, 3, 2, 1, 4]
  *  makeUnique(["5", "5", "3", "2", "1", "4", "5", "4"]) ==> ["5", "3", "2", "1", "4"]
@@ -328,7 +333,7 @@ export function mergeArrays3<S, T, U, R>(arr1: S[], arr2: T[], arr3: U[], callba
     return result;
 }
 
-export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: T[], missingInA: T[], missingInB: T[] } {
+export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: T[]; missingInA: T[]; missingInB: T[] } {
     const sortedArrayA = [...arrA].sort(comparator);
     const sortedArrayB = [...arrB].sort(comparator);
 

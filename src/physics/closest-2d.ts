@@ -5,7 +5,7 @@ export function pointLine2dClosest(
     sy2: number,
     px: number,
     py: number,
-): { x: number, y: number } {
+): { x: number; y: number } {
     const xDelta = sx2 - sx1;
     const yDelta = sy2 - sy1;
 

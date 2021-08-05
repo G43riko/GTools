@@ -7,16 +7,16 @@ class A {
     @Mapper({}, "__")
     public onlyPrefixed = "";
     @Mapper({
-        onSet: (val: any): any => "SETTER >>>" + val + "<<< SETTER",
-        onGet: (val: any): any => "GETTER >>>" + val + "<<< GETTER",
+        onSet: (val: any): any => `SETTER >>>${val}<<< SETTER`,
+        onGet: (val: any): any => `GETTER >>>${val}<<< GETTER`,
     })
     public both?: string;
     @Mapper({
-        onSet: (val: any): any => "SETTER >>>" + val + "<<< SETTER",
+        onSet: (val: any): any => `SETTER >>>${val}<<< SETTER`,
     })
     public setter?: string;
     @Mapper({
-        onGet: (val: any): any => "GETTER >>>" + val + "<<< GETTER",
+        onGet: (val: any): any => `GETTER >>>${val}<<< GETTER`,
     })
     public getter?: string;
 }

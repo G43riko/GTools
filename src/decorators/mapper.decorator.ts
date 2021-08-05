@@ -1,4 +1,4 @@
-export function Mapper(params: { onGet?: (oldValue: any) => any, onSet?: (oldValue: any) => any } = {}, prefix = "_"): any {
+export function Mapper(params: { onGet?: (oldValue: any) => any; onSet?: (oldValue: any) => any } = {}, prefix = "_"): any {
     return (target: any, key: string): any => {
         if (!delete target[key]) {
             return;

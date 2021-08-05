@@ -50,7 +50,7 @@ describe("Array utils", () => {
     });
     describe("Join", () => {
         it("It should join array elements", () => {
-            expect(ArrayUtils.join(notArray, "///", "<<", ">>")).to.equal("<<" + notArray + ">>");
+            expect(ArrayUtils.join(notArray, "///", "<<", ">>")).to.equal(`<<${notArray}>>`);
             expect(ArrayUtils.join(numArray, "-", "<<", ">>")).to.equal("<<5-8-7-3-1-5-21-8>>");
             expect(ArrayUtils.join([], "-", "<<", ">>")).to.equal("<<>>");
             expect(ArrayUtils.join([], "/")).to.equal("");
@@ -59,7 +59,7 @@ describe("Array utils", () => {
         it("It should join string by delimiter and append prefix and postfix", () => {
             const notArray = "gabriel" as any;
             const testCase = ["hello", "my", "world"];
-            expect(ArrayUtils.join(notArray, "///", "<<", ">>")).to.equal("<<" + notArray + ">>");
+            expect(ArrayUtils.join(notArray, "///", "<<", ">>")).to.equal(`<<${notArray}>>`);
             expect(ArrayUtils.join(testCase, " ", "<<", ">>")).to.equal("<<hello my world>>");
             expect(ArrayUtils.join([], "-", "<<", ">>")).to.equal("<<>>");
             expect(ArrayUtils.join([], "/")).to.equal("");

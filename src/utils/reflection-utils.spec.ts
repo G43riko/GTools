@@ -10,7 +10,7 @@ describe("Reflection utils", () => {
             }
 
             public getName(): string {
-                return "My name is " + this.name;
+                return `My name is ${this.name}`;
             }
         }
 

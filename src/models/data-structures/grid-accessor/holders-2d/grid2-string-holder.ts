@@ -3,7 +3,7 @@ import { GridBlockItemFilter } from "../grid-filters";
 import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2StringHolder<T> implements Grid2Holder<T> {
-    private readonly data: { [key: string]: { value: T, x: number, y: number } } = {};
+    private readonly data: { [key: string]: { value: T; x: number; y: number } } = {};
 
     public get length(): number {
         return Object.keys(this.data).length;
@@ -23,7 +23,7 @@ export class Grid2StringHolder<T> implements Grid2Holder<T> {
         return true;
     }
 
-    public getArea(position: SimpleVector2, size: SimpleVector2): T[] {
+    public getArea(_position: SimpleVector2, _size: SimpleVector2): T[] {
         throw new Error("Not implemented");
     }
 
@@ -31,11 +31,11 @@ export class Grid2StringHolder<T> implements Grid2Holder<T> {
         delete this.data[`${x}_${y}`];
     }
 
-    public getAroundData(x: number, y: number, size?: number): Grid2Block<T>[] {
+    public getAroundData(_x: number, _y: number, _size?: number): Grid2Block<T>[] {
         throw new Error("Not implemented");
     }
 
-    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
+    public getRandomBlock(_filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         throw new Error("Not implemented");
     }
 }

@@ -28,7 +28,7 @@ export class Selection<T> {
     ) {
     }
 
-    public click(item: T, options: { ctrlDown?: boolean, shiftDown?: boolean } = {}): void {
+    public click(item: T, options: { ctrlDown?: boolean; shiftDown?: boolean } = {}): void {
         switch (this.options.mode) {
             case "single":
                 return this.processSingleClick(item);

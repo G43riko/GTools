@@ -2,10 +2,18 @@ import { hash3Numbers } from "../../../../utils/math-utils";
 import { Grid3Holder } from "./grid3-holder";
 
 export class Grid3HashHolder<T> implements Grid3Holder<T> {
-    private readonly data: { [key: number]: { value: T, x: number, y: number, z: number } } = {};
-    private values: { value: T, x: number, y: number, z: number }[]                         = [];
+    private data: { [key: number]: { value: T; x: number; y: number; z: number } } = {};
+    private values: { value: T; x: number; y: number; z: number }[]                         = [];
+
+    public get length(): number {
+        return Object.keys(this.data).length;
+    }
 
     public constructor(private readonly cacheForIteration = false) {
+    }
+
+    public clear(): void {
+        this.data = {};
     }
 
     public get(x: number, y: number, z: number): T {

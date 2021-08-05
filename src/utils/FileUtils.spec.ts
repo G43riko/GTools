@@ -1,5 +1,5 @@
-import { expect } from "chai";
 import * as fs from "fs";
+import { expect } from "chai";
 import "mocha";
 import { FileUtils } from "./FileUtils";
 

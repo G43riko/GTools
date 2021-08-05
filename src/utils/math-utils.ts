@@ -5,7 +5,7 @@ import * as Random from "./random-utils";
  */
 
 export function pad(num: number, size: number): string {
-    const s = "00000000000000" + num;
+    const s = `00000000000000${num}`;
 
     return s.substr(s.length - size);
 }

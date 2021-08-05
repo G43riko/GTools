@@ -159,15 +159,15 @@ function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
 function checkPosAndSize(obj: CanvasConfig, name: string): CanvasConfig {
 
     if ((typeof obj.x === "undefined" || typeof obj.y === "undefined") && typeof obj.position === "undefined") {
-        console.error("MSG_TRY_DRAW_WITHOUT_POSITION: " + name);
+        console.error(`MSG_TRY_DRAW_WITHOUT_POSITION: ${name}`);
     }
 
     if ((typeof obj.width === "undefined" || typeof obj.height === "undefined") && typeof obj.size === "undefined") {
-        console.error("MSG_TRY_DRAW_WITHOUT_SIZE: " + name);
+        console.error(`MSG_TRY_DRAW_WITHOUT_SIZE: ${name}`);
     }
 
     if (obj.width <= 0 || obj.height <= 0) {
-        console.error("MSG_TRY_DRAW_WITH_NEG_POSITION: " + name);
+        console.error(`MSG_TRY_DRAW_WITH_NEG_POSITION: ${name}`);
     }
 
     return initDef(obj);

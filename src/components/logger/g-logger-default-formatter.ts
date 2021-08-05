@@ -163,7 +163,7 @@ export class GLoggerDefaultFormatter implements GLoggerFormatter {
             partials.push(`[${priority}]`);
         }
         if (this.showContext && context) {
-            partials.push(context + ":");
+            partials.push(`${context}:`);
         }
 
         if (this.showTime) {

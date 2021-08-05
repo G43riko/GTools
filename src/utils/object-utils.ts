@@ -2,11 +2,11 @@ import { ObjectEntry } from "../types";
 
 export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))
-                                .reduce((prev, entry) => {
-                                    prev[entry.key] = entry.value;
+        .reduce((prev, entry) => {
+            prev[entry.key] = entry.value;
 
-                                    return prev;
-                                }, {} as T);
+            return prev;
+        }, {} as T);
 }
 
 export function deepEqual<T>(objA: T, objB: T): boolean {
@@ -147,6 +147,7 @@ export function roughSizeOfObject<T>(object: T): number {
 
 /**
  * Freeze object recursively
+ *
  * @param o - object to be freeze
  */
 export function deepFreeze<T>(o: T): T {

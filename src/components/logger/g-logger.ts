@@ -2,7 +2,7 @@ import { GLoggerCallbackHolder } from "./g-logger-callback-holder";
 import { GLoggerInstance } from "./g-logger-instance";
 import { GLoggerPriority } from "./g-logger-priority";
 
-export type GLoggerContextType = string | { constructor?: { name: string }, name?: string };
+export type GLoggerContextType = string | { constructor?: { name: string }; name?: string };
 export type GLoggerCallback = (message: unknown[], context?: string) => void;
 
 export interface GLoggerFormatter {
@@ -21,9 +21,9 @@ export class GLogger extends GLoggerInstance {
     public static getLine(steps = 2): string {
         const error = new Error();
         if (error.stack) {
-            const results = error.stack.split("\n")[steps].trim().match(/\(.*\)/);
+            const results = /\(.*\)/.exec(error.stack.split("\n")[steps].trim());
             if (results && results[0]) {
-                return "at " + results[0];
+                return `at ${results[0]}`;
             }
         }
 
@@ -45,7 +45,7 @@ export class GLogger extends GLoggerInstance {
 
     public static print(type: GLoggerPriority, context: GLoggerContextType = "", ...data: unknown[]): void {
         const realContext: string = GLogger.getContextString(context);
-        const result              = realContext && realContext.match(GLogger.skipRegexp);
+        const result              = realContext && (GLogger.skipRegexp.exec(realContext));
         if (result) {
             return;
         }
