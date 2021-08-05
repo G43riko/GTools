@@ -21,6 +21,10 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return this.data.length;
     }
 
+    public clear(): void {
+        this.data.splice(this.data.length);
+    }
+
     public static initEmpty<T>(x: number, y: number, defaultValue: T = null as unknown as T): Grid2ArrayHolder<T> {
         const size   = x * y;
         const result = new Array<T>(size);

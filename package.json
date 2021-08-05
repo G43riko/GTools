@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.57",
+    "version": "0.2.58",
     "description": "Small library including utils methods for easier life",
     "main": "./index.js",
     "module": "./_esm5/index.js",
@@ -100,6 +100,7 @@
     "dependencies": {
         "glob": "^7.1.7",
         "moment": "^2.29.1",
+        "tslib": "^2.3.0",
         "rimraf": "^3.0.2",
         "ts-loader": "^9.2.1",
         "ts-mocha": "^8.0.0"

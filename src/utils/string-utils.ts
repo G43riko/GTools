@@ -134,7 +134,8 @@ export function getLastPart(text: string, divider = " "): string {
  * @deprecated use {@link occurrences} instead
  */
 export function count(text: string, key: string): number {
-    return ((new RegExp(key, "g").exec(text)) || []).length;
+    // eslint-disable-next-line
+    return (text.match(new RegExp(key, "g")) || []).length;
 }
 
 /**

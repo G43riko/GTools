@@ -4,7 +4,7 @@ import { GridBlockItemFilter } from "../grid-filters";
 import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
-    private readonly data: { [x: number]: { [y: number]: T } } = {};
+    private data: { [x: number]: { [y: number]: T } } = {};
     private _length                                            = 0;
 
     public get(x: number, y: number): T {
@@ -19,6 +19,11 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
             this._length--;
         }
         delete row[y];
+    }
+
+    public clear(): void {
+        this.data    = {};
+        this._length = 0;
     }
 
     public forEach(callback: (item: T, x: number, y: number) => void): boolean {

@@ -8,28 +8,36 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
     public constructor(public readonly data: T[][]) {
     }
 
-    public static initEmpty<T>(x: number, y: number, defaultValue: T = null as unknown as T): Grid2MapHolder<T> {
-        const result = new Array<T[]>(x);
+    public static initEmpty<S>(x: number, y: number, defaultValue: S = null as unknown as S): Grid2MapHolder<S> {
+        const result = new Array<S[]>(x);
         for (let i = 0; i < x; i++) {
-            result[i] = new Array<T>(y);
+            result[i] = new Array<S>(y);
             for (let j = 0; j < y; j++) {
                 result[i][j] = defaultValue;
             }
         }
 
-        return new Grid2MapHolder<T>(result);
+        return new Grid2MapHolder<S>(result);
     }
 
-    public static initWithProvider<T>(x: number, y: number, provider: (x: number, y: number) => T): Grid2MapHolder<T> {
-        const result = new Array<T[]>(x);
+    public static initWithProvider<S>(x: number, y: number, provider: (_x: number, _y: number) => S): Grid2MapHolder<S> {
+        const result = new Array<S[]>(x);
         for (let i = 0; i < x; i++) {
-            result[i] = new Array<T>(y);
+            result[i] = new Array<S>(y);
             for (let j = 0; j < y; j++) {
                 result[i][j] = provider(x, y);
             }
         }
 
-        return new Grid2MapHolder<T>(result);
+        return new Grid2MapHolder<S>(result);
+    }
+
+    public clear(): void {
+        for (const row of this.data) {
+            for (let k = 0; k < row.length; k++) {
+                row[k] = undefined as unknown as T;
+            }
+        }
     }
 
     public get(x: number, y: number): T | undefined {
@@ -54,15 +62,15 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
         return true;
     }
 
-    public getArea(position: SimpleVector2, size: SimpleVector2): T[] {
+    public getArea(_position: SimpleVector2, _size: SimpleVector2): T[] {
         throw new Error("Not implemented");
     }
 
-    public getAroundData(x: number, y: number, size?: number): Grid2Block<T>[] {
+    public getAroundData(_x: number, _y: number, _size?: number): Grid2Block<T>[] {
         throw new Error("Not implemented");
     }
 
-    public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
+    public getRandomBlock(_filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
         throw new Error("Not implemented");
     }
 }
