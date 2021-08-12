@@ -3,10 +3,14 @@ import { GridBlockItemFilter } from "../grid-filters";
 import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2StringHolder<T> implements Grid2Holder<T> {
-    private readonly data: { [key: string]: { value: T; x: number; y: number } } = {};
+    private data: { [key: string]: { value: T; x: number; y: number } } = {};
 
     public get length(): number {
         return Object.keys(this.data).length;
+    }
+
+    public clear(): void {
+        this.data = {};
     }
 
     public get(x: number, y: number): T | undefined {

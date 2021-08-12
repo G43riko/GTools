@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import "mocha";
+import { StringMap } from "../types";
 import * as MiscUtils from "./misc-utils";
 
 describe("Misc utils", () => {
@@ -29,14 +30,15 @@ describe("Misc utils", () => {
     describe("ParseParams", () => {
         it("It should return object parsed from url string", () => {
             const param       = "name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test";
-            const parsedParam = MiscUtils.parseParams<any>(param);
+            const parsedParam = MiscUtils.parseParams<StringMap<unknown>>(param);
             expect(parsedParam).to.be.an("object");
             expect(parsedParam.name).to.be.equal("Gabriel");
             expect(parsedParam.age).to.be.equal("23");
             expect(parsedParam.email).to.be.an("array");
-            expect(parsedParam.email[0]).to.be.equal("gcsollei");
-            expect(parsedParam.email[1]).to.be.equal("gabrielcsollei");
-            expect(parsedParam.email[2]).to.be.equal("test");
+            const email = parsedParam.email as [number, number, number];
+            expect(email[0]).to.be.equal("gcsollei");
+            expect(email[1]).to.be.equal("gabrielcsollei");
+            expect(email[2]).to.be.equal("test");
         });
     });
 
@@ -92,7 +94,7 @@ describe("Misc utils", () => {
 
             const serializedResult = MiscUtils.serialize(obj);
             expect(serializedResult).to.be.a("string");
-            const result = MiscUtils.parse<any>(serializedResult);
+            const result = MiscUtils.parse<StringMap<unknown>>(serializedResult);
 
             expect(Array.isArray(result.arrayParam)).to.be.true;
             expect(result.arrayParam, "result.arrayParam").to.deep.equal(["a", true, 12]);
@@ -102,14 +104,17 @@ describe("Misc utils", () => {
             expect(result.objParam, "result.objParam").to.deep.equal({a: "aa"});
             expect(result.numberParam, "result.numberParam").to.be.equal(123465);
             expect(result.booleanParam, "result.booleanParam").to.be.equal(false);
+            const funcAvg = result.funcAvg as (a: number, b: number) => number;
+            const funcSum = result.funcSum as (a: number, b: number) => number;
+            const funcMul = result.funcMul as (a: number, b: number) => number;
             describe.skip("should skip wrong tests", () => {
                 expect(typeof result.funcAvg, "typeof result.funcAvg").to.be.equal("function");
-                expect(result.funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
+                expect(funcAvg(1, 3), "result.funcAvg(1, 3)").to.be.equal(2);
             });
             expect(typeof result.funcSum, "typeof result.funcSum").to.be.equal("function");
-            expect(result.funcSum(2, 4), "result.funcSum(2, 4)").to.be.equal(6);
+            expect(funcSum(2, 4), "result.funcSum(2, 4)").to.be.equal(6);
             expect(typeof result.funcMul, "typeof result.funcMul").to.be.equal("function");
-            expect(result.funcMul(3, 3), "result.funcMul(3, 3)").to.be.equal(9);
+            expect(funcMul(3, 3), "result.funcMul(3, 3)").to.be.equal(9);
         });
     });
 });

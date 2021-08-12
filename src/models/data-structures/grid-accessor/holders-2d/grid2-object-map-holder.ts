@@ -12,6 +12,10 @@ export class Grid2ObjectMapHolder<T> implements Grid2Holder<T> {
         return length;
     }
 
+    public clear(): void {
+        this.chunks.clear();
+    }
+
     public get(x: number, y: number): T | undefined {
         return this.chunks.get(x)?.get(y);
     }

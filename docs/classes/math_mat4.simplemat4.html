@@ -68,6 +68,16 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>00 04 08 12
+							01 05 09 13
+							02 06 10 14
+						03 07 11 14</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -76,15 +86,6 @@
 						<ul class="tsd-hierarchy">
 							<li>
 								<a href="math_mat4.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a>
-							</li>
-							<li>
-								<a href="gutils.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a>
-							</li>
-							<li>
-								<a href="index.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a>
-							</li>
-							<li>
-								<a href="math.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a>
 							</li>
 						</ul>
 					</li>
@@ -101,10 +102,33 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#data" class="tsd-kind-icon">data</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#equals" class="tsd-kind-icon">equals</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#equalsarray" class="tsd-kind-icon">equals<wbr>Array</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#getscale" class="tsd-kind-icon">get<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#gettranslation" class="tsd-kind-icon">get<wbr>Translation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_mat4.simplemat4.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromquaternion" class="tsd-kind-icon">from<wbr>Quaternion</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromrotation" class="tsd-kind-icon">from<wbr>Rotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromscale" class="tsd-kind-icon">from<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromtranslation" class="tsd-kind-icon">from<wbr>Translation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromxrotation" class="tsd-kind-icon">fromXRotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromyrotation" class="tsd-kind-icon">fromYRotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#fromzrotation" class="tsd-kind-icon">fromZRotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_mat4.simplemat4.html#setidentity" class="tsd-kind-icon">set<wbr>Identity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="math_mat4.simplemat4.html#setscale" class="tsd-kind-icon">set<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="math_mat4.simplemat4.html#settranslation" class="tsd-kind-icon">set<wbr>Translation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="math_mat4.simplemat4.html#staticsetanglerotation" class="tsd-kind-icon">static<wbr>Set<wbr>Angle<wbr>Rotation</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,19 +140,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Simple<wbr>Mat4<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Simple<wbr>Mat4<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/math/mat4.ts#L1">src/math/mat4.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L17">src/math/mat4.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
@@ -137,7 +161,63 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="data" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="equals" class="tsd-anchor"></a>
+					<h3>equals</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>mat<span class="tsd-signature-symbol">: </span><a href="math_mat4.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L59">src/math/mat4.ts:59</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mat: <a href="math_mat4.mat4.html" class="tsd-signature-type" data-tsd-kind="Class">Mat4</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="equalsarray" class="tsd-anchor"></a>
+					<h3>equals<wbr>Array</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">equals<wbr>Array<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L45">src/math/mat4.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
@@ -148,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/math/mat4.ts#L9">src/math/mat4.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L25">src/math/mat4.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -165,6 +245,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getscale" class="tsd-anchor"></a>
+					<h3>get<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Scale<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L37">src/math/mat4.ts:37</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettranslation" class="tsd-anchor"></a>
+					<h3>get<wbr>Translation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Translation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L29">src/math/mat4.ts:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -174,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/math/mat4.ts#L5">src/math/mat4.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L21">src/math/mat4.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -190,6 +304,379 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L67">src/math/mat4.ts:67</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="from" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>angle<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>axes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol">; </span>rotX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotY<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotZ<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotation<span class="tsd-signature-symbol">?: </span><a href="math_quaternion.quaternion.html" class="tsd-signature-type" data-tsd-kind="Class">Quaternion</a><span class="tsd-signature-symbol">; </span>scale<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">; </span>translation<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> }</span>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L127">src/math/mat4.ts:127</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>param: <span class="tsd-signature-symbol">{ </span>angle<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>axes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol">; </span>rotX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotY<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotZ<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>rotation<span class="tsd-signature-symbol">?: </span><a href="math_quaternion.quaternion.html" class="tsd-signature-type" data-tsd-kind="Class">Quaternion</a><span class="tsd-signature-symbol">; </span>scale<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">; </span>translation<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> angle<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> axes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> rotX<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> rotY<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> rotZ<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> rotation<span class="tsd-signature-symbol">?: </span><a href="math_quaternion.quaternion.html" class="tsd-signature-type" data-tsd-kind="Class">Quaternion</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> scale<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> translation<span class="tsd-signature-symbol">?: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromquaternion" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Quaternion</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Quaternion<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><a href="math_quaternion.quaternion.html" class="tsd-signature-type" data-tsd-kind="Class">Quaternion</a>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L161">src/math/mat4.ts:161</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>v: <a href="math_quaternion.quaternion.html" class="tsd-signature-type" data-tsd-kind="Class">Quaternion</a></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromrotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Rotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Rotation<span class="tsd-signature-symbol">(</span>rad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L195">src/math/mat4.ts:195</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rad: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>axis: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Scale<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L120">src/math/mat4.ts:120</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>scale: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromtranslation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Translation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Translation<span class="tsd-signature-symbol">(</span>translation<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L113">src/math/mat4.ts:113</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>translation: <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromxrotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromXRotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">fromXRotation<span class="tsd-signature-symbol">(</span>rad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L256">src/math/mat4.ts:256</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rad: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromyrotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromYRotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">fromYRotation<span class="tsd-signature-symbol">(</span>rad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L263">src/math/mat4.ts:263</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rad: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromzrotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromZRotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">fromZRotation<span class="tsd-signature-symbol">(</span>rad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, result<span class="tsd-signature-symbol">?: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L270">src/math/mat4.ts:270</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rad: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="setidentity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> set<wbr>Identity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Identity<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L76">src/math/mat4.ts:76</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>result: <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="math_mat4.simplemat4.html" class="tsd-signature-type" data-tsd-kind="Class">SimpleMat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="setscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Scale<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L105">src/math/mat4.ts:105</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>result: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="settranslation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Translation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Translation<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L97">src/math/mat4.ts:97</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>result: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="staticsetanglerotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> static<wbr>Set<wbr>Angle<wbr>Rotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">static<wbr>Set<wbr>Angle<wbr>Rotation<span class="tsd-signature-symbol">(</span>sin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, cos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axe<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;X&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;Y&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;Z&quot;</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/math/mat4.ts#L228">src/math/mat4.ts:228</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sin: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>cos: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>axe: <span class="tsd-signature-type">&quot;X&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;Y&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;Z&quot;</span></h5>
+								</li>
+								<li>
+									<h5>data: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -219,11 +706,65 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="math_mat4.simplemat4.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="math_mat4.simplemat4.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_mat4.simplemat4.html#equals" class="tsd-kind-icon">equals</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_mat4.simplemat4.html#equalsarray" class="tsd-kind-icon">equals<wbr>Array</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="math_mat4.simplemat4.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_mat4.simplemat4.html#getscale" class="tsd-kind-icon">get<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_mat4.simplemat4.html#gettranslation" class="tsd-kind-icon">get<wbr>Translation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="math_mat4.simplemat4.html#set" class="tsd-kind-icon">set</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#from" class="tsd-kind-icon">from</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromquaternion" class="tsd-kind-icon">from<wbr>Quaternion</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromrotation" class="tsd-kind-icon">from<wbr>Rotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromscale" class="tsd-kind-icon">from<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromtranslation" class="tsd-kind-icon">from<wbr>Translation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromxrotation" class="tsd-kind-icon">fromXRotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromyrotation" class="tsd-kind-icon">fromYRotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#fromzrotation" class="tsd-kind-icon">fromZRotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="math_mat4.simplemat4.html#setidentity" class="tsd-kind-icon">set<wbr>Identity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="math_mat4.simplemat4.html#setscale" class="tsd-kind-icon">set<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="math_mat4.simplemat4.html#settranslation" class="tsd-kind-icon">set<wbr>Translation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="math_mat4.simplemat4.html#staticsetanglerotation" class="tsd-kind-icon">static<wbr>Set<wbr>Angle<wbr>Rotation</a>
 							</li>
 						</ul>
 					</li>
@@ -249,6 +790,7 @@
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
@@ -257,6 +799,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>

@@ -1,8 +1,5 @@
 import { Button, Keys } from "../enums";
 
-export function getButtonFromEvent(event: MouseEvent): Button | undefined {
-    return getButtonFromEventButtons(event.button);
-}
 
 export function getButtonFromEventButtons(button: MouseEvent["button"]): Button | undefined {
     if (button === 0) {
@@ -14,6 +11,10 @@ export function getButtonFromEventButtons(button: MouseEvent["button"]): Button 
     if (button === 2) {
         return Button.RIGHT;
     }
+}
+
+export function getButtonFromEvent(event: MouseEvent): Button | undefined {
+    return getButtonFromEventButtons(event.button);
 }
 
 export function compareEventKey(event: KeyboardEvent, key: Keys): boolean {

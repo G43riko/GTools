@@ -46,7 +46,7 @@ export function isIOS(): boolean {
  * Method check if app is running inside Chrome
  */
 export function isChromeApp(): boolean {
-    return (window as any)?.chrome?.app?.runtime;
+    return !!(window as { chrome?: { app?: { runtime: boolean } } })?.chrome?.app?.runtime;
 }
 
 /**

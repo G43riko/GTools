@@ -21,6 +21,7 @@ export * from "./data-structures/grid-accessor";
 export * from "./data-structures/list";
 export * from "./paginate.model";
 export * from "./object-change";
+export * from "./loops";
 
 // TODO: Cannot import countries.data.json
 // export * from "./countries/country.interface";

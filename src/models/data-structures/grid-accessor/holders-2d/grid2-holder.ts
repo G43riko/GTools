@@ -7,6 +7,8 @@ export interface Grid2Block<T> {
 }
 
 export interface Grid2Holder<T> {
+    readonly length: number;
+
     get(x: number, y: number): T | undefined;
 
     set(x: number, y: number, value: T): void;
@@ -18,6 +20,13 @@ export interface Grid2Holder<T> {
      * @param callback - function to be executed on each element
      */
     forEach(callback: (block: T, x: number, y: number) => boolean): boolean;
+
+
+    // fill<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number) => R)): void;
+
+    // setHolder(holder: Grid2Block<T>): void;
+
+    clear(): void;
 
     getAroundData(x: number, y: number, size?: number): Grid2Block<T>[];
 

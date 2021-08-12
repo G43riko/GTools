@@ -140,8 +140,9 @@ export function serialize(obj: any): string {
 }
 
 export function parse<T>(obj: string): T {
-    const result = JSON.parse(obj);
+    const result = JSON.parse(obj) as StringMap<string>;
     for (const i in result) {
+        // eslint-disable-next-line no-prototype-builtins
         if (!result.hasOwnProperty(i) ||
             typeof result[i] !== "string" || !(result[i].indexOf("function (") === 0 ||
                 result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/))
@@ -149,14 +150,17 @@ export function parse<T>(obj: string): T {
             continue;
         }
         try {
-            // tslint:disable-next-line no-eval
+            // tslint:disable:no-eval
+            // eslint-disable-next-line no-eval
             eval(`result[i] = ${result[i]}`);
         } catch (e) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             result[i] = e;
         }
     }
 
-    return result;
+    // @ts-ignore
+    return result as T;
 }
 
 /**

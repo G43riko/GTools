@@ -75,7 +75,7 @@
 						<h4>T</h4>
 					</li>
 					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">; </span>next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> }</span></h4>
+						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">; </span>next<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> }</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -90,30 +90,6 @@
 							</li>
 							<li>
 								<a href="models_data_structures_list_one_directional_linked_list.onedirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">OneDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="gutils.bidirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">BiDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="gutils.onedirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">OneDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="index.bidirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">BiDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="index.onedirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">OneDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="models_data_structures_list.bidirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">BiDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="models_data_structures_list.onedirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">OneDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="models.bidirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">BiDirectionalLinkedList</a>
-							</li>
-							<li>
-								<a href="models.onedirectionallinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">OneDirectionalLinkedList</a>
 							</li>
 						</ul>
 					</li>
@@ -154,6 +130,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#contains" class="tsd-kind-icon">contains</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#getholderatnotchecked" class="tsd-kind-icon">get<wbr>Holder<wbr>AtNot<wbr>Checked</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#getitemat" class="tsd-kind-icon">get<wbr>Item<wbr>At</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
 							</ul>
 						</section>
@@ -178,7 +156,7 @@
 									<h4>T</h4>
 								</li>
 								<li>
-									<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">; </span>next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> }</span></h4>
+									<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">; </span>next<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> }</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html" class="tsd-signature-type" data-tsd-kind="Class">AbstractLinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -190,11 +168,11 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="first" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> first</h3>
-					<div class="tsd-signature tsd-kind-icon">first<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> = null</span></div>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagOptional">Optional</span> first</h3>
+					<div class="tsd-signature tsd-kind-icon">first<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">S</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L2">src/models/data-structures/list/abstract-linked-list.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L2">src/models/data-structures/list/abstract-linked-list.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">local<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L3">src/models/data-structures/list/abstract-linked-list.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L3">src/models/data-structures/list/abstract-linked-list.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +199,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L35">src/models/data-structures/list/abstract-linked-list.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L52">src/models/data-structures/list/abstract-linked-list.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -238,7 +216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L5">src/models/data-structures/list/abstract-linked-list.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L5">src/models/data-structures/list/abstract-linked-list.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -257,8 +235,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of Iterable.__@iterator</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L9">src/models/data-structures/list/abstract-linked-list.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L9">src/models/data-structures/list/abstract-linked-list.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -275,7 +254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L39">src/models/data-structures/list/abstract-linked-list.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L56">src/models/data-structures/list/abstract-linked-list.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -285,6 +264,52 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="getholderatnotchecked" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Holder<wbr>AtNot<wbr>Checked</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Holder<wbr>AtNot<wbr>Checked<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L35">src/models/data-structures/list/abstract-linked-list.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getitemat" class="tsd-anchor"></a>
+					<h3>get<wbr>Item<wbr>At</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Item<wbr>At<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L44">src/models/data-structures/list/abstract-linked-list.ts:44</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -298,7 +323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/list/abstract-linked-list.ts#L49">src/models/data-structures/list/abstract-linked-list.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/list/abstract-linked-list.ts#L66">src/models/data-structures/list/abstract-linked-list.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -346,6 +371,12 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#contains" class="tsd-kind-icon">contains</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#getholderatnotchecked" class="tsd-kind-icon">get<wbr>Holder<wbr>AtNot<wbr>Checked</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#getitemat" class="tsd-kind-icon">get<wbr>Item<wbr>At</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="models_data_structures_list_abstract_linked_list.abstractlinkedlist.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
 							</li>
@@ -379,10 +410,11 @@
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

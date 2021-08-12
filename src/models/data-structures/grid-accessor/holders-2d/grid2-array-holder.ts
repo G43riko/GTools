@@ -257,15 +257,14 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         size: SimpleVector2,
         select: "indices" | "data" | "block",
     ): (number | T | Grid2Block<T>)[] {
-        const result = new Array(size.x * size.y);
         let counter  = 0;
         let y        = position.y;
         if (select === "block") {
+            const gridBlocks = new Array<Grid2Block<T>>(size.x * size.y);
             for (let i = 0; i < size.y; i++) {
                 let currentIndex = this.getIndex(position.x, y);
                 for (let j = 0; j < size.x; j++) {
-                    result[counter++] = {
-                        index      : currentIndex,
+                    gridBlocks[counter++] = {
                         item       : this.data[currentIndex++],
                         coordinates: {y, x: position.x + j},
                     };
@@ -273,21 +272,23 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
                 y++;
             }
 
-            return result;
+            return gridBlocks;
         }
+
+        const gridIndices = new Array<number>(size.x * size.y);
         for (let i = 0; i < size.y; i++) {
             let currentIndex = this.getIndex(position.x, y);
             for (let j = 0; j < size.x; j++) {
-                result[counter++] = currentIndex++;
+                gridIndices[counter++] = currentIndex++;
             }
             y++;
         }
 
         if (select === "indices") {
-            return result;
+            return gridIndices;
         }
 
-        return result.map((index) => this.data[index]);
+        return gridIndices.map((index) => this.data[index]);
     }
 
     public forEach(callback: (item: T, x: number, y: number) => void | boolean): boolean {

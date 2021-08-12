@@ -81,6 +81,8 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dboxbox" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Box</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dboxboxminmax" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Box<wbr>Min<wbr>Max</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dboxcylinder" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Cylinder</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dboxminmaxcylinder" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Min<wbr>Max<wbr>Cylinder</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dcylindercylinder" class="tsd-kind-icon">collision3d<wbr>Cylinder<wbr>Cylinder</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dlinebox" class="tsd-kind-icon">collision3d<wbr>Line<wbr>Box</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dlinebox2" class="tsd-kind-icon">collision3d<wbr>Line<wbr>Box2</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="physics_collisions_3d.html#collision3dlineellipsoid" class="tsd-kind-icon">collision3d<wbr>Line<wbr>Ellipsoid</a></li>
@@ -112,7 +114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L295">src/physics/collisions-3d.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L295">src/physics/collisions-3d.ts:295</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -168,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L140">src/physics/collisions-3d.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L140">src/physics/collisions-3d.ts:140</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -224,7 +226,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L381">src/physics/collisions-3d.ts:381</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L400">src/physics/collisions-3d.ts:400</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -268,6 +270,109 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="collision3dboxminmaxcylinder" class="tsd-anchor"></a>
+					<h3>collision3d<wbr>Box<wbr>Min<wbr>Max<wbr>Cylinder</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">collision3d<wbr>Box<wbr>Min<wbr>Max<wbr>Cylinder<span class="tsd-signature-symbol">(</span>minX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, by<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bz<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bRadius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bHeight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L428">src/physics/collisions-3d.ts:428</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>minX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>minY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>minZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>maxX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>maxY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>maxZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bx: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>by: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bz: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bRadius: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bHeight: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="collision3dcylindercylinder" class="tsd-anchor"></a>
+					<h3>collision3d<wbr>Cylinder<wbr>Cylinder</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">collision3d<wbr>Cylinder<wbr>Cylinder<span class="tsd-signature-symbol">(</span>aX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, aY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, aZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, aR<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, aH<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bR<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bH<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L365">src/physics/collisions-3d.ts:365</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>aX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>aY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>aZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>aR: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>aH: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bX: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bY: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bZ: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bR: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>bH: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="collision3dlinebox" class="tsd-anchor"></a>
 					<h3>collision3d<wbr>Line<wbr>Box</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -277,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L210">src/physics/collisions-3d.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L210">src/physics/collisions-3d.ts:210</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -333,7 +438,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L60">src/physics/collisions-3d.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L60">src/physics/collisions-3d.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -392,7 +497,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L336">src/physics/collisions-3d.ts:336</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L336">src/physics/collisions-3d.ts:336</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -448,7 +553,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L37">src/physics/collisions-3d.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L37">src/physics/collisions-3d.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -498,7 +603,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L256">src/physics/collisions-3d.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L256">src/physics/collisions-3d.ts:256</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -548,7 +653,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L159">src/physics/collisions-3d.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L159">src/physics/collisions-3d.ts:159</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -604,7 +709,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L178">src/physics/collisions-3d.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L178">src/physics/collisions-3d.ts:178</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -651,7 +756,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L194">src/physics/collisions-3d.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L194">src/physics/collisions-3d.ts:194</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -698,7 +803,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L365">src/physics/collisions-3d.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L384">src/physics/collisions-3d.ts:384</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -742,7 +847,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L314">src/physics/collisions-3d.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L314">src/physics/collisions-3d.ts:314</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -789,7 +894,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L23">src/physics/collisions-3d.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L23">src/physics/collisions-3d.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -830,7 +935,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L426">src/physics/collisions-3d.ts:426</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L473">src/physics/collisions-3d.ts:473</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -880,7 +985,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L409">src/physics/collisions-3d.ts:409</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L456">src/physics/collisions-3d.ts:456</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -927,7 +1032,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/collisions-3d.ts#L8">src/physics/collisions-3d.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/collisions-3d.ts#L8">src/physics/collisions-3d.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -987,6 +1092,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="physics_collisions_3d.html#collision3dboxcylinder" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Cylinder</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_collisions_3d.html#collision3dboxminmaxcylinder" class="tsd-kind-icon">collision3d<wbr>Box<wbr>Min<wbr>Max<wbr>Cylinder</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="physics_collisions_3d.html#collision3dcylindercylinder" class="tsd-kind-icon">collision3d<wbr>Cylinder<wbr>Cylinder</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="physics_collisions_3d.html#collision3dlinebox" class="tsd-kind-icon">collision3d<wbr>Line<wbr>Box</a>

@@ -4,6 +4,7 @@ import { clamp } from "./math-utils";
  * TODO: Implement https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/utils/units/ColorUtils.java
  */
 
+const MAXIMAL_INT_COLOR_VALUE = 16777215;
 
 const colors: { [color: string]: [number, number, number] } = {
     black: [0, 0, 0],
@@ -66,7 +67,7 @@ export function shadeColor(color: string, percent: number): string {
 export function rgb2hex(R: number, G: number, B: number): string {
     return `#${(0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
         (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
-        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1)}`;
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).toUpperCase().slice(1)}`;
 }
 
 export function int2hex(val: number): string {
@@ -85,7 +86,7 @@ export function int2rgb(val: number): [number, number, number] {
 }
 
 export function hex2int(val: string): number {
-    return parseInt(val, 16);
+    return val[0] === "#" ? parseInt(val.substr(1), 16) : parseInt(val, 16);
 }
 
 export function rgb2int(R: number, G: number, B: number): number {
@@ -106,13 +107,27 @@ export function parseColor(color: string): [number, number, number] {
         ];
     }
 
-    const rgbaMath = /rgba?\((\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3})( *, *\d*.?\d*)\)/.exec(color);
+    const rgbaMath = /rgba\(( *\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3}) *, *( *\d*.?\d*) *\)/.exec(color);
     if (rgbaMath) {
         return [
             parseInt(rgbaMath[1], 10),
             parseInt(rgbaMath[2], 10),
             parseInt(rgbaMath[3], 10),
         ];
+    }
+
+    const rgbMath = /rgb\( *(\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3}) *\)/.exec(color);
+    if (rgbMath) {
+        return [
+            parseInt(rgbMath[1], 10),
+            parseInt(rgbMath[2], 10),
+            parseInt(rgbMath[3], 10),
+        ];
+    }
+
+    const parsedInt = parseInt(color, 10);
+    if (!isNaN(parsedInt) && parsedInt >= 0 && parsedInt <= MAXIMAL_INT_COLOR_VALUE) {
+        return int2rgb(parsedInt);
     }
 
     throw new Error(`Cannot parse color: ${color}`);

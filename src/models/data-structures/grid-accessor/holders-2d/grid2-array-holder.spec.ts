@@ -22,34 +22,30 @@ describe("GridHolderStatic", () => {
 
         describe("Test get getAreaData", () => {
             it("With size 1", () => {
-                expect((holder as any).getAreaInternally({x: 0, y: 0}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "a", index: 0, coordinates: {x: 0, y: 0}}]);
-                expect((holder as any).getAreaInternally({x: 1, y: 0}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "b", index: 1, coordinates: {x: 1, y: 0}}]);
-                expect((holder as any).getAreaInternally({x: 0, y: 1}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "e", index: 4, coordinates: {x: 0, y: 1}}]);
-                expect((holder as any).getAreaInternally({x: 3, y: 3}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "p", index: 15, coordinates: {x: 3, y: 3}}]);
+                expect((holder as any).getAreaInternally({x: 0, y: 0}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "a", coordinates: {x: 0, y: 0}}]);
+                expect((holder as any).getAreaInternally({x: 1, y: 0}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "b", coordinates: {x: 1, y: 0}}]);
+                expect((holder as any).getAreaInternally({x: 0, y: 1}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "e", coordinates: {x: 0, y: 1}}]);
+                expect((holder as any).getAreaInternally({x: 3, y: 3}, {x: 1, y: 1}, "block")).to.deep.equal([{item: "p", coordinates: {x: 3, y: 3}}]);
             });
 
             it("With size 1x2 and 2x1", () => {
                 expect((holder as any).getAreaInternally({x: 1, y: 1}, {x: 1, y: 2}, "block")).to.deep.equal([
                     {
                         item       : "f",
-                        index      : 5,
                         coordinates: {x: 1, y: 1},
                     },
                     {
                         item       : "j",
-                        index      : 9,
                         coordinates: {x: 1, y: 2},
                     },
                 ]);
                 expect((holder as any).getAreaInternally({x: 1, y: 1}, {x: 2, y: 1}, "block")).to.deep.equal([
                     {
                         item       : "f",
-                        index      : 5,
                         coordinates: {x: 1, y: 1},
                     },
                     {
                         item       : "g",
-                        index      : 6,
                         coordinates: {x: 2, y: 1},
                     },
                 ]);
@@ -59,22 +55,18 @@ describe("GridHolderStatic", () => {
                 expect((holder as any).getAreaInternally({x: 1, y: 1}, {x: 2, y: 2}, "block")).to.deep.equal([
                     {
                         item       : "f",
-                        index      : 5,
                         coordinates: {x: 1, y: 1},
                     },
                     {
                         item       : "g",
-                        index      : 6,
                         coordinates: {x: 2, y: 1},
                     },
                     {
                         item       : "j",
-                        index      : 9,
                         coordinates: {x: 1, y: 2},
                     },
                     {
                         item       : "k",
-                        index      : 10,
                         coordinates: {x: 2, y: 2},
                     },
                 ]);

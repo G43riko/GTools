@@ -162,7 +162,7 @@ module.exports = {
                 ],
                 "no-shadow": "error",
                 "no-undef-init": "error",
-                "no-underscore-dangle": "error",
+                "no-underscore-dangle": "off",
                 "no-unsafe-finally": "error",
                 "no-unused-expressions": "off",
                 "no-unused-labels": "error",

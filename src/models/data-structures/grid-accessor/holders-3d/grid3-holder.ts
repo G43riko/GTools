@@ -12,7 +12,11 @@ export interface Grid3Holder<T> {
 
     set(x: number, y: number, z: number, value: T): void;
 
+    fill<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number, z: number) => R)): void;
+
     forEach(callback: (block: T, x: number, y: number, z: number) => void): void;
+
+    setHolder(holder: Grid3Holder<T>): void;
 
     clear(): void;
 

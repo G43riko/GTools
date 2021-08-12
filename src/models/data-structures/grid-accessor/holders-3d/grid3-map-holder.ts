@@ -25,13 +25,33 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
         return new Grid3MapHolder<S>(result);
     }
 
-
-
     public clear(): void {
         for (const row of this.data) {
             for (const column of row) {
                 for (let k = 0; k < column.length; k++) {
                     column[k] = undefined as unknown as T;
+                }
+            }
+        }
+    }
+
+    public setHolder(holder: Grid3Holder<T>): void {
+        holder.forEach((item, x, y, z) => this.set(x, y, z, item));
+    }
+
+    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+        if (typeof value === "function") {
+            this.data.forEach((row, x) => {
+                row.forEach((column, y) => {
+                    for (let z = 0; z < column.length; z++) {
+                        column[z] = value(x, y, z);
+                    }
+                });
+            });
+        } else {
+            for (const row of this.data) {
+                for (const column of row) {
+                    column.fill(value);
                 }
             }
         }
@@ -43,6 +63,10 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
 
     public set(x: number, y: number, z: number, value: T): void {
         this.data[x][y][z] = value;
+    }
+
+    public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
+        this.data[x][y][z] = transformer(this.data[x][y][z]);
     }
 
     public getBetween(pointA: SimpleVector3, pointB: SimpleVector3): T[] {
@@ -112,7 +136,7 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
         return result;
     }
 
-    public forEach(callback: (block: T, x: number, y: number, z: number) => void): void {
+    public forEach(callback: (block: T, x: number, y: number, z: number) => void | boolean): void {
         for (let i = 0; i < this.data.length; i++) {
             for (let j = 0; j < this.data[i].length; j++) {
                 for (let k = 0; k < this.data[i][j].length; k++) {

@@ -6,6 +6,7 @@ export * from "./holders-2d/grid2-array-holder";
 export * from "./holders-2d/grid2-hash-holder";
 export * from "./holders-2d/grid2-holder";
 export * from "./holders-2d/grid2-map-holder";
+export * from "./holders-2d/grid2-string-holder";
 export * from "./holders-2d/grid2-object-holder";
 
 export * from "./holders-3d/grid3-array-holder";

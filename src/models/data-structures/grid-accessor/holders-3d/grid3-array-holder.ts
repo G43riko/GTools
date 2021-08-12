@@ -9,7 +9,7 @@ export function getCoordinates(index: number, width: number, height = width): Si
     return {
         x: index % width,
         y: Math.floor(index / (width * height)),
-        z: (index / width) % width,
+        z: Math.floor((index / width) % width),
     };
 }
 
@@ -17,7 +17,10 @@ export function getCoordinates(index: number, width: number, height = width): Si
  * https://github.com/cuberite/cuberite/blob/master/src/ChunkDef.h
  */
 export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
-    public constructor(private readonly size: SimpleVector3, private readonly data: T[]) {
+    public constructor(
+        private readonly size: SimpleVector3,
+        private readonly data: T[],
+    ) {
     }
 
     private getIndex(x: number, y: number, z: number): number {
@@ -50,8 +53,32 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
         return this.data[this.getIndex(x, y, z)];
     }
 
+    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+        if (typeof value === "function") {
+            for (let i = 0; i < this.data.length; i++) {
+                const coordinates = this.getCoordinates(i);
+                this.data[i]      = value(coordinates.x, coordinates.y, coordinates.z);
+            }
+        } else {
+            this.data.fill(value);
+        }
+    }
+
+    public setHolder(holder: Grid3Holder<T>): void {
+        if (holder instanceof Grid3ArrayHolder) {
+            this.data.splice(0, this.data.length, ...holder.data);
+        } else {
+            holder.forEach((item, x, y, z) => this.set(x, y, z, item));
+        }
+    }
+
     public set(x: number, y: number, z: number, value: T): void {
         this.data[this.getIndex(x, y, z)] = value;
+    }
+
+    public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
+        const index      = this.getIndex(x, y, z);
+        this.data[index] = transformer(this.data[index]);
     }
 
     public forEach(callback: (item: T, x: number, y: number, z: number) => void | boolean): void {

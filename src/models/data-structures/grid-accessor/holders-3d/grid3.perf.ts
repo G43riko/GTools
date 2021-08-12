@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import "mocha";
 import { Grid3ArrayHolder } from "./grid3-array-holder";
 import { Grid3HashHolder } from "./grid3-hash-holder";
@@ -80,7 +81,40 @@ describe("Grid3", () => {
 
                 const diff = Date.now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
+            });
 
+            const iterateUntil                         = (value: number, callback: (x: number, y: number, z: number) => unknown): void => {
+                for (let i = 0; i < value; i++) {
+                    for (let j = 0; j < value; j++) {
+                        for (let k = 0; k < value; k++) {
+                            callback(i, j, k);
+                        }
+
+                    }
+                }
+            };
+
+            const length = 9;
+            const results: { [key in number]: string } = {};
+            iterateUntil(length, (x, y, z) => results[x * 100 + y * 10 + z] = `${x}_${y}_${z}`);
+            sorts.forEach((holder) => {
+                holder.clear();
+                holder.set(0, 0, 0, 0);
+                iterateUntil(length, (x, y, z) => holder.set(x, y, z, x * 100 + y * 10 + z));
+                const start = Date.now();
+
+                holder.forEach((item, x, y, z) => {
+                    if (x >= length || y >= length || z >= length) {
+                        return;
+                    }
+                    const stringToCompare = results[item];
+                    if (stringToCompare) {
+                        expect(`${x}_${y}_${z}`).to.be.equal(stringToCompare);
+                    }
+                });
+
+                const diff = Date.now() - start;
+                console.log(holder.constructor.name, ": ", diff, "ms");
             });
         });
     });

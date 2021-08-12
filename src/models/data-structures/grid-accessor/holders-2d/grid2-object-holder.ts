@@ -7,6 +7,10 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
     private data: { [x: number]: { [y: number]: T } } = {};
     private _length                                            = 0;
 
+    public get length(): number {
+        return this._length;
+    }
+
     public get(x: number, y: number): T {
         const row = getOrSetProperty(this.data, x, {});
 

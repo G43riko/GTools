@@ -55,7 +55,7 @@
 					<a href="../modules.html">gtools</a>
 				</li>
 				<li>
-					<a href="../modules/physics_bounding_boxes_aabb3.html">physics/bounding-boxes/AABB3</a>
+					<a href="../modules/physics_bounding_boxes_aabb3.html">physics/bounding-boxes/aabb3</a>
 				</li>
 				<li>
 					<a href="physics_bounding_boxes_aabb3.aabb3.html">AABB3</a>
@@ -74,6 +74,12 @@
 					<li>
 						<span class="target">AABB3</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/physics_bounding_boxes_aabb.aabb.html" class="tsd-signature-type" data-tsd-kind="Interface">AABB</a><span class="tsd-signature-symbol">&lt;</span><a href="physics_bounding_boxes_aabb3.aabb3.html" class="tsd-signature-type" data-tsd-kind="Class">AABB3</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/types_helpers_min_max_3d_interface.minmax3d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax3D</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,7 +102,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#expandbtaabb" class="tsd-kind-icon">expand<wbr>BtAABB</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#expandbyaabb" class="tsd-kind-icon">expand<wbr>ByAABB</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#expandbypoint" class="tsd-kind-icon">expand<wbr>ByPoint</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#expandbyscalar" class="tsd-kind-icon">expand<wbr>ByScalar</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#expandbyvector" class="tsd-kind-icon">expand<wbr>ByVector</a></li>
@@ -108,7 +114,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#movebyscalar" class="tsd-kind-icon">move<wbr>ByScalar</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#movebyvector" class="tsd-kind-icon">move<wbr>ByVector</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#movecenterto" class="tsd-kind-icon">move<wbr>Center<wbr>To</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="physics_bounding_boxes_aabb3.aabb3.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="physics_bounding_boxes_aabb3.aabb3.html#fromcenterandsize" class="tsd-kind-icon">from<wbr>Center<wbr>And<wbr>Size</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="physics_bounding_boxes_aabb3.aabb3.html#fromposandsize" class="tsd-kind-icon">from<wbr>Pos<wbr>And<wbr>Size</a></li>
 							</ul>
@@ -128,7 +133,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L5">src/physics/bounding-boxes/AABB3.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L5">src/physics/bounding-boxes/aabb3.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -165,16 +170,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="expandbtaabb" class="tsd-anchor"></a>
-					<h3>expand<wbr>BtAABB</h3>
+					<a name="expandbyaabb" class="tsd-anchor"></a>
+					<h3>expand<wbr>ByAABB</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">expand<wbr>BtAABB<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="physics_bounding_boxes_aabb3.aabb3.html" class="tsd-signature-type" data-tsd-kind="Class">AABB3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">expand<wbr>ByAABB<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="physics_bounding_boxes_aabb3.aabb3.html" class="tsd-signature-type" data-tsd-kind="Class">AABB3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#expandbyaabb">expandByAABB</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L99">src/physics/bounding-boxes/AABB3.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L37">src/physics/bounding-boxes/aabb3.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -196,8 +202,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#expandbypoint">expandByPoint</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L89">src/physics/bounding-boxes/AABB3.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L27">src/physics/bounding-boxes/aabb3.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -219,8 +226,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#expandbyscalar">expandByScalar</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L71">src/physics/bounding-boxes/AABB3.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L9">src/physics/bounding-boxes/aabb3.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -242,8 +250,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#expandbyvector">expandByVector</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L80">src/physics/bounding-boxes/AABB3.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L18">src/physics/bounding-boxes/aabb3.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -265,8 +274,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#getcenter">getCenter</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L118">src/physics/bounding-boxes/AABB3.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L56">src/physics/bounding-boxes/aabb3.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h4>
@@ -277,16 +287,17 @@
 					<a name="getminmax" class="tsd-anchor"></a>
 					<h3>get<wbr>Min<wbr>Max</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Min<wbr>Max<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/types_helpers_min_max_2d_interface.minmax2d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax2D</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Min<wbr>Max<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/types_helpers_min_max_3d_interface.minmax3d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax3D</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#getminmax">getMinMax</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L149">src/physics/bounding-boxes/AABB3.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L87">src/physics/bounding-boxes/aabb3.ts:87</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/types_helpers_min_max_2d_interface.minmax2d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax2D</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/types_helpers_min_max_3d_interface.minmax3d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax3D</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -299,8 +310,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#getposition">getPosition</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L171">src/physics/bounding-boxes/AABB3.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L109">src/physics/bounding-boxes/aabb3.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h4>
@@ -316,8 +328,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#getsize">getSize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L126">src/physics/bounding-boxes/AABB3.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L64">src/physics/bounding-boxes/aabb3.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/math_simple_vector3.simplevector3.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector3</a></h4>
@@ -333,8 +346,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#getvolume">getVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L134">src/physics/bounding-boxes/AABB3.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L72">src/physics/bounding-boxes/aabb3.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -350,8 +364,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#movebyscalar">moveByScalar</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L109">src/physics/bounding-boxes/AABB3.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L47">src/physics/bounding-boxes/aabb3.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -373,8 +388,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#movebyvector">moveByVector</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L140">src/physics/bounding-boxes/AABB3.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L78">src/physics/bounding-boxes/aabb3.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -396,8 +412,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/physics_bounding_boxes_aabb.aabb.html">AABB</a>.<a href="../interfaces/physics_bounding_boxes_aabb.aabb.html#movecenterto">moveCenterTo</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L200">src/physics/bounding-boxes/AABB3.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L138">src/physics/bounding-boxes/aabb3.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -407,35 +424,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="raycast" class="tsd-anchor"></a>
-					<h3>ray<wbr>Cast</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ray<wbr>Cast<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_ray_2d.raycastresult.html" class="tsd-signature-type" data-tsd-kind="Class">RaycastResult</a>, ray<span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_ray_2d.raycast.html" class="tsd-signature-type" data-tsd-kind="Class">RayCast</a>, maxFraction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L9">src/physics/bounding-boxes/AABB3.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>result: <a href="physics_objects_2d_ray_2d.raycastresult.html" class="tsd-signature-type" data-tsd-kind="Class">RaycastResult</a></h5>
-								</li>
-								<li>
-									<h5>ray: <a href="physics_objects_2d_ray_2d.raycast.html" class="tsd-signature-type" data-tsd-kind="Class">RayCast</a></h5>
-								</li>
-								<li>
-									<h5>maxFraction: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -449,7 +437,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L179">src/physics/bounding-boxes/AABB3.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L117">src/physics/bounding-boxes/aabb3.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -475,7 +463,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/bounding-boxes/AABB3.ts#L156">src/physics/bounding-boxes/AABB3.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/bounding-boxes/aabb3.ts#L94">src/physics/bounding-boxes/aabb3.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -500,7 +488,7 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/physics_bounding_boxes_aabb3.html">physics/bounding-<wbr>boxes/AABB3</a>
+						<a href="../modules/physics_bounding_boxes_aabb3.html">physics/bounding-<wbr>boxes/aabb3</a>
 					</li>
 				</ul>
 			</nav>
@@ -521,7 +509,7 @@
 								<a href="physics_bounding_boxes_aabb3.aabb3.html#min" class="tsd-kind-icon">min</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="physics_bounding_boxes_aabb3.aabb3.html#expandbtaabb" class="tsd-kind-icon">expand<wbr>BtAABB</a>
+								<a href="physics_bounding_boxes_aabb3.aabb3.html#expandbyaabb" class="tsd-kind-icon">expand<wbr>ByAABB</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="physics_bounding_boxes_aabb3.aabb3.html#expandbypoint" class="tsd-kind-icon">expand<wbr>ByPoint</a>
@@ -555,9 +543,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="physics_bounding_boxes_aabb3.aabb3.html#movecenterto" class="tsd-kind-icon">move<wbr>Center<wbr>To</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="physics_bounding_boxes_aabb3.aabb3.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="physics_bounding_boxes_aabb3.aabb3.html#fromcenterandsize" class="tsd-kind-icon">from<wbr>Center<wbr>And<wbr>Size</a>

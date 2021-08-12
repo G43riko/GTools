@@ -14,6 +14,30 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
         this._length = 0;
     }
 
+    public setHolder(holder: Grid3Holder<T>): void {
+        holder.forEach((item, x, y, z) => this.set(x, y, z, item));
+    }
+
+    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+        if (typeof value === "function") {
+            Object.entries(this.data).forEach(([x, chunkRows]) => {
+                Object.entries(chunkRows).forEach(([y, chunk]) => {
+                    Object.keys(chunk).forEach((z) => {
+                        chunk[+z] = value(+x, +y, +z);
+                    });
+                });
+            });
+        } else {
+            Object.values(this.data).forEach((chunkRows) => {
+                Object.values(chunkRows).forEach((chunk) => {
+                    Object.keys(chunk).forEach((z) => {
+                        chunk[+z] = value;
+                    });
+                });
+            });
+        }
+    }
+
     public get(x: number, y: number, z: number): T {
         const row    = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
@@ -31,8 +55,23 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
         column[z] = value;
     }
 
-    public remove(x: number, y: number,  z: number): void {
-        const row = getOrSetProperty(this.data, x, {});
+    public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
+        const row    = getOrSetProperty(this.data, x, {});
+        const column = getOrSetProperty(row, y, {});
+
+        const newValue = transformer(column[z]);
+        if (newValue) {
+            if (typeof column[z] === "undefined") {
+                this._length++;
+            }
+        } else if (column[z]) {
+            this._length--;
+        }
+        column[z] = newValue;
+    }
+
+    public remove(x: number, y: number, z: number): void {
+        const row    = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
         if (column[z]) {
             this._length--;
@@ -40,7 +79,7 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
         delete column[z];
     }
 
-    public forEach(callback: (item: T, x: number, y: number, z: number) => void): void {
+    public forEach(callback: (item: T, x: number, y: number, z: number) => void | boolean): void {
         Object.entries(this.data).forEach(([x, chunkRows]) => {
             Object.entries(chunkRows).forEach(([y, chunk]) => {
                 Object.entries(chunk).forEach(([z, item]) => {

@@ -84,6 +84,12 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html" class="tsd-signature-type" data-tsd-kind="Interface">Grid3Holder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -97,14 +103,23 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#_length" class="tsd-kind-icon">_length</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#data" class="tsd-kind-icon">data</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#clear" class="tsd-kind-icon">clear</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#remove" class="tsd-kind-icon">remove</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#set" class="tsd-kind-icon">set</a></li>
 							</ul>
 						</section>
@@ -137,12 +152,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="data" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> data</h3>
-					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<a name="_length" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _length</h3>
+					<div class="tsd-signature tsd-kind-icon">_length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L4">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L6">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="data" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L5">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -166,7 +191,46 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> length<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html">Grid3Holder</a>.<a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html#length">length</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L8">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:8</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="clear" class="tsd-anchor"></a>
+					<h3>clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html">Grid3Holder</a>.<a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html#clear">clear</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L12">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:12</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="foreach" class="tsd-anchor"></a>
 					<h3>for<wbr>Each</h3>
@@ -176,8 +240,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html">Grid3Holder</a>.<a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html#foreach">forEach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L20">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L43">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -226,8 +291,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html">Grid3Holder</a>.<a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L6">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L17">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,6 +313,35 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L34">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>z: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -255,8 +350,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html">Grid3Holder</a>.<a href="../interfaces/models_data_structures_grid_accessor_holders_3d_grid3_holder.grid3holder.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L13">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts#L24">src/models/data-structures/grid-accessor/holders-3d/grid3-object-holder.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,13 +398,25 @@
 								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#_length" class="tsd-kind-icon">_length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#length" class="tsd-kind-icon">length</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#get" class="tsd-kind-icon">get</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="models_data_structures_grid_accessor_holders_3d_grid3_object_holder.grid3objectholder.html#set" class="tsd-kind-icon">set</a>

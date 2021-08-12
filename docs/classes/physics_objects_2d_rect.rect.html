@@ -86,7 +86,7 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/physics_objects_2d_object2_d.massable2d.html" class="tsd-signature-type" data-tsd-kind="Interface">MassAble2D</a></li>
+					<li><a href="../interfaces/physics_objects_2d_object_2d.massable2d.html" class="tsd-signature-type" data-tsd-kind="Interface">MassAble2D</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -111,6 +111,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="physics_objects_2d_rect.rect.html#area" class="tsd-kind-icon">area</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="physics_objects_2d_rect.rect.html#boundingradius" class="tsd-kind-icon">bounding<wbr>Radius</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="physics_objects_2d_rect.rect.html#center" class="tsd-kind-icon">center</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="physics_objects_2d_rect.rect.html#circuit" class="tsd-kind-icon">circuit</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="physics_objects_2d_rect.rect.html#momentofinertia" class="tsd-kind-icon">moment<wbr>OfInertia</a></li>
 							</ul>
@@ -134,22 +135,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Rect<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a>, size<span class="tsd-signature-symbol">: </span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Rect<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span>, size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L11">src/physics/objects/2d/rect.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L11">src/physics/objects/2d/rect.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>position: <a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a></h5>
+									<h5>position: <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>size: <a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a></h5>
+									<h5>size: <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></h4>
@@ -162,14 +163,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="position" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> position</h3>
-					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a></div>
+					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="size" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a></div>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -185,9 +186,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/physics_objects_2d_object2_d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object2_d.massable2d.html#area">area</a></p>
+								<p>Implementation of <a href="../interfaces/physics_objects_2d_object_2d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object_2d.massable2d.html#area">area</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L18">src/physics/objects/2d/rect.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L18">src/physics/objects/2d/rect.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -203,12 +204,29 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/physics_objects_2d_object2_d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object2_d.massable2d.html#boundingradius">boundingRadius</a></p>
+								<p>Implementation of <a href="../interfaces/physics_objects_2d_object_2d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object_2d.massable2d.html#boundingradius">boundingRadius</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L26">src/physics/objects/2d/rect.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L26">src/physics/objects/2d/rect.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="center" class="tsd-anchor"></a>
+					<h3>center</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> center<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L34">src/physics/objects/2d/rect.ts:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/math_simple_vector2.simplevector2.html" class="tsd-signature-type" data-tsd-kind="Interface">SimpleVector2</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -221,9 +239,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/physics_objects_2d_object2_d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object2_d.massable2d.html#circuit">circuit</a></p>
+								<p>Implementation of <a href="../interfaces/physics_objects_2d_object_2d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object_2d.massable2d.html#circuit">circuit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L30">src/physics/objects/2d/rect.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L30">src/physics/objects/2d/rect.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -239,9 +257,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/physics_objects_2d_object2_d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object2_d.massable2d.html#momentofinertia">momentOfInertia</a></p>
+								<p>Implementation of <a href="../interfaces/physics_objects_2d_object_2d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object_2d.massable2d.html#momentofinertia">momentOfInertia</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L22">src/physics/objects/2d/rect.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L22">src/physics/objects/2d/rect.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -260,9 +278,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/physics_objects_2d_object2_d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object2_d.massable2d.html#tominmax">toMinMax</a></p>
+								<p>Implementation of <a href="../interfaces/physics_objects_2d_object_2d.massable2d.html">MassAble2D</a>.<a href="../interfaces/physics_objects_2d_object_2d.massable2d.html#tominmax">toMinMax</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L34">src/physics/objects/2d/rect.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L41">src/physics/objects/2d/rect.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/types_helpers_min_max_2d_interface.minmax2d.html" class="tsd-signature-type" data-tsd-kind="Interface">MinMax2D</a></h4>
@@ -279,7 +297,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L91">src/physics/objects/2d/rect.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L98">src/physics/objects/2d/rect.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,7 +320,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L72">src/physics/objects/2d/rect.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L79">src/physics/objects/2d/rect.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -331,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L51">src/physics/objects/2d/rect.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L58">src/physics/objects/2d/rect.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -351,19 +369,19 @@
 					<a name="fromsphere" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Sphere</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Sphere<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="physics_objects_2d_sphere.sphere.html" class="tsd-signature-type" data-tsd-kind="Class">Sphere</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;radius&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;center&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Sphere<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="physics_objects_2d_circle.circle.html" class="tsd-signature-type" data-tsd-kind="Class">Circle</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;radius&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;center&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/df7b7e0/src/physics/objects/2d/rect.ts#L38">src/physics/objects/2d/rect.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/G43riko/gtools/blob/b9ba5e8/src/physics/objects/2d/rect.ts#L45">src/physics/objects/2d/rect.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="physics_objects_2d_sphere.sphere.html" class="tsd-signature-type" data-tsd-kind="Class">Sphere</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;radius&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;center&quot;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="physics_objects_2d_circle.circle.html" class="tsd-signature-type" data-tsd-kind="Class">Circle</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;radius&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;center&quot;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="physics_objects_2d_rect.rect.html" class="tsd-signature-type" data-tsd-kind="Class">Rect</a></h4>
@@ -404,6 +422,9 @@
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="physics_objects_2d_rect.rect.html#boundingradius" class="tsd-kind-icon">bounding<wbr>Radius</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="physics_objects_2d_rect.rect.html#center" class="tsd-kind-icon">center</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="physics_objects_2d_rect.rect.html#circuit" class="tsd-kind-icon">circuit</a>
