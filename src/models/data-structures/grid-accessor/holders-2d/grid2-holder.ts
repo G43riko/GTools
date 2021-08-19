@@ -21,6 +21,7 @@ export interface Grid2Holder<T> {
      */
     forEach(callback: (block: T, x: number, y: number) => boolean): boolean;
 
+    // transform(x: number, y: number, transformer: (value: T) => T): void;
 
     // fill<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number) => R)): void;
 

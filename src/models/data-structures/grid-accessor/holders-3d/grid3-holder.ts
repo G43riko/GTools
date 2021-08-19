@@ -5,12 +5,20 @@ export interface Grid3Block<T> {
     readonly coordinates: SimpleVector3;
 }
 
+/**
+ * TODO: add
+ *   - swap
+ *   - mirror XY, XZ, YZ,
+ *   - rotateCW, rotateCCW
+ */
 export interface Grid3Holder<T> {
     readonly length: number;
 
     get(x: number, y: number, z: number): T;
 
     set(x: number, y: number, z: number, value: T): void;
+
+    transform(x: number, y: number, z: number, transformer: (value: T) => T): void;
 
     fill<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number, z: number) => R)): void;
 

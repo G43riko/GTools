@@ -369,3 +369,28 @@ export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) 
 
     return {same, missingInA, missingInB};
 }
+
+function _rowLength<T>(arr: T | T[] | T[][], fn: (a: number, b: number) => number, len0: number): number {
+    if (Array.isArray(arr)) {
+        if (Array.isArray(arr[0])) {
+            let len = len0;
+            for (const item of arr) {
+                len = fn(len, (item as T[]).length);
+            }
+
+            return len;
+        }
+
+        return arr.length;
+    }
+
+    return 0;
+}
+
+export function maxRowLength<T>(arr: T | T[] | T[][]): number {
+    return _rowLength(arr, Math.max, 0);
+}
+
+export function minRowLength<T>(arr: T | T[] | T[][]): number {
+    return _rowLength(arr, Math.min, Infinity);
+}

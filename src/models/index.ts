@@ -10,6 +10,8 @@ export * from "./path-2d";
 export * from "./path/djikstra/djikstra";
 
 export * from "./sorting";
+export * from "./cardinal-direction";
+export * from "./directions";
 
 export * from "./data-structures/priority-queue";
 export * from "./data-structures/binary-queue";

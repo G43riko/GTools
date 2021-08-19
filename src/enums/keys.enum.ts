@@ -6,6 +6,7 @@ export enum Keys {
     DELETE      = "Delete",
     CONTROL     = "ControlLeft",
     SHIFT       = "ShiftLeft",
+    TAB         = "Tab",
     PAGE_UP     = "PageUp",
     PAGE_DOWN   = "PageDown",
     ESCAPE      = "Escape",
@@ -25,6 +26,7 @@ export enum Keys {
     C           = "KeyC",
     O           = "KeyO",
     H           = "KeyH",
+    Q           = "KeyQ",
     L           = "KeyL",
 
     DIGIT_1     = "Digit1",

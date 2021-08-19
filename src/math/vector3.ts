@@ -2,9 +2,11 @@ import { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3";
 import { Vector2 } from "./vector2";
 
 export class Vector3 implements SimpleVector3 {
-    public constructor(public x = 0,
-                       public y = 0,
-                       public z = 0) {
+    public constructor(
+        public x = 0,
+        public y = 0,
+        public z = 0,
+    ) {
     }
 
     public static get UP(): Vector3 {

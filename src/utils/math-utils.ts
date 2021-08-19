@@ -111,3 +111,6 @@ const ratio = 180 / Math.PI;
 export function toDegrees(radians: number): number {
     return radians * ratio;
 }
+export function toRadians(degrees: number): number {
+    return degrees / ratio;
+}

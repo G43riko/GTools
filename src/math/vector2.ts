@@ -1,9 +1,11 @@
 import { Range } from "../models/range";
-import { SimpleVector2 } from "./simple-vector2";
+import { ReadonlySimpleVector2, SimpleVector2 } from "./simple-vector2";
 
 export class Vector2 implements SimpleVector2 {
-    public constructor(public x = 0,
-                       public y = 0) {
+    public constructor(
+        public x = 0,
+        public y = 0,
+    ) {
     }
 
     public static get ZERO(): Vector2 {
@@ -46,7 +48,7 @@ export class Vector2 implements SimpleVector2 {
         return Vector2.size(this);
     }
 
-    public static equals(vecA: SimpleVector2, vecB: SimpleVector2): boolean {
+    public static equals(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): boolean {
         if (vecA === vecB) {
             return true;
         }
@@ -54,21 +56,21 @@ export class Vector2 implements SimpleVector2 {
         return vecA.x === vecB.x && vecA.y === vecB.y;
     }
 
-    public static sub(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+    public static sub(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
         return result.setData(vecA.x - vecB.x, vecA.y - vecB.y);
     }
 
-    public static dot(vecA: SimpleVector2, vecB: SimpleVector2): number {
+    public static dot(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return vecA.x * vecB.x + vecA.y * vecB.y;
     }
 
-    public static lerp<T extends SimpleVector2>(start: SimpleVector2, end: SimpleVector2, ratio: number): SimpleVector2 {
+    public static lerp(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number): Vector2 {
         const dir = Vector2.sub(end, start);
 
         return Vector2.mulNum(dir, ratio, dir).add(start);
     }
 
-    public static getAbs(vec: SimpleVector2, result = new Vector2()): Vector2 {
+    public static getAbs(vec: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
         return result.setData(Math.abs(vec.x), Math.abs(vec.y));
     }
 
@@ -83,7 +85,7 @@ export class Vector2 implements SimpleVector2 {
         ) <= cutOff;
     }
 
-    public static createOutlineRange(points: readonly SimpleVector2[]): Range<SimpleVector2> {
+    public static createOutlineRange(points: readonly ReadonlySimpleVector2[]): Range<SimpleVector2> {
         const min = {
             x: Infinity,
             y: Infinity,
@@ -125,27 +127,27 @@ export class Vector2 implements SimpleVector2 {
         return item && !isNaN(item.x) && !isNaN(item.y);
     }
 
-    public static sum(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+    public static sum(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
         return result.setData(vecA.x + vecB.x, vecA.y + vecB.y);
     }
 
-    public static min(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+    public static min(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
         return result.setData(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y));
     }
 
-    public static max(vecA: SimpleVector2, vecB: SimpleVector2, result = new Vector2()): Vector2 {
+    public static max(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
         return result.setData(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y));
     }
 
-    public static dist(vecA: SimpleVector2, vecB: SimpleVector2): number {
+    public static dist(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return Math.sqrt(Math.pow(vecA.x - vecB.x, 2) + Math.pow(vecA.y - vecB.y, 2));
     }
 
-    public static size(vec: SimpleVector2): number {
+    public static size(vec: ReadonlySimpleVector2): number {
         return Math.sqrt(vec.x * vec.x + vec.y * vec.y);
     }
 
-    public static fromVec(vec: SimpleVector2): Vector2 {
+    public static fromVec(vec: ReadonlySimpleVector2): Vector2 {
         return new Vector2(vec.x, vec.y);
     }
 
@@ -178,15 +180,15 @@ export class Vector2 implements SimpleVector2 {
         return result;
     }
 
-    public static mulNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
+    public static mulNum(vecA: ReadonlySimpleVector2, val: number, result = new Vector2()): Vector2 {
         return result.setData(vecA.x * val, vecA.y * val);
     }
 
-    public static addNum(vecA: SimpleVector2, val: number, result = new Vector2()): Vector2 {
+    public static addNum(vecA: ReadonlySimpleVector2, val: number, result = new Vector2()): Vector2 {
         return result.setData(vecA.x + val, vecA.y + val);
     }
 
-    public mul(value: SimpleVector2 | number): this {
+    public mul(value: ReadonlySimpleVector2 | number): this {
         if (typeof value === "number") {
             this.x *= value;
             this.y *= value;
@@ -199,7 +201,7 @@ export class Vector2 implements SimpleVector2 {
         return this;
     }
 
-    public add(value: SimpleVector2 | number): this {
+    public add(value: ReadonlySimpleVector2 | number): this {
         if (typeof value === "number") {
             this.x += value;
             this.y += value;
@@ -212,7 +214,7 @@ export class Vector2 implements SimpleVector2 {
         return this;
     }
 
-    public sub(value: SimpleVector2 | number): this {
+    public sub(value: ReadonlySimpleVector2 | number): this {
         if (typeof value === "number") {
             this.x -= value;
             this.y -= value;
@@ -225,7 +227,7 @@ export class Vector2 implements SimpleVector2 {
         return this;
     }
 
-    public div(value: SimpleVector2 | number): this {
+    public div(value: ReadonlySimpleVector2 | number): this {
         if (typeof value === "number") {
             this.x /= value;
             this.y /= value;
@@ -245,7 +247,7 @@ export class Vector2 implements SimpleVector2 {
         return this;
     }
 
-    public set(vec: SimpleVector2): this {
+    public set(vec: ReadonlySimpleVector2): this {
         this.x = vec.x;
         this.y = vec.y;
 

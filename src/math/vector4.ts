@@ -1,10 +1,12 @@
-import { SimpleVector4 } from "./simple-vector4";
+import { ReadonlySimpleVector4, SimpleVector4 } from "./simple-vector4";
 
 export class Vector4 implements SimpleVector4 {
-    public constructor(public x = 0,
-                       public y = 0,
-                       public z = 0,
-                       public w = 0) {
+    public constructor(
+        public x = 0,
+        public y = 0,
+        public z = 0,
+        public w = 0,
+    ) {
     }
 
     public static get ZERO(): Vector4 {
@@ -31,7 +33,7 @@ export class Vector4 implements SimpleVector4 {
         return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
     }
 
-    public static equals(vecA: SimpleVector4, vecB: SimpleVector4): boolean {
+    public static equals(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): boolean {
         if (vecA === vecB) {
             return true;
         }
@@ -39,7 +41,7 @@ export class Vector4 implements SimpleVector4 {
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z && vecA.w === vecB.w;
     }
 
-    public static min(vecA: SimpleVector4, vecB: SimpleVector4): Vector4 {
+    public static min(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): Vector4 {
         return new Vector4(
             Math.min(vecA.x, vecB.x),
             Math.min(vecA.y, vecB.y),
@@ -48,7 +50,7 @@ export class Vector4 implements SimpleVector4 {
         );
     }
 
-    public static max(vecA: SimpleVector4, vecB: SimpleVector4): Vector4 {
+    public static max(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): Vector4 {
         return new Vector4(
             Math.max(vecA.x, vecB.x),
             Math.max(vecA.y, vecB.y),
@@ -57,7 +59,7 @@ export class Vector4 implements SimpleVector4 {
         );
     }
 
-    public static dist(vecA: SimpleVector4, vecB: SimpleVector4): number {
+    public static dist(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): number {
         return Math.sqrt(
             Math.pow(vecA.x - vecB.x, 2) +
             Math.pow(vecA.y - vecB.y, 2) +
@@ -102,7 +104,7 @@ export class Vector4 implements SimpleVector4 {
         return this;
     }
 
-    public mul(value: SimpleVector4 | number): this {
+    public mul(value: ReadonlySimpleVector4 | number): this {
         if (typeof value === "number") {
             this.x *= value;
             this.y *= value;
@@ -118,7 +120,7 @@ export class Vector4 implements SimpleVector4 {
         return this;
     }
 
-    public add(vec: SimpleVector4): this {
+    public add(vec: ReadonlySimpleVector4): this {
         this.x += vec.x;
         this.y += vec.y;
         this.z += vec.z;
@@ -127,7 +129,7 @@ export class Vector4 implements SimpleVector4 {
         return this;
     }
 
-    public sub(vec: SimpleVector4): this {
+    public sub(vec: ReadonlySimpleVector4): this {
         this.x -= vec.x;
         this.y -= vec.y;
         this.z -= vec.z;
@@ -145,7 +147,7 @@ export class Vector4 implements SimpleVector4 {
         return this;
     }
 
-    public set(vec: SimpleVector4): this {
+    public set(vec: ReadonlySimpleVector4): this {
         this.x = vec.x;
         this.y = vec.y;
         this.z = vec.z;

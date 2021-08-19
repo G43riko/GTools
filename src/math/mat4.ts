@@ -1,3 +1,4 @@
+// /* eslint-disable */
 /**
  * https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix4.js
  * https://github.com/BennyQBD/3DEngineCpp/blob/master/src/core/math3d.h
@@ -5,7 +6,7 @@
  * https://github.com/fynnfluegge/oreon-engine/blob/master/oreonengine/oe-core/src/main/java/org/oreon/core/math/Matrix4f.java
  */
 import { Quaternion } from "./quaternion";
-import { SimpleVector3 } from "./simple-vector3";
+import { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3";
 import { Vector3 } from "./vector3";
 
 /**
@@ -272,6 +273,35 @@ export class SimpleMat4 {
         Mat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "Z", result.data);
 
         return result;
+    }
+
+    public transformVector(a: SimpleVector3): SimpleVector3 {
+        const m = this.data;
+        const x = a.x;
+        const y = a.y;
+        const z = a.z;
+        let w   = m[3] * x + m[7] * y + m[11] * z + m[15];
+        w       = w || 1;
+        a.x     = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w;
+        a.y     = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w;
+        a.z     = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w;
+
+        return a;
+    }
+
+    public getTransformedVector(a: ReadonlySimpleVector3): SimpleVector3 {
+        const m = this.data;
+        const x = a.x;
+        const y = a.y;
+        const z = a.z;
+        let w   = m[3] * x + m[7] * y + m[11] * z + m[15];
+        w       = w || 1;
+
+        return {
+            x: (m[0] * x + m[4] * y + m[8] * z + m[12]) / w,
+            y: (m[1] * x + m[5] * y + m[9] * z + m[13]) / w,
+            z: (m[2] * x + m[6] * y + m[10] * z + m[14]) / w,
+        };
     }
 }
 
