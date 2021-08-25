@@ -72,8 +72,24 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
         }
     }
 
+    public setByIndex(index: number, value: T): void {
+        this.data[index] = value;
+    }
+
+    public getByIndex(index: number): T | undefined {
+        return this.data[index];
+    }
+
     public set(x: number, y: number, z: number, value: T): void {
         this.data[this.getIndex(x, y, z)] = value;
+    }
+
+    public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
+        const aIndex      = this.getIndex(ax, ay, az);
+        const bIndex      = this.getIndex(bx, by, bz);
+        const tmp         = this.data[aIndex];
+        this.data[aIndex] = this.data[bIndex];
+        this.data[bIndex] = tmp;
     }
 
     public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
@@ -81,12 +97,14 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
         this.data[index] = transformer(this.data[index]);
     }
 
-    public forEach(callback: (item: T, x: number, y: number, z: number) => void | boolean): void {
+    public forEach(callback: (item: T, x: number, y: number, z: number) => unknown): boolean {
         for (let i = 0; i < this.data.length; i++) {
             const coordinates = this.getCoordinates(i);
             if (callback(this.data[i], coordinates.x, coordinates.y, coordinates.z) === false) {
-                return;
+                return false;
             }
         }
+
+        return true;
     }
 }

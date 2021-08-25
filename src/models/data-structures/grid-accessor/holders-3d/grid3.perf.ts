@@ -6,6 +6,9 @@ import { Grid3Holder } from "./grid3-holder";
 import { Grid3MapHolder } from "./grid3-map-holder";
 import { Grid3ObjectHolder } from "./grid3-object-holder";
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const now: () => number = typeof performance !== "undefined" ? performance.now : Date.now;
+
 describe("Grid3", () => {
     describe("default", () => {
 
@@ -22,6 +25,7 @@ describe("Grid3", () => {
             // hashHolder,
             mapHolder,
         ];
+
 
         const createArray = (): number[][][] => {
             const result = new Array<number[][]>(size.x);
@@ -41,7 +45,7 @@ describe("Grid3", () => {
         it("It should test adding", () => {
             sorts.forEach((holder) => {
                 const testArr = createArray();
-                const start   = Date.now();
+                const start   = now();
 
                 testArr.forEach((row, x) => {
                     row.forEach((column, y) => {
@@ -51,14 +55,14 @@ describe("Grid3", () => {
                     });
                 });
 
-                const diff = Date.now() - start;
+                const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
 
             });
         });
         it("It should test getting", () => {
             sorts.forEach((holder) => {
-                const start = Date.now();
+                const start = now();
 
                 for (let x = 0; x < size.x; x++) {
                     for (let y = 0; y < size.y; y++) {
@@ -68,18 +72,18 @@ describe("Grid3", () => {
                     }
                 }
 
-                const diff = Date.now() - start;
+                const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
 
             });
         });
         it("It should test iterating", () => {
             sorts.forEach((holder) => {
-                const start = Date.now();
+                const start = now();
 
                 holder.forEach(() => null);
 
-                const diff = Date.now() - start;
+                const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
             });
 
@@ -101,7 +105,7 @@ describe("Grid3", () => {
                 holder.clear();
                 holder.set(0, 0, 0, 0);
                 iterateUntil(length, (x, y, z) => holder.set(x, y, z, x * 100 + y * 10 + z));
-                const start = Date.now();
+                const start = now();
 
                 holder.forEach((item, x, y, z) => {
                     if (x >= length || y >= length || z >= length) {
@@ -113,7 +117,7 @@ describe("Grid3", () => {
                     }
                 });
 
-                const diff = Date.now() - start;
+                const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
             });
         });

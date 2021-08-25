@@ -5,7 +5,7 @@ import { Grid2Block, Grid2Holder } from "./grid2-holder";
 
 export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
     private data: { [x: number]: { [y: number]: T } } = {};
-    private _length                                            = 0;
+    private _length                                   = 0;
 
     public get length(): number {
         return this._length;
@@ -15,6 +15,12 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
         const row = getOrSetProperty(this.data, x, {});
 
         return row[y];
+    }
+
+    public swap(ax: number, ay: number, bx: number, by: number): void {
+        const tmp         = this.data[ax][ay];
+        this.data[ax][ay] = this.data[bx][by];
+        this.data[bx][by] = tmp;
     }
 
     public remove(x: number, y: number): void {

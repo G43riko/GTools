@@ -32,6 +32,12 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
         return new Grid2MapHolder<S>(result);
     }
 
+    public swap(ax: number, ay: number, bx: number, by: number): void {
+        const tmp         = this.data[ax][ay];
+        this.data[ax][ay] = this.data[bx][by];
+        this.data[bx][by] = tmp;
+    }
+
     public clear(): void {
         for (const row of this.data) {
             for (let k = 0; k < row.length; k++) {
