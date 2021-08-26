@@ -1,6 +1,6 @@
 {
     "name": "gtools",
-    "version": "0.2.59",
+    "version": "0.2.60",
     "description": "Small library including utils methods for easier life",
     "main": "./index.js",
     "module": "./_esm5/index.js",
@@ -38,7 +38,7 @@
         "eslint:fix": "eslint --fix src/**/*.ts",
         "tslint": "tslint --project .",
         "build:old": "tsc --outDir dist && tsc -m es6 --outDir dist/_esm && npm run build:webpack:prod && npm run copy",
-        "build": "npm run build:ts && npm run build:webpack:prod && npm run copy",
+        "build": "npm run clean && npm run build:ts && npm run build:webpack:prod && npm run copy",
         "build:webpack:prod": "webpack --config webpack.prod.js",
         "build:ts": "tsc -b ./src/tsconfig.cjs.json ./src/tsconfig.esm.json ./src/tsconfig.esm5.json ./src/tsconfig.types.json",
         "release": "npm publish dist",
@@ -93,7 +93,7 @@
         "tslint-consistent-codestyle": "^1.16.0",
         "tslint-sonarts": "^1.9.0",
         "typedoc": "^0.21.6",
-        "typescript": "^4.3.5",
+        "typescript": "4.2.4",
         "webpack": "^5.51.1",
         "webpack-cli": "^4.8.0"
     },

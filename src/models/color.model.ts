@@ -6,12 +6,17 @@ function checkColorValue(value: number): void {
 }
 
 export class Color {
+    public static readonly WHITE   = new Color(255, 255, 255);
+    public static readonly YELLOW  = new Color(255, 255, 0);
+    public static readonly MAGENTA = new Color(255, 0, 255);
+    public static readonly AQUA    = new Color(0, 255, 255);
+
     public static readonly BLACK = new Color(0, 0, 0);
-    public static readonly WHITE = new Color(255, 255, 255);
-    public static readonly GRAY  = new Color(128, 128, 128);
     public static readonly RED   = new Color(255, 0, 0);
     public static readonly GREEN = new Color(0, 255, 0);
     public static readonly BLUE  = new Color(0, 0, 255);
+
+    public static readonly GRAY = new Color(128, 128, 128);
 
     public constructor(public readonly red: number,
                        public readonly green: number,
