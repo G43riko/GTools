@@ -2,8 +2,8 @@ name: NPM Release
 
 on:
   release:
-    types: [ published ]
-
+    types:
+      - created
 jobs:
   build:
     timeout-minutes: 5
@@ -30,7 +30,16 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
-      - name: Publish
+        # Build and deploy documentation
+      - name: Build documentation
+        run: npm run doc
+      - name: Deploy documentation
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs # The folder the action should deploy.
+        # Release new NPM Version
+      - name: Publish repository
         run: npm publish dist --access public
         env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS }}
