@@ -236,21 +236,21 @@ export class SimpleMat4 {
                 data[9]  = -sin;
                 data[10] = cos;
 
-                return data;
+                return mat;
             case "Y":
                 data[0]  = cos;
                 data[2]  = -sin;
                 data[8]  = sin;
                 data[10] = cos;
 
-                return data;
+                return mat;
             case "Z":
                 data[0] = cos;
                 data[1] = sin;
                 data[4] = -sin;
                 data[5] = cos;
 
-                return data;
+                return mat;
             default:
                 throw new Error(`Unknown axe ${axe}`);
         }

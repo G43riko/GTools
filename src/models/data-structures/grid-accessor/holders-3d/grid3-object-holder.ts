@@ -79,13 +79,23 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
         delete column[z];
     }
 
-    public forEach(callback: (item: T, x: number, y: number, z: number) => void | boolean): void {
-        Object.entries(this.data).forEach(([x, chunkRows]) => {
-            Object.entries(chunkRows).forEach(([y, chunk]) => {
-                Object.entries(chunk).forEach(([z, item]) => {
-                    callback(item, +x, +y, +z);
-                });
-            });
-        });
+    public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
+        const tmp             = this.data[ax][ay][az];
+        this.data[ax][ay][az] = this.data[bx][by][bz];
+        this.data[bx][by][bz] = tmp;
+    }
+
+    public forEach(callback: (item: T, x: number, y: number, z: number) => unknown): boolean {
+        for (const [x, chunkRows] of Object.entries(this.data)) {
+            for (const [y, chunk] of Object.entries(chunkRows)) {
+                for (const [z, item] of Object.entries(chunk)) {
+                    if (callback(item, +x, +y, +z) === false) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 }

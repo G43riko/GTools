@@ -14,18 +14,27 @@ export interface Grid2Holder<T> {
     set(x: number, y: number, value: T): void;
 
     /**
-     * Iterate over all elements. If callback returns non falsy result, iteration will breaks and function returns false.
-     * If all callback calls return false, function returns true
+     * Iterate over all elements. If callback returns false, iteration will breaks and function returns false.
+     * If any callback call returns false, function returns false otherwise function returns true
      *
      * @param callback - function to be executed on each element
      */
     forEach(callback: (block: T, x: number, y: number) => boolean): boolean;
 
-    // transform(x: number, y: number, transformer: (value: T) => T): void;
+    transform?(x: number, y: number, transformer: (value: T) => T): void;
 
-    // fill<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number) => R)): void;
+    fill?<R extends T & Record<string | number, unknown>>(value: R | ((x: number, y: number) => R)): void;
 
-    // setHolder(holder: Grid2Block<T>): void;
+    setHolder?(holder: Grid2Block<T>): void;
+    swap?(ax: number, ay: number, bx: number, by: number): void;
+
+    mirrorX?(): void;
+
+    mirrorY?(): void;
+
+    rotateCW?(): void;
+
+    rotateCCW?(): void;
 
     clear(): void;
 

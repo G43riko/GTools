@@ -28,6 +28,14 @@ export class Grid3HashHolder<T> implements Grid3Holder<T> {
         }
     }
 
+    public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
+        const aIndex      = hash3Numbers(ax, ay, az);
+        const bIndex      = hash3Numbers(bx, by, bz);
+        const tmp         = this.data[aIndex];
+        this.data[aIndex] = this.data[bIndex];
+        this.data[bIndex] = tmp;
+    }
+
     public setHolder(holder: Grid3Holder<T>): void {
         holder.forEach((item, x, y, z) => this.set(x, y, z, item));
     }
@@ -58,11 +66,22 @@ export class Grid3HashHolder<T> implements Grid3Holder<T> {
         }
     }
 
-    public forEach(callback: (value: T, x: number, y: number, z: number) => void | boolean): void {
+    public forEach(callback: (value: T, x: number, y: number, z: number) => unknown): boolean {
         if (this.cacheForIteration) {
-            this.values.forEach((item) => callback(item.value, item.x, item.y, item.z));
-        } else {
-            Object.values(this.data).forEach((item) => (callback(item.value, item.x, item.y, item.z)));
+            for (const item of this.values) {
+                if (callback(item.value, item.x, item.y, item.z) === false) {
+                    return false;
+                }
+            }
+
+            return true;
         }
+        for (const item of Object.values(this.data)) {
+            if (callback(item.value, item.x, item.y, item.z) === false) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

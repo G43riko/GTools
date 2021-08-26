@@ -24,7 +24,13 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public clear(): void {
         this.data.splice(this.data.length);
     }
-
+    public swap(ax: number, ay: number, bx: number, by: number): void {
+        const aIndex      = this.getIndex(ax, ay);
+        const bIndex      = this.getIndex(bx, by);
+        const tmp         = this.data[aIndex];
+        this.data[aIndex] = this.data[bIndex];
+        this.data[bIndex] = tmp;
+    }
     public static initEmpty<T>(x: number, y: number, defaultValue: T = null as unknown as T): Grid2ArrayHolder<T> {
         const size   = x * y;
         const result = new Array<T>(size);

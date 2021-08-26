@@ -57,6 +57,12 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
         }
     }
 
+    public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
+        const tmp             = this.data[ax][ay][az];
+        this.data[ax][ay][az] = this.data[bx][by][bz];
+        this.data[bx][by][bz] = tmp;
+    }
+
     public get(x: number, y: number, z: number): T {
         return this.data[x]?.[y]?.[z];
     }
@@ -136,14 +142,18 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
         return result;
     }
 
-    public forEach(callback: (block: T, x: number, y: number, z: number) => void | boolean): void {
+    public forEach(callback: (block: T, x: number, y: number, z: number) => void | boolean): boolean {
         for (let i = 0; i < this.data.length; i++) {
             for (let j = 0; j < this.data[i].length; j++) {
                 for (let k = 0; k < this.data[i][j].length; k++) {
-                    callback(this.data[i][j][k], i, j, k);
+                    if (callback(this.data[i][j][k], i, j, k) === false) {
+                        return false;
+                    }
                 }
             }
         }
+
+        return true;
     }
 
     public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid3Block<T> | undefined {
