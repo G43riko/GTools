@@ -81,7 +81,8 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
     }
 
     public set(x: number, y: number, z: number, value: T): void {
-        this.data[this.getIndex(x, y, z)] = value;
+        const index = this.getIndex(x, y, z);
+        this.data[index] = value;
     }
 
     public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
