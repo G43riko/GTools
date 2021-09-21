@@ -192,6 +192,48 @@ export class SimpleMat4 {
         return result;
     }
 
+    public rotate(angle: number, axis: ReadonlySimpleVector3, res = SimpleMat4.create()): this {
+        const {x, y, z} = axis;
+
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
+        const oneminusc = 1 - c;
+        const xy = x * y;
+        const yz = y * z;
+        const xz = x * z;
+        const xs = x * s;
+        const ys = y * s;
+        const zs = z * s;
+
+        const f00 = x * x * oneminusc + c;
+        const f01 = xy * oneminusc + zs;
+        const f02 = xz * oneminusc - ys;
+
+        const f10 = xy * oneminusc - zs;
+        const f11 = y * y * oneminusc + c;
+        const f12 = yz * oneminusc + xs;
+
+        const f20 = xz * oneminusc + ys;
+        const f21 = yz * oneminusc - xs;
+        const f22 = z * z * oneminusc + c;
+
+        res.set(0, 0, this.get(0, 0) * f00 + this.get(1, 0) * f01 + this.get(2, 0) * f02);
+        res.set(0, 1, this.get(0, 1) * f00 + this.get(1, 1) * f01 + this.get(2, 1) * f02);
+        res.set(0, 2, this.get(0, 2) * f00 + this.get(1, 2) * f01 + this.get(2, 2) * f02);
+        res.set(0, 3, this.get(0, 3) * f00 + this.get(1, 3) * f01 + this.get(2, 3) * f02);
+        res.set(1, 0, this.get(0, 0) * f10 + this.get(1, 0) * f11 + this.get(2, 0) * f12);
+        res.set(1, 1, this.get(0, 1) * f10 + this.get(1, 1) * f11 + this.get(2, 1) * f12);
+        res.set(1, 2, this.get(0, 2) * f10 + this.get(1, 2) * f11 + this.get(2, 2) * f12);
+        res.set(1, 3, this.get(0, 3) * f10 + this.get(1, 3) * f11 + this.get(2, 3) * f12);
+        res.set(2, 0, this.get(0, 0) * f20 + this.get(1, 0) * f21 + this.get(2, 0) * f22);
+        res.set(2, 1, this.get(0, 1) * f20 + this.get(1, 1) * f21 + this.get(2, 1) * f22);
+        res.set(2, 2, this.get(0, 2) * f20 + this.get(1, 2) * f21 + this.get(2, 2) * f22);
+        res.set(2, 3, this.get(0, 3) * f20 + this.get(1, 3) * f21 + this.get(2, 3) * f22);
+
+        res.data.forEach((item, index) => this.data[index] = item);
+
+        return this;
+    }
     public static fromRotation(rad: number, axis: SimpleVector3, result = SimpleMat4.create()): SimpleMat4 | null {
         let len = Math.hypot(axis.x, axis.y, axis.z);
         if (len < Number.EPSILON) {

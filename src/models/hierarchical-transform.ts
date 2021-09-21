@@ -1,5 +1,6 @@
 // import { mat4, quat, vec3 } from "gl-matrix";
 // import { SimpleVector3, Vector3 } from "gtools/math";
+// import { Quaternion } from "../math/quaternion";
 // import { Transform } from "./transform";
 //
 // /**
@@ -9,8 +10,8 @@
 // export class HierarchicalTransform extends Transform {
 //     private _parent?: HierarchicalTransform;
 //     private _parentTransformation = mat4.create();
-//     private _oldPosition          = Vector3.ZERO;
-//     private _oldRotation          = quat.create();
+//     private _oldPosition          = new Vector3();
+//     private _oldRotation          = new Quaternion();
 //     private _oldScale             = Vector3.ONE;
 //
 //     private hasChange(): boolean {
