@@ -1,16 +1,8 @@
 import { Mat4 } from "./mat4";
 import { SimpleVector3 } from "./simple-vector3";
-import { SimpleVector4 } from "./simple-vector4";
+import { Vector4 } from "./vector4";
 
-export class Quaternion implements SimpleVector4 {
-    public constructor(
-        public w = 0,
-        public x = 0,
-        public y = 0,
-        public z = 0,
-    ) {
-    }
-
+export class Quaternion extends Vector4 {
     public static fromRotationMatrix(rot: Mat4): Quaternion {
         const trace = rot.get(0, 0) + rot.get(1, 1) + rot.get(2, 2);
 
@@ -52,6 +44,48 @@ export class Quaternion implements SimpleVector4 {
             z / length,
             w / length,
         );
+    }
+
+    public static fromEuler(x: number, y: number, z: number, result = new Quaternion()): Quaternion {
+        const halfToRad = 0.5 * Math.PI / 180;
+        x *= halfToRad;
+        y *= halfToRad;
+        z *= halfToRad;
+        const sx = Math.sin(x);
+        const cx = Math.cos(x);
+        const sy = Math.sin(y);
+        const cy = Math.cos(y);
+        const sz = Math.sin(z);
+        const cz = Math.cos(z);
+        result.x = sx * cy * cz - cx * sy * sz;
+        result.y = cx * sy * cz + sx * cy * sz;
+        result.z = cx * cy * sz - sx * sy * cz;
+        result.w = cx * cy * cz + sx * sy * sz;
+
+        return result;
+    }
+
+    public clone(): Quaternion {
+        return new Quaternion(this.x, this.y, this.z, this.w);
+    }
+
+
+    public static multiply(a: Quaternion, b: Quaternion, result = new Quaternion()): Quaternion {
+        const ax = a.x;
+        const ay = a.y;
+        const az = a.z;
+        const aw = a.w;
+        const bx = b.x;
+        const by = b.y;
+        const bz = b.z;
+        const bw = b.w;
+
+        result.x = ax * bw + aw * bx + ay * bz - az * by;
+        result.y = ay * bw + aw * by + az * bx - ax * bz;
+        result.z = az * bw + aw * bz + ax * by - ay * bx;
+        result.w = aw * bw - ax * bx - ay * by - az * bz;
+
+        return result;
     }
 
     public toEuler(): SimpleVector3 {

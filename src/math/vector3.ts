@@ -40,7 +40,15 @@ export class Vector3 implements SimpleVector3 {
 
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z;
     }
+    public static equalsApproximately (vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, EPSILON = 0.0000001): boolean {
+        if (vecA === vecB) {
+            return true;
+        }
 
+        const equal = (a:number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
+
+        return equal(vecA.x, vecB.x) && equal(vecA.y, vecB.y) && equal(vecA.z, vecB.z);
+    }
     public static sub(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): Vector3 {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     }

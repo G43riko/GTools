@@ -9,7 +9,7 @@ export interface Transform3D {
     readonly rotation: ReadonlySimpleVector4;
 }
 
-export function getDefaultTransform2D(): Transform3D {
+export function getDefaultTransform3D(): Transform3D {
     return {
         offset  : {
             x: 0,

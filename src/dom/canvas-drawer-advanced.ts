@@ -1,6 +1,8 @@
+import { Origin } from "../enums";
 import { XYWH } from "../types";
 import { CanvasDrawer } from "./canvas-drawer";
 import { CanvasManager } from "./canvas-manager";
+import { getXYWHFrom } from "./canvas-misc-utilts";
 import { CanvasShadowConfig } from "./types/canvas-shadow-config";
 
 export interface ObjectOptions {
@@ -32,7 +34,8 @@ export class CanvasDrawerAdvanced {
     public constructor(private readonly context: CanvasRenderingContext2D) {
     }
 
-    public renderRect(location: XYWH, options: RenderOptions): void {
+    public renderRect(rawLocation: XYWH, options: RenderOptions, origin = Origin.TL): void {
+        const location = getXYWHFrom(rawLocation, {x: rawLocation.w, y: rawLocation.h}, origin);
         this.prepareShadow(options.shadow);
         this.prepareOpacity(options.opacity);
         if (options.fill) {
@@ -40,7 +43,7 @@ export class CanvasDrawerAdvanced {
             this.prepareOpacity(options.fill.opacity);
 
             if (options.fill.fillImage) {
-                this.drawer.drawImage(options.fill.fillImage);
+                this.drawer.drawImage(options.fill.fillImage, location.x, location.y, location.w, location.h);
             }
             if (options.fill.fillColor) {
                 this.drawer.fillRect(location.x, location.y, location.w, location.h, options.fill.fillColor);
@@ -58,8 +61,9 @@ export class CanvasDrawerAdvanced {
                 this.context.lineCap = options.stroke.lineCap;
             }
 
-            if (!isNaN(options.stroke.width ?? NaN)) {
-                this.context.lineWidth = options.stroke.width as number;
+            const width = options.stroke.width ?? NaN;
+            if (!isNaN(width)) {
+                this.context.lineWidth = width;
             }
             if (options.stroke.strokeColor) {
                 this.drawer.fillRect(location.x, location.y, location.w, location.h, options.stroke.strokeColor);
@@ -68,15 +72,17 @@ export class CanvasDrawerAdvanced {
     }
 
     private prepareShadow(shadow?: CanvasShadowConfig): void {
-        if (shadow) {
-            CanvasManager.setShadow(
-                this.context,
-                shadow.x ?? 0,
-                shadow.y ?? 0,
-                shadow.color ?? "black",
-                shadow.blur ?? 5,
-            );
+        if (!shadow) {
+            return;
         }
+
+        CanvasManager.setShadow(
+            this.context,
+            shadow.x ?? 0,
+            shadow.y ?? 0,
+            shadow.color ?? "black",
+            shadow.blur ?? 5,
+        );
     }
 
     private prepareDashed(dashes?: number[]): void {

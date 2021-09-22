@@ -41,6 +41,16 @@ export class Vector4 implements SimpleVector4 {
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z && vecA.w === vecB.w;
     }
 
+    public static equalsApproximately (vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4, EPSILON = 0.0000001): boolean {
+        if (vecA === vecB) {
+            return true;
+        }
+
+        const equal = (a:number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
+
+        return equal(vecA.x, vecB.x) && equal(vecA.y, vecB.y) && equal(vecA.z, vecB.z) && equal(vecA.w, vecB.w);
+    }
+
     public static min(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): Vector4 {
         return new Vector4(
             Math.min(vecA.x, vecB.x),
