@@ -25,6 +25,12 @@ export * from "./paginate.model";
 export * from "./object-change";
 export * from "./loops";
 
+export * from "./transform";
+export * from "./transform-2d";
+export * from "./transform-3d";
+export * from "./hierarchical-transform";
+
+
 // TODO: Cannot import countries.data.json
 // export * from "./countries/country.interface";
 // export * from "./countries/country.model";

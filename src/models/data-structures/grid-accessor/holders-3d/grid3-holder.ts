@@ -35,7 +35,15 @@ export interface Grid3Holder<T> {
      *
      * @param callback - function to be executed on each element
      */
+    forEachUntil?(callback: (block: T, x: number, y: number, z: number) => unknown): boolean;
+
+    /**
+     * @deprecated use either {@link forEachUntil} or {@link forEach}
+     * @param callback - function to be executed on each element
+     */
     forEach(callback: (block: T, x: number, y: number, z: number) => unknown): boolean;
+
+    // forEach(callback: (block: T, x: number, y: number, z: number) => void): void;
 
     setHolder(holder: Grid3Holder<T>): void;
 

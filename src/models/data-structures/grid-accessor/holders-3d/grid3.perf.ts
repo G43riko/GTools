@@ -18,11 +18,10 @@ describe("Grid3", () => {
         const mapHolder    = Grid3MapHolder.initEmpty<number>(size.x, size.y, size.z, 0);
         const objectHolder = new Grid3ObjectHolder<number>();
         const hashHolder   = new Grid3HashHolder<number>();
-
         const sorts: Grid3Holder<number>[] = [
             arrayHolder,
             objectHolder,
-            // hashHolder,
+            hashHolder,
             mapHolder,
         ];
 
@@ -71,6 +70,18 @@ describe("Grid3", () => {
                         }
                     }
                 }
+
+                const diff = now() - start;
+                console.log(holder.constructor.name, ": ", diff, "ms");
+
+            });
+        });
+        it("It should test filling", () => {
+            sorts.forEach((holder) => {
+                const start = now();
+
+                holder.fill(123 as any);
+                holder.fill(() => (123 as any));
 
                 const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");

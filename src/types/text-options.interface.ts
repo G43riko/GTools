@@ -5,6 +5,7 @@ export interface TextOptionsInterface {
     fontSize: number;
     font: string;
     fontColor: string;
+    rotation?: number;
     verticalAlign: VerticalAlign;
     horizontalAlign: HorizontalAlign;
 }
