@@ -8,3 +8,6 @@ export * from "./bounders-2d";
 export * from "./objects";
 export * from "./intersects-2d";
 export * from "./intersects-3d";
+export * from "./bounding-boxes/aabb";
+export * from "./bounding-boxes/aabb2";
+export * from "./bounding-boxes/aabb3";
