@@ -10,5 +10,6 @@ export * from "./vector3";
 export * from "./vector4";
 export * from "./mat3";
 export * from "./simple-mat3";
+export * from "./quaternion";
 export * from "./mat4";
 export * from "./simple-mat4";

@@ -18,10 +18,16 @@ export enum Direction6 {
     FRONT = "FRONT",
     BACK  = "BACK",
 }
+export enum Direction4 {
+    UP    = "UP",
+    LEFT  = "LEFT",
+    DOWN  = "DOWN",
+    RIGHT = "RIGHT",
+}
 
-// tslint:disable:variable-name
 export const Directions7 = Object.values(Direction7);
 export const Directions6 = Object.values(Direction6);
+export const Directions4 = Object.values(Direction4);
 
 export function Vector3ToDirection7(vec: ReadonlySimpleVector3): Direction7 {
     if (vec.x * vec.y + vec.y * vec.z + vec.x * vec.z !== 0) {
