@@ -1,5 +1,5 @@
 import { ReadonlySimpleVector2 } from "../../math";
-import { Curve2D } from "./curve";
+import { Curve2D } from "./curve-2d";
 
 export class CurveDrawer {
     public pointColor = "blue";

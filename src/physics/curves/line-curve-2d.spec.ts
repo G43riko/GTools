@@ -17,9 +17,9 @@ describe("LineCurve2D", () => {
         expect(curve.getPoint(2)).to.deep.equal({x: 5, y: 0});
         expect(curve.getPoint(4)).to.deep.equal({x: 10, y: 0});
 
-        expect(curve.getLerpPointAt(0)).to.deep.equal({x: 0, y: 0});
-        expect(curve.getLerpPointAt(0.5)).to.deep.equal({x: 5, y: 0});
-        expect(curve.getLerpPointAt(1)).to.deep.equal({x: 10, y: 0});
+        expect(curve.getPointAt(0)).to.deep.equal({x: 0, y: 0});
+        expect(curve.getPointAt(0.5)).to.deep.equal({x: 5, y: 0});
+        expect(curve.getPointAt(1)).to.deep.equal({x: 10, y: 0});
 
         expect(curve.getPoints(5)).to.deep.equal([
             {x: 0, y: 0},

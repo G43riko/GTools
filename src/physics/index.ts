@@ -11,3 +11,4 @@ export * from "./intersects-3d";
 export * from "./bounding-boxes/aabb";
 export * from "./bounding-boxes/aabb2";
 export * from "./bounding-boxes/aabb3";
+export * from "./curves";

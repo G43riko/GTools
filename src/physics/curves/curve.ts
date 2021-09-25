@@ -1,24 +1,39 @@
-import { ReadonlySimpleVector2, ReadonlySimpleVector3 } from "../../math";
+import { ReadonlySimpleVector2 } from "../../math";
 
-interface Curve<T> {
-    readonly points: readonly T[];
-    readonly length: number;
+/**
+ * TODO:
+ *   - add caching to size calculation
+ */
+export abstract class Curve<T> {
+    public get length(): number {
+        return this.points.length;
+    }
 
-    getSize(): number;
+    public constructor(
+        public readonly points: readonly T[],
+    ) {
+    }
 
-    getPoint(value: number): T;
+    public getPoint(index: number): T {
+        return this.points[index];
+    }
+    // public abstract getSize(): number;
+    //
+    // public abstract getLerpPointAt(value: number): T;
 
-    getLerpPointAt(value: number): T;
+    public abstract getPointAt(t: number): T;
 
-    getPointAtArc(value: number): T;
+    public getPointAtArc(value: number): T {
+        return this.getPointAt(value);
+    }
 
-    getPoints(divisions?: number): readonly T[];
-}
+    public getPoints(divisions = 5): readonly T[] {
+        const result = new Array<T>(divisions);
 
-export interface Curve2D extends Curve<ReadonlySimpleVector2> {
+        for (let i = 0; i <= divisions; i++) {
+            result[i] = this.getPointAtArc(i / divisions);
+        }
 
-}
-
-export interface Curve3D extends Curve<ReadonlySimpleVector3> {
-
+        return result;
+    }
 }
