@@ -319,6 +319,36 @@ export class CanvasDrawer implements Drawer {
         );
     }
 
+    public fillPolygon(points: [number, number][], color?: Color | string): void {
+        if (color) {
+            this.context.fillStyle = extractColor(color);
+        }
+
+        this.drawPolygon(points);
+        this.context.fill();
+    }
+
+    public strokePolygon(points: [number, number][], color?: Color | string, width?: number): void {
+        if (color) {
+            this.context.strokeStyle = extractColor(color);
+        }
+        if (typeof width !== "undefined") {
+            this.context.lineWidth = width;
+        }
+
+        this.drawPolygon(points);
+        this.context.stroke();
+    }
+
+    private drawPolygon(points: [number, number][]): void {
+        this.context.beginPath();
+        this.context.moveTo(points[0][0], points[0][1]);
+        for (let i = 1; i < points.length; i++) {
+            this.context.lineTo(points[i][0], points[i][1]);
+        }
+        this.context.closePath();
+    }
+
     public horizontalLines(startY: number, offsetY: number, steps: number, startX = 0, endX = this.context.canvas.width): void {
         for (let i = 0; i < steps; i++) {
             const y = startY + offsetY * i;

@@ -1,9 +1,9 @@
-import { SimpleVector2, Vector2 } from "../../../math";
+import { ReadonlySimpleVector2, SimpleVector2, Vector2 } from "../../../math";
 
 export class Ray2D {
     public constructor(
-        public readonly origin: SimpleVector2,
-        public readonly direction: SimpleVector2,
+        public readonly origin: ReadonlySimpleVector2,
+        public readonly direction: ReadonlySimpleVector2,
         public readonly length = Infinity,
     ) {
     }
@@ -12,7 +12,7 @@ export class Ray2D {
         return Vector2.from(this.direction.x, this.direction.y).mul(this.length).add(this.origin);
     }
 
-    public static fromLine(start: SimpleVector2, end: SimpleVector2): Ray2D {
+    public static fromLine(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2): Ray2D {
         const direction = Vector2.sub(end, start);
         const length    = direction.length;
 

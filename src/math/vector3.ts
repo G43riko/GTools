@@ -33,6 +33,10 @@ export class Vector3 implements SimpleVector3 {
         return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
+    public static squaredLength(vector: ReadonlySimpleVector3): number {
+        return vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
+    }
+
     public static equals(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): boolean {
         if (vecA === vecB) {
             return true;
