@@ -3,7 +3,7 @@ import { MinMax2D, PosSize2D, XYWH } from "../types";
 import { Circle } from "./objects/2d/circle";
 
 export function fixXYWH(minMax: MinMax2D, xywh: XYWH): SimpleVector2 {
-    const result = {x: xywh.x, y: xywh.y};
+    const result = SimpleVector2.from(xywh);
 
     if (xywh.x < minMax.min.x) {
         result.x = minMax.min.x;

@@ -1,3 +1,4 @@
+// TODO: implements this https://github.com/zeh/prando/blob/main/src/Prando.ts;
 export function randomFloatBetween(min: number, max: number): number {
     return min + Math.random() * (max - min);
 }

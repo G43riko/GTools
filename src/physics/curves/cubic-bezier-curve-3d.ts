@@ -1,5 +1,4 @@
-import { ReadonlySimpleVector2, ReadonlySimpleVector3 } from "../../math";
-import { Curve2D } from "./curve-2d";
+import { ReadonlySimpleVector3, SimpleVector3 } from "../../math";
 import { Curve3D } from "./curve-3d";
 
 // QuadraticBezier
@@ -49,10 +48,10 @@ function CubicBezier(t: number, p0: number, p1: number, p2: number, p3: number):
 
 export class CubicBezierCurve3D extends Curve3D {
     public constructor(
-        private readonly v0 = {x: 0, y: 0, z: 0},
-        private readonly v1 = {x: 0, y: 0, z: 0},
-        private readonly v2 = {x: 0, y: 0, z: 0},
-        private readonly v3 = {x: 0, y: 0, z: 0},
+        private readonly v0 = SimpleVector3.ZERO,
+        private readonly v1 = SimpleVector3.ZERO,
+        private readonly v2 = SimpleVector3.ZERO,
+        private readonly v3 = SimpleVector3.ZERO,
     ) {
         super([v0, v1, v2, v3]);
     }

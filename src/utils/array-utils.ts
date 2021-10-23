@@ -235,7 +235,7 @@ export function getLast<T>(array: T[]): T | undefined {
  * @param array - not empty array
  * @returns random value from array
  */
-export function getRandomItem<T = unknown>(array: T[]): T | null {
+export function getRandomItem<T = unknown>(array:  T[]): T | null {
     if (!Array.isArray(array)) {
         return array;
     }

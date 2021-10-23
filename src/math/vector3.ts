@@ -1,3 +1,4 @@
+import { Range } from "../models";
 import { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3";
 import { Vector2 } from "./vector2";
 
@@ -44,17 +45,63 @@ export class Vector3 implements SimpleVector3 {
 
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z;
     }
-    public static equalsApproximately (vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, EPSILON = 0.0000001): boolean {
+
+    public static createOutlineRange(points: readonly ReadonlySimpleVector3[]): Range<SimpleVector3> {
+        const min = {
+            x: Infinity,
+            y: Infinity,
+            z: Infinity,
+        };
+        const max = {
+            x: -Infinity,
+            y: -Infinity,
+            z: -Infinity,
+        };
+
+        points.forEach((p) => {
+            if (p.x < min.x) {
+                min.x = p.x;
+            }
+            if (p.y < min.y) {
+                min.y = p.y;
+            }
+            if (p.z < min.z) {
+                min.z = p.z;
+            }
+            if (p.x > max.x) {
+                max.x = p.x;
+            }
+            if (p.y > max.y) {
+                max.y = p.y;
+            }
+            if (p.z > max.z) {
+                max.z = p.z;
+            }
+        });
+
+        return new Range(min, max);
+    }
+
+    public static equalsApproximately(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, EPSILON = 0.0000001): boolean {
         if (vecA === vecB) {
             return true;
         }
 
-        const equal = (a:number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
+        const equal = (a: number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
 
         return equal(vecA.x, vecB.x) && equal(vecA.y, vecB.y) && equal(vecA.z, vecB.z);
     }
+
     public static sub(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): Vector3 {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
+    }
+
+    public static subNew<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+        result.x = vecA.x - vecB.x;
+        result.y = vecA.y - vecB.y;
+        result.z = vecA.z - vecB.z;
+
+        return result;
     }
 
     /**
@@ -106,6 +153,14 @@ export class Vector3 implements SimpleVector3 {
         result.z = Math.min(vecA.z, vecB.z);
 
         return result;
+    }
+
+    public static refract<T extends SimpleVector3>(normal: ReadonlySimpleVector3, vector: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): ReadonlySimpleVector3 {
+        return Vector3.subNew(
+            vector,
+            Vector3.mulNum(normal, Vector3.dot(vector, normal) * 2, result),
+            result,
+        );
     }
 
     public static max<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {

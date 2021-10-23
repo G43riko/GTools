@@ -1,14 +1,15 @@
 import { expect } from "chai";
+import { SimpleVector2 } from "../../math";
 import { LineCurve2d } from "./line-curve-2d";
 
 describe("LineCurve2D", () => {
     it("It should point access", () => {
         const curve = new LineCurve2d([
-            {x: 0, y: 0},
-            {x: 1, y: 0},
-            {x: 5, y: 0},
-            {x: 7, y: 0},
-            {x: 10, y: 0},
+            SimpleVector2.create(0, 0),
+            SimpleVector2.create(1, 0),
+            SimpleVector2.create(5, 0),
+            SimpleVector2.create(7, 0),
+            SimpleVector2.create(8, 0),
         ]);
         expect(curve.length).to.be.equal(5);
         expect(curve.getSize()).to.be.equal(10);

@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector2 } from "../../math";
+import { ReadonlySimpleVector2, SimpleVector2 } from "../../math";
 import { Curve2D } from "./curve-2d";
 
 // QuadraticBezier
@@ -20,12 +20,11 @@ function QuadraticBezier(t: number, p0: number, p1: number, p2: number): number 
     return QuadraticBezierP0(t, p0) + QuadraticBezierP1(t, p1) + QuadraticBezierP2(t, p2);
 }
 
-
 export class QuadraticBezierCurve2D extends Curve2D {
     public constructor(
-        private readonly v0 = {x: 0, y: 0},
-        private readonly v1 = {x: 0, y: 0},
-        private readonly v2 = {x: 0, y: 0},
+        private readonly v0 = SimpleVector2.ZERO,
+        private readonly v1 = SimpleVector2.ZERO,
+        private readonly v2 = SimpleVector2.ZERO,
     ) {
         super([v0, v1, v2]);
     }
