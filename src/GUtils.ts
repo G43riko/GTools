@@ -9,7 +9,7 @@ export * from "./dom/canvas-utils";
 export * from "./dom/dom-get";
 export * from "./dom/types/canvas-shadow-config";
 
-// TODO not work on backend
+// TODO: not work on backend
 // export * from "./dom/element-builder";
 
 export * from "./components";

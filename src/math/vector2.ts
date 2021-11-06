@@ -1,11 +1,32 @@
 import { Range } from "../models/range";
 import { ReadonlySimpleVector2, SimpleVector2 } from "./simple-vector2";
+import { Vector } from "./vector";
 
-export class Vector2 implements SimpleVector2 {
+export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public constructor(
         public x = 0,
         public y = 0,
     ) {
+    }
+
+    public equals(vector: any): boolean {
+        return Vector2.equals(this, vector);
+    }
+
+    public dot(vector: ReadonlySimpleVector2): number {
+        return Vector2.dot(this, vector);
+    }
+
+    public dist(vector: ReadonlySimpleVector2): number {
+        return Vector2.dist(this, vector);
+    }
+
+    public toArray(): readonly [number, number] {
+        return [this.x, this.y];
+    }
+
+    public angle(v: ReadonlySimpleVector2): number {
+        return Vector2.angle(this, v);
     }
 
     public static get ZERO(): Vector2 {
@@ -32,12 +53,34 @@ export class Vector2 implements SimpleVector2 {
         return new Vector2(1, 1);
     }
 
+    public getAbs(result = new Vector2()): Vector2 {
+        result.x = Math.abs(this.x);
+        result.y = Math.abs(this.y);
+
+        return result;
+    }
+
+    public invert(): this {
+        this.x = -this.x;
+        this.y = -this.y;
+
+        return this;
+    }
+
     public get avg(): number {
         return this.sum / 2;
     }
 
     public get sum(): number {
         return this.x + this.y;
+    }
+
+    public get max(): number {
+        return Math.max(this.x, this.y);
+    }
+
+    public get min(): number {
+        return Math.min(this.x, this.y);
     }
 
     public static fromArray(val: [number, number] | Float32Array): Vector2 {
@@ -64,6 +107,10 @@ export class Vector2 implements SimpleVector2 {
         return vecA.x * vecB.x + vecA.y * vecB.y;
     }
 
+    public static lengthOf(vector: ReadonlySimpleVector2): number {
+        return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+    }
+
     public static lerp(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number): Vector2 {
         const dir = Vector2.sub(end, start);
 
@@ -76,6 +123,18 @@ export class Vector2 implements SimpleVector2 {
 
     public static from(valA: number, valB = valA): Vector2 {
         return new Vector2(valA, valB);
+    }
+
+    /**
+     * returns angle between two vectors
+     */
+    public static angle(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
+        const dot  = Vector2.dot(vecA, vecB);
+        const lenA = Vector2.lengthOf(vecA);
+        const lenB = Vector2.lengthOf(vecB);
+        const cos  = dot / (lenA * lenB);
+
+        return Math.acos(cos);
     }
 
     public static isVisible(obsX: number, obsY: number, angle: number, cutOff: number, px: number, py: number): boolean {
@@ -124,6 +183,7 @@ export class Vector2 implements SimpleVector2 {
     }
 
     public static isVector(item: any): item is SimpleVector2 {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-member-access
         return item && !isNaN(item.x) && !isNaN(item.y);
     }
 
@@ -159,8 +219,12 @@ export class Vector2 implements SimpleVector2 {
         return new Vector2(this.x, this.y);
     }
 
-    public getNormalized(result = this.clone()): SimpleVector2 {
+    public getNormalized(result = this.clone()): Vector2 {
         return Vector2.normalize(this, result);
+    }
+
+    public getInverted(result = this.clone()): Vector2 {
+        return Vector2.invert(this, result);
     }
 
     public normalize(): this {
@@ -171,11 +235,18 @@ export class Vector2 implements SimpleVector2 {
         return this;
     }
 
-    public static normalize(vec: SimpleVector2, result = vec): SimpleVector2 {
+    public static normalize<T extends SimpleVector2>(vec: T, result: T = vec): T {
         const length = Vector2.size(vec);
 
         result.x = vec.x / length;
         result.y = vec.y / length;
+
+        return result;
+    }
+
+    public static invert<T extends SimpleVector2>(vec: T, result: T = vec): T {
+        result.x = -vec.x;
+        result.y = -vec.y;
 
         return result;
     }

@@ -1,13 +1,32 @@
 import { Range } from "../models";
 import { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3";
+import { Vector } from "./vector";
 import { Vector2 } from "./vector2";
 
-export class Vector3 implements SimpleVector3 {
+export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     public constructor(
         public x = 0,
         public y = 0,
         public z = 0,
     ) {
+    }
+
+    public equals(vector: any): boolean {
+        return Vector3.equals(this, vector);
+    }
+    public isZero(): boolean {
+        return this.x === 0 && this.y === 0 && this.z === 0;
+    }
+
+    public dist(vector: ReadonlySimpleVector3): number {
+        return Vector3.dist(this, vector);
+    }
+    public angle(v: ReadonlySimpleVector3): number {
+        return Vector3.angle(this, v);
+    }
+
+    public getInverted(result = this.clone()): Vector3 {
+        return Vector3.invert(result);
     }
 
     public static get UP(): Vector3 {
@@ -22,8 +41,27 @@ export class Vector3 implements SimpleVector3 {
         return new Vector3(1, 1, 1);
     }
 
+    public getAbs(): Vector3 {
+        return new Vector3(Math.abs(this.x), Math.abs(this.y), Math.abs(this.z));
+    }
+
     public get avg(): number {
-        return (this.x + this.y + this.z) / 3;
+        return this.sum / 3;
+    }
+
+    public div(value: ReadonlySimpleVector3 | number): this {
+        if (typeof value === "number") {
+            this.x /= value;
+            this.y /= value;
+            this.z /= value;
+
+        } else {
+            this.x /= value.x;
+            this.y /= value.y;
+            this.z /= value.z;
+        }
+
+        return this;
     }
 
     public static lengthOf(vector: ReadonlySimpleVector3): number {
@@ -38,6 +76,17 @@ export class Vector3 implements SimpleVector3 {
         return vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
     }
 
+    public invert(): this {
+        return Vector3.invert(this);
+    }
+
+    public static invert<T extends SimpleVector3>(vec: T, result: T = vec): T {
+        result.x = -vec.x;
+        result.y = -vec.y;
+        result.z = -vec.z;
+
+        return result;
+    }
     public static equals(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): boolean {
         if (vecA === vecB) {
             return true;
@@ -163,6 +212,18 @@ export class Vector3 implements SimpleVector3 {
         );
     }
 
+    /**
+     * returns angle between two vectors
+     */
+    public static angle(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
+        const dot  = Vector3.dot(vecA, vecB);
+        const lenA = Vector3.lengthOf(vecA);
+        const lenB = Vector3.lengthOf(vecB);
+        const cos  = dot / (lenA * lenB);
+
+        return Math.acos(cos);
+    }
+
     public static max<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
         result.x = Math.max(vecA.x, vecB.x);
         result.y = Math.max(vecA.y, vecB.y);
@@ -211,6 +272,7 @@ export class Vector3 implements SimpleVector3 {
     }
 
     public static isVector(item: any): item is SimpleVector3 {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-member-access
         return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z);
     }
 
@@ -218,11 +280,20 @@ export class Vector3 implements SimpleVector3 {
         return [this.x, this.y, this.z];
     }
 
-    public sum(): number {
+
+    public get sum(): number {
         return this.x + this.y + this.z;
     }
 
-    public getNormalized(): SimpleVector3 {
+    public get max(): number {
+        return Math.max(this.x, this.y, this.z);
+    }
+
+    public get min(): number {
+        return Math.min(this.x, this.y, this.z);
+    }
+
+    public getNormalized(): Vector3 {
         return this.clone().normalize();
     }
 

@@ -37,7 +37,7 @@ export interface Vector<T extends SimpleVector2, S extends T> {
 
     dist(v: T): number;
 
-    toArray(): number[];
+    toArray(): readonly number[];
 
     add(value: T | number): this;
 
