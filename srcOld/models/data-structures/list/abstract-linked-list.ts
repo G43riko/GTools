@@ -63,7 +63,7 @@ export abstract class AbstractLinkedList<T, S extends { next?: S; item: T }> imp
         return false;
     }
 
-    public toArray(): T[] {
+    public toArray(): readonly T[] {
         const newArray = new Array<T>(this.localLength);
 
         let i = 0;

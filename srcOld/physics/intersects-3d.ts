@@ -10,8 +10,8 @@ export function intersection3dLineSphere(
     center: ReadonlySimpleVector3,
     radius: number,
 ): ReadonlySimpleVector3 | undefined {
-    // Solve |O + t D - C|^2 = R^2
-    //       t^2 |D|^2 + 2 t < D, O - C > + |O - C|^2 - R^2 = 0
+    // Solve |O + t D - C|^2 = A^2
+    //       t^2 |D|^2 + 2 t < D, O - C > + |O - C|^2 - A^2 = 0
     const OC = { x: 0, y: 0, z: 0 }; // Use the output parameter as temporary workspace
 
     const direction = Vector3.sub(end, start);

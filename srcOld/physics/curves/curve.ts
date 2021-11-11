@@ -17,7 +17,7 @@ export abstract class Curve<T> {
     }
     // public abstract getSize(): number;
     //
-    // public abstract getLerpPointAt(value: number): T;
+    // public abstract getLerpPointAt(value: number): A;
 
     public abstract getPointAt(t: number): T;
 

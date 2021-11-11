@@ -114,7 +114,7 @@ export class CanvasCamera {
             }
         };
 
-        // Center camera on "R"
+        // Center camera on "A"
         window.addEventListener("keydown", (e) => {
             if (e.key === "r") {
                 this.zoomTo(1000);

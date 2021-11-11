@@ -2,8 +2,8 @@ import { SimpleVector2 } from "../math";
 
 /**
  * TODO:
- *  - getLastN(count: number): T[];
- *  - getFirstN(count: number): T[]
+ *  - getLastN(count: number): A[];
+ *  - getFirstN(count: number): A[]
  */
 export class Path2D<T extends SimpleVector2> {
     public constructor(protected readonly points: readonly T[]) {

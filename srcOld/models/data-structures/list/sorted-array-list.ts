@@ -50,6 +50,10 @@ export class SortedArrayList<T> implements List<T> {
         return this.data.length === 0;
     }
 
+    public getIndex(item: T): number {
+        return binarySearch(this.data, item, this.comparator);
+    }
+
     public add(item: T): number {
         return sortedInsert(this.data, item, this.comparator);
     }
@@ -76,7 +80,7 @@ export class SortedArrayList<T> implements List<T> {
         return !!sortedRemove(this.data, item, this.comparator);
     }
 
-    public toArray(): T[] {
+    public toArray(): readonly T[] {
         return [...this.data];
     }
 }

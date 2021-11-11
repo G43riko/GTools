@@ -43,13 +43,13 @@ export interface Grid3Holder<T> {
      */
     forEach(callback: (block: T, x: number, y: number, z: number) => unknown): boolean;
 
-    // forEach(callback: (block: T, x: number, y: number, z: number) => void): void;
+    // forEach(callback: (block: A, x: number, y: number, z: number) => void): void;
 
     setHolder(holder: Grid3Holder<T>): void;
 
     clear(): void;
 
-    // getRandomBlock(filter?: GridBlockItemFilter<T>): Grid3Block<T> | null;
+    // getRandomBlock(filter?: GridBlockItemFilter<A>): Grid3Block<A> | null;
     //
-    // getBetween(position: SimpleVector3, size: SimpleVector3): T[];
+    // getBetween(position: SimpleVector3, size: SimpleVector3): A[];
 }
