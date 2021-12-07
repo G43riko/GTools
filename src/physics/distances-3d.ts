@@ -93,9 +93,9 @@ export function pointLine3dDistance(
 }
 
 export function pointNormalPlane3dDistance(aNormal: Vector3, aPoint: Vector3, bPoint: Vector3): number {
-    const d = -Vector3.mul(aNormal, aPoint, new Vector3()).sum();
+    const d = -Vector3.mul(aNormal, aPoint, new Vector3()).sum;
 
-    return Math.abs((Vector3.mul(aNormal, bPoint, new Vector3()).sum() + d) / Math.sqrt(Vector3.mul(aNormal, aNormal, new Vector3()).sum()));
+    return Math.abs((Vector3.mul(aNormal, bPoint, new Vector3()).sum + d) / Math.sqrt(Vector3.mul(aNormal, aNormal, new Vector3()).sum));
 }
 
 // export function pointPlane(Vector3 a1, Vector3 a2, Vector3 a3, Vector3 bPoint) {

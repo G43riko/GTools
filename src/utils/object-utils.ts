@@ -1,5 +1,21 @@
 import { ObjectEntry } from "../types";
 
+
+export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {
+    const result: ObjectEntry<T>[] = [];
+    for (const objKey in obj) {
+        if (!obj.hasOwnProperty(objKey)) {
+            continue;
+        }
+        result.push({
+            key  : objKey,
+            value: obj[objKey],
+        });
+    }
+
+    return result;
+}
+
 export function without<T extends Record<string, unknown>>(obj: T, items: (keyof T)[]): Omit<T, any> {
     return getObjectEntries(obj).filter((entry) => !items.includes(entry.key))
         .reduce((prev, entry) => {
@@ -50,7 +66,7 @@ export function deepCopy<T>(source: T): T {
     if (typeof source === "object") {
         if (Array.isArray(source)) {
             // tslint:disable-next-line:no-map-without-usage
-            return source.map((e) => deepCopy(e)) as any;
+            return source.map((e) => deepCopy(e)) as any as T;
         }
         if ((source as any)?.constructor?.name !== "Object") {
             throw new Error("This method cannot copy class instances");
@@ -81,22 +97,6 @@ export function getOrSetProperty<S, T extends keyof S>(obj: S, index: T, value: 
 
     return value;
 }
-
-export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {
-    const result: ObjectEntry<T>[] = [];
-    for (const objKey in obj) {
-        if (!obj.hasOwnProperty(objKey)) {
-            continue;
-        }
-        result.push({
-            key  : objKey,
-            value: obj[objKey],
-        });
-    }
-
-    return result;
-}
-
 export function getNestedProperty(object: any, propertyPath: string | string[], separator = "."): any {
     if (typeof propertyPath === "string") {
         return getNestedProperty(object, propertyPath.split(separator));
@@ -104,20 +104,21 @@ export function getNestedProperty(object: any, propertyPath: string | string[], 
 
     return propertyPath.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
 }
-
+export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(item: T, key: [A, B], value: T[A][B]): void;
+export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(item: T, key: `${string & A}.${string & B}`, value: T[A][B]): void;
 export function setNestedProperty<T>(item: any, key: string | string[], value: T): void {
     if (typeof key === "string") {
-        return setNestedProperty(item, key.split("."), value);
+        return setNestedProperty(item, key.split(".") as [string, string], value);
     }
-    let obj = item;
+    let obj: { [k in string]: unknown } = item as { [k in string]: unknown };
     for (let i = 0; i < key.length - 1; i++) {
-        obj = obj[key[i]];
+        obj = obj[key[i]] as { [k in string]: unknown };
     }
     obj[key[key.length - 1]] = value;
 }
 
 export function createMergedObject<T>(source: T, ...updates: Partial<T>[]): T {
-    return Object.assign({}, source, ...updates);
+    return Object.assign({}, source, ...updates) as T;
 }
 
 export function roughSizeOfObject<T>(object: T): number {

@@ -4,9 +4,7 @@ import { WorldPlaceManager } from "./place-manager";
 
 describe("PlaceManager", () => {
     it("It should test basic place manager", () => {
-        const placeManager = new WorldPlaceManager({x: 2, y: 2}, (x, y) => {
-            return ["00", "11"].includes(`${x}${y}`);
-        });
+        const placeManager = new WorldPlaceManager({x: 2, y: 2}, (x, y) => ["00", "11"].includes(`${x}${y}`));
 
         expect(placeManager.isFree(-1, -1)).to.be.false;
         expect(placeManager.isFree(2, 2)).to.be.false;

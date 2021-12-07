@@ -1,5 +1,3 @@
-import { ReadonlySimpleVector2 } from "../../math";
-
 /**
  * TODO:
  *   - add caching to size calculation

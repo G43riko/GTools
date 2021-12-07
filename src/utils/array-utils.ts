@@ -205,7 +205,7 @@ export function avg(array: number[]): number {
  */
 export function join<T>(array: T[], delimiter: string, prefix = "", postfix = ""): string {
     if (!Array.isArray(array)) {
-        return prefix + array + postfix;
+        return prefix + String(array) + postfix;
     }
 
     return prefix + array.join(delimiter) + postfix;

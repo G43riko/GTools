@@ -40,7 +40,7 @@ export class Plane3D {
         public readonly point: ReadonlySimpleVector3,
     ) {
         this.normal = Vector3.fromVec(normal).normalize();
-        this.d      = -Vector3.mul(this.normal, this.point, new Vector3()).sum();
+        this.d      = -Vector3.mul(this.normal, this.point, new Vector3()).sum;
     }
 
     /**

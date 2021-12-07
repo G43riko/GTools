@@ -21,6 +21,52 @@ export interface ElementAttributes {
     height?: number;
 }
 
+
+export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, options?: ElementAttributes): HTMLElementTagNameMap[K] {
+    const result = document.createElement<K>(type);
+    if (!options) {
+        return result;
+    }
+
+    Object.entries(options).forEach((entry) => {
+        switch (entry[0]) {
+            case "className":
+                result.className = entry[1];
+                break;
+            case "onChange":
+                result.addEventListener("change", entry[1]);
+                break;
+            case "onClick":
+                result.addEventListener("click", entry[1]);
+                break;
+            case "checked":
+                (result as HTMLInputElement).checked = entry[1];
+                break;
+            case "styles":
+                Object.entries(entry[1]).forEach((styleEntry) => {
+                    result.style[styleEntry[0] as any] = styleEntry[1] as any;
+                });
+                break;
+            case "children":
+                if (Array.isArray(entry[1])) {
+                    result.append(...entry[1]);
+                } else {
+                    result.append(entry[1]);
+                }
+                break;
+            case "content":
+                if (entry[1]) {
+                    result.innerHTML = entry[1];
+                }
+                break;
+            default:
+                result.setAttribute(entry[0], entry[1]);
+        }
+    });
+
+    return result;
+}
+
 export function elementToString(element: HTMLElement): string {
     const classes = Array.from(element.classList).join(".");
     const id      = element.id ? `#${element.id}` : "";
@@ -100,52 +146,6 @@ export function createCheckbox(label: string, onChange: (checked: boolean) => vo
         children : [label, inputElement, CreateElement("span", {className: "checkmark"})],
     });
 }
-
-export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, options?: ElementAttributes): HTMLElementTagNameMap[K] {
-    const result = document.createElement<K>(type);
-    if (!options) {
-        return result;
-    }
-
-    Object.entries(options).forEach((entry) => {
-        switch (entry[0]) {
-            case "className":
-                result.className = entry[1];
-                break;
-            case "onChange":
-                result.addEventListener("change", entry[1]);
-                break;
-            case "onClick":
-                result.addEventListener("click", entry[1]);
-                break;
-            case "checked":
-                (result as HTMLInputElement).checked = entry[1];
-                break;
-            case "styles":
-                Object.entries(entry[1]).forEach((styleEntry) => {
-                    result.style[styleEntry[0] as any] = styleEntry[1] as any;
-                });
-                break;
-            case "children":
-                if (Array.isArray(entry[1])) {
-                    result.append(...entry[1]);
-                } else {
-                    result.append(entry[1]);
-                }
-                break;
-            case "content":
-                if (entry[1]) {
-                    result.innerHTML = entry[1];
-                }
-                break;
-            default:
-                result.setAttribute(entry[0], entry[1]);
-        }
-    });
-
-    return result;
-}
-
 /**
  * TODO: element remains after deletion onMessage screen
  */

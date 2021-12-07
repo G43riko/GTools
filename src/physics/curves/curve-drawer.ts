@@ -60,7 +60,7 @@ export class CurveDrawer {
     }
 
     public renderPointAt(value: number, curve: Curve2D, context = this.context, color = this.pointColor, size = this.pointSize): void {
-        const point = curve.getLerpPointAt(value);
+        const point = curve.getPoint(value);
         this.renderDirectPoint(context, point, color, size);
     }
 

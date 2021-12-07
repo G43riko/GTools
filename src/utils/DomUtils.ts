@@ -40,6 +40,22 @@ export class DomUtils {
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
 
+    // tslint:disable-next-line:bool-param-default
+    public static textContent<T>(element: T, text?: string, append?: boolean): T;
+    public static textContent(element: Element): string;
+    public static textContent<T extends Element>(element: T, text?: string, append = true): T | string {
+        if(typeof text === "string") {
+            if (append) {
+                element.textContent += text;
+            } else {
+                element.textContent = text;
+            }
+
+            return element;
+        }
+
+        return element.textContent ?? "";
+    }
     /**
      * Function set, append or returns text of element
      *

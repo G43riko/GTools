@@ -14,6 +14,13 @@ export class LineCurve2d extends Curve2D {
         return sum;
     }
 
+    /**
+     * Returns distance base on real distance on line
+     *
+     * @extends new LineCurve2D([0,0], [4, 0], [10, 0]).getPoint(0.5) === [5, 4]
+     *
+     * @param value - ratio
+     */
     public getPointAt(value: number): ReadonlySimpleVector2 {
         if (value < 0 || value > 1) {
             throw new Error("Value must be between 1 and 0");
@@ -27,7 +34,7 @@ export class LineCurve2d extends Curve2D {
 
         const curveLength = this.getSize();
 
-        const valueLenght = value * curveLength;
+        const valueLength = value * curveLength;
 
         let prevLength = 0;
         let currLength = 0;
@@ -35,11 +42,11 @@ export class LineCurve2d extends Curve2D {
         for (; ;) {
             prevLength = currLength;
             currLength += Vector2.dist(this.points[i - 1], this.points[i]);
-            if (currLength === valueLenght) {
+            if (currLength === valueLength) {
                 return this.points[i];
             }
 
-            if (currLength > valueLenght) {
+            if (currLength > valueLength) {
                 break;
             }
             if (i + 1 === this.points.length) {

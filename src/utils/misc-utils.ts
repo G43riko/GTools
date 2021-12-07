@@ -50,7 +50,7 @@ export function isIn<T>(obj: T, ...data: unknown[]): boolean {
  * @param content - stringify JSON
  */
 export function parseJSONWithComments<T>(content: string): T {
-    return JSON.parse(content.replace(/\/\/.*\n/g, ""));
+    return JSON.parse(content.replace(/\/\/.*\n/g, "")) as T;
 }
 
 // TODO: should append cookies or add option to appending instead of replace cookies
@@ -58,12 +58,12 @@ export function parseJSONWithComments<T>(content: string): T {
 export function setCookie(name: string, value: string | number | boolean, days: number): string {
     const d: Date = new Date();
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-    const finalCookies = `${name}=${value};expires=${d.toUTCString()}`;
+    const finalCookies = `${name}=${String(value)};expires=${d.toUTCString()}`;
     if (typeof document !== "undefined") {
         document.cookie = finalCookies;
     }
 
-    return `${name}=${value}`;
+    return `${name}=${String(value)}`;
 }
 
 export function getCookie(cname: string, source = typeof document !== "undefined" ? document.cookie : ""): string {
@@ -96,7 +96,7 @@ export function parseParams<T>(
     separator = "&",
     delimiter = "=",
 ): T {
-    const queryString: any = {};
+    const queryString: { [key in string]: any } = {};
     const vars: string[]   = query.split(separator);
     for (const pair of vars) {
         const [key, value] = pair.split(delimiter);
@@ -129,10 +129,11 @@ export function objectToQueryParams(obj: StringMap<unknown>): string {
     return result;
 }
 
-export function serialize(obj: any): string {
+export function serialize<T extends Record<string, unknown>>(obj: T): string {
     for (const key in obj) {
-        if (obj.hasOwnProperty(key) && typeof obj[key] === "function") {
-            obj[key] = obj[key].toString();
+        if (typeof obj[key] === "function") {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+            (obj[key] as any) = (obj[key] as any).toString();
         }
     }
 
@@ -145,7 +146,7 @@ export function parse<T>(obj: string): T {
         // eslint-disable-next-line no-prototype-builtins
         if (!result.hasOwnProperty(i) ||
             typeof result[i] !== "string" || !(result[i].indexOf("function (") === 0 ||
-                result[i].match(/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/))
+                (/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/.exec(result[i])))
         ) {
             continue;
         }
@@ -188,7 +189,7 @@ export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: 
  *  map({name: "gabriel", age: 29.534}, [{attrS: name}])
  */
 export function map<S = any, T = S>(source: S, data: { attrS: keyof S; attrD?: keyof T; mapFunction: (src: any) => any }[]): T {
-    const destination: any = {};
+    const destination: { [key in string | number | symbol]: any } = {};
 
     data.forEach((item) => {
         if (item.mapFunction) {

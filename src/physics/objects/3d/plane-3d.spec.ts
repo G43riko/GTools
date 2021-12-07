@@ -19,4 +19,4 @@ describe("Plane3D", () => {
         expect(plane.isFacingTo({x: 0, y: -1, z: 0})).to.be.false;
         expect(plane.isFacingTo({x: 1, y: -1, z: 1})).to.be.false;
     });
-})
+});
