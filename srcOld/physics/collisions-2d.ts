@@ -1,3 +1,4 @@
+import { SimpleVector2 } from "../math";
 import { distance2dPointPoint } from "./distances-2d";
 
 export function circleRect2dCollision(
@@ -209,6 +210,146 @@ export function pointMultiPolygon2dCollision(
     }
 
     return insidePoly;
+}
+
+/**
+ * https://www.youtube.com/watch?v=8JJ-4JgR7Dg
+ *
+ * @param originX
+ * @param originY
+ * @param unitDirectionX
+ * @param unitDirectionY
+ * @param size
+ * @param positionX
+ * @param positionY
+ * @param sizeX
+ * @param sizeY
+ */
+export function rayRect2dCollision(
+    originX: number,
+    originY: number,
+    unitDirectionX: number,
+    unitDirectionY: number,
+    size: number,
+    positionX: number,
+    positionY: number,
+    sizeX: number,
+    sizeY: number,
+): boolean {
+    const directionX = unitDirectionX / size;
+    const directionY = unitDirectionY / size;
+    const tNear      = {
+        x: (positionX - originX) / directionX,
+        y: (positionY - originY) / directionY,
+    };
+
+    const tFar = {
+        x: (positionX + sizeX - originX) / directionX,
+        y: (positionY + sizeY - originY) / directionY,
+    };
+
+    if (tNear.x > tFar.x) {
+        const temp = tNear.x;
+        tNear.x    = tFar.x;
+        tFar.x     = temp;
+    }
+    if (tNear.y > tFar.y) {
+        const temp = tNear.y;
+        tNear.y    = tFar.y;
+        tFar.y     = temp;
+    }
+
+    if (tNear.x > tFar.y || tNear.y > tFar.x) {
+        return false;
+    }
+
+    const tHitFar = Math.min(tFar.x, tFar.y);
+
+    if (tHitFar < 0) {
+        return false;
+    }
+    const tHitNear     = Math.max(tNear.x, tNear.y);
+    const contactPoint = {
+        x: originX + directionX * tHitNear,
+        y: originY + directionY * tHitNear,
+    };
+
+    const getContactNormal = (): SimpleVector2 => {
+        if (tNear.x > tNear.y) {
+            if (directionX < 0) {
+                return SimpleVector2.create(1, 0);
+            }
+
+            return SimpleVector2.create(-1, 0);
+        }
+        if (directionY < 0) {
+            return SimpleVector2.create(0, 1);
+        }
+
+        return SimpleVector2.create(0, -1);
+    };
+
+    return true;
+}
+
+export function rayRect2dCollisionRaw(
+    originX: number,
+    originY: number,
+    directionX: number,
+    directionY: number,
+    positionX: number,
+    positionY: number,
+    sizeX: number,
+    sizeY: number,
+): boolean {
+    let tNearX = (positionX - originX) / directionX;
+    let tNearY = (positionY - originY) / directionY;
+
+    let tFarX = (positionX + sizeX - originX) / directionX;
+    let tFarY = (positionY + sizeY - originY) / directionY;
+
+    if (tNearX > tFarX) {
+        const temp = tNearX;
+        tNearX     = tFarX;
+        tFarX      = temp;
+    }
+    if (tNearY > tFarY) {
+        const temp = tNearY;
+        tNearY     = tFarY;
+        tFarY      = temp;
+    }
+
+    if (tNearX > tFarY || tNearY > tFarX) {
+        return false;
+    }
+
+    const tHitFar = Math.min(tFarX, tFarY);
+
+    if (tHitFar < 0) {
+        return false;
+    }
+    // const tHitNear = Math.max(tNearX, tNearY);
+    // const contactPoint = {
+    //     x: originX + directionX * tHitNear,
+    //     y: originY + directionY * tHitNear,
+    // };
+    //
+    // const getContactNormal = (): SimpleVector2 => {
+    //     if (tNearX > tNearY) {
+    //         if (directionX < 0) {
+    //             return SimpleVector2.create(1, 0);
+    //         }
+    //
+    //         return SimpleVector2.create(-1, 0);
+    //     }
+    //     if (directionY < 0) {
+    //         return SimpleVector2.create(0, 1);
+    //     }
+    //
+    //     return SimpleVector2.create(0, -1);
+    // };
+
+    return true;
 }
 
 /**

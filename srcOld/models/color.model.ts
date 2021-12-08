@@ -16,7 +16,13 @@ export class Color {
     public static readonly GREEN = new Color(0, 255, 0);
     public static readonly BLUE = new Color(0, 0, 255);
 
-    public static readonly GRAY = new Color(128, 128, 128);
+    public static readonly GRAY   = new Color(128, 128, 128);
+    public static readonly NAVY   = new Color(0, 0, 128);
+    public static readonly TEAL   = new Color(0, 128, 128);
+    public static readonly OLIVE  = new Color(128, 128, 0);
+    public static readonly PURPLE = new Color(128, 0, 128);
+
+    public static readonly SILVER = new Color(192, 192, 192);
 
     public constructor(
         public readonly red: number,
