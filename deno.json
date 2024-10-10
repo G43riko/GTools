@@ -1,0 +1,8 @@
+{
+    "name": "@g43/utils",
+    "tasks": {
+        "bench": "deno bench src/"
+    },
+    "version": "0.1.0",
+    "exports": "./src/index.ts"
+}
