@@ -28,7 +28,7 @@
         "email": "gcsollei@hotmail.com",
         "url": "https://github.com/G43riko/GTools/issues"
     },
-    "scripts": {
+    "scripts2": {
         "prepare_old": "npm run clean && npm run build && npm run doc",
         "test": "ts-mocha --paths -p ./tsconfig.json ./src/**/*.spec.ts",
         "coverage": "nyc --extension=.ts --extension=.js --exclude=src/**/*.spec.ts npm test && nyc report --reporter=text-lcov | coveralls",
@@ -45,7 +45,7 @@
         "release:major": "npm version major && npm publish",
         "release:minor": "npm version minor && npm publish",
         "release:patch": "npm version patch && npm publish",
-        "doc": "typedoc src --out docs",
+        "doc2": "typedoc src --out docs",
         "pack_old": "npm run tsc && webpack",
         "copy": "node copy-package.js",
         "clean": "rimraf out doc dist docs coverage bin .nyc_output _bundles lib lib-esm",
