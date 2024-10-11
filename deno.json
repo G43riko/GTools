@@ -1,12 +1,15 @@
 {
     "name": "@g43/utils",
+    "version": "0.0.1",
     "tasks": {
-        "bench": "deno bench src/",
-        "test": "deno test",
+        "bench": "deno bench",
+        "test": "deno test --doc",
+        "test:coverage": "deno test --doc --coverage",
+        "coverage": "deno coverage --html",
         "bench:utils": "deno bench  src/utils",
         "doc": "deno doc --html --name=\"@g43/tools\" --output=docs src/index.ts ",
-        "startDocs": "deno run --allow-net --allow-read utils/serve-docs.ts",
-        "serveDocs": "deno run --allow-net --watch --allow-read utils/serve-docs.ts"
+        "serveDocs": "deno run --allow-net --watch --allow-read utils/serve-docs.ts",
+        "serveCoverage": "deno run --allow-net --watch --allow-read utils/serve-coverage.ts"
     },
     "lint": {
         "rules": {
@@ -18,14 +21,17 @@
         "indentWidth": 4
     },
     "test": {
-        "include": ["src/**/*.spec.ts"]
+        "include": ["src/**/*.spec.ts"],
+        "exclude": ["**/*.bench.ts"]
     },
+    "bench": {
+        "include": ["src"]    },
     "compilerOptions": {
         "strict": true
     },
     "imports": {
-        "std/": "https://deno.land/std@0.224.0/"
+        "@std/assert": "jsr:@std/assert@1.0.6",
+        "@std/http": "jsr:@std/http@1.0.8"
     },
-    "version": "0.1.0",
     "exports": "./src/index.ts"
 }
