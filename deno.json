@@ -18,6 +18,9 @@
             "exclude": ["no-explicit-any"]
         }
     },
+    "publish": {
+        "exclude": ["**/*.bench.ts"]
+    },
     "test": {
         "exclude": ["**/*.bench.ts", "srcOld"]
     },
