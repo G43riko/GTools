@@ -2,10 +2,10 @@
  * https://github.com/G43riko/JavaUtils/blob/master/GLib/src/glib/sorts/GHeapSort.java
  */
 export class HeapSort<T> {
-    private n             = 0;
-    private left          = 0;
-    private right         = 0;
-    private largest       = 0;
+    private n = 0;
+    private left = 0;
+    private right = 0;
+    private largest = 0;
     private tmp: T | null = null;
 
     public constructor(private readonly comparator: (a: T, b: T) => number) {
@@ -30,7 +30,7 @@ export class HeapSort<T> {
     }
 
     private maxHeap(a: T[], i: number): void {
-        this.left  = 2 * i;
+        this.left = 2 * i;
         this.right = 2 * i + 1;
         if (this.left <= this.n && this.comparator(a[this.left], a[i]) > 0) {
             this.largest = this.left;
@@ -50,7 +50,7 @@ export class HeapSort<T> {
 
     private exchange(a: T[], i: number, j: number): void {
         this.tmp = a[i];
-        a[i]     = a[j];
-        a[j]     = this.tmp;
+        a[i] = a[j];
+        a[j] = this.tmp;
     }
 }

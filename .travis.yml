@@ -1,18 +1,18 @@
 env:
-  global:
-    - CC_TEST_REPORTER_ID=21d19cee80b3c79aad53bcada0c70819c95baa23c42b0441130b394f1cf41a94
+    global:
+        - CC_TEST_REPORTER_ID=21d19cee80b3c79aad53bcada0c70819c95baa23c42b0441130b394f1cf41a94
 language: node_js
 node_js:
-  - "8"
+    - "8"
 before_script:
-  - npm install -g typings typescript mocha
-  - typings install
-  - tsc
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+    - npm install -g typings typescript mocha
+    - typings install
+    - tsc
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
 script:
-  - npm run coverage
-  - npm run coverage2
+    - npm run coverage
+    - npm run coverage2
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

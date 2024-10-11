@@ -30,13 +30,13 @@ export class SortedArrayList<T> implements List<T> {
                 if (current < this.data.length) {
                     return {
                         value: this.data[current++],
-                        done : false,
+                        done: false,
                     };
                 }
 
                 return {
                     value: undefined,
-                    done : true,
+                    done: true,
                 };
             },
         };

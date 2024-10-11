@@ -103,7 +103,8 @@ describe("StringCheckers", () => {
             });
 
             [...MockData.timesHHmmss, ...MockData.timesHmm].forEach((time) => {
-                expect(StringCheckers.isTimeFormat(time, "HH:mm"), `'${time}' is not valid time in HH:mm format`).to.be.false;
+                expect(StringCheckers.isTimeFormat(time, "HH:mm"), `'${time}' is not valid time in HH:mm format`).to.be
+                    .false;
             });
         });
         it("It should return true if time is in H:mm formatTime", () => {
@@ -112,9 +113,9 @@ describe("StringCheckers", () => {
             });
 
             [...MockData.timesHHmmss].forEach((time) => {
-                expect(StringCheckers.isTimeFormat(time, "H:mm"), `'${time}' is not valid time in H:mm format`).to.be.false;
+                expect(StringCheckers.isTimeFormat(time, "H:mm"), `'${time}' is not valid time in H:mm format`).to.be
+                    .false;
             });
-
         });
         it("It should return true if time is in HH:mm:ss formatTime", () => {
             MockData.timesHHmmss.forEach((time) => {
@@ -122,9 +123,10 @@ describe("StringCheckers", () => {
             });
 
             [...MockData.timesHmm, ...MockData.timesHHmm].forEach((time) => {
-                expect(StringCheckers.isTimeFormat(time, "HH:mm:ss"), `'${time}' is not valid time in HH:mm:ss format`).to.be.false;
+                expect(StringCheckers.isTimeFormat(time, "HH:mm:ss"), `'${time}' is not valid time in HH:mm:ss format`)
+                    .to.be
+                    .false;
             });
-
         });
         it("It should return true if time is in required formatTime", () => {
             expect(StringCheckers.isTimeFormat("9:9", "H:m")).to.be.true;
@@ -132,7 +134,6 @@ describe("StringCheckers", () => {
             expect(StringCheckers.isTimeFormat("9:09:09", "HH:mm:ss")).to.be.false;
             expect(StringCheckers.isTimeFormat("1:59:59", "HH:mm:ss")).to.be.false;
             expect(StringCheckers.isTimeFormat("9:9:9", "HH:mm:ss")).to.be.false;
-
         });
         it("It should return false if string is invalid time formatTime", () => {
             MockData.invalidTimes.forEach((time) => {
@@ -142,7 +143,9 @@ describe("StringCheckers", () => {
                     "H:mm",
                     "H:m",
                 ].forEach((format) => {
-                    expect(StringCheckers.isTimeFormat(time, format), `'${time}' is not valid time in ${format} format`).to.be.false;
+                    expect(StringCheckers.isTimeFormat(time, format), `'${time}' is not valid time in ${format} format`)
+                        .to.be
+                        .false;
                 });
             });
         });

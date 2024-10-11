@@ -5,17 +5,17 @@
 import * as MiscValidators from "../validators/misc-validators";
 
 const timeFormats: { [key: string]: string } = {
-    HH  : "(2[0-3]|[01]\\d)",
-    H   : "(2[0-3]|[01]?\\d)",
-    mm  : "([0-5]\\d)",
-    m   : "([0-5]?\\d)",
-    MM  : "(0\\d|1[0-2]|\\d)",
-    M   : "([1-9]|1[0-2])",
-    ss  : "([0-5]\\d)", // mm
-    s   : "([0-5]?\\d)", // ss
+    HH: "(2[0-3]|[01]\\d)",
+    H: "(2[0-3]|[01]?\\d)",
+    mm: "([0-5]\\d)",
+    m: "([0-5]?\\d)",
+    MM: "(0\\d|1[0-2]|\\d)",
+    M: "([1-9]|1[0-2])",
+    ss: "([0-5]\\d)", // mm
+    s: "([0-5]?\\d)", // ss
     YYYY: "([1-9]\\d{3,3})",
-    YY  : "(\\d{2,2})",
-    DD  : "([0-3]\\d)",
+    YY: "(\\d{2,2})",
+    DD: "([0-3]\\d)",
 };
 
 export function isCamelCase(text: string): boolean {

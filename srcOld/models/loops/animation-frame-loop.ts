@@ -3,14 +3,14 @@ const loopCallbacks: {
     readonly id: number;
     readonly onUpdate: (duration: number) => void;
     readonly requiredFps: number;
-}[]                       = [];
+}[] = [];
 
 let req: number;
 
-if(typeof requestAnimationFrame === "undefined") {
+if (typeof requestAnimationFrame === "undefined") {
     let running = true;
     global.requestAnimationFrame = (cb: FrameRequestCallback): number => {
-        if(!running) {
+        if (!running) {
             return 1;
         }
         setTimeout(() => cb(Date.now()), 0);
@@ -20,15 +20,19 @@ if(typeof requestAnimationFrame === "undefined") {
     global.cancelAnimationFrame = (_id: number) => running = false;
 }
 
-export function animationFrameLoop(callback: (delta: number) => void, requiredFps = 60, emitOnlyOnTime = false): { stop: () => void } {
-    const id               = loopCallbackIdCounter++;
+export function animationFrameLoop(
+    callback: (delta: number) => void,
+    requiredFps = 60,
+    emitOnlyOnTime = false,
+): { stop: () => void } {
+    const id = loopCallbackIdCounter++;
     const requiredDuration = 1000 / requiredFps;
     let totalDuration = 0;
     loopCallbacks.push({
         id,
         requiredFps,
         onUpdate: (duration) => {
-            if(!emitOnlyOnTime || totalDuration > requiredDuration) {
+            if (!emitOnlyOnTime || totalDuration > requiredDuration) {
                 callback((totalDuration / requiredDuration) || 1);
                 totalDuration = duration;
             }
@@ -41,7 +45,7 @@ export function animationFrameLoop(callback: (delta: number) => void, requiredFp
 
         const tick = (time: number): void => {
             const duration = time - start;
-            start          = time;
+            start = time;
             loopCallbacks.forEach((item) => {
                 item.onUpdate(duration);
             });

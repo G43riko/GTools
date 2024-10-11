@@ -89,11 +89,12 @@ export class Box {
 // tslint:disable-next-line:max-classes-per-file
 export class QuadTree<T> {
     private children: [QuadTree<T>, QuadTree<T>, QuadTree<T>, QuadTree<T>] | null = null;
-    private value: { point: Point; value: T }[]                                   = [];
+    private value: { point: Point; value: T }[] = [];
 
     public constructor(
         private readonly box: Box,
-        private readonly max = 10) {
+        private readonly max = 10,
+    ) {
     }
 
     public insert(point: Point, value: T): this | void {
@@ -112,7 +113,7 @@ export class QuadTree<T> {
                     return;
                 }
             }
-            this.value.push({point, value});
+            this.value.push({ point, value });
 
             return this;
         }
@@ -134,7 +135,12 @@ export class QuadTree<T> {
     private subdivide(): void {
         // use box quadrant method to create 4 new equal child quadrants
         // tslint:disable-next-line:no-map-without-usage
-        this.children = this.box.split().map((child) => new QuadTree<T>(child, this.max)) as [QuadTree<T>, QuadTree<T>, QuadTree<T>, QuadTree<T>];
+        this.children = this.box.split().map((child) => new QuadTree<T>(child, this.max)) as [
+            QuadTree<T>,
+            QuadTree<T>,
+            QuadTree<T>,
+            QuadTree<T>,
+        ];
 
         // try inserting each value into the new child nodes
         this.value.forEach((item) => {
@@ -176,7 +182,6 @@ export class QuadTree<T> {
         this.children.forEach((child) => {
             child._queryRangeRec(box, result);
         });
-
     }
 
     public queryPoint(point: Point): null | T {
@@ -234,6 +239,6 @@ export class QuadTree<T> {
 
     public clear(): void {
         this.children = null;
-        this.value    = [];
+        this.value = [];
     }
 }

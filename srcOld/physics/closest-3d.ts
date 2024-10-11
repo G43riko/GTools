@@ -15,8 +15,8 @@ export function getClosestPointOnLine(
     const yDelta = sy2 - sy1;
     const zDelta = sz2 - sz1;
 
-    let u = ((px - sx1) * xDelta + (py - sy1) * yDelta + (pz - sz1) * zDelta);
-    u /= (xDelta * xDelta + yDelta * yDelta + zDelta * zDelta);
+    let u = (px - sx1) * xDelta + (py - sy1) * yDelta + (pz - sz1) * zDelta;
+    u /= xDelta * xDelta + yDelta * yDelta + zDelta * zDelta;
 
     if (u < 0) {
         return {

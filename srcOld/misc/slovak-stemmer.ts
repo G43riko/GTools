@@ -9,34 +9,40 @@ function removePredpona(char: string): string {
 // tslint:disable-next-line
 function removeCase(key: string): string {
     const len = key.length;
-    if (len > 9 && key.endsWith("ejšieho")
-        || key.endsWith("ejšiemu")) {
+    if (
+        len > 9 && key.endsWith("ejšieho") ||
+        key.endsWith("ejšiemu")
+    ) {
         return key.substring(0, len - 7);
     }
 
-    if (len > 8 && (key.endsWith("ejších") ||
-        key.endsWith("encoch") ||
-        key.endsWith("ejšími") ||
-        key.endsWith("encami"))) {
+    if (
+        len > 8 && (key.endsWith("ejších") ||
+            key.endsWith("encoch") ||
+            key.endsWith("ejšími") ||
+            key.endsWith("encami"))
+    ) {
         return key.substring(0, len - 6);
     }
 
-    if (len > 7 && (key.endsWith("ejšia") ||
-        key.endsWith("atami") ||
-        key.endsWith("atách") ||
-        key.endsWith("eniec") ||
-        key.endsWith("encom") ||
-        key.endsWith("ejšom") ||
-        key.endsWith("ejším") ||
-        key.endsWith("ejšej") ||
-        key.endsWith("ejšou") ||
-        key.endsWith("ejšiu") ||
-        key.endsWith("ejšie")
-    )) {
+    if (
+        len > 7 && (key.endsWith("ejšia") ||
+            key.endsWith("atami") ||
+            key.endsWith("atách") ||
+            key.endsWith("eniec") ||
+            key.endsWith("encom") ||
+            key.endsWith("ejšom") ||
+            key.endsWith("ejším") ||
+            key.endsWith("ejšej") ||
+            key.endsWith("ejšou") ||
+            key.endsWith("ejšiu") ||
+            key.endsWith("ejšie"))
+    ) {
         return key.substring(0, len - 5);
     }
 
-    if (len > 6 &&
+    if (
+        len > 6 &&
         (key.endsWith("eťom") ||
             key.endsWith("iami") ||
             key.endsWith("atám") ||
@@ -51,11 +57,13 @@ function removeCase(key: string): string {
             key.endsWith("iete") ||
             key.endsWith("ejší") ||
             // gabos
-            key.endsWith("enie"))) {
+            key.endsWith("enie"))
+    ) {
         return key.substring(0, len - 4);
     }
 
-    if (len > 5 &&
+    if (
+        len > 5 &&
         (key.endsWith("ich") || // From cz
             key.endsWith("eho") ||
             key.endsWith("ych") ||
@@ -64,7 +72,8 @@ function removeCase(key: string): string {
             key.endsWith("emi") || // From cz
             key.endsWith("ému") || // From cz
             key.endsWith("emu") ||
-            /* key.endsWith("iho") ||*/ // Veľmi malý vplyv
+            /* key.endsWith("iho") ||*/
+            // Veľmi malý vplyv
             key.endsWith("ími") || // From cz
             key.endsWith("imi") ||
             key.endsWith("ách") || // From cz
@@ -94,13 +103,15 @@ function removeCase(key: string): string {
             key.endsWith("ila") ||
             key.endsWith("ilo") ||
             key.endsWith("ime") ||
-            key.endsWith("och")
-        )) {
+            key.endsWith("och"))
+    ) {
         return key.substring(0, len - 3);
     }
 
-    if (len > 4 &&
-        (/* key.endsWith("ín") ||*/
+    if (
+        len > 4 &&
+        (
+            /* key.endsWith("ín") ||*/
             key.endsWith("ím") || // From cz
             key.endsWith("ám") || // From cz
             key.endsWith("am") ||
@@ -128,7 +139,9 @@ function removeCase(key: string): string {
             key.endsWith("iš") ||
             key.endsWith("il") ||
             key.endsWith("úc") ||
-            key.endsWith("eš"))) {
+            key.endsWith("eš")
+        )
+    ) {
         return key.substring(0, len - 2);
     }
 
@@ -145,7 +158,7 @@ function removeCase(key: string): string {
             case "é":
             case "í":
             case "ý":
-            /* case "ô":*/
+                /* case "ô":*/
                 return key.substring(0, len - 1);
         }
     }
@@ -155,8 +168,10 @@ function removeCase(key: string): string {
 
 function removePossessives(s: string): string {
     const len = s.length;
-    if (len > 5 && s.endsWith("in") ||
-        s.endsWith("ov")) {
+    if (
+        len > 5 && s.endsWith("in") ||
+        s.endsWith("ov")
+    ) {
         return s.substr(0, len - 2);
     }
 

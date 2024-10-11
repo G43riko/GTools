@@ -14,7 +14,7 @@ export class Grid2BlockAccessor<T> {
     }
 
     public getByOffset(x = 0, y = 0): Grid2BlockAccessor<T> {
-        return new Grid2BlockAccessor(this.holder, {x: this.position.x + x, y: this.position.y - y});
+        return new Grid2BlockAccessor(this.holder, { x: this.position.x + x, y: this.position.y - y });
     }
 
     public get top(): Grid2BlockAccessor<T> {

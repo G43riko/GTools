@@ -5,10 +5,10 @@ import { AdvancedGrid3Holder } from "./advanced-grid3-holder";
 describe("AdvancedGrid3Holder", () => {
     it("It should test origin manipulation", () => {
         const holder = new AdvancedGrid3Holder(4, 4, 4);
-        expect(holder.origin).to.deep.equal({x: 0, y: 0, z: 0});
+        expect(holder.origin).to.deep.equal({ x: 0, y: 0, z: 0 });
 
         holder.setOrigin(1, 2, 3);
-        expect(holder.origin).to.deep.equal({x: 1, y: 2, z: 3});
+        expect(holder.origin).to.deep.equal({ x: 1, y: 2, z: 3 });
     });
 
     it("It should test fill and forEach method", () => {

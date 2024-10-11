@@ -25,30 +25,34 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         this.data.splice(this.data.length);
     }
     public swap(ax: number, ay: number, bx: number, by: number): void {
-        const aIndex      = this.getIndex(ax, ay);
-        const bIndex      = this.getIndex(bx, by);
-        const tmp         = this.data[aIndex];
+        const aIndex = this.getIndex(ax, ay);
+        const bIndex = this.getIndex(bx, by);
+        const tmp = this.data[aIndex];
         this.data[aIndex] = this.data[bIndex];
         this.data[bIndex] = tmp;
     }
     public static initEmpty<T>(x: number, y: number, defaultValue: T = null as unknown as T): Grid2ArrayHolder<T> {
-        const size   = x * y;
+        const size = x * y;
         const result = new Array<T>(size);
         for (let i = 0; i < size; i++) {
             result[i] = defaultValue;
         }
 
-        return new Grid2ArrayHolder<T>({x, y}, result);
+        return new Grid2ArrayHolder<T>({ x, y }, result);
     }
 
-    public static initWithProvider<T>(x: number, y: number, provider: (x: number, y: number) => T): Grid2ArrayHolder<T> {
-        const size   = x * y;
+    public static initWithProvider<T>(
+        x: number,
+        y: number,
+        provider: (x: number, y: number) => T,
+    ): Grid2ArrayHolder<T> {
+        const size = x * y;
         const result = new Array<T>(size);
         for (let i = 0; i < size; i++) {
             result[i] = provider(x, y);
         }
 
-        return new Grid2ArrayHolder<T>({x, y}, result);
+        return new Grid2ArrayHolder<T>({ x, y }, result);
     }
 
     public setData(data: T[]): void {
@@ -81,7 +85,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     }
 
     public getAroundData(x: number, y: number, size = 1): Grid2Block<T>[] {
-        const center = {x, y};
+        const center = { x, y };
 
         const minPosition = {
             x: Math.max(0, x - size),
@@ -150,15 +154,15 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public getNearest(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
         enum Statuses {
             ADDED,
-            FALSE
+            FALSE,
         }
 
         const data: { [index: number]: Statuses } = {};
 
         const result: Grid2Block<T>[] = [];
-        const current                 = [[this.getIndex(x, y)]];
+        const current = [[this.getIndex(x, y)]];
         while (!result.length) {
-            const actualLevel         = current.shift() as number[];
+            const actualLevel = current.shift() as number[];
             const nextLevel: number[] = [];
             actualLevel.forEach((actual) => {
                 if (data[actual] === Statuses.ADDED || data[actual] === Statuses.FALSE) {
@@ -167,7 +171,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
                 const coordinates = this.getCoordinates(actual);
                 if (condition(this.data[actual])) {
                     data[actual] = Statuses.ADDED;
-                    result.push({coordinates, item: this.data[actual]});
+                    result.push({ coordinates, item: this.data[actual] });
                 } else {
                     data[actual] = Statuses.FALSE;
                     nextLevel.push(...this.getAround4(coordinates.x, coordinates.y));
@@ -182,11 +186,11 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public expandConditionally(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
         enum Statuses {
             ADDED,
-            FALSE
+            FALSE,
         }
 
         const data: { [index: number]: Statuses } = {};
-        const current                             = [this.getIndex(x, y)];
+        const current = [this.getIndex(x, y)];
 
         const result: Grid2Block<T>[] = [];
         while (current.length) {
@@ -196,9 +200,9 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
                 continue;
             }
             if (condition(this.data[actual])) {
-                data[actual]      = Statuses.ADDED;
+                data[actual] = Statuses.ADDED;
                 const coordinates = this.getCoordinates(actual);
-                result.push({coordinates, item: this.data[actual]});
+                result.push({ coordinates, item: this.data[actual] });
                 current.push(...this.getAround4(coordinates.x, coordinates.y));
             } else {
                 data[actual] = Statuses.FALSE;
@@ -210,7 +214,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
 
     private getAround4(x: number, y: number): number[] {
         const centerIndex = this.getIndex(x, y);
-        const result      = [];
+        const result = [];
 
         if (x > 0) {
             result.push(centerIndex - 1);
@@ -229,7 +233,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     }
 
     private getAround4Index(centerIndex: number): number[] {
-        const {x, y} = this.getCoordinates(centerIndex);
+        const { x, y } = this.getCoordinates(centerIndex);
         const result = [];
 
         if (x > 0) {
@@ -263,16 +267,16 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         size: SimpleVector2,
         select: "indices" | "data" | "block",
     ): (number | T | Grid2Block<T>)[] {
-        let counter  = 0;
-        let y        = position.y;
+        let counter = 0;
+        let y = position.y;
         if (select === "block") {
             const gridBlocks = new Array<Grid2Block<T>>(size.x * size.y);
             for (let i = 0; i < size.y; i++) {
                 let currentIndex = this.getIndex(position.x, y);
                 for (let j = 0; j < size.x; j++) {
                     gridBlocks[counter++] = {
-                        item       : this.data[currentIndex++],
-                        coordinates: {y, x: position.x + j},
+                        item: this.data[currentIndex++],
+                        coordinates: { y, x: position.x + j },
                     };
                 }
                 y++;
@@ -311,10 +315,10 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         let limit = 1000;
         while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
-            const blocks      = this.getArea(this.getCoordinates(randomIndex), size);
+            const blocks = this.getArea(this.getCoordinates(randomIndex), size);
             if (blocks.every((item) => filter(item))) {
                 return {
-                    item       : this.data[randomIndex],
+                    item: this.data[randomIndex],
                     coordinates: this.getCoordinates(randomIndex),
                 };
             }
@@ -325,7 +329,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         let limit = 1000;
         while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this.data.length);
-            const item        = this.data[randomIndex];
+            const item = this.data[randomIndex];
             if (!filter || filter(item)) {
                 return {
                     item,
@@ -340,20 +344,20 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
             const randomIndex = Math.floor(Math.random() * this.data.length);
 
             return {
-                item       : this.data[randomIndex],
+                item: this.data[randomIndex],
                 coordinates: this.getCoordinates(randomIndex),
             };
         }
 
-        const sortedArray = this.data.map((item, index) => ({item, index})).sort(() => Math.random() - 0.5);
-        const result      = sortedArray.find((e) => filter(e.item));
+        const sortedArray = this.data.map((item, index) => ({ item, index })).sort(() => Math.random() - 0.5);
+        const result = sortedArray.find((e) => filter(e.item));
 
         if (!result) {
             return;
         }
 
         return {
-            item       : result.item,
+            item: result.item,
             coordinates: this.getCoordinates(result.index),
         };
     }

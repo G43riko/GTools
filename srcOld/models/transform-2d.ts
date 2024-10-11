@@ -8,11 +8,11 @@ export interface Transform2D {
 
 export function getDefaultTransform2D(): Transform2D {
     return {
-        offset  : {
+        offset: {
             x: 0,
             y: 0,
         },
-        scale   : 1,
+        scale: 1,
         rotation: 0,
     };
 }

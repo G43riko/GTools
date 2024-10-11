@@ -9,13 +9,12 @@ import { Grid2StringHolder } from "./grid2-string-holder";
 
 describe("Grid2", () => {
     describe("default", () => {
-
-        const size            = {x: 256, y: 256};
-        const arrayHolder     = Grid2ArrayHolder.initEmpty<number>(size.x, size.y, 0);
-        const mapHolder       = Grid2MapHolder.initEmpty<number>(size.x, size.y, 0);
-        const hashHolder      = new Grid2HashHolder<number>();
-        const objectHolder    = new Grid2ObjectHolder<number>();
-        const stringHolder    = new Grid2StringHolder<number>();
+        const size = { x: 256, y: 256 };
+        const arrayHolder = Grid2ArrayHolder.initEmpty<number>(size.x, size.y, 0);
+        const mapHolder = Grid2MapHolder.initEmpty<number>(size.x, size.y, 0);
+        const hashHolder = new Grid2HashHolder<number>();
+        const objectHolder = new Grid2ObjectHolder<number>();
+        const stringHolder = new Grid2StringHolder<number>();
         const objectMapHolder = new Grid2ObjectMapHolder<number>();
 
         const sorts: Grid2Holder<number>[] = [
@@ -42,7 +41,7 @@ describe("Grid2", () => {
         it("It should test adding", () => {
             sorts.forEach((holder) => {
                 const testArr = createArray();
-                const start   = Date.now();
+                const start = Date.now();
 
                 testArr.forEach((row, x) => {
                     row.forEach((item, y) => {
@@ -52,7 +51,6 @@ describe("Grid2", () => {
 
                 const diff = Date.now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
         it("It should test getting", () => {
@@ -67,7 +65,6 @@ describe("Grid2", () => {
 
                 const diff = Date.now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
         it("It should test iterating", () => {
@@ -78,7 +75,6 @@ describe("Grid2", () => {
 
                 const diff = Date.now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
     });

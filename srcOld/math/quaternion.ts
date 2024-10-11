@@ -12,28 +12,28 @@ export class Quaternion extends Vector4 {
         let w: number;
         if (trace > 0) {
             const s = 0.5 / Math.sqrt(trace + 1);
-            w       = 0.25 / s;
-            x       = (rot.get(1, 2) - rot.get(2, 1)) * s;
-            y       = (rot.get(2, 0) - rot.get(0, 2)) * s;
-            z       = (rot.get(0, 1) - rot.get(1, 0)) * s;
+            w = 0.25 / s;
+            x = (rot.get(1, 2) - rot.get(2, 1)) * s;
+            y = (rot.get(2, 0) - rot.get(0, 2)) * s;
+            z = (rot.get(0, 1) - rot.get(1, 0)) * s;
         } else if (rot.get(0, 0) > rot.get(1, 1) && rot.get(0, 0) > rot.get(2, 2)) {
             const s = 2 * Math.sqrt(1 + rot.get(0, 0) - rot.get(1, 1) - rot.get(2, 2));
-            w       = (rot.get(1, 2) - rot.get(2, 1)) / s;
-            x       = 0.25 * s;
-            y       = (rot.get(1, 0) + rot.get(0, 1)) / s;
-            z       = (rot.get(2, 0) + rot.get(0, 2)) / s;
+            w = (rot.get(1, 2) - rot.get(2, 1)) / s;
+            x = 0.25 * s;
+            y = (rot.get(1, 0) + rot.get(0, 1)) / s;
+            z = (rot.get(2, 0) + rot.get(0, 2)) / s;
         } else if (rot.get(1, 1) > rot.get(2, 2)) {
             const s = 2 * Math.sqrt(1 + rot.get(1, 1) - rot.get(0, 0) - rot.get(2, 2));
-            w       = (rot.get(2, 0) - rot.get(0, 2)) / s;
-            x       = (rot.get(1, 0) + rot.get(0, 1)) / s;
-            y       = 0.25 * s;
-            z       = (rot.get(2, 1) + rot.get(1, 2)) / s;
+            w = (rot.get(2, 0) - rot.get(0, 2)) / s;
+            x = (rot.get(1, 0) + rot.get(0, 1)) / s;
+            y = 0.25 * s;
+            z = (rot.get(2, 1) + rot.get(1, 2)) / s;
         } else {
             const s = 2 * Math.sqrt(1 + rot.get(2, 2) - rot.get(0, 0) - rot.get(1, 1));
-            w       = (rot.get(0, 1) - rot.get(1, 0)) / s;
-            x       = (rot.get(2, 0) + rot.get(0, 2)) / s;
-            y       = (rot.get(1, 2) + rot.get(2, 1)) / s;
-            z       = 0.25 * s;
+            w = (rot.get(0, 1) - rot.get(1, 0)) / s;
+            x = (rot.get(2, 0) + rot.get(0, 2)) / s;
+            y = (rot.get(1, 2) + rot.get(2, 1)) / s;
+            z = 0.25 * s;
         }
 
         const length = Math.sqrt(x * x + y * y + z * z + w * w);
@@ -69,7 +69,6 @@ export class Quaternion extends Vector4 {
         return new Quaternion(this.x, this.y, this.z, this.w);
     }
 
-
     public static multiply(a: Quaternion, b: Quaternion, result = new Quaternion()): Quaternion {
         const ax = a.x;
         const ay = a.y;
@@ -91,8 +90,8 @@ export class Quaternion extends Vector4 {
     public toEuler(): SimpleVector3 {
         const ysqr = this.y * this.y;
 
-        const t0   = 2 * (this.w * this.x + this.y * this.z);
-        const t1   = 1 - 2 * (this.x * this.x + ysqr);
+        const t0 = 2 * (this.w * this.x + this.y * this.z);
+        const t1 = 1 - 2 * (this.x * this.x + ysqr);
         const resX = Math.atan2(t0, t1);
 
         let t2 = 2 * (this.w * this.y - this.z * this.x);
@@ -103,8 +102,8 @@ export class Quaternion extends Vector4 {
         }
         const resY = Math.asin(t2);
 
-        const t3   = 2 * (this.w * this.z + this.x * this.y);
-        const t4   = 1 - 2 * (ysqr + this.z * this.z);
+        const t3 = 2 * (this.w * this.z + this.x * this.y);
+        const t4 = 1 - 2 * (ysqr + this.z * this.z);
         const resZ = Math.atan2(t3, t4);
 
         return {

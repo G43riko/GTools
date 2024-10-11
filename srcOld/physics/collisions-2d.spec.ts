@@ -221,14 +221,44 @@ describe("Collisions2d", () => {
 
     describe("point-polygon", () => {
         describe("rect like polygon", () => {
-            const createPolygonFromRect = (minX: number, minY: number, maxX: number, maxY: number): [number, number][] => [[minX, minY], [minX, maxY], [maxY, maxY], [maxY, minY]];
+            const createPolygonFromRect = (
+                minX: number,
+                minY: number,
+                maxX: number,
+                maxY: number,
+            ): [number, number][] => [[minX, minY], [minX, maxY], [maxY, maxY], [maxY, minY]];
 
             it("It should test point inside small rect hole in polygon", () => {
-                expect(pointMultiPolygon2dCollision(1, 1, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
-                expect(pointMultiPolygon2dCollision(9, 1, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
-                expect(pointMultiPolygon2dCollision(1, 9, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
-                expect(pointMultiPolygon2dCollision(9, 9, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
-                expect(pointMultiPolygon2dCollision(5, 5, [createPolygonFromRect(-10, -10, 20, 20), createPolygonFromRect(0, 0, 10, 10)])).to.be.false;
+                expect(
+                    pointMultiPolygon2dCollision(1, 1, [
+                        createPolygonFromRect(-10, -10, 20, 20),
+                        createPolygonFromRect(0, 0, 10, 10),
+                    ]),
+                ).to.be.false;
+                expect(
+                    pointMultiPolygon2dCollision(9, 1, [
+                        createPolygonFromRect(-10, -10, 20, 20),
+                        createPolygonFromRect(0, 0, 10, 10),
+                    ]),
+                ).to.be.false;
+                expect(
+                    pointMultiPolygon2dCollision(1, 9, [
+                        createPolygonFromRect(-10, -10, 20, 20),
+                        createPolygonFromRect(0, 0, 10, 10),
+                    ]),
+                ).to.be.false;
+                expect(
+                    pointMultiPolygon2dCollision(9, 9, [
+                        createPolygonFromRect(-10, -10, 20, 20),
+                        createPolygonFromRect(0, 0, 10, 10),
+                    ]),
+                ).to.be.false;
+                expect(
+                    pointMultiPolygon2dCollision(5, 5, [
+                        createPolygonFromRect(-10, -10, 20, 20),
+                        createPolygonFromRect(0, 0, 10, 10),
+                    ]),
+                ).to.be.false;
             });
             it("It should test point inside rect", () => {
                 expect(pointMultiPolygon2dCollision(0, 0, [createPolygonFromRect(0, 0, 10, 10)])).to.be.true;

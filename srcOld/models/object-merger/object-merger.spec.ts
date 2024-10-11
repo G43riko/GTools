@@ -14,445 +14,465 @@ describe("ObjectMerger", () => {
         // });
         expect(ObjectMerger.mergeProperty("gabo", "", {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.VALUE_A,
-            valueA      : "gabo",
-            valueB      : "",
+            matchType: ObjectMergeMatchType.VALUE_A,
+            valueA: "gabo",
+            valueB: "",
         });
         expect(ObjectMerger.mergeProperty("", "gabo", {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.VALUE_B,
-            valueA      : "",
-            valueB      : "gabo",
+            matchType: ObjectMergeMatchType.VALUE_B,
+            valueA: "",
+            valueB: "gabo",
         });
         expect(ObjectMerger.mergeProperty("gabo", "gabo", {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : "gabo",
-            valueB      : "gabo",
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: "gabo",
+            valueB: "gabo",
         });
         expect(ObjectMerger.mergeProperty(" gabo  ", "  gabo ", {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.INDENT_DIFF,
-            valueA      : " gabo  ",
-            valueB      : "  gabo ",
+            matchType: ObjectMergeMatchType.INDENT_DIFF,
+            valueA: " gabo  ",
+            valueB: "  gabo ",
         });
         expect(ObjectMerger.mergeProperty<string | null>("gabo", null, {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.VALUE_A,
-            valueA      : "gabo",
-            valueB      : null,
+            matchType: ObjectMergeMatchType.VALUE_A,
+            valueA: "gabo",
+            valueB: null,
         });
         expect(ObjectMerger.mergeProperty<string | undefined>(undefined, "gabo", {})).to.deep.equal({
             mergedResult: "gabo",
-            matchType   : ObjectMergeMatchType.VALUE_B,
-            valueA      : undefined,
-            valueB      : "gabo",
+            matchType: ObjectMergeMatchType.VALUE_B,
+            valueA: undefined,
+            valueB: "gabo",
         });
         expect(ObjectMerger.mergeProperty<null>(null, null, {})).to.deep.equal({
             mergedResult: null,
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : null,
-            valueB      : null,
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: null,
+            valueB: null,
         });
         expect(ObjectMerger.mergeProperty<null | undefined>(undefined, null, {})).to.deep.equal({
             mergedResult: undefined,
-            matchType   : ObjectMergeMatchType.MISS_TYPE,
-            valueA      : undefined,
-            valueB      : null,
+            matchType: ObjectMergeMatchType.MISS_TYPE,
+            valueA: undefined,
+            valueB: null,
         });
         expect(ObjectMerger.mergeProperty<undefined>(undefined, undefined, {})).to.deep.equal({
             mergedResult: undefined,
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : undefined,
-            valueB      : undefined,
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: undefined,
+            valueB: undefined,
         });
         expect(ObjectMerger.mergeProperty({}, {} as any, {})).to.deep.equal({
             mergedResult: {},
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : {},
-            valueB      : {},
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: {},
+            valueB: {},
         });
         expect(ObjectMerger.mergeProperty([], [] as any, {})).to.deep.equal({
             mergedResult: [],
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : [],
-            valueB      : [],
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: [],
+            valueB: [],
         });
         expect(ObjectMerger.mergeProperty([{}, {}], [{}, {}] as any, {})).to.deep.equal({
             mergedResult: [{}, {}],
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : [{}, {}],
-            valueB      : [{}, {}],
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: [{}, {}],
+            valueB: [{}, {}],
         });
         expect(ObjectMerger.mergeProperty(true, "true" as any, {})).to.deep.equal({
             mergedResult: true,
-            matchType   : ObjectMergeMatchType.MISS_TYPE,
-            valueA      : true,
-            valueB      : "true",
+            matchType: ObjectMergeMatchType.MISS_TYPE,
+            valueA: true,
+            valueB: "true",
         });
         expect(ObjectMerger.mergeProperty(false, "false" as any, {})).to.deep.equal({
             mergedResult: false,
-            matchType   : ObjectMergeMatchType.MISS_TYPE,
-            valueA      : false,
-            valueB      : "false",
+            matchType: ObjectMergeMatchType.MISS_TYPE,
+            valueA: false,
+            valueB: "false",
         });
         expect(ObjectMerger.mergeProperty("123", 123 as any, {})).to.deep.equal({
             mergedResult: "123",
-            matchType   : ObjectMergeMatchType.MISS_TYPE,
-            valueA      : "123",
-            valueB      : 123,
+            matchType: ObjectMergeMatchType.MISS_TYPE,
+            valueA: "123",
+            valueB: 123,
         });
         expect(ObjectMerger.mergeProperty(" 123  ", 123 as any, {})).to.deep.equal({
             mergedResult: "123",
-            matchType   : ObjectMergeMatchType.TYPE_AND_INDENT_DIFF,
-            valueA      : " 123  ",
-            valueB      : 123,
+            matchType: ObjectMergeMatchType.TYPE_AND_INDENT_DIFF,
+            valueA: " 123  ",
+            valueB: 123,
         });
     });
 
     describe("It should test array object-merger", () => {
         it("It should test empty array", () => {
             expect(ObjectMerger.mergeArray<string>([], [], {})).to.deep.equal({
-                valueA      : [],
-                valueB      : [],
+                valueA: [],
+                valueB: [],
                 mergedResult: [],
-                arrayResult : [],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                arrayResult: [],
+                matchType: ObjectMergeMatchType.EQUALS,
             });
-            expect(ObjectMerger.mergeArray<string>([], [], {comparator: () => 0})).to.deep.equal({
-                valueA      : [],
-                valueB      : [],
+            expect(ObjectMerger.mergeArray<string>([], [], { comparator: () => 0 })).to.deep.equal({
+                valueA: [],
+                valueB: [],
                 mergedResult: [],
-                arrayResult : [],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                arrayResult: [],
+                matchType: ObjectMergeMatchType.EQUALS,
             });
-            expect(ObjectMerger.mergeArray<string>([], [], {comparator: () => 0, merger: (a) => a})).to.deep.equal({
-                valueA      : [],
-                valueB      : [],
+            expect(ObjectMerger.mergeArray<string>([], [], { comparator: () => 0, merger: (a) => a })).to.deep.equal({
+                valueA: [],
+                valueB: [],
                 mergedResult: [],
-                arrayResult : [],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                arrayResult: [],
+                matchType: ObjectMergeMatchType.EQUALS,
             });
         });
         it("It should test flat array", () => {
             expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["d", "e", "f"], {})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["d", "e", "f"],
+                valueA: ["a", "b", "c"],
+                valueB: ["d", "e", "f"],
                 mergedResult: [undefined, undefined, undefined],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "a",
-                        valueB      : "d",
+                        valueA: "a",
+                        valueB: "d",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "b",
-                        valueB      : "e",
+                        valueA: "b",
+                        valueB: "e",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "c",
-                        valueB      : "f",
+                        valueA: "c",
+                        valueB: "f",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.UNRESOLVED,
+                matchType: ObjectMergeMatchType.UNRESOLVED,
             });
             expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["a", "b", "c"], {})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["a", "b", "c"],
+                valueA: ["a", "b", "c"],
+                valueB: ["a", "b", "c"],
                 mergedResult: ["a", "b", "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : "b",
+                        valueA: "b",
+                        valueB: "b",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "c",
-                        valueA      : "c",
-                        valueB      : "c",
+                        valueA: "c",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                matchType: ObjectMergeMatchType.EQUALS,
             });
-            expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["a", "b", "c"], {comparator: (a, b) => a.localeCompare(b)})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["a", "b", "c"],
+            expect(
+                ObjectMerger.mergeArray<string>(["a", "b", "c"], ["a", "b", "c"], {
+                    comparator: (a, b) => a.localeCompare(b),
+                }),
+            ).to.deep.equal({
+                valueA: ["a", "b", "c"],
+                valueB: ["a", "b", "c"],
                 mergedResult: ["a", "b", "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : "b",
+                        valueA: "b",
+                        valueB: "b",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "c",
-                        valueA      : "c",
-                        valueB      : "c",
+                        valueA: "c",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                matchType: ObjectMergeMatchType.EQUALS,
             });
             expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["b", "a", "c"], {})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["b", "a", "c"],
+                valueA: ["a", "b", "c"],
+                valueB: ["b", "a", "c"],
                 mergedResult: [undefined, undefined, "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "a",
-                        valueB      : "b",
+                        valueA: "a",
+                        valueB: "b",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "b",
-                        valueB      : "a",
+                        valueA: "b",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "c",
-                        valueA      : "c",
-                        valueB      : "c",
+                        valueA: "c",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.PARTIALLY_MERGED,
+                matchType: ObjectMergeMatchType.PARTIALLY_MERGED,
             });
-            expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["b", "a", "c"], {comparator: (a, b) => a.localeCompare(b)})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["b", "a", "c"],
+            expect(
+                ObjectMerger.mergeArray<string>(["a", "b", "c"], ["b", "a", "c"], {
+                    comparator: (a, b) => a.localeCompare(b),
+                }),
+            ).to.deep.equal({
+                valueA: ["a", "b", "c"],
+                valueB: ["b", "a", "c"],
                 mergedResult: ["a", "b", "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : "b",
+                        valueA: "b",
+                        valueB: "b",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "c",
-                        valueA      : "c",
-                        valueB      : "c",
+                        valueA: "c",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                matchType: ObjectMergeMatchType.EQUALS,
             });
-            expect(ObjectMerger.mergeArray<string>(["a", "b", "c"], ["b", "a", "c"], {merger: (a) => a, comparator: (a, b) => a.localeCompare(b)})).to.deep.equal({
-                valueA      : ["a", "b", "c"],
-                valueB      : ["b", "a", "c"],
+            expect(
+                ObjectMerger.mergeArray<string>(["a", "b", "c"], ["b", "a", "c"], {
+                    merger: (a) => a,
+                    comparator: (a, b) => a.localeCompare(b),
+                }),
+            ).to.deep.equal({
+                valueA: ["a", "b", "c"],
+                valueB: ["b", "a", "c"],
                 mergedResult: ["a", "b", "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : "b",
+                        valueA: "b",
+                        valueB: "b",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "c",
-                        valueA      : "c",
-                        valueB      : "c",
+                        valueA: "c",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.EQUALS,
+                matchType: ObjectMergeMatchType.EQUALS,
             });
             expect(ObjectMerger.mergeArray<string>([""], ["  "], {})).to.deep.equal({
-                valueA      : [""],
-                valueB      : ["  "],
+                valueA: [""],
+                valueB: ["  "],
                 mergedResult: [""],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.INDENT_DIFF,
+                        matchType: ObjectMergeMatchType.INDENT_DIFF,
                         mergedResult: "",
-                        valueA      : "",
-                        valueB      : "  ",
+                        valueA: "",
+                        valueB: "  ",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.FULLY_MERGED,
+                matchType: ObjectMergeMatchType.FULLY_MERGED,
             });
             expect(ObjectMerger.mergeArray<string>(["", " "], ["  ", " "], {})).to.deep.equal({
-                valueA      : ["", " "],
-                valueB      : ["  ", " "],
+                valueA: ["", " "],
+                valueB: ["  ", " "],
                 mergedResult: ["", " "],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.INDENT_DIFF,
+                        matchType: ObjectMergeMatchType.INDENT_DIFF,
                         mergedResult: "",
-                        valueA      : "",
-                        valueB      : "  ",
+                        valueA: "",
+                        valueB: "  ",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: " ",
-                        valueA      : " ",
-                        valueB      : " ",
+                        valueA: " ",
+                        valueB: " ",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.FULLY_MERGED,
+                matchType: ObjectMergeMatchType.FULLY_MERGED,
             });
             expect(ObjectMerger.mergeArray<string>(["a", "b"], ["a", "c"], {})).to.deep.equal({
-                valueA      : ["a", "b"],
-                valueB      : ["a", "c"],
+                valueA: ["a", "b"],
+                valueB: ["a", "c"],
                 mergedResult: ["a", undefined],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.EQUALS,
+                        matchType: ObjectMergeMatchType.EQUALS,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.UNRESOLVED,
+                        matchType: ObjectMergeMatchType.UNRESOLVED,
                         mergedResult: undefined,
-                        valueA      : "b",
-                        valueB      : "c",
+                        valueA: "b",
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.PARTIALLY_MERGED,
+                matchType: ObjectMergeMatchType.PARTIALLY_MERGED,
             });
-            expect(ObjectMerger.mergeArray<string>(["a", "b"], ["a", "c"], {comparator: (a, b) => a.localeCompare(b)})).to.deep.equal({
-                valueA      : ["a", "b"],
-                valueB      : ["a", "c"],
-                mergedResult: ["a", "b", "c"],
-                arrayResult : [
-                    {
-                        matchType   : ObjectMergeMatchType.EQUALS,
-                        mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
-                    },
-                    {
-                        matchType   : ObjectMergeMatchType.VALUE_A,
-                        mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : undefined,
-                    },
-                    {
-                        matchType   : ObjectMergeMatchType.VALUE_B,
-                        mergedResult: "c",
-                        valueA      : undefined,
-                        valueB      : "c",
-                    },
-                ],
-                matchType   : ObjectMergeMatchType.FULLY_MERGED,
-            });
+            expect(
+                ObjectMerger.mergeArray<string>(["a", "b"], ["a", "c"], { comparator: (a, b) => a.localeCompare(b) }),
+            ).to
+                .deep.equal({
+                    valueA: ["a", "b"],
+                    valueB: ["a", "c"],
+                    mergedResult: ["a", "b", "c"],
+                    arrayResult: [
+                        {
+                            matchType: ObjectMergeMatchType.EQUALS,
+                            mergedResult: "a",
+                            valueA: "a",
+                            valueB: "a",
+                        },
+                        {
+                            matchType: ObjectMergeMatchType.VALUE_A,
+                            mergedResult: "b",
+                            valueA: "b",
+                            valueB: undefined,
+                        },
+                        {
+                            matchType: ObjectMergeMatchType.VALUE_B,
+                            mergedResult: "c",
+                            valueA: undefined,
+                            valueB: "c",
+                        },
+                    ],
+                    matchType: ObjectMergeMatchType.FULLY_MERGED,
+                });
             expect(ObjectMerger.mergeArray<string>(["a", "b"], ["a", "c"], {
                 comparator: (a, b) => a.localeCompare(b),
-                merger    : (a, b) => a,
+                merger: (a, b) => a,
             })).to.deep.equal({
-                valueA      : ["a", "b"],
-                valueB      : ["a", "c"],
+                valueA: ["a", "b"],
+                valueB: ["a", "c"],
                 mergedResult: ["a", "b", "c"],
-                arrayResult : [
+                arrayResult: [
                     {
-                        matchType   : ObjectMergeMatchType.MERGED_EXTERNALLY,
+                        matchType: ObjectMergeMatchType.MERGED_EXTERNALLY,
                         mergedResult: "a",
-                        valueA      : "a",
-                        valueB      : "a",
+                        valueA: "a",
+                        valueB: "a",
                     },
                     {
-                        matchType   : ObjectMergeMatchType.VALUE_A,
+                        matchType: ObjectMergeMatchType.VALUE_A,
                         mergedResult: "b",
-                        valueA      : "b",
-                        valueB      : undefined,
+                        valueA: "b",
+                        valueB: undefined,
                     },
                     {
-                        matchType   : ObjectMergeMatchType.VALUE_B,
+                        matchType: ObjectMergeMatchType.VALUE_B,
                         mergedResult: "c",
-                        valueA      : undefined,
-                        valueB      : "c",
+                        valueA: undefined,
+                        valueB: "c",
                     },
                 ],
-                matchType   : ObjectMergeMatchType.FULLY_MERGED,
+                matchType: ObjectMergeMatchType.FULLY_MERGED,
             });
         });
 
         describe("It should test nested array", () => {
             it("It should equals arrays", () => {
-                expect(ObjectMerger.mergeArray<{ name: string }>([{name: "Gabo"}], [{name: "Gabo"}], {})).to.deep.equal({
-                    valueA      : [{name: "Gabo"}],
-                    valueB      : [{name: "Gabo"}],
-                    mergedResult: [{name: "Gabo"}],
-                    arrayResult : [
-                        {
-                            matchType   : ObjectMergeMatchType.EQUALS,
-                            mergedResult: {
-                                name: "Gabo",
-                            },
-                            valueA      : {
-                                name: "Gabo",
-                            },
-                            valueB      : {
-                                name: "Gabo",
-                            },
-                        },
-                    ],
-                    matchType   : ObjectMergeMatchType.EQUALS,
-                });
-
-                expect(ObjectMerger.mergeArray<{ name: string }>([{name: "  Gabo"}], [{name: "Gabo  "}], {})).to.deep.equal({
-                    valueA      : [{name: "  Gabo"}],
-                    valueB      : [{name: "Gabo  "}],
-                    mergedResult: [{name: "Gabo"}],
-                    arrayResult : [
-                        {
-                            matchType   : ObjectMergeMatchType.FULLY_MERGED,
-                            objectResult: {
-                                name: {
-                                    matchType   : ObjectMergeMatchType.INDENT_DIFF,
-                                    mergedResult: "Gabo",
-                                    valueA      : "  Gabo",
-                                    valueB      : "Gabo  ",
+                expect(ObjectMerger.mergeArray<{ name: string }>([{ name: "Gabo" }], [{ name: "Gabo" }], {})).to.deep
+                    .equal({
+                        valueA: [{ name: "Gabo" }],
+                        valueB: [{ name: "Gabo" }],
+                        mergedResult: [{ name: "Gabo" }],
+                        arrayResult: [
+                            {
+                                matchType: ObjectMergeMatchType.EQUALS,
+                                mergedResult: {
+                                    name: "Gabo",
+                                },
+                                valueA: {
+                                    name: "Gabo",
+                                },
+                                valueB: {
+                                    name: "Gabo",
                                 },
                             },
-                            mergedResult: {
-                                name: "Gabo",
-                            },
-                            valueA      : {
-                                name: "  Gabo",
-                            },
-                            valueB      : {
-                                name: "Gabo  ",
-                            },
+                        ],
+                        matchType: ObjectMergeMatchType.EQUALS,
+                    });
+
+                expect(ObjectMerger.mergeArray<{ name: string }>([{ name: "  Gabo" }], [{ name: "Gabo  " }], {})).to
+                    .deep.equal(
+                        {
+                            valueA: [{ name: "  Gabo" }],
+                            valueB: [{ name: "Gabo  " }],
+                            mergedResult: [{ name: "Gabo" }],
+                            arrayResult: [
+                                {
+                                    matchType: ObjectMergeMatchType.FULLY_MERGED,
+                                    objectResult: {
+                                        name: {
+                                            matchType: ObjectMergeMatchType.INDENT_DIFF,
+                                            mergedResult: "Gabo",
+                                            valueA: "  Gabo",
+                                            valueB: "Gabo  ",
+                                        },
+                                    },
+                                    mergedResult: {
+                                        name: "Gabo",
+                                    },
+                                    valueA: {
+                                        name: "  Gabo",
+                                    },
+                                    valueB: {
+                                        name: "Gabo  ",
+                                    },
+                                },
+                            ],
+                            matchType: ObjectMergeMatchType.FULLY_MERGED,
                         },
-                    ],
-                    matchType   : ObjectMergeMatchType.FULLY_MERGED,
-                });
+                    );
             });
 
             it("It should merge makers", () => {
@@ -460,36 +480,36 @@ describe("ObjectMerger", () => {
                     makers: { name: string; roles: string[] }[];
                 }
 
-                const movieA: Movie                         = {
+                const movieA: Movie = {
                     makers: [],
                 };
-                const movieB: Movie                         = {
+                const movieB: Movie = {
                     makers: [],
                 };
-                const movieC: Movie                         = {
+                const movieC: Movie = {
                     makers: [
                         {
-                            name : "MakerA",
+                            name: "MakerA",
                             roles: ["ACTOR"],
                         },
                         {
-                            name : "MakerB",
+                            name: "MakerB",
                             roles: ["DIRECTOR"],
                         },
                     ],
                 };
-                const movieD: Movie                         = {
+                const movieD: Movie = {
                     makers: [
                         {
-                            name : "MakerA",
+                            name: "MakerA",
                             roles: ["ACTOR", "WRITER"],
                         },
                         {
-                            name : "MakerC",
+                            name: "MakerC",
                             roles: ["ACTOR"],
                         },
                         {
-                            name : "MakerB",
+                            name: "MakerB",
                             roles: ["ACTOR"],
                         },
                     ],
@@ -498,7 +518,7 @@ describe("ObjectMerger", () => {
                     keys: {
                         makers: {
                             comparator: ((a, b) => a.name.localeCompare(b.name)),
-                            keys      : {
+                            keys: {
                                 roles: {
                                     comparator: (a: string, b: string) => a.localeCompare(b),
                                 },
@@ -508,34 +528,34 @@ describe("ObjectMerger", () => {
                 };
 
                 expect(ObjectMerger.mergeObject<Movie>(movieA, movieB, config)).to.deep.equal({
-                    matchType   : ObjectMergeMatchType.EQUALS,
+                    matchType: ObjectMergeMatchType.EQUALS,
                     mergedResult: {
                         makers: [],
                     },
                     objectResult: {
                         makers: {
-                            matchType   : ObjectMergeMatchType.EQUALS,
+                            matchType: ObjectMergeMatchType.EQUALS,
                             mergedResult: [],
-                            valueA      : [],
-                            valueB      : [],
+                            valueA: [],
+                            valueB: [],
                         },
                     },
-                    valueA      : movieA,
-                    valueB      : movieB,
+                    valueA: movieA,
+                    valueB: movieB,
                 });
 
                 expect(ObjectMerger.mergeObject<Movie>(movieC, movieD, config).mergedResult).to.deep.equal({
                     makers: [
                         {
-                            name : "MakerA",
+                            name: "MakerA",
                             roles: ["ACTOR", "WRITER"],
                         },
                         {
-                            name : "MakerB",
+                            name: "MakerB",
                             roles: ["ACTOR", "DIRECTOR"],
                         },
                         {
-                            name : "MakerC",
+                            name: "MakerC",
                             roles: ["ACTOR"],
                         },
                     ],
@@ -547,21 +567,20 @@ describe("ObjectMerger", () => {
     it("It should test object object-merger", () => {
         const options: ObjectMergeDefinitions<unknown> = {
             comparator: (a, b) => 0,
-            merger    : (a, b) => typeof a === "string" ? a.trim() : a,
+            merger: (a, b) => typeof a === "string" ? a.trim() : a,
         };
 
-        const valueA      = Object.freeze({
+        const valueA = Object.freeze({
             name: "Gabo",
-            age : 26,
+            age: 26,
         });
-        const valueB      = Object.freeze({
-            name        : "Gabo",
+        const valueB = Object.freeze({
+            name: "Gabo",
             birthdayYear: 1990,
-
         });
         const resultValue = Object.freeze({
-            name        : "Gabo",
-            age         : 26,
+            name: "Gabo",
+            age: 26,
             birthdayYear: 1990,
         });
         expect(ObjectMerger.mergeObject<unknown>(valueA, valueB, options)).to.deep.equal({
@@ -570,25 +589,25 @@ describe("ObjectMerger", () => {
             mergedResult: resultValue,
             objectResult: {
                 birthdayYear: {
-                    matchType   : ObjectMergeMatchType.VALUE_B,
+                    matchType: ObjectMergeMatchType.VALUE_B,
                     mergedResult: 1990,
-                    valueA      : undefined,
-                    valueB      : 1990,
+                    valueA: undefined,
+                    valueB: 1990,
                 },
-                age         : {
-                    matchType   : ObjectMergeMatchType.VALUE_A,
+                age: {
+                    matchType: ObjectMergeMatchType.VALUE_A,
                     mergedResult: 26,
-                    valueA      : 26,
-                    valueB      : undefined,
+                    valueA: 26,
+                    valueB: undefined,
                 },
-                name        : {
-                    matchType   : ObjectMergeMatchType.EQUALS,
+                name: {
+                    matchType: ObjectMergeMatchType.EQUALS,
                     mergedResult: "Gabo",
-                    valueA      : "Gabo",
-                    valueB      : "Gabo",
+                    valueA: "Gabo",
+                    valueB: "Gabo",
                 },
             },
-            matchType   : ObjectMergeMatchType.FULLY_MERGED,
+            matchType: ObjectMergeMatchType.FULLY_MERGED,
         });
         expect(ObjectMerger.mergeProperty<unknown>(valueA, valueB, options)).to.deep.equal({
             valueA,
@@ -596,25 +615,25 @@ describe("ObjectMerger", () => {
             mergedResult: resultValue,
             objectResult: {
                 birthdayYear: {
-                    matchType   : ObjectMergeMatchType.VALUE_B,
+                    matchType: ObjectMergeMatchType.VALUE_B,
                     mergedResult: 1990,
-                    valueA      : undefined,
-                    valueB      : 1990,
+                    valueA: undefined,
+                    valueB: 1990,
                 },
-                age         : {
-                    matchType   : ObjectMergeMatchType.VALUE_A,
+                age: {
+                    matchType: ObjectMergeMatchType.VALUE_A,
                     mergedResult: 26,
-                    valueA      : 26,
-                    valueB      : undefined,
+                    valueA: 26,
+                    valueB: undefined,
                 },
-                name        : {
-                    matchType   : ObjectMergeMatchType.EQUALS,
+                name: {
+                    matchType: ObjectMergeMatchType.EQUALS,
                     mergedResult: "Gabo",
-                    valueA      : "Gabo",
-                    valueB      : "Gabo",
+                    valueA: "Gabo",
+                    valueB: "Gabo",
                 },
             },
-            matchType   : ObjectMergeMatchType.FULLY_MERGED,
+            matchType: ObjectMergeMatchType.FULLY_MERGED,
         });
     });
 
@@ -631,13 +650,13 @@ describe("ObjectMerger", () => {
             },
         };
         expect(ObjectMerger.mergeObject(objA, objA, {})).to.deep.equal({
-            matchType   : ObjectMergeMatchType.EQUALS,
-            valueA      : objA,
-            valueB      : objA,
+            matchType: ObjectMergeMatchType.EQUALS,
+            valueA: objA,
+            valueB: objA,
             mergedResult: objA,
             objectResult: {
                 levelA: {
-                    matchType   : ObjectMergeMatchType.EQUALS,
+                    matchType: ObjectMergeMatchType.EQUALS,
                     mergedResult: {
                         levelB: {
                             levelC: {
@@ -647,7 +666,7 @@ describe("ObjectMerger", () => {
                             },
                         },
                     },
-                    valueA      : {
+                    valueA: {
                         levelB: {
                             levelC: {
                                 levelD: {
@@ -656,7 +675,7 @@ describe("ObjectMerger", () => {
                             },
                         },
                     },
-                    valueB      : {
+                    valueB: {
                         levelB: {
                             levelC: {
                                 levelD: {

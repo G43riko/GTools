@@ -2,9 +2,9 @@ import { astar } from "./a-star_download";
 import { GridNode } from "./grid-node_download";
 
 export class Graph {
-    private readonly nodes: GridNode[]  = [];
+    private readonly nodes: GridNode[] = [];
     private readonly grid: GridNode[][] = [];
-    protected dirtyNodes: GridNode[]    = [];
+    protected dirtyNodes: GridNode[] = [];
 
     public get diagonal(): boolean {
         return !!this.options.diagonal;
@@ -22,7 +22,7 @@ export class Graph {
 
             const row = gridIn[x];
             for (let y = 0; y < row.length; y++) {
-                const node      = new GridNode(x, y, row[y]);
+                const node = new GridNode(x, y, row[y]);
                 this.grid[x][y] = node;
                 this.nodes.push(node);
             }
@@ -53,9 +53,9 @@ export class Graph {
     }
 
     public neighbors(node: GridNode): GridNode[] {
-        const ret  = [];
-        const x    = node.x;
-        const y    = node.y;
+        const ret = [];
+        const x = node.x;
+        const y = node.y;
         const grid = this.grid;
 
         // West
@@ -105,7 +105,7 @@ export class Graph {
 
     public toString(): string {
         const graphString = [];
-        const nodes       = this.grid;
+        const nodes = this.grid;
         for (const row of nodes) {
             const rowDebug = [];
             for (const item of row) {

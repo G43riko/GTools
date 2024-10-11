@@ -6,9 +6,9 @@ export enum Encodings {
     public static readonly ASCII   = "ascii";
     public static readonly UCS2    = "ucs2";
     */
-    UTF8    = "utf8",
-    UTF16   = "utf16",
+    UTF8 = "utf8",
+    UTF16 = "utf16",
     UNICODE = "unicode",
-    ASCII   = "ascii",
-    UCS2    = "ucs2",
+    ASCII = "ascii",
+    UCS2 = "ucs2",
 }

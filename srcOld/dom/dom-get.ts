@@ -4,7 +4,6 @@ let localContext: Document | null = typeof document !== "undefined" ? document :
 
 export class DomGet {
     /**
-     *
      * @param context document context
      */
     public static setContext(context: Document): void {
@@ -12,7 +11,6 @@ export class DomGet {
     }
 
     /**
-     *
      * @param className name of class
      * @param context searched context
      * @returns collection of found elements
@@ -22,17 +20,18 @@ export class DomGet {
     }
 
     /**
-     *
      * @param link name of link
      * @param context searched context
      * @returns nodeList of found elements
      */
-    public static byLink(link: string, context: Document = localContext as Document): NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]> {
+    public static byLink(
+        link: string,
+        context: Document = localContext as Document,
+    ): NodeListOf<HTMLElementTagNameMap[keyof HTMLElementTagNameMap]> {
         return context.querySelectorAll(`a[attr="${link}"]`);
     }
 
     /**
-     *
      * @param id searched ID
      * @param context searched context
      * @returns found element or null
@@ -42,7 +41,6 @@ export class DomGet {
     }
 
     /**
-     *
      * @param name elements name
      * @param context searched context
      * @returns nodeList of found elements
@@ -52,7 +50,6 @@ export class DomGet {
     }
 
     /**
-     *
      * @param tagName elements tagName
      * @param context searched context
      * @returns nodeList of found elements

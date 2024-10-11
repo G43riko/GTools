@@ -24,7 +24,7 @@ const utils = {
             return false;
         }
 
-        if (replacedValue.indexOf("\"") === 0 && replacedValue.lastIndexOf("\"") === replacedValue.length - 1) {
+        if (replacedValue.indexOf('"') === 0 && replacedValue.lastIndexOf('"') === replacedValue.length - 1) {
             return replacedValue.substring(1, replacedValue.length - 1);
         }
 
@@ -93,7 +93,7 @@ const utils = {
 
         if (typeof value === "object") {
             if (Array.isArray(value)) {
-                return `[${value.map((utils.stringifyResultValue)).join(", ")}]`;
+                return `[${value.map(utils.stringifyResultValue).join(", ")}]`;
             }
 
             return JSON.stringify(value);
@@ -126,13 +126,12 @@ const commentRegexp = new RegExp(
     "gi",
 );
 
-
 const testMethod = {
     getTestsFor: (fullPath) => {
         const pathParts = fullPath.split("\\");
         const realFileName = pathParts[pathParts.length - 1];
         const realFileNameWithoutExtension = realFileName.replace(/\.\w+$/, "");
-        const fileContent = fs.readFileSync(fullPath, {encoding: "utf8"});
+        const fileContent = fs.readFileSync(fullPath, { encoding: "utf8" });
         const commentMath2 = fileContent.match(commentRegexp); //(.|\n)*?function (\w+)
 
         if (!commentMath2) {
@@ -155,7 +154,7 @@ const testMethod = {
             if (testCases) {
                 result.testData = Array.from(testCases[1].split(/[\n\r]/g)).map((rawLine) => {
                     if (!rawLine) {
-                        return {rawLine};
+                        return { rawLine };
                     }
                     const rawTestCase = rawLine.replace(/^\W*\\*\W*/, "");
                     const operatorMath = rawTestCase.match(regexps.operatorPattern);
@@ -168,7 +167,9 @@ const testMethod = {
                     }
                     const operator = operatorMath[0];
                     const condition = rawTestCase.substring(0, operatorMath.index).replace(/[;]/g, "").trim();
-                    const resultValue = utils.parseResultValue(rawTestCase.substring(operatorMath.index + operator.length));
+                    const resultValue = utils.parseResultValue(
+                        rawTestCase.substring(operatorMath.index + operator.length),
+                    );
 
                     const testText = `expect(${KEY}.${condition}).${utils.stringifyCondition(operator, resultValue)};`;
 
@@ -180,12 +181,11 @@ const testMethod = {
                         rawLine,
                         rawTestCase,
                     };
-                }).filter(({condition, operator}) => condition && operator);
-
+                }).filter(({ condition, operator }) => condition && operator);
 
                 result.test = `
 ${utils.tabs(1)}it("It should test function ${result.functionName}", () => {
-${result.testData.map(({testText}) => `${utils.tabs(2)}${testText}`).join(newLineDivider)}
+${result.testData.map(({ testText }) => `${utils.tabs(2)}${testText}`).join(newLineDivider)}
 ${utils.tabs(1)}});`;
                 fileTests.push(result.test);
             }
@@ -200,12 +200,15 @@ ${utils.tabs(1)}});`;
         return newFileContent.join(newLineDivider) + newLineDivider;
     },
 
-    generateTestForInto: (fullPath, testFilePath = fullPath.replace(/\.([tj]s)$/, (_, extension) => ".generated.spec." + extension)) => {
+    generateTestForInto: (
+        fullPath,
+        testFilePath = fullPath.replace(/\.([tj]s)$/, (_, extension) => ".generated.spec." + extension),
+    ) => {
         const data = testMethod.getTestsFor(fullPath);
         if (!data) {
             return;
         }
-        fs.writeFileSync(testFilePath, data, {encoding: "utf8"});
+        fs.writeFileSync(testFilePath, data, { encoding: "utf8" });
     },
 };
 

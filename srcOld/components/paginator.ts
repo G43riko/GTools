@@ -5,10 +5,9 @@ export class Paginator<T = unknown> {
     private actualPage = 0;
     private readonly lastPage: number;
 
-    public constructor(private readonly allItems: T[],
-                       private readonly itemsPerPage = GToolsConfig.PAGE_LIMIT) {
+    public constructor(private readonly allItems: T[], private readonly itemsPerPage = GToolsConfig.PAGE_LIMIT) {
         this.lastPage = allItems ? Math.floor(allItems.length / this.itemsPerPage) : 0;
-        this.actList  = this._reCalcList();
+        this.actList = this._reCalcList();
     }
 
     public getActualPage(): number {
@@ -89,7 +88,7 @@ export class Paginator<T = unknown> {
     }
 
     private _reCalcList(): T[] {
-        const start  = this.actualPage * this.itemsPerPage;
+        const start = this.actualPage * this.itemsPerPage;
         this.actList = this.allItems ? this.allItems.slice(start, start + this.itemsPerPage) : [];
 
         return this.actList;

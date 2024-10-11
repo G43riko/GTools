@@ -6,7 +6,7 @@ export interface SimpleWrapper {
 export class KeyValueCounter {
     private readonly data: { [key: string]: number } = {};
     private results: SimpleWrapper[] = [];
-    private processed                                = false;
+    private processed = false;
 
     public add(item: string): void {
         if (item in this.data) {
@@ -60,7 +60,7 @@ export class KeyValueCounter {
     }
 
     private process(): void {
-        this.results = Object.entries(this.data).map(([key, count]) => ({key, count}));
+        this.results = Object.entries(this.data).map(([key, count]) => ({ key, count }));
 
         this.results.sort((a, b) => b.count - a.count);
         this.processed = true;

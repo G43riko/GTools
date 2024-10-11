@@ -16,7 +16,7 @@ export class InsertionSort<T> {
     }
 
     private sortUpLowToHigh(list: T[], i: number): void {
-        const item     = list[i];
+        const item = list[i];
         let attemptPos = i - 1;
         while (attemptPos !== 0 && this.comparator(list[attemptPos - 1], item) > 0) {
             attemptPos--;

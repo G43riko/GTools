@@ -18,7 +18,7 @@ export class Grid2StringHolder<T> implements Grid2Holder<T> {
     }
 
     public set(x: number, y: number, value: T): void {
-        this.data[`${x}_${y}`] = {x, y, value};
+        this.data[`${x}_${y}`] = { x, y, value };
     }
 
     public forEach(callback: (value: T, x: number, y: number) => void): boolean {

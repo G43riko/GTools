@@ -6,7 +6,6 @@ import { GLoggerDefaultFormatter } from "./g-logger-default-formatter";
 import { GLoggerPriority } from "./g-logger-priority";
 
 class TmpClass {
-
 }
 
 describe("GLoggerDefaultFormatter", () => {
@@ -37,7 +36,7 @@ describe("GLogger", () => {
         });
 
         it("It should text loggers extending", () => {
-            const basicLogger              = new GLogger("g43");
+            const basicLogger = new GLogger("g43");
             const basicLoggerWithNoContext = new GLogger();
             expect(basicLogger.context).to.be.equal("g43");
 
@@ -78,7 +77,8 @@ describe("GLogger", () => {
             it("It should test array logger with custom mapper", () => {
                 const testArray: unknown[] = [];
                 GLogger.setCallbacks(GLoggerCallbackHolder.createArrayCallbacks(testArray, {
-                    mapper: (priority, messages, context) => `[${priority}] ${context ? `${context}: ` : ""}${messages.join(" ")}`,
+                    mapper: (priority, messages, context) =>
+                        `[${priority}] ${context ? `${context}: ` : ""}${messages.join(" ")}`,
                 }));
 
                 expect(testArray).to.be.empty;

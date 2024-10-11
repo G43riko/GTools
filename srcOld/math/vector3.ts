@@ -54,7 +54,6 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
             this.x /= value;
             this.y /= value;
             this.z /= value;
-
         } else {
             this.x /= value.x;
             this.y /= value.y;
@@ -131,12 +130,17 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return new Range(min, max);
     }
 
-    public static equalsApproximately(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, EPSILON = 0.0000001): boolean {
+    public static equalsApproximately(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        EPSILON = 0.0000001,
+    ): boolean {
         if (vecA === vecB) {
             return true;
         }
 
-        const equal = (a: number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
+        const equal = (a: number, b: number): boolean =>
+            Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
 
         return equal(vecA.x, vecB.x) && equal(vecA.y, vecB.y) && equal(vecA.z, vecB.z);
     }
@@ -145,7 +149,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return new Vector3(vecA.x - vecB.x, vecA.y - vecB.y, vecA.z - vecB.z);
     }
 
-    public static subNew<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static subNew<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = vecA.x - vecB.x;
         result.y = vecA.y - vecB.y;
         result.z = vecA.z - vecB.z;
@@ -160,7 +168,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return new Vector3(vecA.x + vecB.x, vecA.y + vecB.y, vecA.z + vecB.z);
     }
 
-    public static sum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static sum<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = vecA.x + vecB.x;
         result.y = vecA.y + vecB.y;
         result.z = vecA.z + vecB.z;
@@ -168,7 +180,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return result;
     }
 
-    public static sumNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+    public static sumNum<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        val: number,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = vecA.x + val;
         result.y = vecA.y + val;
         result.z = vecA.z + val;
@@ -180,7 +196,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return vecA.x * vecB.x + vecA.y * vecB.y + vecA.z * vecB.z;
     }
 
-    public static mul<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static mul<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = vecA.x * vecB.x;
         result.y = vecA.y * vecB.y;
         result.z = vecA.z * vecB.z;
@@ -188,7 +208,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return result;
     }
 
-    public static mulNum<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, val: number, result: T = new Vector3() as unknown as T): T {
+    public static mulNum<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        val: number,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = vecA.x * val;
         result.y = vecA.y * val;
         result.z = vecA.z * val;
@@ -196,7 +220,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return result;
     }
 
-    public static min<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static min<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = Math.min(vecA.x, vecB.x);
         result.y = Math.min(vecA.y, vecB.y);
         result.z = Math.min(vecA.z, vecB.z);
@@ -204,7 +232,11 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return result;
     }
 
-    public static refract<T extends SimpleVector3>(normal: ReadonlySimpleVector3, vector: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): ReadonlySimpleVector3 {
+    public static refract<T extends SimpleVector3>(
+        normal: ReadonlySimpleVector3,
+        vector: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): ReadonlySimpleVector3 {
         return Vector3.subNew(
             vector,
             Vector3.mulNum(normal, Vector3.dot(vector, normal) * 2, result),
@@ -216,15 +248,19 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
      * returns angle between two vectors
      */
     public static angle(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3): number {
-        const dot  = Vector3.dot(vecA, vecB);
+        const dot = Vector3.dot(vecA, vecB);
         const lenA = Vector3.lengthOf(vecA);
         const lenB = Vector3.lengthOf(vecB);
-        const cos  = dot / (lenA * lenB);
+        const cos = dot / (lenA * lenB);
 
         return Math.acos(cos);
     }
 
-    public static max<T extends SimpleVector3>(vecA: ReadonlySimpleVector3, vecB: ReadonlySimpleVector3, result: T = new Vector3() as unknown as T): T {
+    public static max<T extends SimpleVector3>(
+        vecA: ReadonlySimpleVector3,
+        vecB: ReadonlySimpleVector3,
+        result: T = new Vector3() as unknown as T,
+    ): T {
         result.x = Math.max(vecA.x, vecB.x);
         result.y = Math.max(vecA.y, vecB.y);
         result.z = Math.max(vecA.z, vecB.z);
@@ -279,7 +315,6 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     public toArray(): [number, number, number] {
         return [this.x, this.y, this.z];
     }
-
 
     public get sum(): number {
         return this.x + this.y + this.z;

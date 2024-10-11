@@ -2,14 +2,14 @@
  * https://github.com/G43riko/JavaUtils/blob/master/GLib/src/glib/sorts/GMergeSort.java
  */
 export class MergeSort<T> {
-    private array: T[]          = [];
+    private array: T[] = [];
     private tempMergeArray: T[] = [];
 
     public constructor(private readonly comparator: (a: T, b: T) => number) {
     }
 
     public sort(array: T[]): void {
-        this.array          = array;
+        this.array = array;
         this.tempMergeArray = new Array<T>(array.length);
         this.doMergeSort(0, array.length - 1);
     }
@@ -43,6 +43,5 @@ export class MergeSort<T> {
         while (i <= middle) {
             this.array[k++] = this.tempMergeArray[i++];
         }
-
     }
 }

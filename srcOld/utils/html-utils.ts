@@ -21,8 +21,10 @@ export interface ElementAttributes {
     height?: number;
 }
 
-
-export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, options?: ElementAttributes): HTMLElementTagNameMap[K] {
+export function CreateElement<K extends keyof HTMLElementTagNameMap>(
+    type: K,
+    options?: ElementAttributes,
+): HTMLElementTagNameMap[K] {
     const result = document.createElement<K>(type);
     if (!options) {
         return result;
@@ -69,8 +71,8 @@ export function CreateElement<K extends keyof HTMLElementTagNameMap>(type: K, op
 
 export function elementToString(element: HTMLElement): string {
     const classes = Array.from(element.classList).join(".");
-    const id      = element.id ? `#${element.id}` : "";
-    const parent  = element.parentElement ? `${elementToString(element.parentElement)} > ` : "";
+    const id = element.id ? `#${element.id}` : "";
+    const parent = element.parentElement ? `${elementToString(element.parentElement)} > ` : "";
 
     return parent + element.localName + id + (classes ? `.${classes}` : "");
 }
@@ -84,20 +86,20 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
     const elementDrag = (e: PointerEvent): void => {
         e = e || window.event;
         e.preventDefault();
-        pos1               = pos3 - e.clientX;
-        pos2               = pos4 - e.clientY;
-        pos3               = e.clientX;
-        pos4               = e.clientY;
-        element.style.top  = `${element.offsetTop - pos2}px`;
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        element.style.top = `${element.offsetTop - pos2}px`;
         element.style.left = `${element.offsetLeft - pos1}px`;
     };
 
     const dragMouseDown = (e: PointerEvent): void => {
         e = e || window.event;
         e.preventDefault();
-        pos3                   = e.clientX;
-        pos4                   = e.clientY;
-        document.onpointerup   = closeDragElement;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onpointerup = closeDragElement;
         document.onpointermove = elementDrag;
     };
 
@@ -109,7 +111,7 @@ export function dragElement(element: HTMLElement, headerSelector = ".header"): {
     }
 
     function closeDragElement(): void {
-        document.onpointerup   = null;
+        document.onpointerup = null;
         document.onpointermove = null;
     }
 
@@ -137,13 +139,13 @@ export function CreateImage(options?: ElementAttributes): HTMLElementTagNameMap[
 export function createCheckbox(label: string, onChange: (checked: boolean) => void, checked = false): HTMLLabelElement {
     const inputElement: HTMLInputElement = CreateElement("input", {
         checked,
-        type    : "checkbox",
+        type: "checkbox",
         onChange: () => onChange(inputElement.checked),
     });
 
     return CreateElement("label", {
         className: "checkbox-container",
-        children : [label, inputElement, CreateElement("span", {className: "checkmark"})],
+        children: [label, inputElement, CreateElement("span", { className: "checkmark" })],
     });
 }
 /**
@@ -153,11 +155,11 @@ export function createCheckbox(label: string, onChange: (checked: boolean) => vo
 export function chooseColorUsingDefaultInput(color = "#000000", onInput?: (value: string) => void): Promise<string> {
     return new Promise((success) => {
         const input: HTMLInputElement = CreateElement("input", {
-            type     : "color",
+            type: "color",
             className: "hidden",
-            value    : color,
-            onInput  : typeof onInput === "function" ? () => onInput(input.value) : undefined,
-            onChange : () => {
+            value: color,
+            onInput: typeof onInput === "function" ? () => onInput(input.value) : undefined,
+            onChange: () => {
                 success(input.value);
                 document.body.removeChild(input);
             },
@@ -167,16 +169,24 @@ export function chooseColorUsingDefaultInput(color = "#000000", onInput?: (value
     });
 }
 
-export function getOrCreate<K extends keyof HTMLElementTagNameMap>(parent: HTMLElement, type: K, ...classes: string[]): HTMLElementTagNameMap[K] {
+export function getOrCreate<K extends keyof HTMLElementTagNameMap>(
+    parent: HTMLElement,
+    type: K,
+    ...classes: string[]
+): HTMLElementTagNameMap[K] {
     const result = parent.querySelector<HTMLElementTagNameMap[K]>(`${type}.${classes.join(".")}`);
     if (result) {
         return result;
     }
 
-    return CreateElement(type, {className: classes.join(" ")});
+    return CreateElement(type, { className: classes.join(" ") });
 }
 
-export function getOrCreateAndAppend<K extends keyof HTMLElementTagNameMap>(parent: HTMLElement, type: K, ...classes: string[]): HTMLElementTagNameMap[K] {
+export function getOrCreateAndAppend<K extends keyof HTMLElementTagNameMap>(
+    parent: HTMLElement,
+    type: K,
+    ...classes: string[]
+): HTMLElementTagNameMap[K] {
     const result = getOrCreate<K>(parent, type, ...classes);
     parent.appendChild(result);
 

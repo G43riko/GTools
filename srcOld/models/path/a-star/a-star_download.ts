@@ -11,7 +11,7 @@ import { Graph } from "./graph_download";
 import { GridNode } from "./grid-node_download";
 
 const pathTo = (node: GridNode): GridNode[] => {
-    let curr   = node;
+    let curr = node;
     const path = [];
     while (curr.parent) {
         path.unshift(curr);
@@ -29,15 +29,19 @@ const astar = {
      *
      * [options.closest] Specifies whether to return the path to the closest node if the target is unreachable.
      * [options.heuristic] Heuristic function (see astar.heuristics).
-     *
      */
-    search(graph: Graph, start: GridNode, end: GridNode, options: { heuristic?: any; closest?: boolean } = {}): GridNode[] {
+    search(
+        graph: Graph,
+        start: GridNode,
+        end: GridNode,
+        options: { heuristic?: any; closest?: boolean } = {},
+    ): GridNode[] {
         graph.cleanDirty();
-        options         = options || {};
+        options = options || {};
         const heuristic = options.heuristic || astar.heuristics.manhattan;
-        const closest   = options.closest || false;
+        const closest = options.closest || false;
 
-        const openHeap  = getHeap();
+        const openHeap = getHeap();
         let closestNode = start; // set the start node to be the closest if required
 
         start.h = heuristic(start, end);
@@ -46,7 +50,6 @@ const astar = {
         openHeap.push(start);
 
         while (openHeap.size() > 0) {
-
             // Grab the lowest f(x) to process next.  Heap keeps this sorted for us.
             const currentNode = openHeap.pop();
 
@@ -71,22 +74,23 @@ const astar = {
 
                 // The g score is the shortest distance from start to current node.
                 // We need to check if the path we have arrived at this neighbor is the shortest one we have seen yet.
-                const gScore      = currentNode.g + neighbor.getCost(currentNode);
+                const gScore = currentNode.g + neighbor.getCost(currentNode);
                 const beenVisited = neighbor.visited;
 
                 if (!beenVisited || gScore < neighbor.g) {
-
                     // Found an optimal (so far) path to this node.  Take score for node to see how good it is.
                     neighbor.visited = true;
-                    neighbor.parent  = currentNode;
-                    neighbor.h       = neighbor.h || heuristic(neighbor, end);
-                    neighbor.g       = gScore;
-                    neighbor.f       = neighbor.g + neighbor.h;
+                    neighbor.parent = currentNode;
+                    neighbor.h = neighbor.h || heuristic(neighbor, end);
+                    neighbor.g = gScore;
+                    neighbor.f = neighbor.g + neighbor.h;
                     graph.markDirty(neighbor);
                     if (closest) {
                         // If the neighbour is closer than the current closestNode or if it's equally close but contains
                         // a cheaper path than the current closest node then it becomes the closest node
-                        if (neighbor.h < closestNode.h || (neighbor.h === closestNode.h && neighbor.g < closestNode.g)) {
+                        if (
+                            neighbor.h < closestNode.h || (neighbor.h === closestNode.h && neighbor.g < closestNode.g)
+                        ) {
                             closestNode = neighbor;
                         }
                     }
@@ -118,7 +122,7 @@ const astar = {
             return d1 + d2;
         },
         diagonal(pos0: SimpleVector2, pos1: SimpleVector2): number {
-            const D  = 1;
+            const D = 1;
             const D2 = Math.sqrt(2);
             const d1 = Math.abs(pos1.x - pos0.x);
             const d2 = Math.abs(pos1.y - pos0.y);

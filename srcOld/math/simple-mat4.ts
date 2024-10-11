@@ -21,7 +21,7 @@ export class SimpleMat4 {
     }
 
     public set(matrix: SimpleMat4): void {
-        for(let i = 0; i < 16; i++) {
+        for (let i = 0; i < 16; i++) {
             this.data[i] = matrix.data[i];
         }
     }
@@ -74,24 +74,36 @@ export class SimpleMat4 {
 
     public static create(): SimpleMat4 {
         return new SimpleMat4([
-            1, 0, 0, 0,
-            0, 1, 0, 0,
-            0, 0, 1, 0,
-            0, 0, 0, 1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
         ]);
     }
 
     public static setIdentity(result: SimpleMat4): SimpleMat4 {
-        result.data[0]  = 1;
-        result.data[1]  = 0;
-        result.data[2]  = 0;
-        result.data[3]  = 0;
-        result.data[4]  = 0;
-        result.data[5]  = 1;
-        result.data[6]  = 0;
-        result.data[7]  = 0;
-        result.data[8]  = 0;
-        result.data[9]  = 0;
+        result.data[0] = 1;
+        result.data[1] = 0;
+        result.data[2] = 0;
+        result.data[3] = 0;
+        result.data[4] = 0;
+        result.data[5] = 1;
+        result.data[6] = 0;
+        result.data[7] = 0;
+        result.data[8] = 0;
+        result.data[9] = 0;
         result.data[10] = 1;
         result.data[11] = 0;
         result.data[12] = 0;
@@ -111,8 +123,8 @@ export class SimpleMat4 {
     }
 
     private static setScale(x: number, y: number, z: number, result: number[]): number[] {
-        result[0]  = x;
-        result[5]  = y;
+        result[0] = x;
+        result[5] = y;
         result[10] = z;
 
         return result;
@@ -181,7 +193,7 @@ export class SimpleMat4 {
         return result;
     }
 
-    public translate(x: number, y: number, z: number): this  {
+    public translate(x: number, y: number, z: number): this {
         this.data[12] = this.data[0] * x + this.data[4] * y + this.data[8] * z + this.data[12];
         this.data[13] = this.data[1] * x + this.data[5] * y + this.data[9] * z + this.data[13];
         this.data[14] = this.data[2] * x + this.data[6] * y + this.data[10] * z + this.data[14];
@@ -209,36 +221,36 @@ export class SimpleMat4 {
     ): SimpleMat4 {
         const out = result.data;
         // Quaternion math
-        const x   = rotation.x;
-        const y   = rotation.y;
-        const z   = rotation.z;
-        const w   = rotation.w;
-        const x2  = x + x;
-        const y2  = y + y;
-        const z2  = z + z;
-        const xx  = x * x2;
-        const xy  = x * y2;
-        const xz  = x * z2;
-        const yy  = y * y2;
-        const yz  = y * z2;
-        const zz  = z * z2;
-        const wx  = w * x2;
-        const wy  = w * y2;
-        const wz  = w * z2;
-        const sx  = scale.x;
-        const sy  = scale.y;
-        const sz  = scale.z;
+        const x = rotation.x;
+        const y = rotation.y;
+        const z = rotation.z;
+        const w = rotation.w;
+        const x2 = x + x;
+        const y2 = y + y;
+        const z2 = z + z;
+        const xx = x * x2;
+        const xy = x * y2;
+        const xz = x * z2;
+        const yy = y * y2;
+        const yz = y * z2;
+        const zz = z * z2;
+        const wx = w * x2;
+        const wy = w * y2;
+        const wz = w * z2;
+        const sx = scale.x;
+        const sy = scale.y;
+        const sz = scale.z;
 
-        out[0]  = (1 - (yy + zz)) * sx;
-        out[1]  = (xy + wz) * sx;
-        out[2]  = (xz - wy) * sx;
-        out[3]  = 0;
-        out[4]  = (xy - wz) * sy;
-        out[5]  = (1 - (xx + zz)) * sy;
-        out[6]  = (yz + wx) * sy;
-        out[7]  = 0;
-        out[8]  = (xz + wy) * sz;
-        out[9]  = (yz - wx) * sz;
+        out[0] = (1 - (yy + zz)) * sx;
+        out[1] = (xy + wz) * sx;
+        out[2] = (xz - wy) * sx;
+        out[3] = 0;
+        out[4] = (xy - wz) * sy;
+        out[5] = (1 - (xx + zz)) * sy;
+        out[6] = (yz + wx) * sy;
+        out[7] = 0;
+        out[8] = (xz + wy) * sz;
+        out[9] = (yz - wx) * sz;
         out[10] = (1 - (xx + yy)) * sz;
         out[11] = 0;
         out[12] = translation.x;
@@ -260,8 +272,8 @@ export class SimpleMat4 {
             rotY?: number;
             rotZ?: number;
         },
-        result = SimpleMat4.create()): SimpleMat4 {
-
+        result = SimpleMat4.create(),
+    ): SimpleMat4 {
         Mat4.setIdentity(result);
 
         if (param.translation) {
@@ -297,16 +309,16 @@ export class SimpleMat4 {
         const wy = v.w * y2;
         const wz = v.w * z2;
 
-        result.data[0]  = 1 - (yy + zz);
-        result.data[1]  = xy + wz;
-        result.data[2]  = xz - wy;
-        result.data[3]  = 0;
-        result.data[4]  = xy - wz;
-        result.data[5]  = 1 - (xx + zz);
-        result.data[6]  = yz + wx;
-        result.data[7]  = 0;
-        result.data[8]  = xz + wy;
-        result.data[9]  = yz - wx;
+        result.data[0] = 1 - (yy + zz);
+        result.data[1] = xy + wz;
+        result.data[2] = xz - wy;
+        result.data[3] = 0;
+        result.data[4] = xy - wz;
+        result.data[5] = 1 - (xx + zz);
+        result.data[6] = yz + wx;
+        result.data[7] = 0;
+        result.data[8] = xz + wy;
+        result.data[9] = yz - wx;
         result.data[10] = 1 - (xx + yy);
         result.data[11] = 0;
         result.data[12] = v.x;
@@ -318,17 +330,17 @@ export class SimpleMat4 {
     }
 
     public rotate(angle: number, axis: ReadonlySimpleVector3, res = SimpleMat4.create()): this {
-        const {x, y, z} = axis;
+        const { x, y, z } = axis;
 
-        const c         = Math.cos(angle);
-        const s         = Math.sin(angle);
+        const c = Math.cos(angle);
+        const s = Math.sin(angle);
         const oneminusc = 1 - c;
-        const xy        = x * y;
-        const yz        = y * z;
-        const xz        = x * z;
-        const xs        = x * s;
-        const ys        = y * s;
-        const zs        = z * s;
+        const xy = x * y;
+        const yz = y * z;
+        const xz = x * z;
+        const xs = x * s;
+        const ys = y * s;
+        const zs = z * s;
 
         const f00 = x * x * oneminusc + c;
         const f01 = xy * oneminusc + zs;
@@ -372,7 +384,7 @@ export class SimpleMat4 {
         if (len < Number.EPSILON) {
             return null;
         }
-        len     = 1 / len;
+        len = 1 / len;
         const x = axis.x * len;
         const y = axis.y * len;
         const z = axis.z * len;
@@ -380,16 +392,16 @@ export class SimpleMat4 {
         const c = Math.cos(rad);
         const t = 1 - c;
 
-        result.data[0]  = x * x * t + c;
-        result.data[1]  = y * x * t + z * s;
-        result.data[2]  = z * x * t - y * s;
-        result.data[3]  = 0;
-        result.data[4]  = x * y * t - z * s;
-        result.data[5]  = y * y * t + c;
-        result.data[6]  = z * y * t + x * s;
-        result.data[7]  = 0;
-        result.data[8]  = x * z * t + y * s;
-        result.data[9]  = y * z * t - x * s;
+        result.data[0] = x * x * t + c;
+        result.data[1] = y * x * t + z * s;
+        result.data[2] = z * x * t - y * s;
+        result.data[3] = 0;
+        result.data[4] = x * y * t - z * s;
+        result.data[5] = y * y * t + c;
+        result.data[6] = z * y * t + x * s;
+        result.data[7] = 0;
+        result.data[8] = x * z * t + y * s;
+        result.data[9] = y * z * t - x * s;
         result.data[10] = z * z * t + c;
         result.data[11] = 0;
         result.data[12] = 0;
@@ -406,16 +418,16 @@ export class SimpleMat4 {
 
         switch (axe) {
             case "X":
-                data[5]  = cos;
-                data[6]  = sin;
-                data[9]  = -sin;
+                data[5] = cos;
+                data[6] = sin;
+                data[9] = -sin;
                 data[10] = cos;
 
                 return mat;
             case "Y":
-                data[0]  = cos;
-                data[2]  = -sin;
-                data[8]  = sin;
+                data[0] = cos;
+                data[2] = -sin;
+                data[8] = sin;
                 data[10] = cos;
 
                 return mat;
@@ -448,11 +460,11 @@ export class SimpleMat4 {
         const x = a.x;
         const y = a.y;
         const z = a.z;
-        let w   = m[3] * x + m[7] * y + m[11] * z + m[15];
-        w       = w || 1;
-        a.x     = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w;
-        a.y     = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w;
-        a.z     = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w;
+        let w = m[3] * x + m[7] * y + m[11] * z + m[15];
+        w = w || 1;
+        a.x = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w;
+        a.y = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w;
+        a.z = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w;
 
         return a;
     }
@@ -462,8 +474,8 @@ export class SimpleMat4 {
         const x = a.x;
         const y = a.y;
         const z = a.z;
-        let w   = m[3] * x + m[7] * y + m[11] * z + m[15];
-        w       = w || 1;
+        let w = m[3] * x + m[7] * y + m[11] * z + m[15];
+        w = w || 1;
 
         return {
             x: (m[0] * x + m[4] * y + m[8] * z + m[12]) / w,
@@ -473,8 +485,8 @@ export class SimpleMat4 {
     }
 
     public static multiply(matA: Mat4, matB: Mat4, result = Mat4.create()): Mat4 {
-        const a   = matA.data;
-        const b   = matB.data;
+        const a = matA.data;
+        const b = matB.data;
         const out = result.data;
 
         const a00 = a[0];
@@ -504,28 +516,28 @@ export class SimpleMat4 {
         out[2] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
         out[3] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
-        b0     = b[4];
-        b1     = b[5];
-        b2     = b[6];
-        b3     = b[7];
+        b0 = b[4];
+        b1 = b[5];
+        b2 = b[6];
+        b3 = b[7];
         out[4] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
         out[5] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
         out[6] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
         out[7] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
-        b0      = b[8];
-        b1      = b[9];
-        b2      = b[10];
-        b3      = b[11];
-        out[8]  = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
-        out[9]  = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
+        b0 = b[8];
+        b1 = b[9];
+        b2 = b[10];
+        b3 = b[11];
+        out[8] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
+        out[9] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
         out[10] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
         out[11] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
-        b0      = b[12];
-        b1      = b[13];
-        b2      = b[14];
-        b3      = b[15];
+        b0 = b[12];
+        b1 = b[13];
+        b2 = b[14];
+        b3 = b[15];
         out[12] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
         out[13] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
         out[14] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
@@ -533,5 +545,4 @@ export class SimpleMat4 {
 
         return result;
     }
-
 }

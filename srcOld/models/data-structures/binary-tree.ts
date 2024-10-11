@@ -1,7 +1,7 @@
 import { G43Collection } from "./g43-collection";
 
 class Node<T> {
-    public leftChild: Node<T> | null  = null;
+    public leftChild: Node<T> | null = null;
     public rightChild: Node<T> | null = null;
 
     public constructor(public val: T) {
@@ -25,7 +25,7 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
 
     public clear(): void {
         this._length = 0;
-        this.root    = null;
+        this.root = null;
     }
 
     private addInternally(currentNode: Node<T> | null, newValue: T): Node<T> {
@@ -54,7 +54,11 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
         this.forEachInternally(this.root, callback);
     }
 
-    public forEachOrderedInternally(currentNode: Node<T> | null, callback: (item: T, index: number) => boolean, order: "POST" | "PRE"): void {
+    public forEachOrderedInternally(
+        currentNode: Node<T> | null,
+        callback: (item: T, index: number) => boolean,
+        order: "POST" | "PRE",
+    ): void {
         if (!currentNode) {
             return;
         }
@@ -86,7 +90,6 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
     private searchInternally(currentNode: Node<T> | null, value: T): Node<T> | null {
         if (currentNode) {
             if (value === currentNode.val) {
-
                 return currentNode;
             }
             if (value < currentNode.val) {
@@ -97,7 +100,6 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
         }
 
         return null;
-
     }
 
     public search(value: T): Node<T> | null {
@@ -125,16 +127,12 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
 
         let parentNode: Node<T> | null = null;
         while (currentNode && (currentNode.val !== value)) {
-
             parentNode = currentNode;
             if (value < currentNode.val) {
-
                 currentNode = currentNode.leftChild;
             } else {
                 currentNode = currentNode.rightChild;
-
             }
-
         }
 
         if (currentNode === null) {
@@ -154,7 +152,6 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
             parentNode!.rightChild = null;
 
             return true;
-
         }
         if (!currentNode.rightChild) {
             if (currentNode.val === this.root?.val) {
@@ -170,7 +167,6 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
             parentNode!.rightChild = currentNode.leftChild;
 
             return true;
-
         }
         if (!currentNode.leftChild) {
             if (currentNode.val === this.root!.val) {
@@ -186,7 +182,6 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
             parentNode!.rightChild = currentNode.rightChild;
 
             return true;
-
         }
         let minRight = currentNode.rightChild;
         while (minRight.leftChild !== null) {
@@ -197,6 +192,5 @@ export class BinarySearchTree<T extends number> implements G43Collection<T> {
         currentNode.val = temp;
 
         return true;
-
     }
 }

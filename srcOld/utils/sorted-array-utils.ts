@@ -14,7 +14,7 @@ export function binarySearch<T>(array: readonly T[], item: T, comparator: (a: T,
     let n = array.length - 1;
 
     while (m <= n) {
-        const k   = (n + m) >> 1;
+        const k = (n + m) >> 1;
         const cmp = comparator(item, array[k]);
 
         if (cmp > 0) {
@@ -48,7 +48,7 @@ export function sortedFind<T>(
 }
 
 export function sortedInsert<T>(array: T[], value: T, compare: (left: T, right: T) => number): number {
-    const idx    = binarySearch(array, value, compare);
+    const idx = binarySearch(array, value, compare);
     const newIdx = idx < 0 ? ~idx : idx;
     array.splice(newIdx, 0, value);
 
@@ -104,12 +104,12 @@ export function sortedPickAll<T>(
     values: readonly T[],
     compare: (left: T, right: T) => number,
 ): T[] {
-    let i1       = 0;
-    let i2       = 0;
+    let i1 = 0;
+    let i2 = 0;
     const r: T[] = [];
     while (i1 < values.length && i2 < array.length) {
-        const id  = values[i1];
-        const f   = array[i2];
+        const id = values[i1];
+        const f = array[i2];
         const cmp = compare(id, f);
         if (cmp > 0) {
             ++i2;
@@ -137,12 +137,12 @@ export function SortedDifference<T>(
     values: readonly T[],
     compare: (left: T, right: T) => number,
 ): T[] {
-    let i1       = 0;
-    let i2       = 0;
+    let i1 = 0;
+    let i2 = 0;
     const r: T[] = [];
     while (i1 < values.length && i2 < array.length) {
-        const id  = values[i1];
-        const f   = array[i2];
+        const id = values[i1];
+        const f = array[i2];
         const cmp = compare(id, f);
         if (cmp > 0) {
             r.push(f);
@@ -171,13 +171,13 @@ export function SortedPartition<T>(
     values: readonly T[],
     compare: (left: T, right: T) => number,
 ): [T[], T[]] {
-    let i1        = 0;
-    let i2        = 0;
+    let i1 = 0;
+    let i2 = 0;
     const r1: T[] = [];
     const r2: T[] = [];
     while (i1 < values.length && i2 < array.length) {
-        const id  = values[i1];
-        const f   = array[i2];
+        const id = values[i1];
+        const f = array[i2];
         const cmp = compare(id, f);
         if (cmp > 0) {
             r2.push(f);
@@ -211,12 +211,12 @@ export function sortedMerge<T>(
     values: readonly T[],
     compare: (left: T, right: T) => number,
 ): T[] {
-    let i1       = 0;
-    let i2       = 0;
+    let i1 = 0;
+    let i2 = 0;
     const r: T[] = [];
     while (i1 < values.length && i2 < array.length) {
-        const f1  = values[i1];
-        const f2  = array[i2];
+        const f1 = values[i1];
+        const f2 = array[i2];
         const cmp = compare(f1, f2);
         if (cmp > 0) {
             r.push(f2);

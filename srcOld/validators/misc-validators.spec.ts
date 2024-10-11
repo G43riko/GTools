@@ -10,7 +10,7 @@ describe("Checkers", () => {
         expect(Checkers.isFunction(1.2)).to.be.false;
         expect(Checkers.isFunction({})).to.be.false;
         expect(Checkers.isFunction([])).to.be.false;
-        expect(Checkers.isFunction({a: "aa"})).to.be.false;
+        expect(Checkers.isFunction({ a: "aa" })).to.be.false;
         expect(Checkers.isFunction([1, "a"])).to.be.false;
         expect(Checkers.isFunction(undefined)).to.be.false;
         expect(Checkers.isFunction(null)).to.be.false;
@@ -24,7 +24,7 @@ describe("Checkers", () => {
         expect(Checkers.isNumber(1.2)).to.be.true;
         expect(Checkers.isNumber({})).to.be.false;
         expect(Checkers.isNumber([])).to.be.false;
-        expect(Checkers.isNumber({a: "aa"})).to.be.false;
+        expect(Checkers.isNumber({ a: "aa" })).to.be.false;
         expect(Checkers.isNumber([1, "a"])).to.be.false;
         expect(Checkers.isNumber(undefined)).to.be.false;
         expect(Checkers.isNumber(null)).to.be.false;
@@ -38,7 +38,7 @@ describe("Checkers", () => {
         expect(Checkers.isBoolean(1.2)).to.be.false;
         expect(Checkers.isBoolean({})).to.be.false;
         expect(Checkers.isBoolean([])).to.be.false;
-        expect(Checkers.isBoolean({a: "aa"})).to.be.false;
+        expect(Checkers.isBoolean({ a: "aa" })).to.be.false;
         expect(Checkers.isBoolean([1, "a"])).to.be.false;
         expect(Checkers.isBoolean(undefined)).to.be.false;
         expect(Checkers.isBoolean(null)).to.be.false;
@@ -52,7 +52,7 @@ describe("Checkers", () => {
         expect(Checkers.isObject(1.2)).to.be.false;
         expect(Checkers.isObject({})).to.be.true;
         expect(Checkers.isObject([])).to.be.true;
-        expect(Checkers.isObject({a: "aa"})).to.be.true;
+        expect(Checkers.isObject({ a: "aa" })).to.be.true;
         expect(Checkers.isObject([1, "a"])).to.be.true;
         expect(Checkers.isObject(undefined)).to.be.false;
         expect(Checkers.isObject(null)).to.be.false;
@@ -66,7 +66,7 @@ describe("Checkers", () => {
         expect(Checkers.isString(1.2)).to.be.false;
         expect(Checkers.isString({})).to.be.false;
         expect(Checkers.isString([])).to.be.false;
-        expect(Checkers.isString({a: "aa"})).to.be.false;
+        expect(Checkers.isString({ a: "aa" })).to.be.false;
         expect(Checkers.isString([1, "a"])).to.be.false;
         expect(Checkers.isString(undefined)).to.be.false;
         expect(Checkers.isString(null)).to.be.false;
@@ -80,7 +80,7 @@ describe("Checkers", () => {
         expect(Checkers.isFloat(1.2)).to.be.true;
         expect(Checkers.isFloat({})).to.be.false;
         expect(Checkers.isFloat([])).to.be.false;
-        expect(Checkers.isFloat({a: "aa"})).to.be.false;
+        expect(Checkers.isFloat({ a: "aa" })).to.be.false;
         expect(Checkers.isFloat([1, "a"])).to.be.false;
         expect(Checkers.isFloat(undefined)).to.be.false;
         expect(Checkers.isFloat(null)).to.be.false;
@@ -94,7 +94,7 @@ describe("Checkers", () => {
         expect(Checkers.isInt(1.2)).to.be.false;
         expect(Checkers.isInt({})).to.be.false;
         expect(Checkers.isInt([])).to.be.false;
-        expect(Checkers.isInt({a: "aa"})).to.be.false;
+        expect(Checkers.isInt({ a: "aa" })).to.be.false;
         expect(Checkers.isInt([1, "a"])).to.be.false;
         expect(Checkers.isInt(undefined)).to.be.false;
         expect(Checkers.isInt(null)).to.be.false;
@@ -108,7 +108,7 @@ describe("Checkers", () => {
         expect(Checkers.isEmpty(1.2)).to.be.false;
         expect(Checkers.isEmpty({})).to.be.true;
         expect(Checkers.isEmpty([])).to.be.true;
-        expect(Checkers.isEmpty({a: "aa"})).to.be.false;
+        expect(Checkers.isEmpty({ a: "aa" })).to.be.false;
         expect(Checkers.isEmpty([1, "a"])).to.be.false;
         expect(Checkers.isEmpty(undefined)).to.be.true;
         expect(Checkers.isEmpty(null)).to.be.true;
@@ -122,7 +122,7 @@ describe("Checkers", () => {
         expect(Checkers.isUndefined(1.2)).to.be.false;
         expect(Checkers.isUndefined({})).to.be.false;
         expect(Checkers.isUndefined([])).to.be.false;
-        expect(Checkers.isUndefined({a: "aa"})).to.be.false;
+        expect(Checkers.isUndefined({ a: "aa" })).to.be.false;
         expect(Checkers.isUndefined([1, "a"])).to.be.false;
         expect(Checkers.isUndefined(undefined)).to.be.true;
         expect(Checkers.isUndefined(null)).to.be.false;
@@ -136,7 +136,7 @@ describe("Checkers", () => {
         expect(Checkers.isArray(1.2)).to.be.false;
         expect(Checkers.isArray({})).to.be.false;
         expect(Checkers.isArray([])).to.be.true;
-        expect(Checkers.isArray({a: "aa"})).to.be.false;
+        expect(Checkers.isArray({ a: "aa" })).to.be.false;
         expect(Checkers.isArray([1, "a"])).to.be.true;
         expect(Checkers.isArray(undefined)).to.be.false;
         expect(Checkers.isArray(null)).to.be.false;

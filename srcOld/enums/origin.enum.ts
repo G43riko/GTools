@@ -7,5 +7,5 @@ export enum Origin {
     T = "T",
     L = "L",
     R = "R",
-    B = "B"
+    B = "B",
 }

@@ -34,6 +34,5 @@ export class QuadraticBezierCurve2D extends Curve2D {
             x: QuadraticBezier(t, this.v0.x, this.v1.x, this.v2.x),
             y: QuadraticBezier(t, this.v0.y, this.v1.y, this.v2.y),
         };
-
     }
 }

@@ -77,7 +77,7 @@ export function getContentFromUrl(url: URL): Promise<string> {
 
 export function getContentFromFile(path: PathLike, encoding: "utf8" = "utf8"): Promise<string> {
     return new Promise<string>((success, reject) => {
-        readFile(path, {encoding}, (error: NodeJS.ErrnoException | null, data) => {
+        readFile(path, { encoding }, (error: NodeJS.ErrnoException | null, data) => {
             if (error) {
                 return reject(error);
             }

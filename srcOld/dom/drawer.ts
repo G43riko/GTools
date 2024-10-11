@@ -16,7 +16,15 @@ export interface Drawer {
 
     fillRoundedRect(x: number, y: number, w: number, h: number, round: RoundData, color?: string): void;
 
-    strokeRoundedRect(x: number, y: number, w: number, h: number, round: RoundData, color?: string, width?: number): void;
+    strokeRoundedRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        round: RoundData,
+        color?: string,
+        width?: number,
+    ): void;
 
     drawImage(image: CanvasImageSource, x: number, y: number, w?: number, h?: number): void;
 

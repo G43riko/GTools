@@ -5,8 +5,8 @@ import { List } from "./list";
 /**
  * Array should have pointer to last item
  */
-export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirectionalLinkedListEntry<T>> implements List<T> {
-
+export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirectionalLinkedListEntry<T>>
+    implements List<T> {
     public add(item: T): boolean {
         return this.append(item);
     }
@@ -34,8 +34,8 @@ export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirect
 
     public prepend(item: T): boolean {
         const newFirst = new OneDirectionalLinkedListEntry(item);
-        newFirst.next  = this.first;
-        this.first     = newFirst;
+        newFirst.next = this.first;
+        this.first = newFirst;
 
         this.localLength++;
 
@@ -43,7 +43,7 @@ export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirect
     }
 
     public forEach(callback: (item: T, index: number) => boolean): void {
-        let act   = this.first;
+        let act = this.first;
         let index = 0;
         while (act) {
             callback(act.item, index++);
@@ -52,7 +52,7 @@ export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirect
     }
 
     public clear(): void {
-        this.first       = undefined;
+        this.first = undefined;
         this.localLength = 0;
     }
 
@@ -68,7 +68,7 @@ export class OneDirectionalLinkedList<T> extends AbstractLinkedList<T, OneDirect
         }
 
         const item = this.getHolderAtNotChecked(index - 1);
-        if(!item) {
+        if (!item) {
             return false;
         }
         item.next = item.next?.next;

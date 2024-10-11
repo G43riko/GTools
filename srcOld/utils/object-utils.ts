@@ -1,6 +1,5 @@
 import { ObjectEntry } from "../types";
 
-
 export function getObjectEntries<T extends Record<string, unknown>>(obj: T): ObjectEntry<T>[] {
     const result: ObjectEntry<T>[] = [];
     for (const objKey in obj) {
@@ -8,7 +7,7 @@ export function getObjectEntries<T extends Record<string, unknown>>(obj: T): Obj
             continue;
         }
         result.push({
-            key  : objKey,
+            key: objKey,
             value: obj[objKey],
         });
     }
@@ -102,10 +101,22 @@ export function getNestedProperty(object: any, propertyPath: string | string[], 
         return getNestedProperty(object, propertyPath.split(separator));
     }
 
-    return propertyPath.reduce((currentNestedPropertyValue, propertyName) => currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined, object);
+    return propertyPath.reduce(
+        (currentNestedPropertyValue, propertyName) =>
+            currentNestedPropertyValue ? currentNestedPropertyValue[propertyName] : undefined,
+        object,
+    );
 }
-export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(item: T, key: [A, B], value: T[A][B]): void;
-export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(item: T, key: `${string & A}.${string & B}`, value: T[A][B]): void;
+export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(
+    item: T,
+    key: [A, B],
+    value: T[A][B],
+): void;
+export function setNestedProperty<T, A extends keyof T, B extends keyof T[A]>(
+    item: T,
+    key: `${string & A}.${string & B}`,
+    value: T[A][B],
+): void;
 export function setNestedProperty<T>(item: any, key: string | string[], value: T): void {
     if (typeof key === "string") {
         return setNestedProperty(item, key.split(".") as [string, string], value);
@@ -122,9 +133,9 @@ export function createMergedObject<T>(source: T, ...updates: Partial<T>[]): T {
 }
 
 export function roughSizeOfObject<T>(object: T): number {
-    const objectList       = [];
+    const objectList = [];
     const stack: unknown[] = [object];
-    let bytes              = 0;
+    let bytes = 0;
     while (stack.length) {
         const value: any = stack.pop();
         if (typeof value === "boolean") {
@@ -155,15 +166,16 @@ export function deepFreeze<T>(o: T): T {
     Object.freeze(o);
 
     const oIsFunction = typeof o === "function";
-    const hasOwnProp  = Object.prototype.hasOwnProperty;
+    const hasOwnProp = Object.prototype.hasOwnProperty;
 
     let item: unknown = null;
     Object.getOwnPropertyNames(o).forEach((prop: any) => {
         item = (o as any)[prop];
-        if (hasOwnProp.call(o, prop) &&
+        if (
+            hasOwnProp.call(o, prop) &&
             (oIsFunction ? prop !== "caller" && prop !== "callee" && prop !== "arguments" : true) &&
-            item !== null && (typeof item === "object" || typeof item === "function")
-            && !Object.isFrozen(item)
+            item !== null && (typeof item === "object" || typeof item === "function") &&
+            !Object.isFrozen(item)
         ) {
             deepFreeze(item);
         }
@@ -205,7 +217,6 @@ export function isNotInstance<T extends Record<string, unknown>>(value: T): bool
 }
 
 /**
- *
  * @param list - data-structures to flat
  * @param propertyPath - path to property
  * @param separator - separator in propertyPath
@@ -248,7 +259,10 @@ export function makeFlat<T>(list: T[], propertyPath: string, separator = ".", sk
     const propertyList = propertyPath.indexOf(separator) >= 0 ? propertyPath.split(separator) : [propertyPath];
 
     return list.reduce((acc, curr) => {
-        const value = propertyList.reduce((propVal: any, propertyName) => propVal ? propVal[propertyName] : undefined, curr);
+        const value = propertyList.reduce(
+            (propVal: any, propertyName) => propVal ? propVal[propertyName] : undefined,
+            curr,
+        );
         if (typeof value === "undefined" && skipUndefined) {
             return acc;
         }

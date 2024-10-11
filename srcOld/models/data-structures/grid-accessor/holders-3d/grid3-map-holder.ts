@@ -8,7 +8,12 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
     public constructor(public readonly data: T[][][]) {
     }
 
-    public static initEmpty<S>(x: number, y: number, z: number, defaultValue: S = null as unknown as S): Grid3MapHolder<S> {
+    public static initEmpty<S>(
+        x: number,
+        y: number,
+        z: number,
+        defaultValue: S = null as unknown as S,
+    ): Grid3MapHolder<S> {
         const result = new Array<S[][]>(x);
         for (let i = 0; i < x; i++) {
             const resA = new Array<S[]>(y);
@@ -39,7 +44,9 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
         holder.forEach((item, x, y, z) => this.set(x, y, z, item));
     }
 
-    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+    public fill<R extends T & Record<string | number, unknown>>(
+        value: ((x: number, y: number, z: number) => R) | R,
+    ): void {
         if (typeof value === "function") {
             this.data.forEach((row, x) => {
                 row.forEach((column, y) => {
@@ -58,7 +65,7 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
     }
 
     public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
-        const tmp             = this.data[ax][ay][az];
+        const tmp = this.data[ax][ay][az];
         this.data[ax][ay][az] = this.data[bx][by][bz];
         this.data[bx][by][bz] = tmp;
     }
@@ -119,8 +126,8 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
                         const y = j + position.y;
                         const z = k + position.z;
                         result.push({
-                            item       : this.data[x][y][z],
-                            coordinates: {x, y, z},
+                            item: this.data[x][y][z],
+                            coordinates: { x, y, z },
                         });
                     }
                 }
@@ -159,9 +166,9 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
     public getRandomBlock(filter?: GridBlockItemFilter<T>): Grid3Block<T> | undefined {
         let limit = 1000;
         while (limit-- >= 0) {
-            const x    = Math.floor(Math.random() * this.data.length);
-            const y    = Math.floor(Math.random() * this.data[x].length);
-            const z    = Math.floor(Math.random() * this.data[x][y].length);
+            const x = Math.floor(Math.random() * this.data.length);
+            const y = Math.floor(Math.random() * this.data[x].length);
+            const z = Math.floor(Math.random() * this.data[x][y].length);
             const item = this.data[x][y][z];
 
             if (filter && !filter(item)) {
@@ -170,9 +177,8 @@ export class Grid3MapHolder<T> implements Grid3Holder<T> {
 
             return {
                 item,
-                coordinates: {x, y, z},
+                coordinates: { x, y, z },
             };
         }
     }
-
 }

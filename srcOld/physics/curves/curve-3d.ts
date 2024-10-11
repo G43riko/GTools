@@ -22,10 +22,9 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
      * which seems to give a reasonable approximation
      */
     private getTangent(t: number, optionalTarget?: Vector3): Vector3 {
-
         const delta = 0.0001;
-        let t1      = t - delta;
-        let t2      = t + delta;
+        let t1 = t - delta;
+        let t2 = t + delta;
 
         // Capping in case of danger
 
@@ -44,7 +43,6 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
         tangent.set(pt2).sub(pt1).normalize();
 
         return tangent as Vector3;
-
     }
 
     private getTangentAt(u: number, optionalTarget?: Vector3): Vector3 {
@@ -58,14 +56,16 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
     /**
      * https://github.com/mrdoob/three.js/blob/8cb903d61618cb58e3134431a389212d9c98dff0/src/extras/core/Curve.js#L260
      */
-    public computeFrenetFrames(segments: number, closed: boolean): { tangents: Vector3[]; normals: Vector3[]; binormals: Vector3[] } {
-
+    public computeFrenetFrames(
+        segments: number,
+        closed: boolean,
+    ): { tangents: Vector3[]; normals: Vector3[]; binormals: Vector3[] } {
         // see http://www.cs.indiana.edu/pub/techreports/TR425.pdf
 
         const normal = new Vector3();
 
-        const tangents  = [];
-        const normals   = [];
+        const tangents = [];
+        const normals = [];
         const binormals = [];
 
         const vec = new Vector3();
@@ -74,41 +74,33 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
         // compute the tangent vectors for each segment on the curve
 
         for (let i = 0; i <= segments; i++) {
-
             const u = i / segments;
 
             tangents[i] = this.getTangentAt(u, new Vector3());
-
         }
 
         // select an initial normal vector perpendicular to the first tangent vector,
         // and in the direction of the minimum tangent xyz component
 
-        normals[0]   = new Vector3();
+        normals[0] = new Vector3();
         binormals[0] = new Vector3();
-        let min      = Number.MAX_VALUE;
-        const tx     = Math.abs(tangents[0].x);
-        const ty     = Math.abs(tangents[0].y);
-        const tz     = Math.abs(tangents[0].z);
+        let min = Number.MAX_VALUE;
+        const tx = Math.abs(tangents[0].x);
+        const ty = Math.abs(tangents[0].y);
+        const tz = Math.abs(tangents[0].z);
 
         if (tx <= min) {
-
             min = tx;
             normal.setData(1, 0, 0);
-
         }
 
         if (ty <= min) {
-
             min = ty;
             normal.setData(0, 1, 0);
-
         }
 
         if (tz <= min) {
-
             normal.setData(0, 0, 1);
-
         }
         vec.set(tangents[0].cross(normal)).normalize();
 
@@ -118,7 +110,6 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
         // compute the slowly-varying normal and binormal vectors for each segment on the curve
 
         for (let i = 1; i <= segments; i++) {
-
             normals[i] = normals[i - 1].clone();
 
             binormals[i] = binormals[i - 1].clone();
@@ -126,7 +117,6 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
             vec.set(tangents[i - 1].cross(normals[0]));
 
             if (vec.length > Number.EPSILON) {
-
                 vec.normalize();
 
                 const theta = Math.acos(clamp(tangents[i - 1].dot(tangents[i]), -1, 1)); // clamp for floating pt errors
@@ -137,7 +127,6 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
             }
 
             binormals[i].set(tangents[i].cross(normals[i]));
-
         }
 
         // if the curve is closed, postprocess the vectors so the first and last normal vectors are the same
@@ -147,20 +136,15 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
             theta /= segments;
 
             if (tangents[0].dot(vec.set(normals[0].cross(normals[segments]))) > 0) {
-
                 theta = -theta;
-
             }
 
             for (let i = 1; i <= segments; i++) {
-
                 // twist a little...
                 Mat4.fromRotation(theta * i, tangents[i], mat);
                 mat.transformVector(normals[i]);
                 binormals[i].set(tangents[i].cross(normals[i]));
-
             }
-
         }
 
         return {
@@ -168,6 +152,5 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
             normals,
             binormals,
         };
-
     }
 }

@@ -7,10 +7,14 @@ describe("AnimationFrameLoop", () => {
         const startTime = Date.now();
         let totalTime = 0;
         const fps = 1;
-        const loop  = animationFrameLoop((time) => {
-            counter++;
-            totalTime += time;
-        }, fps, true);
+        const loop = animationFrameLoop(
+            (time) => {
+                counter++;
+                totalTime += time;
+            },
+            fps,
+            true,
+        );
         setTimeout(() => {
             loop.stop();
             const totalDuration = Date.now() - startTime;
@@ -24,10 +28,14 @@ describe("AnimationFrameLoop", () => {
         let counter = 0;
         const startTime = Date.now();
         let totalTime = 0;
-        const loop  = animationFrameLoop((time) => {
-            counter++;
-            totalTime += time;
-        }, 20, true);
+        const loop = animationFrameLoop(
+            (time) => {
+                counter++;
+                totalTime += time;
+            },
+            20,
+            true,
+        );
         setTimeout(() => {
             loop.stop();
             const totalDuration = Date.now() - startTime;

@@ -42,7 +42,7 @@ export class Rect implements MassAble2D {
         return convertPosSizeToMinMax2D(this);
     }
 
-    public static fromSphere({radius, center}: Pick<Circle, "radius" | "center">): Rect {
+    public static fromSphere({ radius, center }: Pick<Circle, "radius" | "center">): Rect {
         return Rect.fromMinMax({
             min: {
                 x: center.x - radius,
@@ -55,7 +55,10 @@ export class Rect implements MassAble2D {
         });
     }
 
-    public static fromRay({origin, direction, length}: Pick<Ray2D, "origin" | "direction" | "length">, realLength = length): Rect {
+    public static fromRay(
+        { origin, direction, length }: Pick<Ray2D, "origin" | "direction" | "length">,
+        realLength = length,
+    ): Rect {
         if (realLength === Infinity) {
             throw new Error("Cannot create rectangle from infinite ray");
         }
@@ -95,7 +98,7 @@ export class Rect implements MassAble2D {
         });
     }
 
-    public static fromMinMax({min, max}: MinMax2D): Rect {
+    public static fromMinMax({ min, max }: MinMax2D): Rect {
         const size = {
             x: max.x - min.x,
             y: max.y - min.y,

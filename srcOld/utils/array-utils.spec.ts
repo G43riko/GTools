@@ -3,7 +3,7 @@ import "mocha";
 import * as ArrayUtils from "./array-utils";
 
 describe("Array utils", () => {
-    const numArray: number[]    = [5, 8, 7, 3, 1, 5, 21, 8];
+    const numArray: number[] = [5, 8, 7, 3, 1, 5, 21, 8];
     const notArray: any[] | any = "gabriel";
     describe("Min", () => {
         it("It should find minimum from array", () => {
@@ -14,17 +14,19 @@ describe("Array utils", () => {
     });
     describe("FindArrayDiff", () => {
         it("It compare string arrays", () => {
-            expect(ArrayUtils.findArrayDiff(["a", "d", "e"], ["b", "d", "g"], (a, b) => a.localeCompare(b))).to.deep.equal({
-                same      : ["d"],
-                missingInA: ["b", "g"],
-                missingInB: ["a", "e"],
-            });
+            expect(ArrayUtils.findArrayDiff(["a", "d", "e"], ["b", "d", "g"], (a, b) => a.localeCompare(b))).to.deep
+                .equal({
+                    same: ["d"],
+                    missingInA: ["b", "g"],
+                    missingInB: ["a", "e"],
+                });
 
-            expect(ArrayUtils.findArrayDiff(["a", "e", "d"], ["b", "g", "d"], (a, b) => a.localeCompare(b))).to.deep.equal({
-                same      : ["d"],
-                missingInA: ["b", "g"],
-                missingInB: ["a", "e"],
-            });
+            expect(ArrayUtils.findArrayDiff(["a", "e", "d"], ["b", "g", "d"], (a, b) => a.localeCompare(b))).to.deep
+                .equal({
+                    same: ["d"],
+                    missingInA: ["b", "g"],
+                    missingInB: ["a", "e"],
+                });
         });
     });
     describe("Max", () => {
@@ -102,23 +104,26 @@ describe("Array utils", () => {
     });
     describe("Where", () => {
         const testArray = [
-            {a: "aa"}, {
+            { a: "aa" },
+            {
                 a: "aa",
                 b: "bbb",
-            }, {b: "bb"},
+            },
+            { b: "bb" },
         ];
         it("It return subArray with element existing in both arrays", () => {
             expect(ArrayUtils.where(notArray, {})).to.deep.equal("gabriel");
-            expect(ArrayUtils.where(notArray, {b: "bb"})).to.be.equal("gabriel");
+            expect(ArrayUtils.where(notArray, { b: "bb" })).to.be.equal("gabriel");
             expect(ArrayUtils.where(testArray, {})).to.deep.equal([]);
             expect(ArrayUtils.where(testArray, null as any)).to.deep.equal([]);
-            expect(ArrayUtils.where(testArray, {a: "aa"})).to.deep.equal([
-                {a: "aa"}, {
+            expect(ArrayUtils.where(testArray, { a: "aa" })).to.deep.equal([
+                { a: "aa" },
+                {
                     a: "aa",
                     b: "bbb",
                 },
             ]);
-            expect(ArrayUtils.where(testArray, {b: "bbb"})).to.deep.equal([
+            expect(ArrayUtils.where(testArray, { b: "bbb" })).to.deep.equal([
                 {
                     a: "aa",
                     b: "bbb",

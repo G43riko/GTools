@@ -1,8 +1,8 @@
 export enum CardinalDirection {
-    EAST       = "EAST",
-    WEST       = "WEST",
-    NORTH      = "NORTH",
-    SOUTH      = "SOUTH",
+    EAST = "EAST",
+    WEST = "WEST",
+    NORTH = "NORTH",
+    SOUTH = "SOUTH",
     NORTH_WEST = "NORTH_WEST",
     NORTH_EAST = "NORTH_EAST",
     SOUTH_WEST = "SOUTH_WEST",
@@ -68,7 +68,7 @@ export function CardinalDirectionToAngle(direction: CardinalDirection): number {
 
 export function LatitudeToCardinalDirection4(lat: number): CardinalDirection {
     const latModule = (lat + 45) % 360;
-    const realLat   = latModule < 0 ? latModule + 360 : latModule;
+    const realLat = latModule < 0 ? latModule + 360 : latModule;
     if (realLat < 90) {
         return CardinalDirection.SOUTH;
     }

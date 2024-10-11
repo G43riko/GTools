@@ -1,5 +1,4 @@
 /**
- *
  * @example
  *  const array = [{name: "Michael", age: 23}, {name: "Joachim", age: 15}, {name: "Enrico", age: 15}, {name: "Monica", age: 59}]
  *  const conditions = {age: 23, name: "Monica"}
@@ -14,7 +13,7 @@ export function where<T extends Record<string, unknown>>(array: T[], condition: 
         return [];
     }
 
-    const result: T[]      = [];
+    const result: T[] = [];
     const conditionEntries = Object.entries(condition);
 
     array.forEach((e) => {
@@ -56,11 +55,10 @@ export function compareArrays<T>(
  *  groupByLast([{a: "a", b: "A"}, {a: "b", b: "B"}, {a: "c", b: "C"}, {a: "a", b: "D"}], "a") ==> {a: {a: "a", b: "D"}, b: {a: "b", b: "B"}, c: {a: "c", b: "C"}}
  */
 export function groupByLast<T, S extends keyof T>(arr: T[], key: S): { [k in S]: T } {
-    return arr.reduce((acc, curr) => Object.assign({}, acc, {[curr[key] as any]: curr}), {}) as { [k in S]: T };
+    return arr.reduce((acc, curr) => Object.assign({}, acc, { [curr[key] as any]: curr }), {}) as { [k in S]: T };
 }
 
 /**
- *
  * @example
  *  analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"]) ==> {toAdd: [], toRemove: []}
  *  analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"]) ==> {toAdd: ["d"], toRemove: ["a"]}
@@ -73,7 +71,7 @@ export function analyzeArrayChanges<T>(
     const existingPrevIndices: { [key: number]: true } = {};
 
     const toRemove: T[] = [];
-    const toAdd: T[]    = [];
+    const toAdd: T[] = [];
     act.forEach((e) => {
         const prevIndex = prev.findIndex((item) => comparator(e, item));
 
@@ -91,7 +89,7 @@ export function analyzeArrayChanges<T>(
         toRemove.push(e);
     });
 
-    return {toAdd, toRemove};
+    return { toAdd, toRemove };
 }
 
 /**
@@ -108,7 +106,7 @@ export function subArray<T = any>(array: T[], minIndex = 0, maxIndex = array.len
         return array;
     }
     const result: T[] = [];
-    const final       = array.length < maxIndex ? array.length - 1 : maxIndex;
+    const final = array.length < maxIndex ? array.length - 1 : maxIndex;
     for (let i = minIndex; i <= final; i++) {
         result[result.length] = array[i];
     }
@@ -235,7 +233,7 @@ export function getLast<T>(array: T[]): T | undefined {
  * @param array - not empty array
  * @returns random value from array
  */
-export function getRandomItem<T = unknown>(array:  T[]): T | null {
+export function getRandomItem<T = unknown>(array: T[]): T | null {
     if (!Array.isArray(array)) {
         return array;
     }
@@ -320,7 +318,12 @@ export function mergeArrays2<S, T, R>(arr1: S[], arr2: T[], callback: (item1: S,
     return result;
 }
 
-export function mergeArrays3<S, T, U, R>(arr1: S[], arr2: T[], arr3: U[], callback: (item1: S, item2: T, item3: U) => R): R[] {
+export function mergeArrays3<S, T, U, R>(
+    arr1: S[],
+    arr2: T[],
+    arr3: U[],
+    callback: (item1: S, item2: T, item3: U) => R,
+): R[] {
     const result: R[] = [];
     arr1.forEach((item1) => {
         arr2.forEach((item2) => {
@@ -333,15 +336,20 @@ export function mergeArrays3<S, T, U, R>(arr1: S[], arr2: T[], arr3: U[], callba
     return result;
 }
 
-export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) => number, merger?: (a: T, b: T) => T): { same: T[]; missingInA: T[]; missingInB: T[] } {
+export function findArrayDiff<T>(
+    arrA: T[],
+    arrB: T[],
+    comparator: (a: T, b: T) => number,
+    merger?: (a: T, b: T) => T,
+): { same: T[]; missingInA: T[]; missingInB: T[] } {
     const sortedArrayA = [...arrA].sort(comparator);
     const sortedArrayB = [...arrB].sort(comparator);
 
-    const same: T[]       = [];
+    const same: T[] = [];
     const missingInA: T[] = [];
     const missingInB: T[] = [];
-    let i                 = 0;
-    let j                 = 0;
+    let i = 0;
+    let j = 0;
     while (i < sortedArrayA.length || j < sortedArrayB.length) {
         if (i === sortedArrayA.length) {
             missingInA.push(sortedArrayB[j]);
@@ -367,7 +375,7 @@ export function findArrayDiff<T>(arrA: T[], arrB: T[], comparator: (a: T, b: T) 
         }
     }
 
-    return {same, missingInA, missingInB};
+    return { same, missingInA, missingInB };
 }
 
 function _rowLength<T>(arr: T | T[] | T[][], fn: (a: number, b: number) => number, len0: number): number {

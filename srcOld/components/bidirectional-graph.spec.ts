@@ -3,7 +3,6 @@ import "mocha";
 import { BidirectionalGraph } from "./bidirectional-graph";
 
 describe("BidirectionalGraph", () => {
-
     it("Test empty object", () => {
         const graph = new BidirectionalGraph<string>((a, b) => a.localeCompare(b) === 0);
         expect(graph.numberOfVertices).to.be.equal(0);
@@ -65,7 +64,6 @@ describe("BidirectionalGraph", () => {
         expect(graph.getEdges()).to.deep.equal([
             ["b", "c"],
         ]);
-
     });
     it("Test removing vertices", () => {
         const graph = new BidirectionalGraph<string>((a, b) => a.localeCompare(b) === 0);
@@ -95,7 +93,6 @@ describe("BidirectionalGraph", () => {
         expect(graph.areConnected("a", "c")).to.be.false;
         expect(graph.areConnected("b", "c")).to.be.true;
         expect(graph.numberOfVertices).to.be.equal(3);
-
     });
 
     it("Connect and disconnect existing vertices", () => {
@@ -157,5 +154,4 @@ describe("BidirectionalGraph", () => {
         expect(graph.areConnected("x", "y")).to.be.false;
         expect(graph.areConnected("y", "x")).to.be.false;
     });
-
 });

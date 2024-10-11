@@ -12,7 +12,7 @@ describe("Intersections2d", () => {
              *   |
              *   X
              */
-            expect(intersection2dLineLine(5, 0, 5, 10, 0, 5, 10, 5)).to.deep.equal({x: 5, y: 5});
+            expect(intersection2dLineLine(5, 0, 5, 10, 0, 5, 10, 5)).to.deep.equal({ x: 5, y: 5 });
 
             /**
              * X-A-X

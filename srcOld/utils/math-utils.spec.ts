@@ -96,7 +96,6 @@ describe("Math utils", () => {
                 const result = MathUtils.random(min, max);
                 expect(min < result).to.be.true;
                 expect(result < max).to.be.true;
-
             }
         });
     });

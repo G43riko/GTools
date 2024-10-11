@@ -62,7 +62,11 @@ export class FileUtils {
         FileUtils.loadFile(url, (err, data) => callback(err, JSON.parse(data)));
     }
 
-    public static loadFile(url: string, callback: (err: NodeJS.ErrnoException | null, data: string) => any, encoding: BufferEncoding  = "utf8"): void {
+    public static loadFile(
+        url: string,
+        callback: (err: NodeJS.ErrnoException | null, data: string) => any,
+        encoding: BufferEncoding = "utf8",
+    ): void {
         fs.readFile(url, encoding, callback);
     }
 

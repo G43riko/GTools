@@ -6,8 +6,10 @@ export function createSvg<T extends keyof SVGElementTagNameMap>(type: T): SVGEle
 
 export function getTransform(selectedElement: SVGGraphicsElement): SVGTransform {
     const transforms = selectedElement.transform.baseVal;
-    if (transforms.numberOfItems === 0 ||
-        transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+    if (
+        transforms.numberOfItems === 0 ||
+        transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE
+    ) {
         const translate = (selectedElement.ownerSVGElement as SVGSVGElement).createSVGTransform();
         translate.setTranslate(0, 0);
         selectedElement.transform.baseVal.insertItemBefore(translate, 0);
@@ -41,8 +43,8 @@ function isFullCircle(aBnds: [number, number]): boolean {
 export function pathArc(r: number, a0: number, a1: number, cx: number, cy: number, isClosed = false): string {
     const r0 = 0;
     const r1 = r;
-    cx     = cx || 0;
-    cy     = cy || 0;
+    cx = cx || 0;
+    cy = cy || 0;
 
     const isCircle = isFullCircle([a0, a1]);
     let aStart;
@@ -53,22 +55,22 @@ export function pathArc(r: number, a0: number, a1: number, cx: number, cy: numbe
 
     if (isCircle) {
         aStart = 0;
-        aMid   = Math.PI;
-        aEnd   = Math.PI * 2;
+        aMid = Math.PI;
+        aEnd = Math.PI * 2;
     } else if (a0 < a1) {
         aStart = a0;
-        aEnd   = a1;
+        aEnd = a1;
     } else {
         aStart = a1;
-        aEnd   = a0;
+        aEnd = a0;
     }
 
     if (r0 < r1) {
         rStart = r0;
-        rEnd   = r1;
+        rEnd = r1;
     } else {
         rStart = r1;
-        rEnd   = r0;
+        rEnd = r0;
     }
 
     // N.B. svg coordinates here, where y increases downward
@@ -86,9 +88,7 @@ export function pathArc(r: number, a0: number, a1: number, cx: number, cy: numbe
 
     if (isCircle) {
         if (rStart === null) {
-            p = `M${pt(rEnd, aStart)
-            }${arc(rEnd, aMid, 0)
-            }${arc(rEnd, aEnd, 0)}Z`;
+            p = `M${pt(rEnd, aStart)}${arc(rEnd, aMid, 0)}${arc(rEnd, aEnd, 0)}Z`;
         } else {
             p = `M${pt(rStart, aStart)}${arc(rStart, aMid, 0)}${arc(rStart, aEnd, 0)}Z` +
                 `M${pt(rEnd, aStart)}${arc(rEnd, aMid, 1)}${arc(rEnd, aEnd, 1)}Z`;
@@ -99,10 +99,9 @@ export function pathArc(r: number, a0: number, a1: number, cx: number, cy: numbe
             p += "L0,0Z";
         }
     } else {
-        p = `M${pt(rStart, aStart)}L${pt(rEnd, aStart)
-        }${arc(rEnd, aEnd, 0)
-        }L${pt(rStart, aEnd)
-        }${arc(rStart, aStart, 1)}Z`;
+        p = `M${pt(rStart, aStart)}L${pt(rEnd, aStart)}${arc(rEnd, aEnd, 0)}L${pt(rStart, aEnd)}${
+            arc(rStart, aStart, 1)
+        }Z`;
     }
 
     return p;

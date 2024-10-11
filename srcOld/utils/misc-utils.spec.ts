@@ -29,7 +29,7 @@ describe("Misc utils", () => {
     });
     describe("ParseParams", () => {
         it("It should return object parsed from url string", () => {
-            const param       = "name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test";
+            const param = "name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test";
             const parsedParam = MiscUtils.parseParams<StringMap<unknown>>(param);
             expect(parsedParam).to.be.an("object");
             expect(parsedParam.name).to.be.equal("Gabriel");
@@ -43,7 +43,7 @@ describe("Misc utils", () => {
     });
 
     describe("Cookies", () => {
-        const getCookies      = (): string => {
+        const getCookies = (): string => {
             let cookies = "";
             cookies += `${MiscUtils.setCookie("name", "gabriel", 1)}; `;
             cookies += `${MiscUtils.setCookie("age", 24, 10)}; `;
@@ -69,9 +69,9 @@ describe("Misc utils", () => {
         });
         it("It should parse cookies", () => {
             expect(MiscUtils.parseCookies(getCookies())).to.deep.equal({
-                name : "gabriel",
-                age  : "24",
-                real : "true",
+                name: "gabriel",
+                age: "24",
+                real: "true",
                 empty: "",
             });
         });
@@ -85,10 +85,10 @@ describe("Misc utils", () => {
                 funcMul(a: number, b: number) {
                     return a * b;
                 },
-                stringParam : "name",
-                numberParam : 123465,
-                objParam    : {a: "aa"},
-                arrayParam  : ["a", true, 12],
+                stringParam: "name",
+                numberParam: 123465,
+                objParam: { a: "aa" },
+                arrayParam: ["a", true, 12],
                 booleanParam: false,
             };
 
@@ -101,7 +101,7 @@ describe("Misc utils", () => {
             expect(result.stringParam, "result.stringParam").to.be.a("string");
             expect(result.stringParam, "result.stringParam").to.be.equal("name");
             expect(result.objParam, "result.objParam").to.be.a("object");
-            expect(result.objParam, "result.objParam").to.deep.equal({a: "aa"});
+            expect(result.objParam, "result.objParam").to.deep.equal({ a: "aa" });
             expect(result.numberParam, "result.numberParam").to.be.equal(123465);
             expect(result.booleanParam, "result.booleanParam").to.be.equal(false);
             const funcAvg = result.funcAvg as (a: number, b: number) => number;

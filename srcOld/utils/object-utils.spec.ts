@@ -39,19 +39,18 @@ describe("ObjectUtils", () => {
             items.forEach((item) => holder.test(item));
 
             console.log(`${holder.name} takes ${Date.now() - startTime}`);
-
         });
-
     });
     describe("DeepEqual", () => {
-        const createFlatObject = (): any => ({a: "a", b: 23, c: true});
-        const createFlatArray  = (): any => ["a", 23, true];
+        const createFlatObject = (): any => ({ a: "a", b: 23, c: true });
+        const createFlatArray = (): any => ["a", 23, true];
 
-        const createNestedObject            = (): any => ({...createFlatObject(), d: createFlatObject(), e: createFlatArray()});
-        const createNestedObjectWithClasses = (): any => ({...createNestedObject(), f: new Date()});
+        const createNestedObject = (): any => ({ ...createFlatObject(), d: createFlatObject(), e: createFlatArray() });
+        const createNestedObjectWithClasses = (): any => ({ ...createNestedObject(), f: new Date() });
 
-        const createNestedArray            = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
-        const createNestedArrayWithClasses = (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
+        const createNestedArray = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
+        const createNestedArrayWithClasses =
+            (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
 
         it("It should test equal immutable objects", () => {
             expect(ObjectUtils.deepEqual("a", "a")).to.be.true;
@@ -81,14 +80,15 @@ describe("ObjectUtils", () => {
         });
     });
     describe("DeepCopy", () => {
-        const createFlatObject = (): any => ({a: "a", b: 23, c: true});
-        const createFlatArray  = (): any => ["a", 23, true];
+        const createFlatObject = (): any => ({ a: "a", b: 23, c: true });
+        const createFlatArray = (): any => ["a", 23, true];
 
-        const createNestedObject            = (): any => ({...createFlatObject(), d: createFlatObject(), e: createFlatArray()});
-        const createNestedObjectWithClasses = (): any => ({...createNestedObject(), f: new Date()});
+        const createNestedObject = (): any => ({ ...createFlatObject(), d: createFlatObject(), e: createFlatArray() });
+        const createNestedObjectWithClasses = (): any => ({ ...createNestedObject(), f: new Date() });
 
-        const createNestedArray            = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
-        const createNestedArrayWithClasses = (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
+        const createNestedArray = (): any => [...createFlatArray(), createFlatObject(), createFlatArray()];
+        const createNestedArrayWithClasses =
+            (): any => [...createFlatArray(), createFlatObject(), createFlatArray(), new Date()];
 
         it("It should test immutable objects", () => {
             expect(ObjectUtils.deepCopy("a")).to.be.eq("a");
@@ -105,7 +105,9 @@ describe("ObjectUtils", () => {
         });
         xit("It should test object with classes", () => {
             expect(ObjectUtils.deepCopy(createNestedObjectWithClasses())).to.be.not.eq(createNestedObjectWithClasses());
-            expect(ObjectUtils.deepCopy(createNestedObjectWithClasses())).to.deep.equal(createNestedObjectWithClasses());
+            expect(ObjectUtils.deepCopy(createNestedObjectWithClasses())).to.deep.equal(
+                createNestedObjectWithClasses(),
+            );
             expect(ObjectUtils.deepCopy(createNestedArrayWithClasses())).to.be.not.eq(createNestedArrayWithClasses());
             expect(ObjectUtils.deepCopy(createNestedArrayWithClasses())).to.deep.equal(createNestedArrayWithClasses());
         });
@@ -114,28 +116,28 @@ describe("ObjectUtils", () => {
         it("It should return object rough size", () => {
             expect(ObjectUtils.roughSizeOfObject([])).to.be.equal(0);
             expect(ObjectUtils.roughSizeOfObject({})).to.be.equal(0);
-            expect(ObjectUtils.roughSizeOfObject({a: "a"})).to.be.equal(2);
-            expect(ObjectUtils.roughSizeOfObject({a: "aa"})).to.be.equal(4);
-            expect(ObjectUtils.roughSizeOfObject({a: "aaa"})).to.be.equal(6);
-            expect(ObjectUtils.roughSizeOfObject({a: "aaaa"})).to.be.equal(8);
-            expect(ObjectUtils.roughSizeOfObject({a: 21})).to.be.equal(8);
-            expect(ObjectUtils.roughSizeOfObject({a: true})).to.be.equal(4);
+            expect(ObjectUtils.roughSizeOfObject({ a: "a" })).to.be.equal(2);
+            expect(ObjectUtils.roughSizeOfObject({ a: "aa" })).to.be.equal(4);
+            expect(ObjectUtils.roughSizeOfObject({ a: "aaa" })).to.be.equal(6);
+            expect(ObjectUtils.roughSizeOfObject({ a: "aaaa" })).to.be.equal(8);
+            expect(ObjectUtils.roughSizeOfObject({ a: 21 })).to.be.equal(8);
+            expect(ObjectUtils.roughSizeOfObject({ a: true })).to.be.equal(4);
         });
     });
     describe("Size", () => {
         const item = {
             address: {
-                city  : "Bratislava",
+                city: "Bratislava",
                 number: "23",
                 street: "street",
             },
-            age    : 24,
-            name   : "Adam",
+            age: 24,
+            name: "Adam",
         };
         it("It should return number of attributes", () => {
             expect(ObjectUtils.size(item)).to.equal(3);
             expect(ObjectUtils.size({})).to.be.equal(0);
-            expect(ObjectUtils.size({a: "aa"})).to.be.equal(1);
+            expect(ObjectUtils.size({ a: "aa" })).to.be.equal(1);
             expect(ObjectUtils.size({
                 a: "aa",
                 b: "bb",
@@ -193,7 +195,7 @@ describe("ObjectUtils", () => {
             expect(ObjectUtils.without({
                 a: "a",
                 b: "b",
-            }, ["a"])).to.deep.equal({b: "b"});
+            }, ["a"])).to.deep.equal({ b: "b" });
             expect(ObjectUtils.without({} as any, ["a"])).to.deep.equal({});
             expect(ObjectUtils.without({}, [])).to.deep.equal({});
             expect(ObjectUtils.without({
@@ -206,13 +208,13 @@ describe("ObjectUtils", () => {
             expect(ObjectUtils.without({
                 a: "aa",
                 b: "bb",
-            }, ["a"])).to.deep.equal({b: "bb"});
+            }, ["a"])).to.deep.equal({ b: "bb" });
             expect(ObjectUtils.without({
-                a : "a",
-                b : "b",
+                a: "a",
+                b: "b",
                 aa: "aa",
             }, ["a"])).to.deep.equal({
-                b : "b",
+                b: "b",
                 aa: "aa",
             });
         });

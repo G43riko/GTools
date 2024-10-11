@@ -129,19 +129,26 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * returns angle between two vectors
      */
     public static angle(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
-        const dot  = Vector2.dot(vecA, vecB);
+        const dot = Vector2.dot(vecA, vecB);
         const lenA = Vector2.lengthOf(vecA);
         const lenB = Vector2.lengthOf(vecB);
-        const cos  = dot / (lenA * lenB);
+        const cos = dot / (lenA * lenB);
 
         return Math.acos(cos);
     }
 
-    public static isVisible(obsX: number, obsY: number, angle: number, cutOff: number, px: number, py: number): boolean {
+    public static isVisible(
+        obsX: number,
+        obsY: number,
+        angle: number,
+        cutOff: number,
+        px: number,
+        py: number,
+    ): boolean {
         return angle - Math.atan2(
-            py - obsY,
-            px - obsX,
-        ) <= cutOff;
+                    py - obsY,
+                    px - obsX,
+                ) <= cutOff;
     }
 
     public static createOutlineRange(points: readonly ReadonlySimpleVector2[]): Range<SimpleVector2> {
@@ -172,7 +179,14 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return new Range(min, max);
     }
 
-    public static angleBetweenPoints(obsX: number, obsY: number, px1: number, py1: number, px2: number, py2: number): number {
+    public static angleBetweenPoints(
+        obsX: number,
+        obsY: number,
+        px1: number,
+        py1: number,
+        px2: number,
+        py2: number,
+    ): number {
         return Math.atan2(
             py1 - obsY,
             px1 - obsX,
@@ -263,7 +277,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         if (typeof value === "number") {
             this.x *= value;
             this.y *= value;
-
         } else {
             this.x *= value.x;
             this.y *= value.y;
@@ -276,7 +289,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         if (typeof value === "number") {
             this.x += value;
             this.y += value;
-
         } else {
             this.x += value.x;
             this.y += value.y;
@@ -289,7 +301,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         if (typeof value === "number") {
             this.x -= value;
             this.y -= value;
-
         } else {
             this.x -= value.x;
             this.y -= value.y;
@@ -302,7 +313,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         if (typeof value === "number") {
             this.x /= value;
             this.y /= value;
-
         } else {
             this.x /= value.x;
             this.y /= value.y;

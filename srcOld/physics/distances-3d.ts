@@ -1,6 +1,13 @@
 import { Vector3 } from "../math";
 
-export function pointPointSqr3dDistance(ax: number, ay: number, az: number, bx: number, by: number, bz: number): number {
+export function pointPointSqr3dDistance(
+    ax: number,
+    ay: number,
+    az: number,
+    bx: number,
+    by: number,
+    bz: number,
+): number {
     const distX = ax - bx;
     const distY = ay - by;
     const distZ = az - bz;
@@ -73,7 +80,7 @@ export function pointLine3dDistance(
     const pSubBx = bCenterX - aEndX;
     const pSubBy = bCenterY - aEndY;
     const pSubBz = bCenterZ - aEndZ;
-    const dotA   = aSubBx * pSubBx + aSubBy * pSubBy + aSubBz * pSubBz;
+    const dotA = aSubBx * pSubBx + aSubBy * pSubBy + aSubBz * pSubBz;
     if (dotA < 0) {
         return pointPoint3dDistance(bCenterX, bCenterY, bCenterZ, aEndX, aEndY, aEndZ);
     }
@@ -84,7 +91,7 @@ export function pointLine3dDistance(
     const pSubAx = bCenterX - aStartX;
     const pSubAy = bCenterY - aStartY;
     const pSubAz = bCenterZ - aStartZ;
-    const dotB   = bSubAx * pSubAx + bSubAy * pSubAy + bSubAz * pSubAz;
+    const dotB = bSubAx * pSubAx + bSubAy * pSubAy + bSubAz * pSubAz;
     if (dotB < 0) {
         return pointPoint3dDistance(bCenterX, bCenterY, bCenterZ, aStartX, aStartY, aStartZ);
     }
@@ -95,7 +102,10 @@ export function pointLine3dDistance(
 export function pointNormalPlane3dDistance(aNormal: Vector3, aPoint: Vector3, bPoint: Vector3): number {
     const d = -Vector3.mul(aNormal, aPoint, new Vector3()).sum;
 
-    return Math.abs((Vector3.mul(aNormal, bPoint, new Vector3()).sum + d) / Math.sqrt(Vector3.mul(aNormal, aNormal, new Vector3()).sum));
+    return Math.abs(
+        (Vector3.mul(aNormal, bPoint, new Vector3()).sum + d) /
+            Math.sqrt(Vector3.mul(aNormal, aNormal, new Vector3()).sum),
+    );
 }
 
 // export function pointPlane(Vector3 a1, Vector3 a2, Vector3 a3, Vector3 bPoint) {

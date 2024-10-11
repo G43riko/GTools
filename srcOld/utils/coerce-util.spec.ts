@@ -9,7 +9,6 @@ describe("Coerce utils", () => {
         expect(coerceBooleanProperty("false")).to.be.false;
     });
 
-
     it("It should test true cases", () => {
         expect(coerceBooleanProperty(undefined)).to.be.true;
         expect(coerceBooleanProperty(1)).to.be.true;

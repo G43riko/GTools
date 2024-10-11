@@ -38,7 +38,8 @@ export class Triangle3D implements Object3D {
             return false;
         }
 
-        return Vector3.equals(triangle.pointA, this.pointA) && Vector3.equals(triangle.pointB, this.pointB) && Vector3.equals(triangle.pointC, this.pointC);
+        return Vector3.equals(triangle.pointA, this.pointA) && Vector3.equals(triangle.pointB, this.pointB) &&
+            Vector3.equals(triangle.pointC, this.pointC);
     }
 
     public get area(): number {

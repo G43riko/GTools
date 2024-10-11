@@ -43,5 +43,4 @@ describe("Selection", () => {
         expect(selectionHolder.selection.isSelected("B")).to.be.false;
         expect(selectionHolder.selection.isSelected("C")).to.be.false;
     });
-
 });

@@ -149,5 +149,4 @@ export class AABB3 implements AABB<AABB3, SimpleVector3, MinMax3D> {
         this.max.y += offset.y;
         this.max.z += offset.z;
     }
-
 }

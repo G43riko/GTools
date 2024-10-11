@@ -29,7 +29,10 @@ export function GAssertNumber(value: unknown, message = "Value must be a number"
 }
 
 // Vectors
-export function GAssertSimpleVector3(value: unknown, message = "Value must be a SimpleVector3"): asserts value is SimpleVector3 {
+export function GAssertSimpleVector3(
+    value: unknown,
+    message = "Value must be a SimpleVector3",
+): asserts value is SimpleVector3 {
     if (process.env.NODE_ENV !== "development") {
         return;
     }
@@ -47,7 +50,10 @@ export function GAssertVector3(value: unknown, message = "Value must be a Vector
     }
 }
 
-export function GAssertSimpleVector2(value: unknown, message = "Value must be a SimpleVector2"): asserts value is SimpleVector2 {
+export function GAssertSimpleVector2(
+    value: unknown,
+    message = "Value must be a SimpleVector2",
+): asserts value is SimpleVector2 {
     if (process.env.NODE_ENV !== "development") {
         return;
     }

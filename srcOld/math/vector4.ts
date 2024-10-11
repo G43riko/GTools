@@ -75,12 +75,17 @@ export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
         return vecA.x === vecB.x && vecA.y === vecB.y && vecA.z === vecB.z && vecA.w === vecB.w;
     }
 
-    public static equalsApproximately(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4, EPSILON = 0.0000001): boolean {
+    public static equalsApproximately(
+        vecA: ReadonlySimpleVector4,
+        vecB: ReadonlySimpleVector4,
+        EPSILON = 0.0000001,
+    ): boolean {
         if (vecA === vecB) {
             return true;
         }
 
-        const equal = (a: number, b: number): boolean => Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
+        const equal = (a: number, b: number): boolean =>
+            Math.abs(a - b) <= EPSILON * Math.max(1, Math.abs(a), Math.abs(b));
 
         return equal(vecA.x, vecB.x) && equal(vecA.y, vecB.y) && equal(vecA.z, vecB.z) && equal(vecA.w, vecB.w);
     }
@@ -106,9 +111,9 @@ export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
     public static dist(vecA: ReadonlySimpleVector4, vecB: ReadonlySimpleVector4): number {
         return Math.sqrt(
             Math.pow(vecA.x - vecB.x, 2) +
-            Math.pow(vecA.y - vecB.y, 2) +
-            Math.pow(vecA.z - vecB.z, 2) +
-            Math.pow(vecA.w - vecB.w, 2),
+                Math.pow(vecA.y - vecB.y, 2) +
+                Math.pow(vecA.z - vecB.z, 2) +
+                Math.pow(vecA.w - vecB.w, 2),
         );
     }
 
@@ -118,7 +123,6 @@ export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
             this.y /= value;
             this.z /= value;
             this.w /= value;
-
         } else {
             this.x /= value.x;
             this.y /= value.y;

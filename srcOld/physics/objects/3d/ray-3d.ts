@@ -33,7 +33,7 @@ export class Ray3D {
 
     public static fromLine(start: ReadonlySimpleVector3, end: ReadonlySimpleVector3): Ray3D {
         const direction = Vector3.sub(end, start);
-        const length    = direction.length;
+        const length = direction.length;
 
         return new Ray3D(start, Vector3.normalize(direction), length);
     }

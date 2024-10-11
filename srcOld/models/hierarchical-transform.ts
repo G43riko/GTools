@@ -9,9 +9,9 @@ import { Transform } from "./transform";
 export class HierarchicalTransform extends Transform {
     private _parent?: HierarchicalTransform;
     private readonly _parentTransformation = Mat4.create();
-    private readonly _oldPosition          = new Vector3();
-    private readonly _oldRotation          = new Quaternion();
-    private readonly _oldScale             = Vector3.ONE;
+    private readonly _oldPosition = new Vector3();
+    private readonly _oldRotation = new Quaternion();
+    private readonly _oldScale = Vector3.ONE;
 
     private hasChange(): boolean {
         if (this._parent?.hasChange()) {

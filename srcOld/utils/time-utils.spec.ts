@@ -6,7 +6,6 @@ describe("Time utils", () => {
     const date = new Date("1993.11.12 11:12:13:999");
     describe("Check formatTime", () => {
         it("basic formatting", () => {
-
             expect(formatTime(date, "Gabo")).to.be.equal("Gabo");
             expect(formatTime(date, "YYYY-YYY-YY")).to.be.equal("1993-993-93");
             expect(formatTime(date, "YYYY-YYY-YY")).to.be.equal("1993-993-93");

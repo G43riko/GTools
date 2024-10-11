@@ -26,10 +26,10 @@ export function setEnvironment(type: "test" | "production" | "development"): voi
 export function getProcessData(): ProcessData {
     return {
         memoryUsage: process.memoryUsage(),
-        cpuUsage   : process.cpuUsage(),
-        upTime     : process.uptime(),
-        version    : process.version,
-        platform   : process.platform,
+        cpuUsage: process.cpuUsage(),
+        upTime: process.uptime(),
+        version: process.version,
+        platform: process.platform,
     };
 }
 

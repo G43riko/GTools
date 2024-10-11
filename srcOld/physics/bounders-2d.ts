@@ -21,7 +21,7 @@ export function fixXYWH(minMax: MinMax2D, xywh: XYWH): SimpleVector2 {
 }
 
 export function fixPosSize(minMax: MinMax2D, target: PosSize2D): SimpleVector2 {
-    const result = {...target.position};
+    const result = { ...target.position };
     if (target.position.x < minMax.min.x) {
         result.x = minMax.min.x;
     } else if (target.position.x + target.size.x > minMax.max.x) {
@@ -38,7 +38,7 @@ export function fixPosSize(minMax: MinMax2D, target: PosSize2D): SimpleVector2 {
 }
 
 export function fixSphere(minMax: MinMax2D, sphere: Circle): SimpleVector2 {
-    const result     = {...sphere.center};
+    const result = { ...sphere.center };
     const halfRadius = sphere.radius / 2;
 
     if (sphere.center.x - halfRadius < minMax.min.x) {

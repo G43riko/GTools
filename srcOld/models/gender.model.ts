@@ -3,11 +3,11 @@
  */
 export type GenderType = "MAN" | "WOMAN" | "";
 
-const maleRegexp   = /^(male|man|muz|boy|chlapec|m)$/g;
+const maleRegexp = /^(male|man|muz|boy|chlapec|m)$/g;
 const femaleRegexp = /^(female|woman|zena|girl|dievca|f|w|z)$/g;
 
 export enum Gender {
-    MAN   = "MAN",
+    MAN = "MAN",
     WOMAN = "WOMAN",
 }
 

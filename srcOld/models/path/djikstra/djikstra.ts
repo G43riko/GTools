@@ -47,12 +47,11 @@ export class Dijkstra {
     }
 
     public findPointsOfShortestWay(start: string, finish: string, weight: number): string[] {
-        let nextVertex: string          = finish;
+        let nextVertex: string = finish;
         const arrayWithVertex: string[] = [];
         while (nextVertex !== start) {
-
             let minWeight: number = Number.MAX_VALUE;
-            let minVertex         = "";
+            let minVertex = "";
 
             this.vertices[nextVertex].nodes.forEach((node) => {
                 if (node.weight + this.vertices[node.nameOfVertex].weight < minWeight) {
@@ -73,7 +72,6 @@ export class Dijkstra {
         Object.values(this.vertices).forEach((vertex) => {
             if (vertex.name === start) {
                 vertex.weight = 0;
-
             } else {
                 vertex.weight = Number.MAX_VALUE;
             }
@@ -81,8 +79,10 @@ export class Dijkstra {
         });
 
         while (Object.keys(nodes).length !== 0) {
-            const sortedVisitedByWeight: string[] = Object.keys(nodes).sort((a, b) => this.vertices[a].weight - this.vertices[b].weight);
-            const currentVertex: DjikstraVertex   = this.vertices[sortedVisitedByWeight[0]];
+            const sortedVisitedByWeight: string[] = Object.keys(nodes).sort((a, b) =>
+                this.vertices[a].weight - this.vertices[b].weight
+            );
+            const currentVertex: DjikstraVertex = this.vertices[sortedVisitedByWeight[0]];
             for (const j of currentVertex.nodes) {
                 const calculateWeight: number = currentVertex.weight + j.weight;
                 if (calculateWeight < this.vertices[j.nameOfVertex].weight) {
@@ -91,13 +91,12 @@ export class Dijkstra {
             }
             delete nodes[sortedVisitedByWeight[0]];
         }
-        const finishWeight: number      = this.vertices[finish].weight;
+        const finishWeight: number = this.vertices[finish].weight;
         const arrayWithVertex: string[] = this.findPointsOfShortestWay(start, finish, finishWeight).reverse();
 
         return {
             distance: finishWeight,
-            nodes   : [...arrayWithVertex, finish],
+            nodes: [...arrayWithVertex, finish],
         };
     }
 }
-

@@ -7,9 +7,7 @@ describe("File utils", () => {
     describe("scanDirRecursive", () => {
         it("it should return data-structures of files in folder", (done) => {
             FileUtils.scanDirRecursive("src/utils").then((data) => {
-                const changedData = data.map((e) =>
-                    e.replace(__dirname, "").replace(/^\W*/, ""),
-                );
+                const changedData = data.map((e) => e.replace(__dirname, "").replace(/^\W*/, ""));
 
                 expect(changedData).to.include.members([
                     "analytics-utils.ts",
@@ -49,7 +47,7 @@ describe("File utils", () => {
     });
     describe("File manipulation", () => {
         const fileName = "tmpFile.txt";
-        const object   = {
+        const object = {
             a: "aa",
             b: true,
             c: 23,

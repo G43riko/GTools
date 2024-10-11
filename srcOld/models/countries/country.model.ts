@@ -34,6 +34,8 @@ export class Country {
     public static find(key: string): CountryData | null {
         const finalKey = toBasicForm(key);
 
-        return data.find((country) => country.key.toLowerCase() === finalKey || country.patterns.some((pattern) => finalKey.indexOf(pattern) >= 0)) || null;
+        return data.find((country) =>
+            country.key.toLowerCase() === finalKey || country.patterns.some((pattern) => finalKey.indexOf(pattern) >= 0)
+        ) || null;
     }
 }

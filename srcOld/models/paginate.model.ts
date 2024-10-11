@@ -4,7 +4,7 @@ export class PaginateModel {
     public offset: number;
 
     public constructor(count = PaginateModel.ITEMS_PER_PAGE, offset = 0) {
-        this.limit  = +count;
+        this.limit = +count;
         this.offset = +offset;
     }
 

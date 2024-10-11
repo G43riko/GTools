@@ -8,7 +8,7 @@ export class RadixSort<T> {
     }
 
     public sort(a: T[]): void {
-        let m   = a[0];
+        let m = a[0];
         let exp = 1;
         const b = new Array<T>(a.length);
         for (let i = 1; i < a.length; i++) {
@@ -37,7 +37,7 @@ export class RadixSort<T> {
     }
 
     public sort2(a: number[]): void {
-        let m   = a[0];
+        let m = a[0];
         let exp = 1;
         const b = new Array<number>(a.length);
         for (let i = 1; i < a.length; i++) {

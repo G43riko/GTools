@@ -6,8 +6,8 @@ let localContext: Document = document;
 
 export class ElementBuilder {
     private result?: HTMLElement;
-    private styles: StringMap                                = {};
-    private attributes: StringMap                            = {};
+    private styles: StringMap = {};
+    private attributes: StringMap = {};
     private readonly contentBuffer: (string | HTMLElement)[] = [];
 
     private constructor(private readonly elementName: string, private readonly parent?: ElementBuilder) {
@@ -26,7 +26,7 @@ export class ElementBuilder {
     }
 
     public reset(): ElementBuilder {
-        this.styles     = {};
+        this.styles = {};
         this.attributes = {};
         delete this.result;
 

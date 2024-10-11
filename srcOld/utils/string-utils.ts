@@ -3,9 +3,9 @@ import { join } from "./array-utils";
 import * as StringCheckers from "./string-checkers";
 
 const accentedLowerCharacters = "ąàáäâãåæăćčĉďęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
-const normalLowerCharacters   = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
-const accentedCharacters      = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
-const normalCharacters        = normalLowerCharacters + normalLowerCharacters.toUpperCase();
+const normalLowerCharacters = "aaaaaaaaacccdeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
+const accentedCharacters = accentedLowerCharacters + accentedLowerCharacters.toUpperCase();
+const normalCharacters = normalLowerCharacters + normalLowerCharacters.toUpperCase();
 
 /* TODO:
     static underscore(word) {
@@ -157,7 +157,7 @@ export function removeAll(text: string, words: string[]): string {
  */
 export function template(text: string, values: StringMap<unknown>, start = "{{", end = "}}"): string {
     const updatedStart = start.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
-    const updatedEnd   = end.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
+    const updatedEnd = end.replace(/[-[\]()*\s]/g, "\\$&").replace(/\$/g, "\\$");
 
     return text.replace(
         new RegExp(`${updatedStart}(.+?)${updatedEnd}`, "g"),
@@ -180,7 +180,7 @@ export function between(text: string, key1: string, key2: string, trim = false):
     const processResult = (result: string): string => trim ? result.trim() : result;
 
     const startPos = text.indexOf(key1);
-    const endPos   = text.indexOf(key2);
+    const endPos = text.indexOf(key2);
     if (startPos < 0 && endPos >= 0) {
         return processResult(text.substring(0, endPos));
     }
@@ -206,9 +206,9 @@ export function between(text: string, key1: string, key2: string, trim = false):
  * @param overlapping - allows math overlapping
  */
 export function occurrences(text: string, key: string, overlapping = false): number {
-    let index   = text.indexOf(key);
+    let index = text.indexOf(key);
     let counter = 0;
-    const step  = overlapping ? 1 : key.length;
+    const step = overlapping ? 1 : key.length;
     while (index >= 0) {
         counter++;
         index = text.indexOf(key, index + step);
@@ -237,11 +237,11 @@ export function swapCase(text: string): string {
 export function format(text: string, values: string[], placeHolder = "{}"): string {
     const result: string[] = [];
     let lastIndex;
-    let actualIndex        = 0;
-    let counter            = 0;
+    let actualIndex = 0;
+    let counter = 0;
 
     while (counter < values.length) {
-        lastIndex   = actualIndex;
+        lastIndex = actualIndex;
         actualIndex = text.indexOf(placeHolder, actualIndex);
         result.push(text.substring(lastIndex, actualIndex));
         result.push(values[counter++]);
@@ -324,15 +324,15 @@ export function getFormattedNumber(num: string, prefix = "+421"): string {
 }
 
 function fuzzy_match_simple(pattern: string, str: string): boolean {
-    let patternIdx      = 0;
-    let strIdx          = 0;
+    let patternIdx = 0;
+    let strIdx = 0;
     const patternLength = pattern.length;
-    const strLength     = str.length;
+    const strLength = str.length;
 
     while (patternIdx !== patternLength && strIdx !== strLength) {
         const patternChar = pattern.charAt(patternIdx)
             .toLowerCase();
-        const strChar     = str.charAt(strIdx)
+        const strChar = str.charAt(strIdx)
             .toLowerCase();
         if (patternChar === strChar) {
             ++patternIdx;

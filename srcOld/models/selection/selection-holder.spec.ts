@@ -64,5 +64,4 @@ describe("Selection holder", () => {
         expect(holder.isSelected("A")).to.be.true;
         expect(holder.isSelected("B")).to.be.true;
     });
-
 });

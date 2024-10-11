@@ -11,12 +11,12 @@ export interface Transform3D {
 
 export function getDefaultTransform3D(): Transform3D {
     return {
-        offset  : {
+        offset: {
             x: 0,
             y: 0,
             z: 1,
         },
-        scale   : {
+        scale: {
             x: 1,
             y: 1,
             z: 1,

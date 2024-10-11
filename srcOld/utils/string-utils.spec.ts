@@ -5,9 +5,9 @@ import * as Validators from "../validators";
 import * as StringUtils from "./string-utils";
 
 describe("StringUtils", () => {
-    const testString   = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
+    const testString = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
     const resultString = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
-    const text         = "abcdedabcdedabcdjidABdsdcdsjo";
+    const text = "abcdedabcdedabcdjidABdsdcdsjo";
 
     describe("Capitalize", () => {
         it("It should make first letter to upper and other letter to lower", () => {
@@ -70,8 +70,8 @@ describe("StringUtils", () => {
     });
     describe("RemoveAccented", () => {
         const notString: string | any = 23;
-        const finalTestString         = testString + testString.toUpperCase();
-        const finalResultString       = resultString + resultString.toUpperCase();
+        const finalTestString = testString + testString.toUpperCase();
+        const finalResultString = resultString + resultString.toUpperCase();
         it("It should remove accented charactersString from string", () => {
             expect(StringUtils.removeAccentedCharacters(finalTestString)).to.be.equal(finalResultString);
             expect(StringUtils.removeAccentedCharacters(finalResultString)).to.be.equal(finalResultString);
@@ -123,7 +123,7 @@ b
     describe("Template", () => {
         it("It should replace placeholders with values", () => {
             const params = {
-                age : "23",
+                age: "23",
                 name: "Gabo",
             };
             expect(StringUtils.template("{{name}} is {{age}} years old", params)).to.be.equal("Gabo is 23 years old");
@@ -179,7 +179,6 @@ b
             expect(StringUtils.getLastPart("i ambhere", "b")).to.be.equal("here");
             expect(StringUtils.getLastPart("", "")).to.be.equal("");
             expect(StringUtils.getLastPart("")).to.be.equal("");
-
         });
     });
     describe("IsValidPhoneNumber", () => {
@@ -225,5 +224,4 @@ b
             expect(StringUtils.joinSingle("result.", ".", ".js")).to.be.equal("result.js");
         });
     });
-
 });

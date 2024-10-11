@@ -1,8 +1,13 @@
-let array: any[]          = [];
+let array: any[] = [];
 let tempMergeArray: any[] = [];
 
-export function mergeSort<T>(arr: T[], comparator: (a: T, b: T) => number): void {
-    array          = arr;
+/**
+ * @export
+ * @param arr
+ * @param comparator
+ */
+export function mergeSort<T>(arr: readonly T[], comparator: (a: T, b: T) => number): void {
+    array = [...arr];
     tempMergeArray = new Array<T>(arr.length);
     doMergeSort(0, arr.length - 1, comparator);
 }
@@ -17,7 +22,12 @@ function doMergeSort<T>(lowerIndex: number, higherIndex: number, comparator: (a:
     mergeParts(lowerIndex, middle, higherIndex, comparator);
 }
 
-function mergeParts<T>(lowerIndex: number, middle: number, higherIndex: number, comparator: (a: T, b: T) => number): void {
+function mergeParts<T>(
+    lowerIndex: number,
+    middle: number,
+    higherIndex: number,
+    comparator: (a: T, b: T) => number,
+): void {
     for (let index = lowerIndex; index <= higherIndex; index++) {
         tempMergeArray[index] = array[index];
     }
@@ -36,5 +46,4 @@ function mergeParts<T>(lowerIndex: number, middle: number, higherIndex: number, 
     while (i <= middle) {
         array[k++] = tempMergeArray[i++];
     }
-
 }

@@ -3,11 +3,11 @@ import { CreateElement, CreateImage } from "./html-utils";
 
 export async function uploadImage(): Promise<HTMLImageElement> {
     return new Promise<HTMLImageElement>((success, reject) => {
-        const element         = CreateElement("input", {
-            type    : "file",
+        const element = CreateElement("input", {
+            type: "file",
             onChange: (event: Event) => {
-                const reader   = new FileReader();
-                reader.onload  = () => {
+                const reader = new FileReader();
+                reader.onload = () => {
                     success(CreateImage({
                         src: reader.result as string,
                     }));
@@ -27,10 +27,10 @@ export async function uploadImage(): Promise<HTMLImageElement> {
 
 export async function uploadFile(): Promise<string> {
     return new Promise<string>((success) => {
-        const element         = CreateElement("input", {
-            type    : "file",
+        const element = CreateElement("input", {
+            type: "file",
             onChange: (event: Event) => {
-                const reader  = new FileReader();
+                const reader = new FileReader();
                 reader.onload = () => {
                     success(reader.result as string);
                 };
@@ -48,7 +48,7 @@ export async function uploadFile(): Promise<string> {
 
 export function clientDownloadFile(text: string, name: string): void {
     const element = CreateElement("a", {
-        href    : `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
+        href: `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
         download: name,
     });
 
@@ -68,8 +68,8 @@ export function includeFile(file: string): void {
     if (!script) {
         return;
     }
-    script.src   = file;
-    script.type  = "text/javascript";
+    script.src = file;
+    script.type = "text/javascript";
     script.defer = true;
     document.head.appendChild(script);
 }

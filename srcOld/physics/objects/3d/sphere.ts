@@ -1,6 +1,11 @@
 import { ReadonlySimpleVector3, Vector3 } from "../../../math";
 import { MinMax3D } from "../../../types";
-import { collision3dPointSphere, collision3dSphereBoxMinMax, collision3dSphereCylinder, collision3dSphereSphere } from "../../collisions-3d";
+import {
+    collision3dPointSphere,
+    collision3dSphereBoxMinMax,
+    collision3dSphereCylinder,
+    collision3dSphereSphere,
+} from "../../collisions-3d";
 import { sphereSphereDistance } from "../../distances-3d";
 import { Cylinder } from "./cylinder";
 import { CollideAble3D, DistanceAble3D, VolumeAble3D } from "./object-3d";
@@ -9,63 +14,69 @@ import { Triangle3D } from "./triangle-3d";
 /**
  * https://github.com/mrdoob/three.js/blob/dev/src/math/Sphere.js
  */
-export class Sphere implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | "point" | "sphere">, DistanceAble3D<"sphere"> {
+export class Sphere
+    implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | "point" | "sphere">, DistanceAble3D<"sphere"> {
     public readonly collideWith = {
-        cylinder: (cylinder: Cylinder): boolean => collision3dSphereCylinder(
-            this.center.x,
-            this.center.y,
-            this.center.z,
-            this.radius,
-            cylinder.position.x,
-            cylinder.position.y,
-            cylinder.position.z,
-            cylinder.radius,
-            cylinder.height,
-        ),
-        point   : (point: ReadonlySimpleVector3): boolean => collision3dPointSphere(
-            point.x,
-            point.y,
-            point.z,
-            this.center.x,
-            this.center.y,
-            this.center.z,
-            this.radius,
-        ),
-        sphere  : (sphere: Sphere): boolean => collision3dSphereSphere(
-            this.center.x,
-            this.center.y,
-            this.center.z,
-            this.radius,
-            sphere.center.x,
-            sphere.center.y,
-            sphere.center.z,
-            sphere.radius,
-        ),
-        minMax  : (minMax: MinMax3D): boolean => collision3dSphereBoxMinMax(
-            this.center.x,
-            this.center.y,
-            this.center.z,
-            this.radius,
-            minMax.min.x,
-            minMax.min.y,
-            minMax.min.z,
-            minMax.max.x,
-            minMax.max.y,
-            minMax.max.z,
-        ),
+        cylinder: (cylinder: Cylinder): boolean =>
+            collision3dSphereCylinder(
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+                cylinder.position.x,
+                cylinder.position.y,
+                cylinder.position.z,
+                cylinder.radius,
+                cylinder.height,
+            ),
+        point: (point: ReadonlySimpleVector3): boolean =>
+            collision3dPointSphere(
+                point.x,
+                point.y,
+                point.z,
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+            ),
+        sphere: (sphere: Sphere): boolean =>
+            collision3dSphereSphere(
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+                sphere.center.x,
+                sphere.center.y,
+                sphere.center.z,
+                sphere.radius,
+            ),
+        minMax: (minMax: MinMax3D): boolean =>
+            collision3dSphereBoxMinMax(
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+                minMax.min.x,
+                minMax.min.y,
+                minMax.min.z,
+                minMax.max.x,
+                minMax.max.y,
+                minMax.max.z,
+            ),
     };
 
     public readonly distanceTo = {
-        sphere: (sphere: Sphere): number => sphereSphereDistance(
-            this.center.x,
-            this.center.y,
-            this.center.z,
-            this.radius,
-            sphere.center.x,
-            sphere.center.y,
-            sphere.center.z,
-            sphere.radius,
-        ),
+        sphere: (sphere: Sphere): number =>
+            sphereSphereDistance(
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+                sphere.center.x,
+                sphere.center.y,
+                sphere.center.z,
+                sphere.radius,
+            ),
     };
 
     public constructor(
@@ -129,7 +140,7 @@ export class Sphere implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder"
 
             points.forEach((point) => {
                 const distance = Vector3.dist(optionalCenter, point);
-                maxRadius      = Math.max(maxRadius, distance);
+                maxRadius = Math.max(maxRadius, distance);
             });
 
             return new Sphere(optionalCenter, maxRadius);
@@ -141,7 +152,7 @@ export class Sphere implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder"
         const sizeY = minMax.max.y - minMax.min.y;
         const sizeZ = minMax.max.z - minMax.min.z;
 
-        const center  = Vector3.sum(minMax.min, minMax.max, new Vector3()).mul(0.5);
+        const center = Vector3.sum(minMax.min, minMax.max, new Vector3()).mul(0.5);
         const maxSize = Math.max(sizeX, sizeY, sizeZ);
 
         return new Sphere(center, maxSize);

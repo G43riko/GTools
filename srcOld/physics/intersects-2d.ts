@@ -25,7 +25,7 @@ export function intersection2dLineLine(
         const x = x1 + uA * (x2 - x1);
         const y = y1 + uA * (y2 - y1);
 
-        return {x, y};
+        return { x, y };
     }
 
     return null;

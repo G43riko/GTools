@@ -18,26 +18,39 @@ export class GLoggerCallbackHolder {
             // [GLoggerPriority.SUCCESS]: (message: unknown[], context?: string) => console.log(context ? `${[context]}\t` : "", ...message),
             // [GLoggerPriority.VERBOSE]: (message: unknown[], context?: string) => console.log(context ? `${[context]}\t` : "", ...message),
 
-            [GLoggerPriority.LOG]    : (message: unknown[], context?: string) => console.log(...formatter.formatColored(GLoggerPriority.LOG, message, context)),
-            [GLoggerPriority.WARN]   : (message: unknown[], context?: string) => console.warn(...formatter.formatColored(GLoggerPriority.WARN, message, context)),
-            [GLoggerPriority.ERROR]  : (message: unknown[], context?: string) => console.error(...formatter.formatColored(GLoggerPriority.ERROR, message, context)),
-            [GLoggerPriority.SUCCESS]: (message: unknown[], context?: string) => console.log(...formatter.formatColored(GLoggerPriority.SUCCESS, message, context)),
-            [GLoggerPriority.VERBOSE]: (message: unknown[], context?: string) => console.log(...formatter.formatColored(GLoggerPriority.VERBOSE, message, context)),
+            [GLoggerPriority.LOG]: (message: unknown[], context?: string) =>
+                console.log(...formatter.formatColored(GLoggerPriority.LOG, message, context)),
+            [GLoggerPriority.WARN]: (message: unknown[], context?: string) =>
+                console.warn(...formatter.formatColored(GLoggerPriority.WARN, message, context)),
+            [GLoggerPriority.ERROR]: (message: unknown[], context?: string) =>
+                console.error(...formatter.formatColored(GLoggerPriority.ERROR, message, context)),
+            [GLoggerPriority.SUCCESS]: (message: unknown[], context?: string) =>
+                console.log(...formatter.formatColored(GLoggerPriority.SUCCESS, message, context)),
+            [GLoggerPriority.VERBOSE]: (message: unknown[], context?: string) =>
+                console.log(...formatter.formatColored(GLoggerPriority.VERBOSE, message, context)),
         });
     }
 
-    public static createArrayCallbacks(array: unknown[], options: { mapper?: (priority: GLoggerPriority, messages: unknown[], context?: string) => unknown } = {}): GLoggerCallbackHolder {
-        const mapper        = options.mapper || ((priority, messages, context) => [priority, messages, context]);
+    public static createArrayCallbacks(
+        array: unknown[],
+        options: { mapper?: (priority: GLoggerPriority, messages: unknown[], context?: string) => unknown } = {},
+    ): GLoggerCallbackHolder {
+        const mapper = options.mapper || ((priority, messages, context) => [priority, messages, context]);
         const appendToArray = (priority: GLoggerPriority, messages: unknown[], context?: string): void => {
             array.push(mapper(priority, messages, context));
         };
 
         return new GLoggerCallbackHolder({
-            [GLoggerPriority.LOG]    : (message: unknown[], context?: string) => appendToArray(GLoggerPriority.LOG, message, context),
-            [GLoggerPriority.WARN]   : (message: unknown[], context?: string) => appendToArray(GLoggerPriority.WARN, message, context),
-            [GLoggerPriority.ERROR]  : (message: unknown[], context?: string) => appendToArray(GLoggerPriority.ERROR, message, context),
-            [GLoggerPriority.SUCCESS]: (message: unknown[], context?: string) => appendToArray(GLoggerPriority.SUCCESS, message, context),
-            [GLoggerPriority.VERBOSE]: (message: unknown[], context?: string) => appendToArray(GLoggerPriority.VERBOSE, message, context),
+            [GLoggerPriority.LOG]: (message: unknown[], context?: string) =>
+                appendToArray(GLoggerPriority.LOG, message, context),
+            [GLoggerPriority.WARN]: (message: unknown[], context?: string) =>
+                appendToArray(GLoggerPriority.WARN, message, context),
+            [GLoggerPriority.ERROR]: (message: unknown[], context?: string) =>
+                appendToArray(GLoggerPriority.ERROR, message, context),
+            [GLoggerPriority.SUCCESS]: (message: unknown[], context?: string) =>
+                appendToArray(GLoggerPriority.SUCCESS, message, context),
+            [GLoggerPriority.VERBOSE]: (message: unknown[], context?: string) =>
+                appendToArray(GLoggerPriority.VERBOSE, message, context),
         });
     }
 

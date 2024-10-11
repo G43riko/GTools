@@ -18,7 +18,7 @@ export function ajax({
     content,
     headers = {},
 }: AjaxParams): AjaxWrapper {
-    const request              = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     request.onreadystatechange = () => {
         if (!(request.readyState === 4 && (request.status === 200 || request.status === 201))) {
             return;

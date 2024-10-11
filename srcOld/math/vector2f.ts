@@ -39,10 +39,14 @@ export class Vector2f {
      * @returns created {@link Vector2f}
      */
     public set(arg1: Vector2f | number, arg2?: number): this {
-        process((x, y) => {
-            this.x = x;
-            this.y = y;
-        }, arg1, arg2);
+        process(
+            (x, y) => {
+                this.x = x;
+                this.y = y;
+            },
+            arg1,
+            arg2,
+        );
 
         return this;
     }
@@ -55,10 +59,14 @@ export class Vector2f {
      * @returns updated {@link Vector2f}
      */
     public add(arg1: Vector2f | number, arg2?: number): this {
-        process((x, y) => {
-            this.x += x;
-            this.y += y;
-        }, arg1, arg2);
+        process(
+            (x, y) => {
+                this.x += x;
+                this.y += y;
+            },
+            arg1,
+            arg2,
+        );
 
         return this;
     }
@@ -71,10 +79,14 @@ export class Vector2f {
      * @returns updated {@link Vector2f}
      */
     public div(arg1: Vector2f | number, arg2?: number): this {
-        process((x, y) => {
-            this.x /= x;
-            this.y /= y;
-        }, arg1, arg2);
+        process(
+            (x, y) => {
+                this.x /= x;
+                this.y /= y;
+            },
+            arg1,
+            arg2,
+        );
 
         return this;
     }
@@ -87,10 +99,14 @@ export class Vector2f {
      * @returns updated {@link Vector2f}
      */
     public mul(arg1: Vector2f | number, arg2?: number): this {
-        process((x, y) => {
-            this.x *= x;
-            this.y *= y;
-        }, arg1, arg2);
+        process(
+            (x, y) => {
+                this.x *= x;
+                this.y *= y;
+            },
+            arg1,
+            arg2,
+        );
 
         return this;
     }
@@ -103,10 +119,14 @@ export class Vector2f {
      * @returns updated {@link Vector2f}
      */
     public sub(arg1: Vector2f | number, arg2?: number): this {
-        process((x, y) => {
-            this.x -= x;
-            this.y -= y;
-        }, arg1, arg2);
+        process(
+            (x, y) => {
+                this.x -= x;
+                this.y -= y;
+            },
+            arg1,
+            arg2,
+        );
 
         return this;
     }

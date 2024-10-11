@@ -31,9 +31,7 @@ export class SelectionHolder<T> {
 
     public unselect(item: T): void {
         const newSelectedValues = [...this.selectedValues];
-        const index             = this.selectedValues.findIndex((actualItem) =>
-            this.comparator(actualItem, item),
-        );
+        const index = this.selectedValues.findIndex((actualItem) => this.comparator(actualItem, item));
         if (index < 0) {
             return;
         }

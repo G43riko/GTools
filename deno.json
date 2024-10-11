@@ -1,7 +1,30 @@
 {
     "name": "@g43/utils",
     "tasks": {
-        "bench": "deno bench src/"
+        "bench": "deno bench src/",
+        "test": "deno test",
+        "bench:utils": "deno bench  src/utils",
+        "doc": "deno doc --html --name=\"@g43/tools\" --output=docs src/index.ts ",
+        "startDocs": "deno run --allow-net --allow-read utils/serve-docs.ts",
+        "serveDocs": "deno run --allow-net --watch --allow-read utils/serve-docs.ts"
+    },
+    "lint": {
+        "rules": {
+            "exclude": ["no-explicit-any"]
+        }
+    },
+    "fmt": {
+        "lineWidth": 120,
+        "indentWidth": 4
+    },
+    "test": {
+        "include": ["src/**/*.spec.ts"]
+    },
+    "compilerOptions": {
+        "strict": true
+    },
+    "imports": {
+        "std/": "https://deno.land/std@0.224.0/"
     },
     "version": "0.1.0",
     "exports": "./src/index.ts"

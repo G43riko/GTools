@@ -7,9 +7,9 @@ import { Quaternion } from "../math/quaternion";
  */
 
 export class Transform {
-    private _position             = new Vector3();
-    private _rotation             = new Quaternion();
-    private _scale                = new Vector3(1, 1, 1);
+    private _position = new Vector3();
+    private _rotation = new Quaternion();
+    private _scale = new Vector3(1, 1, 1);
     protected readonly _transformationMatrix = Mat4.create();
 
     // public lookAt(target: SimpleVector3): void {
@@ -29,7 +29,7 @@ export class Transform {
         const result = new Transform();
 
         result._position = this._position.clone();
-        result._scale    = this._scale.clone();
+        result._scale = this._scale.clone();
         result._rotation = this._rotation.clone();
         result.updateTransformationMatrix();
 
@@ -55,7 +55,6 @@ export class Transform {
     }
 
     /**
-     *
      * @param x - rotation about X axis in radians
      * @param y - rotation about Y axis in radians
      * @param z - rotation about Z axis in radians

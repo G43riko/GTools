@@ -5,9 +5,9 @@ let config: GToolsConfigInterface;
 const checkConfig = (): GToolsConfigInterface => {
     if (!config) {
         return {
-            URL_API   : "",
-            LANGUAGE  : "",
-            VERSION   : "",
+            URL_API: "",
+            LANGUAGE: "",
+            VERSION: "",
             PAGE_LIMIT: 0,
         };
     }
@@ -22,7 +22,6 @@ const checkConfig = (): GToolsConfigInterface => {
  * }
  *
  * export const OwnConfig = new ClassOwnConfig();
- *
  */
 export class ClassGToolsConfig implements GToolsConfigInterface {
     public get URL_API(): string {
@@ -40,7 +39,6 @@ export class ClassGToolsConfig implements GToolsConfigInterface {
     public get VERSION(): string {
         return checkConfig().VERSION;
     }
-
 }
 
 export function initConfig(appConfig: GToolsConfigInterface): void {

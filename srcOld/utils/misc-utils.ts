@@ -7,9 +7,9 @@ import { StringMap } from "../types";
  */
 export function parseCookies(cookies: string): StringMap {
     const list: StringMap = {};
-    const data            = cookies ? cookies.toString().split(";") : [];
+    const data = cookies ? cookies.toString().split(";") : [];
     data.forEach((cookie) => {
-        const parts     = cookie.split("=");
+        const parts = cookie.split("=");
         const shiftPart = parts.shift();
         if (shiftPart) {
             list[shiftPart.trim()] = decodeURI(parts.join("="));
@@ -68,7 +68,7 @@ export function setCookie(name: string, value: string | number | boolean, days: 
 
 export function getCookie(cname: string, source = typeof document !== "undefined" ? document.cookie : ""): string {
     const name = `${cname}=`;
-    const ca   = source.split(";");
+    const ca = source.split(";");
     for (let c of ca) {
         while (c.charAt(0) === " ") {
             c = c.substring(1);
@@ -92,12 +92,12 @@ export function getCookie(cname: string, source = typeof document !== "undefined
  *  parseParams<any>("name=Gabriel&age=23&email=gcsollei&email=gabrielcsollei&email=test").email[2] => test
  */
 export function parseParams<T>(
-    query     = typeof window !== "undefined" ? window.location.search.substring(1) : "",
+    query = typeof window !== "undefined" ? window.location.search.substring(1) : "",
     separator = "&",
     delimiter = "=",
 ): T {
     const queryString: { [key in string]: any } = {};
-    const vars: string[]   = query.split(separator);
+    const vars: string[] = query.split(separator);
     for (const pair of vars) {
         const [key, value] = pair.split(delimiter);
         if (typeof queryString[key] === "undefined") {
@@ -144,7 +144,8 @@ export function parse<T>(obj: string): T {
     const result = JSON.parse(obj) as StringMap<string>;
     for (const i in result) {
         // eslint-disable-next-line no-prototype-builtins
-        if (!result.hasOwnProperty(i) ||
+        if (
+            !result.hasOwnProperty(i) ||
             typeof result[i] !== "string" || !(result[i].indexOf("function (") === 0 ||
                 (/^\([_a-zA-Z0-9]+( *, *[_a-zA-Z0-9]+)*\) *=>/.exec(result[i])))
         ) {
@@ -168,7 +169,10 @@ export function parse<T>(obj: string): T {
  * @example
  *  map({name: "gabriel", age: 29.534}, {name: {mapper: (e) => e.toUpperCase(), destVal: "firstName"}, age: {mapper: Math.round}) ==> {surName: "GABRIEL", age: 30}
  */
-export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: { mapper: (sourceVal: S[attr]) => T[keyof T]; destVal: keyof T } }): T {
+export function mapObject<S = any, T = S>(
+    source: S,
+    data: { [attr in keyof S]: { mapper: (sourceVal: S[attr]) => T[keyof T]; destVal: keyof T } },
+): T {
     const result: Partial<T> = {};
 
     for (const key in data) {
@@ -176,8 +180,8 @@ export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: 
             continue;
         }
 
-        const item      = data[key];
-        const realKey   = item.destVal ?? key;
+        const item = data[key];
+        const realKey = item.destVal ?? key;
         result[realKey] = item.mapper(source[key]);
     }
 
@@ -188,7 +192,10 @@ export function mapObject<S = any, T = S>(source: S, data: { [attr in keyof S]: 
  * @example
  *  map({name: "gabriel", age: 29.534}, [{attrS: name}])
  */
-export function map<S = any, T = S>(source: S, data: { attrS: keyof S; attrD?: keyof T; mapFunction: (src: any) => any }[]): T {
+export function map<S = any, T = S>(
+    source: S,
+    data: { attrS: keyof S; attrD?: keyof T; mapFunction: (src: any) => any }[],
+): T {
     const destination: { [key in string | number | symbol]: any } = {};
 
     data.forEach((item) => {

@@ -39,25 +39,32 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
         return this.data.length;
     }
 
-    public static initEmpty<S>(x: number, y: number, z: number, defaultValue: S = null as unknown as S): Grid3ArrayHolder<S> {
-        const size   = x * y * z;
+    public static initEmpty<S>(
+        x: number,
+        y: number,
+        z: number,
+        defaultValue: S = null as unknown as S,
+    ): Grid3ArrayHolder<S> {
+        const size = x * y * z;
         const result = new Array<S>(size);
         for (let i = 0; i < size; i++) {
             result[i] = defaultValue;
         }
 
-        return new Grid3ArrayHolder<S>({x, y, z}, result);
+        return new Grid3ArrayHolder<S>({ x, y, z }, result);
     }
 
     public get(x: number, y: number, z: number): T {
         return this.data[this.getIndex(x, y, z)];
     }
 
-    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+    public fill<R extends T & Record<string | number, unknown>>(
+        value: ((x: number, y: number, z: number) => R) | R,
+    ): void {
         if (typeof value === "function") {
             for (let i = 0; i < this.data.length; i++) {
                 const coordinates = this.getCoordinates(i);
-                this.data[i]      = value(coordinates.x, coordinates.y, coordinates.z);
+                this.data[i] = value(coordinates.x, coordinates.y, coordinates.z);
             }
         } else {
             this.data.fill(value);
@@ -86,15 +93,15 @@ export class Grid3ArrayHolder<T> implements Grid3Holder<T> {
     }
 
     public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
-        const aIndex      = this.getIndex(ax, ay, az);
-        const bIndex      = this.getIndex(bx, by, bz);
-        const tmp         = this.data[aIndex];
+        const aIndex = this.getIndex(ax, ay, az);
+        const bIndex = this.getIndex(bx, by, bz);
+        const tmp = this.data[aIndex];
         this.data[aIndex] = this.data[bIndex];
         this.data[bIndex] = tmp;
     }
 
     public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
-        const index      = this.getIndex(x, y, z);
+        const index = this.getIndex(x, y, z);
         this.data[index] = transformer(this.data[index]);
     }
 

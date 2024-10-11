@@ -50,7 +50,7 @@ export class Capsule2D implements MassAble2D {
         };
 
         const length = this.length;
-        const area   = capsuleA(length, this.radius);
+        const area = capsuleA(length, this.radius);
 
         return (area > 0) ? capsuleI(length, this.radius) / area : 0;
     }

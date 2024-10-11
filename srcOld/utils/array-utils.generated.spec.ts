@@ -3,21 +3,39 @@ import "mocha";
 import * as TESTED_OBJ from "./array-utils";
 
 describe("array-utils", () => {
-
     it("It should test function where", () => {
-
     });
 
     it("It should test function compareArrays", () => {
         expect(TESTED_OBJ.compareArrays(["a", "b", "c"], ["a", "b", "c"])).to.be.true;
-        expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}])).to.be.false;
-        expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v)).to.be.true;
-        expect(TESTED_OBJ.compareArrays([{v: "a"}, {v: "b"}, {v: "c"}], [{v: "a"}, {v: "b"}, {v: "c"}], (a, b) => a.v === b.v)).to.be.true;
+        expect(TESTED_OBJ.compareArrays([{ v: "a" }, { v: "b" }, { v: "c" }], [{ v: "a" }, { v: "b" }, { v: "c" }])).to
+            .be
+            .false;
+        expect(
+            TESTED_OBJ.compareArrays(
+                [{ v: "a" }, { v: "b" }, { v: "c" }],
+                [{ v: "a" }, { v: "b" }, { v: "c" }],
+                (a, b) => a.v === b.v,
+            ),
+        ).to.be.true;
+        expect(
+            TESTED_OBJ.compareArrays(
+                [{ v: "a" }, { v: "b" }, { v: "c" }],
+                [{ v: "a" }, { v: "b" }, { v: "c" }],
+                (a, b) => a.v === b.v,
+            ),
+        ).to.be.true;
     });
 
     it("It should test function analyzeArrayChanges", () => {
-        expect(TESTED_OBJ.analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"])).to.deep.equal({"toAdd": [], "toRemove": []});
-        expect(TESTED_OBJ.analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"])).to.deep.equal({"toAdd": ["d"], "toRemove": ["a"]});
+        expect(TESTED_OBJ.analyzeArrayChanges(["a", "b", "c"], ["a", "b", "c"])).to.deep.equal({
+            "toAdd": [],
+            "toRemove": [],
+        });
+        expect(TESTED_OBJ.analyzeArrayChanges(["a", "b", "c"], ["b", "c", "d"])).to.deep.equal({
+            "toAdd": ["d"],
+            "toRemove": ["a"],
+        });
     });
 
     it("It should test function sum", () => {
@@ -42,6 +60,12 @@ describe("array-utils", () => {
 
     it("It should test function makeUnique", () => {
         expect(TESTED_OBJ.makeUnique([5, 5, 3, 2, 1, 4, 5, 4])).to.deep.equal([5, 3, 2, 1, 4]);
-        expect(TESTED_OBJ.makeUnique(["5", "5", "3", "2", "1", "4", "5", "4"])).to.deep.equal(["5", "3", "2", "1", "4"]);
+        expect(TESTED_OBJ.makeUnique(["5", "5", "3", "2", "1", "4", "5", "4"])).to.deep.equal([
+            "5",
+            "3",
+            "2",
+            "1",
+            "4",
+        ]);
     });
 });

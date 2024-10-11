@@ -1,6 +1,5 @@
 import { Button, Keys } from "../enums";
 
-
 export function getButtonFromEventButtons(button: MouseEvent["button"]): Button | undefined {
     if (button === 0) {
         return Button.LEFT;

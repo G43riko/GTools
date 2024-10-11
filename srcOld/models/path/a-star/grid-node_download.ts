@@ -4,7 +4,7 @@ export class GridNode {
     public h = 0;
 
     public visited = false;
-    public closed  = false;
+    public closed = false;
 
     public parent: GridNode | null = null;
 
@@ -16,12 +16,12 @@ export class GridNode {
     }
 
     public cleanUp(): void {
-        this.f       = 0;
-        this.g       = 0;
-        this.h       = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
         this.visited = false;
-        this.closed  = false;
-        this.parent  = null;
+        this.closed = false;
+        this.parent = null;
     }
 
     public toString(): string {

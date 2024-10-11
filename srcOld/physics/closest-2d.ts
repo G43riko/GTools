@@ -30,4 +30,3 @@ export function pointLine2dClosest(
         y: sy1 + u * yDelta,
     };
 }
-

@@ -43,5 +43,4 @@ export class Ellipsoid implements VolumeAble3D {
             },
         };
     }
-
 }

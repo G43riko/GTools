@@ -59,7 +59,7 @@ describe("Runtime", () => {
             expect(Runtime.exists(234)).to.be.equal(234);
             expect(Runtime.exists(true)).to.be.true;
             expect(Runtime.exists(false)).to.be.false;
-            expect(Runtime.exists({a: "a"})).to.deep.equal({a: "a"});
+            expect(Runtime.exists({ a: "a" })).to.deep.equal({ a: "a" });
             expect(Runtime.exists(MockData.randomArray)).to.deep.equal(MockData.randomArray);
             expect(Runtime.exists("Hello")).to.be.equal("Hello");
             expect(() => Runtime.exists(undefined)).to.throw(Error);
@@ -69,7 +69,7 @@ describe("Runtime", () => {
             expect(Runtime.notNull(234)).to.be.equal(234);
             expect(Runtime.notNull(true)).to.be.true;
             expect(Runtime.notNull(false)).to.be.false;
-            expect(Runtime.notNull({a: "a"})).to.deep.equal({a: "a"});
+            expect(Runtime.notNull({ a: "a" })).to.deep.equal({ a: "a" });
             expect(() => Runtime.notNull(null)).to.throw(NullPointerException);
         });
 

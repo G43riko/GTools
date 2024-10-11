@@ -50,8 +50,8 @@ export function collision3dLineSphere(
 }
 
 export enum IntersectionType {
-    OUTSIDE          = "OUTSIDE",
-    INSIDE           = "INSIDE",
+    OUTSIDE = "OUTSIDE",
+    INSIDE = "INSIDE",
     ONE_INTERSECTION = "ONE_INTERSECTION",
     TWO_INTERSECTION = "TWO_INTERSECTION",
 }
@@ -72,9 +72,9 @@ export function collision3dLineBox2(
     maxZ: number,
     result: SimpleVector2,
 ): IntersectionType {
-    const dirX    = p1X - p0X;
-    const dirY    = p1Y - p0Y;
-    const dirZ    = p1Z - p0Z;
+    const dirX = p1X - p0X;
+    const dirY = p1Y - p0Y;
+    const dirZ = p1Z - p0Z;
     const invDirX = 1 / dirX;
     const invDirY = 1 / dirY;
     const invDirZ = 1 / dirZ;
@@ -88,10 +88,10 @@ export function collision3dLineBox2(
 
     if (invDirX >= 0) {
         tNear = (minX - p0X) * invDirX;
-        tFar  = (maxX - p0X) * invDirX;
+        tFar = (maxX - p0X) * invDirX;
     } else {
         tNear = (maxX - p0X) * invDirX;
-        tFar  = (minX - p0X) * invDirX;
+        tFar = (minX - p0X) * invDirX;
     }
     if (invDirY >= 0) {
         tymin = (minY - p0Y) * invDirY;
@@ -113,10 +113,10 @@ export function collision3dLineBox2(
     if (tNear > tzmax || tzmin > tFar) {
         return IntersectionType.OUTSIDE;
     }
-    tNear    = tymin > tNear || isNaN(tNear) ? tymin : tNear;
-    tFar     = tymax < tFar || isNaN(tFar) ? tymax : tFar;
-    tNear    = tzmin > tNear ? tzmin : tNear;
-    tFar     = tzmax < tFar ? tzmax : tFar;
+    tNear = tymin > tNear || isNaN(tNear) ? tymin : tNear;
+    tFar = tymax < tFar || isNaN(tFar) ? tymax : tFar;
+    tNear = tzmin > tNear ? tzmin : tNear;
+    tFar = tzmax < tFar ? tzmax : tFar;
     let type = IntersectionType.OUTSIDE;
     if (tNear < tFar && tNear <= 1 && tFar >= 0) {
         if (tNear > 0 && tFar > 1) {
@@ -124,7 +124,7 @@ export function collision3dLineBox2(
             type = IntersectionType.ONE_INTERSECTION;
         } else if (tNear < 0 && tFar < 1) {
             tNear = tFar;
-            type  = IntersectionType.ONE_INTERSECTION;
+            type = IntersectionType.ONE_INTERSECTION;
         } else if (tNear < 0 && tFar > 1) {
             type = IntersectionType.INSIDE;
         } else {
@@ -151,9 +151,9 @@ export function collision3dBoxBoxMinMax(
     maxY: number,
     maxZ: number,
 ): boolean {
-    return ax + aWidth > minX && ax < maxX
-        && ay + aHeight > minY && ay < maxY
-        && az + aDepth > minZ && az < maxZ;
+    return ax + aWidth > minX && ax < maxX &&
+        ay + aHeight > minY && ay < maxY &&
+        az + aDepth > minZ && az < maxZ;
 }
 
 export function collision3dMinMaxMinMax(
@@ -170,9 +170,9 @@ export function collision3dMinMaxMinMax(
     maxBY: number,
     maxBZ: number,
 ): boolean {
-    return maxAX > minBX && minAX < maxBX
-        && maxAY > minBY && minAY < maxBY
-        && maxAZ > minBZ && minAZ < maxBZ;
+    return maxAX > minBX && minAX < maxBX &&
+        maxAY > minBY && minAY < maxBY &&
+        maxAZ > minBZ && minAZ < maxBZ;
 }
 
 export function collision3dPointBox(
@@ -186,9 +186,9 @@ export function collision3dPointBox(
     aHeight: number,
     aDepth: number,
 ): boolean {
-    return ax < bx && ax + aWidth > bx
-        && ay < by && ay + aHeight > by
-        && az < bz && az + aDepth > bz;
+    return ax < bx && ax + aWidth > bx &&
+        ay < by && ay + aHeight > by &&
+        az < bz && az + aDepth > bz;
 }
 
 export function collision3dPointBoxMinMax(
@@ -202,9 +202,9 @@ export function collision3dPointBoxMinMax(
     maxY: number,
     maxZ: number,
 ): boolean {
-    return bPosX >= minX && bPosX <= maxX
-        && bPosY >= minY && bPosY >= minY
-        && bPosZ >= minZ && bPosZ <= maxZ;
+    return bPosX >= minX && bPosX <= maxX &&
+        bPosY >= minY && bPosY >= minY &&
+        bPosZ >= minZ && bPosZ <= maxZ;
 }
 
 export function collision3dLineBox(
@@ -221,36 +221,108 @@ export function collision3dLineBox(
     bSizeY: number,
     bSizeZ: number,
 ): boolean {
-    return intersection3dVectorSquare(a1x, a1y, a1z,
-        a2x, a2y, a2z,
-        bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ,
-        bPosX - bSizeX, bPosY - bSizeY, bPosZ - bSizeZ,
-        bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        intersection3dVectorSquare(a1x, a1y, a1z,
-            a2x, a2y, a2z,
-            bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
-            bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
-            bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ) ||
-        intersection3dVectorSquare(a1x, a1y, a1z,
-            a2x, a2y, a2z,
-            bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
-            bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
-            bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        intersection3dVectorSquare(a1x, a1y, a1z,
-            a2x, a2y, a2z,
-            bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
-            bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
-            bPosX - bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        intersection3dVectorSquare(a1x, a1y, a1z,
-            a2x, a2y, a2z,
-            bPosX + bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
-            bPosX - bSizeX, bPosY + bSizeY, bPosZ + bSizeZ,
-            bPosX + bSizeX, bPosY + bSizeY, bPosZ - bSizeZ) ||
-        intersection3dVectorSquare(a1x, a1y, a1z,
-            a2x, a2y, a2z,
-            bPosX + bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
-            bPosX - bSizeX, bPosY - bSizeY, bPosZ + bSizeZ,
-            bPosX + bSizeX, bPosY - bSizeY, bPosZ - bSizeZ);
+    return intersection3dVectorSquare(
+        a1x,
+        a1y,
+        a1z,
+        a2x,
+        a2y,
+        a2z,
+        bPosX - bSizeX,
+        bPosY + bSizeY,
+        bPosZ - bSizeZ,
+        bPosX - bSizeX,
+        bPosY - bSizeY,
+        bPosZ - bSizeZ,
+        bPosX + bSizeX,
+        bPosY + bSizeY,
+        bPosZ - bSizeZ,
+    ) ||
+        intersection3dVectorSquare(
+            a1x,
+            a1y,
+            a1z,
+            a2x,
+            a2y,
+            a2z,
+            bPosX - bSizeX,
+            bPosY + bSizeY,
+            bPosZ + bSizeZ,
+            bPosX - bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+            bPosX + bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+        ) ||
+        intersection3dVectorSquare(
+            a1x,
+            a1y,
+            a1z,
+            a2x,
+            a2y,
+            a2z,
+            bPosX + bSizeX,
+            bPosY + bSizeY,
+            bPosZ + bSizeZ,
+            bPosX + bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+            bPosX + bSizeX,
+            bPosY + bSizeY,
+            bPosZ - bSizeZ,
+        ) ||
+        intersection3dVectorSquare(
+            a1x,
+            a1y,
+            a1z,
+            a2x,
+            a2y,
+            a2z,
+            bPosX - bSizeX,
+            bPosY + bSizeY,
+            bPosZ + bSizeZ,
+            bPosX - bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+            bPosX - bSizeX,
+            bPosY + bSizeY,
+            bPosZ - bSizeZ,
+        ) ||
+        intersection3dVectorSquare(
+            a1x,
+            a1y,
+            a1z,
+            a2x,
+            a2y,
+            a2z,
+            bPosX + bSizeX,
+            bPosY + bSizeY,
+            bPosZ + bSizeZ,
+            bPosX - bSizeX,
+            bPosY + bSizeY,
+            bPosZ + bSizeZ,
+            bPosX + bSizeX,
+            bPosY + bSizeY,
+            bPosZ - bSizeZ,
+        ) ||
+        intersection3dVectorSquare(
+            a1x,
+            a1y,
+            a1z,
+            a2x,
+            a2y,
+            a2z,
+            bPosX + bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+            bPosX - bSizeX,
+            bPosY - bSizeY,
+            bPosZ + bSizeZ,
+            bPosX + bSizeX,
+            bPosY - bSizeY,
+            bPosZ - bSizeZ,
+        );
 }
 
 export function collision3dLineSphere2(
@@ -265,12 +337,12 @@ export function collision3dLineSphere2(
     centerZ: number,
     radiusSquared: number,
 ): boolean {
-    let dX    = p1X - p0X;
-    let dY    = p1Y - p0Y;
-    let dZ    = p1Z - p0Z;
+    let dX = p1X - p0X;
+    let dY = p1Y - p0Y;
+    let dZ = p1Z - p0Z;
     const nom = (centerX - p0X) * dX + (centerY - p0Y) * dY + (centerZ - p0Z) * dZ;
     const den = dX * dX + dY * dY + dZ * dZ;
-    const u   = nom / den;
+    const u = nom / den;
     if (u < 0) {
         dX = p0X - centerX;
         dY = p0Y - centerY;
@@ -283,9 +355,9 @@ export function collision3dLineSphere2(
         const pX = p0X + u * dX;
         const pY = p0Y + u * dY;
         const pZ = p0Z + u * dZ;
-        dX       = pX - centerX;
-        dY       = pY - centerY;
-        dZ       = pZ - centerZ;
+        dX = pX - centerX;
+        dY = pY - centerY;
+        dZ = pZ - centerZ;
     }
     const dist = dX * dX + dY * dY + dZ * dZ;
 
@@ -489,7 +561,7 @@ export function collision3dSphereBoxMinMax(
      * Y - max
      * Z - center
      */
-    const func   = (val: Vector3): number => {
+    const func = (val: Vector3): number => {
         let d = 0;
         if (val.z < val.x) {
             d = val.z - val.x;

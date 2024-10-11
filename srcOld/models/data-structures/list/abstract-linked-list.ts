@@ -16,7 +16,7 @@ export abstract class AbstractLinkedList<T, S extends { next?: S; item: T }> imp
             next(): IteratorResult<T> {
                 if (current) {
                     const value = current.item;
-                    current     = current.next;
+                    current = current.next;
 
                     return {
                         value,
@@ -26,7 +26,7 @@ export abstract class AbstractLinkedList<T, S extends { next?: S; item: T }> imp
 
                 return {
                     value: undefined,
-                    done : true,
+                    done: true,
                 };
             },
         };

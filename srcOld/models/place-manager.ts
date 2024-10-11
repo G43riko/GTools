@@ -13,7 +13,11 @@ class WorldPlaceItem {
 }
 
 export class WorldPlaceManager {
-    private readonly mapHolder = Grid2ArrayHolder.initWithProvider(this.size.x, this.size.y, () => new WorldPlaceItem());
+    private readonly mapHolder = Grid2ArrayHolder.initWithProvider(
+        this.size.x,
+        this.size.y,
+        () => new WorldPlaceItem(),
+    );
 
     public constructor(
         private readonly size: ReadonlySimpleVector2,
@@ -30,13 +34,17 @@ export class WorldPlaceManager {
         }
 
         // check borders
-        if (x + size.x > this.size.x ||
-            y + size.y > this.size.y) {
+        if (
+            x + size.x > this.size.x ||
+            y + size.y > this.size.y
+        ) {
             return false;
         }
 
-        return this.mapHolder.getAreaBlocks({x, y}, size).every(
-            (e) => this.externalPlaceAccessibilityProvider(e.coordinates.x, e.coordinates.y) && !this.mapHolder.get(e.coordinates.x, e.coordinates.y).root.item,
+        return this.mapHolder.getAreaBlocks({ x, y }, size).every(
+            (e) =>
+                this.externalPlaceAccessibilityProvider(e.coordinates.x, e.coordinates.y) &&
+                !this.mapHolder.get(e.coordinates.x, e.coordinates.y).root.item,
         );
     }
 
@@ -51,7 +59,7 @@ export class WorldPlaceManager {
     }
 
     private setChildren(position: ReadonlySimpleVector2, size?: ReadonlySimpleVector2, parent?: WorldPlaceItem): void {
-        this.mapHolder.getArea(position, size ?? {x: 1, y: 1}).forEach((block) => {
+        this.mapHolder.getArea(position, size ?? { x: 1, y: 1 }).forEach((block) => {
             if (!block || block === parent) {
                 return;
             }
@@ -70,9 +78,9 @@ export class WorldPlaceManager {
     }
 
     public setItem(type: string, instance: { position: ReadonlySimpleVector2; size?: ReadonlySimpleVector2 }): void {
-        const block    = this.mapHolder.get(instance.position.x, instance.position.y);
-        block.item     = {type, instance};
-        block.size     = instance.size;
+        const block = this.mapHolder.get(instance.position.x, instance.position.y);
+        block.item = { type, instance };
+        block.size = instance.size;
         block.position = instance.position;
 
         this.setChildren(instance.position, instance.size, block);
@@ -85,16 +93,19 @@ export class WorldPlaceManager {
         }
         this.setChildren(root.position, root.size, undefined);
 
-        root.item     = undefined;
+        root.item = undefined;
         root.position = undefined;
-        root.size     = undefined;
+        root.size = undefined;
 
         return true;
     }
 
-    public getCanvas(colorProvider: (x: number, y: number, instanceType?: string) => string, blockSize = {x: 16, y: 16}): HTMLCanvasElement {
-        const canvas  = document.createElement("canvas");
-        canvas.width  = blockSize.x * this.mapHolder.size.x;
+    public getCanvas(
+        colorProvider: (x: number, y: number, instanceType?: string) => string,
+        blockSize = { x: 16, y: 16 },
+    ): HTMLCanvasElement {
+        const canvas = document.createElement("canvas");
+        canvas.width = blockSize.x * this.mapHolder.size.x;
         canvas.height = blockSize.y * this.mapHolder.size.y;
         const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
@@ -106,8 +117,8 @@ export class WorldPlaceManager {
             context.fillRect(
                 x * blockSize.x,
                 y * blockSize.y,
-                (item.size ? blockSize.x * item.size.x : blockSize.x),
-                (item.size ? blockSize.y * item.size.y : blockSize.y),
+                item.size ? blockSize.x * item.size.x : blockSize.x,
+                item.size ? blockSize.y * item.size.y : blockSize.y,
             );
         });
 

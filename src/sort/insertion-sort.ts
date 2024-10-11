@@ -1,3 +1,8 @@
+/**
+ * @export
+ * @param list
+ * @param comparator
+ */
 export function insertionSort<T>(list: readonly T[], comparator: (a: T, b: T) => number): void {
     const listCopy = [...list];
     for (let i = 1; i < listCopy.length; i++) {
@@ -9,9 +14,9 @@ export function insertionSort<T>(list: readonly T[], comparator: (a: T, b: T) =>
 }
 
 function sortUpLowToHigh<T>(list: T[], i: number, comparator: (a: T, b: T) => number): void {
-    const item     = list[i];
+    const item = list[i];
     let attemptPos = i - 1;
-    while (attemptPos !== 0 && comparator(list[attemptPos - 1], item, ) > 0) {
+    while (attemptPos !== 0 && comparator(list[attemptPos - 1], item) > 0) {
         attemptPos--;
     }
     list.splice(i, 1);

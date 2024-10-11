@@ -13,19 +13,28 @@ describe("Distances2d", () => {
     describe("line-point", () => {
         it("It should check points on line", () => {
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                0, 0,
+                0,
+                0,
+                0,
+                20,
+                0,
+                0,
             )).to.be.equal(0);
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                0, 20,
+                0,
+                0,
+                0,
+                20,
+                0,
+                20,
             )).to.be.equal(0);
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                0, 10,
+                0,
+                0,
+                0,
+                20,
+                0,
+                10,
             )).to.be.equal(0);
         });
 
@@ -36,9 +45,12 @@ describe("Distances2d", () => {
              * |
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                10, 10,
+                0,
+                0,
+                0,
+                20,
+                10,
+                10,
             )).to.be.equal(10);
             /**
              * |
@@ -46,9 +58,12 @@ describe("Distances2d", () => {
              * |.x
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                10, 0,
+                0,
+                0,
+                0,
+                20,
+                10,
+                0,
             )).to.be.equal(10);
 
             /**
@@ -57,9 +72,12 @@ describe("Distances2d", () => {
              * x.|
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                -10, 0,
+                0,
+                0,
+                0,
+                20,
+                -10,
+                0,
             )).to.be.equal(10);
 
             /**
@@ -70,9 +88,12 @@ describe("Distances2d", () => {
              * x
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                0, -10,
+                0,
+                0,
+                0,
+                20,
+                0,
+                -10,
             )).to.be.equal(10);
 
             /**
@@ -83,9 +104,12 @@ describe("Distances2d", () => {
              * |
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                0, 30,
+                0,
+                0,
+                0,
+                20,
+                0,
+                30,
             )).to.be.equal(10);
             /**
              *   x
@@ -94,9 +118,12 @@ describe("Distances2d", () => {
              * |
              */
             expect(distance2dPointLine(
-                0, 0,
-                0, 20,
-                10, 30,
+                0,
+                0,
+                0,
+                20,
+                10,
+                30,
             )).to.be.equal(distance2dPointPoint(0, 20, 10, 30));
         });
     });

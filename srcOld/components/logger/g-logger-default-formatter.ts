@@ -3,7 +3,7 @@ import { GLoggerFormatter } from "./g-logger";
 import { GLoggerPriority } from "./g-logger-priority";
 
 export class ColorGenerator {
-    public useDifferentColorsForContexts                            = true;
+    public useDifferentColorsForContexts = true;
     private readonly contextColorMap: { [context: string]: string } = {};
 
     public getColorForContext(context: string, defaultColor: string): string {
@@ -16,8 +16,11 @@ export class ColorGenerator {
         }
 
         const createColor = (): string =>
-            `#${new Array(6).fill("").map(() => randomItem("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D")).join("")}`
-        ;
+            `#${
+                new Array(6).fill("").map(() =>
+                    randomItem("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D")
+                ).join("")
+            }`;
 
         return this.contextColorMap[context] = createColor();
     }
@@ -25,11 +28,11 @@ export class ColorGenerator {
 
 export class SimpleColorFormatter implements GLoggerFormatter {
     private readonly colorGenerator = new ColorGenerator();
-    public readonly colorMap        = {
+    public readonly colorMap = {
         priority: "red",
-        context : "blue",
-        data    : "black",
-        default : "black",
+        context: "blue",
+        data: "black",
+        default: "black",
     };
 
     public constructor(private readonly pattern = "[{{priority}}] {{context}}: {{data}}") {
@@ -46,10 +49,10 @@ export class SimpleColorFormatter implements GLoggerFormatter {
                     return "%s";
             }
         });
-        const text             = template(this.pattern, {
+        const text = template(this.pattern, {
             priority: "%s",
-            context : "%s",
-            data    : dataPlaceholders.join(" "),
+            context: "%s",
+            data: dataPlaceholders.join(" "),
         });
 
         const logFragments: unknown[] = [text];
@@ -85,10 +88,10 @@ export class SimpleColorFormatter implements GLoggerFormatter {
                     return "%s";
             }
         });
-        const text             = template(this.pattern, {
+        const text = template(this.pattern, {
             priority: "%c%s%c",
-            context : "%c%s%c",
-            data    : `%c${dataPlaceholders.join(" ")}%c`,
+            context: "%c%s%c",
+            data: `%c${dataPlaceholders.join(" ")}%c`,
         });
 
         const logFragments: unknown[] = [text];
@@ -122,13 +125,13 @@ export class SimpleColorFormatter implements GLoggerFormatter {
 }
 
 export class GLoggerDefaultFormatter implements GLoggerFormatter {
-    public showPriority                               = false;
-    public showContext                                = true;
-    public showTime                                   = false;
-    public showTimeOffset                             = false;
+    public showPriority = false;
+    public showContext = true;
+    public showTime = false;
+    public showTimeOffset = false;
     public readonly colors: { [key: string]: string } = {};
-    private readonly colorGenerator                   = new ColorGenerator();
-    private lastFormatTime                            = Date.now();
+    private readonly colorGenerator = new ColorGenerator();
+    private lastFormatTime = Date.now();
 
     public formatColored(priority: GLoggerPriority, data: unknown[], context?: string): unknown[] {
         const result: string[] = [this.getOutputArray(priority, data, context).join(" ")];

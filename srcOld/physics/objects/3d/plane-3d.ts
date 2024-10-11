@@ -8,7 +8,6 @@ import { Triangle3D } from "./triangle-3d";
  */
 export class Plane3D {
     /**
-     *
      * @param normal - The "up" direction from the plane's surface.
      * @param distance - The distance to the plane from the world origin along the normal
      */
@@ -16,7 +15,11 @@ export class Plane3D {
         throw new Error("Not implemented");
     }
 
-    public static fromPoints(pointA: ReadonlySimpleVector3, pointB: ReadonlySimpleVector3, pointC: ReadonlySimpleVector3): Plane3D {
+    public static fromPoints(
+        pointA: ReadonlySimpleVector3,
+        pointB: ReadonlySimpleVector3,
+        pointC: ReadonlySimpleVector3,
+    ): Plane3D {
         return new Plane3D(
             Vector3.sub(pointA, pointB).cross(Vector3.sub(pointC, pointB)),
             pointA,
@@ -40,7 +43,7 @@ export class Plane3D {
         public readonly point: ReadonlySimpleVector3,
     ) {
         this.normal = Vector3.fromVec(normal).normalize();
-        this.d      = -Vector3.mul(this.normal, this.point, new Vector3()).sum;
+        this.d = -Vector3.mul(this.normal, this.point, new Vector3()).sum;
     }
 
     /**

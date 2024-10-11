@@ -48,7 +48,11 @@ export class SimpleMat3 {
         return data;
     }
 
-    public static fromTranslation<T extends SimpleMat3 = SimpleMat3>(x: number, y: number, out = SimpleMat3.create()): T {
+    public static fromTranslation<T extends SimpleMat3 = SimpleMat3>(
+        x: number,
+        y: number,
+        out = SimpleMat3.create(),
+    ): T {
         SimpleMat3.setIdentity(out.data);
         SimpleMat3.setTranslation(x, y, out.data);
 
@@ -80,22 +84,33 @@ export class SimpleMat3 {
 
     public static create(): SimpleMat3 {
         return new SimpleMat3([
-            1, 0, 0,
-            0, 1, 0,
-            0, 0, 1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
         ]);
     }
 
-    public static translate<T extends SimpleMat3 = SimpleMat3>(a: SimpleMat3, x: number, y: number, out = SimpleMat3.create()): T {
-        const a00   = a.data[0];
-        const a01   = a.data[1];
-        const a02   = a.data[2];
-        const a10   = a.data[3];
-        const a11   = a.data[4];
-        const a12   = a.data[5];
-        const a20   = a.data[6];
-        const a21   = a.data[7];
-        const a22   = a.data[8];
+    public static translate<T extends SimpleMat3 = SimpleMat3>(
+        a: SimpleMat3,
+        x: number,
+        y: number,
+        out = SimpleMat3.create(),
+    ): T {
+        const a00 = a.data[0];
+        const a01 = a.data[1];
+        const a02 = a.data[2];
+        const a10 = a.data[3];
+        const a11 = a.data[4];
+        const a12 = a.data[5];
+        const a20 = a.data[6];
+        const a21 = a.data[7];
+        const a22 = a.data[8];
         out.data[0] = a00;
         out.data[1] = a01;
         out.data[2] = a02;
@@ -110,17 +125,17 @@ export class SimpleMat3 {
     }
 
     public static rotate<T extends SimpleMat3 = SimpleMat3>(a: SimpleMat3, rad: number, out = SimpleMat3.create()): T {
-        const a00   = a.data[0];
-        const a01   = a.data[1];
-        const a02   = a.data[2];
-        const a10   = a.data[3];
-        const a11   = a.data[4];
-        const a12   = a.data[5];
-        const a20   = a.data[6];
-        const a21   = a.data[7];
-        const a22   = a.data[8];
-        const s     = Math.sin(rad);
-        const c     = Math.cos(rad);
+        const a00 = a.data[0];
+        const a01 = a.data[1];
+        const a02 = a.data[2];
+        const a10 = a.data[3];
+        const a11 = a.data[4];
+        const a12 = a.data[5];
+        const a20 = a.data[6];
+        const a21 = a.data[7];
+        const a22 = a.data[8];
+        const s = Math.sin(rad);
+        const c = Math.cos(rad);
         out.data[0] = c * a00 + s * a10;
         out.data[1] = c * a01 + s * a11;
         out.data[2] = c * a02 + s * a12;
@@ -183,7 +198,12 @@ export class SimpleMat3 {
         return this.equalsArray(mat.data);
     }
 
-    public static scale<T extends SimpleMat3 = SimpleMat3>(a: SimpleMat3, x: number, y: number, out = SimpleMat3.create()): T {
+    public static scale<T extends SimpleMat3 = SimpleMat3>(
+        a: SimpleMat3,
+        x: number,
+        y: number,
+        out = SimpleMat3.create(),
+    ): T {
         out.data[0] = x * a.data[0];
         out.data[1] = x * a.data[1];
         out.data[2] = x * a.data[2];

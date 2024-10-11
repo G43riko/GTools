@@ -52,12 +52,14 @@ describe("Quad tree", () => {
                 new Point(15, 100),
             ),
         )).to.deep.equal([]);
-        expect(tree.queryRange(
-            new Box(
-                new Point(5, 5),
-                new Point(15, 15),
-            ),
-        ).length).to.be.equal(1);
+        expect(
+            tree.queryRange(
+                new Box(
+                    new Point(5, 5),
+                    new Point(15, 15),
+                ),
+            ).length,
+        ).to.be.equal(1);
     });
 
     it("Basic testing 2", () => {

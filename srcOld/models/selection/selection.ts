@@ -9,20 +9,20 @@ interface SelectableOptions {
 
 export class Selection<T> {
     private readonly selectionHolder = new SelectionHolder<T>();
-    public readonly selection        = Object.defineProperties({}, {
-        isSelected: {value: (item: T): boolean => this.selectionHolder.isSelected(item)},
-        selected  : {
+    public readonly selection = Object.defineProperties({}, {
+        isSelected: { value: (item: T): boolean => this.selectionHolder.isSelected(item) },
+        selected: {
             get: () => this.selectionHolder.selected,
         },
-        length    : {
+        length: {
             get: () => this.selectionHolder.length,
         },
     });
 
     public constructor(
         private allValues: readonly T[] = [],
-        private readonly options        = {
-            mode        : "single",
+        private readonly options = {
+            mode: "single",
             unselectable: false,
         },
     ) {
@@ -46,8 +46,10 @@ export class Selection<T> {
     }
 
     public setOptions(options: Partial<SelectableOptions>): void {
-        this.options.mode         = options.mode || this.options.mode;
-        this.options.unselectable = typeof options.unselectable === "boolean" ? options.unselectable : this.options.unselectable;
+        this.options.mode = options.mode || this.options.mode;
+        this.options.unselectable = typeof options.unselectable === "boolean"
+            ? options.unselectable
+            : this.options.unselectable;
     }
 
     private processSingleClick(item: T): void {
@@ -104,7 +106,9 @@ export class Selection<T> {
                 if (this.selectionHolder.length === 0) {
                     this.selectionHolder.select(item);
                 } else {
-                    const selectedIndices = this.selectionHolder.selected.map((actualItem) => this.allValues.indexOf(actualItem));
+                    const selectedIndices = this.selectionHolder.selected.map((actualItem) =>
+                        this.allValues.indexOf(actualItem)
+                    );
 
                     const minIndex = Math.min(this.allValues.indexOf(item), ...selectedIndices);
                     const maxIndex = Math.max(this.allValues.indexOf(item), ...selectedIndices);

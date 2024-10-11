@@ -5,7 +5,6 @@ import { Sphere } from "./sphere";
 
 describe("Ellipsoid", () => {
     it("Should test ellipsoid creation", () => {
-
     });
 
     it("Should test volume and toMinMax", () => {
@@ -14,7 +13,7 @@ describe("Ellipsoid", () => {
         const zeroEllipsoid = new Ellipsoid(SimpleVector3.ZERO, SimpleVector3.ZERO);
 
         expect(zeroEllipsoid.volume).to.be.equal(0);
-        expect(zeroEllipsoid.toMinMax()).to.deep.equal({min: SimpleVector3.ZERO, max: SimpleVector3.ZERO});
+        expect(zeroEllipsoid.toMinMax()).to.deep.equal({ min: SimpleVector3.ZERO, max: SimpleVector3.ZERO });
 
         expect(ellipsoid.volume).to.be.equal(sphere.volume);
         expect(ellipsoid.toMinMax()).to.deep.equal(sphere.toMinMax());

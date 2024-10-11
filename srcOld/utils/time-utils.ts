@@ -1,11 +1,11 @@
 import { StringMap } from "../types";
 
 const intervals: StringMap<number> = {
-    "year"  : 31536000,
-    "month" : 2592000,
-    "week"  : 604800,
-    "day"   : 86400,
-    "hour"  : 3600,
+    "year": 31536000,
+    "month": 2592000,
+    "week": 604800,
+    "day": 86400,
+    "hour": 3600,
     "minute": 60,
     "second": 1,
 };
@@ -38,17 +38,17 @@ export function dateAgo(value: number | string | Date): number | string | Date {
 export function formatTime(date: Date, pattern: string): string {
     const toString = (time: number): string => time < 10 ? `0${time}` : `${time}`;
 
-    const DD   = toString(date.getDate());
-    const MM   = toString(date.getMonth() + 1);
+    const DD = toString(date.getDate());
+    const MM = toString(date.getMonth() + 1);
     const YYYY = `${date.getFullYear()}`;
-    const YYY  = YYYY.substr(1);
-    const YY   = YYY.substr(1);
-    const HH   = toString(date.getHours());
-    const mm   = toString(date.getMinutes());
-    const SS   = toString(date.getSeconds());
+    const YYY = YYYY.substr(1);
+    const YY = YYY.substr(1);
+    const HH = toString(date.getHours());
+    const mm = toString(date.getMinutes());
+    const SS = toString(date.getSeconds());
 
-    const map: { [key: string]: string } = {DD, MM, YYYY, YYY, YY, HH, mm, SS};
-    const regex                          = new RegExp(`(${Object.keys(map).join("|")})`, "g");
+    const map: { [key: string]: string } = { DD, MM, YYYY, YYY, YY, HH, mm, SS };
+    const regex = new RegExp(`(${Object.keys(map).join("|")})`, "g");
 
     return pattern.replace(regex, (e) => map[e] ?? e);
 }
@@ -90,35 +90,35 @@ function setDate(date: Date, opt: { ms: number; s: number; m: number; h: number 
 export function getStartOfTheDay(date: Date): Date {
     return setDate(date, {
         ms: 0,
-        s : 0,
-        m : 0,
-        h : 0,
+        s: 0,
+        m: 0,
+        h: 0,
     });
 }
 
 export function getStartOfTheHour(date: Date): Date {
     return setDate(date, {
         ms: 0,
-        s : 0,
-        m : 0,
-        h : date.getHours(),
+        s: 0,
+        m: 0,
+        h: date.getHours(),
     });
 }
 
 export function getEndOfTheHour(date: Date): Date {
     return setDate(date, {
         ms: 999,
-        s : 59,
-        m : 59,
-        h : date.getHours(),
+        s: 59,
+        m: 59,
+        h: date.getHours(),
     });
 }
 
 export function getEndOfTheDay(date: Date): Date {
     return setDate(date, {
         ms: 999,
-        s : 59,
-        m : 59,
-        h : 23,
+        s: 59,
+        m: 59,
+        h: 23,
     });
 }

@@ -20,7 +20,11 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
         return new Grid2MapHolder<S>(result);
     }
 
-    public static initWithProvider<S>(x: number, y: number, provider: (_x: number, _y: number) => S): Grid2MapHolder<S> {
+    public static initWithProvider<S>(
+        x: number,
+        y: number,
+        provider: (_x: number, _y: number) => S,
+    ): Grid2MapHolder<S> {
         const result = new Array<S[]>(x);
         for (let i = 0; i < x; i++) {
             result[i] = new Array<S>(y);
@@ -33,7 +37,7 @@ export class Grid2MapHolder<T> implements Grid2Holder<T> {
     }
 
     public swap(ax: number, ay: number, bx: number, by: number): void {
-        const tmp         = this.data[ax][ay];
+        const tmp = this.data[ax][ay];
         this.data[ax][ay] = this.data[bx][by];
         this.data[bx][by] = tmp;
     }

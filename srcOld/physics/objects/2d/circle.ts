@@ -32,7 +32,7 @@ export class Circle implements MassAble2D {
         return Math.PI * this.radius * this.radius;
     }
 
-    public static fromMinMax({min, max}: MinMax2D, chooseSize: "min" | "max" = "max"): Circle {
+    public static fromMinMax({ min, max }: MinMax2D, chooseSize: "min" | "max" = "max"): Circle {
         const center = {
             x: (min.x + max.x) / 2,
             y: (min.y + max.y) / 2,
@@ -59,23 +59,22 @@ export class Circle implements MassAble2D {
 
     public raycast(result: RaycastResult, ray: RayCast2D): void {
         const from = ray.from;
-        const to   = ray.to;
-        const r    = this.radius;
+        const to = ray.to;
+        const r = this.radius;
 
         const position = new Vector2(this.center.x, this.center.y);
 
-        const a     = Math.pow(to.x - from.x, 2) + Math.pow(to.y - from.y, 2);
-        const b     = 2 * ((to.x - from.x) * (from.x - position.x) + (to.y - from.y) * (from.y - position.y));
-        const c     = Math.pow(from.x - position.x, 2) + Math.pow(from.y - position.y, 2) - Math.pow(r, 2);
+        const a = Math.pow(to.x - from.x, 2) + Math.pow(to.y - from.y, 2);
+        const b = 2 * ((to.x - from.x) * (from.x - position.x) + (to.y - from.y) * (from.y - position.y));
+        const c = Math.pow(from.x - position.x, 2) + Math.pow(from.y - position.y, 2) - Math.pow(r, 2);
         const delta = Math.pow(b, 2) - 4 * a * c;
 
         const intersectionPoint = new Vector2();
-        const normal            = new Vector2();
+        const normal = new Vector2();
 
         if (delta < 0) {
             // No intersection
             return;
-
         }
         if (delta === 0) {
             // single intersection point
@@ -85,12 +84,11 @@ export class Circle implements MassAble2D {
             Vector2.normalize(normal, normal);
 
             ray.reportIntersection(result, delta, normal, -1);
-
         } else {
             const sqrtDelta = Math.sqrt(delta);
-            const inv2a     = 1 / (2 * a);
-            const d1        = (-b - sqrtDelta) * inv2a;
-            const d2        = (-b + sqrtDelta) * inv2a;
+            const inv2a = 1 / (2 * a);
+            const d1 = (-b - sqrtDelta) * inv2a;
+            const d2 = (-b + sqrtDelta) * inv2a;
 
             if (d1 >= 0 && d1 <= 1) {
                 intersectionPoint.set(Vector2.lerp(from, to, d1));

@@ -2,7 +2,8 @@ import { AbstractLinkedList } from "./abstract-linked-list";
 import { BiDirectionalLinkedListEntry } from "./linked-list-entry";
 import { List } from "./list";
 
-export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectionalLinkedListEntry<T>> implements List<T> {
+export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectionalLinkedListEntry<T>>
+    implements List<T> {
     private last?: BiDirectionalLinkedListEntry<T>;
 
     public add(item: T): boolean {
@@ -11,8 +12,8 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
 
     public prepend(item: T): boolean {
         const newItem = new BiDirectionalLinkedListEntry(item);
-        newItem.next  = this.first;
-        this.first    = newItem;
+        newItem.next = this.first;
+        this.first = newItem;
 
         this.localLength++;
 
@@ -28,7 +29,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
         }
 
         newItem.prev = this.last;
-        this.last    = newItem;
+        this.last = newItem;
 
         this.localLength++;
 
@@ -45,14 +46,14 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
             return false;
         }
         if (index === 0) {
-            this.first       = this.first?.next;
+            this.first = this.first?.next;
             this.first!.prev = undefined;
             this.localLength--;
 
             return true;
         }
         if (index === this.length - 1) {
-            this.last       = this.last?.prev;
+            this.last = this.last?.prev;
             this.last!.next = undefined;
             this.localLength--;
 
@@ -71,7 +72,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
     }
 
     public forEach(callback: (item: T, index: number) => boolean): void {
-        let act   = this.first;
+        let act = this.first;
         let index = 0;
         while (act) {
             callback(act.item, index++);
@@ -80,7 +81,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
     }
 
     public forEachReverse(callback: (item: T, index: number) => boolean): void {
-        let act   = this.last;
+        let act = this.last;
         let index = this.length - 1;
         while (act) {
             callback(act.item, index--);
@@ -89,8 +90,8 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
     }
 
     public clear(): void {
-        this.first       = undefined;
-        this.last        = undefined;
+        this.first = undefined;
+        this.last = undefined;
         this.localLength = 0;
     }
 
@@ -102,7 +103,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
         for (let current = this.first; current; current = current.next) {
             if (current.item === item) {
                 if (current === this.first) {
-                    this.first         = current.next;
+                    this.first = current.next;
                     current.next!.prev = undefined;
                     this.localLength--;
 
@@ -110,7 +111,7 @@ export class BiDirectionalLinkedList<T> extends AbstractLinkedList<T, BiDirectio
                 }
 
                 if (current === this.last) {
-                    this.last          = current.prev;
+                    this.last = current.prev;
                     current.prev!.next = undefined;
                     this.localLength--;
 

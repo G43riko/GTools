@@ -1,4 +1,3 @@
-
 /**
  * Function return minimal value from numeric array
  *

@@ -1,7 +1,7 @@
 export class NumberCounter {
-    private min                        = Infinity;
-    private max                        = -Infinity;
-    private sum                        = 0;
+    private min = Infinity;
+    private max = -Infinity;
+    private sum = 0;
     private readonly numbers: number[] = [];
 
     public add(value: number): void {

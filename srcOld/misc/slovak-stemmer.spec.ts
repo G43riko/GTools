@@ -29,7 +29,6 @@ describe("SlovakStemmer", () => {
             expect(SlovakStemmer.steme("zefektívnenie")).to.be.equal("zefektívn");
             // wrong "zefektívnenila" equals "zefektívn"
             expect(SlovakStemmer.steme("umožnenie")).to.be.equal("umožn");
-
         });
     });
 });

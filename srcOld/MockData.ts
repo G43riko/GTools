@@ -35,7 +35,8 @@ export class MockData {
         "30:61:61",
     ];
 
-    public static readonly charactersString = "+=§,.-?:_\"!)/()<>*'$[]}{*&^%$#@!/\\|#&@{}^'`][~|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
+    public static readonly charactersString =
+        "+=§,.-?:_\"!)/()<>*'$[]}{*&^%$#@!/\\|#&@{}^'`][~|€¶←↓→º’‘©><§®ª`←'↓&×÷|÷×";
 
     public static readonly characters = MockData.charactersString.split("");
 
@@ -178,12 +179,12 @@ export class MockData {
         // `user@localserver`,
         "Abc.123@example.com",
         "user+mailbox/department=shipping@example.com",
-        "\"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual\"@strange.example.com",
+        '"very.(),:;<>[]".VERY."very@\\ "very".unusual"@strange.example.com',
         "!#$%&'*+-/=?^_`.{|}~@example.com",
-        "\"()<>[]:,;@\\\"!#$%&'-/=?^_`{}| ~.a\"@example.org",
-        "\"Abc@def\"@example.com",
-        "\"Fred Bloggs\"@example.com",
-        "\"Joe.\\Blow\"@example.com",
+        '"()<>[]:,;@\\"!#$%&\'-/=?^_`{}| ~.a"@example.org',
+        '"Abc@def"@example.com',
+        '"Fred Bloggs"@example.com',
+        '"Joe.\\Blow"@example.com',
         // "Loïc.Accentué@voilà.fr",
         // "\" \"@example.org\"",
         // "user@[IPv6:2001:DB8::1]",
@@ -192,10 +193,10 @@ export class MockData {
     public static readonly notEmails: string[] = [
         "Abc.example.com",
         "A@b@c@example.com",
-        "a\"b(c)d,e:f;g<h>i[j\\k]l@example.com",
-        "just\"not\"right@example.com",
-        "this is\"notallowed@example.com",
-        "this still\"not\\allowed@example.com",
+        'a"b(c)d,e:f;g<h>i[j\\k]l@example.com',
+        'just"not"right@example.com',
+        'this is"notallowed@example.com',
+        'this still"not\\allowed@example.com',
         "john..doe@example.com",
         "john.doe@example..com",
         ...MockData.randomStrings,

@@ -1,27 +1,27 @@
 import { ReadonlySimpleVector3 } from "../math";
 
 export enum Direction7 {
-    UP     = "UP",
-    LEFT   = "LEFT",
+    UP = "UP",
+    LEFT = "LEFT",
     CENTER = "CENTER",
-    DOWN   = "DOWN",
-    RIGHT  = "RIGHT",
-    FRONT  = "FRONT",
-    BACK   = "BACK",
+    DOWN = "DOWN",
+    RIGHT = "RIGHT",
+    FRONT = "FRONT",
+    BACK = "BACK",
 }
 
 export enum Direction6 {
-    UP    = "UP",
-    LEFT  = "LEFT",
-    DOWN  = "DOWN",
+    UP = "UP",
+    LEFT = "LEFT",
+    DOWN = "DOWN",
     RIGHT = "RIGHT",
     FRONT = "FRONT",
-    BACK  = "BACK",
+    BACK = "BACK",
 }
 export enum Direction4 {
-    UP    = "UP",
-    LEFT  = "LEFT",
-    DOWN  = "DOWN",
+    UP = "UP",
+    LEFT = "LEFT",
+    DOWN = "DOWN",
     RIGHT = "RIGHT",
 }
 

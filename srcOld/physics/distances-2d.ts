@@ -75,9 +75,9 @@ export function distance2dPointLineSqr(
     const C = bX - aX;
     const D = bY - aY;
 
-    const dot          = A * C + B * D;
+    const dot = A * C + B * D;
     const lengthSquare = C * C + D * D;
-    let param          = -1;
+    let param = -1;
     if (lengthSquare !== 0) {
         param = dot / lengthSquare;
     }

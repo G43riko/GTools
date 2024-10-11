@@ -12,7 +12,10 @@ export function createClass(name: any, args: any[]): any {
     return temp;
 }
 
-export function createInstance<T, S extends new (...args: any[]) => T>(type: S, ...params: ConstructorParameters<S>): T {
+export function createInstance<T, S extends new (...args: any[]) => T>(
+    type: S,
+    ...params: ConstructorParameters<S>
+): T {
     return new type(...params);
 }
 

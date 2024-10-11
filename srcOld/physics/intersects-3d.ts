@@ -15,19 +15,19 @@ export function intersection3dLineSphere(
     const OC = { x: 0, y: 0, z: 0 }; // Use the output parameter as temporary workspace
 
     const direction = Vector3.sub(end, start);
-    const origin    = start;
+    const origin = start;
 
     OC.x = origin.x - center.x;
     OC.y = origin.y - center.y;
     OC.z = origin.z - center.z;
 
     // Solve the quadratic equation a t^2 + 2 t b + c = 0
-    const a     = Vector3.squaredLength(direction);
-    const b     = Vector3.dot(direction, OC);
-    const c     = Vector3.squaredLength(OC) - radius * radius;
+    const a = Vector3.squaredLength(direction);
+    const b = Vector3.dot(direction, OC);
+    const c = Vector3.squaredLength(OC) - radius * radius;
     const delta = b * b - a * c;
 
-    if (delta < 0){ // No solution
+    if (delta < 0) { // No solution
         return;
     }
 
@@ -38,7 +38,7 @@ export function intersection3dLineSphere(
     const tMin = (-b - sqrtDelta) / a;
     const tMax = (-b + sqrtDelta) / a;
 
-    if (tMax < 0){ // All intersection points are behind the origin of the ray
+    if (tMax < 0) { // All intersection points are behind the origin of the ray
         return;
     }
 
@@ -70,8 +70,8 @@ export function intersection3dVectorSquare_2(
     S3: SimpleVector3,
     limit = 1e-6,
 ): boolean {
-    const dS21         = Vector3.sub(S2, S1);
-    const dS31         = Vector3.sub(S3, S1);
+    const dS21 = Vector3.sub(S2, S1);
+    const dS31 = Vector3.sub(S3, S1);
     const squareNormal = dS21.cross(dS31);
 
     const dR = Vector3.sub(R1, R2);
@@ -86,8 +86,8 @@ export function intersection3dVectorSquare_2(
     const M = Vector3.sub(R1, dR.mul(t));
 
     const dMS1 = M.sub(S1);
-    const u    = dMS1.dot(dS21);
-    const v    = dMS1.dot(dS31);
+    const u = dMS1.dot(dS21);
+    const v = dMS1.dot(dS31);
 
     return (u >= 0 && u <= dS21.dot(dS21) && v >= 0 && v <= dS31.dot(dS31));
 }
@@ -97,7 +97,7 @@ export function intersection3dLineMinMax(
     end: ReadonlySimpleVector3,
     minMax: MinMax3D,
 ): SimpleVector3 | undefined {
-    const dir    = Vector3.sub(end, start);
+    const dir = Vector3.sub(end, start);
     const dirInv = {
         x: dir.x !== 0 ? 1 / dir.x : 0,
         y: dir.y !== 0 ? 1 / dir.y : 0,
@@ -105,7 +105,7 @@ export function intersection3dLineMinMax(
     };
 
     // This should be done outside and cached at the ray level for reuse on an array of aabb boxes. This sort of thing is only optimization for AABB checking.
-    const b      = [
+    const b = [
         (dirInv.x < 0) ? 1 : 0,
         (dirInv.y < 0) ? 1 : 0,
         (dirInv.z < 0) ? 1 : 0,

@@ -26,9 +26,8 @@ export function circleRect2dCollision(
         return true;
     }
 
-    const cornerDistanceSQ =
-              Math.pow(circleDistanceX - rPosX / 2, 2) +
-              Math.pow(circleDistanceY - rPosY / 2, 2);
+    const cornerDistanceSQ = Math.pow(circleDistanceX - rPosX / 2, 2) +
+        Math.pow(circleDistanceY - rPosY / 2, 2);
 
     return cornerDistanceSQ <= Math.pow(cRadius, 2);
 }
@@ -45,23 +44,8 @@ export function lineRectangle2dCollision(
 ): boolean {
     return pointRect2dCollision(aStartX, aStartY, bPosX, bPosY, bSizeX, bSizeY) ||
         pointRect2dCollision(aEndX, aEndY, bPosX, bPosY, bSizeX, bSizeY) ||
-        lineLine2dCollision(aStartX,
-            aStartY,
-            aEndX,
-            aEndY,
-            bPosX,
-            bPosY,
-            bPosX + bSizeX,
-            bPosY + bSizeY) ||
-        lineLine2dCollision(aStartX,
-            aStartY,
-            aEndX,
-            aEndY,
-            bPosX + bSizeX,
-            bPosY,
-            bPosX,
-            bPosY + bSizeY);
-
+        lineLine2dCollision(aStartX, aStartY, aEndX, aEndY, bPosX, bPosY, bPosX + bSizeX, bPosY + bSizeY) ||
+        lineLine2dCollision(aStartX, aStartY, aEndX, aEndY, bPosX + bSizeX, bPosY, bPosX, bPosY + bSizeY);
 }
 
 export function lineLine2dCollision(
@@ -74,10 +58,9 @@ export function lineLine2dCollision(
     bEndX: number,
     bEndY: number,
 ): boolean {
-
     const denominator = (aEndX - aStartX) * (bEndY - bStartY) - (aEndY - aStartY) * (bEndX - bStartX);
-    const numerator1  = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
-    const numerator2  = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
+    const numerator1 = (aStartY - bStartY) * (bEndX - bStartX) - (aStartX - bStartX) * (bEndY - bStartY);
+    const numerator2 = (aStartY - bStartY) * (aEndX - aStartX) - (aStartX - bStartX) * (aEndY - aStartY);
 
     // Detect coincident lines (contains a problem, read below)
     if (denominator === 0) {
@@ -109,7 +92,7 @@ export function lineLine2dCollision2(
     }
 
     const lambda = ((s - q) * (r - a) + (p - r) * (s - b)) / det;
-    const gamma  = ((b - d) * (r - a) + (c - a) * (s - b)) / det;
+    const gamma = ((b - d) * (r - a) + (c - a) * (s - b)) / det;
 
     return (0 < lambda && lambda < 1) && (0 < gamma && gamma < 1);
 }
@@ -178,8 +161,8 @@ export function pointCircle2dCollision(
 
 export function pointPolygon2dCollision2(x: number, y: number, vs: [number, number][]): boolean {
     let inside = false;
-    let i      = 0;
-    let j      = vs.length - 1;
+    let i = 0;
+    let j = vs.length - 1;
     for (; i < vs.length; j = i++) {
         const xi = vs[i][0];
         const yi = vs[i][1];
@@ -202,8 +185,8 @@ export function pointMultiPolygon2dCollision(
     ignoreBoundary = false,
 ): boolean {
     const multipolygon = [polys];
-    const pt           = [pointX, pointY];
-    let insidePoly     = false;
+    const pt = [pointX, pointY];
+    let insidePoly = false;
     for (let i = 0; i < multipolygon.length && !insidePoly; i++) {
         // check if it is not in the outer ring first
         // tslint:disable-next-line:early-exit
@@ -246,11 +229,12 @@ export function pointPolygon2dCollision(pt: number[], ring: number[][], ignoreBo
     }
     // tslint:disable-next-line:one-variable-per-declaration
     for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-        const xi         = ring[i][0];
-        const yi         = ring[i][1];
-        const xj         = ring[j][0];
-        const yj         = ring[j][1];
-        const onBoundary = pt[1] * (xi - xj) + yi * (xj - pt[0]) + yj * (pt[0] - xi) === 0 && (xi - pt[0]) * (xj - pt[0]) <= 0 && (yi - pt[1]) * (yj - pt[1]) <= 0;
+        const xi = ring[i][0];
+        const yi = ring[i][1];
+        const xj = ring[j][0];
+        const yj = ring[j][1];
+        const onBoundary = pt[1] * (xi - xj) + yi * (xj - pt[0]) + yj * (pt[0] - xi) === 0 &&
+            (xi - pt[0]) * (xj - pt[0]) <= 0 && (yi - pt[1]) * (yj - pt[1]) <= 0;
         if (onBoundary) {
             return !ignoreBoundary;
         }

@@ -11,20 +11,18 @@ const now: () => number = typeof performance !== "undefined" ? performance.now :
 
 describe("Grid3", () => {
     describe("default", () => {
-
-        const sizeOne      = 128;
-        const size         = {x: sizeOne, y: sizeOne, z: sizeOne};
-        const arrayHolder  = Grid3ArrayHolder.initEmpty<number>(size.x, size.y, size.z, 0);
-        const mapHolder    = Grid3MapHolder.initEmpty<number>(size.x, size.y, size.z, 0);
+        const sizeOne = 128;
+        const size = { x: sizeOne, y: sizeOne, z: sizeOne };
+        const arrayHolder = Grid3ArrayHolder.initEmpty<number>(size.x, size.y, size.z, 0);
+        const mapHolder = Grid3MapHolder.initEmpty<number>(size.x, size.y, size.z, 0);
         const objectHolder = new Grid3ObjectHolder<number>();
-        const hashHolder   = new Grid3HashHolder<number>();
+        const hashHolder = new Grid3HashHolder<number>();
         const sorts: Grid3Holder<number>[] = [
             arrayHolder,
             objectHolder,
             hashHolder,
             mapHolder,
         ];
-
 
         const createArray = (): number[][][] => {
             const result = new Array<number[][]>(size.x);
@@ -44,7 +42,7 @@ describe("Grid3", () => {
         it("It should test adding", () => {
             sorts.forEach((holder) => {
                 const testArr = createArray();
-                const start   = now();
+                const start = now();
 
                 testArr.forEach((row, x) => {
                     row.forEach((column, y) => {
@@ -56,7 +54,6 @@ describe("Grid3", () => {
 
                 const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
         it("It should test getting", () => {
@@ -73,7 +70,6 @@ describe("Grid3", () => {
 
                 const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
         it("It should test filling", () => {
@@ -85,7 +81,6 @@ describe("Grid3", () => {
 
                 const diff = now() - start;
                 console.log(holder.constructor.name, ": ", diff, "ms");
-
             });
         });
         it("It should test iterating", () => {
@@ -98,13 +93,12 @@ describe("Grid3", () => {
                 console.log(holder.constructor.name, ": ", diff, "ms");
             });
 
-            const iterateUntil                         = (value: number, callback: (x: number, y: number, z: number) => unknown): void => {
+            const iterateUntil = (value: number, callback: (x: number, y: number, z: number) => unknown): void => {
                 for (let i = 0; i < value; i++) {
                     for (let j = 0; j < value; j++) {
                         for (let k = 0; k < value; k++) {
                             callback(i, j, k);
                         }
-
                     }
                 }
             };

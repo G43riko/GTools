@@ -10,8 +10,14 @@ export interface GLoggerFormatter {
 }
 
 export class GLogger extends GLoggerInstance {
-    private static readonly skipContexts    = ["renderWorldStatic", "CanvasDirective", "WorldRendererService", "viewport", "WorldInputService"];
-    private static readonly skipRegexp      = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
+    private static readonly skipContexts = [
+        "renderWorldStatic",
+        "CanvasDirective",
+        "WorldRendererService",
+        "viewport",
+        "WorldInputService",
+    ];
+    private static readonly skipRegexp = new RegExp(`${GLogger.skipContexts.join("|")}`, "gi");
     private static readonly staticCallbacks = GLoggerCallbackHolder.createConsoleCallbacks();
 
     public static setCallbacks(callbackHolder: GLoggerCallbackHolder): void {
@@ -39,13 +45,17 @@ export class GLogger extends GLoggerInstance {
         return new GLogger(context?.constructor?.name);
     }
 
-    public static createArrayLogger(array: unknown[], context?: GLoggerContextType, mapper?: (priority: GLoggerPriority, messages: unknown[], context?: string) => unknown): GLogger {
-        return new GLogger(context, GLoggerCallbackHolder.createArrayCallbacks(array, {mapper}));
+    public static createArrayLogger(
+        array: unknown[],
+        context?: GLoggerContextType,
+        mapper?: (priority: GLoggerPriority, messages: unknown[], context?: string) => unknown,
+    ): GLogger {
+        return new GLogger(context, GLoggerCallbackHolder.createArrayCallbacks(array, { mapper }));
     }
 
     public static print(type: GLoggerPriority, context: GLoggerContextType = "", ...data: unknown[]): void {
         const realContext: string = GLogger.getContextString(context);
-        const result              = realContext && (GLogger.skipRegexp.exec(realContext));
+        const result = realContext && (GLogger.skipRegexp.exec(realContext));
         if (result) {
             return;
         }
@@ -72,7 +82,7 @@ export class GLogger extends GLoggerInstance {
     }
 
     public extends(subContext: any): GLogger {
-        const currentContext        = GLogger.getContextString(this.context);
+        const currentContext = GLogger.getContextString(this.context);
         const subContextNameContext = GLogger.getContextString(subContext);
 
         return new GLogger(

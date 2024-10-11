@@ -12,30 +12,32 @@ import { Sphere } from "./sphere";
 export class Line3D implements DistanceAble3D<"point"> {
     public readonly collideWith = {
         cylinder: (cylinder: Cylinder): boolean => false,
-        point   : (point: ReadonlySimpleVector3, tolerance = 0.00001): boolean => pointLine3dDistance(
-            this.pointA.x,
-            this.pointA.y,
-            this.pointA.z,
-            this.pointB.x,
-            this.pointB.y,
-            this.pointB.z,
-            point.x,
-            point.y,
-            point.z,
-        ) <= tolerance,
-        sphere  : (sphere: Sphere): boolean => collision3dLineSphere(
-            this.pointA.x,
-            this.pointA.y,
-            this.pointA.z,
-            this.pointB.x,
-            this.pointB.y,
-            this.pointB.z,
-            sphere.center.x,
-            sphere.center.y,
-            sphere.center.z,
-            sphere.radius,
-        ),
-        minMax  : (minMax: MinMax3D): boolean => {
+        point: (point: ReadonlySimpleVector3, tolerance = 0.00001): boolean =>
+            pointLine3dDistance(
+                this.pointA.x,
+                this.pointA.y,
+                this.pointA.z,
+                this.pointB.x,
+                this.pointB.y,
+                this.pointB.z,
+                point.x,
+                point.y,
+                point.z,
+            ) <= tolerance,
+        sphere: (sphere: Sphere): boolean =>
+            collision3dLineSphere(
+                this.pointA.x,
+                this.pointA.y,
+                this.pointA.z,
+                this.pointB.x,
+                this.pointB.y,
+                this.pointB.z,
+                sphere.center.x,
+                sphere.center.y,
+                sphere.center.z,
+                sphere.radius,
+            ),
+        minMax: (minMax: MinMax3D): boolean => {
             const size = Vector3.sum(minMax.max, minMax.min);
 
             return collision3dLineBox(
@@ -56,21 +58,21 @@ export class Line3D implements DistanceAble3D<"point"> {
     };
 
     public readonly distanceTo = {
-        point: (point: ReadonlySimpleVector3): number => pointLine3dDistance(
-            this.pointA.x,
-            this.pointA.y,
-            this.pointA.z,
-            this.pointB.x,
-            this.pointB.y,
-            this.pointB.z,
-            point.x,
-            point.y,
-            point.z,
-        ),
+        point: (point: ReadonlySimpleVector3): number =>
+            pointLine3dDistance(
+                this.pointA.x,
+                this.pointA.y,
+                this.pointA.z,
+                this.pointB.x,
+                this.pointB.y,
+                this.pointB.z,
+                point.x,
+                point.y,
+                point.z,
+            ),
     };
 
-    public constructor(public readonly pointA: ReadonlySimpleVector3,
-                       public readonly pointB: ReadonlySimpleVector3) {
+    public constructor(public readonly pointA: ReadonlySimpleVector3, public readonly pointB: ReadonlySimpleVector3) {
     }
 
     public get length(): number {

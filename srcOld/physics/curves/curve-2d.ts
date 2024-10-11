@@ -12,4 +12,3 @@ export abstract class Curve2D extends Curve<ReadonlySimpleVector2> {
         };
     }
 }
-

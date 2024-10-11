@@ -80,14 +80,18 @@ export class CanvasManager extends AbstractCanvasManager {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     }
 
-    public static setCanvasSize(canvas: HTMLCanvasElement, width = window.innerWidth, height = window.innerHeight): void {
-        canvas.width  = width;
+    public static setCanvasSize(
+        canvas: HTMLCanvasElement,
+        width = window.innerWidth,
+        height = window.innerHeight,
+    ): void {
+        canvas.width = width;
         canvas.height = height;
     }
 
     public static setShadow(ctx: CanvasRenderingContext2D, x: number, y: number, color: string, blur: number): void {
-        ctx.shadowColor   = color;
-        ctx.shadowBlur    = blur;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = blur;
         ctx.shadowOffsetX = x;
         ctx.shadowOffsetY = y;
     }
@@ -96,10 +100,10 @@ export class CanvasManager extends AbstractCanvasManager {
         if (typeof document === "undefined") {
             throw new NotBrowserException();
         }
-        const canvas  = document.createElement("canvas");
-        canvas.width  = image.width;
+        const canvas = document.createElement("canvas");
+        canvas.width = image.width;
         canvas.height = image.height;
-        const ctx     = canvas.getContext("2d");
+        const ctx = canvas.getContext("2d");
         if (ctx) {
             ctx.drawImage(image, 0, 0);
         }
@@ -132,9 +136,9 @@ export class CanvasManager extends AbstractCanvasManager {
     }
 
     public static canvasToImage(canvas: HTMLCanvasElement, format = "image/png"): HTMLImageElement {
-        const image  = new Image();
-        image.src    = canvas.toDataURL(format);
-        image.width  = canvas.width;
+        const image = new Image();
+        image.src = canvas.toDataURL(format);
+        image.width = canvas.width;
         image.height = canvas.height;
 
         return image;

@@ -3,14 +3,14 @@ import { Grid3Holder } from "./grid3-holder";
 
 export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
     private data: { [x: number]: { [y: number]: { [z: number]: T } } } = {};
-    private _length                                                    = 0;
+    private _length = 0;
 
     public get length(): number {
         return this._length;
     }
 
     public clear(): void {
-        this.data    = {};
+        this.data = {};
         this._length = 0;
     }
 
@@ -18,7 +18,9 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
         holder.forEach((item, x, y, z) => this.set(x, y, z, item));
     }
 
-    public fill<R extends T & Record<string | number, unknown>>(value: ((x: number, y: number, z: number) => R) | R): void {
+    public fill<R extends T & Record<string | number, unknown>>(
+        value: ((x: number, y: number, z: number) => R) | R,
+    ): void {
         if (typeof value === "function") {
             Object.entries(this.data).forEach(([x, chunkRows]) => {
                 Object.entries(chunkRows).forEach(([y, chunk]) => {
@@ -39,14 +41,14 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
     }
 
     public get(x: number, y: number, z: number): T {
-        const row    = getOrSetProperty(this.data, x, {});
+        const row = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
 
         return column[z];
     }
 
     public set(x: number, y: number, z: number, value: T): void {
-        const row    = getOrSetProperty(this.data, x, {});
+        const row = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
 
         if (typeof column[z] === "undefined") {
@@ -56,7 +58,7 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
     }
 
     public transform(x: number, y: number, z: number, transformer: (value: T) => T): void {
-        const row    = getOrSetProperty(this.data, x, {});
+        const row = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
 
         const newValue = transformer(column[z]);
@@ -71,7 +73,7 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
     }
 
     public remove(x: number, y: number, z: number): void {
-        const row    = getOrSetProperty(this.data, x, {});
+        const row = getOrSetProperty(this.data, x, {});
         const column = getOrSetProperty(row, y, {});
         if (column[z]) {
             this._length--;
@@ -80,7 +82,7 @@ export class Grid3ObjectHolder<T> implements Grid3Holder<T> {
     }
 
     public swap(ax: number, ay: number, az: number, bx: number, by: number, bz: number): void {
-        const tmp             = this.data[ax][ay][az];
+        const tmp = this.data[ax][ay][az];
         this.data[ax][ay][az] = this.data[bx][by][bz];
         this.data[bx][by][bz] = tmp;
     }

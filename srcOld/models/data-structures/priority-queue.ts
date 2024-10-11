@@ -1,7 +1,7 @@
 import { G43BasicCollection } from "./g43-collection";
 
-const leftChild      = (index: number): number => index * 2 + 1;
-const rightChild     = (index: number): number => index * 2 + 2;
+const leftChild = (index: number): number => index * 2 + 1;
+const rightChild = (index: number): number => index * 2 + 2;
 const getParentIndex = (index: number): number => Math.floor((index - 1) / 2);
 
 export class PriorityQueue<T> implements G43BasicCollection<T> {
@@ -19,7 +19,7 @@ export class PriorityQueue<T> implements G43BasicCollection<T> {
     }
 
     private swap(indexOne: number, indexTwo: number): void {
-        const tmp           = this.heap[indexOne];
+        const tmp = this.heap[indexOne];
         this.heap[indexOne] = this.heap[indexTwo];
         this.heap[indexTwo] = tmp;
     }
@@ -77,8 +77,8 @@ export class PriorityQueue<T> implements G43BasicCollection<T> {
     }
 
     private heapify(index: number): void {
-        const left   = leftChild(index);
-        const right  = rightChild(index);
+        const left = leftChild(index);
+        const right = rightChild(index);
         let smallest = index;
 
         // if the left child is bigger than the node we are looking at

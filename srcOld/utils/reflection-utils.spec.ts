@@ -3,7 +3,6 @@ import "mocha";
 import * as ReflectionUtils from "./reflection-utils";
 
 describe("Reflection utils", () => {
-
     describe("CreateClass", () => {
         class Person {
             public constructor(public readonly name: string) {
@@ -20,5 +19,4 @@ describe("Reflection utils", () => {
             expect(person.getName()).to.be.equal("My name is Gabriel");
         });
     });
-
 });

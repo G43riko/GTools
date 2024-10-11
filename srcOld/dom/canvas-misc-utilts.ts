@@ -36,34 +36,17 @@ export function makeRoundedRect(
     h: number,
     radius: RoundData,
 ): void {
-    const {tr, br, bl, tl} = extractRoundData(radius);
+    const { tr, br, bl, tl } = extractRoundData(radius);
     context.beginPath();
-    context.moveTo(x + tl,
-        y);
-    context.lineTo(x + w - tr,
-        y);
-    context.quadraticCurveTo(x + w,
-        y,
-        x + w,
-        y + tr);
-    context.lineTo(x + w,
-        y + h - br);
-    context.quadraticCurveTo(x + w,
-        y + h,
-        x + w - br,
-        y + h);
-    context.lineTo(x + bl,
-        y + h);
-    context.quadraticCurveTo(x,
-        y + h,
-        x,
-        y + h - bl);
-    context.lineTo(x,
-        y + tl);
-    context.quadraticCurveTo(x,
-        y,
-        x + tl,
-        y);
+    context.moveTo(x + tl, y);
+    context.lineTo(x + w - tr, y);
+    context.quadraticCurveTo(x + w, y, x + w, y + tr);
+    context.lineTo(x + w, y + h - br);
+    context.quadraticCurveTo(x + w, y + h, x + w - br, y + h);
+    context.lineTo(x + bl, y + h);
+    context.quadraticCurveTo(x, y + h, x, y + h - bl);
+    context.lineTo(x, y + tl);
+    context.quadraticCurveTo(x, y, x + tl, y);
     context.closePath();
 }
 

@@ -4,7 +4,7 @@ export * from "./utils/string-checkers";
 
 // MODELS
 
-export { GenderType, Gender } from "./models/gender.model";
+export { Gender, GenderType } from "./models/gender.model";
 
 // ENUMS
 

@@ -3,7 +3,12 @@ import { GLoggerCallbackHolder } from "./g-logger-callback-holder";
 import { GLoggerPriority } from "./g-logger-priority";
 
 export abstract class GLoggerInstance {
-    protected static localPrint(type: GLoggerPriority, data: unknown[], callbacks: GLoggerCallbackHolder, context?: string): void {
+    protected static localPrint(
+        type: GLoggerPriority,
+        data: unknown[],
+        callbacks: GLoggerCallbackHolder,
+        context?: string,
+    ): void {
         callbacks.getCallback(type)(data, context);
     }
 

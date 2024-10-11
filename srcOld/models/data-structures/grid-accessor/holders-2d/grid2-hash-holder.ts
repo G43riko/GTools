@@ -19,7 +19,7 @@ export class Grid2HashHolder<T> implements Grid2Holder<T> {
     }
 
     public set(x: number, y: number, value: T): void {
-        this.data[hash2Numbers(x, y)] = {x, y, value};
+        this.data[hash2Numbers(x, y)] = { x, y, value };
     }
 
     public forEach(callback: (value: T, x: number, y: number) => void): boolean {

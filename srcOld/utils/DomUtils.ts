@@ -44,7 +44,7 @@ export class DomUtils {
     public static textContent<T>(element: T, text?: string, append?: boolean): T;
     public static textContent(element: Element): string;
     public static textContent<T extends Element>(element: T, text?: string, append = true): T | string {
-        if(typeof text === "string") {
+        if (typeof text === "string") {
             if (append) {
                 element.textContent += text;
             } else {
@@ -220,7 +220,7 @@ export class DomUtils {
      * @returns position of element
      */
     public static position(element: HTMLElement): SimpleVector2 {
-        let top  = 0;
+        let top = 0;
         let left = 0;
         do {
             top += element.offsetTop || 0;
@@ -260,7 +260,7 @@ export class DomUtils {
     public static size(element: HTMLElement): Size {
         return {
             height: element.offsetHeight,
-            width : element.offsetWidth,
+            width: element.offsetWidth,
         };
     }
 
@@ -285,7 +285,7 @@ export class DomUtils {
                 continue;
             }
             const e: Element = elements[key];
-            const name       = e.getAttribute("name");
+            const name = e.getAttribute("name");
             if (name) {
                 result[name] = e.getAttribute("value") as string;
             }

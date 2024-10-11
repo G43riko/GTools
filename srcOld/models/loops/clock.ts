@@ -1,10 +1,10 @@
 const now = () => (typeof performance === "undefined" ? Date : performance).now();
 
 export class Clock {
-    private startTime   = 0;
-    private oldTime     = 0;
+    private startTime = 0;
+    private oldTime = 0;
     private elapsedTime = 0;
-    private running     = false;
+    private running = false;
 
     public constructor(
         private autostart = true,
@@ -12,15 +12,15 @@ export class Clock {
     }
 
     public start(): void {
-        this.startTime   = now();
-        this.oldTime     = this.startTime;
+        this.startTime = now();
+        this.oldTime = this.startTime;
         this.elapsedTime = 0;
-        this.running     = true;
+        this.running = true;
     }
 
     public stop(): void {
         this.getElapsedTime();
-        this.running   = false;
+        this.running = false;
         this.autostart = false;
     }
 
@@ -40,8 +40,8 @@ export class Clock {
 
         if (this.running) {
             const newTime = now();
-            diff          = (newTime - this.oldTime) / 1000;
-            this.oldTime  = newTime;
+            diff = (newTime - this.oldTime) / 1000;
+            this.oldTime = newTime;
 
             this.elapsedTime += diff;
         }

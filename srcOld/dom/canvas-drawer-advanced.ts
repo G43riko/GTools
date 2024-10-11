@@ -35,7 +35,7 @@ export class CanvasDrawerAdvanced {
     }
 
     public renderRect(rawLocation: XYWH, options: RenderOptions, origin = Origin.TL): void {
-        const location = getXYWHFrom(rawLocation, {x: rawLocation.w, y: rawLocation.h}, origin);
+        const location = getXYWHFrom(rawLocation, { x: rawLocation.w, y: rawLocation.h }, origin);
         this.prepareShadow(options.shadow);
         this.prepareOpacity(options.opacity);
         if (options.fill) {

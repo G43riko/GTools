@@ -1,13 +1,18 @@
-let array: any[]         = [];
+let array: any[] = [];
 let tmpValue: any | null = null;
 
-
-export function quickSort<T>(arr: T[], comparator: (a: T, b: T) => number): void {
+/**
+ * @export
+ * @param arr
+ * @param comparator
+ * @returns
+ */
+export function quickSort<T>(arr: readonly T[], comparator: (a: T, b: T) => number): void {
     if (!arr?.length) {
         return;
     }
 
-    array = arr;
+    array = [...arr];
 
     doQuickSort(0, array.length - 1, comparator);
 }

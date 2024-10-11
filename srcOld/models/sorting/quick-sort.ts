@@ -2,7 +2,7 @@
  * https://github.com/G43riko/JavaUtils/blob/master/GLib/src/glib/sorts/GQuickSort.java
  */
 export class QuickSort<T> {
-    private array: T[]         = [];
+    private array: T[] = [];
     private tmpValue: T | null = null;
 
     public constructor(private readonly comparator: (a: T, b: T) => number) {

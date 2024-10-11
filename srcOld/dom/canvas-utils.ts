@@ -58,7 +58,8 @@ function process(res: CanvasConfig): void {
         if (res.bgImage instanceof HTMLImageElement) {
             res.ctx.drawImage(res.bgImage, res.x, res.y, res.width, res.height);
         } else {
-            res.ctx.drawImage(res.bgImage.img,
+            res.ctx.drawImage(
+                res.bgImage.img,
                 res.bgImage.x,
                 res.bgImage.y,
                 res.bgImage.w,
@@ -66,7 +67,8 @@ function process(res: CanvasConfig): void {
                 res.x,
                 res.y,
                 res.width,
-                res.height);
+                res.height,
+            );
         }
         res.ctx.restore();
     } else if (res.fill) {
@@ -78,7 +80,7 @@ function process(res: CanvasConfig): void {
         setShadow(res.ctx);
     }
 
-    res.ctx.lineCap  = res.lineCap;
+    res.ctx.lineCap = res.lineCap;
     res.ctx.lineJoin = res.joinType;
     if (typeof res.ctx.setLineDash === "function") {
         res.ctx.setLineDash(res.lineDash);
@@ -87,7 +89,7 @@ function process(res: CanvasConfig): void {
     if (!res.draw) {
         return;
     }
-    res.ctx.lineWidth   = res.borderWidth;
+    res.ctx.lineWidth = res.borderWidth;
     res.ctx.strokeStyle = res.borderColor;
     res.ctx.stroke();
 }
@@ -96,33 +98,37 @@ function initDef(obj: any): CanvasConfig {
     return {
         borderColor: "black",
         borderWidth: 1,
-        center     : false,
-        ctx        : obj.ctx,
-        draw       : typeof obj.borderColor !== "undefined" || typeof obj.borderWidth !== "undefined",
-        endAngle   : Math.PI * 2,
-        fill       : typeof obj.fillColor !== "undefined",
-        fillColor  : "white",
-        height     : 0,
-        joinType   : "bevel",
-        lineCap    : "round",
-        lineDash   : [],
-        offset     : null,
-        radius     : {
+        center: false,
+        ctx: obj.ctx,
+        draw: typeof obj.borderColor !== "undefined" || typeof obj.borderWidth !== "undefined",
+        endAngle: Math.PI * 2,
+        fill: typeof obj.fillColor !== "undefined",
+        fillColor: "white",
+        height: 0,
+        joinType: "bevel",
+        lineCap: "round",
+        lineDash: [],
+        offset: null,
+        radius: {
             tl: 0,
             tr: 0,
             br: 0,
             bl: 0,
         },
-        startAngle : 0,
-        width      : 0,
-        x          : 0,
-        y          : 0,
+        startAngle: 0,
+        width: 0,
+        x: 0,
+        y: 0,
     };
 }
 
 function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
     const res: CanvasConfig = $.extend(def, obj) as CanvasConfig;
-    const checkAttribute    = (attrName: keyof CanvasConfig, partA: keyof CanvasConfig, partB: keyof CanvasConfig): void => {
+    const checkAttribute = (
+        attrName: keyof CanvasConfig,
+        partA: keyof CanvasConfig,
+        partB: keyof CanvasConfig,
+    ): void => {
         if (typeof res[attrName] === "undefined") {
             return;
         }
@@ -157,7 +163,6 @@ function remakePosAndSize(def: CanvasConfig, obj: any): CanvasConfig {
 }
 
 function checkPosAndSize(obj: CanvasConfig, name: string): CanvasConfig {
-
     if ((typeof obj.x === "undefined" || typeof obj.y === "undefined") && typeof obj.position === "undefined") {
         console.error(`MSG_TRY_DRAW_WITHOUT_POSITION: ${name}`);
     }
@@ -179,18 +184,17 @@ export class CanvasUtils {
 
         res.ctx.beginPath();
         if (typeof res.ctx.ellipse === "function") {
-            res.ctx.ellipse(res.x + (res.width >> 1),
+            res.ctx.ellipse(
+                res.x + (res.width >> 1),
                 res.y + (res.height >> 1),
                 res.width >> 1,
                 res.height >> 1,
                 0,
                 res.startAngle,
-                res.endAngle);
+                res.endAngle,
+            );
         } else {
-            res.ctx.rect(res.x + (res.width >> 1),
-                res.y + (res.height >> 1),
-                res.width >> 1,
-                res.height >> 1);
+            res.ctx.rect(res.x + (res.width >> 1), res.y + (res.height >> 1), res.width >> 1, res.height >> 1);
         }
 
         process(res);
@@ -223,7 +227,12 @@ export class CanvasUtils {
         res.ctx.lineTo(res.x + res.width - (res.radius as any).tr, res.y);
         res.ctx.quadraticCurveTo(res.x + res.width, res.y, res.x + res.width, res.y + (res.radius as any).tr);
         res.ctx.lineTo(res.x + res.width, res.y + res.height - (res.radius as any).br);
-        res.ctx.quadraticCurveTo(res.x + res.width, res.y + res.height, res.x + res.width - (res.radius as any).br, res.y + res.height);
+        res.ctx.quadraticCurveTo(
+            res.x + res.width,
+            res.y + res.height,
+            res.x + res.width - (res.radius as any).br,
+            res.y + res.height,
+        );
         res.ctx.lineTo(res.x + (res.radius as any).bl, res.y + res.height);
         res.ctx.quadraticCurveTo(res.x, res.y + res.height, res.x, res.y + res.height - (res.radius as any).bl);
         res.ctx.lineTo(res.x, res.y + (res.radius as any).tl);

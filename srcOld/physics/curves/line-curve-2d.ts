@@ -38,8 +38,8 @@ export class LineCurve2d extends Curve2D {
 
         let prevLength = 0;
         let currLength = 0;
-        let i          = 1;
-        for (; ;) {
+        let i = 1;
+        for (;;) {
             prevLength = currLength;
             currLength += Vector2.dist(this.points[i - 1], this.points[i]);
             if (currLength === valueLength) {
@@ -60,9 +60,9 @@ export class LineCurve2d extends Curve2D {
         const prevRatio = prevLength / curveLength;
         const currRatio = currLength / curveLength;
 
-        const valueNormalized     = value - prevRatio;
+        const valueNormalized = value - prevRatio;
         const currRatioNormalized = currRatio - prevRatio;
-        const ratio               = valueNormalized / currRatioNormalized;
+        const ratio = valueNormalized / currRatioNormalized;
 
         return this.lerp(prevPoint, currPoint, ratio);
     }
@@ -94,8 +94,8 @@ export class LineCurve2d extends Curve2D {
         if (i2 >= this.points.length) {
             return this.points[this.points.length - 1];
         }
-        const step      = 1 / (this.points.length - 1);
-        const realStep  = value - step * i1;
+        const step = 1 / (this.points.length - 1);
+        const realStep = value - step * i1;
         const realValue = Math.max(0, Math.min(1, realStep * this.points.length));
 
         const point1 = this.points[i1];
@@ -103,5 +103,4 @@ export class LineCurve2d extends Curve2D {
 
         return this.lerp(point1, point2, realValue);
     }
-
 }

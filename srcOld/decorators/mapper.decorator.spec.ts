@@ -3,7 +3,7 @@ import { Mapper } from "./mapper.decorator";
 
 class A {
     @Mapper()
-    public notChanged   = "";
+    public notChanged = "";
     @Mapper({}, "__")
     public onlyPrefixed = "";
     @Mapper({
@@ -22,13 +22,12 @@ class A {
 }
 
 describe("Mapper decorator", () => {
-
     const test = new A();
     it("test first round", () => {
-        test.both         = "HAS both";
-        test.getter       = "HAS getter";
-        test.setter       = "contains setter";
-        test.notChanged   = "notChanged";
+        test.both = "HAS both";
+        test.getter = "HAS getter";
+        test.setter = "contains setter";
+        test.notChanged = "notChanged";
         test.onlyPrefixed = "onlyPrefixed";
 
         console.log(test.both);
@@ -39,10 +38,10 @@ describe("Mapper decorator", () => {
         expect(test.onlyPrefixed).to.be.equal("onlyPrefixed");
     });
     it("test second round", () => {
-        test.getter       = "HAS getter 2";
-        test.both         = "HAS both 2";
-        test.setter       = "contains setter 2";
-        test.notChanged   = "notChanged 2";
+        test.getter = "HAS getter 2";
+        test.both = "HAS both 2";
+        test.setter = "contains setter 2";
+        test.notChanged = "notChanged 2";
         test.onlyPrefixed = "onlyPrefixed 2";
 
         expect(test.both).to.be.equal("GETTER >>>SETTER >>>HAS both 2<<< SETTER<<< GETTER");

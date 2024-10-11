@@ -42,7 +42,7 @@ describe("Color utils", () => {
         expect(rgb2int(255, 255, 255)).to.be.equal(whiteInt);
     });
 
-    describe(("parseColor"), () => {
+    describe("parseColor", () => {
         it("It should parse int color", () => {
             expect(parseColor("0")).to.deep.equal([0, 0, 0]);
             expect(parseColor(String(whiteInt))).to.deep.equal([255, 255, 255]);

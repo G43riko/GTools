@@ -13,14 +13,14 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         let tmin = -Infinity;
         let tmax = Infinity;
 
-        const p    = ray.from;
-        const d    = ray.direction;
+        const p = ray.from;
+        const d = ray.direction;
         const absD = Vector2.getAbs(d);
 
         const normal = Vector2.ZERO;
 
         // @ts-ignore
-        for (let f: "x" | "y" = "x"; f !== null; f = (f === "x" ? "y" : null)) {
+        for (let f: "x" | "y" = "x"; f !== null; f = f === "x" ? "y" : null) {
             if (absD.x < Number.EPSILON) {
                 // Parallel.
                 if (p[f] < this.min[f] || this.max[f] < p[f]) {
@@ -28,24 +28,24 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
                 }
             } else {
                 const invD = 1 / d[f];
-                let t1     = (this.min[f] - p[f]) * invD;
-                let t2     = (this.max[f] - p[f]) * invD;
+                let t1 = (this.min[f] - p[f]) * invD;
+                let t2 = (this.max[f] - p[f]) * invD;
 
                 // Sign of the normal vector.
                 let s = -1;
 
                 if (t1 > t2) {
                     const temp = t1;
-                    t1         = t2;
-                    t2         = temp;
-                    s          = 1;
+                    t1 = t2;
+                    t2 = temp;
+                    s = 1;
                 }
 
                 // Push the min up
                 if (t1 > tmin) {
                     normal.setData(0, 0);
                     normal[f] = s;
-                    tmin      = t1;
+                    tmin = t1;
                 }
 
                 // Pull the max down
@@ -189,5 +189,4 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         this.max.x += offset.x;
         this.max.y += offset.y;
     }
-
 }

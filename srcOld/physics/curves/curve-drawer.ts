@@ -3,9 +3,9 @@ import { Curve2D } from "./curve-2d";
 
 export class CurveDrawer {
     public pointColor = "blue";
-    public lineColor  = "green";
-    public lineWidth  = 2;
-    public pointSize  = 5;
+    public lineColor = "green";
+    public lineWidth = 2;
+    public pointSize = 5;
 
     public constructor(
         private readonly context: CanvasRenderingContext2D,
@@ -24,7 +24,7 @@ export class CurveDrawer {
     }
 
     public renderLine(curve: Curve2D, context = this.context, color = this.lineColor, width = this.lineWidth): void {
-        context.lineWidth   = width;
+        context.lineWidth = width;
         context.strokeStyle = color;
         context.beginPath();
         curve.points.forEach((point, i) => {
@@ -42,7 +42,12 @@ export class CurveDrawer {
         this.renderPoints(curve, context);
     }
 
-    private renderDirectPoint(context: CanvasRenderingContext2D, point: ReadonlySimpleVector2 | undefined, color: string, size: number): void {
+    private renderDirectPoint(
+        context: CanvasRenderingContext2D,
+        point: ReadonlySimpleVector2 | undefined,
+        color: string,
+        size: number,
+    ): void {
         if (!point) {
             return;
         }
@@ -54,22 +59,44 @@ export class CurveDrawer {
         context.fill();
     }
 
-    public renderPoint(value: number, curve: Curve2D, context = this.context, color = this.pointColor, size = this.pointSize): void {
+    public renderPoint(
+        value: number,
+        curve: Curve2D,
+        context = this.context,
+        color = this.pointColor,
+        size = this.pointSize,
+    ): void {
         const point = curve.getPoint(value);
         this.renderDirectPoint(context, point, color, size);
     }
 
-    public renderPointAt(value: number, curve: Curve2D, context = this.context, color = this.pointColor, size = this.pointSize): void {
+    public renderPointAt(
+        value: number,
+        curve: Curve2D,
+        context = this.context,
+        color = this.pointColor,
+        size = this.pointSize,
+    ): void {
         const point = curve.getPoint(value);
         this.renderDirectPoint(context, point, color, size);
     }
 
-    public renderPointArcAt(value: number, curve: Curve2D, context = this.context, color = this.pointColor, size = this.pointSize): void {
+    public renderPointArcAt(
+        value: number,
+        curve: Curve2D,
+        context = this.context,
+        color = this.pointColor,
+        size = this.pointSize,
+    ): void {
         const point = curve.getPointAtArc(value);
         this.renderDirectPoint(context, point, color, size);
     }
 
-    public drawCurvePoints(context: CanvasRenderingContext2D, curve: Curve2D, color = this.pointColor, size = this.pointSize): void {
-
+    public drawCurvePoints(
+        context: CanvasRenderingContext2D,
+        curve: Curve2D,
+        color = this.pointColor,
+        size = this.pointSize,
+    ): void {
     }
 }

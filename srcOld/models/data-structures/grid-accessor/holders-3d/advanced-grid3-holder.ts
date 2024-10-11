@@ -8,7 +8,7 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
         private readonly x: number,
         private readonly y: number,
         private readonly z: number,
-        private _origin = {x: 0, y: 0, z: 0},
+        private _origin = { x: 0, y: 0, z: 0 },
     ) {
     }
 
@@ -29,7 +29,7 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
     }
 
     public setOrigin(x: number, y: number, z: number): void {
-        this._origin = {x, y, z};
+        this._origin = { x, y, z };
     }
 
     public fill(value: T | ((x: number, y: number, z: number) => T)): void {
@@ -177,7 +177,7 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
             let yd = dy - dx / 2;
             let zd = dz - dx / 2;
 
-            for (; ;) {
+            for (;;) {
                 this.setRelativeBlock(relX1, relY1, relZ1, provider(relX1, relY1, relZ1));
 
                 if (relX1 === relX2) {
@@ -203,7 +203,7 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
             let xd = dx - dy / 2;
             let zd = dz - dy / 2;
 
-            for (; ;) {
+            for (;;) {
                 this.setRelativeBlock(relX1, relY1, relZ1, provider(relX1, relY1, relZ1));
 
                 if (relY1 === relY2) {
@@ -231,7 +231,7 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
             let xd = dx - dz / 2;
             let yd = dy - dz / 2;
 
-            for (; ;) {
+            for (;;) {
                 this.setRelativeBlock(relX1, relY1, relZ1, provider(relX1, relY1, relZ1));
 
                 if (relZ1 === relZ2) {
@@ -253,19 +253,18 @@ export class AdvancedGrid3Holder<T extends (string | number | Record<string, unk
                 xd += dx;
                 yd += dy;
             }
-        }  // if (which dimension is dominant)
+        } // if (which dimension is dominant)
     }
 
     public isRelativePointInside(x: number, y: number, z: number): boolean {
-        return x >= 0 && x < this.x
-            && y >= 0 && y < this.y
-            && z >= 0 && z < this.z;
+        return x >= 0 && x < this.x &&
+            y >= 0 && y < this.y &&
+            z >= 0 && z < this.z;
     }
 
     public isPointInside(x: number, y: number, z: number): boolean {
-        return x >= this._origin.x && x < this._origin.x + this.x
-            && y >= this._origin.y && y < this._origin.y + this.y
-            && z >= this._origin.z && z < this._origin.z + this.z;
+        return x >= this._origin.x && x < this._origin.x + this.x &&
+            y >= this._origin.y && y < this._origin.y + this.y &&
+            z >= this._origin.z && z < this._origin.z + this.z;
     }
-
 }

@@ -30,7 +30,15 @@ export class CanvasDrawer implements Drawer {
         this.context.fill();
     }
 
-    public strokeRoundedRect(x: number, y: number, w: number, h: number, round: RoundData, color?: ColorType, width = NaN): void {
+    public strokeRoundedRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        round: RoundData,
+        color?: ColorType,
+        width = NaN,
+    ): void {
         if (color) {
             this.context.strokeStyle = extractColor(color);
         }
@@ -65,7 +73,11 @@ export class CanvasDrawer implements Drawer {
         this.context.strokeRect(x, y, w, h);
     }
 
-    public strokeRectangles(data: [x: number, y: number, w: number, h: number][], color?: Color | string, width?: number): void {
+    public strokeRectangles(
+        data: [x: number, y: number, w: number, h: number][],
+        color?: Color | string,
+        width?: number,
+    ): void {
         if (color) {
             this.context.strokeStyle = extractColor(color);
         }
@@ -95,7 +107,7 @@ export class CanvasDrawer implements Drawer {
     }
 
     private createEllipse(x: number, y: number, w: number, h: number): void {
-        if(w === h) {
+        if (w === h) {
             const halfSize = w / 2;
             this.context.arc(
                 x + halfSize,
@@ -105,7 +117,7 @@ export class CanvasDrawer implements Drawer {
                 PI2,
             );
         } else {
-            const halfSize = {x: w / 2, y: h / 2};
+            const halfSize = { x: w / 2, y: h / 2 };
             this.context.ellipse(
                 x + halfSize.x,
                 y + halfSize.y,
@@ -223,7 +235,7 @@ export class CanvasDrawer implements Drawer {
 
     public drawText(text: string, x: number, y: number, w: number, h: number, textOptions: TextOptionsInterface): void {
         this.context.fillStyle = textOptions.fontColor;
-        this.context.font      = `${textOptions.fontSize}px ${textOptions.font}`;
+        this.context.font = `${textOptions.fontSize}px ${textOptions.font}`;
 
         let realX = x;
         let realY = y;
@@ -349,14 +361,26 @@ export class CanvasDrawer implements Drawer {
         this.context.closePath();
     }
 
-    public horizontalLines(startY: number, offsetY: number, steps: number, startX = 0, endX = this.context.canvas.width): void {
+    public horizontalLines(
+        startY: number,
+        offsetY: number,
+        steps: number,
+        startX = 0,
+        endX = this.context.canvas.width,
+    ): void {
         for (let i = 0; i < steps; i++) {
             const y = startY + offsetY * i;
             this.horizontalLine(y, startX, endX);
         }
     }
 
-    public verticalLines(startX: number, offsetX: number, steps: number, startY = 0, endY = this.context.canvas.height): void {
+    public verticalLines(
+        startX: number,
+        offsetX: number,
+        steps: number,
+        startY = 0,
+        endY = this.context.canvas.height,
+    ): void {
         for (let i = 0; i < steps; i++) {
             const x = startX + offsetX * i;
             this.verticalLine(x, startY, endY);

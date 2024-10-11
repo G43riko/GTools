@@ -25,11 +25,10 @@ module.exports = {
                 "eslint:recommended",
             ],
             "rules": {
-
                 "indent": [
                     "error",
                     4,
-                    {"SwitchCase": 1},
+                    { "SwitchCase": 1 },
                 ],
                 "quotes": [
                     "error",
@@ -58,7 +57,7 @@ module.exports = {
                 "eol-last": ["error", "always"],
                 "no-trailing-spaces": "error",
                 "no-whitespace-before-property": "error",
-                "object-property-newline": ["error", {"allowAllPropertiesOnSameLine": true}],
+                "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
                 "semi-spacing": "error",
                 "space-in-parens": ["error", "never"],
                 "arrow-body-style": ["error", "as-needed"],
@@ -69,7 +68,7 @@ module.exports = {
                 "prefer-const": "error",
                 "no-var": "error",
                 "newline-before-return": "error",
-                "no-use-before-define": ["error", {"classes": false, "functions": false}],
+                "no-use-before-define": ["error", { "classes": false, "functions": false }],
                 "no-cond-assign": "error",
                 "no-duplicate-case": "error",
                 "template-curly-spacing": "error",
@@ -236,7 +235,8 @@ module.exports = {
                                 "message": "Avoid using the `Boolean` type. Did you mean `boolean`?",
                             },
                             "Function": {
-                                "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`.",
+                                "message":
+                                    "Avoid using the `Function` type. Prefer a specific function type, like `() => void`.",
                             },
                             "Number": {
                                 "message": "Avoid using the `Number` type. Did you mean `number`?",
@@ -255,8 +255,8 @@ module.exports = {
                 ],
                 "@typescript-eslint/dot-notation": "error",
                 "@typescript-eslint/consistent-type-assertions": "error",
-                "@typescript-eslint/array-type": ["error", {"default": "array"}],
-                "@typescript-eslint/explicit-function-return-type": ["warn", {"allowExpressions": true}],
+                "@typescript-eslint/array-type": ["error", { "default": "array" }],
+                "@typescript-eslint/explicit-function-return-type": ["warn", { "allowExpressions": true }],
                 "@typescript-eslint/explicit-member-accessibility": ["error", {
                     "accessibility": "explicit",
                     "overrides": {
@@ -297,7 +297,7 @@ module.exports = {
                 ],
                 "@typescript-eslint/member-ordering": "off",
                 "@typescript-eslint/naming-convention": "off",
-                "@typescript-eslint/no-empty-function": ["error", {"allow": ["constructors"]}],
+                "@typescript-eslint/no-empty-function": ["error", { "allow": ["constructors"] }],
                 "@typescript-eslint/no-empty-interface": "error",
                 "@typescript-eslint/no-for-in-array": "error",
                 "@typescript-eslint/no-inferrable-types": "error",
@@ -313,7 +313,7 @@ module.exports = {
                 ],
                 "@typescript-eslint/no-unnecessary-type-assertion": "error",
                 "@typescript-eslint/no-unused-expressions": "off",
-                "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "^_"}],
+                "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
                 "@typescript-eslint/no-use-before-define": "error",
                 "@typescript-eslint/prefer-function-type": "error",
                 "@typescript-eslint/prefer-namespace-keyword": "error",

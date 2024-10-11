@@ -7,7 +7,7 @@ export abstract class AbstractDatabaseFixture<Obj, ObjDto> extends AbstractFixtu
 
     protected constructor(list: Obj[], mapper: AbstractMapper<Obj, ObjDto>) {
         super(list);
-        this.listDto   = list.map(mapper.mapToDto, mapper);
+        this.listDto = list.map(mapper.mapToDto, mapper);
         this.detailDto = this.listDto[0];
     }
 }
