@@ -18,7 +18,7 @@ jobs:
           - name: Install Deno
             uses: denoland/setup-deno@v1
             with:
-              deno-version: v1.x
+              deno-version: v2.x
           - name: Run tests with coverage
             run: "deno task test:coverage"
           - name: Generate coverage
