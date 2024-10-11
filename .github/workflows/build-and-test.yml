@@ -5,10 +5,23 @@ on:
         branches: [master, development]
 
 jobs:
+    sonarcloud:
+        name: SonarCloud
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          - name: SonarCloud Scan
+            uses: SonarSource/sonarcloud-github-action@master
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     build:
         timeout-minutes: 5
         runs-on: ubuntu-latest
         steps:
+        
             - name: Checkout Repo
               uses: actions/checkout@master
             - uses: actions/setup-node@master
