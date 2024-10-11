@@ -19,9 +19,23 @@
 
 [Documentation](https://g43riko.github.io/GTools/)
 
+
+## Scan docker 
+```bash
+docker run \
+    --rm \
+    -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=G43riko_GTools" \
+    -e SONAR_SCANNER_OPTS="-Dsonar.organization=g43riko" \
+    -e SONAR_SCANNER_OPTS="-Dsonar.javascript.lcov.reportPaths=coverage/lcov.info" \
+    -e SONAR_TOKEN=35e611231b768d371f22e880a31bbada5f9359d3 \
+    -v ".:/usr/src" \
+    sonarsource/sonar-scanner-cli
+```
+
 ## Contents
 
 - [GTools](#gtools)
+  - [Scan docker](#scan-docker)
   - [Contents](#contents)
   - [Installation](#installation)
     - [NodeJS](#nodejs)
