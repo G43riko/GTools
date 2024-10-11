@@ -10,6 +10,7 @@
         "test:coverage": "deno test --coverage workspaces/**/src/**/*.spec.ts",
         "test:coverage:doc": "deno test --doc --coverage workspaces/**/src/**/*.ts",
         "coverage": "deno coverage --html --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
+        "coverage:lcov": "deno coverage --lcov --output=coverage/lcov.info --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
         "serveDocs": "deno run --allow-net --watch --allow-read utils/serve-docs.ts",
         "serveCoverage": "deno run --allow-net --watch --allow-read utils/serve-coverage.ts"
     },

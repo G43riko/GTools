@@ -8,10 +8,21 @@ jobs:
     sonarcloud:
         name: SonarCloud
         runs-on: ubuntu-latest
+        permissions:
+            id-token: write # Needed for auth with Deno Deploy
+            contents: read # Needed to clone the repository
         steps:
           - uses: actions/checkout@v4
             with:
               fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          - name: Install Deno
+            uses: denoland/setup-deno@v1
+            with:
+              deno-version: v1.x
+          - name: Run tests with coverage
+            run: "deno task test:coverage"
+          - name: Generate coverage
+            run: "deno task coverage:lcov"
           - name: SonarCloud Scan
             uses: SonarSource/sonarcloud-github-action@master
             env:
