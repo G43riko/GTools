@@ -1,8 +1,8 @@
-export * from "./utils/array-utils.ts";
-export * from "./utils/string-utils/index.ts";
-export * from "./utils/input-utils.ts";
-export * from "./utils/origin-utils.ts";
+export * from "./array-utils.ts";
+export * from "./string-utils/index.ts";
+export * from "./input-utils.ts";
+export * from "./origin-utils.ts";
 
-export * from "./sort/merge-sort.ts";
-export * from "./sort/quick-sort.ts";
-export * from "./sort/insertion-sort.ts";
+export * from "./misc/sort/merge-sort.ts";
+export * from "./misc/sort/quick-sort.ts";
+export * from "./misc/sort/insertion-sort.ts";

@@ -1,4 +1,4 @@
-import { assert, assertEquals, assertThrows } from "@std/assert";
+import { assertEquals } from "@std/assert";
 import { occurrences, removeAccentedCharacters } from "./index.ts";
 import { MockData } from "../mocks/mock-data.ts";
 Deno.test("StringUtils.occurrences", () => {

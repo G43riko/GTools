@@ -29,6 +29,28 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
               SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     build:
+      name: Build
+      runs-on: ubuntu-latest
+
+      permissions:
+        id-token: write # Needed for auth with Deno Deploy
+        contents: read # Needed to clone the repository
+
+      steps:
+        - name: Clone repository
+          uses: actions/checkout@v3
+
+        - name: Install Deno
+          uses: denoland/setup-deno@v1
+          with:
+            deno-version: v2.x
+        - name: Lint step
+          run: "deno lint"
+        - name: Build step
+          run: "deno task build"
+        - name: Test step
+          run: "deno task test"
+    buildOld:
         timeout-minutes: 5
         runs-on: ubuntu-latest
         steps:

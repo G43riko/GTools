@@ -17,7 +17,9 @@
     "lint": {
         "rules": {
             "exclude": ["no-explicit-any"]
-        }
+        },
+        "include": ["workspaces/**/src/**/*.ts"],
+        "exclude": ["srcOld", "utils", "docs", "coverage"]
     },
     "publish": {
         "exclude": ["**/*.bench.ts"]
