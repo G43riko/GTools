@@ -2,8 +2,8 @@
     "workspace": ["./workspaces/enums", "./workspaces/utils"],
     "tasks": {
         "bench": "deno bench",
+        "bench:utils": "deno bench --filter utils",
         "doc": "deno doc --html --name=\"@g43/tools\" --output=docs workspaces/enums/src/index.ts workspaces/utils/src/index.ts",
-        "doc:utils": "deno doc --html --name=\"@g43/utils\" --output=docs workspaces/utils/src/index.ts",
         "doc:enums": "deno doc --html --name=\"@g43/enums\" --output=docs workspaces/enums/src/index.ts",
         "test": "deno test workspaces/**/src/**/*.spec.ts",
         "test:doc": "deno test --doc workspaces/**/src/**/*.ts",
@@ -19,14 +19,20 @@
         }
     },
     "test": {
-        "exclude": ["**/*.bench.ts"]
+        "exclude": ["**/*.bench.ts", "srcOld"]
     },
     "bench": {
-        "include": ["workspaces/**/src"]    
+        "include": ["workspaces/**/src"],
+        "exclude": ["srcOld"]
     },
     "fmt": {
         "lineWidth": 120,
-        "indentWidth": 4
+        "indentWidth": 4,
+        "exclude": [
+            "docs",
+            "coverage",
+            "srcOld"
+        ]
     },
     "compilerOptions": {
         "strict": true

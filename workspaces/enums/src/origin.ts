@@ -1,11 +1,11 @@
 export enum Origin {
-    TR     = "TR",
+    TR = "TR",
     CENTER = "CENTER",
-    TL     = "TL",
-    BR     = "BR",
-    BL     = "BL",
-    T      = "T",
-    L      = "L",
-    R      = "R",
-    B      = "B"
+    TL = "TL",
+    BR = "BR",
+    BL = "BL",
+    T = "T",
+    L = "L",
+    R = "R",
+    B = "B",
 }

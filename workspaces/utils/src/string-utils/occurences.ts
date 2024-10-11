@@ -4,10 +4,10 @@
  * @param key - searched substring
  * @param overlapping - allows math overlapping
  *
- * @example 
+ * @example
  * ```ts
  * import { assertEquals } from "jsr:@std/assert/equals";
- * 
+ *
  * assertEquals(occurrences("foofoofoo", "bar"), 0);
  * assertEquals(occurrences("foofoofoo", "foo"), 3);
  * assertEquals(occurrences("foofoofoo", "foofoo"), 1);
