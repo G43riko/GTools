@@ -3,6 +3,7 @@
     "tasks": {
         "bench": "deno bench",
         "bench:utils": "deno bench --filter utils",
+        "check": "deno check workspaces/**/src/**/*.ts",
         "doc": "deno doc --html --name=\"@g43/tools\" --output=docs workspaces/enums/src/index.ts workspaces/utils/src/index.ts",
         "doc:enums": "deno doc --html --name=\"@g43/enums\" --output=docs workspaces/enums/src/index.ts",
         "test": "deno test workspaces/**/src/**/*.spec.ts",
