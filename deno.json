@@ -8,7 +8,7 @@
         "doc:enums": "deno doc --html --name=\"@g43/enums\" --output=docs workspaces/enums/src/index.ts",
         "test": "deno test workspaces/**/src/**/*.spec.ts",
         "test:doc": "deno test --doc workspaces/**/src/**/*.ts",
-        "test:coverage": "deno test --coverage workspaces/**/src/**/*.spec.ts",
+        "test:coverage": "deno test --clean --coverage workspaces/**/src/**/*.spec.ts",
         "test:coverage:doc": "deno test --doc --coverage workspaces/**/src/**/*.ts",
         "coverage": "deno coverage --html --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
         "coverage:lcov": "deno coverage --lcov --output=coverage/lcov.info --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
