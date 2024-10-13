@@ -1,4 +1,4 @@
-import { ReadonlySimpleVector2, SimpleVector2 } from "./simple-vector2.ts";
+import type { ReadonlySimpleVector2, SimpleVector2 } from "./simple-vector2.ts";
 
 type ReadonlyPair<T> = any;
 type Vector<T, S> = any;
@@ -27,7 +27,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public perpendicular(): Vector2 {
         return new Vector2(this.y, -this.x);
     }
-
 
     public equals(vector: any): boolean {
         return Vector2.equals(this, vector);
@@ -63,18 +62,17 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * @param point
      */
     public static rotate(angle: number, point: ReadonlySimpleVector2, anchor?: ReadonlySimpleVector2): Vector2 {
-        const anchorX  = anchor?.x ?? 0;
-        const anchorY  = anchor?.x ?? 0;
+        const anchorX = anchor?.x ?? 0;
+        const anchorY = anchor?.x ?? 0;
         const sinAngle = Math.sin(angle);
         const cosAngle = Math.cos(angle);
-        const x        = cosAngle * (point.x - anchorX) - sinAngle * (point.y - anchorY) + anchorX;
-        const y        = sinAngle * (point.x - anchorX) + cosAngle * (point.y - anchorY) + anchorY;
+        const x = cosAngle * (point.x - anchorX) - sinAngle * (point.y - anchorY) + anchorX;
+        const y = sinAngle * (point.x - anchorX) + cosAngle * (point.y - anchorY) + anchorY;
 
         return new Vector2(x, y);
     }
 
     /**
-     *
      * @param angle - rotation angle in radians
      * @param anchor
      */
@@ -86,7 +84,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return Vector2.toString(this);
     }
     public static toString(vector?: unknown, toFixed = NaN): string {
-
         if (Vector2.isVector(vector)) {
             if (!isNaN(toFixed)) {
                 return `[${vector.x.toFixed(toFixed)}, ${vector.y.toFixed(toFixed)}]`;
@@ -98,7 +95,10 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return String(vector);
     }
 
-    public static sizeOf<T extends SimpleVector2>(points: readonly ReadonlySimpleVector2[], result: T = new Vector2() as unknown as T): T {
+    public static sizeOf<T extends SimpleVector2>(
+        points: readonly ReadonlySimpleVector2[],
+        result: T = new Vector2() as unknown as T,
+    ): T {
         let minX = Infinity;
         let minY = Infinity;
         let maxX = -Infinity;
@@ -123,7 +123,10 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
-    public static center<T extends SimpleVector2>(points: readonly ReadonlySimpleVector2[], result: T = new Vector2() as unknown as T): T {
+    public static center<T extends SimpleVector2>(
+        points: readonly ReadonlySimpleVector2[],
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = 0;
         result.y = 0;
         points.forEach((point) => {
@@ -208,7 +211,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static sub(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
     public static sub<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result?: T): T;
-    public static sub<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: T = new Vector2() as unknown as T): T {
+    public static sub<T extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = vecA.x - vecB.x;
         result.y = vecA.y - vecB.y;
 
@@ -231,18 +238,31 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return Math.sqrt(Vector2.sizeSQ(vec));
     }
 
-    public static lerp(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number): Vector2
-    public static lerp<T extends SimpleVector2>(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number, result?: T): T;
-    public static lerp<T extends SimpleVector2>(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number, result: T = new Vector2() as unknown as T): T {
+    public static lerp(start: ReadonlySimpleVector2, end: ReadonlySimpleVector2, ratio: number): Vector2;
+    public static lerp<T extends SimpleVector2>(
+        start: ReadonlySimpleVector2,
+        end: ReadonlySimpleVector2,
+        ratio: number,
+        result?: T,
+    ): T;
+    public static lerp<T extends SimpleVector2>(
+        start: ReadonlySimpleVector2,
+        end: ReadonlySimpleVector2,
+        ratio: number,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = start.x + (end.x - start.x) * ratio;
         result.y = start.y + (end.y - start.y) * ratio;
 
         return result;
     }
 
-    public static getAbs(vec: ReadonlySimpleVector2): Vector2
+    public static getAbs(vec: ReadonlySimpleVector2): Vector2;
     public static getAbs<T extends SimpleVector2>(vec: ReadonlySimpleVector2, result?: T): T;
-    public static getAbs<T extends SimpleVector2>(vec: ReadonlySimpleVector2, result: T = new Vector2() as unknown as T): T {
+    public static getAbs<T extends SimpleVector2>(
+        vec: ReadonlySimpleVector2,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = Math.abs(vec.x);
         result.y = Math.abs(vec.y);
 
@@ -257,19 +277,26 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * returns angle between two vectors
      */
     public static angle(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
-        const dot  = Vector2.dot(vecA, vecB);
+        const dot = Vector2.dot(vecA, vecB);
         const lenA = Vector2.size(vecA);
         const lenB = Vector2.size(vecB);
-        const cos  = dot / (lenA * lenB);
+        const cos = dot / (lenA * lenB);
 
         return Math.acos(cos);
     }
 
-    public static isVisible(obsX: number, obsY: number, angle: number, cutOff: number, px: number, py: number): boolean {
+    public static isVisible(
+        obsX: number,
+        obsY: number,
+        angle: number,
+        cutOff: number,
+        px: number,
+        py: number,
+    ): boolean {
         return angle - Math.atan2(
-            py - obsY,
-            px - obsX,
-        ) <= cutOff;
+                    py - obsY,
+                    px - obsX,
+                ) <= cutOff;
     }
 
     public static createOutlineMinMax(points: readonly ReadonlySimpleVector2[]): ReadonlyMinMax2D {
@@ -300,7 +327,14 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return { min, max };
     }
 
-    public static angleBetweenPoints(obsX: number, obsY: number, px1: number, py1: number, px2: number, py2: number): number {
+    public static angleBetweenPoints(
+        obsX: number,
+        obsY: number,
+        px1: number,
+        py1: number,
+        px2: number,
+        py2: number,
+    ): number {
         return Math.atan2(
             py1 - obsY,
             px1 - obsX,
@@ -316,7 +350,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static sum(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
     public static sum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result?: T): T;
-    public static sum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: T = new Vector2() as unknown as T): T {
+    public static sum<T extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = vecA.x + vecB.x;
         result.y = vecA.y + vecB.y;
 
@@ -338,7 +376,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public static sqrtDist(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return (vecA.x - vecB.x) ** 2 + (vecA.y - vecB.y) ** 2;
     }
-
 
     public static fromVec(vec: ReadonlySimpleVector2): Vector2 {
         return new Vector2(vec.x, vec.y);
@@ -369,7 +406,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
 
     public static normalize<T extends SimpleVector2>(vec: T): T;
-    public static normalize<T extends SimpleVector2>(vec: SimpleVector2, result: T): T
+    public static normalize<T extends SimpleVector2>(vec: SimpleVector2, result: T): T;
     public static normalize<T extends SimpleVector2>(vec: T, result: T = vec): T {
         const length = Vector2.size(vec);
 
@@ -388,7 +425,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static mulNum(vecA: ReadonlySimpleVector2, val: number): Vector2;
     public static mulNum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, val: number, result?: T): T;
-    public static mulNum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, val: number, result: T = new Vector2() as unknown as T): T {
+    public static mulNum<T extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        val: number,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = vecA.x * val;
         result.y = vecA.y * val;
 
@@ -397,7 +438,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static sumNum(vecA: ReadonlySimpleVector2, val: number): Vector2;
     public static sumNum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, val: number, result?: T): T;
-    public static sumNum<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, val: number, result: T = new Vector2() as unknown as T): T {
+    public static sumNum<T extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        val: number,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = vecA.x + val;
         result.y = vecA.y + val;
 
@@ -477,7 +522,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static crossNum(num: number, vec: ReadonlySimpleVector2): Vector2;
     public static crossNum<T extends SimpleVector2>(num: number, vec: ReadonlySimpleVector2, result?: T): T;
-    public static crossNum<T extends SimpleVector2>(num: number, vec: ReadonlySimpleVector2, result: T = new Vector2() as unknown as T): T {
+    public static crossNum<T extends SimpleVector2>(
+        num: number,
+        vec: ReadonlySimpleVector2,
+        result: T = new Vector2() as unknown as T,
+    ): T {
         result.x = -num * vec.y;
         result.y = num * vec.x;
 
