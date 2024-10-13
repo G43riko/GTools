@@ -1,6 +1,6 @@
 import { assertEquals } from "@std/assert";
 import { occurrences, removeAccentedCharacters } from "./index.ts";
-import { describe, it } from "@std/testing";
+import { describe, it } from "@std/testing/bdd";
 import { MockData } from "../mocks/mock-data.ts";
 describe("StringUtils", () => {
     it("occurrences", () => {

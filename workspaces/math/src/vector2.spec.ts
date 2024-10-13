@@ -1,5 +1,5 @@
 import { assertEquals } from "@std/assert";
-import { describe, it } from "@std/testing";
+import { describe, it } from "@std/testing/bdd";
 import { Vector2 } from "./vector2.ts";
 
 const vec0_0 = new Vector2();
