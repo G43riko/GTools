@@ -1,5 +1,5 @@
 {
-    "name": "@g43/deno-deploy",
+    "name": "@g43/deno-server",
     "version": "0.0.1",
     "exports": "./src/index.ts"
 }

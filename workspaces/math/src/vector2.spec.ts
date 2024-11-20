@@ -5,10 +5,12 @@ import { Vector2 } from "./vector2.ts";
 const vec0_0 = new Vector2();
 const vec5_0 = new Vector2(5, 0);
 const vec0_5 = new Vector2(0, 5);
+/*
 const vec5_5 = new Vector2(5, 5);
 const vecm5_0 = new Vector2(-5, 0);
 const vec0_m5 = new Vector2(0, -5);
 const vecm5_m5 = new Vector2(-5, -5);
+*/
 describe("Vector2", () => {
     it("lerp", () => {
         assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 0) }, { x: 0, y: 0 });
