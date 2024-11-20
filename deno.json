@@ -1,5 +1,13 @@
 {
-    "workspace": ["./workspaces/enums", "./workspaces/utils", "./workspaces/math", "./workspaces/deno-deploy", "./workspaces/deno-deploy", "./workspaces/core", "./workspaces/tools"],
+    "workspace": [
+        "./workspaces/enums",
+        "./workspaces/utils",
+        "./workspaces/math",
+        "./workspaces/deno-deploy",
+        "./workspaces/deno-deploy",
+        "./workspaces/core",
+        "./workspaces/tools"
+    ],
     "tasks": {
         "bench": "deno bench",
         "bench:utils": "deno bench --filter utils",

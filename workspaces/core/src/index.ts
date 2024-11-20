@@ -1,1 +1,1 @@
-export * from "./value-provider.ts"
+export * from "./value-provider.ts";

@@ -18,7 +18,7 @@ export class GMap<T, S> extends Map<T, S> {
 
     public forEachValue(callback: (key: S) => void): void {
         const keys = this.values();
-        let curr   = keys.next();
+        let curr = keys.next();
         while (!curr.done) {
             callback(curr.value);
             curr = keys.next();
@@ -27,7 +27,7 @@ export class GMap<T, S> extends Map<T, S> {
 
     public forEachKey(callback: (key: T) => void): void {
         const keys = this.keys();
-        let curr   = keys.next();
+        let curr = keys.next();
         while (!curr.done) {
             callback(curr.value);
             curr = keys.next();

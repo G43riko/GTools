@@ -1,1 +1,1 @@
-export * from "./g-map.ts"
+export * from "./g-map.ts";

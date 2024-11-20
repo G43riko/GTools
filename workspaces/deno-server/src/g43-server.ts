@@ -1,4 +1,4 @@
-import type {G43ServerRoute, G43ServerRouteHandlerParams, G43ServerRouteHandler} from "./g43-server-route.ts";
+import type { G43ServerRoute, G43ServerRouteHandler, G43ServerRouteHandlerParams } from "./g43-server-route.ts";
 
 export interface CreateServerParams {
     readonly port?: number;
@@ -7,22 +7,22 @@ export interface CreateServerParams {
     readonly defaultHandler: G43ServerRouteHandler;
 }
 
-export function createServer({port, routes, defaultHandler, errorHandler}: CreateServerParams): void {
-    Deno.serve({ port }, (request: Request) => {
+export function createServer({ port, routes, defaultHandler, errorHandler }: CreateServerParams): void {
+    Deno.serve({ port }, async (request: Request) => {
         const params: G43ServerRouteHandlerParams = {
             url: new URL(request.url),
             request,
         };
         try {
-            for(const {pattern, handler} of routes) {
-                if(pattern.test(request.url)) {
+            for (const { pattern, handler } of routes) {
+                if (pattern.test(request.url)) {
                     return handler(params);
                 }
             }
 
             return defaultHandler(params);
         } catch (error: any) {
-            if(errorHandler) {
+            if (errorHandler) {
                 return errorHandler(error, params);
             }
 
