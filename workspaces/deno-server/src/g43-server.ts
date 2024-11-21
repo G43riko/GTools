@@ -8,7 +8,7 @@ export interface CreateServerParams {
 }
 
 export function createServer({ port, routes, defaultHandler, errorHandler }: CreateServerParams): void {
-    Deno.serve({ port }, async (request: Request) => {
+    Deno.serve({ port }, (request: Request) => {
         const params: G43ServerRouteHandlerParams = {
             url: new URL(request.url),
             request,
