@@ -3,6 +3,7 @@
         "./workspaces/enums",
         "./workspaces/utils",
         "./workspaces/math",
+        "./workspaces/types",
         "./workspaces/deno-server",
         "./workspaces/core",
         "./workspaces/tools"
@@ -11,7 +12,7 @@
         "bench": "deno bench",
         "bench:utils": "deno bench --filter utils",
         "check": "deno check workspaces/**/src/**/*.ts",
-        "doc": "deno doc --html --name=\"@g43/tools\" --output=docs workspaces/math/src/index.ts workspaces/tools/src/index.ts workspaces/core/src/index.ts workspaces/deno-server/src/index.ts workspaces/enums/src/index.ts workspaces/utils/src/index.ts",
+        "doc": "deno doc --html --name=\"@g43/tools\" --output=docs workspaces/math/src/index.ts workspaces/types/src/index.ts workspaces/tools/src/index.ts workspaces/core/src/index.ts workspaces/deno-server/src/index.ts workspaces/enums/src/index.ts workspaces/utils/src/index.ts",
         "test": "deno test workspaces/**/src/**/*.spec.ts",
         "test:doc": "deno test --doc workspaces/**/src/**/*.ts",
         "test:coverage": "deno test --clean --coverage workspaces/**/src/**/*.spec.ts",
