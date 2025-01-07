@@ -1,6 +1,6 @@
 import type { ReadonlySimpleVector2 } from "@g43/types";
 
-export class Path2D<T extends ReadonlySimpleVector2> {
+export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
     public constructor(protected readonly points: readonly T[]) {
         if (points.length < 2) {
             throw new Error("Cannot create path with less than 2 points");
