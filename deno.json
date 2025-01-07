@@ -19,8 +19,10 @@
         "test:coverage:doc": "deno test --doc --coverage workspaces/**/src/**/*.ts",
         "coverage": "deno coverage --html --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
         "coverage:lcov": "deno coverage --lcov --output=coverage/lcov.info --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
-        "serveDocs": "deno run --allow-net --watch --allow-read utils/serve-docs.ts",
-        "serveCoverage": "deno run --allow-net --watch --allow-read utils/serve-coverage.ts"
+        "serve:doc": "deno run --allow-net --watch --allow-read utils/serve-doc.ts",
+        "serve:coverage": "deno run --allow-net --watch --allow-read utils/serve-coverage.ts",
+        "open:coverage": "deno task test:coverage && deno task coverage && deno task serve:coverage",
+        "open:doc": "deno task doc && deno task serve:doc"
     },
     "lint": {
         "rules": {
