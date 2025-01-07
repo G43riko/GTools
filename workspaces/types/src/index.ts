@@ -8,6 +8,8 @@ export * from "./simple-vector4.ts";
 export * from "./size-2d.ts";
 export * from "./size-3d.ts";
 
+export * from "./pair.ts";
+
 export * from "./xywh.ts";
 export * from "./xyzwhd.ts";
 

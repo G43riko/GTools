@@ -1,8 +1,6 @@
-import type { ReadonlySimpleVector2, SimpleVector2 } from "./simple-vector2.ts";
+import type { ReadonlyPair, ReadonlyMinMax2D, ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
 
-type ReadonlyPair<T> = any;
 type Vector<T, S> = any;
-type ReadonlyMinMax2D = any;
 
 // eslint-disable-next-line no-use-before-define
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
@@ -24,6 +22,18 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
+    public asReadOnly(): ReadonlySimpleVector2 {
+        // deno-lint-ignore no-this-alias
+        const vec = this;
+        return {
+            get x(): number {
+                return vec.x;
+            },
+            get y(): number {
+                return vec.y;
+            }
+        }
+    }
     public perpendicular(): Vector2 {
         return new Vector2(this.y, -this.x);
     }
