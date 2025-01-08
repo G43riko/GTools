@@ -7,11 +7,14 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
         }
     }
 
-    public getFirstN(count: number): readonly ReadonlySimpleVector2[] {
+    public getFirstN(count: number): T[] {
         return this.points.slice(0, count);
     }
+    public getFrom(index: number): T[] {
+        return this.points.slice(index);
+    }
 
-    public getLastN(count: number): readonly ReadonlySimpleVector2[] {
+    public getLastN(count: number): T[] {
         return this.points.slice(this.points.length - count, this.points.length);
     }
 
