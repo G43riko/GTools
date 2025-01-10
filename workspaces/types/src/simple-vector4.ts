@@ -3,6 +3,6 @@ export interface SimpleVector4 {
     y: number;
     z: number;
     w: number;
-};
+}
 
 export type ReadonlySimpleVector4 = Readonly<SimpleVector4>;

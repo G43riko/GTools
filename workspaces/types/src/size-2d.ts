@@ -3,4 +3,4 @@ export interface Size2D {
     height: number;
 }
 
-export type ReadonlySize2D = Readonly<Size2D>
+export type ReadonlySize2D = Readonly<Size2D>;

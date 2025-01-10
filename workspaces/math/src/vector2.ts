@@ -1,8 +1,6 @@
-import type { ReadonlyPair, ReadonlyMinMax2D, ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
+import type { ReadonlyMinMax2D, ReadonlyPair, ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
+import type { Vector } from "./vector.ts";
 
-type Vector<T, S> = any;
-
-// eslint-disable-next-line no-use-before-define
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public constructor(
         public x = 0,
@@ -22,7 +20,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
-    public asReadOnly(): ReadonlySimpleVector2 {
+    public toReadonly(): ReadonlySimpleVector2 {
         // deno-lint-ignore no-this-alias
         const vec = this;
         return {
@@ -31,8 +29,8 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
             },
             get y(): number {
                 return vec.y;
-            }
-        }
+            },
+        };
     }
     public perpendicular(): Vector2 {
         return new Vector2(this.y, -this.x);
@@ -173,6 +171,8 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return new Vector2(1, 1);
     }
 
+    public getAbs(): Vector2;
+    public getAbs<Vec extends SimpleVector2>(result: Vec): Vec;
     public getAbs(result = new Vector2()): Vector2 {
         result.x = Math.abs(this.x);
         result.y = Math.abs(this.y);
@@ -371,11 +371,23 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
-    public static min(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
+    public static min(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
+    public static min<Vec extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: Vec): Vec;
+    public static min(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result = new Vector2(),
+    ): Vector2 {
         return result.setData(Math.min(vecA.x, vecB.x), Math.min(vecA.y, vecB.y));
     }
 
-    public static max(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result = new Vector2()): Vector2 {
+    public static max(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
+    public static max<Vec extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: Vec): Vec;
+    public static max(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result = new Vector2(),
+    ): Vector2 {
         return result.setData(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y));
     }
 
@@ -399,11 +411,15 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return new Vector2(this.x, this.y);
     }
 
-    public getNormalized(result = this.clone()): Vector2 {
+    public getNormalized(): Vector2;
+    public getNormalized<Vec extends SimpleVector2>(result: Vec): Vec;
+    public getNormalized(result: Vector2 = this.clone()): Vector2 {
         return Vector2.normalize(this, result);
     }
 
-    public getInverted(result = this.clone()): Vector2 {
+    public getInverted(): Vector2;
+    public getInverted<Vec extends SimpleVector2>(result: Vec): Vec;
+    public getInverted(result: Vector2 = this.clone()): Vector2 {
         return Vector2.invert(this, result);
     }
 
@@ -426,6 +442,8 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
+    public static invert(vec: ReadonlySimpleVector2): Vector2;
+    public static invert<T extends SimpleVector2>(vec: ReadonlySimpleVector2, result?: T): T;
     public static invert<T extends SimpleVector2>(vec: T, result: T = vec): T {
         result.x = -vec.x;
         result.y = -vec.y;

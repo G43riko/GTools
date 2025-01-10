@@ -4,4 +4,4 @@ export interface Size3D {
     depth: number;
 }
 
-export type ReadonlySize3D = Readonly<Size3D>
+export type ReadonlySize3D = Readonly<Size3D>;

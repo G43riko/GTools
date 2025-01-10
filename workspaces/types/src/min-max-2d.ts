@@ -17,5 +17,4 @@ export interface MinMax2D {
 export interface ReadonlyMinMax2D {
     readonly min: ReadonlySimpleVector2;
     readonly max: ReadonlySimpleVector2;
-};
-
+}

@@ -1,6 +1,6 @@
 /**
  * Represents mouse button identifiers.
- * 
+ *
  * @enum {number}
  */
 export enum Button {

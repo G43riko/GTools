@@ -19,5 +19,4 @@ export interface MinMax3D {
 export interface ReadonlyMinMax3D {
     readonly min: ReadonlySimpleVector3;
     readonly max: ReadonlySimpleVector3;
-};
-
+}
