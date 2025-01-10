@@ -9,6 +9,7 @@ export * from "./size-2d.ts";
 export * from "./size-3d.ts";
 
 export * from "./pair.ts";
+export * from "./trinity.ts";
 
 export * from "./xywh.ts";
 export * from "./xyzwhd.ts";
