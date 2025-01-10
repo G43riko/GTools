@@ -424,20 +424,21 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
 
     public normalize(): this {
-        const length = Vector2.size(this);
-        this.x /= length;
-        this.y /= length;
-
-        return this;
+        return Vector2.normalize(this, this);
     }
 
     public static normalize<T extends SimpleVector2>(vec: T): T;
     public static normalize<T extends SimpleVector2>(vec: SimpleVector2, result: T): T;
     public static normalize<T extends SimpleVector2>(vec: T, result: T = vec): T {
         const length = Vector2.size(vec);
-
-        result.x = vec.x / length;
-        result.y = vec.y / length;
+        if(length === 0) {
+            result.x = 0;
+            result.y = 0;
+        }
+        else {
+            result.x = vec.x / length;
+            result.y = vec.y / length;
+        }
 
         return result;
     }
