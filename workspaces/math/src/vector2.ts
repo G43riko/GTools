@@ -372,7 +372,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
 
     public static min(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
-    public static min<Vec extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: Vec): Vec;
+    public static min<Vec extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result: Vec,
+    ): Vec;
     public static min(
         vecA: ReadonlySimpleVector2,
         vecB: ReadonlySimpleVector2,
@@ -382,7 +386,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
 
     public static max(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
-    public static max<Vec extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result: Vec): Vec;
+    public static max<Vec extends SimpleVector2>(
+        vecA: ReadonlySimpleVector2,
+        vecB: ReadonlySimpleVector2,
+        result: Vec,
+    ): Vec;
     public static max(
         vecA: ReadonlySimpleVector2,
         vecB: ReadonlySimpleVector2,
@@ -431,11 +439,10 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public static normalize<T extends SimpleVector2>(vec: SimpleVector2, result: T): T;
     public static normalize<T extends SimpleVector2>(vec: T, result: T = vec): T {
         const length = Vector2.size(vec);
-        if(length === 0) {
+        if (length === 0) {
             result.x = 0;
             result.y = 0;
-        }
-        else {
+        } else {
             result.x = vec.x / length;
             result.y = vec.y / length;
         }
