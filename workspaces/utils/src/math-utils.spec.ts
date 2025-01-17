@@ -1,7 +1,6 @@
 import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import * as MathUtils from "./math-utils.ts";
-import { Random } from "@g43/tools";
 
 describe("Math utils", () => {
     describe("RoundToDecimal", () => {
@@ -68,11 +67,11 @@ describe("Math utils", () => {
     describe("BinomialCoefficient", () => {
         it("Should return random value from given interval", () => {
             for (let i = 0; i < 1000; i++) {
-                const min = Random.intBetween(0, 1000);
-                const max = Random.intBetween(1000, 1000000);
+                const min = Math.floor(Math.random() * 1000)
+                const max = Math.floor(Math.random() * (1000000 - 1000) +1000 );
                 expect(min < max).toBeTruthy();
 
-                const result = Random.intBetween(min, max);
+                const result = Math.floor(Math.random() * (max - min) +min );
                 expect(min < result).toBeTruthy();
                 expect(result < max).toBeTruthy();
             }
