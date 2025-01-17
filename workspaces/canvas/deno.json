@@ -1,0 +1,8 @@
+{
+    "name": "@g43/canvas",
+    "version": "0.0.1",
+    "exports": "./src/index.ts",
+    "compilerOptions": {
+        "lib": ["es2019", "dom"]
+    }
+}
