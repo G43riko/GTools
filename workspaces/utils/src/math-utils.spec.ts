@@ -67,11 +67,11 @@ describe("Math utils", () => {
     describe("BinomialCoefficient", () => {
         it("Should return random value from given interval", () => {
             for (let i = 0; i < 1000; i++) {
-                const min = Math.floor(Math.random() * 1000)
-                const max = Math.floor(Math.random() * (1000000 - 1000) +1000 );
+                const min = Math.floor(Math.random() * 1000);
+                const max = Math.floor(Math.random() * (1000000 - 1000) + 1000);
                 expect(min < max).toBeTruthy();
 
-                const result = Math.floor(Math.random() * (max - min) +min );
+                const result = Math.floor(Math.random() * (max - min) + min);
                 expect(min < result).toBeTruthy();
                 expect(result < max).toBeTruthy();
             }
