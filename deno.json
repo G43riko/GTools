@@ -53,7 +53,8 @@
         ]
     },
     "compilerOptions": {
-        "strict": true
+        "strict": true,
+        "lib": ["es2019", "dom"]
     },
     "imports": {
         "@std/assert": "jsr:@std/assert@1.0.6",

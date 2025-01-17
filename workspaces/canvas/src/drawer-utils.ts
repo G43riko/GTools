@@ -55,9 +55,9 @@ export class DrawerUtils {
             throw new Error("Not valid image");
         }
 
-        const canvasElement = document.createElement("canvas");
-        canvasElement.width = image.width + size * 2;
-        canvasElement.height = image.height + size * 2;
+        const canvas = document.createElement("canvas");
+        canvas.width = image.width + size * 2;
+        canvas.height = image.height + size * 2;
 
         const context = canvas.getContext("2d") as CanvasRenderingContext2D;
         const prevCompositeOperation = context.globalCompositeOperation;
