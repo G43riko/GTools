@@ -10,6 +10,18 @@ import { Vector4 } from "./vector4.ts";
 export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     public static readonly TMP: Vector3 = new Vector3();
 
+    public static get UP(): Vector3 {
+        return new Vector3(0, 1, 0);
+    }
+
+    public static get ZERO(): Vector3 {
+        return new Vector3(0, 0, 0);
+    }
+
+    public static get ONE(): Vector3 {
+        return new Vector3(1, 1, 1);
+    }
+
     public static createEmpty(): Vector3 {
         return new Vector3(0, 0, 0);
     }
@@ -183,17 +195,6 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return Vector3.invert(result);
     }
 
-    public static get UP(): Vector3 {
-        return new Vector3(0, 1, 0);
-    }
-
-    public static get ZERO(): Vector3 {
-        return new Vector3(0, 0, 0);
-    }
-
-    public static get ONE(): Vector3 {
-        return new Vector3(1, 1, 1);
-    }
 
     public getAbs(): Vector3 {
         return new Vector3(Math.abs(this.x), Math.abs(this.y), Math.abs(this.z));
