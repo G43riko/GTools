@@ -39,7 +39,7 @@ export interface Vector<T extends SimpleVector2, S extends T> {
 
     toArray(): readonly number[];
 
-    toReadonly(): T;
+    toReadonlyProxy(): Readonly<T>;
 
     addNums(...values: number[]): this;
 

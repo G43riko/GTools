@@ -2,6 +2,15 @@ import type { ReadonlyMinMax2D, ReadonlyPair, ReadonlySimpleVector2, SimpleVecto
 import type { Vector } from "./vector.ts";
 
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
+    public static readonly TMP: Vector2 = new Vector2();
+    public static createEmpty(): Vector2 {
+        return new Vector2(0, 0);
+    }
+
+    public static fromVec(vec: ReadonlySimpleVector2): Vector2 {
+        return new Vector2(vec.x, vec.y);
+    }
+
     public constructor(
         public x = 0,
         public y = 0,
@@ -20,7 +29,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
-    public toReadonly(): ReadonlySimpleVector2 {
+    public toReadonlyProxy(): ReadonlySimpleVector2 {
         // deno-lint-ignore no-this-alias
         const vec = this;
         return {
@@ -405,10 +414,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static sqrtDist(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return (vecA.x - vecB.x) ** 2 + (vecA.y - vecB.y) ** 2;
-    }
-
-    public static fromVec(vec: ReadonlySimpleVector2): Vector2 {
-        return new Vector2(vec.x, vec.y);
     }
 
     public isZero(): boolean {
