@@ -1,5 +1,4 @@
 /**
- * @export
  * @param list
  * @param comparator
  */

@@ -195,7 +195,6 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return Vector3.invert(result);
     }
 
-
     public getAbs(): Vector3 {
         return new Vector3(Math.abs(this.x), Math.abs(this.y), Math.abs(this.z));
     }

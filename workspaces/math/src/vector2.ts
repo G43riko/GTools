@@ -45,22 +45,33 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return new Vector2(this.y, -this.x);
     }
 
+    /**
+     * Check if this vector equals another vector.
+     */
     public equals(vector: any): boolean {
         return Vector2.equals(this, vector);
     }
-
+    /**
+     * Dot product of this vector and another.
+     */
     public dot(vector: ReadonlySimpleVector2): number {
         return Vector2.dot(this, vector);
     }
-
+    /**
+     * Distance between this vector and another.
+     */
     public dist(vector: ReadonlySimpleVector2): number {
         return Vector2.dist(this, vector);
     }
-
+    /**
+     * Convert this vector to an array.
+     */
     public toArray(): ReadonlyPair<number> {
         return [this.x, this.y];
     }
-
+    /**
+     * Calculate the angle between this vector and another.
+     */
     public angle(v: ReadonlySimpleVector2): number {
         return Vector2.angle(this, v);
     }
@@ -182,13 +193,18 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public getAbs(): Vector2;
     public getAbs<Vec extends SimpleVector2>(result: Vec): Vec;
+    /**
+     * Get the absolute value of this vector's components.
+     */
     public getAbs(result = new Vector2()): Vector2 {
         result.x = Math.abs(this.x);
         result.y = Math.abs(this.y);
 
         return result;
     }
-
+    /**
+     * Invert the direction of this vector.
+     */
     public invert(): this {
         this.x = -this.x;
         this.y = -this.y;
@@ -196,30 +212,46 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return this;
     }
 
+    /**
+     * Calculate the average of the vector components.
+     */
     public get avg(): number {
         return this.sum / 2;
     }
 
+    /**
+     * Sum of the vector components.
+     */
     public get sum(): number {
         return this.x + this.y;
     }
-
+    /**
+     * Maximum value among the vector components.
+     */
     public get max(): number {
         return Math.max(this.x, this.y);
     }
-
+    /**
+     * Minimum value among the vector components.
+     */
     public get min(): number {
         return Math.min(this.x, this.y);
     }
-
+    /**
+     * Create a Vector2 from an array.
+     */
     public static fromArray(val: ReadonlyPair<number> | Float32Array): Vector2 {
         return new Vector2(val[0], val[1]);
     }
-
+    /**
+     * Calculate the magnitude (length) of the vector.
+     */
     public get length(): number {
         return Vector2.size(this);
     }
-
+    /**
+     * Check if two vectors are equal.
+     */
     public static equals(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): boolean {
         if (vecA === vecB) {
             return true;
@@ -230,6 +262,10 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static sub(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
     public static sub<T extends SimpleVector2>(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2, result?: T): T;
+
+    /**
+     * Subtract two vectors.
+     */
     public static sub<T extends SimpleVector2>(
         vecA: ReadonlySimpleVector2,
         vecB: ReadonlySimpleVector2,
@@ -245,6 +281,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return vecA.x * vecB.y - vecA.y * vecB.x;
     }
 
+    /**
+     * Calculate the dot product of two vectors.
+     */
     public static dot(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return vecA.x * vecB.x + vecA.y * vecB.y;
     }
@@ -407,7 +446,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     ): Vector2 {
         return result.setData(Math.max(vecA.x, vecB.x), Math.max(vecA.y, vecB.y));
     }
-
+    /**
+     * Calculate the distance between two vectors.
+     */
     public static dist(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return Math.sqrt(Vector2.sqrtDist(vecA, vecB));
     }
@@ -442,6 +483,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static normalize<T extends SimpleVector2>(vec: T): T;
     public static normalize<T extends SimpleVector2>(vec: SimpleVector2, result: T): T;
+    /**
+     * Normalize a vector.
+     */
     public static normalize<T extends SimpleVector2>(vec: T, result: T = vec): T {
         const length = Vector2.size(vec);
         if (length === 0) {
@@ -457,6 +501,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     public static invert(vec: ReadonlySimpleVector2): Vector2;
     public static invert<T extends SimpleVector2>(vec: ReadonlySimpleVector2, result?: T): T;
+    /**
+     * Invert a vector.
+     */
     public static invert<T extends SimpleVector2>(vec: T, result: T = vec): T {
         result.x = -vec.x;
         result.y = -vec.y;
@@ -496,7 +543,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
         return this;
     }
-
+    /**
+     * Multiply a vector by a scalar.
+     */
     public mulNum(value: number): this {
         return this.mulNums(value, value);
     }
@@ -511,7 +560,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
         return this;
     }
-
+    /**
+     * Add a scalar to a vector.
+     */
     public addNum(value: number): this {
         return this.addNums(value, value);
     }
@@ -549,7 +600,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public div(value: ReadonlySimpleVector2): this {
         return this.divNums(value.x, value.y);
     }
-
+    /**
+     * Set the vector components.
+     */
     public setData(x: number, y: number): this {
         this.x = x;
         this.y = y;
@@ -557,6 +610,9 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return this;
     }
 
+    /**
+     * Set the vector components from another vector.
+     */
     public set(vec: ReadonlySimpleVector2): this {
         return this.setData(vec.x, vec.y);
     }
