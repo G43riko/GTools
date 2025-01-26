@@ -6,7 +6,8 @@ export function map<R, S>(condition: (element: R, index: number) => S): Operator
     return (source: Holder<R>) => new Holder<S>(source.elements.map(condition));
 }
 export function mapToAttribute<R extends Element, S extends string | null>(propertyName: string): Operator<R, S> {
-    return (source: Holder<R>) => new Holder<S>(source.elements.map((element) => element.getAttribute(propertyName) as S));
+    return (source: Holder<R>) =>
+        new Holder<S>(source.elements.map((element) => element.getAttribute(propertyName) as S));
 }
 
 export function mapToChildren<R extends Element, S extends Element>(selector: Selector<R, S>): Operator<R, S> {

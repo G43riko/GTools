@@ -1,0 +1,5 @@
+{
+    "name": "@g43/physics",
+    "version": "0.0.1",
+    "exports": "./src/index.ts"
+}

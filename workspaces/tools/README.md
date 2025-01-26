@@ -2,6 +2,6 @@
 [![JSR](https://jsr.io/badges/@g43/tools)](https://jsr.io/@g43/tools)
 [![JSR Score](https://jsr.io/badges/@g43/tools/score)](https://jsr.io/@g43/tools)
 
-# #g43/enums
+# #g43/tools
 
 [Documentation](https://g43riko.github.io/GTools/)

@@ -5,7 +5,7 @@ export function ByClass(className: string): Selector {
 }
 
 export function ByAttribute(attribute: string, value?: string): Selector {
-    if(typeof value === "string") {
+    if (typeof value === "string") {
         return (element: Element) => Array.from(element.querySelectorAll(`[${attribute}]=${value}`));
     }
 
