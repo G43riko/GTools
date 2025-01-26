@@ -1,4 +1,6 @@
-import { distance2dCircleCircle, distance2dPointLine, distance2dPointPoint } from "./distances-2d";
+import { describe, it } from "@std/testing/bdd";
+import { expect } from "@std/expect";
+import { distance2dCircleCircle, distance2dPointLine, distance2dPointPoint } from "./distances-2d.ts";
 
 describe("Distances2d", () => {
     describe("point-point", () => {

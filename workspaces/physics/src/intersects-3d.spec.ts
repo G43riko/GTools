@@ -1,3 +1,5 @@
+import { describe, it } from "@std/testing/bdd";
+import { expect } from "@std/expect";
 import { SimpleVector } from "@g43/math";
 import { intersection3dPlaneLineIntersectionAdvanced } from "./intersects-3d.ts";
 

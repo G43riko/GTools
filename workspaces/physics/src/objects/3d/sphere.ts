@@ -1,5 +1,5 @@
-import { type ReadonlySimpleVector3, Vector3 } from "@g43/math";
-import type { MinMax3D } from "@g43/types";
+import { Vector3 } from "@g43/math";
+import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import { CollisionTable3d } from "../../collision-table-3d.ts";
 import { sphereSphereDistance } from "../../distances-3d.ts";
 import { IntersectionTable3d } from "../../intersection-table-3d.ts";

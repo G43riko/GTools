@@ -1,5 +1,5 @@
-import { type ReadonlySimpleVector3, Vector3 } from "@g43/math";
-import type { MinMax3D } from "@g43/types";
+import { Vector3 } from "@g43/math";
+import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import type { Object3D } from "./object-3d.ts";
 import type { Plane3D } from "./plane-3d.ts";
 

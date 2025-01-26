@@ -1,6 +1,6 @@
 import { Vector3 } from "@g43/math";
-import { CollisionTable3d } from "../../collision-table-3d.ts";
 import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
+import { CollisionTable3d } from "../../collision-table-3d.ts";
 import type { VolumeAble3D } from "./object-3d.ts";
 import { Cylinder } from "./cylinder.ts";
 import { Sphere } from "./sphere.ts";

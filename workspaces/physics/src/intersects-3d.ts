@@ -9,7 +9,7 @@ import type { MinMax3D, ReadonlySimpleVector3, SimpleVector3 } from "@g43/types"
  * @see https://github.com/BennyQBD/3DGameProgrammingTutorial/blob/master/src/math/plane.cpp
  */
 export function intersection3dPlane3dPlane(): unknown {
-    throw new NotImplementedException();
+    throw new Error("Not implemented");
 }
 
 /**
@@ -310,8 +310,8 @@ export function intersection3dPlaneLineIntersectionAdvanced(
     linePoint: ReadonlySimpleVector3,
     lineDirection: ReadonlySimpleVector3,
     limit = 1e-6,
-    result: Vector2 = new Vector3(),
-): UndefinedOr<Vector3> {
+    result: Vector3 = new Vector3(),
+): Vector3 | undefined {
     const unitLineDirection = Vector3.normalize(lineDirection, result);
     const planeNormalLineDirectionDot = Vector3.dot(planeNormal, unitLineDirection);
 
@@ -339,7 +339,7 @@ export function intersection3dPlaneLine(
     lineDirectionY: number,
     lineDirectionZ: number,
     limit?: number,
-): UndefinedOr<Vector3> {
+): Vector3 | undefined {
     return intersection3dPlaneLineIntersectionAdvanced(
         SimpleVector.create3(planePointX, planePointY, planePointZ),
         SimpleVector.create3(planeNormalX, planeNormalY, planeNormalZ),

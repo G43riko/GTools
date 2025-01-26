@@ -1,5 +1,5 @@
-import { type ReadonlySimpleVector3, Vector3 } from "@g43/math";
-import type { MinMax3D } from "@g43/types";
+import {  Vector3 } from "@g43/math";
+import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import type { VolumeAble3D } from "./object-3d.ts";
 
 export class Ellipsoid implements VolumeAble3D {

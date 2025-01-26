@@ -1,6 +1,6 @@
 import { describe, it } from "@std/testing/bdd";
-import { Mat3 } from "./mat3.ts";
 import { expect } from "@std/expect";
+import { Mat3 } from "./mat3.ts";
 
 describe("Mat3", () => {
     describe("init", () => {

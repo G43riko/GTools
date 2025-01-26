@@ -1,4 +1,5 @@
-import { type ReadonlySimpleVector2, SimpleVector } from "@g43/math";
+import { SimpleVector } from "@g43/math";
+import type { ReadonlySimpleVector2 } from "@g43/types";
 import { Curve2D } from "./curve-2d";
 import { CubicBezier } from "./interpolations";
 

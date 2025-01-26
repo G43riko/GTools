@@ -1,5 +1,4 @@
-import type { ReadonlySimpleVector3 } from "@g43/math";
-import type { MinMax3D } from "@g43/types";
+import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import type { Cylinder } from "./cylinder.ts";
 import type { Ellipsoid } from "./ellipsoid.ts";
 import type { Line3D } from "./line-3d.ts";

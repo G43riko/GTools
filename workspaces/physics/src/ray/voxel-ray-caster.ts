@@ -1,4 +1,5 @@
-import { type ReadonlySimpleVector3, Vector3 } from "@g43/math";
+import { Vector3 } from "@g43/math";
+import type { ReadonlySimpleVector3 } from "@g43/types";
 import { Ray3Iterable } from "./ray-3d-iterable.ts";
 import { VoxelRayData } from "./voxel-ray-data.ts";
 

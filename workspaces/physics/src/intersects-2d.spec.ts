@@ -1,3 +1,5 @@
+import { describe, it } from "@std/testing/bdd";
+import { expect } from "@std/expect";
 import { intersection2dLineLine } from "./intersects-2d.ts";
 
 describe("Intersections2d", () => {

@@ -1,14 +1,14 @@
 import { clamp } from "@g43/utils";
 
-export function distance2dPointPoint(ax: number, ay: number, bx: number, by: number): number {
-    return Math.sqrt(distance2dPointPointSqr(ax, ay, bx, by));
-}
-
 export function distance2dPointPointSqr(ax: number, ay: number, bx: number, by: number): number {
     const distX = ax - bx;
     const distY = ay - by;
 
     return distX * distX + distY * distY;
+}
+
+export function distance2dPointPoint(ax: number, ay: number, bx: number, by: number): number {
+    return Math.sqrt(distance2dPointPointSqr(ax, ay, bx, by));
 }
 
 export function distance2dCircleCircle(
@@ -86,17 +86,6 @@ export function distance2dPointCircleSqr(
     return Math.max(distance2dPointPointSqr(ax, ay, bx, by) - br, 0);
 }
 
-export function distance2dPointLine(
-    aX: number,
-    aY: number,
-    bX: number,
-    bY: number,
-    pX: number,
-    pY: number,
-): number {
-    return Math.sqrt(distance2dPointLineSqr(aX, aY, bX, bY, pX, pY));
-}
-
 export function distance2dPointLineSqr(
     aX: number,
     aY: number,
@@ -135,4 +124,15 @@ export function distance2dPointLineSqr(
     const dy = pY - yy;
 
     return dx * dx + dy * dy;
+}
+
+export function distance2dPointLine(
+    aX: number,
+    aY: number,
+    bX: number,
+    bY: number,
+    pX: number,
+    pY: number,
+): number {
+    return Math.sqrt(distance2dPointLineSqr(aX, aY, bX, bY, pX, pY));
 }

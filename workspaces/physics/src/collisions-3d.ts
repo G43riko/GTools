@@ -1,4 +1,5 @@
-import { type SimpleVector2, Vector3 } from "@g43/math";
+import { Vector3 } from "@g43/math";
+import type { SimpleVector2 } from "@g43/types";
 import { getClosestPointOnLine } from "./closest-3d.ts";
 import { circleCircle2dCollision, circleRect2dCollision } from "./collisions-2d.ts";
 import { distance2dPointPoint } from "./distances-2d.ts";

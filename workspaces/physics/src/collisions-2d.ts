@@ -1,5 +1,5 @@
-import { SimpleVector, type SimpleVector2 } from "@g43/math";
-import type { Pair } from "@g43/types";
+import { SimpleVector } from "@g43/math";
+import type { Pair, SimpleVector2 } from "@g43/types";
 import { distance2dPointPoint } from "./distances-2d.ts";
 
 export function circleRect2dCollision(

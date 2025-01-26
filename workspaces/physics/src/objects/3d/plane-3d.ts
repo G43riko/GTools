@@ -1,4 +1,5 @@
-import { type ReadonlySimpleVector3, Vector3 } from "@g43/math";
+import { Vector3 } from "@g43/math";
+import type { ReadonlySimpleVector3 } from "@g43/types";
 import type { Triangle3D } from "./triangle-3d.ts";
 
 /**

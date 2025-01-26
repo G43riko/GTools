@@ -1,4 +1,6 @@
-import { SimpleVector } from "@g43/math";
+import { describe, it } from "@std/testing/bdd";
+import { expect } from "@std/expect";
+import { SimpleVector, Vector3 } from "@g43/math";
 import { Plane3D } from "./plane-3d.ts";
 
 describe("Plane3D", () => {
@@ -14,7 +16,7 @@ describe("Plane3D", () => {
     });
 
     it("Should test isFacingTo", () => {
-        const plane = new Plane3D(SimpleVector.UP_3, SimpleVector.ZERO_3);
+        const plane = new Plane3D(Vector3.fromVec(SimpleVector.UP_3), Vector3.fromVec(SimpleVector.ZERO_3));
 
         expect(plane.isFacingTo({ x: 0, y: 1, z: 0 })).toBeTruthy();
         expect(plane.isFacingTo({ x: 1, y: 1, z: 1 })).toBeTruthy();

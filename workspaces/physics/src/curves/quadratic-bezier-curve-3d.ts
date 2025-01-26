@@ -1,4 +1,5 @@
-import { type ReadonlySimpleVector3, SimpleVector } from "@g43/math";
+import type { ReadonlySimpleVector3 } from "@g43/types";
+import { SimpleVector } from "@g43/math";
 import { Curve3D } from "./curve-3d.ts";
 import { QuadraticBezier } from "./interpolations.ts";
 
