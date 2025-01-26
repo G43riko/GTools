@@ -5,9 +5,9 @@ import { QuadraticBezier } from "./interpolations.ts";
 
 export class QuadraticBezierCurve3D extends Curve3D {
     public constructor(
-        private readonly v0 = SimpleVector.ZERO_3,
-        private readonly v1 = SimpleVector.ZERO_3,
-        private readonly v2 = SimpleVector.ZERO_3,
+        private readonly v0: ReadonlySimpleVector3 = SimpleVector.ZERO_3,
+        private readonly v1: ReadonlySimpleVector3 = SimpleVector.ZERO_3,
+        private readonly v2: ReadonlySimpleVector3 = SimpleVector.ZERO_3,
     ) {
         super([v0, v1, v2]);
     }

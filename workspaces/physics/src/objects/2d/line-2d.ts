@@ -1,4 +1,4 @@
-import { Vector2 } from "@g43/math";
+import { SimpleVector, Vector2 } from "@g43/math";
 import type { MinMax2D, ReadonlySimpleVector2 } from "@g43/types";
 import type { Object2D } from "./object-2d.ts";
 
@@ -6,10 +6,21 @@ import type { Object2D } from "./object-2d.ts";
  * https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
 export class Line2D implements Object2D {
+    public readonly points: readonly [pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2];
+    public readonly direction: ReadonlySimpleVector2;
+
     public constructor(
         public readonly pointA: ReadonlySimpleVector2,
         public readonly pointB: ReadonlySimpleVector2,
     ) {
+        this.direction = SimpleVector.createReadonly2(
+            this.pointB.x - this.pointA.x,
+            this.pointB.y - this.pointA.y
+        )
+        this.points = [
+            this.pointA,
+            this.pointB,
+        ]
     }
 
     public get length(): number {
@@ -81,15 +92,6 @@ export class Line2D implements Object2D {
 
         return above2 >= 0;
     }
-
-    public readonly points: readonly [pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2] = [
-        this.pointA,
-        this.pointB,
-    ];
-    public readonly direction: ReadonlySimpleVector2 = {
-        x: this.pointB.x - this.pointA.x,
-        y: this.pointB.y - this.pointA.y,
-    };
 
     public getDirection(result: Vector2 = new Vector2()): Vector2 {
         return Vector2.sub(this.pointB, this.pointA, result);

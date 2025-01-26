@@ -6,7 +6,7 @@ export class Ray3D {
     public constructor(
         public readonly origin: ReadonlySimpleVector3,
         public readonly direction: ReadonlySimpleVector3,
-        public readonly length = Infinity,
+        public readonly length: number = Infinity,
     ) {
     }
 

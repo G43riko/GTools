@@ -18,7 +18,7 @@ export class Triangle2D implements MassAble2D {
      * https://en.wikipedia.org/wiki/Circumscribed_circle
      */
     public getCircumscribedCircle(): Circle {
-        throw new NotImplementedException();
+        throw new Error("Not implemented");
     }
 
     public get area(): number {
@@ -46,7 +46,7 @@ export class Triangle2D implements MassAble2D {
      * http://www.gamedev.net/topic/342822-moment-of-inertia-of-a-polygon-2d/
      */
     public get momentOfInertia(): number {
-        throw new NotImplementedException();
+        throw new Error("Not implemented");
     }
 
     public toMinMax(): MinMax2D {

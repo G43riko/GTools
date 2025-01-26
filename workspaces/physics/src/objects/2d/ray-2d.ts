@@ -5,7 +5,7 @@ export class Ray2D {
     public constructor(
         public readonly origin: ReadonlySimpleVector2,
         public readonly direction: ReadonlySimpleVector2,
-        public readonly length = Infinity,
+        public readonly length: number = Infinity,
     ) {
     }
 

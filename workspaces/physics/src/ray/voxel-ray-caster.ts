@@ -1,14 +1,10 @@
-import { Vector3 } from "@g43/math";
-import type { ReadonlySimpleVector3 } from "@g43/types";
+import { SimpleVector, Vector3 } from "@g43/math";
+import type { ReadonlySimpleVector3, SimpleVector3 } from "@g43/types";
 import { Ray3Iterable } from "./ray-3d-iterable.ts";
 import { VoxelRayData } from "./voxel-ray-data.ts";
 
 export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimpleVector3 }> extends Ray3Iterable {
-    protected block = {
-        x: this.blockSize,
-        y: this.blockSize,
-        z: this.blockSize,
-    };
+    protected block: SimpleVector3;
 
     public constructor(
         private readonly world: { getBlockByPosition(x: number, y: number, z: number): T },
@@ -21,6 +17,7 @@ export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimple
             direction,
             100,
         );
+        this.block = SimpleVector.create3(this.blockSize, this.blockSize, this.blockSize)
     }
 
     public getBlock(stepSize: number, maxLength: number): VoxelRayData<T> {

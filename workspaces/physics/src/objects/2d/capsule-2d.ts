@@ -26,7 +26,7 @@ export class Capsule2D implements MassAble2D {
     }
 
     public toMinMax(): MinMax2D {
-        throw new NotImplementedException();
+        throw new Error("Not implemented");
     }
 
     public get momentOfInertia(): number {

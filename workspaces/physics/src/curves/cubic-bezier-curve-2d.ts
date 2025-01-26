@@ -1,14 +1,14 @@
 import { SimpleVector } from "@g43/math";
 import type { ReadonlySimpleVector2 } from "@g43/types";
-import { Curve2D } from "./curve-2d";
-import { CubicBezier } from "./interpolations";
+import { Curve2D } from "./curve-2d.ts";
+import { CubicBezier } from "./interpolations.ts";
 
 export class CubicBezierCurve2D extends Curve2D {
     public constructor(
-        private readonly v0 = SimpleVector.ZERO_2,
-        private readonly v1 = SimpleVector.ZERO_2,
-        private readonly v2 = SimpleVector.ZERO_2,
-        private readonly v3 = SimpleVector.ZERO_2,
+        private readonly v0: ReadonlySimpleVector2 = SimpleVector.ZERO_2,
+        private readonly v1: ReadonlySimpleVector2 = SimpleVector.ZERO_2,
+        private readonly v2: ReadonlySimpleVector2 = SimpleVector.ZERO_2,
+        private readonly v3: ReadonlySimpleVector2 = SimpleVector.ZERO_2,
     ) {
         super([v0, v1, v2, v3]);
     }

@@ -7,7 +7,7 @@ import type { MassAble2D } from "./object-2d.ts";
  */
 export class Polygon2d implements MassAble2D {
     public get boundingRadius(): number {
-        throw new NotImplementedException();
+        throw new Error("Not implemented");
     }
 
     /**
@@ -107,7 +107,7 @@ export class Polygon2d implements MassAble2D {
      * @see https://github.com/excaliburjs/Excalibur/blob/57443406c943ceebc208d120ece978fc46297dc2/src/engine/Collision/Colliders/PolygonCollider.ts#L140
      */
     public triangulate(): void {
-        throw new NotImplementedException();
+        throw new Error("Not implemented");
     }
 
     public get circuit(): number {
