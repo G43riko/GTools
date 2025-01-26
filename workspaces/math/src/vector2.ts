@@ -402,8 +402,15 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         );
     }
 
-    public static isVector(item: any): item is SimpleVector2 {
-        return item && !isNaN(item.x) && !isNaN(item.y);
+    public static isVector(vec: any): vec is SimpleVector2 {
+        return (
+            vec !== null &&
+            typeof vec === "object" &&
+            "x" in vec &&
+            "y" in vec &&
+            typeof (vec as SimpleVector2).x === "number" &&
+            typeof (vec as SimpleVector2).y === "number"
+        );
     }
 
     public static sum(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): Vector2;
