@@ -10,20 +10,17 @@ import type { Line2D } from "./objects/2d/line-2d.ts";
 
 export class DistanceTable2d {
     /**
+     * TODO: use {@link distance2dPointLineNew} 
      * @see distance2dPointLine
      * @param point
      * @param line
      * @param signed
      */
     public static pointLine(point: ReadonlySimpleVector2, line: Line2D, signed = false): number {
-        const x0 = point.x;
-        const y0 = point.y;
-
-        const l = line.length;
-
         const dy = line.pointB.y - line.pointA.y;
         const dx = line.pointB.x - line.pointA.x;
-        const distance = (dy * x0 - dx * y0 + line.pointB.x * line.pointA.y - line.pointB.y * line.pointA.x) / l;
+        const determinant = dy * point.x - dx * point.y + line.pointB.x * line.pointA.y - line.pointB.y * line.pointA.x;
+        const distance = determinant / line.length;
 
         return signed ? distance : Math.abs(distance);
     }

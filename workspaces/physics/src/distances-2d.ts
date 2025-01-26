@@ -126,6 +126,23 @@ export function distance2dPointLineSqr(
     return dx * dx + dy * dy;
 }
 
+export function distance2dPointLineNew(
+    aX: number,
+    aY: number,
+    bX: number,
+    bY: number,
+    pX: number,
+    pY: number, 
+    signed = false
+): number {
+        const dy = bY - aY;
+        const dx = bX - aX;
+        const determinant = dy * pX - dx * pY + bX * aY - bY * aX;
+        const lineLength = distance2dPointPoint(aX, aY, bX, bY);
+        const distance = determinant / lineLength;
+
+        return signed ? distance : Math.abs(distance);
+    }
 export function distance2dPointLine(
     aX: number,
     aY: number,
