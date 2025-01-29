@@ -16,7 +16,7 @@ export enum Keys {
     ENTER = "Enter",
     NUMPAD_ENTER = "NumpadEnter",
     NUMPAD_ADD = "NumpadAdd",
-    NUMPAD_SUBSTRACT = "NumpadSubstract",
+    NUMPAD_SUBSTRACT = "NumpadSubtract",
     NUMPAD_MULTIPLY = "NumpadMultiply",
     NUMPAD_DIVIDE = "NumpadDivide",
     A = "KeyA",
