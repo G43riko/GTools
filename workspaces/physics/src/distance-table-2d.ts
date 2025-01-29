@@ -10,7 +10,7 @@ import type { Line2D } from "./objects/2d/line-2d.ts";
 
 export class DistanceTable2d {
     /**
-     * TODO: use {@link distance2dPointLineNew} 
+     * TODO: use {@link distance2dPointLineNew}
      * @see distance2dPointLine
      * @param point
      * @param line

@@ -1,5 +1,5 @@
 /**
- * Collection of usefull enums 
+ * Collection of usefull enums
  * @module
  */
 export * from "./days.ts";

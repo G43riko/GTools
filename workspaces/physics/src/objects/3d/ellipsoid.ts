@@ -1,4 +1,4 @@
-import {  Vector3 } from "@g43/math";
+import { Vector3 } from "@g43/math";
 import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import type { VolumeAble3D } from "./object-3d.ts";
 

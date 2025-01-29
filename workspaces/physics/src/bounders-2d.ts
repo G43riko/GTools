@@ -1,4 +1,4 @@
-import { SimpleVector  } from "@g43/math";
+import { SimpleVector } from "@g43/math";
 import type { MinMax2D, PosSize2D, SimpleVector2, XYWH } from "@g43/types";
 import type { Circle } from "./objects/2d/circle.ts";
 

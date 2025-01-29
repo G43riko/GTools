@@ -15,12 +15,12 @@ export class Line2D implements Object2D {
     ) {
         this.direction = SimpleVector.createReadonly2(
             this.pointB.x - this.pointA.x,
-            this.pointB.y - this.pointA.y
-        )
+            this.pointB.y - this.pointA.y,
+        );
         this.points = [
             this.pointA,
             this.pointB,
-        ]
+        ];
     }
 
     public get length(): number {

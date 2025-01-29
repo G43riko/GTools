@@ -76,10 +76,9 @@ export class SimpleMat3 {
     }
 
     /**
-     * 
      * @param angle in radians
-     * @param data 
-     * @returns 
+     * @param data
+     * @returns
      */
     private static setRotation(angle: number, data: number[]): number[] {
         data[0] = Math.cos(angle);
@@ -93,10 +92,9 @@ export class SimpleMat3 {
     public static fromRotation(angle: number): SimpleMat3;
     public static fromRotation<T extends SimpleMat3>(angle: number, out: T): T;
     /**
-     * 
      * @param angle in radians
-     * @param out 
-     * @returns 
+     * @param out
+     * @returns
      */
     public static fromRotation<T extends SimpleMat3>(angle: number, out: T = SimpleMat3.create() as unknown as T): T {
         SimpleMat3.setIdentity(out.data);
@@ -120,11 +118,15 @@ export class SimpleMat3 {
     }
 
     public stringify(): string {
-        return JSON.stringify([
-            [this.data[0], this.data[3], this.data[6]],
-            [this.data[1], this.data[4], this.data[7]],
-            [this.data[2], this.data[5], this.data[8]],
-        ], null, 4)
+        return JSON.stringify(
+            [
+                [this.data[0], this.data[3], this.data[6]],
+                [this.data[1], this.data[4], this.data[7]],
+                [this.data[2], this.data[5], this.data[8]],
+            ],
+            null,
+            4,
+        );
     }
 
     public static translate(a: SimpleMat3, x: number, y: number): SimpleMat3;
@@ -202,28 +204,27 @@ export class SimpleMat3 {
         return true;
     }
 
-
     public static getTranslate(mat: SimpleMat3): SimpleVector2 {
-        return SimpleVector.create2(mat.data[2], mat.data[5])
+        return SimpleVector.create2(mat.data[2], mat.data[5]);
     }
 
     public getScaleX(): number {
         // absolute scale of the matrix (we lose sign so need to add it back)
         const xScaleSq = this.data[0] * this.data[0] + this.data[2] * this.data[2];
-  
+
         return Math.sqrt(xScaleSq);
-      }
-    
-      public getScaleY(): number {
+    }
+
+    public getScaleY(): number {
         // absolute scale of the matrix (we lose sign so need to add it back)
         const yScaleSq = this.data[1] * this.data[1] + this.data[3] * this.data[3];
 
         return Math.sqrt(yScaleSq);
-      }
-    public static getScale(mat: SimpleMat3): SimpleVector2{
+    }
+    public static getScale(mat: SimpleMat3): SimpleVector2 {
         const sx = Math.sqrt(mat.data[0] * mat.data[0] + mat.data[3] * mat.data[3]);
         const sy = Math.sqrt(mat.data[1] * mat.data[1] + mat.data[4] * mat.data[4]);
-        return SimpleVector.create2(sx, sy)
+        return SimpleVector.create2(sx, sy);
     }
 
     public static getRotation(mat: SimpleMat3): number {

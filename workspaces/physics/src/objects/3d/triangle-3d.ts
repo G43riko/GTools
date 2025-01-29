@@ -10,14 +10,14 @@ export class Triangle3D implements Object3D {
     public static area(v1: ReadonlySimpleVector3, v2: ReadonlySimpleVector3, v3: ReadonlySimpleVector3): number {
         const v1v2 = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
         const v1v3 = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
-    
+
         const crossX = v1v2.y * v1v3.z - v1v2.z * v1v3.y;
         const crossY = v1v2.z * v1v3.x - v1v2.x * v1v3.z;
         const crossZ = v1v2.x * v1v3.y - v1v2.y * v1v3.x;
-    
-        const magnitude = Math.sqrt(crossX*crossX + crossY*crossY + crossZ*crossZ)
+
+        const magnitude = Math.sqrt(crossX * crossX + crossY * crossY + crossZ * crossZ);
         const area = magnitude / 2;
-    
+
         return area;
     }
 

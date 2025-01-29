@@ -10,18 +10,18 @@ describe("Triangle3d", () => {
                 new Vector3(0, 0, 0),
                 new Vector3(1, 0, 0),
                 new Vector3(0, 1, 0),
-            )
+            );
 
             expect(triangle.area).toBe(0.5);
-        })
+        });
         it("Should calculate areaB", () => {
             const triangle = new Triangle3D(
                 new Vector3(0, 0, 0),
                 new Vector3(2, 0, 0),
                 new Vector3(0, 2, 0),
-            )
+            );
 
             expect(triangle.area).toBe(2);
-        })
-    })
-})
+        });
+    });
+});

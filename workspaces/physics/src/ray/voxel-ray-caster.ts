@@ -17,7 +17,7 @@ export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimple
             direction,
             100,
         );
-        this.block = SimpleVector.create3(this.blockSize, this.blockSize, this.blockSize)
+        this.block = SimpleVector.create3(this.blockSize, this.blockSize, this.blockSize);
     }
 
     public getBlock(stepSize: number, maxLength: number): VoxelRayData<T> {

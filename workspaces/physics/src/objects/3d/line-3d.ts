@@ -70,7 +70,6 @@ export class Line3D implements DistanceAble3D<"point"> {
             ),
     };
 
-
     public static fromPoints(aX: number, aY: number, aZ: number, bX: number, bY: number, bZ: number): Line3D {
         return new Line3D(
             {

@@ -132,17 +132,17 @@ export function distance2dPointLineNew(
     bX: number,
     bY: number,
     pX: number,
-    pY: number, 
-    signed = false
+    pY: number,
+    signed = false,
 ): number {
-        const dy = bY - aY;
-        const dx = bX - aX;
-        const determinant = dy * pX - dx * pY + bX * aY - bY * aX;
-        const lineLength = distance2dPointPoint(aX, aY, bX, bY);
-        const distance = determinant / lineLength;
+    const dy = bY - aY;
+    const dx = bX - aX;
+    const determinant = dy * pX - dx * pY + bX * aY - bY * aX;
+    const lineLength = distance2dPointPoint(aX, aY, bX, bY);
+    const distance = determinant / lineLength;
 
-        return signed ? distance : Math.abs(distance);
-    }
+    return signed ? distance : Math.abs(distance);
+}
 export function distance2dPointLine(
     aX: number,
     aY: number,
