@@ -3,7 +3,7 @@ import type { MinMax2D, SimpleVector2 } from "@g43/types";
 import type { MassAble2D } from "./object-2d.ts";
 
 /**
- * https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
+ * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
  */
 export class Capsule2D implements MassAble2D {
     public constructor(

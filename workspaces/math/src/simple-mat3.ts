@@ -4,7 +4,7 @@
  * 02 05 08
  */
 
-import { ReadonlySimpleVector2, SimpleVector2 } from "../../types/src/simple-vector2.ts";
+import type { SimpleVector2 } from "@g43/types";
 import { SimpleVector } from "./simple-vector.ts";
 
 export class SimpleMat3 {

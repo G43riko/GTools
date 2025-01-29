@@ -18,7 +18,19 @@ export function pointPointSqr3dDistance(
 export function pointPoint3dDistance(ax: number, ay: number, az: number, bx: number, by: number, bz: number): number {
     return Math.sqrt(pointPointSqr3dDistance(ax, ay, az, bx, by, bz));
 }
+export function pointSphereDistance(
+    x: number,
+    y: number,
+    z: number,
+    centerX: number,
+    centerY: number,
+    centerZ: number,
+    radius: number,
+): number {
+    const centerDistances = pointPoint3dDistance(x, y, z, centerX, centerY, centerZ);
 
+    return centerDistances - radius;
+}
 export function sphereSphereDistance(
     aCenterX: number,
     aCenterY: number,

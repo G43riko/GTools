@@ -62,12 +62,6 @@ export class Box implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | 
             IntersectionTable3d.minMaxLine(this.toMinMax(), line.pointA, line.pointB),
     };
 
-    public constructor(
-        public readonly position: ReadonlySimpleVector3,
-        public readonly size: ReadonlySimpleVector3,
-    ) {
-    }
-
     public static fromMinMax(
         min: ReadonlySimpleVector3,
         max: ReadonlySimpleVector3,
@@ -108,6 +102,12 @@ export class Box implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | 
         offset?: ReadonlySimpleVector3,
     ): Box {
         return Box.fromMinMax(start, end, offset);
+    }
+
+    public constructor(
+        public readonly position: ReadonlySimpleVector3,
+        public readonly size: ReadonlySimpleVector3,
+    ) {
     }
 
     public getCenter(): ReadonlySimpleVector3 {

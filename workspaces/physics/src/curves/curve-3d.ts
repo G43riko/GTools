@@ -55,7 +55,7 @@ export abstract class Curve3D extends Curve<ReadonlySimpleVector3> {
     }
 
     /**
-     * https://github.com/mrdoob/three.js/blob/8cb903d61618cb58e3134431a389212d9c98dff0/src/extras/core/Curve.js#L260
+     * @see https://github.com/mrdoob/three.js/blob/8cb903d61618cb58e3134431a389212d9c98dff0/src/extras/core/Curve.js#L260
      */
     public computeFrenetFrames(
         segments: number,

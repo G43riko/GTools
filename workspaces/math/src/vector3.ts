@@ -61,7 +61,7 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         };
     }
     /**
-     * https://glmatrix.net/docs/vec3.js.html#line522
+     * @see https://glmatrix.net/docs/vec3.js.html#line522
      */
     public static transformQuat<T extends SimpleVector3>(
         q: Quaternion,

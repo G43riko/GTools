@@ -6,10 +6,10 @@ import { SimpleVector } from "./simple-vector.ts";
 export type mat4type = number[];
 
 /**
- * https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix4.js
- * https://github.com/BennyQBD/3DEngineCpp/blob/master/src/core/math3d.h
- * https://glmatrix.net/docs/mat4.js.html
- * https://github.com/fynnfluegge/oreon-engine/blob/master/oreonengine/oe-core/src/main/java/org/oreon/core/math/Matrix4f.java
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix4.js
+ * @see https://github.com/BennyQBD/3DEngineCpp/blob/master/src/core/math3d.h
+ * @see https://glmatrix.net/docs/mat4.js.html
+ * @see https://github.com/fynnfluegge/oreon-engine/blob/master/oreonengine/oe-core/src/main/java/org/oreon/core/math/Matrix4f.java
  *
  * 00 04 08 12
  * 01 05 09 13

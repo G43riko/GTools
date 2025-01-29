@@ -3,9 +3,9 @@ import type { ReadonlySimpleVector3 } from "@g43/types";
 import type { Triangle3D } from "./triangle-3d.ts";
 
 /**
- * https://github.com/BennyQBD/3DEngineCpp/blob/master/src/physics/plane.h
- * https://github.com/mrdoob/three.js/blob/dev/src/math/Plane.js
- * https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/physics/shapes/types/threeDimensional/plane/Plane.java
+ * @see https://github.com/BennyQBD/3DEngineCpp/blob/master/src/physics/plane.h
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Plane.js
+ * @see https://github.com/G43riko/JavaUtils/blob/master/GLib2/src/main/java/org/physics/shapes/types/threeDimensional/plane/Plane.java
  */
 export class Plane3D {
     /**

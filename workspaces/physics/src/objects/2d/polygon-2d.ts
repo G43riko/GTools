@@ -3,7 +3,7 @@ import type { MinMax2D, ReadonlySimpleVector2 } from "@g43/types";
 import type { MassAble2D } from "./object-2d.ts";
 
 /**
- * https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/PolygonCollider.ts
+ * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/PolygonCollider.ts
  */
 export class Polygon2d implements MassAble2D {
     public get boundingRadius(): number {
@@ -12,7 +12,7 @@ export class Polygon2d implements MassAble2D {
 
     /**
      * Get the moment of inertia for an arbitrary polygon
-     * https://en.wikipedia.org/wiki/List_of_moments_of_inertia
+     * @see https://en.wikipedia.org/wiki/List_of_moments_of_inertia
      */
     public get momentOfInertia(): number {
         let numerator = 0;
@@ -35,7 +35,7 @@ export class Polygon2d implements MassAble2D {
     }
 
     /**
-     * https://stackoverflow.com/questions/16285134/calculating-polygon-area
+     * @see https://stackoverflow.com/questions/16285134/calculating-polygon-area
      * @param mass
      */
     public getInertia(mass: number): number {
@@ -43,7 +43,7 @@ export class Polygon2d implements MassAble2D {
     }
 
     /**
-     * https://stackoverflow.com/questions/16285134/calculating-polygon-area
+     * @see https://stackoverflow.com/questions/16285134/calculating-polygon-area
      */
     public get area(): number {
         const vertices = this.points;

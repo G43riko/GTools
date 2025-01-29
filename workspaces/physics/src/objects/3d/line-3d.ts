@@ -8,7 +8,7 @@ import type { DistanceAble3D } from "./object-3d.ts";
 import type { Sphere } from "./sphere.ts";
 
 /**
- * https://github.com/mrdoob/three.js/blob/dev/src/math/Line3.js
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Line3.js
  */
 export class Line3D implements DistanceAble3D<"point"> {
     public readonly collideWith = {
@@ -70,6 +70,21 @@ export class Line3D implements DistanceAble3D<"point"> {
             ),
     };
 
+
+    public static fromPoints(aX: number, aY: number, aZ: number, bX: number, bY: number, bZ: number): Line3D {
+        return new Line3D(
+            {
+                x: aX,
+                y: aY,
+                z: aZ,
+            },
+            {
+                x: bX,
+                y: bY,
+                z: bZ,
+            },
+        );
+    }
     public constructor(
         public readonly pointA: ReadonlySimpleVector3,
         public readonly pointB: ReadonlySimpleVector3,
@@ -102,21 +117,6 @@ export class Line3D implements DistanceAble3D<"point"> {
 
     public get boundingRadius(): number {
         return this.length / 2;
-    }
-
-    public static fromPoints(aX: number, aY: number, aZ: number, bX: number, bY: number, bZ: number): Line3D {
-        return new Line3D(
-            {
-                x: aX,
-                y: aY,
-                z: aZ,
-            },
-            {
-                x: bX,
-                y: bY,
-                z: bZ,
-            },
-        );
     }
 
     public equals(line: any): boolean {

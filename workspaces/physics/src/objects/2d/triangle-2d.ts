@@ -4,7 +4,7 @@ import type { Circle } from "./circle.ts";
 import type { MassAble2D } from "./object-2d.ts";
 
 /**
- * https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
+ * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
  */
 export class Triangle2D implements MassAble2D {
     public constructor(
@@ -15,7 +15,7 @@ export class Triangle2D implements MassAble2D {
     }
 
     /**
-     * https://en.wikipedia.org/wiki/Circumscribed_circle
+     * @see https://en.wikipedia.org/wiki/Circumscribed_circle
      */
     public getCircumscribedCircle(): Circle {
         throw new Error("Not implemented");

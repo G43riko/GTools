@@ -2,7 +2,7 @@ import type { SimpleVector2 } from "@g43/types";
 import { SimpleMat3 } from "./simple-mat3.ts";
 
 /**
- * https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix3.js
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix3.js
  */
 export class Mat3 extends SimpleMat3 {
     public static mul(a: SimpleMat3, b: SimpleMat3): SimpleMat3;

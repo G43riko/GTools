@@ -3,7 +3,7 @@ import { clamp } from "@g43/utils";
 import { distance2dPointPoint } from "./distances-2d.ts";
 
 /**
- * https://github.com/Silverwolf90/2d-visibility/blob/master/src/lineIntersection.js
+ * @see https://github.com/Silverwolf90/2d-visibility/blob/master/src/lineIntersection.js
  * @param x1
  * @param y1
  * @param x2

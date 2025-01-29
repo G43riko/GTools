@@ -173,7 +173,7 @@ export function pointCircle2dCollision(
 }
 
 /**
- * https://github.com/excaliburjs/Excalibur/blob/57443406c943ceebc208d120ece978fc46297dc2/src/engine/Collision/Colliders/PolygonCollider.ts#L392
+ * @see https://github.com/excaliburjs/Excalibur/blob/57443406c943ceebc208d120ece978fc46297dc2/src/engine/Collision/Colliders/PolygonCollider.ts#L392
  * @param x
  * @param y
  * @param vs
@@ -231,7 +231,7 @@ export function pointMultiPolygon2dCollision(
 }
 
 /**
- * https://www.youtube.com/watch?v=8JJ-4JgR7Dg
+ * @see https://www.youtube.com/watch?v=8JJ-4JgR7Dg
  *
  * @param originX
  * @param originY

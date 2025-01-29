@@ -3,7 +3,7 @@ import type { MinMax2D, ReadonlySimpleVector2 } from "@g43/types";
 import type { Object2D } from "./object-2d.ts";
 
 /**
- * https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
+ * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
 export class Line2D implements Object2D {
     public readonly points: readonly [pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2];

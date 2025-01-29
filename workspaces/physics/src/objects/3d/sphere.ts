@@ -1,7 +1,7 @@
 import { Vector3 } from "@g43/math";
 import type { MinMax3D, ReadonlySimpleVector3 } from "@g43/types";
 import { CollisionTable3d } from "../../collision-table-3d.ts";
-import { sphereSphereDistance } from "../../distances-3d.ts";
+import { pointSphereDistance, sphereSphereDistance } from "../../distances-3d.ts";
 import { IntersectionTable3d } from "../../intersection-table-3d.ts";
 import type { Cylinder } from "./cylinder.ts";
 import type { Line3D } from "./line-3d.ts";
@@ -9,7 +9,7 @@ import type { CollideAble3D, DistanceAble3D, VolumeAble3D } from "./object-3d.ts
 import type { Triangle3D } from "./triangle-3d.ts";
 
 /**
- * https://github.com/mrdoob/three.js/blob/dev/src/math/Sphere.js
+ * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Sphere.js
  */
 export class Sphere
     implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | "point" | "sphere">, DistanceAble3D<"sphere"> {
@@ -22,6 +22,30 @@ export class Sphere
 
     public readonly intersectionWith = {
         line: (line: Line3D): ReadonlySimpleVector3 | undefined => IntersectionTable3d.sphereLine(this, line),
+    };
+
+    public readonly distanceTo = {
+        point: (point: ReadonlySimpleVector3): number =>
+            pointSphereDistance(
+                point.x,
+                point.y,
+                point.z,
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+            ),
+        sphere: (sphere: Sphere): number =>
+            sphereSphereDistance(
+                this.center.x,
+                this.center.y,
+                this.center.z,
+                this.radius,
+                sphere.center.x,
+                sphere.center.y,
+                sphere.center.z,
+                sphere.radius,
+            ),
     };
 
     public static fromTriangle(triangle: Triangle3D): Sphere {
@@ -65,20 +89,6 @@ export class Sphere
 
         return new Sphere(center, maxSize);
     }
-
-    public readonly distanceTo = {
-        sphere: (sphere: Sphere): number =>
-            sphereSphereDistance(
-                this.center.x,
-                this.center.y,
-                this.center.z,
-                this.radius,
-                sphere.center.x,
-                sphere.center.y,
-                sphere.center.z,
-                sphere.radius,
-            ),
-    };
 
     public constructor(
         public readonly center: ReadonlySimpleVector3,

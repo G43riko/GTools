@@ -1,3 +1,7 @@
+/**
+ * Collection of usefull enums 
+ * @module
+ */
 export * from "./days.ts";
 export * from "./origin.ts";
 export * from "./keys.ts";

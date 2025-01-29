@@ -6,15 +6,9 @@ import type { MassAble2D } from "./object-2d.ts";
 import type { Ray2D } from "./ray-2d.ts";
 
 /**
- * https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
+ * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
  */
 export class Rect implements MassAble2D {
-    public constructor(
-        public readonly position: ReadonlySimpleVector2,
-        public readonly size: ReadonlySimpleVector2,
-    ) {
-    }
-
     public get area(): number {
         return this.size.x * this.size.y;
     }
@@ -36,10 +30,6 @@ export class Rect implements MassAble2D {
             x: this.position.x + this.size.x / 2,
             y: this.position.y + this.size.y / 2,
         };
-    }
-
-    public toMinMax(): MinMax2D {
-        return convertPosSizeToMinMax2D(this);
     }
 
     public static fromSphere({ radius, center }: Pick<Circle, "radius" | "center">): Rect {
@@ -106,5 +96,14 @@ export class Rect implements MassAble2D {
         };
 
         return new Rect(Object.assign({}, min), size);
+    }
+
+    public constructor(
+        public readonly position: ReadonlySimpleVector2,
+        public readonly size: ReadonlySimpleVector2,
+    ) {
+    }
+    public toMinMax(): MinMax2D {
+        return convertPosSizeToMinMax2D(this);
     }
 }

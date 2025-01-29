@@ -5,16 +5,10 @@ import type { MassAble2D } from "./object-2d.ts";
 import type { RayCast2D, RaycastResult } from "./ray-2d.ts";
 
 /**
- * https://github.com/schteppe/p2.js/blob/master/src/shapes/Circle.js
- * https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/CircleCollider.ts
+ * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Circle.js
+ * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/CircleCollider.ts
  */
 export class Circle implements MassAble2D {
-    public constructor(
-        public readonly radius: number,
-        public readonly center: SimpleVector2,
-    ) {
-    }
-
     public get circuit(): number {
         return 2 * Math.PI * this.radius;
     }
@@ -51,6 +45,11 @@ export class Circle implements MassAble2D {
         return Circle.fromMinMax(convertPosSizeToMinMax2D(posSize), chooseSize);
     }
 
+    public constructor(
+        public readonly radius: number,
+        public readonly center: SimpleVector2,
+    ) {
+    }
     public toMinMax(): MinMax2D {
         return {
             min: Vector2.sumNum(this.center, -this.radius),
