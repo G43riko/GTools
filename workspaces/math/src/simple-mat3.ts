@@ -4,6 +4,9 @@
  * 02 05 08
  */
 
+import { ReadonlySimpleVector2, SimpleVector2 } from "../../types/src/simple-vector2.ts";
+import { SimpleVector } from "./simple-vector.ts";
+
 export class SimpleMat3 {
     public constructor(
         public readonly data: number[],
@@ -72,6 +75,12 @@ export class SimpleMat3 {
         return out as T;
     }
 
+    /**
+     * 
+     * @param angle in radians
+     * @param data 
+     * @returns 
+     */
     private static setRotation(angle: number, data: number[]): number[] {
         data[0] = Math.cos(angle);
         data[1] = -Math.sin(angle);
@@ -83,6 +92,12 @@ export class SimpleMat3 {
 
     public static fromRotation(angle: number): SimpleMat3;
     public static fromRotation<T extends SimpleMat3>(angle: number, out: T): T;
+    /**
+     * 
+     * @param angle in radians
+     * @param out 
+     * @returns 
+     */
     public static fromRotation<T extends SimpleMat3>(angle: number, out: T = SimpleMat3.create() as unknown as T): T {
         SimpleMat3.setIdentity(out.data);
         SimpleMat3.setRotation(angle, out.data);
@@ -102,6 +117,14 @@ export class SimpleMat3 {
             0,
             1,
         ]);
+    }
+
+    public stringify(): string {
+        return JSON.stringify([
+            [this.data[0], this.data[3], this.data[6]],
+            [this.data[1], this.data[4], this.data[7]],
+            [this.data[2], this.data[5], this.data[8]],
+        ], null, 4)
     }
 
     public static translate(a: SimpleMat3, x: number, y: number): SimpleMat3;
@@ -165,7 +188,7 @@ export class SimpleMat3 {
         return out as T;
     }
 
-    public equalsArray(data: number[]): boolean {
+    public equalsArray(data: readonly number[]): boolean {
         if (!data?.length) {
             return false;
         }
@@ -177,6 +200,34 @@ export class SimpleMat3 {
         }
 
         return true;
+    }
+
+
+    public static getTranslate(mat: SimpleMat3): SimpleVector2 {
+        return SimpleVector.create2(mat.data[2], mat.data[5])
+    }
+
+    public getScaleX(): number {
+        // absolute scale of the matrix (we lose sign so need to add it back)
+        const xScaleSq = this.data[0] * this.data[0] + this.data[2] * this.data[2];
+  
+        return Math.sqrt(xScaleSq);
+      }
+    
+      public getScaleY(): number {
+        // absolute scale of the matrix (we lose sign so need to add it back)
+        const yScaleSq = this.data[1] * this.data[1] + this.data[3] * this.data[3];
+
+        return Math.sqrt(yScaleSq);
+      }
+    public static getScale(mat: SimpleMat3): SimpleVector2{
+        const sx = Math.sqrt(mat.data[0] * mat.data[0] + mat.data[3] * mat.data[3]);
+        const sy = Math.sqrt(mat.data[1] * mat.data[1] + mat.data[4] * mat.data[4]);
+        return SimpleVector.create2(sx, sy)
+    }
+
+    public static getRotation(mat: SimpleMat3): number {
+        return Math.atan2(mat.data[3], mat.data[0]);
     }
 
     public static getTransformationMatrix(
