@@ -1,5 +1,5 @@
 import type { Color } from "@g43/tools";
-import type { ReadonlySimpleVector2, RoundData } from "@g43/types";
+import type { ReadonlyPair, ReadonlySimpleVector2, RoundData } from "@g43/types";
 
 export type ColorType = string | Color;
 export type SizeType = ReadonlySimpleVector2 | number;
@@ -99,6 +99,12 @@ export class DrawerUtils {
         return canvas;
     }
 
+    public static makePathFromNumbers(context: CanvasRenderingContext2D, points: readonly ReadonlyPair<number>[]): void {
+        context.moveTo(points[0][0], points[0][1]);
+        for (let i = 1; i < points.length; i++) {
+            context.lineTo(points[i][0], points[i][1]);
+        }
+    }
     /**
      * @param context
      * @param centerX

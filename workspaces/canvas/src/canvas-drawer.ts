@@ -18,15 +18,6 @@ export class CanvasDrawer implements Drawer {
         return new CanvasDrawer(context);
     }
 
-    public constructor(
-        public readonly context: CanvasRenderingContext2D,
-    ) {
-    }
-
-    public show(format = "image/png"): void {
-        globalThis.open(this.context.canvas.toDataURL(format), "_blank");
-    }
-
     public set strokeStyle(color: ColorType) {
         this.context.strokeStyle = DrawerUtils.extractColor(color);
     }
@@ -39,262 +30,12 @@ export class CanvasDrawer implements Drawer {
         }
     }
 
-    public fillRoundedRect(x: number, y: number, w: number, h: number, round: RoundData, color?: ColorType): void {
-        StaticCanvasDrawer.fillRoundedRect(this.context, x, y, w, h, round, color);
+    public constructor(
+        public readonly context: CanvasRenderingContext2D,
+    ) {
     }
 
-    public strokeRoundedRect(
-        x: number,
-        y: number,
-        w: number,
-        h: number,
-        round: RoundData,
-        color?: ColorType,
-        width?: number,
-    ): void {
-        StaticCanvasDrawer.strokeRoundedRect(this.context, x, y, w, h, round, width, color);
-    }
-
-    public fillRectangles(data: [x: number, y: number, w: number, h: number][], color?: Color | string): void {
-        if (color) {
-            this.context.fillStyle = DrawerUtils.extractColor(color);
-        }
-
-        data.forEach((item) => {
-            this.context.fillRect(item[0], item[1], item[2], item[3]);
-        });
-    }
-
-    private makeGrid(blocks: ReadonlySimpleVector2, blockSize: SizeType, offset?: ReadonlySimpleVector2): void {
-        const [blockWidth, blockHeight] = DrawerUtils.extractSize(blockSize);
-        const mapSize = {
-            x: blocks.x * blockWidth,
-            y: blocks.y * blockHeight,
-        };
-        const start = {
-            x: offset?.x ?? 0,
-            y: offset?.y ?? 0,
-        };
-
-        // vertical lines
-        for (let x = 0; x <= blocks.x; x++) {
-            this.verticalLine(
-                start.x + x * blockWidth,
-                start.y,
-                start.y + mapSize.y,
-            );
-        }
-
-        // horizontal lines
-        for (let y = 0; y <= blocks.y; y++) {
-            this.horizontalLine(
-                start.y + y * blockHeight,
-                start.x,
-                start.x + mapSize.x,
-            );
-        }
-    }
-
-    public strokeGrid(
-        blocks: ReadonlySimpleVector2,
-        blockSize: SizeType,
-        color?: ColorType,
-        width?: number,
-        offset?: ReadonlySimpleVector2,
-    ): void {
-        if (color) {
-            this.context.strokeStyle = DrawerUtils.extractColor(color);
-        }
-        if (typeof width === "number") {
-            if (width === 0) {
-                return;
-            }
-            this.context.lineWidth = width;
-        }
-
-        this.context.beginPath();
-        this.makeGrid(blocks, blockSize, offset);
-        this.context.stroke();
-    }
-
-    public drawInOffsetTransform(x: number, y: number, callback: (drawer: CanvasDrawer) => unknown): void {
-        this.context.translate(x, y);
-        callback(this);
-        this.context.translate(-x, -y);
-    }
-
-    public drawInClearTransform(callback: (drawer: CanvasDrawer) => unknown): void {
-        const transform = this.context.getTransform();
-        this.context.resetTransform();
-        callback(this);
-        this.context.setTransform(transform);
-    }
-
-    public fillRect(x: number, y: number, w: number, h: number, color?: ColorType): this {
-        StaticCanvasDrawer.fillRect(this.context, x, y, w, h, color);
-
-        return this;
-    }
-
-    public strokeRectangles(
-        data: [x: number, y: number, w: number, h: number][],
-        color?: Color | string,
-        width?: number,
-    ): void {
-        if (color) {
-            this.context.strokeStyle = DrawerUtils.extractColor(color);
-        }
-        if (typeof width === "number") {
-            if (width === 0) {
-                return;
-            }
-
-            this.context.lineWidth = width;
-        }
-
-        data.forEach((item) => {
-            this.context.strokeRect(...item);
-        });
-    }
-
-    public strokeRectVec(
-        position: ReadonlySimpleVector2,
-        size: ReadonlySimpleVector2,
-        color?: ColorType,
-        width?: number,
-    ): void {
-        StaticCanvasDrawer.strokeRect(this.context, position.x, position.y, size.x, size.y, width, color);
-    }
-
-    public strokeRect(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): void {
-        StaticCanvasDrawer.strokeRect(this.context, x, y, w, h, width, color);
-    }
-
-    /**
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @param angle in radians
-     * @param color
-     */
-    public fillRotatedRect(x: number, y: number, w: number, h: number, angle: number, color?: ColorType): void {
-        StaticCanvasDrawer.fillRotatedRect(
-            this.context,
-            x,
-            y,
-            w,
-            h,
-            angle,
-            color,
-        );
-    }
-
-    /**
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @param angle in radians
-     * @param color
-     * @param width
-     */
-    public strokeRotatedRect(
-        x: number,
-        y: number,
-        w: number,
-        h: number,
-        angle: number,
-        color?: ColorType,
-        width?: number,
-    ): void {
-        StaticCanvasDrawer.strokeRotatedRect(
-            this.context,
-            x,
-            y,
-            w,
-            h,
-            angle,
-            color,
-            width,
-        );
-    }
-
-    public fillArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType): void {
-        this.fillRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color);
-    }
-
-    public fillArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType): void {
-        this.fillRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color);
-    }
-
-    public fillArc(x: number, y: number, w: number, h: number, color?: ColorType): void {
-        this.fillRotatedArc(x, y, w, h, 0, color);
-    }
-
-    /**
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @param angle in radians
-     * @param color
-     */
-    public fillRotatedArc(x: number, y: number, w: number, h: number, angle: number, color?: ColorType): void {
-        if (color) {
-            this.context.fillStyle = DrawerUtils.extractColor(color);
-        }
-
-        this.context.beginPath();
-        DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
-        this.context.fill();
-    }
-
-    public strokeArc(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): void {
-        this.strokeRotatedArc(x, y, w, h, 0, color, width);
-    }
-
-    /**
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @param angle in radians
-     * @param color
-     * @param width
-     */
-    public strokeRotatedArc(
-        x: number,
-        y: number,
-        w: number,
-        h: number,
-        angle: number,
-        color?: ColorType,
-        width?: number,
-    ): void {
-        if (color) {
-            this.context.strokeStyle = DrawerUtils.extractColor(color);
-        }
-
-        if (typeof width === "number") {
-            if (width === 0) {
-                return;
-            }
-
-            this.context.lineWidth = width;
-        }
-
-        this.context.beginPath();
-        DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
-        this.context.stroke();
-    }
-
-    private makePathFromNumbers(points: readonly ReadonlyPair<number>[]): void {
-        this.context.moveTo(points[0][0], points[0][1]);
-        for (let i = 1; i < points.length; i++) {
-            this.context.lineTo(points[i][0], points[i][1]);
-        }
-    }
+    // Paths
 
     public fillPath(points: readonly ReadonlySimpleVector2[], color?: ColorType): void {
         this.fillPathWithOffset(points, color);
@@ -376,6 +117,8 @@ export class CanvasDrawer implements Drawer {
         return this.drawPathWithOffsetAndMultiplier(points, undefined, color, undefined, undefined, width, close);
     }
 
+    // Images
+
     /**
      * @param image
      * @param x
@@ -404,29 +147,19 @@ export class CanvasDrawer implements Drawer {
         this.context.drawImage(image, x, y, w, h);
     }
 
-    public drawCross(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): this {
-        this.drawLine(x, x, w, h, color, width);
-        this.drawLine(w, y, x, h, color, width);
-
-        return this;
+    public startDrawingLine(x: number, y: number): void {
+        this.context.moveTo(x, y);
     }
 
-    public drawArrow(
-        _x1: number,
-        _y1: number,
-        _x2: number,
-        _y2: number,
-        _color?: ColorType,
-        width?: number,
-        _arrowWidth: number = width ? (width * 2) : 4,
-        _arrowLength: number = 10,
-    ): void {
-        throw new Error("Not implemented");
+    public addPointToLine(x: number, y: number, stroke = true): void {
+        this.context.lineTo(x, y);
+
+        if (stroke) {
+            this.context.stroke();
+        }
     }
 
-    public drawLine(x1: number, y1: number, x2: number, y2: number, color?: ColorType, width?: number): void {
-        StaticCanvasDrawer.drawLine(this.context, x1, y1, x2, y2, width, color);
-    }
+    // Texts
 
     public drawStaticTextWithinGrid(
         texts: readonly string[],
@@ -585,22 +318,6 @@ export class CanvasDrawer implements Drawer {
         this.fillRotatedText(text, realX, realY, textOptions.rotation ?? 0, w);
     }
 
-    public clear(resetTransform = true): void {
-        StaticCanvasDrawer.clear(this.context, resetTransform);
-    }
-
-    public startDrawingLine(x: number, y: number): void {
-        this.context.moveTo(x, y);
-    }
-
-    public addPointToLine(x: number, y: number, stroke = true): void {
-        this.context.lineTo(x, y);
-
-        if (stroke) {
-            this.context.stroke();
-        }
-    }
-
     public fillText(text: string, x: number, y: number, maxWidth?: number): void {
         this.fillRotatedText(text, x, y, 0, maxWidth);
     }
@@ -621,42 +338,205 @@ export class CanvasDrawer implements Drawer {
         this.context.restore();
     }
 
-    public horizontalLine(y: number, startX = 0, endX = this.context.canvas.width): void {
-        this.context.moveTo(startX, y);
-        this.context.lineTo(endX, y);
+    // Shapes
+
+    public fillRoundedRect(x: number, y: number, w: number, h: number, round: RoundData, color?: ColorType): void {
+        StaticCanvasDrawer.fillRoundedRect(this.context, x, y, w, h, round, color);
     }
 
-    public drawFullCanvasGrid(startX: number, startY: number, offset: number, rows: number, columns: number): void {
-        this.context.beginPath();
-        this.fullCanvasGrid(startX, startY, offset, rows, columns);
-        this.context.stroke();
+    public strokeRoundedRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        round: RoundData,
+        color?: ColorType,
+        width?: number,
+    ): void {
+        StaticCanvasDrawer.strokeRoundedRect(this.context, x, y, w, h, round, width, color);
     }
 
-    public fullCanvasGrid(startX: number, startY: number, offset: number, rows: number, columns: number): void {
-        this.verticalLines(
-            startX,
-            offset,
-            columns,
+    public fillRectangles(data: [x: number, y: number, w: number, h: number][], color?: ColorType): void {
+        if (color) {
+            this.context.fillStyle = DrawerUtils.extractColor(color);
+        }
+
+        data.forEach((item) => {
+            this.context.fillRect(item[0], item[1], item[2], item[3]);
+        });
+    }
+
+    public fillRect(x: number, y: number, w: number, h: number, color?: ColorType): this {
+        StaticCanvasDrawer.fillRect(this.context, x, y, w, h, color);
+
+        return this;
+    }
+
+    public strokeRectangles(
+        data: [x: number, y: number, w: number, h: number][],
+        color?: ColorType,
+        width?: number,
+    ): void {
+        if (color) {
+            this.context.strokeStyle = DrawerUtils.extractColor(color);
+        }
+        if (typeof width === "number") {
+            if (width === 0) {
+                return;
+            }
+
+            this.context.lineWidth = width;
+        }
+
+        data.forEach((item) => {
+            this.context.strokeRect(...item);
+        });
+    }
+
+    public strokeRectVec(
+        position: ReadonlySimpleVector2,
+        size: ReadonlySimpleVector2,
+        color?: ColorType,
+        width?: number,
+    ): void {
+        StaticCanvasDrawer.strokeRect(this.context, position.x, position.y, size.x, size.y, width, color);
+    }
+
+    public strokeRect(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): void {
+        StaticCanvasDrawer.strokeRect(this.context, x, y, w, h, width, color);
+    }
+
+    /**
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param angle in radians
+     * @param color
+     */
+    public fillRotatedRect(x: number, y: number, w: number, h: number, angle: number, color?: ColorType): void {
+        StaticCanvasDrawer.fillRotatedRect(
+            this.context,
+            x,
+            y,
+            w,
+            h,
+            angle,
+            color,
         );
-        this.horizontalLines(
-            startY,
-            offset,
-            rows,
+    }
+
+    /**
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param angle in radians
+     * @param color
+     * @param width
+     */
+    public strokeRotatedRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        angle: number,
+        color?: ColorType,
+        width?: number,
+    ): void {
+        StaticCanvasDrawer.strokeRotatedRect(
+            this.context,
+            x,
+            y,
+            w,
+            h,
+            angle,
+            color,
+            width,
         );
     }
 
-    public fillPolygon(points: readonly ReadonlyPair<number>[], color?: Color | string): void {
+    public fillArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType): void {
+        this.fillRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color);
+    }
+
+    public fillArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType): void {
+        this.fillRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color);
+    }
+
+    public fillArc(x: number, y: number, w: number, h: number, color?: ColorType): void {
+        this.fillRotatedArc(x, y, w, h, 0, color);
+    }
+
+    /**
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param angle in radians
+     * @param color
+     */
+    public fillRotatedArc(x: number, y: number, w: number, h: number, angle: number, color?: ColorType): void {
         if (color) {
             this.context.fillStyle = DrawerUtils.extractColor(color);
         }
 
         this.context.beginPath();
-        this.makePathFromNumbers(points);
+        DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
+        this.context.fill();
+    }
+
+    public strokeArc(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): void {
+        this.strokeRotatedArc(x, y, w, h, 0, color, width);
+    }
+
+    /**
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param angle in radians
+     * @param color
+     * @param width
+     */
+    public strokeRotatedArc(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        angle: number,
+        color?: ColorType,
+        width?: number,
+    ): void {
+        if (color) {
+            this.context.strokeStyle = DrawerUtils.extractColor(color);
+        }
+
+        if (typeof width === "number") {
+            if (width === 0) {
+                return;
+            }
+
+            this.context.lineWidth = width;
+        }
+
+        this.context.beginPath();
+        DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
+        this.context.stroke();
+    }
+
+    public fillPolygon(points: readonly ReadonlyPair<number>[], color?: ColorType): void {
+        if (color) {
+            this.context.fillStyle = DrawerUtils.extractColor(color);
+        }
+
+        this.context.beginPath();
+        DrawerUtils.makePathFromNumbers(this.context, points);
         this.context.closePath();
         this.context.fill();
     }
 
-    public fillDots(points: readonly ReadonlyPair<number>[], color: Color | string, radius: number): this {
+    public fillDots(points: readonly ReadonlyPair<number>[], color: ColorType, radius: number): this {
         this.context.fillStyle = DrawerUtils.extractColor(color);
         points.forEach(([x, y]) => {
             this.context.beginPath();
@@ -667,7 +547,7 @@ export class CanvasDrawer implements Drawer {
         return this;
     }
 
-    public strokePolyline(points: readonly ReadonlyPair<number>[], color?: Color | string, width?: number): this {
+    public strokePolyline(points: readonly ReadonlyPair<number>[], color?: ColorType, width?: number): this {
         if (color) {
             this.context.strokeStyle = DrawerUtils.extractColor(color);
         }
@@ -689,7 +569,7 @@ export class CanvasDrawer implements Drawer {
         return this;
     }
 
-    public strokePolygon(points: readonly ReadonlyPair<number>[], color?: Color | string, width?: number): void {
+    public strokePolygon(points: readonly ReadonlyPair<number>[], color?: ColorType, width?: number): void {
         if (color) {
             this.context.strokeStyle = DrawerUtils.extractColor(color);
         }
@@ -700,10 +580,107 @@ export class CanvasDrawer implements Drawer {
             this.context.lineWidth = width;
         }
         this.context.beginPath();
-        this.makePathFromNumbers(points);
+        DrawerUtils.makePathFromNumbers(this.context, points);
         this.context.closePath();
 
         this.context.stroke();
+    }
+
+    // Lines, Grid, Cross, Arrow
+
+    public drawArrow(
+        _x1: number,
+        _y1: number,
+        _x2: number,
+        _y2: number,
+        _color?: ColorType,
+        width?: number,
+        _arrowWidth: number = width ? (width * 2) : 4,
+        _arrowLength: number = 10,
+    ): void {
+        throw new Error("Not implemented");
+    }
+
+    public drawLine(x1: number, y1: number, x2: number, y2: number, color?: ColorType, width?: number): void {
+        StaticCanvasDrawer.drawLine(this.context, x1, y1, x2, y2, width, color);
+    }
+
+    private makeGrid(blocks: ReadonlySimpleVector2, blockSize: SizeType, offset?: ReadonlySimpleVector2): void {
+        const [blockWidth, blockHeight] = DrawerUtils.extractSize(blockSize);
+        const mapSize = {
+            x: blocks.x * blockWidth,
+            y: blocks.y * blockHeight,
+        };
+        const start = {
+            x: offset?.x ?? 0,
+            y: offset?.y ?? 0,
+        };
+
+        // vertical lines
+        for (let x = 0; x <= blocks.x; x++) {
+            this.verticalLine(
+                start.x + x * blockWidth,
+                start.y,
+                start.y + mapSize.y,
+            );
+        }
+
+        // horizontal lines
+        for (let y = 0; y <= blocks.y; y++) {
+            this.horizontalLine(
+                start.y + y * blockHeight,
+                start.x,
+                start.x + mapSize.x,
+            );
+        }
+    }
+
+    public strokeGrid(
+        blocks: ReadonlySimpleVector2,
+        blockSize: SizeType,
+        color?: ColorType,
+        width?: number,
+        offset?: ReadonlySimpleVector2,
+    ): void {
+        if (color) {
+            this.context.strokeStyle = DrawerUtils.extractColor(color);
+        }
+        if (typeof width === "number") {
+            if (width === 0) {
+                return;
+            }
+            this.context.lineWidth = width;
+        }
+
+        this.context.beginPath();
+        this.makeGrid(blocks, blockSize, offset);
+        this.context.stroke();
+    }
+
+    public drawCross(x: number, y: number, w: number, h: number, color?: ColorType, width?: number): this {
+        this.drawLine(x, x, w, h, color, width);
+        this.drawLine(w, y, x, h, color, width);
+
+        return this;
+    }
+
+    public drawFullCanvasGrid(startX: number, startY: number, offset: number, rows: number, columns: number): void {
+        this.context.beginPath();
+        this.fullCanvasGrid(startX, startY, offset, rows, columns);
+        this.context.stroke();
+    }
+
+    public fullCanvasGrid(startX: number, startY: number, offset: number, rows: number, columns: number): void {
+        this.verticalLines(
+            startX,
+            offset,
+            columns,
+        );
+        this.horizontalLines(
+            startY,
+            offset,
+            rows,
+        );
     }
 
     public horizontalLines(
@@ -717,6 +694,11 @@ export class CanvasDrawer implements Drawer {
             const y = startY + offsetY * i;
             this.horizontalLine(y, startX, endX);
         }
+    }
+
+    public horizontalLine(y: number, startX = 0, endX = this.context.canvas.width): void {
+        this.context.moveTo(startX, y);
+        this.context.lineTo(endX, y);
     }
 
     public verticalLines(
@@ -737,7 +719,30 @@ export class CanvasDrawer implements Drawer {
         this.context.lineTo(x, endY);
     }
 
+    // Misc
+
+    public show(format = "image/png"): void {
+        globalThis.open(this.context.canvas.toDataURL(format), "_blank");
+    }
+
+    public clear(resetTransform = true): void {
+        StaticCanvasDrawer.clear(this.context, resetTransform);
+    }
+
     public toUrl(format = "image/png"): string {
         return this.context.canvas.toDataURL(format);
+    }
+
+    public drawInOffsetTransform(x: number, y: number, callback: (drawer: CanvasDrawer) => unknown): void {
+        this.context.translate(x, y);
+        callback(this);
+        this.context.translate(-x, -y);
+    }
+
+    public drawInClearTransform(callback: (drawer: CanvasDrawer) => unknown): void {
+        const transform = this.context.getTransform();
+        this.context.resetTransform();
+        callback(this);
+        this.context.setTransform(transform);
     }
 }
