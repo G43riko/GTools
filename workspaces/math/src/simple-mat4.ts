@@ -1,5 +1,4 @@
 import type { ReadonlySimpleVector3, ReadonlyTrinity, SimpleVector3 } from "@g43/types";
-import { Mat4 } from "./mat4.ts";
 import { Quaternion } from "./quaternion.ts";
 import { SimpleVector } from "./simple-vector.ts";
 
@@ -139,7 +138,7 @@ export class SimpleMat4 {
         return true;
     }
 
-    public equals(mat: Mat4): boolean {
+    public equals(mat: SimpleMat4): boolean {
         if (!mat) {
             return false;
         }
@@ -226,7 +225,7 @@ export class SimpleMat4 {
     public static fromTranslation<T extends SimpleMat4>(translation: SimpleVector3, result: T): T;
     /**
      * same as
-     * ```typescript
+     * ```ts ignore
      *  Mat4.setIdentity(result);
      *  Mat4.translate(translation.x, translation.y, translation.z, result.data);
      * ```
@@ -235,8 +234,8 @@ export class SimpleMat4 {
         translation: SimpleVector3,
         result: T = SimpleMat4.create() as unknown as T,
     ): T {
-        Mat4.setIdentity(result);
-        Mat4.setTranslation(translation.x, translation.y, translation.z, result.data);
+        SimpleMat4.setIdentity(result);
+        SimpleMat4.setTranslation(translation.x, translation.y, translation.z, result.data);
 
         return result;
     }
@@ -245,7 +244,7 @@ export class SimpleMat4 {
     public static fromScale<T extends SimpleMat4>(scale: SimpleVector3, result: T): T;
     /**
      * same as
-     * ```typescript
+     * ```ts ignore
      *  Mat4.setIdentity(result);
      *  Mat4.setScale(scale.x, scale.y, scale.z, result.data);
      *  // or
@@ -300,7 +299,7 @@ export class SimpleMat4 {
     ): T;
     /**
      * Same as
-     * ```typescript
+     * ```ts ignore
      *  mat4.identity(dest);
      *  mat4.translate(dest, vec);
      *  const quatMat = mat4.create();
@@ -387,21 +386,21 @@ export class SimpleMat4 {
         rotY?: number;
         rotZ?: number;
     }, result: T = SimpleMat4.create() as unknown as T): T {
-        Mat4.setIdentity(result);
+        SimpleMat4.setIdentity(result);
 
         if (param.translation) {
             if ("length" in param.translation) {
-                Mat4.setTranslation(param.translation[0], param.translation[1], param.translation[2], result.data);
+                SimpleMat4.setTranslation(param.translation[0], param.translation[1], param.translation[2], result.data);
             } else {
-                Mat4.setTranslation(param.translation.x, param.translation.y, param.translation.z, result.data);
+                SimpleMat4.setTranslation(param.translation.x, param.translation.y, param.translation.z, result.data);
             }
         }
 
         if (param.scale) {
             if ("length" in param.scale) {
-                Mat4.setScale(param.scale[0], param.scale[1], param.scale[2], result.data);
+                SimpleMat4.setScale(param.scale[0], param.scale[1], param.scale[2], result.data);
             } else {
-                Mat4.setScale(param.scale.x, param.scale.y, param.scale.z, result.data);
+                SimpleMat4.setScale(param.scale.x, param.scale.y, param.scale.z, result.data);
             }
         }
 
@@ -550,7 +549,7 @@ export class SimpleMat4 {
     public static fromRotation<T extends SimpleMat4>(rad: number, axis: SimpleVector3, result: T): T;
     /**
      * Same as
-     * ```typescript
+     * ```ts ignore
      *  mat4.identity(dest);
      *  mat4.rotate(dest, dest, rad, axis);
      * ```
@@ -598,7 +597,7 @@ export class SimpleMat4 {
         axe: "X" | "Y" | "Z",
         mat: T,
     ): T {
-        Mat4.setIdentity(mat);
+        SimpleMat4.setIdentity(mat);
         const data = mat.data;
 
         switch (axe) {
@@ -631,19 +630,19 @@ export class SimpleMat4 {
     public static fromXRotation(rad: number): SimpleMat4;
     public static fromXRotation<T extends SimpleMat4>(rad: number, result: T): T;
     public static fromXRotation<T extends SimpleMat4>(rad: number, result: T = SimpleMat4.create() as unknown as T): T {
-        return Mat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "X", result);
+        return SimpleMat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "X", result);
     }
 
     public static fromYRotation(rad: number): SimpleMat4;
     public static fromYRotation<T extends SimpleMat4>(rad: number, result: T): T;
     public static fromYRotation<T extends SimpleMat4>(rad: number, result: T = SimpleMat4.create() as unknown as T): T {
-        return Mat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "Y", result);
+        return SimpleMat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "Y", result);
     }
 
     public static fromZRotation(rad: number): SimpleMat4;
     public static fromZRotation<T extends SimpleMat4>(rad: number, result: T): T;
     public static fromZRotation<T extends SimpleMat4>(rad: number, result: T = SimpleMat4.create() as unknown as T): T {
-        return Mat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "Z", result);
+        return SimpleMat4.staticSetAngleRotation(Math.sin(rad), Math.cos(rad), "Z", result);
     }
 
     public transformVector(a: SimpleVector3): SimpleVector3 {
@@ -675,7 +674,7 @@ export class SimpleMat4 {
         };
     }
 
-    public static multiply(matA: Mat4, matB: Mat4, result: Mat4 = Mat4.create()): Mat4 {
+    public static multiply(matA: SimpleMat4, matB: SimpleMat4, result: SimpleMat4 = SimpleMat4.create()): SimpleMat4 {
         const a = matA.data;
         const b = matB.data;
         const out = result.data;

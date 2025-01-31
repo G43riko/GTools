@@ -59,6 +59,12 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
     /**
      * Distance between this vector and another.
+      ```ts 
+     * import {assertEquals} from "@std/assert";
+     * 
+     * assertEquals(new Vector2(0, 0).dist(new Vector2(5, 0)), 5);
+     * assertEquals(new Vector2(0, 0).dist(new Vector2(0, 5)), 5);
+     * ```
      */
     public dist(vector: ReadonlySimpleVector2): number {
         return Vector2.dist(this, vector);
@@ -214,6 +220,12 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     /**
      * Calculate the average of the vector components.
+     * ```ts 
+     * import {assertEquals} from "@std/assert";
+     * 
+     * assertEquals(new Vector2(5, 0).avg, 2.5);
+     * assertEquals(new Vector2(0, 5).avg, 2.5);
+     * ```
      */
     public get avg(): number {
         return this.sum / 2;
@@ -303,6 +315,22 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         ratio: number,
         result?: T,
     ): T;
+    /**
+     * ```ts
+     *  import { assertEquals } from "jsr:@std/assert";
+     * 
+     *  assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 0) }, { x: 0, y: 0 });
+     *  assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 0.25) }, { x: 2.5, y: 2.5 });
+     *  assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 0.5) }, { x: 5, y: 5 });
+     *  assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 0.75) }, { x: 7.5, y: 7.5 });
+     *  assertEquals({ ...Vector2.lerp({ x: 0, y: 0 }, { x: 10, y: 10 }, 1) }, { x: 10, y: 10 });
+     * ```
+     * @param start 
+     * @param end 
+     * @param ratio 
+     * @param result 
+     * @returns 
+     */
     public static lerp<T extends SimpleVector2>(
         start: ReadonlySimpleVector2,
         end: ReadonlySimpleVector2,
@@ -460,6 +488,18 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return Math.sqrt(Vector2.sqrtDist(vecA, vecB));
     }
 
+    /**
+     * 
+     * @param vecA 
+     * @param vecB 
+     * @returns 
+     * ```ts 
+     * import {assertEquals} from "@std/assert";
+     * 
+     * assertEquals(Vector2.sqrtDist(new Vector2(0, 0), new Vector2(5, 0)), 25);
+     * assertEquals(Vector2.sqrtDist(new Vector2(0, 0), new Vector2(0, 5)), 25);
+     * ```
+     */
     public static sqrtDist(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return (vecA.x - vecB.x) ** 2 + (vecA.y - vecB.y) ** 2;
     }

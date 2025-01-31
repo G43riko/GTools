@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import { Vector2 } from "./vector2.ts";
 

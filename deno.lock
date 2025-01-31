@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@gfx/canvas-wasm@*": "0.4.2",
+    "jsr:@std/assert@*": "1.0.10",
     "jsr:@std/assert@1.0.10": "1.0.10",
     "jsr:@std/assert@^1.0.10": "1.0.10",
     "jsr:@std/cli@^1.0.8": "1.0.11",

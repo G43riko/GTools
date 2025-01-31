@@ -6,7 +6,7 @@
  *
  * @example
  * ```ts
- * import { assertEquals } from "jsr:@std/assert/equals";
+ * import { assertEquals } from "jsr:@std/assert";
  *
  * assertEquals(occurrences("foofoofoo", "bar"), 0);
  * assertEquals(occurrences("foofoofoo", "foo"), 3);

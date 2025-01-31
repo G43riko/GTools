@@ -1,4 +1,3 @@
-/// <reference lib="deno.ns" />
 import { createCanvas, type EmulatedCanvas2DContext } from "jsr:@gfx/canvas-wasm";
 import { StaticCanvasDrawer } from "./src/static-canvas-drawer.ts";
 import type { ReadonlySimpleVector2 } from "@g43/types";
