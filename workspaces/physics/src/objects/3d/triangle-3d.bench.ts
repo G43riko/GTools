@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 import { Triangle3D } from "./triangle-3d.ts";
 import { assertEquals } from "@std/assert";
 import { Vector3 } from "@g43/math";

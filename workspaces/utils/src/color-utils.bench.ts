@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 import type { ReadonlyTrinity } from "@g43/types";
 import { hex2rgb, rgb2hex } from "./color-utils.ts";
 
