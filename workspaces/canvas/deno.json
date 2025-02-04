@@ -1,4 +1,7 @@
 {
+    "tasks": {
+        "run-tests": "deno -A canvas-drawer-test.ts && deno -A static-canvas-drawer-test.ts"
+    },
     "name": "@g43/canvas",
     "version": "0.0.2",
     "exports": "./src/index.ts"
