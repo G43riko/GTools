@@ -3,6 +3,7 @@
  * @module
  */
 export * from "./days.ts";
+export * from "./directions.ts";
 export * from "./origin.ts";
 export * from "./keys.ts";
 export * from "./pointer-type.ts";

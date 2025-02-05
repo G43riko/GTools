@@ -1,4 +1,3 @@
-import { StaticCanvasDrawer } from "./src/static-canvas-drawer.ts";
 import { SimpleVector } from "@g43/math";
 import { createFactory } from "./drawer-test-utils.ts";
 import { CanvasDrawer } from "./src/canvas-drawer.ts";
