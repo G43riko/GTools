@@ -371,6 +371,31 @@ export class CanvasDrawer implements Drawer {
 
         return this;
     }
+    
+
+    public fillRectWithHole(
+        x: number,
+        y: number,
+        outerWidth: number,
+        outerHeight: number,
+        innerX: number,
+        innerY: number,
+        innerWidth: number,
+        innerHeight: number,
+        fillColor: string
+    ): void {
+        // Draw the outer rectangle
+        this.context.beginPath();
+        this.context.rect(x, y, outerWidth, outerHeight);
+
+        // Create the inner rectangle as a hole
+        this.context.moveTo(innerX, innerY);
+        this.context.rect(innerX, innerY, innerWidth, innerHeight);
+
+        // Fill the shape (outer rectangle with inner hole)
+        this.context.fillStyle = fillColor;
+        this.context.fill("evenodd"); // Use 'evenodd' fill rule to create a hole
+    }
 
     public strokeRectangles(
         data: [x: number, y: number, w: number, h: number][],
@@ -456,16 +481,24 @@ export class CanvasDrawer implements Drawer {
         );
     }
 
-    public fillArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType): void {
-        this.fillRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color);
+    public strokeArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType, width?: number): void {
+        this.strokeRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color, width);
+    }
+    public strokeArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType, width?: number): void {
+        this.strokeRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color, width);
     }
 
-    public fillArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType): void {
-        this.fillRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color);
+
+    public fillArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType, innerRadius?: number): void {
+        this.fillRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color, innerRadius);
     }
 
-    public fillArc(x: number, y: number, w: number, h: number, color?: ColorType): void {
-        this.fillRotatedArc(x, y, w, h, 0, color);
+    public fillArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType, innerRadius?: number): void {
+        this.fillRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color, innerRadius);
+    }
+
+    public fillArc(x: number, y: number, w: number, h: number, color?: ColorType, innerRadius?: number): void {
+        this.fillRotatedArc(x, y, w, h, 0, color, innerRadius);
     }
 
     /**
@@ -476,13 +509,25 @@ export class CanvasDrawer implements Drawer {
      * @param angle in radians
      * @param color
      */
-    public fillRotatedArc(x: number, y: number, w: number, h: number, angle: number, color?: ColorType): void {
+    public fillRotatedArc(x: number, y: number, w: number, h: number, angle: number, color?: ColorType, innerRadius?: number): void {
         if (color) {
             this.context.fillStyle = DrawerUtils.extractColor(color);
         }
 
         this.context.beginPath();
-        DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
+        if(innerRadius) {
+            if(w !== h) {
+                throw new Error("Width and height must be equal for elliptical arc with inner radius");
+            }
+            
+            const radius = w / 2;
+            this.context.arc(x + radius, y + radius, radius, 0, DrawerUtils.PI2, false);
+            this.context.arc(x + radius, y + radius, innerRadius, DrawerUtils.PI2, 0, true); // Inner arc in reverse direction
+            this.context.closePath();
+        } else {
+            DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
+
+        }
         this.context.fill();
     }
 
@@ -547,6 +592,32 @@ export class CanvasDrawer implements Drawer {
         return this;
     }
 
+    public strokeLine(
+        points: readonly ReadonlySimpleVector2[],
+        color?: ColorType,
+        width?: number,
+    ): this {
+        if (typeof width === "number") {
+            if (width === 0) {
+                return this;
+            }
+            this.context.lineWidth = width;
+        }
+        if(color) {
+            this.context.strokeStyle = DrawerUtils.extractColor(color);
+        }
+        this.context.beginPath();
+        points.forEach((point, i) => {
+            if (i) {
+                this.context.lineTo(point.x, point.y);
+            } else {
+                this.context.moveTo(point.x, point.y);
+            }
+        });
+        this.context.stroke();
+
+        return this;
+    }
     public strokePolyline(points: readonly ReadonlyPair<number>[], color?: ColorType, width?: number): this {
         if (color) {
             this.context.strokeStyle = DrawerUtils.extractColor(color);

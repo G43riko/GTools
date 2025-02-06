@@ -55,6 +55,105 @@ export class StaticCanvasDrawer {
         context.restore();
     }
 
+    /**
+     *
+     * @param context
+     * @param centerX
+     * @param centerY
+     * @param text The text to be displayed in circular fashion
+     * @param diameter The diameter of the circle around which the text will be displayed (inside or outside)
+     * @param startAngle In degrees, Where the text will be shown. 0 degrees if the top of the circle
+     * @param align Positions text to left right or center of startAngle
+     * @param textInside true to show inside the diameter. False draws outside
+     * @param inwardFacing true for base of text facing inward. false for outward
+     * @param fName name of font family. Make sure it is loaded
+     * @param fSize size of font family. Don't forget to include units
+     * @param kerning 0 for normal gap between letters. positive or negative number to expand/compact gap in pixels
+     */
+    public static getCircularText(
+        context: CanvasRenderingContext2D,
+        text: string,
+        diameter: number,
+        startAngle: number,
+        textInside: boolean,
+        inwardFacing: boolean,
+        fName: string,
+        fSize: string,
+        centerX = context.canvas.width / 2,
+        centerY = context.canvas.height / 2,
+        align: "right" | "left" | "center" = "center",
+        kerning = 0,
+    ): void {
+        let charWid;
+
+        const ctxRef = context;
+        const clockwise = align === "right" ? 1 : -1; // draw clockwise for aligned right. Else Anticlockwise
+        startAngle *= (Math.PI / 180); // convert to radians
+
+        // calculate height of the font. Many ways to do this
+        // you can replace with your own!
+        const div = document.createElement("div");
+        div.innerHTML = text;
+        div.style.position = "absolute";
+        div.style.top = "-10000px";
+        div.style.left = "-10000px";
+        div.style.fontFamily = fName;
+        div.style.fontSize = fSize;
+        document.body.appendChild(div);
+        const textHeight = div.offsetHeight;
+        document.body.removeChild(div);
+
+        // in cases where we are drawing outside diameter,
+        // expand diameter to handle it
+        if (!textInside) {
+            diameter += textHeight * 2;
+        }
+
+        ctxRef.font = `${fSize} ${fName}`;
+
+        // Reverse letter order for align Left inward, align right outward
+        // and align center inward.
+        if ((([
+            "left",
+            "center",
+        ].indexOf(align) > -1) && inwardFacing) || (align === "right" && !inwardFacing)) {
+            text = text.split("")
+                .reverse()
+                .join("");
+        }
+
+        ctxRef.save();
+        // Setup letters and positioning
+        ctxRef.translate(centerX, centerY); // Move to center
+        startAngle += inwardFacing ? Math.PI : 0; // Rotate 180 if outward // (Math.PI * !inwardFacing)
+        ctxRef.textBaseline = "middle"; // Ensure we draw in exact center
+        ctxRef.textAlign = "center"; // Ensure we draw in exact center
+
+        // rotate 50% of total angle for center alignment
+        if (align === "center") {
+            for (let j = 0; j < text.length; j++) {
+                charWid = ctxRef.measureText(text[j]).width;
+                startAngle += ((charWid + (j === text.length - 1 ? 0 : kerning)) / (diameter / 2 - textHeight)) / 2 * -clockwise;
+            }
+        }
+
+        // Phew... now rotate into final start position
+        ctxRef.rotate(startAngle);
+
+        // Now for the fun bit: draw, rotate, and repeat
+        for (let j = 0; j < text.length; j++) {
+            charWid = ctxRef.measureText(text[j]).width; // half letter
+
+            ctxRef.rotate((charWid / 2) / (diameter / 2 - textHeight) * clockwise);  // rotate half letter
+
+            // draw char at "top" if inward facing or "bottom" if outward
+            ctxRef.fillText(text[j], 0, (inwardFacing ? 1 : -1) * (0 - diameter / 2 + textHeight / 2));
+
+            ctxRef.rotate((charWid / 2 + kerning) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
+        }
+        ctxRef.restore();
+
+    }
     public static strokeArc(
         context: CanvasRenderingContext2D,
         centerX: number,
