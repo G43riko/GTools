@@ -1,4 +1,4 @@
-import { Button, Keys } from "@g43/enums";
+import { Button, Keys, PointerType } from "@g43/enums";
 
 export function extractKeyFromEvent(event: any): Keys {
     return event.code as Keys;
@@ -90,5 +90,18 @@ export function extractButtonFromEvent(
                 return undefined;
             }
             throw new Error(`Unknown button ${event.button}`);
+    }
+}
+
+export function extractPointerTypeFromPointerEvent(event: PointerEvent): any {
+    switch (event.pointerType) {
+        case "touch":
+            return PointerType.TOUCH;
+        case "mouse":
+            return PointerType.MOUSE;
+        case "pen":
+            return PointerType.PEN;
+        default:
+            return PointerType.UNKNOWN;
     }
 }
