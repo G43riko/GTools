@@ -390,7 +390,12 @@ export class SimpleMat4 {
 
         if (param.translation) {
             if ("length" in param.translation) {
-                SimpleMat4.setTranslation(param.translation[0], param.translation[1], param.translation[2], result.data);
+                SimpleMat4.setTranslation(
+                    param.translation[0],
+                    param.translation[1],
+                    param.translation[2],
+                    result.data,
+                );
             } else {
                 SimpleMat4.setTranslation(param.translation.x, param.translation.y, param.translation.z, result.data);
             }

@@ -17,7 +17,6 @@ describe("Vector2", () => {
         assertEquals(0, vec5_0.min);
     });
 
-   
     it("normalize", () => {
         assertEquals(vec5_0.normalize().toString(), "[1, 0]");
         assertEquals(vec0_5.normalize().toString(), "[0, 1]");

@@ -2,44 +2,10 @@
  * @see IterateFunction
  */
 export class IteratorUtils {
-    public static iterateXY(
-        startX: number,
-        startY: number,
-        endX: number,
-        endY: number,
-        callback: (x: number, y: number) => void,
-    ): void {
-        for (let x = startX; x <= endX; x++) {
-            for (let y = startY; y <= endY; y++) {
-                callback(x, y);
-            }
-        }
-    }
-
-    public static iterateXZ(
-        startX: number,
-        startZ: number,
-        endX: number,
-        endZ: number,
-        callback: (x: number, z: number) => void,
-    ): void {
-        for (let x = startX; x <= endX; x++) {
-            for (let z = startZ; z <= endZ; z++) {
-                callback(x, z);
-            }
-        }
-    }
-
-    public static iterateYZ(
-        startY: number,
-        startZ: number,
-        endY: number,
-        endZ: number,
-        callback: (y: number, z: number) => void,
-    ): void {
-        for (let y = startY; y <= endY; y++) {
-            for (let z = startZ; z <= endZ; z++) {
-                callback(y, z);
+    public static iterateGrid(startA: number, startB: number, endA: number, endB: number, callback: (a: number, b: number) => void): void {
+        for (let a = startA; a <= endA; a++) {
+            for (let b = startB; b <= endB; b++) {
+                callback(a, b);
             }
         }
     }

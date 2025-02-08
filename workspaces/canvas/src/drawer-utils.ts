@@ -99,7 +99,10 @@ export class DrawerUtils {
         return canvas;
     }
 
-    public static makePathFromNumbers(context: CanvasRenderingContext2D, points: readonly ReadonlyPair<number>[]): void {
+    public static makePathFromNumbers(
+        context: CanvasRenderingContext2D,
+        points: readonly ReadonlyPair<number>[],
+    ): void {
         context.moveTo(points[0][0], points[0][1]);
         for (let i = 1; i < points.length; i++) {
             context.lineTo(points[i][0], points[i][1]);

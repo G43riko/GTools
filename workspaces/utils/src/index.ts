@@ -2,6 +2,7 @@ export * from "./array-utils.ts";
 export * from "./color-utils.ts";
 export * from "./direction-utils.ts";
 export * from "./geo-utils.ts";
+export * from "./image-utils.ts";
 export * from "./input-utils.ts";
 export * from "./iterator-utils.ts";
 export * from "./math-utils.ts";

@@ -32,7 +32,7 @@ export function getOppositeDirection4(direction: Direction4): Direction4 {
     }
 }
 
-const vectors4    = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN];
+const vectors4 = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN];
 const directions4 = [Direction4.LEFT, Direction4.RIGHT, Direction4.UP, Direction4.DOWN];
 
 /**
@@ -43,11 +43,11 @@ const directions4 = [Direction4.LEFT, Direction4.RIGHT, Direction4.UP, Direction
  * @param vec
  */
 export function vector2ToDirection4(vec: ReadonlySimpleVector2): Direction4 {
-    let max      = -Number.MAX_VALUE;
+    let max = -Number.MAX_VALUE;
     let maxIndex = -1;
     for (let i = 0; i < vectors4.length; i++) {
         if (vectors4[i].dot(vec) > max) {
-            max      = vectors4[i].dot(vec);
+            max = vectors4[i].dot(vec);
             maxIndex = i;
         }
     }
@@ -55,7 +55,13 @@ export function vector2ToDirection4(vec: ReadonlySimpleVector2): Direction4 {
     return directions4[maxIndex];
 }
 
-export function getAdjacentPositionByData(x: number, y: number, z: number, direction: Direction7, offset = 1): ReadonlySimpleVector3 {
+export function getAdjacentPositionByData(
+    x: number,
+    y: number,
+    z: number,
+    direction: Direction7,
+    offset = 1,
+): ReadonlySimpleVector3 {
     switch (direction) {
         case Direction7.UP:
             return SimpleVector.create3(x, y + offset, z);
@@ -79,7 +85,11 @@ export function getAdjacentPositionByData(x: number, y: number, z: number, direc
     }
 }
 
-export function getAdjacentPositionBy(position: ReadonlySimpleVector3, direction: Direction7, offset = 1): ReadonlySimpleVector3 {
+export function getAdjacentPositionBy(
+    position: ReadonlySimpleVector3,
+    direction: Direction7,
+    offset = 1,
+): ReadonlySimpleVector3 {
     return getAdjacentPositionByData(position.x, position.y, position.z, direction, offset);
 }
 
