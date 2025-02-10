@@ -371,7 +371,6 @@ export class CanvasDrawer implements Drawer {
 
         return this;
     }
-    
 
     public fillRectWithHole(
         x: number,
@@ -382,7 +381,7 @@ export class CanvasDrawer implements Drawer {
         innerY: number,
         innerWidth: number,
         innerHeight: number,
-        fillColor: string
+        fillColor: string,
     ): void {
         // Draw the outer rectangle
         this.context.beginPath();
@@ -488,12 +487,24 @@ export class CanvasDrawer implements Drawer {
         this.strokeRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color, width);
     }
 
-
-    public fillArcByCenterAndRadius(cx: number, cy: number, radius: number, color?: ColorType, innerRadius?: number): void {
+    public fillArcByCenterAndRadius(
+        cx: number,
+        cy: number,
+        radius: number,
+        color?: ColorType,
+        innerRadius?: number,
+    ): void {
         this.fillRotatedArc(cx - radius, cy - radius, radius * 2, radius * 2, 0, color, innerRadius);
     }
 
-    public fillArcByCenter(cx: number, cy: number, w: number, h: number, color?: ColorType, innerRadius?: number): void {
+    public fillArcByCenter(
+        cx: number,
+        cy: number,
+        w: number,
+        h: number,
+        color?: ColorType,
+        innerRadius?: number,
+    ): void {
         this.fillRotatedArc(cx - w / 2, cy - h / 2, w, h, 0, color, innerRadius);
     }
 
@@ -509,24 +520,31 @@ export class CanvasDrawer implements Drawer {
      * @param angle in radians
      * @param color
      */
-    public fillRotatedArc(x: number, y: number, w: number, h: number, angle: number, color?: ColorType, innerRadius?: number): void {
+    public fillRotatedArc(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        angle: number,
+        color?: ColorType,
+        innerRadius?: number,
+    ): void {
         if (color) {
             this.context.fillStyle = DrawerUtils.extractColor(color);
         }
 
         this.context.beginPath();
-        if(innerRadius) {
-            if(w !== h) {
+        if (innerRadius) {
+            if (w !== h) {
                 throw new Error("Width and height must be equal for elliptical arc with inner radius");
             }
-            
+
             const radius = w / 2;
             this.context.arc(x + radius, y + radius, radius, 0, DrawerUtils.PI2, false);
             this.context.arc(x + radius, y + radius, innerRadius, DrawerUtils.PI2, 0, true); // Inner arc in reverse direction
             this.context.closePath();
         } else {
             DrawerUtils.makeEllipse(this.context, x, y, w, h, angle);
-
         }
         this.context.fill();
     }
@@ -603,7 +621,7 @@ export class CanvasDrawer implements Drawer {
             }
             this.context.lineWidth = width;
         }
-        if(color) {
+        if (color) {
             this.context.strokeStyle = DrawerUtils.extractColor(color);
         }
         this.context.beginPath();

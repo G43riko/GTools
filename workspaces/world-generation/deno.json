@@ -1,0 +1,8 @@
+{
+    "tasks": {
+        "run-tests": "deno -A static-world-generation-test.ts"
+    },
+    "name": "@g43/world-generation",
+    "version": "0.0.1",
+    "exports": "./src/index.ts"
+}

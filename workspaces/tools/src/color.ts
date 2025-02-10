@@ -87,9 +87,21 @@ export class Color implements HexColor, RgbColor, RgbaColor, IntColor {
     public readonly hexAlpha: `#${string}`;
 
     public constructor(
+        /**
+         * Red color value between 0 and 255
+         */
         public readonly red: number,
+        /**
+         * Green color value between 0 and 255
+         */
         public readonly green: number,
+        /**
+         * Blue color value between 0 and 255
+         */
         public readonly blue: number,
+        /**
+         * Alpha color value between 0 and 255
+         */
         public readonly alpha = 255,
     ) {
         checkColorValue(red);

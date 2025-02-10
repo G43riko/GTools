@@ -56,7 +56,6 @@ export class StaticCanvasDrawer {
     }
 
     /**
-     *
      * @param context
      * @param centerX
      * @param centerY
@@ -88,7 +87,7 @@ export class StaticCanvasDrawer {
 
         const ctxRef = context;
         const clockwise = align === "right" ? 1 : -1; // draw clockwise for aligned right. Else Anticlockwise
-        startAngle *= (Math.PI / 180); // convert to radians
+        startAngle *= Math.PI / 180; // convert to radians
 
         // calculate height of the font. Many ways to do this
         // you can replace with your own!
@@ -113,10 +112,12 @@ export class StaticCanvasDrawer {
 
         // Reverse letter order for align Left inward, align right outward
         // and align center inward.
-        if ((([
-            "left",
-            "center",
-        ].indexOf(align) > -1) && inwardFacing) || (align === "right" && !inwardFacing)) {
+        if (
+            (([
+                "left",
+                "center",
+            ].indexOf(align) > -1) && inwardFacing) || (align === "right" && !inwardFacing)
+        ) {
             text = text.split("")
                 .reverse()
                 .join("");
@@ -133,7 +134,8 @@ export class StaticCanvasDrawer {
         if (align === "center") {
             for (let j = 0; j < text.length; j++) {
                 charWid = ctxRef.measureText(text[j]).width;
-                startAngle += ((charWid + (j === text.length - 1 ? 0 : kerning)) / (diameter / 2 - textHeight)) / 2 * -clockwise;
+                startAngle += ((charWid + (j === text.length - 1 ? 0 : kerning)) / (diameter / 2 - textHeight)) / 2 *
+                    -clockwise;
             }
         }
 
@@ -144,7 +146,7 @@ export class StaticCanvasDrawer {
         for (let j = 0; j < text.length; j++) {
             charWid = ctxRef.measureText(text[j]).width; // half letter
 
-            ctxRef.rotate((charWid / 2) / (diameter / 2 - textHeight) * clockwise);  // rotate half letter
+            ctxRef.rotate((charWid / 2) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
 
             // draw char at "top" if inward facing or "bottom" if outward
             ctxRef.fillText(text[j], 0, (inwardFacing ? 1 : -1) * (0 - diameter / 2 + textHeight / 2));
@@ -152,7 +154,6 @@ export class StaticCanvasDrawer {
             ctxRef.rotate((charWid / 2 + kerning) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
         }
         ctxRef.restore();
-
     }
     public static strokeArc(
         context: CanvasRenderingContext2D,

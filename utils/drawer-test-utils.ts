@@ -1,4 +1,4 @@
-import { createCanvas, type EmulatedCanvas2DContext } from "jsr:@gfx/canvas-wasm";
+import { createCanvas, EmulatedCanvas2D, type EmulatedCanvas2DContext } from "jsr:@gfx/canvas-wasm";
 import type { ReadonlySimpleVector2 } from "@g43/types";
 
 export type CreateExampleFn = (
@@ -23,10 +23,15 @@ export function createFactory(outDirectory: string): CreateExampleFn {
         callback: (ctx: CanvasRenderingContext2D) => Promise<void> | void,
     ): void {
         examples.push(() => {
-            const canvas = createCanvas(resolution.x, resolution.y);
+            const canvas = createCanvas(resolution.x, resolution.y) as HTMLCanvasElement & EmulatedCanvas2D;
             const ctx = canvas.getContext("2d") as CanvasRenderingContext2D & EmulatedCanvas2DContext;
-            callback(ctx);
-            Deno.writeFileSync(`${outDirectory}/${name.replace(/.(png|jpg|jpeg|gif)$/g, "")}.png`, canvas.toBuffer());
+            try {
+                callback(ctx);
+                Deno.writeFileSync(`${outDirectory}/${name.replace(/.(png|jpg|jpeg|gif)$/g, "")}.png`, canvas.toBuffer());
+            } catch(e: any) {
+                console.error(e);
+                throw e;
+            }
         });
     }
 

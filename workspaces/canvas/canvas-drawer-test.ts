@@ -1,5 +1,5 @@
 import { SimpleVector } from "@g43/math";
-import { createFactory } from "./drawer-test-utils.ts";
+import { createFactory } from "../../utils/drawer-test-utils.ts";
 import { CanvasDrawer } from "./src/canvas-drawer.ts";
 import { Color } from "@g43/tools";
 

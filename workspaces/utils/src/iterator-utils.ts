@@ -2,7 +2,13 @@
  * @see IterateFunction
  */
 export class IteratorUtils {
-    public static iterateGrid(startA: number, startB: number, endA: number, endB: number, callback: (a: number, b: number) => void): void {
+    public static iterateGrid(
+        startA: number,
+        startB: number,
+        endA: number,
+        endB: number,
+        callback: (a: number, b: number) => void,
+    ): void {
         for (let a = startA; a <= endA; a++) {
             for (let b = startB; b <= endB; b++) {
                 callback(a, b);
@@ -10,6 +16,47 @@ export class IteratorUtils {
         }
     }
 
+    public static iterateXY(x: number, y: number, callback: (x: number, y: number, index: number) => void): void {
+        const sizeSQ = x * y;
+        for (let i = 0; i < sizeSQ; i++) {
+            callback(i % x, Math.floor(i / x), i);
+        }
+    }
+
+    public static iterateXYZ(
+        x: number,
+        y: number,
+        z: number,
+        callback: (x: number, y: number, z: number, index: number) => void,
+    ): void {
+        let counter = 0;
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                for (let k = 0; k < z; k++) {
+                    callback(i, j, k, counter++);
+                }
+            }
+        }
+    }
+
+    public static iterateXYZW(
+        x: number,
+        y: number,
+        z: number,
+        w: number,
+        callback: (x: number, y: number, z: number, w: number, index: number) => void,
+    ): void {
+        let counter = 0;
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                for (let k = 0; k < z; k++) {
+                    for (let l = 0; l < w; l++) {
+                        callback(i, j, k, l, counter++);
+                    }
+                }
+            }
+        }
+    }
     public static iterateAroundCircle(steps: number, callback: (angleInRadians: number) => void): void {
         const angleStep = (2 * Math.PI) / steps;
         for (let i = 0; i < steps; i++) {

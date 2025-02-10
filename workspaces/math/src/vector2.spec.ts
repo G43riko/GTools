@@ -2,7 +2,7 @@ import { assertEquals } from "@std/assert";
 import { describe, it } from "@std/testing/bdd";
 import { Vector2 } from "./vector2.ts";
 
-const vec0_0 = new Vector2();
+const _vec0_0 = new Vector2();
 const vec5_0 = new Vector2(5, 0);
 const vec0_5 = new Vector2(0, 5);
 /*
