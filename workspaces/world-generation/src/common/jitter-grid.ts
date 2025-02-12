@@ -1,6 +1,6 @@
 import { Vector2 } from "@g43/math";
 import type { ReadonlySimpleVector2 } from "@g43/types";
-import { type Grid2Holder,Grid2ArrayHolder, Random } from "@g43/tools";
+import { Grid2ArrayHolder, type Grid2Holder, Random } from "@g43/tools";
 import { randomFloatBetween } from "@g43/utils";
 import { assertExists } from "@std/assert";
 
@@ -25,10 +25,10 @@ export class JitterGrid {
         seed?: number,
     ): Grid2Holder<ReadonlySimpleVector2> {
         const halfJitterSize = jitterSize / 2;
-        const result         = Grid2ArrayHolder.initEmpty<ReadonlySimpleVector2>(gridSize.x, gridSize.y);
-        const random         = new Random(seed);
+        const result = Grid2ArrayHolder.initEmpty<ReadonlySimpleVector2>(gridSize.x, gridSize.y);
+        const random = new Random(seed);
         result.forEach((_, x, y) => {
-            const angle  = random.nextFloatBetween(0, Math.PI * 2);
+            const angle = random.nextFloatBetween(0, Math.PI * 2);
             const length = random.nextFloatBetween(0, halfJitterSize);
             const center = {
                 x: x * jitterSize + length * Math.cos(angle) + halfJitterSize,
@@ -73,7 +73,7 @@ export class JitterGrid {
             y: Math.floor(position.y / this.gridSize.y),
         };
 
-        let minDistance           = Infinity;
+        let minDistance = Infinity;
         let closesCellCoordinates = currentCellCoordinates;
         for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
@@ -87,7 +87,7 @@ export class JitterGrid {
                 assertExists(center);
                 const distanceToCenter = Vector2.dist(position, center);
                 if (distanceToCenter < minDistance) {
-                    minDistance           = distanceToCenter;
+                    minDistance = distanceToCenter;
                     closesCellCoordinates = cellCoordinates;
                 }
             }
@@ -98,7 +98,7 @@ export class JitterGrid {
 }
 
 export class JitterGridGeneric<T> {
-    private readonly grid: Grid2Holder<{ center: ReadonlySimpleVector2, value: T }>;
+    private readonly grid: Grid2Holder<{ center: ReadonlySimpleVector2; value: T }>;
 
     public constructor(
         private readonly gridSize: ReadonlySimpleVector2,
@@ -118,7 +118,7 @@ export class JitterGridGeneric<T> {
             y: Math.floor(position.y / this.gridSize.y),
         };
 
-        let minDistance           = Infinity;
+        let minDistance = Infinity;
         let closesCellCoordinates = currentCellCoordinates;
         for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
@@ -132,7 +132,7 @@ export class JitterGridGeneric<T> {
                 assertExists(holder);
                 const distanceToCenter = Vector2.dist(position, holder.center);
                 if (distanceToCenter < minDistance) {
-                    minDistance           = distanceToCenter;
+                    minDistance = distanceToCenter;
                     closesCellCoordinates = cellCoordinates;
                 }
             }
@@ -156,15 +156,15 @@ export class JitterGridGeneric<T> {
         gridSize: ReadonlySimpleVector2,
         jitterSize: number,
         provider: (x: number, y: number, center: ReadonlySimpleVector2) => T,
-    ): Grid2Holder<{ center: ReadonlySimpleVector2, value: T }> {
+    ): Grid2Holder<{ center: ReadonlySimpleVector2; value: T }> {
         const halfJitterSize = jitterSize / 2;
-        const result         = Grid2ArrayHolder.initEmpty<{
-            center: ReadonlySimpleVector2,
-            value: T
+        const result = Grid2ArrayHolder.initEmpty<{
+            center: ReadonlySimpleVector2;
+            value: T;
         }>(gridSize.x, gridSize.y);
 
         result.forEach((_, x, y) => {
-            const angle  = randomFloatBetween(0, Math.PI * 2);
+            const angle = randomFloatBetween(0, Math.PI * 2);
             const length = randomFloatBetween(0, halfJitterSize);
             const center = {
                 x: x * jitterSize + length * Math.cos(angle) + halfJitterSize,
@@ -184,7 +184,7 @@ export class JitterGridGeneric<T> {
         const halfJitterSize = jitterSize / 2;
 
         return Grid2ArrayHolder.initWithProvider(gridSize.x, gridSize.y, (x, y) => {
-            const angle  = randomFloatBetween(0, Math.PI * 2);
+            const angle = randomFloatBetween(0, Math.PI * 2);
             const length = randomFloatBetween(0, halfJitterSize);
             const center = {
                 x: x * jitterSize + length * Math.cos(angle) + halfJitterSize,

@@ -12,14 +12,13 @@ export class Voronoi {
      * voronoi cells: v = cell vertices, c = adjacent cells, b = near-border cell
      * @private
      */
-    public readonly cells: { v: number[][], c: number[][], b: number[] } = { v: [], c: [], b: [] };
+    public readonly cells: { v: number[][]; c: number[][]; b: number[] } = { v: [], c: [], b: [] };
 
     /**
      * cells vertices: p = vertex coordinates, v = neighboring vertices, c = adjacent cells
      * @private
      */
-    public readonly vertices: { p: ReadonlyPair<number>[], v: number[][], c: number[][] } = { p: [], v: [], c: [] };
-
+    public readonly vertices: { p: ReadonlyPair<number>[]; v: number[][]; c: number[][] } = { p: [], v: [], c: [] };
 
     public static fromDelaunator(data: Delaunator<number>): Voronoi {
         return new Voronoi(data, pairwiseArray(data.coords), data.coords.length / 2);
@@ -33,28 +32,27 @@ export class Voronoi {
      * @param {number} pointsN The number of points.
      */
     public constructor(
-        private readonly delaunay: { triangles: Uint32Array, halfedges: Int32Array } | Delaunator<[number, number]>,
+        private readonly delaunay: { triangles: Uint32Array; halfedges: Int32Array } | Delaunator<[number, number]>,
         private readonly points: Pair<number>[],
         private readonly pointsN: number,
     ) {
-
         // Half-edges are the indices into the delaunator outputs:
         // delaunay.triangles[e] gives the point ID where the half-edge starts
         // delaunay.halfedges[e] returns either the opposite half-edge in the adjacent triangle, or -1 if there's not an adjacent triangle.
         for (let e = 0; e < this.delaunay.triangles.length; e++) {
             const p = this.delaunay.triangles[this.nextHalfedge(e)];
             if (p < this.pointsN && !this.cells.c[p]) {
-                const edges     = this.edgesAroundPoint(e);
-                this.cells.v[p] = edges.map((edge) => this.triangleOfEdge(edge));                                   // cell: adjacent vertex
+                const edges = this.edgesAroundPoint(e);
+                this.cells.v[p] = edges.map((edge) => this.triangleOfEdge(edge)); // cell: adjacent vertex
                 this.cells.c[p] = edges.map((edge) => this.delaunay.triangles[edge]).filter((c) => c < this.pointsN); // cell: adjacent valid cells
-                this.cells.b[p] = edges.length > this.cells.c[p].length ? 1 : 0;                            // cell: is border
+                this.cells.b[p] = edges.length > this.cells.c[p].length ? 1 : 0; // cell: is border
             }
 
             const t = this.triangleOfEdge(e);
             if (!this.vertices.p[t]) {
-                this.vertices.p[t] = this.triangleCenter(t);              // vertex: coordinates
+                this.vertices.p[t] = this.triangleCenter(t); // vertex: coordinates
                 this.vertices.v[t] = this.trianglesAdjacentToTriangle(t); // vertex: adjacent vertices
-                this.vertices.c[t] = this.pointsOfTriangle(t);            // vertex: adjacent cells
+                this.vertices.c[t] = this.pointsOfTriangle(t); // vertex: adjacent cells
             }
         }
     }
@@ -92,7 +90,7 @@ export class Voronoi {
         do {
             result.push(incoming);
             const outgoing = this.nextHalfedge(incoming);
-            incoming       = this.delaunay.halfedges[outgoing];
+            incoming = this.delaunay.halfedges[outgoing];
         } while (incoming !== -1 && incoming !== start && result.length < 20);
 
         return result;
@@ -156,10 +154,10 @@ export class Voronoi {
         const [ax, ay] = a;
         const [bx, by] = b;
         const [cx, cy] = c;
-        const ad       = ax * ax + ay * ay;
-        const bd       = bx * bx + by * by;
-        const cd       = cx * cx + cy * cy;
-        const D        = 2 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by));
+        const ad = ax * ax + ay * ay;
+        const bd = bx * bx + by * by;
+        const cd = cx * cx + cy * cy;
+        const D = 2 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by));
 
         return [
             Math.floor(1 / D * (ad * (by - cy) + bd * (cy - ay) + cd * (ay - by))),

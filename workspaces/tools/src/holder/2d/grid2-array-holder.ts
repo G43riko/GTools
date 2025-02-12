@@ -1,4 +1,4 @@
-import type { ReadonlySimpleVector2, } from "@g43/types";
+import type { ReadonlySimpleVector2 } from "@g43/types";
 import { Vector2 } from "@g43/math";
 import { getValueFromProvider, type ValueProvider } from "@g43/core";
 // import { GridBlockItemFilter } from "../grid-filters";
@@ -53,7 +53,11 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return new Grid2ArrayHolder<T>({ x, y }, result);
     }
 
-    public static initWithProvider<T>(x: number, y: number, provider: (x: number, y: number) => T): Grid2ArrayHolder<T> {
+    public static initWithProvider<T>(
+        x: number,
+        y: number,
+        provider: (x: number, y: number) => T,
+    ): Grid2ArrayHolder<T> {
         const size = x * y;
         const result = new Array<T>(size);
         for (let i = 0; i < size; i++) {
@@ -95,7 +99,6 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return this.require(Math.floor(Math.random() * this.size.x), Math.floor(Math.random() * this.size.y));
     }
 
-
     public set(x: number, y: number, value: T): void {
         this._data[this.getIndex(x, y)] = value;
     }
@@ -122,7 +125,6 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         const newItem = getValueFromProvider(provider);
 
         return this._data[index] = newItem;
-
     }
 
     public getAroundData(x: number, y: number, size = 1): Grid2Block<T>[] {
@@ -195,7 +197,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public getNearest(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
         enum Statuses {
             ADDED,
-            FALSE
+            FALSE,
         }
 
         const data: { [index: number]: Statuses } = {};
@@ -227,7 +229,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     public expandConditionally(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
         enum Statuses {
             ADDED,
-            FALSE
+            FALSE,
         }
 
         const data: { [index: number]: Statuses } = {};
@@ -301,9 +303,17 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         return this.getAreaInternally(position, size, "block");
     }
 
-    private getAreaInternally(position: ReadonlySimpleVector2, size: ReadonlySimpleVector2, select: "indices"): number[];
+    private getAreaInternally(
+        position: ReadonlySimpleVector2,
+        size: ReadonlySimpleVector2,
+        select: "indices",
+    ): number[];
     private getAreaInternally(position: ReadonlySimpleVector2, size: ReadonlySimpleVector2, select: "data"): T[];
-    private getAreaInternally(position: ReadonlySimpleVector2, size: ReadonlySimpleVector2, select: "block"): Grid2Block<T>[];
+    private getAreaInternally(
+        position: ReadonlySimpleVector2,
+        size: ReadonlySimpleVector2,
+        select: "block",
+    ): Grid2Block<T>[];
     private getAreaInternally(
         position: ReadonlySimpleVector2,
         size: ReadonlySimpleVector2,

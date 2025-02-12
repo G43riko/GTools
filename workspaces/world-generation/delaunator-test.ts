@@ -5,19 +5,15 @@ import { DelaunatorHolder } from "./src/common/delaunator-holder.ts";
 import { JitterGrid } from "./src/common/jitter-grid.ts";
 import { DelaunatorHolderRenderer } from "./src/common/delaunator-holder-renderer.ts";
 
-
 const outDirectory = `${import.meta.dirname}/out/images/delaunator`;
 const createExample = createFactory(outDirectory);
 
-
 const canvasSize = new Vector2(200, 200);
 
-
-for(const size of [10, 20, 50]) {
-    
+for (const size of [10, 20, 50]) {
     const delaunator = DelaunatorHolder.fromJitter(
-        JitterGrid.createJitterGrid({x: canvasSize.x / size, y: canvasSize.y / size}, size, 1234)
-    )
+        JitterGrid.createJitterGrid({ x: canvasSize.x / size, y: canvasSize.y / size }, size, 1234),
+    );
     const renderer = new DelaunatorHolderRenderer(delaunator);
 
     createExample(`delaunator-fill-areas-size-${size}`, canvasSize, (context) => {
@@ -37,4 +33,3 @@ for(const size of [10, 20, 50]) {
         renderer.drawEdges(context, 2, "blue");
     });
 }
-

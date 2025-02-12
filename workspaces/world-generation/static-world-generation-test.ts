@@ -21,9 +21,8 @@ const createSerializableColorProvider = <T>(mapper: ColorProvider<T>): ColorProv
         colorMap.set(value, newColor);
 
         return newColor;
-    }
-
-}
+    };
+};
 
 const canvasSize = SimpleVector.create2(200, 200);
 
@@ -47,6 +46,8 @@ createExample("Perlin noise map", canvasSize, (context) => {
     const renderer = new StaticMapRenderer();
     const mapSize = canvasSize;
     const mapGenerator = new PerlinStaticMapGenerator(mapSize, 0.01, 8);
-    const colorProvider = createSerializableColorProvider((value: number) => new Color(value * 255, value * 255, value * 255));
+    const colorProvider = createSerializableColorProvider((value: number) =>
+        new Color(value * 255, value * 255, value * 255)
+    );
     renderer.renderGenerator(mapGenerator, colorProvider, { context, canvasSize });
 });

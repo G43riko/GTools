@@ -35,7 +35,7 @@ export class DelaunatorHolderRenderer {
 
     public drawEdges(context: CanvasRenderingContext2D, width: number, color: string): void {
         context.strokeStyle = color;
-        context.lineWidth   = width;
+        context.lineWidth = width;
         this.delaunatorHolder.iterateTriangles(([a, b, c]) => {
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
@@ -51,13 +51,16 @@ export class DelaunatorHolderRenderer {
      * @param drawer
      */
     public fillAreas(drawer: CanvasDrawer): void {
-        this.delaunatorHolder.vertices.forEach((vertex, index) => {
+        this.delaunatorHolder.vertices.forEach((_, index) => {
             if (this.delaunatorHolder.isHull(index as GraphVertexId)) {
                 return;
             }
 
             // drawer.fillPath(this.delaunatorHolder.getVertexHalfEdges(index), Color.random());
-            drawer.fillPath(this.delaunatorHolder.getAdjacentTriangleCenters(index as GraphVertexId), Color.random(index));
+            drawer.fillPath(
+                this.delaunatorHolder.getAdjacentTriangleCenters(index as GraphVertexId),
+                Color.random(index),
+            );
         });
     }
 

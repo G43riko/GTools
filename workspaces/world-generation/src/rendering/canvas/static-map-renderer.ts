@@ -17,12 +17,11 @@ interface StaticMapRendererParams {
 
 const RENDER_TYPE: "DIRECT" | "SMALL_CANVAS" | "IMAGE_DATA" = "DIRECT";
 export class StaticMapRenderer {
-
     private renderDirectly<T>(
         generator: AbstractStaticMapGenerator<T>,
         colorProvider: ColorProvider<T>,
         context: CanvasRenderingContext2D,
-        tileSize: ReadonlySimpleVector2
+        tileSize: ReadonlySimpleVector2,
     ): void {
         IteratorUtils.iterateXY(generator.mapSize.x, generator.mapSize.y, (x, y) => {
             const tile = generator.getTileFor(x, y);
@@ -39,8 +38,8 @@ export class StaticMapRenderer {
                 y * tileSize.y,
                 tileSize.x,
                 tileSize.y,
-            )
-        })
+            );
+        });
     }
     private renderUsingSmallCanvas<T>(
         generator: AbstractStaticMapGenerator<T>,
@@ -65,7 +64,7 @@ export class StaticMapRenderer {
                 return;
             }
             smallContext.fillStyle = tileColor.hex;
-            smallContext.fillRect(x, y, 1, 1)
+            smallContext.fillRect(x, y, 1, 1);
         });
         const prevImageSmoothingEnabled = context.imageSmoothingEnabled;
         context.drawImage(smallCanvas, 0, 0, canvasSize.x, canvasSize.y);
@@ -100,7 +99,7 @@ export class StaticMapRenderer {
             data.data[counter++] = tileColor.green;
             data.data[counter++] = tileColor.blue;
             data.data[counter++] = tileColor.alpha;
-        })
+        });
         smallContext.putImageData(data, 0, 0);
 
         const prevImageSmoothingEnabled = context.imageSmoothingEnabled;
@@ -115,15 +114,16 @@ export class StaticMapRenderer {
             context = canvas?.getContext("2d") ?? undefined,
             tileSize = SimpleVector.ONE_2,
             canvasSize: initialCanvasSize,
-        }: StaticMapRendererParams): HTMLCanvasElement {
+        }: StaticMapRendererParams,
+    ): HTMLCanvasElement {
         if (!context) {
             throw new Error("Context is missing");
         }
-        const canvasSize =  initialCanvasSize ?? SimpleVector.create2(
+        const canvasSize = initialCanvasSize ?? SimpleVector.create2(
             generator.mapSize.x * tileSize.x,
             generator.mapSize.y * tileSize.y,
-        )
-        if(!initialCanvasSize) {
+        );
+        if (!initialCanvasSize) {
             context.canvas.width = canvasSize.x;
             context.canvas.height = canvasSize.y;
         }

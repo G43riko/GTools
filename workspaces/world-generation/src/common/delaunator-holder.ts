@@ -1,8 +1,8 @@
-import { Grid2Holder } from "@g43/tools";
-import { Pair, ReadonlyPair, ReadonlySimpleVector2 } from "@g43/types";
+import type { Grid2Holder } from "@g43/tools";
+import type { Pair, ReadonlyPair, ReadonlySimpleVector2 } from "@g43/types";
 import Delaunator from "delaunator";
-import { GraphCellId, GraphVertexId } from "./graph-holder.ts";
-import { JitterGrid } from "./jitter-grid.ts";
+import type { GraphCellId, GraphVertexId } from "./graph-holder.ts";
+import type { JitterGrid } from "./jitter-grid.ts";
 
 export class DelaunatorHolder {
     public readonly hullIndices: readonly number[];
@@ -22,7 +22,6 @@ export class DelaunatorHolder {
 
         return result;
     }
-
 
     public constructor(
         public readonly delaunator: Delaunator<number>,
@@ -66,7 +65,11 @@ export class DelaunatorHolder {
         );
     }
 
-    public static fromGridOfVectors(grid: Grid2Holder<ReadonlySimpleVector2>, additional?: readonly ReadonlyPair<number>[], offset = 0): DelaunatorHolder {
+    public static fromGridOfVectors(
+        grid: Grid2Holder<ReadonlySimpleVector2>,
+        additional?: readonly ReadonlyPair<number>[],
+        offset = 0,
+    ): DelaunatorHolder {
         const data = new Array<number>();
 
         grid.forEach((item) => data.push(item.x + offset, item.y + offset) as unknown as boolean);
@@ -80,7 +83,9 @@ export class DelaunatorHolder {
         return this.hullIndices.map((index) => this.vertices[index]);
     }
 
-    public getTriangleVertices(triangleIndex: GraphCellId): [ReadonlySimpleVector2, ReadonlySimpleVector2, ReadonlySimpleVector2] {
+    public getTriangleVertices(
+        triangleIndex: GraphCellId,
+    ): [ReadonlySimpleVector2, ReadonlySimpleVector2, ReadonlySimpleVector2] {
         return [
             this.vertices[this.triangleIndices[triangleIndex * 3]],
             this.vertices[this.triangleIndices[triangleIndex * 3 + 1]],
@@ -110,8 +115,10 @@ export class DelaunatorHolder {
             }
         });
 
-        return result.sort((a, b) => Math.atan2(a.y - vertexPosition.y, a.x - vertexPosition.x)
-            - Math.atan2(b.y - vertexPosition.y, b.x - vertexPosition.x));
+        return result.sort((a, b) =>
+            Math.atan2(a.y - vertexPosition.y, a.x - vertexPosition.x) -
+            Math.atan2(b.y - vertexPosition.y, b.x - vertexPosition.x)
+        );
     }
 
     /**
@@ -122,7 +129,10 @@ export class DelaunatorHolder {
         const result = new Array<GraphCellId>();
 
         for (let i = 0; i < this.triangleIndices.length; i += 3) {
-            if (this.triangleIndices[i] === vertexIndex || this.triangleIndices[i + 1] === vertexIndex || this.triangleIndices[i + 2] === vertexIndex) {
+            if (
+                this.triangleIndices[i] === vertexIndex || this.triangleIndices[i + 1] === vertexIndex ||
+                this.triangleIndices[i + 2] === vertexIndex
+            ) {
                 result.push(i / 3 as GraphCellId);
             }
         }
@@ -137,14 +147,18 @@ export class DelaunatorHolder {
             .map((triangleIndex) => this.getTriangleCenter(triangleIndex))
             .sort((a, b) =>
                 Math.atan2(a.y - vertexPosition.y, a.x - vertexPosition.x) -
-                Math.atan2(b.y - vertexPosition.y, b.x - vertexPosition.x));
+                Math.atan2(b.y - vertexPosition.y, b.x - vertexPosition.x)
+            );
     }
 
     public getAdjacentVerticesOf(vertexIndex: GraphVertexId): readonly ReadonlySimpleVector2[] {
         const adjacentVerticesIndices = new Set<number>();
 
         for (let i = 0; i < this.triangleIndices.length; i += 3) {
-            if (this.triangleIndices[i] === vertexIndex || this.triangleIndices[i + 1] === vertexIndex || this.triangleIndices[i + 2] === vertexIndex) {
+            if (
+                this.triangleIndices[i] === vertexIndex || this.triangleIndices[i + 1] === vertexIndex ||
+                this.triangleIndices[i + 2] === vertexIndex
+            ) {
                 adjacentVerticesIndices.add(this.triangleIndices[i]);
                 adjacentVerticesIndices.add(this.triangleIndices[i + 1]);
                 adjacentVerticesIndices.add(this.triangleIndices[i + 2]);
@@ -163,7 +177,14 @@ export class DelaunatorHolder {
         return finalResult;
     }
 
-    public iterateHalfEdges(callback: (pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2, triangleAIndex: GraphCellId, triangleBIndex: GraphCellId) => unknown): void {
+    public iterateHalfEdges(
+        callback: (
+            pointA: ReadonlySimpleVector2,
+            pointB: ReadonlySimpleVector2,
+            triangleAIndex: GraphCellId,
+            triangleBIndex: GraphCellId,
+        ) => unknown,
+    ): void {
         this.delaunator.halfedges.forEach((halfEdge: any, vertexIndex: any) => {
             const triangleAIndex = this.delaunator.triangles[halfEdge] as GraphCellId;
             const triangleBIndex = this.delaunator.triangles[vertexIndex] as GraphCellId;
@@ -191,7 +212,11 @@ export class DelaunatorHolder {
         return this.getCenterBetweenVertices(vertices[0], vertices[1], vertices[2]);
     }
 
-    private getCenterBetweenVertices(a: ReadonlySimpleVector2, b: ReadonlySimpleVector2, c: ReadonlySimpleVector2): ReadonlySimpleVector2 {
+    private getCenterBetweenVertices(
+        a: ReadonlySimpleVector2,
+        b: ReadonlySimpleVector2,
+        c: ReadonlySimpleVector2,
+    ): ReadonlySimpleVector2 {
         return {
             x: (a.x + b.x + c.x) / 3,
             y: (a.y + b.y + c.y) / 3,
@@ -212,7 +237,12 @@ export class DelaunatorHolder {
         return result;
     }
 
-    public iterateTriangles(callback: (points: [ReadonlySimpleVector2, ReadonlySimpleVector2, ReadonlySimpleVector2], indices: [GraphCellId, GraphCellId, GraphCellId]) => unknown): void {
+    public iterateTriangles(
+        callback: (
+            points: [ReadonlySimpleVector2, ReadonlySimpleVector2, ReadonlySimpleVector2],
+            indices: [GraphCellId, GraphCellId, GraphCellId],
+        ) => unknown,
+    ): void {
         for (let i = 0; i < this.delaunator.triangles.length; i += 3) {
             const a = this.vertices[this.delaunator.triangles[i]];
             const b = this.vertices[this.delaunator.triangles[i + 1]];

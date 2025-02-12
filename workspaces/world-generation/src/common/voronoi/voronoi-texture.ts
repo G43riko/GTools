@@ -4,12 +4,11 @@ import type { VoronoiData } from "./voronoi-data.ts";
 
 export class VoronoiTexture {
     /**
-     * 
-     * @param width 
-     * @param height 
-     * @param numPoints 
-     * @param seed 
-     * @returns 
+     * @param width
+     * @param height
+     * @param numPoints
+     * @param seed
+     * @returns
      */
     public static generateVoronoiData(
         width = 512,
@@ -17,7 +16,7 @@ export class VoronoiTexture {
         numPoints = 25,
         seed = Math.random(),
     ): VoronoiData {
-        const points = new Array<{ dist: number, index: number }>(width * height);
+        const points = new Array<{ dist: number; index: number }>(width * height);
 
         // create random points
         const random = new Random(seed);
@@ -28,7 +27,6 @@ export class VoronoiTexture {
         }));
 
         let maxDist = 0;
-
 
         // Check distance with all other points
         for (let x = 0; x < width; x++) {
@@ -111,7 +109,10 @@ export class VoronoiTexture {
         return result;
     }
 
-    public static getCellVertices(data: VoronoiData, vertices: [center: ReadonlySimpleVector2, indices: number[]][]): Map<number, ReadonlySimpleVector2[]> {
+    public static getCellVertices(
+        data: VoronoiData,
+        vertices: [center: ReadonlySimpleVector2, indices: number[]][],
+    ): Map<number, ReadonlySimpleVector2[]> {
         const vertexData = new Map<number, [position: ReadonlySimpleVector2, angle: number][]>();
 
         vertices.forEach(([vertex, indices]) => {
@@ -139,7 +140,9 @@ export class VoronoiTexture {
         return result;
     }
 
-    public static determineVerticesFromIndexData(data: number[][]): [center: ReadonlySimpleVector2, indices: number[]][] {
+    public static determineVerticesFromIndexData(
+        data: number[][],
+    ): [center: ReadonlySimpleVector2, indices: number[]][] {
         const vertices: [ReadonlySimpleVector2, number[]][] = [];
         const set = new Set<number>();
         for (let x = 1; x < data.length; x++) {

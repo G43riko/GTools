@@ -41,7 +41,6 @@ export class GraphHolder {
     public readonly cellNeighbors: readonly GraphCellId[][];
 
     /**
-     *
      * @param vertices
      * @param edges
      * @param cellBorders
@@ -51,30 +50,29 @@ export class GraphHolder {
         public readonly edges: readonly [from: GraphVertexId, to: GraphVertexId][],
         public readonly cellBorders: readonly GraphEdgeId[][],
     ) {
-        this.vertexCells     = Array.from({length: this.vertices.length}, () => []);
-        this.vertexEdges     = Array.from({length: this.vertices.length}, () => []);
-        this.vertexNeighbors = Array.from({length: this.vertices.length}, () => []);
+        this.vertexCells = Array.from({ length: this.vertices.length }, () => []);
+        this.vertexEdges = Array.from({ length: this.vertices.length }, () => []);
+        this.vertexNeighbors = Array.from({ length: this.vertices.length }, () => []);
 
-        this.cellVertices  = Array.from({length: this.cellBorders.length}, () => []);
-        this.cellNeighbors = Array.from({length: this.cellBorders.length}, () => []);
+        this.cellVertices = Array.from({ length: this.cellBorders.length }, () => []);
+        this.cellNeighbors = Array.from({ length: this.cellBorders.length }, () => []);
 
-        this.edgeCells = Array.from<[cellA: GraphCellId, cellB: GraphCellId]>({length: this.edges.length}).fill([
+        this.edgeCells = Array.from<[cellA: GraphCellId, cellB: GraphCellId]>({ length: this.edges.length }).fill([
             -1,
             -1,
         ] as [cellA: GraphCellId, cellB: GraphCellId]);
     }
 
-
     public static fromDelaunatorHolderOld(holder: DelaunatorHolder): GraphHolder {
         const edges: [from: GraphVertexId, to: GraphVertexId][] = [];
-        const cellBorders: GraphEdgeId[][]                      = [];
+        const cellBorders: GraphEdgeId[][] = [];
 
         // key = `${Math.min(triangleAIndex, triangleBIndex)}_${Math.max(triangleAIndex, triangleBIndex)}`
-        const edgeIndexMap                  = new GMap<string, [GraphVertexId, GraphVertexId]>();
-        const triangleIndexCenterMap        = new GMap<GraphCellId, ReadonlySimpleVector2>();
-        const cellBordersMap                = new GMap<GraphVertexId, string[]>();
+        const edgeIndexMap = new GMap<string, [GraphVertexId, GraphVertexId]>();
+        const triangleIndexCenterMap = new GMap<GraphCellId, ReadonlySimpleVector2>();
+        const cellBordersMap = new GMap<GraphVertexId, string[]>();
         const holderVertexIndexRealIndexMap = new GMap<GraphVertexId, GraphVertexId>();
-        const realVertices                  = new Array<ReadonlySimpleVector2>();
+        const realVertices = new Array<ReadonlySimpleVector2>();
 
         const getKeyForEdgeBetweenTriangles = (triangleAIndex: GraphCellId, triangleBIndex: GraphCellId) => {
             const minTriangleIndex = Math.min(triangleAIndex, triangleBIndex) as GraphVertexId;
@@ -140,7 +138,6 @@ export class GraphHolder {
     }
 
     /**
-     *
      * @param vertices
      * @param edges - [from, to] from, to are indices of vertices
      * @param cells - array of indices of edges for each cell
@@ -150,7 +147,11 @@ export class GraphHolder {
         edges: readonly [from: number, to: number][],
         cells: readonly number[][],
     ): GraphHolder {
-        const result = new GraphHolder(vertices, edges as [from: GraphVertexId, to: GraphVertexId][], cells as GraphEdgeId[][]);
+        const result = new GraphHolder(
+            vertices,
+            edges as [from: GraphVertexId, to: GraphVertexId][],
+            cells as GraphEdgeId[][],
+        );
 
         cells.forEach((edgesIds, cellIndexO) => {
             const cellIndex = cellIndexO as GraphCellId;

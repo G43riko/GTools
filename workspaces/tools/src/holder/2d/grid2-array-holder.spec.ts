@@ -3,15 +3,26 @@ import { expect } from "@std/expect";
 import { Grid2ArrayHolder } from "./grid2-array-holder.ts";
 
 describe("GridHolderStatic", () => {
-
     describe("Test getters", () => {
         const holder = new Grid2ArrayHolder(
             { x: 4, y: 4 },
             [
-                "a", "b", "c", "d",
-                "e", "f", "g", "h",
-                "i", "j", "k", "l",
-                "m", "n", "o", "p",
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "k",
+                "l",
+                "m",
+                "n",
+                "o",
+                "p",
             ],
         );
         it("Test get method", () => {
@@ -36,21 +47,21 @@ describe("GridHolderStatic", () => {
             it("With size 1x2 and 2x1", () => {
                 expect((holder as any).getAreaInternally({ x: 1, y: 1 }, { x: 1, y: 2 }, "block")).toEqual([
                     {
-                        item       : "f",
+                        item: "f",
                         coordinates: { x: 1, y: 1 },
                     },
                     {
-                        item       : "j",
+                        item: "j",
                         coordinates: { x: 1, y: 2 },
                     },
                 ]);
                 expect((holder as any).getAreaInternally({ x: 1, y: 1 }, { x: 2, y: 1 }, "block")).toEqual([
                     {
-                        item       : "f",
+                        item: "f",
                         coordinates: { x: 1, y: 1 },
                     },
                     {
-                        item       : "g",
+                        item: "g",
                         coordinates: { x: 2, y: 1 },
                     },
                 ]);
@@ -59,19 +70,19 @@ describe("GridHolderStatic", () => {
             it("With size 2", () => {
                 expect((holder as any).getAreaInternally({ x: 1, y: 1 }, { x: 2, y: 2 }, "block")).toEqual([
                     {
-                        item       : "f",
+                        item: "f",
                         coordinates: { x: 1, y: 1 },
                     },
                     {
-                        item       : "g",
+                        item: "g",
                         coordinates: { x: 2, y: 1 },
                     },
                     {
-                        item       : "j",
+                        item: "j",
                         coordinates: { x: 1, y: 2 },
                     },
                     {
-                        item       : "k",
+                        item: "k",
                         coordinates: { x: 2, y: 2 },
                     },
                 ]);
@@ -88,25 +99,49 @@ describe("GridHolderStatic", () => {
                 });
                 it("In middle", () => {
                     expect(holder.getAroundSQ(1, 1)).toEqual([
-                        "a", "b", "c",
-                        "e", "f", "g",
-                        "i", "j", "k",
+                        "a",
+                        "b",
+                        "c",
+                        "e",
+                        "f",
+                        "g",
+                        "i",
+                        "j",
+                        "k",
                     ]);
 
                     expect(holder.getAroundSQ(2, 2)).toEqual([
-                        "f", "g", "h",
-                        "j", "k", "l",
-                        "n", "o", "p",
+                        "f",
+                        "g",
+                        "h",
+                        "j",
+                        "k",
+                        "l",
+                        "n",
+                        "o",
+                        "p",
                     ]);
                     expect(holder.getAroundSQ(1, 2)).toEqual([
-                        "e", "f", "g",
-                        "i", "j", "k",
-                        "m", "n", "o",
+                        "e",
+                        "f",
+                        "g",
+                        "i",
+                        "j",
+                        "k",
+                        "m",
+                        "n",
+                        "o",
                     ]);
                     expect(holder.getAroundSQ(2, 1)).toEqual([
-                        "b", "c", "d",
-                        "f", "g", "h",
-                        "j", "k", "l",
+                        "b",
+                        "c",
+                        "d",
+                        "f",
+                        "g",
+                        "h",
+                        "j",
+                        "k",
+                        "l",
                     ]);
                 });
             });
@@ -123,23 +158,31 @@ describe("GridHolderStatic", () => {
                 it("In middle", () => {
                     expect(holder.getAround(1, 1)).toEqual([
                         "b",
-                        "e", "f", "g",
+                        "e",
+                        "f",
+                        "g",
                         "j",
                     ]);
 
                     expect(holder.getAround(2, 2)).toEqual([
                         "g",
-                        "j", "k", "l",
+                        "j",
+                        "k",
+                        "l",
                         "o",
                     ]);
                     expect(holder.getAround(1, 2)).toEqual([
                         "f",
-                        "i", "j", "k",
+                        "i",
+                        "j",
+                        "k",
                         "n",
                     ]);
                     expect(holder.getAround(2, 1)).toEqual([
                         "c",
-                        "f", "g", "h",
+                        "f",
+                        "g",
+                        "h",
                         "k",
                     ]);
                 });
@@ -179,24 +222,47 @@ describe("GridHolderStatic", () => {
             });
             it("With size 4", () => {
                 expect(holder.getArea({ x: 0, y: 0 }, { x: 4, y: 4 })).toEqual([
-                    "a", "b", "c", "d",
-                    "e", "f", "g", "h",
-                    "i", "j", "k", "l",
-                    "m", "n", "o", "p",
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f",
+                    "g",
+                    "h",
+                    "i",
+                    "j",
+                    "k",
+                    "l",
+                    "m",
+                    "n",
+                    "o",
+                    "p",
                 ]);
             });
         });
     });
 
     describe("Test expanders", () => {
-
         const holder = new Grid2ArrayHolder(
             { x: 4, y: 4 },
             [
-                "b", "a", "b", "a",
-                "b", "a", "a", "a",
-                "c", "b", "b", "a",
-                "c", "b", "a", "a",
+                "b",
+                "a",
+                "b",
+                "a",
+                "b",
+                "a",
+                "a",
+                "a",
+                "c",
+                "b",
+                "b",
+                "a",
+                "c",
+                "b",
+                "a",
+                "a",
             ],
         );
 
@@ -213,35 +279,47 @@ describe("GridHolderStatic", () => {
         const holder = new Grid2ArrayHolder(
             { x: 4, y: 4 },
             [
-                "a", "a", "a", "a",
-                "a", "a", "c", "a",
-                "a", "a", "a", "a",
-                "c", "a", "a", "a",
+                "a",
+                "a",
+                "a",
+                "a",
+                "a",
+                "a",
+                "c",
+                "a",
+                "a",
+                "a",
+                "a",
+                "a",
+                "c",
+                "a",
+                "a",
+                "a",
             ],
         );
 
         it("Test getNearest", () => {
             expect(holder.getNearest(2, 1, (e) => e === "c")).toEqual([
                 {
-                    item       : "c",
+                    item: "c",
                     coordinates: { x: 2, y: 1 },
                 },
             ]);
 
             expect(holder.getNearest(1, 1, (e) => e === "c")).toEqual([
                 {
-                    item       : "c",
+                    item: "c",
                     coordinates: { x: 2, y: 1 },
                 },
             ]);
 
             expect(holder.getNearest(1, 2, (e) => e === "c")).toEqual([
                 {
-                    item       : "c",
+                    item: "c",
                     coordinates: { x: 0, y: 3 },
                 },
                 {
-                    item       : "c",
+                    item: "c",
                     coordinates: { x: 2, y: 1 },
                 },
             ]);

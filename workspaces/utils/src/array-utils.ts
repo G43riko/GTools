@@ -13,7 +13,6 @@ export function min(array: readonly number[]): number {
     return array.reduce((a, b) => a < b ? a : b);
 }
 
-
 export function pairwiseArray<T>(arr: ArrayLike<T>): [T, T][] {
     if (arr.length < 2) {
         return [];

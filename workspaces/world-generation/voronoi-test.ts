@@ -4,7 +4,6 @@ import { VoronoiTexture } from "./src/common/voronoi/voronoi-texture.ts";
 import { VoronoiDataCanvasRenderer } from "./src/rendering/canvas/voronoi-data-canvas-renderer.ts";
 import { Color } from "@g43/tools";
 
-
 const outDirectory = `${import.meta.dirname}/out/images/voronoi`;
 const createExample = createFactory(outDirectory);
 
@@ -16,10 +15,10 @@ for (const points of [10, 100, 1000]) {
             canvasSize.x,
             canvasSize.y,
             points,
-            1234
-        )
+            1234,
+        );
 
-        VoronoiDataCanvasRenderer.renderInto(context, voronoi)
+        VoronoiDataCanvasRenderer.renderInto(context, voronoi);
     });
 }
 
@@ -29,8 +28,8 @@ for (const points of [10, 100, 1000]) {
             canvasSize.x,
             canvasSize.y,
             points,
-            1234
-        )
-        VoronoiDataCanvasRenderer.renderInto(context, voronoi, Color.RED)
+            1234,
+        );
+        VoronoiDataCanvasRenderer.renderInto(context, voronoi, Color.RED);
     });
 }

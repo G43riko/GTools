@@ -7,7 +7,7 @@ export type CreateExampleFn = (
     callback: (ctx: CanvasRenderingContext2D) => Promise<void> | void,
 ) => void;
 
-export function createFactory(outDirectory: string): CreateExampleFn & {skip: CreateExampleFn} {
+export function createFactory(outDirectory: string): CreateExampleFn & { skip: CreateExampleFn } {
     const examples = new Array<() => void | Promise<void>>();
     globalThis.addEventListener("unload", () => {
         console.log(`Executing ${examples.length} examples...`);
@@ -27,15 +27,18 @@ export function createFactory(outDirectory: string): CreateExampleFn & {skip: Cr
             const ctx = canvas.getContext("2d") as CanvasRenderingContext2D & EmulatedCanvas2DContext;
             try {
                 callback(ctx);
-                Deno.writeFileSync(`${outDirectory}/${name.replace(/.(png|jpg|jpeg|gif)$/g, "")}.png`, canvas.toBuffer());
-            } catch(e: any) {
+                Deno.writeFileSync(
+                    `${outDirectory}/${name.replace(/.(png|jpg|jpeg|gif)$/g, "")}.png`,
+                    canvas.toBuffer(),
+                );
+            } catch (e: any) {
                 console.error(e);
                 throw e;
             }
         });
     }
 
-    createExample.skip = () => null
+    createExample.skip = () => null;
     try {
         Deno.removeSync(outDirectory, { recursive: true });
         console.log(`Directory '${outDirectory}' removed`);

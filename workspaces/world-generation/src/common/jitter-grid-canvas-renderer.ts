@@ -1,4 +1,4 @@
-import type { Color} from "@g43/tools";
+import type { Color } from "@g43/tools";
 import type { JitterGrid } from "./jitter-grid.ts";
 import type { CanvasDrawer } from "@g43/canvas";
 
@@ -12,7 +12,7 @@ export class JitterCanvasRendererGrid {
         );
 
         grid.grid.forEach((center) => {
-            drawer.fillArcByCenterAndRadius(center.x, center.y, 2, color)
-        })
+            drawer.fillArcByCenterAndRadius(center.x, center.y, 2, color);
+        });
     }
 }

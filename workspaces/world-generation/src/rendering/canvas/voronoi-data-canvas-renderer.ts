@@ -1,12 +1,12 @@
 import { Color } from "@g43/tools";
-import type {  VoronoiData } from "../../common/voronoi/voronoi-data.ts";
+import type { VoronoiData } from "../../common/voronoi/voronoi-data.ts";
 
 export class VoronoiDataCanvasRenderer {
     /**
      * TODO: use HSL for random colors to make sure that there are no similar colors
      * @param voronoiData
-     * @param color 
-     * @returns 
+     * @param color
+     * @returns
      */
     public static getImageDataFromVoronoiData(
         voronoiData: VoronoiData,
@@ -40,7 +40,6 @@ export class VoronoiDataCanvasRenderer {
                     imageData[i + 1] = colors[num.index].green;
                     imageData[i + 2] = colors[num.index].blue;
                     imageData[i + 3] = 255;
-
                 }
             }
         }
@@ -68,10 +67,10 @@ export class VoronoiDataCanvasRenderer {
         canvas.height = voronoiData.size.y;
         const ctx = canvas.getContext("2d");
         if (!ctx) {
-            throw new Error("Cannot create contex 2d")
+            throw new Error("Cannot create contex 2d");
         }
 
-        VoronoiDataCanvasRenderer.renderInto(ctx, voronoiData, color)
+        VoronoiDataCanvasRenderer.renderInto(ctx, voronoiData, color);
 
         return canvas;
     }
