@@ -1,12 +1,14 @@
-export type ValueProvider<T> = T | (() => T);
 
-export function isProviderFunction<T>(provider: ValueProvider<T>): provider is () => T {
+
+export type ValueProvider<T, Args extends unknown[] = []> = T | ((...args: Args) => T);
+
+export function isProviderFunction<T, Args extends unknown[] = []>(provider: ValueProvider<T, Args>): provider is (...args: Args) => T {
     return typeof provider === "function";
 }
 
-export function getValueFromProvider<T>(provider: ValueProvider<T>): T {
+export function getValueFromProvider<T, Args extends unknown[]>(provider: ValueProvider<T, Args>, ...args: Args): T {
     if (isProviderFunction(provider)) {
-        return provider();
+        return provider(...args);
     }
 
     return provider;

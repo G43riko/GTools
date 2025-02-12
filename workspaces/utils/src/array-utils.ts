@@ -12,3 +12,21 @@ export function min(array: readonly number[]): number {
 
     return array.reduce((a, b) => a < b ? a : b);
 }
+
+
+export function pairwiseArray<T>(arr: ArrayLike<T>): [T, T][] {
+    if (arr.length < 2) {
+        return [];
+    }
+    if (arr.length % 2 !== 0) {
+        throw new Error("Array length must be even");
+    }
+
+    const result = new Array<[T, T]>();
+
+    for (let i = 0; i < arr.length;) {
+        result.push([arr[i++], arr[i++]]);
+    }
+
+    return result;
+}

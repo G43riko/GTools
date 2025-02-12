@@ -7,7 +7,7 @@ export type CreateExampleFn = (
     callback: (ctx: CanvasRenderingContext2D) => Promise<void> | void,
 ) => void;
 
-export function createFactory(outDirectory: string): CreateExampleFn {
+export function createFactory(outDirectory: string): CreateExampleFn & {skip: CreateExampleFn} {
     const examples = new Array<() => void | Promise<void>>();
     globalThis.addEventListener("unload", () => {
         console.log(`Executing ${examples.length} examples...`);
@@ -35,6 +35,7 @@ export function createFactory(outDirectory: string): CreateExampleFn {
         });
     }
 
+    createExample.skip = () => null
     try {
         Deno.removeSync(outDirectory, { recursive: true });
         console.log(`Directory '${outDirectory}' removed`);
