@@ -1,4 +1,7 @@
 {
+    "tasks": {
+        "run-tests": "deno -A random-test.ts"
+    },
     "name": "@g43/tools",
     "version": "0.0.7",
     "exports": "./src/index.ts"

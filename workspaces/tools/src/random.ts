@@ -221,8 +221,8 @@ export class Random {
      */
     public nextGaussian(mean = 0, standardDeviation = 1): number {
         let u = 0, v = 0;
-        while (u === 0) u = Math.random(); // Avoid 0
-        while (v === 0) v = Math.random(); // Avoid 0
+        while (u === 0) u = this.nextFloat(); // Avoid 0
+        while (v === 0) v = this.nextFloat(); // Avoid 0
         const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
         return z * standardDeviation + mean;
     }

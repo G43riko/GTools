@@ -3,8 +3,9 @@ import { SimpleVector } from "@g43/math";
 import { Color } from "@g43/tools";
 import { SingleValueStaticMapGenerator } from "./src/common/single-value-static-map-generator.ts";
 import { type ColorProvider, StaticMapRenderer } from "./src/rendering/canvas/static-map-renderer.ts";
+import { PerlinStaticMapGenerator } from "./src/common/pseudo-random-static-map-generators.ts";
 
-const outDirectory = `${import.meta.dirname}/out/images/static-canvas-drawer`;
+const outDirectory = `${import.meta.dirname}/out/images/static-world-generation`;
 const createExample = createFactory(outDirectory);
 
 const createSerializableColorProvider = <T>(mapper: ColorProvider<T>): ColorProvider<T> => {
@@ -41,4 +42,11 @@ createExample("Flat height map with tile size of 2", canvasSize, (context) => {
     const mapGenerator = new SingleValueStaticMapGenerator(mapSize, 128);
     const colorProvider = createSerializableColorProvider((value: number) => new Color(value, value, value));
     renderer.renderGenerator(mapGenerator, colorProvider, { context, canvasSize, tileSize });
+});
+createExample("Perlin noise map", canvasSize, (context) => {
+    const renderer = new StaticMapRenderer();
+    const mapSize = canvasSize;
+    const mapGenerator = new PerlinStaticMapGenerator(mapSize, 0.01, 8);
+    const colorProvider = createSerializableColorProvider((value: number) => new Color(value * 255, value * 255, value * 255));
+    renderer.renderGenerator(mapGenerator, colorProvider, { context, canvasSize });
 });
