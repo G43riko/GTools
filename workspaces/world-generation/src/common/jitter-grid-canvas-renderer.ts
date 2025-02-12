@@ -10,5 +10,9 @@ export class JitterCanvasRendererGrid {
             color,
             width,
         );
+
+        grid.grid.forEach((center) => {
+            drawer.fillArcByCenterAndRadius(center.x, center.y, 2, color)
+        })
     }
 }

@@ -8,8 +8,6 @@ import { Color } from "@g43/tools";
 const outDirectory = `${import.meta.dirname}/out/images/voronoi`;
 const createExample = createFactory(outDirectory);
 
-
-
 const canvasSize = new Vector2(200, 200);
 
 for (const points of [10, 100, 1000]) {

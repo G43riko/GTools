@@ -7,12 +7,38 @@ import { assertExists } from "@std/assert";
 export class JitterGrid {
     public readonly grid: Grid2Holder<ReadonlySimpleVector2>;
 
-    public getMapWidth(): number {
-        return this.gridSize.x * this.jitterSize;
+    public static createJitterGrid(
+        gridSize: ReadonlySimpleVector2,
+        jitterSize: number,
+        seed = 1,
+    ): JitterGrid {
+        return new JitterGrid(
+            gridSize,
+            jitterSize,
+            seed,
+        );
     }
 
-    public getMapHeight(): number {
-        return this.gridSize.y * this.jitterSize;
+    private static createGridHolder(
+        gridSize: ReadonlySimpleVector2,
+        jitterSize: number,
+        seed?: number,
+    ): Grid2Holder<ReadonlySimpleVector2> {
+        const halfJitterSize = jitterSize / 2;
+        const result         = Grid2ArrayHolder.initEmpty<ReadonlySimpleVector2>(gridSize.x, gridSize.y);
+        const random         = new Random(seed);
+        result.forEach((_, x, y) => {
+            const angle  = random.nextFloatBetween(0, Math.PI * 2);
+            const length = random.nextFloatBetween(0, halfJitterSize);
+            const center = {
+                x: x * jitterSize + length * Math.cos(angle) + halfJitterSize,
+                y: y * jitterSize + length * Math.sin(angle) + halfJitterSize,
+            };
+
+            result.set(x, y, center);
+        });
+
+        return result;
     }
 
     public constructor(
@@ -21,6 +47,14 @@ export class JitterGrid {
         seed = 1,
     ) {
         this.grid = JitterGrid.createGridHolder(gridSize, jitterSize, seed);
+    }
+
+    public getMapWidth(): number {
+        return this.gridSize.x * this.jitterSize;
+    }
+
+    public getMapHeight(): number {
+        return this.gridSize.y * this.jitterSize;
     }
 
     public getCenterByCoordinates(x: number, y: number): ReadonlySimpleVector2 | undefined {
@@ -60,40 +94,6 @@ export class JitterGrid {
         }
 
         return closesCellCoordinates;
-    }
-
-    public static createJitterGrid(
-        gridSize: ReadonlySimpleVector2,
-        jitterSize: number,
-        seed = 1,
-    ): JitterGrid {
-        return new JitterGrid(
-            gridSize,
-            jitterSize,
-            seed,
-        );
-    }
-
-    private static createGridHolder(
-        gridSize: ReadonlySimpleVector2,
-        jitterSize: number,
-        seed?: number,
-    ): Grid2Holder<ReadonlySimpleVector2> {
-        const halfJitterSize = jitterSize / 2;
-        const result         = Grid2ArrayHolder.initEmpty<ReadonlySimpleVector2>(gridSize.x, gridSize.y);
-        const random         = new Random(seed);
-        result.forEach((_, x, y) => {
-            const angle  = random.nextFloatBetween(0, Math.PI * 2);
-            const length = random.nextFloatBetween(0, halfJitterSize);
-            const center = {
-                x: x * jitterSize + length * Math.cos(angle) + halfJitterSize,
-                y: y * jitterSize + length * Math.sin(angle) + halfJitterSize,
-            };
-
-            result.set(x, y, center);
-        });
-
-        return result;
     }
 }
 

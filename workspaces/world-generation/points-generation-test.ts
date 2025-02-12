@@ -47,3 +47,16 @@ createExample("PointSelectorFactory-square with 10 offset", canvasSize, (context
     const dots = factory(numberOfDosts).map(({x, y}) => [x, y] as const);
     drawer.fillDots(dots, "red", 3)
 });
+
+createExample("PointSelectorFactory-jitter", canvasSize, (context) => {
+    const drawer = new CanvasDrawer(context);
+    const factory = PointSelectorFactory.generateJitter(canvasSize.avg, 10, 1234);
+    const dots = factory(Math.min(canvasSize.x + canvasSize.y, numberOfDosts)).map(({x, y}) => [x, y] as const);
+    drawer.fillDots(dots, "red", 3)
+});
+createExample("PointSelectorFactory-jitter with 10 offset", canvasSize, (context) => {
+    const drawer = new CanvasDrawer(context);
+    const factory = PointSelectorFactory.generateJitter(canvasSize.avg, 10, 1234, 10);
+    const dots = factory(Math.min(canvasSize.x + canvasSize.y, numberOfDosts)).map(({x, y}) => [x, y] as const);
+    drawer.fillDots(dots, "red", 3)
+});

@@ -6,7 +6,9 @@ export interface Grid2Block<T> {
     readonly item: T;
     readonly coordinates: SimpleVector2;
 }
-
+/**
+ * TODO: create ReadonlyGrid2Holder<T> and add method `toReadonly(): ReadonlyGrid2Holder<T>`
+ */
 export interface Grid2Holder<T> {
     readonly length: number;
 
@@ -21,7 +23,7 @@ export interface Grid2Holder<T> {
      *
      * @param callback - function to be executed on each element
      */
-    forEach(callback: (block: T, x: number, y: number) => boolean): boolean;
+    forEach(callback: (block: T, x: number, y: number) => boolean | void): boolean;
 
     transform?(x: number, y: number, transformer: (value: T) => T): void;
 
