@@ -1,7 +1,7 @@
 import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import { makeNoise4D } from "./make-noise-4d.ts";
-import { IteratorUtils } from "../../../../utils/src/iterator-utils.ts";
+import { IteratorUtils } from "@g43/utils";
 import { NOISE_MAX_VALUE, NOISE_MIN_VALUE } from "./noise-constants.ts";
 
 describe("MakeNoise4D", () => {

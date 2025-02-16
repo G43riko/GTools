@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "run-tests": "deno -A static-world-generation-test.ts && deno -A points-generation-test.ts && deno -A voronoi-test.ts && deno -A delaunator-test.ts && deno -A jitter-grid-test.ts"
+        "run-tests": "deno -A static-world-generation-test.ts && deno -A points-generation-test.ts && deno -A voronoi-test.ts  && deno -A voronoi-texture-test.ts && deno -A delaunator-test.ts && deno -A jitter-grid-test.ts"
     },
     "name": "@g43/world-generation",
     "version": "0.0.1",
