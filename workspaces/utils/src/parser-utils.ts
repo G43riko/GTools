@@ -3,11 +3,13 @@ export function parseBooleanValue(stringValue: string | null | undefined | boole
     switch (value) {
         case "true":
         case "yes":
+        case "[yes]":
         case "ano":
         case "áno":
         case "1":
             return true;
         case "false":
+        case "[false]":
         case "no":
         case "nie":
         case "":
@@ -20,6 +22,6 @@ export function parseBooleanValue(stringValue: string | null | undefined | boole
         default:
             console.error(`Parsing '${value}'`);
 
-            return JSON.parse(value);
+            return Boolean(JSON.parse(value));
     }
 }

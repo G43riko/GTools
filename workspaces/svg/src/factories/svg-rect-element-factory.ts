@@ -15,7 +15,7 @@ export class SvgRectElementFactory extends SvgElementFactory {
         return factory.setFrom(rectangle);
     }
 
-    public override patchFrom(rectangle: Rectangle): this {
+    public override patchFrom(rectangle: Partial<Rectangle>): this {
         try {
             this.setPosition(PositionAble.extractPosition(rectangle));
         } catch (_: unknown) {

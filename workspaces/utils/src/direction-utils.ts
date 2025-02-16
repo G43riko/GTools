@@ -35,26 +35,6 @@ export function getOppositeDirection4(direction: Direction4): Direction4 {
 const vectors4 = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN];
 const directions4 = [Direction4.LEFT, Direction4.RIGHT, Direction4.UP, Direction4.DOWN];
 
-/**
- * { x: 0, y: 1 } => UP;
- * { x: 0, y: -1 } => DOWN;
- * { x: 1, y: 0 } => RIGHT;
- * { x: -1, y: 0 } => LEFT;
- * @param vec
- */
-export function vector2ToDirection4(vec: ReadonlySimpleVector2): Direction4 {
-    let max = -Number.MAX_VALUE;
-    let maxIndex = -1;
-    for (let i = 0; i < vectors4.length; i++) {
-        if (vectors4[i].dot(vec) > max) {
-            max = vectors4[i].dot(vec);
-            maxIndex = i;
-        }
-    }
-
-    return directions4[maxIndex];
-}
-
 export function getAdjacentPositionByData(
     x: number,
     y: number,
@@ -109,7 +89,8 @@ export function direction4ToVector2(direction: Direction4): Vector2 {
 }
 
 export function Vector3ToDirection7(vec: ReadonlySimpleVector3): Direction7 {
-    if (vec.x * vec.y + vec.y * vec.z + vec.x * vec.z !== 0) {
+    if (vec.x === 0 && vec.y === 0 && vec.z === 0) {
+        // if (vec.x * vec.y + vec.y * vec.z + vec.x * vec.z !== 0) {
         return Direction7.CENTER;
     }
     if (vec.x === 0) {
@@ -121,4 +102,24 @@ export function Vector3ToDirection7(vec: ReadonlySimpleVector3): Direction7 {
     }
 
     return vec.x > 0 ? Direction7.RIGHT : Direction7.LEFT;
+}
+
+/**
+ * { x: 0, y: 1 } => UP;
+ * { x: 0, y: -1 } => DOWN;
+ * { x: 1, y: 0 } => RIGHT;
+ * { x: -1, y: 0 } => LEFT;
+ * @param vec
+ */
+export function vector2ToDirection4(vec: ReadonlySimpleVector2): Direction4 {
+    let max = -Number.MAX_VALUE;
+    let maxIndex = -1;
+    for (let i = 0; i < vectors4.length; i++) {
+        if (vectors4[i].dot(vec) > max) {
+            max = vectors4[i].dot(vec);
+            maxIndex = i;
+        }
+    }
+
+    return directions4[maxIndex];
 }

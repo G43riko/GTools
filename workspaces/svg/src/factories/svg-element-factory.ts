@@ -5,7 +5,9 @@ import { SvgElementProxy, type SvgElementProxyAttribute } from "../proxy/svg-ele
 import { SvgGradientFactory } from "./svg-gradient-factory.ts";
 
 let idCounter = 0;
-
+/**
+ * TODO: hold map of error for each property. It should be set when property assignment failed
+ */
 export abstract class SvgElementFactory {
     public abstract readonly type: DrawingObjectType;
     public readonly id: string = `element-${idCounter++}`;
@@ -15,6 +17,10 @@ export abstract class SvgElementFactory {
 
     public get element(): SvgElementProxy {
         return this._element;
+    }
+
+    public getSvgString(): string {
+        return this._element.outerHTML;
     }
 
     private _hoverStyles = "";
@@ -32,12 +38,19 @@ export abstract class SvgElementFactory {
         return this;
     }
 
-    // TODO: should be abstract
+    /**
+     * Override current factory data by data from given object
+     * TODO: should be abstract
+     * @param _object to override current data
+     */
     public setFrom(_object: DrawingObject): this {
         return this;
     }
 
-    // TODO: should be abstract
+    /**
+     * TODO: should be abstract
+     * @param _object
+     */
     public patchFrom(_object: DrawingObject): this {
         throw new Error("Not implemented");
     }

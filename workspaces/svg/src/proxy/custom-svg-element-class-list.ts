@@ -31,15 +31,24 @@ export class CustomSvgElementClassList implements DOMTokenList {
     }
 
     public item(index: number): string | null {
-        return this.classNames[index];
+        return this.classNames[index] ?? null;
     }
 
-    public remove(..._tokens: string[]): void {
-        throw new Error("Not implemented");
+    public remove(...tokens: string[]): void {
+        this.classNames.splice(
+            0,
+            this.classNames.length,
+            ...this.classNames.filter((className) => !tokens.includes(className)),
+        );
     }
 
-    public replace(_token: string, _newToken: string): boolean {
-        throw new Error("Not implemented");
+    public replace(token: string, newToken: string): boolean {
+        const index = this.classNames.indexOf(token);
+        if (index < 0) {
+            return false;
+        }
+        this.classNames[index] = newToken;
+        return true;
     }
 
     public supports(_token: string): boolean {

@@ -9,11 +9,11 @@ export function compareEventKey(event: KeyboardEvent, ...keys: Keys[]): boolean 
 }
 
 export function isTouchEvent(event: Event): event is TouchEvent {
-    return "TouchEvent" in window && event instanceof TouchEvent;
+    return "TouchEvent" in globalThis && event instanceof TouchEvent;
 }
 
 export function isPointerEvent(event: Event): event is PointerEvent {
-    return "PointerEvent" in window && event instanceof PointerEvent;
+    return "PointerEvent" in globalThis && event instanceof PointerEvent;
 }
 
 export function compareEventButton(event: TouchEvent | PointerEvent | MouseEvent, ...buttons: Button[]): boolean {

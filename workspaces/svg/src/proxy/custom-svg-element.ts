@@ -127,27 +127,30 @@ export class CustomSvgElement implements SvgElementProxy {
             this.attributes.height = this.attributes.height ?? String(this.height);
             this.attributes.viewBox = `0 0 ${this.attributes.width} ${this.attributes.height}`;
         }
+        type ProperyStringType = `${string}="${string}"`;
+        const properties = Object.entries(this.attributes)
+            .map(([key, value]) => `${key}="${value}"` as ProperyStringType);
 
-        const attributes = Object.entries(this.attributes)
-            .map(([key, value]) => `${key}="${value}"`)
-            .join(" ");
-
+        // TODO: escape characters like ></"
         const text = this.textContent || this.children
             .map((e) => (typeof e === "string" ? e : e.outerHTML))
             .join("");
 
-        const classAttribute = this.classList.length ? `class="${this.classList.value}"` : "";
+        if (this.classList.length) {
+            properties.push(`class="${this.classList.value}"`);
+        }
 
-        return `<${this.name} ${attributes} ${classAttribute}>${text}</${this.name}>`;
+        const propertiesText = properties.length ? ` ${properties.join(" ")}` : "";
+        return `<${this.name}${propertiesText}>${text}</${this.name}>`.replace(/ {2,}/g, "");
     }
 
-    public prependTo(_element: Element = document.body): void {
+    public prependTo(_element: Element): void {
         // element.append();
         // TODO: append this;
         throw new Error("Not implemented method prependTo");
     }
 
-    public appendTo(_element: Element = document.body): void {
+    public appendTo(_element: Element): void {
         // element.append();
         // TODO: append this;
         throw new Error("Not implemented method appendTo");
