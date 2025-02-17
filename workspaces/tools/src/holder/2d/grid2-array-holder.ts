@@ -1,7 +1,7 @@
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import { Vector2 } from "@g43/math";
 import { getValueFromProvider, type ValueProvider } from "@g43/core";
-// import { GridBlockItemFilter } from "../grid-filters";
+import type { GridBlockItemFilter } from "../grid-filters.ts";
 import type { Grid2Block, Grid2Holder } from "./grid2-holder.ts";
 
 function getMapIndex(x: number, y: number, width: number): number {
@@ -376,15 +376,17 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         this._data[index] = transformer(this._data[index]);
     }
 
-    /*
-    public getRandomBlockOfSize(size: ReadonlySimpleVector2, filter: GridBlockItemFilter<T>): Grid2Block<T> | undefined {
+    public getRandomBlockOfSize(
+        size: ReadonlySimpleVector2,
+        filter: GridBlockItemFilter<T>,
+    ): Grid2Block<T> | undefined {
         let limit = 1000;
         while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this._data.length);
-            const blocks      = this.getArea(this.getCoordinates(randomIndex), size);
+            const blocks = this.getArea(this.getCoordinates(randomIndex), size);
             if (blocks.every((item) => filter(item))) {
                 return {
-                    item       : this._data[randomIndex],
+                    item: this._data[randomIndex],
                     coordinates: this.getCoordinates(randomIndex),
                 };
             }
@@ -395,7 +397,7 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
         let limit = 1000;
         while (limit-- >= 0) {
             const randomIndex = Math.floor(Math.random() * this._data.length);
-            const item        = this._data[randomIndex];
+            const item = this._data[randomIndex];
             if (!filter || filter(item)) {
                 return {
                     item,
@@ -410,22 +412,21 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
             const randomIndex = Math.floor(Math.random() * this._data.length);
 
             return {
-                item       : this._data[randomIndex],
+                item: this._data[randomIndex],
                 coordinates: this.getCoordinates(randomIndex),
             };
         }
 
         const sortedArray = this._data.map((item, index) => ({ item, index })).sort(() => Math.random() - 0.5);
-        const result      = sortedArray.find((e) => filter(e.item));
+        const result = sortedArray.find((e) => filter(e.item));
 
         if (!result) {
             return;
         }
 
         return {
-            item       : result.item,
+            item: result.item,
             coordinates: this.getCoordinates(result.index),
         };
     }
-        */
 }

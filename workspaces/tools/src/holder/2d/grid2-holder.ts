@@ -1,6 +1,6 @@
 import type { ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
 import type { ValueProvider } from "@g43/core";
-// import { GridBlockItemFilter } from "../grid-filters";
+import type { GridBlockItemFilter } from "../grid-filters.ts";
 
 export interface Grid2Block<T> {
     readonly item: T;
@@ -45,7 +45,7 @@ export interface Grid2Holder<T> {
 
     getAroundData(x: number, y: number, size?: number): Grid2Block<T>[];
 
-    // getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined;
+    getRandomBlock(filter?: GridBlockItemFilter<T>): Grid2Block<T> | undefined;
 
     getArea(position: ReadonlySimpleVector2, size: ReadonlySimpleVector2): T[];
 }

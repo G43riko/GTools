@@ -3,6 +3,7 @@ import { SvgArcElementFactory } from "../factories/svg-arc-element-factory.ts";
 import { SvgElementProxy } from "../proxy/svg-element-proxy.ts";
 import { SvgDiagram } from "./svg-diagram.ts";
 import { randomIntBetween } from "@g43/utils";
+import type { SimpleVector2 } from "@g43/types";
 
 export class SvgPieDiagram extends SvgDiagram {
     public constructor(
@@ -10,9 +11,9 @@ export class SvgPieDiagram extends SvgDiagram {
             | number
             | { value: number; label: string; color?: Color | string }
         )[],
-        public readonly center = { x: 0, y: 0 },
-        public readonly outerRadius = 50,
-        public readonly innerRadius = NaN,
+        public readonly center: SimpleVector2 = { x: 0, y: 0 },
+        public readonly outerRadius: number = 50,
+        public readonly innerRadius: number = NaN,
         public readonly padAngle = 0,
     ) {
         super();

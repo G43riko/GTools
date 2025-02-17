@@ -2,6 +2,7 @@ import { Color } from "@g43/tools";
 import { SvgRectElementFactory } from "../factories/svg-rect-element-factory.ts";
 import { SvgElementProxy } from "../proxy/svg-element-proxy.ts";
 import { SvgDiagram } from "./svg-diagram.ts";
+import type { SimpleVector2 } from "@g43/types";
 
 type DiagramProvider<PropType, DataType> = PropType | ((data: DataType, index: number) => PropType);
 type DiagramColorProvider<DataType> = DiagramProvider<string | Color, DataType>;
@@ -72,7 +73,7 @@ export class SvgBarDiagram<T = unknown> extends SvgDiagram {
     };
 
     public constructor(
-        public readonly position = { x: 0, y: 0 },
+        public readonly position: SimpleVector2 = { x: 0, y: 0 },
     ) {
         super();
     }

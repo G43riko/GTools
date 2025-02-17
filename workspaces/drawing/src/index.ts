@@ -1,12 +1,10 @@
-/**
- * This is only for local, unpublished files
- */
-
 export * from "./drawing-object-type.ts";
 export * from "./drawing-object.ts";
+
 export * from "./gradiants/gradient.ts";
 export * from "./gradiants/linear-gradient.ts";
 export * from "./gradiants/radial-gradient.ts";
+
 export * from "./shapes/advanced-polygon-2d.ts";
 export * from "./shapes/circle.ts";
 export * from "./shapes/drawer-polyline.ts";

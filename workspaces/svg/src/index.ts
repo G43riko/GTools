@@ -1,8 +1,3 @@
-/**
- * Collection of usefull enums
- * @module
- */
-
 export * from "./diagrams/svg-bar-diagram.ts";
 export * from "./diagrams/svg-diagram.ts";
 export * from "./diagrams/svg-pie-diagram.ts";
@@ -21,3 +16,7 @@ export * from "./proxy/custom-svg-element-class-list.ts";
 export * from "./proxy/custom-svg-element.ts";
 export * from "./proxy/dom-svg-element.ts";
 export * from "./proxy/svg-element-proxy.ts";
+
+export * from "./svg-drawer.ts";
+export * from "./svg-holder.ts";
+

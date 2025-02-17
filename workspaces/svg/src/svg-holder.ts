@@ -6,7 +6,12 @@ import { SvgPathElementFactory } from "./factories/svg-path-element-factory.ts";
 import { SvgRectElementFactory } from "./factories/svg-rect-element-factory.ts";
 import { SvgElementProxy } from "./proxy/svg-element-proxy.ts";
 
-const svgHolderAddParameter = Object.freeze(
+const svgHolderAddParameter: {
+    readonly rect: () => SvgRectElementFactory;
+    readonly circle: () => SvgCircleElementFactory;
+    readonly path: () => SvgPathElementFactory;
+    readonly arc: () => SvgArcElementFactory;
+} = Object.freeze(
     {
         rect: () => new SvgRectElementFactory(),
         circle: () => new SvgCircleElementFactory(),
