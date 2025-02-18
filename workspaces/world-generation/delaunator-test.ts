@@ -1,4 +1,4 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { Vector2 } from "@g43/math";
 import { CanvasDrawer } from "../canvas/src/index.ts";
 import { DelaunatorHolder } from "./src/common/delaunator-holder.ts";
@@ -6,7 +6,7 @@ import { JitterGrid } from "./src/common/jitter-grid.ts";
 import { DelaunatorHolderRenderer } from "./src/common/delaunator-holder-renderer.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/delaunator`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const canvasSize = new Vector2(200, 200);
 

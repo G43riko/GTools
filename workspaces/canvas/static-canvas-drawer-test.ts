@@ -1,9 +1,9 @@
 import { StaticCanvasDrawer } from "./src/static-canvas-drawer.ts";
 import { SimpleVector } from "@g43/math";
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/static-canvas-drawer`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 createExample("rotated-rectangle", SimpleVector.create2(200, 200), (ctx) => {
     ctx.fillStyle = "red";

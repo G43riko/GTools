@@ -21,4 +21,4 @@ export * from "./rendering/canvas/static-map-renderer.ts";
 export * from "./rendering/canvas/voronoi-canvas-renderer.ts";
 export * from "./rendering/canvas/voronoi-data-canvas-renderer.ts";
 
-export * from "./rendering/svg/voronoi-canvas-renderer.ts";
+export * from "./rendering/svg/voronoi-svg-renderer.ts";

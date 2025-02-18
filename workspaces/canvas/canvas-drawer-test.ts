@@ -1,10 +1,10 @@
 import { SimpleVector } from "@g43/math";
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { ccreateCanvasFactory} from "../../utils/canvas-test-utils.ts";
 import { CanvasDrawer } from "./src/canvas-drawer.ts";
 import { Color } from "@g43/tools";
 
 const outDirectory = `${import.meta.dirname}/out/images/canvas-drawer`;
-const createExample = createFactory(outDirectory);
+const createExample = createcreateCanvasFactoryrectory);
 
 /************************* Create examples here *************************/
 

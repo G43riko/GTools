@@ -1,11 +1,11 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { Vector2 } from "@g43/math";
 import { VoronoiTexture } from "./src/common/voronoi/voronoi-texture.ts";
 import { VoronoiDataCanvasRenderer } from "./src/rendering/canvas/voronoi-data-canvas-renderer.ts";
 import { Color } from "@g43/tools";
 
 const outDirectory = `${import.meta.dirname}/out/images/voronoi-texture`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const canvasSize = new Vector2(200, 200);
 

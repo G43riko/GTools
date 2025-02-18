@@ -1,10 +1,10 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { SimpleVector } from "@g43/math";
 import { Random } from "./src/random.ts";
 import { CanvasDrawer } from "@g43/canvas";
 
 const outDirectory = `${import.meta.dirname}/out/images/utils`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const canvasSize = SimpleVector.create2(200, 200);
 const center = SimpleVector.create2(canvasSize.x / 2, canvasSize.y / 2);

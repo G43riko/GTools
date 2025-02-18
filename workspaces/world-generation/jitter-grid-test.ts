@@ -1,4 +1,4 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { Vector2 } from "@g43/math";
 import { CanvasDrawer } from "../canvas/src/index.ts";
 import { JitterGrid } from "./src/common/jitter-grid.ts";
@@ -6,7 +6,7 @@ import { JitterCanvasRendererGrid } from "./src/common/jitter-grid-canvas-render
 import { Color } from "../tools/src/color.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/jitter-grid`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const canvasSize = new Vector2(200, 200);
 for (const size of [10, 20, 50]) {

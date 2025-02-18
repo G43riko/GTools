@@ -1,4 +1,4 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { SimpleVector } from "@g43/math";
 import { Color } from "@g43/tools";
 import { SingleValueStaticMapGenerator } from "./src/common/single-value-static-map-generator.ts";
@@ -6,7 +6,7 @@ import { type ColorProvider, StaticMapRenderer } from "./src/rendering/canvas/st
 import { PerlinStaticMapGenerator } from "./src/common/pseudo-random-static-map-generators.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/static-world-generation`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const createSerializableColorProvider = <T>(mapper: ColorProvider<T>): ColorProvider<T> => {
     const colorMap = new Map<T, Color>();

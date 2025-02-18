@@ -28,6 +28,9 @@ export function randomAngleInDegrees(): number {
     return randomIntBetween(0, 360);
 }
 
+export function randomInt(): number {
+    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+}
 export function randomIntBetween(min: number, max: number): number {
     return Math.round(randomFloatBetween(min, max));
 }

@@ -1,13 +1,14 @@
 import { createCanvas, EmulatedCanvas2D, type EmulatedCanvas2DContext } from "jsr:@gfx/canvas-wasm";
 import type { ReadonlySimpleVector2 } from "@g43/types";
+import { SvgElementProxy } from "@g43/svg";
 
-export type CreateExampleFn = (
+export type CreateSvgExampleFn = (
     name: string,
     resolution: ReadonlySimpleVector2,
-    callback: (ctx: CanvasRenderingContext2D) => Promise<void> | void,
+    callback: () => SvgElementProxy,
 ) => void;
 
-export function createFactory(outDirectory: string): CreateExampleFn & { skip: CreateExampleFn } {
+export function createSvgFactory(outDirectory: string): CreateSvgExampleFn & { skip: CreateSvgExampleFn } {
     const examples = new Array<() => void | Promise<void>>();
     globalThis.addEventListener("unload", () => {
         console.log(`Executing ${examples.length} examples...`);
@@ -20,16 +21,15 @@ export function createFactory(outDirectory: string): CreateExampleFn & { skip: C
     function createExample(
         name: string,
         resolution: ReadonlySimpleVector2,
-        callback: (ctx: CanvasRenderingContext2D) => Promise<void> | void,
+        callback: () => SvgElementProxy,
     ): void {
         examples.push(() => {
-            const canvas = createCanvas(resolution.x, resolution.y) as HTMLCanvasElement & EmulatedCanvas2D;
-            const ctx = canvas.getContext("2d") as CanvasRenderingContext2D & EmulatedCanvas2DContext;
             try {
-                callback(ctx);
-                Deno.writeFileSync(
-                    `${outDirectory}/${name.replace(/.(png|jpg|jpeg|gif)$/g, "")}.png`,
-                    canvas.toBuffer(),
+                const svgProxy = callback();
+                const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="${resolution.x}" height="${resolution.y}">${svgProxy.outerHTML}</svg>`;
+                Deno.writeTextFileSync(
+                    `${outDirectory}/${name.replace(/.(svg)$/g, "")}.svg`,
+                    svgContent,
                 );
             } catch (e: any) {
                 console.error(e);

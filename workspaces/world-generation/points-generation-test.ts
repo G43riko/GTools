@@ -1,10 +1,10 @@
-import { createFactory } from "../../utils/drawer-test-utils.ts";
+import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
 import { Vector2 } from "@g43/math";
 import { CanvasDrawer } from "@g43/canvas";
 import { PointSelectorFactory } from "./src/common/point-selector-factory.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/points-generation`;
-const createExample = createFactory(outDirectory);
+const createExample = createCanvasFactory(outDirectory);
 
 const canvasSize = new Vector2(200, 200);
 const numberOfDosts = 1000;

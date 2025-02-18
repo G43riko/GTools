@@ -1,6 +1,7 @@
 import type { Pair, ReadonlyPair, ReadonlySimpleVector2, ReadonlyTrinity, Trinity } from "@g43/types";
 import { pairwiseArray } from "@g43/utils";
 import type Delaunator from "delaunator";
+import { SimpleVector } from "@g43/math";
 
 /**
  * @see https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Data-model#voronoi-data
@@ -175,7 +176,7 @@ export class Voronoi {
                 cellVertices.map((vertexIndex) => {
                     const vertex = this.vertices.p[vertexIndex];
 
-                    return { x: vertex[0], y: vertex[1] };
+                    return SimpleVector.create2(vertex[1], vertex[0]);
                 }),
             ];
         }, []);

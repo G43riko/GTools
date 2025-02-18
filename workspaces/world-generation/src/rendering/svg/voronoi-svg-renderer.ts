@@ -8,7 +8,7 @@ export class VoronoiSvgRenderer {
     ) {
     }
 
-    public renderCells(_context: CanvasRenderingContext2D): void {
+    public renderCells(): SvgElementProxy {
         const parent = SvgElementProxy.create("g");
         const cellVertices = this.voronoi.getCellsVertices();
         const polygon = new SvgPolygonElementFactory();
@@ -21,5 +21,7 @@ export class VoronoiSvgRenderer {
                     .setFillColor(colorProvider(index)).element.outerHTML,
             );
         });
+
+        return parent;
     }
 }

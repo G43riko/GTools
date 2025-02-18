@@ -1,9 +1,27 @@
 import { Random } from "@g43/tools";
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import type { VoronoiData } from "./voronoi-data.ts";
+import { randomInt } from "../../../../utils/src/random-utils.ts";
 
 export class VoronoiTexture {
+
     /**
+     * @param width 
+     * @param height 
+     * @param numPoints 
+     * @param seed 
+     * @returns 
+     */
+    private static generatePoints(width: number, height: number, numPoints: number, seed: number): ReadonlySimpleVector2[] {
+        const random = new Random(seed * 1235);
+
+        return Array.from({ length: numPoints }, () => ({
+            x: random.nextIntBetween(0, width),
+            y: random.nextIntBetween(0, height),
+        }));
+    }
+    /**
+     * TODO: add different ways how to generate random centers
      * @param width
      * @param height
      * @param numPoints
@@ -14,17 +32,10 @@ export class VoronoiTexture {
         width = 512,
         height = 256,
         numPoints = 25,
-        seed: number = Math.random(),
+        seed: number = randomInt(),
     ): VoronoiData {
         const points = new Array<{ dist: number; index: number }>(width * height);
-
-        // create random points
-        const random = new Random(seed);
-        const centers = Array.from({ length: numPoints }, () => ({
-            x: Math.round(random.nextFloat() * width),
-            y: Math.round(random.nextFloat() * height),
-            angle: random.nextFloat() * 360,
-        }));
+        const centers = VoronoiTexture.generatePoints(width, height, numPoints, seed);
 
         let maxDist = 0;
 
