@@ -1,5 +1,5 @@
 import { Color } from "@g43/tools";
-import type { VoronoiData } from "../../common/voronoi/voronoi-data.ts";
+import type { VoronoiTextureData } from "../../common/voronoi/voronoi-texture-data.ts";
 
 export class VoronoiDataCanvasRenderer {
     /**
@@ -9,7 +9,7 @@ export class VoronoiDataCanvasRenderer {
      * @returns
      */
     public static getImageDataFromVoronoiData(
-        voronoiData: VoronoiData,
+        voronoiData: VoronoiTextureData,
         color?: Color,
     ): readonly number[] {
         const width = voronoiData.size.x;
@@ -49,7 +49,7 @@ export class VoronoiDataCanvasRenderer {
 
     public static renderInto(
         context: CanvasRenderingContext2D,
-        voronoiData: VoronoiData,
+        voronoiData: VoronoiTextureData,
         color?: Color,
     ): void {
         const imageData = VoronoiDataCanvasRenderer.getImageDataFromVoronoiData(voronoiData, color);
@@ -59,7 +59,7 @@ export class VoronoiDataCanvasRenderer {
     }
 
     private static createCanvasFromVoronoiData(
-        voronoiData: VoronoiData,
+        voronoiData: VoronoiTextureData,
         color?: Color,
         canvas = document.createElement("canvas"),
     ): HTMLCanvasElement {

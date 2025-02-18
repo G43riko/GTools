@@ -4,7 +4,6 @@ import { DelaunatorHolder, Voronoi, VoronoiCanvasRenderer } from "./src/index.ts
 import { JitterGrid } from "./src/common/jitter-grid.ts";
 import { VoronoiSvgRenderer } from "./src/rendering/svg/voronoi-svg-renderer.ts";
 import { createCanvasFactory } from "../../utils/canvas-test-utils.ts";
-import { VoronoiDataCanvasRenderer } from "./src/rendering/canvas/voronoi-data-canvas-renderer.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/voronoi`;
 const createSvgExample = createSvgFactory(outDirectory);

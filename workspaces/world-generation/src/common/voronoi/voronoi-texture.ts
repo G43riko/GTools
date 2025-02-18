@@ -1,6 +1,6 @@
 import { Random } from "@g43/tools";
 import type { ReadonlySimpleVector2 } from "@g43/types";
-import type { VoronoiData } from "./voronoi-data.ts";
+import type { VoronoiTextureData } from "./voronoi-texture-data.ts";
 import { randomInt } from "../../../../utils/src/random-utils.ts";
 
 export class VoronoiTexture {
@@ -33,7 +33,7 @@ export class VoronoiTexture {
         height = 256,
         numPoints = 25,
         seed: number = randomInt(),
-    ): VoronoiData {
+    ): VoronoiTextureData {
         const points = new Array<{ dist: number; index: number }>(width * height);
         const centers = VoronoiTexture.generatePoints(width, height, numPoints, seed);
 
@@ -105,7 +105,7 @@ export class VoronoiTexture {
     }
 
     public static createIndexDataFromVoronoiData(
-        data: VoronoiData,
+        data: VoronoiTextureData,
     ): number[][] {
         const result = new Array<number[]>(data.size.x);
         for (let x = 0; x < data.size.x; x++) {
@@ -121,7 +121,7 @@ export class VoronoiTexture {
     }
 
     public static getCellVertices(
-        data: VoronoiData,
+        data: VoronoiTextureData,
         vertices: [center: ReadonlySimpleVector2, indices: number[]][],
     ): Map<number, ReadonlySimpleVector2[]> {
         const vertexData = new Map<number, [position: ReadonlySimpleVector2, angle: number][]>();

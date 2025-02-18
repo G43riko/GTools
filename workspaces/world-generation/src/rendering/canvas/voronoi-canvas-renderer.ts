@@ -1,9 +1,9 @@
 import { Color } from "@g43/tools";
-import type { Voronoi } from "../../common/voronoi/voronoi.ts";
+import { VoronoiDataHolder } from "../../common/voronoi/voronoi-data.ts";
 
 export class VoronoiCanvasRenderer {
     public constructor(
-        private readonly voronoi: Voronoi,
+        private readonly voronoi: VoronoiDataHolder,
     ) {
     }
 
@@ -20,13 +20,16 @@ export class VoronoiCanvasRenderer {
         });
     }
 
-    public renderCellVertices(context: CanvasRenderingContext2D): void {
+    public renderCellVertices(
+        context: CanvasRenderingContext2D, 
+        colorProvider: (cellIndex: number) => string = (cellIndex) => Color.random(cellIndex * 2).hex
+    ): void {
         this.voronoi.cells.v.forEach((cellVertices, cellIndex) => {
             if (cellVertices.length < 3) {
                 return;
             }
             context.beginPath();
-            context.fillStyle = Color.random(cellIndex * 2).hex;
+            context.fillStyle = colorProvider(cellIndex);
 
             cellVertices.forEach((vertexIndex, i) => {
                 const vertex = this.voronoi.vertices.p[vertexIndex];

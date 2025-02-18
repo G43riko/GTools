@@ -4,6 +4,9 @@ import { Color } from "@g43/tools";
 import { SingleValueStaticMapGenerator } from "./src/common/single-value-static-map-generator.ts";
 import { type ColorProvider, StaticMapRenderer } from "./src/rendering/canvas/static-map-renderer.ts";
 import { PerlinStaticMapGenerator } from "./src/common/pseudo-random-static-map-generators.ts";
+import {StaticWorldGenerator} from "./src/static-world-generator.ts";
+import { StaticWorldCanvasRenderer } from "./src/static-world-canvas-renderer.ts";
+import { CanvasDrawer } from "../canvas/src/canvas-drawer.ts";
 
 const outDirectory = `${import.meta.dirname}/out/images/static-world-generation`;
 const createExample = createCanvasFactory(outDirectory);
@@ -51,3 +54,23 @@ createExample("Perlin noise map", canvasSize, (context) => {
     );
     renderer.renderGenerator(mapGenerator, colorProvider, { context, canvasSize });
 });
+
+createExample("Islant generator", canvasSize, (context) => {
+    const tileSize = 10
+    const worldGenerator = new StaticWorldGenerator({
+        width: canvasSize.x / tileSize,
+        height: canvasSize.y / tileSize,
+        biomes: ["WATER", "LAND"],
+    });
+    
+    const world = worldGenerator.generateHolder();
+    const renderer = new StaticWorldCanvasRenderer(world);
+    const biomeColorMap = new Map<"WATER" | "LAND", string>([
+        ["WATER", "blue"],
+        ["LAND", "green"],
+    ])
+
+    const drawer = new CanvasDrawer(context)
+    renderer.renderBiomes(drawer, biomeColorMap)
+});
+

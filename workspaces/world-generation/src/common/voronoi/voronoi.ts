@@ -2,24 +2,13 @@ import type { Pair, ReadonlyPair, ReadonlySimpleVector2, ReadonlyTrinity, Trinit
 import { pairwiseArray } from "@g43/utils";
 import type Delaunator from "delaunator";
 import { SimpleVector } from "@g43/math";
+import { VoronoiDataHolder } from "./voronoi-data.ts";
 
 /**
  * @see https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Data-model#voronoi-data
  */
 
-export class Voronoi {
-    /**
-     * voronoi cells: v = cell vertices, c = adjacent cells, b = near-border cell
-     * @private
-     */
-    public readonly cells: { v: number[][]; c: number[][]; b: number[] } = { v: [], c: [], b: [] };
-
-    /**
-     * cells vertices: p = vertex coordinates, v = neighboring vertices, c = adjacent cells
-     * @private
-     */
-    public readonly vertices: { p: ReadonlyPair<number>[]; v: number[][]; c: number[][] } = { p: [], v: [], c: [] };
-
+export class Voronoi extends VoronoiDataHolder{
     public static fromDelaunator(data: Delaunator<number>): Voronoi {
         return new Voronoi(data, pairwiseArray(data.coords), data.coords.length / 2);
     }
@@ -36,6 +25,7 @@ export class Voronoi {
         private readonly points: Pair<number>[],
         private readonly pointsN: number,
     ) {
+        super();
         // Half-edges are the indices into the delaunator outputs:
         // delaunay.triangles[e] gives the point ID where the half-edge starts
         // delaunay.halfedges[e] returns either the opposite half-edge in the adjacent triangle, or -1 if there's not an adjacent triangle.
@@ -54,6 +44,14 @@ export class Voronoi {
                 this.vertices.v[t] = this.trianglesAdjacentToTriangle(t); // vertex: adjacent vertices
                 this.vertices.c[t] = this.pointsOfTriangle(t); // vertex: adjacent cells
             }
+        }
+
+
+        if(this.cells.v.length !== this.cells.c.length) {
+            throw new Error("Invalid number of cells")
+        }
+        if(this.cells.v.length !== this.cells.b.length) {
+            throw new Error("Invalid number of cells")
         }
     }
 
@@ -163,22 +161,5 @@ export class Voronoi {
             Math.floor(1 / D * (ad * (by - cy) + bd * (cy - ay) + cd * (ay - by))),
             Math.floor(1 / D * (ad * (cx - bx) + bd * (ax - cx) + cd * (bx - ax))),
         ];
-    }
-
-    public getCellsVertices(): readonly ReadonlySimpleVector2[][] {
-        return this.cells.v.reduce<ReadonlySimpleVector2[][]>((acc, cellVertices) => {
-            if (cellVertices.length < 3) {
-                return acc;
-            }
-
-            return [
-                ...acc,
-                cellVertices.map((vertexIndex) => {
-                    const vertex = this.vertices.p[vertexIndex];
-
-                    return SimpleVector.create2(vertex[1], vertex[0]);
-                }),
-            ];
-        }, []);
     }
 }

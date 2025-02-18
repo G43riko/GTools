@@ -4,6 +4,7 @@ import { PerlinNoise } from "./noise/perlin-noise.ts";
 import { AbstractStaticMapGenerator } from "./static-map-generator.ts";
 
 /**
+ * TODO: this is statis so we should pregenerate data
  * Creates map with random values between 0 and 1
  */
 export class PerlinStaticMapGenerator extends AbstractStaticMapGenerator<number> {

@@ -13,7 +13,7 @@ export * from "./common/noise/make-noise-4d.ts";
 export * from "./common/noise/perlin-noise.ts";
 export * from "./common/tiles/tilemap.ts";
 export * from "./common/tiles/tileset.ts";
-export * from "./common/voronoi/voronoi-data.ts";
+export * from "./common/voronoi/voronoi-texture-data.ts";
 export * from "./common/voronoi/voronoi-texture.ts";
 export * from "./common/voronoi/voronoi.ts";
 

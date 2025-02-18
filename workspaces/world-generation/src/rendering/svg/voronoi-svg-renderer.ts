@@ -1,10 +1,10 @@
 import { Color } from "@g43/tools";
 import { SvgElementProxy, SvgPolygonElementFactory } from "@g43/svg";
-import type { Voronoi } from "../../common/voronoi/voronoi.ts";
+import { VoronoiDataHolder } from "../../common/voronoi/voronoi-data.ts";
 
 export class VoronoiSvgRenderer {
     public constructor(
-        private readonly voronoi: Voronoi,
+        private readonly voronoi: VoronoiDataHolder,
     ) {
     }
 
