@@ -19,4 +19,3 @@ export * from "./proxy/svg-element-proxy.ts";
 
 export * from "./svg-drawer.ts";
 export * from "./svg-holder.ts";
-

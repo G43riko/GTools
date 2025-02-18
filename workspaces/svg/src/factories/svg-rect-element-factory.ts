@@ -1,9 +1,7 @@
 import type { Color } from "@g43/tools";
-import { DrawingObjectType, type Gradient, type Rectangle } from "@g43/drawing";
+import { DrawingObjectType, type Gradient, PositionAble, type Rectangle, SizeAble } from "@g43/drawing";
 import { SvgElementFactory } from "./svg-element-factory.ts";
 import type { ReadonlySimpleVector2 } from "@g43/types";
-import { PositionAble } from "../../../drawing/src/interfaces/positionable.ts";
-import { SizeAble } from "../../../drawing/src/interfaces/sizeAble.ts";
 
 export class SvgRectElementFactory extends SvgElementFactory {
     public readonly type = DrawingObjectType.RECTANGLE;

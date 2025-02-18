@@ -1,8 +1,6 @@
 import type { ReadonlySimpleVector2 } from "@g43/types";
-import { DrawingObjectType, type Ellipse } from "@g43/drawing";
+import { DrawingObjectType, type Ellipse, PositionAble, SizeAble } from "@g43/drawing";
 import { SvgPathElementFactory } from "./svg-path-element-factory.ts";
-import { PositionAble } from "../../../drawing/src/interfaces/positionable.ts";
-import { SizeAble } from "../../../drawing/src/interfaces/sizeAble.ts";
 
 export class SvgArcElementFactory extends SvgPathElementFactory {
     public override readonly type = DrawingObjectType.ARC;

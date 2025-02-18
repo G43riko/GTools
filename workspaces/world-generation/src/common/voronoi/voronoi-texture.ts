@@ -14,7 +14,7 @@ export class VoronoiTexture {
         width = 512,
         height = 256,
         numPoints = 25,
-        seed = Math.random(),
+        seed: number = Math.random(),
     ): VoronoiData {
         const points = new Array<{ dist: number; index: number }>(width * height);
 
