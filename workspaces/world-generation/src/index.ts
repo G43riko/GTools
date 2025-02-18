@@ -1,3 +1,5 @@
+export * from "./common/map-land-generator-factory.ts";
+
 export * from "./common/delaunator-holder-renderer.ts";
 export * from "./common/delaunator-holder.ts";
 export * from "./common/graph-holder.ts";
