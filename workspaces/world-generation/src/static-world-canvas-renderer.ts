@@ -1,12 +1,11 @@
-import { CanvasDrawer } from "@g43/canvas";
-import {StaticWorldHolder} from "./static-world-holder.ts";
-import { MapHolderCell } from "./static-world-holder.ts";
+import type { CanvasDrawer } from "@g43/canvas";
+import type { StaticWorldHolder } from "./static-world-holder.ts";
+import type { MapHolderCell } from "./static-world-holder.ts";
 import { VoronoiCanvasRenderer } from "./rendering/canvas/voronoi-canvas-renderer.ts";
 export class StaticWorldCanvasRenderer<Cell extends MapHolderCell = MapHolderCell, Biome extends string = string> {
-    
-    private  readonly voronoiRenderer: VoronoiCanvasRenderer
+    private readonly voronoiRenderer: VoronoiCanvasRenderer;
     public constructor(
-        private readonly world: StaticWorldHolder<Cell, Biome>
+        private readonly world: StaticWorldHolder<Cell, Biome>,
     ) {
         this.voronoiRenderer = new VoronoiCanvasRenderer(world.voronoi);
     }
@@ -17,6 +16,6 @@ export class StaticWorldCanvasRenderer<Cell extends MapHolderCell = MapHolderCel
             const color = biomeMap.get(biome);
 
             return color ?? "pink";
-        })
+        });
     }
 }

@@ -1,17 +1,17 @@
 import { SimpleVector } from "../../math/src/simple-vector.ts";
 import { Random } from "../../tools/src/random.ts";
-import { ReadonlySimpleVector2 } from "../../types/src/simple-vector2.ts";
-import { randomInt, randomIntBetween } from "../../utils/src/random-utils.ts";
+import type { ReadonlySimpleVector2 } from "../../types/src/simple-vector2.ts";
+import { randomInt } from "../../utils/src/random-utils.ts";
 import { DelaunatorHolder } from "./common/delaunator-holder.ts";
 import { JitterGrid } from "./common/jitter-grid.ts";
 import { makeNoise2D } from "./common/noise/make-noise-2d.ts";
 import { PerlinNoise } from "./common/noise/perlin-noise.ts";
-import { VoronoiDataHolder } from "./common/voronoi/voronoi-data.ts";
+import type { VoronoiDataHolder } from "./common/voronoi/voronoi-data.ts";
 import { Voronoi } from "./common/voronoi/voronoi.ts";
-import { MapHolderCell, StaticWorldHolder } from "./static-world-holder.ts";
+import { type MapHolderCell, StaticWorldHolder } from "./static-world-holder.ts";
 
 export interface MapAccessorCell {
-    readonly index: number
+    readonly index: number;
 }
 
 export interface MapAccessor<Cell extends MapAccessorCell> {
@@ -51,7 +51,7 @@ export class StaticWorldGenerator<Cell extends MapAccessorCell, Biome extends st
     private heightMap: (x: number, y: number) => number;
 
     public constructor(
-        private readonly options: StaticWorldGeneratorOptions<Biome>
+        private readonly options: StaticWorldGeneratorOptions<Biome>,
     ) {
         this.seed = options.seed ?? randomInt();
         this.random = new Random(this.seed);
@@ -62,13 +62,14 @@ export class StaticWorldGenerator<Cell extends MapAccessorCell, Biome extends st
         this.voronoi = Voronoi.fromDelaunator(holder.delaunator);
 
         // Generate height map
-        const frequency = options.heighMapFrequency
-        const octaves = options.heighMapOctaves
-        this.heightMap = PerlinNoise.createDynamicProvider2(makeNoise2D(this.seed + 13874), { frequency, octaves })
+        const frequency = options.heighMapFrequency;
+        const octaves = options.heighMapOctaves;
+        this.heightMap = PerlinNoise.createDynamicProvider2(makeNoise2D(this.seed + 13874), { frequency, octaves });
     }
 
     private generateCells<HolderCell extends MapHolderCell>(
-        biomeIndexProvider: (cellIndex: number, centerHeight: number) => number = () => this.random.nextIntBetween(0, this.options.biomes.length),
+        biomeIndexProvider: (cellIndex: number, centerHeight: number) => number = () =>
+            this.random.nextIntBetween(0, this.options.biomes.length),
     ): readonly HolderCell[] {
         return this.voronoi.cells.c.map((_, cellIndex) => {
             const centerHeight = this.calculateCellHeight(cellIndex);
@@ -77,7 +78,7 @@ export class StaticWorldGenerator<Cell extends MapAccessorCell, Biome extends st
                 biomeIndex: biomeIndexProvider(cellIndex, centerHeight),
                 centerHeight,
                 index: cellIndex,
-            } as HolderCell
+            } as HolderCell;
         });
     }
     public generateHolder<HolderCell extends MapHolderCell>(): StaticWorldHolder<HolderCell, Biome> {
@@ -87,28 +88,27 @@ export class StaticWorldGenerator<Cell extends MapAccessorCell, Biome extends st
             width: this.options.width,
             height: this.options.height,
             seed: this.seed,
-        }
+        };
 
-        return new StaticWorldHolder(holderCells, this.voronoi, holderOptions)
+        return new StaticWorldHolder(holderCells, this.voronoi, holderOptions);
     }
 
     /**
-     * 
      * @param cellOrIndex
      * @returns height of cell center
      */
     public calculateCellHeight(cellOrIndex: number | Cell): number {
-        if(typeof cellOrIndex !== "number") {
-            return this.calculateCellHeight(cellOrIndex.index)
+        if (typeof cellOrIndex !== "number") {
+            return this.calculateCellHeight(cellOrIndex.index);
         }
         const cellCenter = this.voronoi.calculateCenterOfCell(cellOrIndex);
 
         const minHeight = this.options.minHeight ?? 0;
         const maxHeight = this.options.maxHeight ?? 100;
         const normalizedHeight = this.heightMap(
-            Math.round(cellCenter.x),
-            Math.round(cellCenter.y),
-        ) / 2 + 0.5
+                    Math.round(cellCenter.x),
+                    Math.round(cellCenter.y),
+                ) / 2 + 0.5;
 
         return normalizedHeight * maxHeight + minHeight;
     }

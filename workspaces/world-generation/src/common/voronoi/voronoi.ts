@@ -1,14 +1,13 @@
-import type { Pair, ReadonlyPair, ReadonlySimpleVector2, ReadonlyTrinity, Trinity } from "@g43/types";
+import type { Pair, ReadonlyPair, ReadonlyTrinity, Trinity } from "@g43/types";
 import { pairwiseArray } from "@g43/utils";
 import type Delaunator from "delaunator";
-import { SimpleVector } from "@g43/math";
 import { VoronoiDataHolder } from "./voronoi-data.ts";
 
 /**
  * @see https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Data-model#voronoi-data
  */
 
-export class Voronoi extends VoronoiDataHolder{
+export class Voronoi extends VoronoiDataHolder {
     public static fromDelaunator(data: Delaunator<number>): Voronoi {
         return new Voronoi(data, pairwiseArray(data.coords), data.coords.length / 2);
     }
@@ -46,12 +45,11 @@ export class Voronoi extends VoronoiDataHolder{
             }
         }
 
-
-        if(this.cells.v.length !== this.cells.c.length) {
-            throw new Error("Invalid number of cells")
+        if (this.cells.v.length !== this.cells.c.length) {
+            throw new Error("Invalid number of cells");
         }
-        if(this.cells.v.length !== this.cells.b.length) {
-            throw new Error("Invalid number of cells")
+        if (this.cells.v.length !== this.cells.b.length) {
+            throw new Error("Invalid number of cells");
         }
     }
 

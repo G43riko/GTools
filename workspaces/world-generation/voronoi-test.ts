@@ -13,23 +13,27 @@ const canvasSize = new Vector2(200, 200);
 
 for (const jitterSize of [5, 10, 25]) {
     createSvgExample(`voronoi-jitter-size-${jitterSize}`, canvasSize, () => {
-        const jitter = JitterGrid.createJitterGrid(SimpleVector.create2(canvasSize.x / jitterSize, canvasSize.y / jitterSize), jitterSize);
-
+        const jitter = JitterGrid.createJitterGrid(
+            SimpleVector.create2(canvasSize.x / jitterSize, canvasSize.y / jitterSize),
+            jitterSize,
+        );
 
         const holder = DelaunatorHolder.fromJitter(jitter);
         const voronoi = Voronoi.fromDelaunator(holder.delaunator);
         const rendered = new VoronoiSvgRenderer(voronoi);
-        
-        return rendered.renderCells()
+
+        return rendered.renderCells();
     });
     createCanvasExample(`voronoi-jitter-size-${jitterSize}`, canvasSize, (ctx) => {
-        const jitter = JitterGrid.createJitterGrid(SimpleVector.create2(canvasSize.x / jitterSize, canvasSize.y / jitterSize), jitterSize);
-
+        const jitter = JitterGrid.createJitterGrid(
+            SimpleVector.create2(canvasSize.x / jitterSize, canvasSize.y / jitterSize),
+            jitterSize,
+        );
 
         const holder = DelaunatorHolder.fromJitter(jitter);
         const voronoi = Voronoi.fromDelaunator(holder.delaunator);
         const rendered = new VoronoiCanvasRenderer(voronoi);
-        
+
         rendered.renderCellVertices(ctx);
     });
 }

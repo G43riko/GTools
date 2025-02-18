@@ -4,15 +4,19 @@ import type { VoronoiTextureData } from "./voronoi-texture-data.ts";
 import { randomInt } from "../../../../utils/src/random-utils.ts";
 
 export class VoronoiTexture {
-
     /**
-     * @param width 
-     * @param height 
-     * @param numPoints 
-     * @param seed 
-     * @returns 
+     * @param width
+     * @param height
+     * @param numPoints
+     * @param seed
+     * @returns
      */
-    private static generatePoints(width: number, height: number, numPoints: number, seed: number): ReadonlySimpleVector2[] {
+    private static generatePoints(
+        width: number,
+        height: number,
+        numPoints: number,
+        seed: number,
+    ): ReadonlySimpleVector2[] {
         const random = new Random(seed * 1235);
 
         return Array.from({ length: numPoints }, () => ({

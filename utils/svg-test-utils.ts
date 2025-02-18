@@ -26,7 +26,8 @@ export function createSvgFactory(outDirectory: string): CreateSvgExampleFn & { s
         examples.push(() => {
             try {
                 const svgProxy = callback();
-                const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="${resolution.x}" height="${resolution.y}">${svgProxy.outerHTML}</svg>`;
+                const svgContent =
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="${resolution.x}" height="${resolution.y}">${svgProxy.outerHTML}</svg>`;
                 Deno.writeTextFileSync(
                     `${outDirectory}/${name.replace(/.(svg)$/g, "")}.svg`,
                     svgContent,

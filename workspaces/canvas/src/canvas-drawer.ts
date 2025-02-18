@@ -6,6 +6,19 @@ import { type ColorType, DrawerUtils, type SizeType } from "./drawer-utils.ts";
 import { StaticCanvasDrawer } from "./static-canvas-drawer.ts";
 
 export class CanvasDrawer implements Drawer {
+    public static fromCanvas(canvas: HTMLCanvasElement, size?: ReadonlySimpleVector2): CanvasDrawer {
+        const context = canvas.getContext("2d");
+        if (!context) {
+            throw new Error("Cannot create context");
+        }
+
+        if (size) {
+            canvas.width = size.x;
+            canvas.height = size.y;
+        }
+
+        return new CanvasDrawer(context);
+    }
     public static createFromSize(size: number): CanvasDrawer;
     public static createFromSize(x: number, y: number): CanvasDrawer;
     public static createFromSize(x: number, y = x): CanvasDrawer {
