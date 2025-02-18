@@ -1,3 +1,7 @@
+/**
+ * TODO: remove dependency to @g43/canvas
+ * @module
+ */
 export * from "./drawing-object-type.ts";
 export * from "./drawing-object.ts";
 

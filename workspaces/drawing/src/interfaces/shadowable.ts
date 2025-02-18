@@ -1,5 +1,5 @@
-import type { CanvasShadowConfig } from "@g43/canvas";
+import type { ShadowOptions } from "@g43/types";
 
 export interface ShadowAble {
-    shadowConfig?: CanvasShadowConfig;
+    shadowOptions?: ShadowOptions;
 }

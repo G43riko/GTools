@@ -1,8 +1,7 @@
 import { beforeEach, describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import { SvgRectElementFactory } from "./svg-rect-element-factory.ts";
-import type { Rectangle } from "../../../drawing/src/index.ts";
-import { DrawingObjectType } from "../../../drawing/src/drawing-object-type.ts";
+import { DrawingObjectType, type Rectangle } from "@g43/drawing";
 
 describe("SvgRectElementFactory", () => {
     it("Should create basic empty rect", () => {

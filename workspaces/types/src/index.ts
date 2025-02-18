@@ -1,5 +1,6 @@
 export * from "./text-options.interface.ts";
 export * from "./round-data.ts";
+export * from "./shadow-options.ts";
 export * from "./partially.ts";
 
 export * from "./min-max-2d.ts";
