@@ -11,14 +11,11 @@
         "./workspaces/physics",
         "./workspaces/svg",
         "./workspaces/drawing",
-        "./workspaces/playground",
         "./workspaces/world-generation"
     ],
     "tasks": {
         "bench": "deno bench",
         "bench:utils": "deno bench --filter utils",
-        "serve": "cd workspaces/playground && deno task dev",
-        "dev2": "deno -A utils/dev.ts",
         "check": "deno check workspaces/**/src/**/*.ts",
         "check:fix": "deno lint --fix && deno fmt",
         "doc": "deno doc --html --name=\"@g43/tools\" --output=docs workspaces/canvas/src/index.ts workspaces/math/src/index.ts workspaces/types/src/index.ts workspaces/tools/src/index.ts workspaces/core/src/index.ts workspaces/deno-server/src/index.ts workspaces/enums/src/index.ts workspaces/utils/src/index.ts workspaces/physics/src/index.ts workspaces/world-generation/src/index.ts workspaces/svg/src/index.ts workspaces/drawing/src/index.ts",
@@ -79,8 +76,6 @@
         "@std/testing": "jsr:@std/testing@^1.0.9",
         "@std/expect": "jsr:@std/expect@^1.0.11",
         "delaunator": "npm:delaunator@^5.0.1",
-        "vite": "npm:vite@^6.1.0",
-        "vite-plugin-solid": "npm:vite-plugin-solid@^2.11.0",
         "@types/delaunator": "npm:@types/delaunator@^5.0.0"
     },
     "nodeModulesDir": "auto"
