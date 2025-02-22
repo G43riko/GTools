@@ -1,4 +1,4 @@
-export function parseBooleanValue(stringValue: string | null | undefined | boolean): boolean {
+export function parseBooleanValue(stringValue: unknown): boolean {
     const value = String(stringValue)?.toLowerCase()?.trim();
     switch (value) {
         case "true":
