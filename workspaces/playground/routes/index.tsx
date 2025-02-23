@@ -1,5 +1,4 @@
 import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
 
 export default function Home() {
   const count = useSignal(3);
@@ -20,10 +19,10 @@ export default function Home() {
           <ul>
             <li>
               <a href="/demos/canvas-drawer">Canvas drawer</a>
+              <a href="/demos/world-generation">World generation</a>
             </li>
           </ul>
         </p>
-        <Counter count={count} />
       </div>
     </div>
   );

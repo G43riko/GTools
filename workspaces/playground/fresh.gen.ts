@@ -5,11 +5,14 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $demos_canvas_drawer_form_builder from "./routes/demos/canvas-drawer/form-builder.tsx";
 import * as $demos_canvas_drawer_index from "./routes/demos/canvas-drawer/index.tsx";
+import * as $demos_world_generation_index from "./routes/demos/world-generation/index.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
-import * as $Counter from "./islands/Counter.tsx";
-import * as $demos_canvas_drawer_islands_canvas_drawer_demo from "./routes/demos/canvas-drawer/(_islands)/canvas-drawer-demo.tsx";
+import * as $demos_canvas_drawer_islands_fill_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/fill-rotated-rect.tsx";
+import * as $demos_canvas_drawer_islands_stroke_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/stroke-rotated-rect.tsx";
+import * as $demos_world_generation_islands_points_generation from "./routes/demos/world-generation/(_islands)/points-generation.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -17,14 +20,18 @@ const manifest = {
         "./routes/_404.tsx": $_404,
         "./routes/_app.tsx": $_app,
         "./routes/api/joke.ts": $api_joke,
+        "./routes/demos/canvas-drawer/form-builder.tsx": $demos_canvas_drawer_form_builder,
         "./routes/demos/canvas-drawer/index.tsx": $demos_canvas_drawer_index,
+        "./routes/demos/world-generation/index.tsx": $demos_world_generation_index,
         "./routes/greet/[name].tsx": $greet_name_,
         "./routes/index.tsx": $index,
     },
     islands: {
-        "./islands/Counter.tsx": $Counter,
-        "./routes/demos/canvas-drawer/(_islands)/canvas-drawer-demo.tsx":
-            $demos_canvas_drawer_islands_canvas_drawer_demo,
+        "./routes/demos/canvas-drawer/(_islands)/fill-rotated-rect.tsx": $demos_canvas_drawer_islands_fill_rotated_rect,
+        "./routes/demos/canvas-drawer/(_islands)/stroke-rotated-rect.tsx":
+            $demos_canvas_drawer_islands_stroke_rotated_rect,
+        "./routes/demos/world-generation/(_islands)/points-generation.tsx":
+            $demos_world_generation_islands_points_generation,
     },
     baseUrl: import.meta.url,
 } satisfies Manifest;
