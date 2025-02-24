@@ -3,7 +3,7 @@ import { CanvasDrawer } from "@g43/canvas";
 import { useSignal } from "@preact/signals";
 import LabeledColorInput from "../../../../components/LabeledColorInput.tsx";
 import LabeledRangeInput from "../../../../components/LabeledRangeInput.tsx";
-import { useCanvas } from "../../../../hooks/use-canvas.tsx";
+import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
 
 export default function StrokeRotatedRect() {
     const {Canvas, drawer } = useCanvas();
