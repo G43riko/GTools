@@ -3,15 +3,20 @@ import LabeledRangeInput from "../../../components/LabeledRangeInput.tsx";
 import LabeledColorInput from "../../../components/LabeledColorInput.tsx";
 import { VNode } from "preact";
 import { JSX } from "preact";
+import LabeledSelectInput from "../../../components/LabeledSelectInput.tsx";
 
 export enum PropertyType {
     RANGE = "RANGE",
     COLOR = "COLOR",
+    SELECT = "SELECT",
 }
 interface BaseProperty<NativeType extends number | string | boolean = number | string | boolean> {
     readonly type: PropertyType;
     readonly nativeType: NativeType;
     readonly label?: string;
+    readonly hidden?: boolean;
+    readonly disabled?: boolean;
+    readonly reactOn?: "input" | "change";
     readonly defaultValue?: NativeType;
 }
 
@@ -22,10 +27,14 @@ interface RangeProperty extends BaseProperty<number> {
     readonly step?: number;
 }
 
+interface SelectProperty extends BaseProperty<string> {
+    readonly type: PropertyType.SELECT;
+    readonly options: readonly (string | {readonly value: string; readonly label: string})[];
+}
 interface ColorProperty extends BaseProperty<string> {
     readonly type: PropertyType.COLOR;
 }
-export type Property = RangeProperty | ColorProperty;
+export type Property = RangeProperty | ColorProperty | SelectProperty;
 
 type EmitValue<T extends Record<string, Property>> = {
     [P in keyof T]: T[P]["nativeType"];
@@ -41,7 +50,10 @@ function createInput<T extends Property>(
     property: T,
     value: any,
     onChange: (value: Property["nativeType"]) => void,
-): JSX.Element {
+): JSX.Element | null {
+    if(property.hidden) {
+        return null;
+    }
     switch (property.type) {
         case PropertyType.RANGE:
             return (
@@ -52,7 +64,19 @@ function createInput<T extends Property>(
                     min={property.minValue}
                     step={property.step}
                     max={property.maxValue}
-                    onInput={(e) => onChange(+(e.target as HTMLInputElement).value)}
+                    onInput={(e) => property.reactOn !== "change" && onChange(+(e.target as HTMLInputElement).value)}
+                    onChange={(e) => property.reactOn === "change" && onChange(+(e.target as HTMLInputElement).value)}
+                />
+            );
+        case PropertyType.SELECT:
+            return (
+                <LabeledSelectInput
+                    label={property.label ?? key}
+                    id={key}
+                    options={property.options}
+                    value={value}
+                    onInput={(e) => property.reactOn !== "change" && onChange(+(e.target as HTMLInputElement).value)}
+                    onChange={(e) => property.reactOn === "change" && onChange(+(e.target as HTMLInputElement).value)}
                 />
             );
         case PropertyType.COLOR:
@@ -61,11 +85,12 @@ function createInput<T extends Property>(
                     label={property.label ?? key}
                     id={key}
                     value={value}
-                    onInput={(e) => onChange((e.target as HTMLInputElement).value)}
+                    onInput={(e) => property.reactOn !== "change" && onChange(+(e.target as HTMLInputElement).value)}
+                    onChange={(e) => property.reactOn === "change" && onChange(+(e.target as HTMLInputElement).value)}
                 />
             );
-            default:
-                throw new Error(`Unsupported property type '${(property as any).type}'`)
+        default:
+            throw new Error(`Unsupported property type '${(property as any).type}'`)
     }
 }
 export class FormBuilder {
@@ -99,6 +124,6 @@ export function useFormBuilder<T extends Record<string, Property>>(data: T): For
 
     return {
         result,
-        Form: <div class="grid grid-cols-2 gap-2 flex-1">{formInputs}</div>
+        Form: <div style="align-content: flex-start; justify-items: flex-end;" class="grid grid-cols-2 gap-2 flex-1">{formInputs}</div>
     };
 }

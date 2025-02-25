@@ -13,6 +13,7 @@ import * as $index from "./routes/index.tsx";
 import * as $demos_canvas_drawer_islands_fill_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/fill-rotated-rect.tsx";
 import * as $demos_canvas_drawer_islands_stroke_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/stroke-rotated-rect.tsx";
 import * as $demos_world_generation_islands_points_generation from "./routes/demos/world-generation/(_islands)/points-generation.tsx";
+import * as $demos_world_generation_islands_water_generation from "./routes/demos/world-generation/(_islands)/water-generation.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -32,6 +33,8 @@ const manifest = {
             $demos_canvas_drawer_islands_stroke_rotated_rect,
         "./routes/demos/world-generation/(_islands)/points-generation.tsx":
             $demos_world_generation_islands_points_generation,
+        "./routes/demos/world-generation/(_islands)/water-generation.tsx":
+            $demos_world_generation_islands_water_generation,
     },
     baseUrl: import.meta.url,
 } satisfies Manifest;

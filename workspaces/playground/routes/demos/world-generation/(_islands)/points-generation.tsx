@@ -2,27 +2,28 @@ import { useEffect } from "preact/hooks";
 import { PointSelectorFactory } from "@g43/world-generation";
 import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
 import { FormBuilder, useFormBuilder } from "../../canvas-drawer/form-builder.tsx";
+import { randomInt, randomIntBetween } from "@g43/utils";
 
 const formData = {
-    numberOfDosts: FormBuilder.range({minValue: 0, maxValue: 200, defaultValue: 200}),
-    // seed: FormBuilder.range({minValue: 1, maxValue: Number.MAX_SAFE_INTEGER, defaultValue: randomInt()}),
+    numberOfDosts: FormBuilder.range({minValue: 0, maxValue: 1000, defaultValue: 200}),
+    seed: FormBuilder.range({minValue: 0, maxValue: 1000, defaultValue: randomIntBetween(0, 1000)}),
     dotSize: FormBuilder.range({minValue: 1, maxValue: 6, defaultValue: 5}),
-    offset: FormBuilder.range({minValue: 0, maxValue: 20, defaultValue: 0}),
+    offset: FormBuilder.range({minValue: 0, maxValue: 20, defaultValue: 20}),
     dotColor: FormBuilder.color({defaultValue: "#ff0000"}),
 };
 export default function PointsGeneration() {
-    const {Canvas, drawer } = useCanvas();
+    const {Canvas, drawer } = useCanvas({size: 302});
     const {Form, result} = useFormBuilder(formData)
 
     useEffect(() => {
         if (!drawer) {
             return;
         }
+        const {numberOfDosts, dotColor, dotSize, seed, offset} = result.value;
         drawer.clear();
-        const factory2 = PointSelectorFactory.generateRandom(Math.min(drawer.context.canvas.width, drawer.context.canvas.height), 123464, result.value.offset);
-        const factory = PointSelectorFactory.generateHexagon(Math.min(drawer.context.canvas.width, drawer.context.canvas.height, result.value.offset));
-        const dots = factory(result.value.numberOfDosts).map(({ x, y }) => [x, y] as const);
-        drawer.fillDots(dots, result.value.dotColor, result.value.dotSize);
+        const factory = PointSelectorFactory.generateRandom(Math.min(drawer.context.canvas.width, drawer.context.canvas.height), seed, offset);
+        const dots = factory(numberOfDosts).map(({ x, y }) => [x, y] as const);
+        drawer.fillDots(dots, dotColor, dotSize);
     }, [drawer, result.value]);
 
     return (
