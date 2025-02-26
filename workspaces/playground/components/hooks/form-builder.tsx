@@ -1,9 +1,9 @@
 import { useSignal, Signal } from "@preact/signals";
-import LabeledRangeInput from "./LabeledRangeInput.tsx";
-import LabeledColorInput from "./LabeledColorInput.tsx";
+import LabeledRangeInput from "../LabeledRangeInput.tsx";
+import LabeledColorInput from "../LabeledColorInput.tsx";
 import { VNode } from "preact";
 import { JSX } from "preact";
-import LabeledSelectInput from "./LabeledSelectInput.tsx";
+import LabeledSelectInput from "../LabeledSelectInput.tsx";
 
 export enum PropertyType {
     RANGE = "RANGE",
@@ -37,7 +37,7 @@ interface ColorProperty extends BaseProperty<string> {
 }
 export type Property = RangeProperty | ColorProperty | SelectProperty;
 
-type EmitValue<T extends Record<string, Property>> = {
+export type EmitValue<T extends Record<string, Property>> = {
     [P in keyof T]: T[P]["nativeType"];
 };
 
