@@ -1,9 +1,9 @@
 import { useSignal, Signal } from "@preact/signals";
-import LabeledRangeInput from "../../../components/LabeledRangeInput.tsx";
-import LabeledColorInput from "../../../components/LabeledColorInput.tsx";
+import LabeledRangeInput from "./LabeledRangeInput.tsx";
+import LabeledColorInput from "./LabeledColorInput.tsx";
 import { VNode } from "preact";
 import { JSX } from "preact";
-import LabeledSelectInput from "../../../components/LabeledSelectInput.tsx";
+import LabeledSelectInput from "./LabeledSelectInput.tsx";
 
 export enum PropertyType {
     RANGE = "RANGE",
@@ -15,6 +15,7 @@ interface BaseProperty<NativeType extends number | string | boolean = number | s
     readonly nativeType: NativeType;
     readonly label?: string;
     readonly hidden?: boolean;
+    readonly showWhen?: (data: any) => boolean;
     readonly disabled?: boolean;
     readonly reactOn?: "input" | "change";
     readonly defaultValue?: NativeType;
@@ -75,8 +76,8 @@ function createInput<T extends Property>(
                     id={key}
                     options={property.options}
                     value={value}
-                    onInput={(e) => property.reactOn !== "change" && onChange(+(e.target as HTMLInputElement).value)}
-                    onChange={(e) => property.reactOn === "change" && onChange(+(e.target as HTMLInputElement).value)}
+                    onInput={(e) => property.reactOn !== "change" && onChange((e.target as HTMLInputElement).value)}
+                    onChange={(e) => property.reactOn === "change" && onChange((e.target as HTMLInputElement).value)}
                 />
             );
         case PropertyType.COLOR:
@@ -85,8 +86,8 @@ function createInput<T extends Property>(
                     label={property.label ?? key}
                     id={key}
                     value={value}
-                    onInput={(e) => property.reactOn !== "change" && onChange(+(e.target as HTMLInputElement).value)}
-                    onChange={(e) => property.reactOn === "change" && onChange(+(e.target as HTMLInputElement).value)}
+                    onInput={(e) => property.reactOn !== "change" && onChange((e.target as HTMLInputElement).value)}
+                    onChange={(e) => property.reactOn === "change" && onChange((e.target as HTMLInputElement).value)}
                 />
             );
         default:
@@ -114,7 +115,14 @@ export function useFormBuilder<T extends Record<string, Property>>(data: T): For
     ) as EmitValue<T>);
 
     const formInputs = Object.keys(data).map((key) => {
-        return createInput(key, data[key], result.value[key], (value: unknown) => {
+        const e = data[key]
+        if(typeof e.showWhen === "function") {
+            const canShow = e.showWhen(result.value);
+            if(!canShow) {
+                return null;
+            }
+        }
+        return createInput(key, e, result.value[key], (value: unknown) => {
             if(JSON.stringify(result.value[key]) === JSON.stringify(value)) {
                 return;
             }
@@ -124,6 +132,6 @@ export function useFormBuilder<T extends Record<string, Property>>(data: T): For
 
     return {
         result,
-        Form: <div style="align-content: flex-start; justify-items: flex-end;" class="grid grid-cols-2 gap-2 flex-1">{formInputs}</div>
+        Form: <div style="align-content: flex-start; justify-items: flex-end;" class="grid grid-cols-2 gap-2">{formInputs}</div>
     };
 }

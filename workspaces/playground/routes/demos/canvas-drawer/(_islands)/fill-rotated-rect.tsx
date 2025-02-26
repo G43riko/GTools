@@ -1,59 +1,36 @@
-import { useEffect, useRef } from "preact/hooks";
-import { CanvasDrawer } from "@g43/canvas";
-import { useSignal } from "@preact/signals";
-import LabeledColorInput from "../../../../components/LabeledColorInput.tsx";
-import LabeledRangeInput from "../../../../components/LabeledRangeInput.tsx";
+import { useEffect } from "preact/hooks";
 import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
+import { FormBuilder, useFormBuilder } from "../../../../components/form-builder.tsx";
 
+const formData = {
+    color: FormBuilder.color({defaultValue: "#ff0000"}),
+    rotation: FormBuilder.range({minValue: 0, maxValue: Math.PI * 2, step:0.01, defaultValue: 0}),
+    size: FormBuilder.range({minValue: 10, maxValue: 100, defaultValue: 50}),
+};
 export default function FillRotatedRect() {
-    const {Canvas, drawer } = useCanvas();
-    const color = useSignal<string>("#ff0000");
-    const rotation = useSignal<number>(0);
-    const size = useSignal<number>(50);
+    const {Canvas, drawer } = useCanvas({size: 200});
+    const {Form, result} = useFormBuilder(formData);
 
     useEffect(() => {
         if (!drawer) {
             return;
         }
+        const {size, color, rotation} = result.value
         drawer.clear();
         drawer.fillRotatedRect(
-            (drawer.context.canvas.width - size.value) / 2,
-            (drawer.context.canvas.height - size.value) / 2,
-            size.value,
-            size.value,
-            rotation.value,
-            color.value,
+            (drawer.context.canvas.width - size) / 2,
+            (drawer.context.canvas.height - size) / 2,
+            size,
+            size,
+            rotation,
+            color,
         );
-    }, [drawer, color.value, rotation.value, size.value]);
+    }, [drawer, result.value]);
 
     return (
         <div class="flex flex-row">
             {Canvas}
-            <div class="grid grid-cols-2 gap-2 flex-1">
-                <LabeledColorInput
-                    label="Fill color"
-                    id="fillColor"
-                    value={color.value}
-                    onInput={(e) => color.value = (e.target as HTMLInputElement).value}
-                />
-                <LabeledRangeInput
-                    label="Rotation"
-                    id="rotation"
-                    value={rotation.value}
-                    min="0"
-                    step="0.01"
-                    max={Math.PI * 2}
-                    onInput={(e) => rotation.value = +(e.target as HTMLInputElement).value}
-                />
-                <LabeledRangeInput
-                    label="Size"
-                    id="size"
-                    value={size.value}
-                    min="10"
-                    max="100"
-                    onInput={(e) => size.value = +(e.target as HTMLInputElement).value}
-                />
-            </div>
+            {Form}
         </div>
     );
 }

@@ -1,8 +1,8 @@
 import { useEffect } from "preact/hooks";
 import { PointSelectorFactory } from "@g43/world-generation";
 import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
-import { FormBuilder, useFormBuilder } from "../../canvas-drawer/form-builder.tsx";
-import { randomInt, randomIntBetween } from "@g43/utils";
+import { FormBuilder, useFormBuilder } from "../../../../components/form-builder.tsx";
+import { randomIntBetween } from "@g43/utils";
 
 const formData = {
     numberOfDosts: FormBuilder.range({minValue: 0, maxValue: 1000, defaultValue: 200}),
@@ -29,9 +29,7 @@ export default function PointsGeneration() {
     return (
         <div class="flex flex-row">
             {Canvas}
-            <div class="grid grid-cols-2 gap-2 flex-1">
-                {Form}
-            </div>
+            {Form}
         </div>
     );
 }

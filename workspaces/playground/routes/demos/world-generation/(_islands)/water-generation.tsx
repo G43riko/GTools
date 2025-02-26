@@ -1,17 +1,16 @@
 import { useEffect } from "preact/hooks";
 import { MapLandGenerator } from "@g43/world-generation";
 import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
-import { FormBuilder, useFormBuilder } from "../../canvas-drawer/form-builder.tsx";
-import { randomInt, randomIntBetween } from "@g43/utils";
+import { FormBuilder, useFormBuilder } from "../../../../components/form-builder.tsx";
+import { randomIntBetween } from "@g43/utils";
 
 const formData = {
     seed: FormBuilder.range({minValue: 0, maxValue: 1000, defaultValue: randomIntBetween(0, 1000), reactOn: "change"}),
-    islandFactor: FormBuilder.range({minValue: 1, maxValue: 2, defaultValue: 1.07, step: 0.01})
+    islandFactor: FormBuilder.range({minValue: 1, maxValue: 2, defaultValue: 1.07, step: 0.01, reactOn: "change"})
 };
 export default function WaterGeneration() {
-    const CANSVAS_SIZE = 302;
-    const {Canvas, drawer } = useCanvas({size: CANSVAS_SIZE});
-    const {Form, result} = useFormBuilder(formData)
+    const {Canvas, drawer } = useCanvas({size: 302});
+    const {Form, result} = useFormBuilder(formData);
     useEffect(() => {
         if (!drawer) {
             return;
@@ -32,9 +31,7 @@ export default function WaterGeneration() {
     return (
         <div class="flex flex-row">
             {Canvas}
-            <div class="grid grid-cols-2 gap-2 flex-1">
-                {Form}
-            </div>
+            {Form}
         </div>
     );
 }
