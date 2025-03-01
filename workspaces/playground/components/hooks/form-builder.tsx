@@ -1,9 +1,7 @@
 import { useSignal, Signal } from "@preact/signals";
-import LabeledRangeInput from "../LabeledRangeInput.tsx";
-import LabeledColorInput from "../LabeledColorInput.tsx";
+import {LabeledRangeInput, LabeledColorInput, LabeledSelectInput} from "@g43/fresh-components";
 import { VNode } from "preact";
 import { JSX } from "preact";
-import LabeledSelectInput from "../LabeledSelectInput.tsx";
 
 export enum PropertyType {
     RANGE = "RANGE",
