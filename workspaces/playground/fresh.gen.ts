@@ -6,11 +6,13 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $demos_canvas_drawer_index from "./routes/demos/canvas-drawer/index.tsx";
+import * as $demos_distances_index from "./routes/demos/distances/index.ts";
 import * as $demos_world_generation_index from "./routes/demos/world-generation/index.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $demos_canvas_drawer_islands_fill_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/fill-rotated-rect.tsx";
 import * as $demos_canvas_drawer_islands_stroke_rotated_rect from "./routes/demos/canvas-drawer/(_islands)/stroke-rotated-rect.tsx";
+import * as $demos_distances_islands_distances from "./routes/demos/distances/(_islands)/distances.tsx";
 import * as $demos_world_generation_islands_points_generation from "./routes/demos/world-generation/(_islands)/points-generation.tsx";
 import * as $demos_world_generation_islands_water_generation from "./routes/demos/world-generation/(_islands)/water-generation.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -21,6 +23,7 @@ const manifest = {
         "./routes/_app.tsx": $_app,
         "./routes/api/joke.ts": $api_joke,
         "./routes/demos/canvas-drawer/index.tsx": $demos_canvas_drawer_index,
+        "./routes/demos/distances/index.ts": $demos_distances_index,
         "./routes/demos/world-generation/index.tsx": $demos_world_generation_index,
         "./routes/greet/[name].tsx": $greet_name_,
         "./routes/index.tsx": $index,
@@ -29,6 +32,7 @@ const manifest = {
         "./routes/demos/canvas-drawer/(_islands)/fill-rotated-rect.tsx": $demos_canvas_drawer_islands_fill_rotated_rect,
         "./routes/demos/canvas-drawer/(_islands)/stroke-rotated-rect.tsx":
             $demos_canvas_drawer_islands_stroke_rotated_rect,
+        "./routes/demos/distances/(_islands)/distances.tsx": $demos_distances_islands_distances,
         "./routes/demos/world-generation/(_islands)/points-generation.tsx":
             $demos_world_generation_islands_points_generation,
         "./routes/demos/world-generation/(_islands)/water-generation.tsx":

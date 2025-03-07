@@ -105,6 +105,12 @@ export class FormBuilder {
             type: PropertyType.COLOR,
         } as ColorProperty
     }
+    public static select(params: Omit<SelectProperty, "nativeType" | "type">): SelectProperty {
+        return {
+            ...params,
+            type: PropertyType.SELECT,
+        } as SelectProperty
+    }
 }
 
 export function useFormBuilder<T extends Record<string, Property>>(data: T): FormBuilderResult<T> {
