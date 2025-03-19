@@ -1,17 +1,25 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/G43riko/GTools/blob/master/LICENSE)
 ![REPO SIZE](https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square)
 ![CODE SIZE](https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=coverage)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+<!--
+[![npm version](https://badge.fury.io/js/gtools.svg)](https://badge.fury.io/js/gtools)
+[![GitHub version](https://badge.fury.io/gh/G43riko%2FGTools.svg)](https://badge.fury.io/gh/G43riko%2FGTools)
 [![JSR](https://jsr.io/badges/@g43/utils)](https://jsr.io/@g43/utils)
 [![JSR Score](https://jsr.io/badges/@g43/utils/score)](https://jsr.io/@g43/utils)
-[![npm version](https://badge.fury.io/js/gtools.svg)](https://badge.fury.io/js/gtools)
 [![Build Status](https://api.travis-ci.org/G43riko/GTools.svg?branch=master)](https://travis-ci.org/G43riko/GTools)
 [![Coverage Status](https://coveralls.io/repos/github/G43riko/GTools/badge.svg?branch=master)](https://coveralls.io/github/G43riko/GTools?branch=master)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bbb0af52dcd730cdc422/test_coverage)](https://codeclimate.com/github/G43riko/GTools/test_coverage)
 [![Code Climate](https://codeclimate.com/github/G43riko/GTools.svg)](https://codeclimate.com/github/G43riko/GTools)
-[![GitHub version](https://badge.fury.io/gh/G43riko%2FGTools.svg)](https://badge.fury.io/gh/G43riko%2FGTools)
 [![Dependency Status](https://david-dm.org/G43riko/GTools.svg)](https://david-dm.org/G43riko/GTools)
 [![devDependencies Status](https://david-dm.org/G43riko/GTools/dev-status.svg)](https://david-dm.org/G43riko/GTools?type=dev)
 [![HitCount](http://hits.dwyl.io/G43riko/GToools.svg)](http://hits.dwyl.io/G43riko/GToools)
+-->
 
 # GTools
 
