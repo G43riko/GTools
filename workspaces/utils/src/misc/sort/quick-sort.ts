@@ -1,5 +1,5 @@
 let array: any[] = [];
-let tmpValue: any | null = null;
+let tmpValue: any;
 
 /**
  * @export

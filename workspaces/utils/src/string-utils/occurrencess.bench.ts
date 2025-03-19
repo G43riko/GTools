@@ -1,7 +1,7 @@
 import { occurrences } from "./occurences.ts";
 
 export function occurrencesOld(text: string, key: string): number {
-    return (text.match(new RegExp(key, "g")) || []).length;
+    return (new RegExp(key, "g").exec(text) || []).length;
 }
 
 Deno.bench("new implementation", { group: "occurrences" }, () => {
