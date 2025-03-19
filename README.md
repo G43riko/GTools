@@ -7,6 +7,7 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
+
 <!--
 [![npm version](https://badge.fury.io/js/gtools.svg)](https://badge.fury.io/js/gtools)
 [![GitHub version](https://badge.fury.io/gh/G43riko%2FGTools.svg)](https://badge.fury.io/gh/G43riko%2FGTools)

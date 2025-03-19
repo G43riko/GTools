@@ -1,6 +1,6 @@
+import { randomIntBetween } from "@g43/utils";
 import { PointSelectorFactory } from "@g43/world-generation";
 import { FormBuilder } from "../../../../components/hooks/form-builder.tsx";
-import { randomIntBetween } from "@g43/utils";
 import { useDemoRow } from "../../../../components/hooks/use-demo-row.tsx";
 
 const formData = {

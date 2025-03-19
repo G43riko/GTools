@@ -1,4 +1,5 @@
 import { accentedCharacters, normalCharacters, removeAccentedCharacters } from "./remove-accented-characters.ts";
+
 function removeAccentedCharactersOld(word: string): string {
     if (!word?.replace) {
         return word;

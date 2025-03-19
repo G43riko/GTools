@@ -1,7 +1,6 @@
-import { Signal, useSignal } from "@preact/signals";
 import { LabeledColorInput, LabeledRangeInput, LabeledSelectInput } from "@g43/fresh-components";
-import { VNode } from "preact";
-import { JSX } from "preact";
+import { Signal, useSignal } from "@preact/signals";
+import { JSX, VNode } from "preact";
 
 export enum PropertyType {
     RANGE = "RANGE",
@@ -26,9 +25,9 @@ interface RangeProperty extends BaseProperty<number> {
     readonly step?: number;
 }
 
-interface SelectProperty extends BaseProperty<string> {
+interface SelectProperty<Type extends string = string> extends BaseProperty<Type> {
     readonly type: PropertyType.SELECT;
-    readonly options: readonly (string | { readonly value: string; readonly label: string })[];
+    readonly options: readonly (Type | { readonly value: Type; readonly label: string })[];
 }
 interface ColorProperty extends BaseProperty<string> {
     readonly type: PropertyType.COLOR;
@@ -105,11 +104,13 @@ export class FormBuilder {
             type: PropertyType.COLOR,
         } as ColorProperty;
     }
-    public static select(params: Omit<SelectProperty, "nativeType" | "type">): SelectProperty {
+    public static select<Type extends string>(
+        params: Omit<SelectProperty<Type>, "nativeType" | "type">,
+    ): SelectProperty<Type> {
         return {
             ...params,
             type: PropertyType.SELECT,
-        } as SelectProperty;
+        } as SelectProperty<Type>;
     }
 }
 

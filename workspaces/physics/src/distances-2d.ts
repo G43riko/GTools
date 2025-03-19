@@ -32,8 +32,8 @@ export function distance2dCircleMinMaxSqr(
     maxY: number,
 ): number {
     // Find the closest point to the circle within the rectangle
-    const closestX = clamp(cx, minX, minY);
-    const closestY = clamp(cy, maxX, maxY);
+    const closestX = clamp(cx, minX, maxX);
+    const closestY = clamp(cy, minY, maxY);
 
     return distance2dPointPointSqr(
         closestX,
@@ -52,7 +52,11 @@ export function distance2dCircleMinMax(
     maxX: number,
     maxY: number,
 ): number {
-    return Math.sqrt(distance2dCircleMinMaxSqr(cx, cy, cr, minX, minY, maxX, maxY));
+    const sqrtDistance = distance2dCircleMinMaxSqr(cx, cy, cr, minX, minY, maxX, maxY);
+    if (sqrtDistance < 0) {
+        return 0;
+    }
+    return Math.sqrt(sqrtDistance);
 }
 
 export function distance2dCircleCircleSqr(

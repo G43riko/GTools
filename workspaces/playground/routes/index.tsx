@@ -16,7 +16,12 @@ export default function Home() {
                     <ul>
                         <li>
                             <a href="/demos/canvas-drawer">Canvas drawer</a>
+                        </li>
+                        <li>
                             <a href="/demos/world-generation">World generation</a>
+                        </li>
+                        <li>
+                            <a href="/demos/distances">Distances</a>
                         </li>
                     </ul>
                 </p>
