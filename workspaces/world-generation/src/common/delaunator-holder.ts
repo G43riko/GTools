@@ -24,7 +24,7 @@ export class DelaunatorHolder {
     }
 
     public constructor(
-        public readonly delaunator: Delaunator<number>,
+        public readonly delaunator: Delaunator<number[]>,
     ) {
         this.hullIndices = Array.from(this.delaunator.hull);
         this.triangleIndices = Array.from(this.delaunator.triangles);

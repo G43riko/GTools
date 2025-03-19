@@ -29,7 +29,10 @@
             "dependencies": ["test:coverage"],
             "command": "deno coverage --html --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\""
         },
-        "coverage:lcov": "deno coverage --lcov --output=coverage/lcov.info --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\"",
+        "coverage:lcov": {
+            "dependencies": ["test:coverage"],
+            "command": "deno coverage --lcov --output=coverage/lcov.info --exclude=\"(spec|bench)\\.(js|mjs|ts|jsx|tsx)$\""
+        },
         "serve:doc": {
             "dependencies": ["doc"],
             "command": "deno run --allow-net --watch --allow-read utils/serve-doc.ts"
