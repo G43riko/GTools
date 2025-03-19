@@ -1,5 +1,5 @@
-import { useSignal, Signal } from "@preact/signals";
-import {LabeledRangeInput, LabeledColorInput, LabeledSelectInput} from "@g43/fresh-components";
+import { Signal, useSignal } from "@preact/signals";
+import { LabeledColorInput, LabeledRangeInput, LabeledSelectInput } from "@g43/fresh-components";
 import { VNode } from "preact";
 import { JSX } from "preact";
 
@@ -28,7 +28,7 @@ interface RangeProperty extends BaseProperty<number> {
 
 interface SelectProperty extends BaseProperty<string> {
     readonly type: PropertyType.SELECT;
-    readonly options: readonly (string | {readonly value: string; readonly label: string})[];
+    readonly options: readonly (string | { readonly value: string; readonly label: string })[];
 }
 interface ColorProperty extends BaseProperty<string> {
     readonly type: PropertyType.COLOR;
@@ -50,7 +50,7 @@ function createInput<T extends Property>(
     value: any,
     onChange: (value: Property["nativeType"]) => void,
 ): JSX.Element | null {
-    if(property.hidden) {
+    if (property.hidden) {
         return null;
     }
     switch (property.type) {
@@ -89,7 +89,7 @@ function createInput<T extends Property>(
                 />
             );
         default:
-            throw new Error(`Unsupported property type '${(property as any).type}'`)
+            throw new Error(`Unsupported property type '${(property as any).type}'`);
     }
 }
 export class FormBuilder {
@@ -97,45 +97,49 @@ export class FormBuilder {
         return {
             ...params,
             type: PropertyType.RANGE,
-        } as RangeProperty
+        } as RangeProperty;
     }
     public static color(params: Omit<ColorProperty, "nativeType" | "type">): ColorProperty {
         return {
             ...params,
             type: PropertyType.COLOR,
-        } as ColorProperty
+        } as ColorProperty;
     }
     public static select(params: Omit<SelectProperty, "nativeType" | "type">): SelectProperty {
         return {
             ...params,
             type: PropertyType.SELECT,
-        } as SelectProperty
+        } as SelectProperty;
     }
 }
 
 export function useFormBuilder<T extends Record<string, Property>>(data: T): FormBuilderResult<T> {
     const result = useSignal<EmitValue<T>>(Object.fromEntries(
-        Object.entries(data).map(([key, property]) => [key, property.defaultValue])
+        Object.entries(data).map(([key, property]) => [key, property.defaultValue]),
     ) as EmitValue<T>);
 
     const formInputs = Object.keys(data).map((key) => {
-        const e = data[key]
-        if(typeof e.showWhen === "function") {
+        const e = data[key];
+        if (typeof e.showWhen === "function") {
             const canShow = e.showWhen(result.value);
-            if(!canShow) {
+            if (!canShow) {
                 return null;
             }
         }
         return createInput(key, e, result.value[key], (value: unknown) => {
-            if(JSON.stringify(result.value[key]) === JSON.stringify(value)) {
+            if (JSON.stringify(result.value[key]) === JSON.stringify(value)) {
                 return;
             }
-            result.value = {...result.value, [key]: value};
+            result.value = { ...result.value, [key]: value };
         });
-    })
+    });
 
     return {
         result,
-        Form: <div style="align-content: flex-start; justify-items: flex-end;" class="grid grid-cols-2 gap-2">{formInputs}</div>
+        Form: (
+            <div style="align-content: flex-start; justify-items: flex-end;" class="grid grid-cols-2 gap-2">
+                {formInputs}
+            </div>
+        ),
     };
 }

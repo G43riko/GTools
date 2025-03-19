@@ -24,7 +24,7 @@ export class CustomSvgElementClassList implements DOMTokenList {
     }
 
     public forEach(
-        callbackfn: (value: string, key: number, parent: CustomSvgElementClassList) => void,
+        callbackfn: (value: string, key: number, parent: CustomSvgElementClassList & DOMTokenList) => void,
         thisArg?: unknown,
     ): void {
         this.classNames.forEach((item, index) => callbackfn(item, index, this), thisArg);

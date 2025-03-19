@@ -8,7 +8,7 @@ import { VoronoiDataHolder } from "./voronoi-data.ts";
  */
 
 export class Voronoi extends VoronoiDataHolder {
-    public static fromDelaunator(data: Delaunator<number>): Voronoi {
+    public static fromDelaunator(data: Delaunator<number[]>): Voronoi {
         return new Voronoi(data, pairwiseArray(data.coords), data.coords.length / 2);
     }
 
