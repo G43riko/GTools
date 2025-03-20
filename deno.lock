@@ -25,7 +25,7 @@
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/streams@^1.0.9": "1.0.9",
     "jsr:@std/testing@^1.0.9": "1.0.9",
-    "npm:@preact/signals-core@1.5.1": "1.5.1",
+    "npm:@preact/signals-core@1.8.0": "1.8.0",
     "npm:@preact/signals@1.2.2": "1.2.2_preact@10.22.0",
     "npm:@types/delaunator@5": "5.0.3",
     "npm:autoprefixer@10.4.17": "10.4.17_postcss@8.4.35",
@@ -33,6 +33,7 @@
     "npm:delaunator@^5.0.1": "5.0.1",
     "npm:postcss@8.4.35": "8.4.35",
     "npm:preact@10.22.0": "10.22.0",
+    "npm:preact@10.26.4": "10.26.4",
     "npm:tailwindcss@3.4.1": "3.4.1_postcss@8.5.2"
   },
   "jsr": {
@@ -40,7 +41,8 @@
       "integrity": "c1e1164055b6e14106a60783d88a978d694621c6d888b9a86e623a495a6bca73",
       "dependencies": [
         "npm:@preact/signals",
-        "npm:preact"
+        "npm:preact@10.22.0",
+        "npm:preact@10.26.4"
       ]
     },
     "@gfx/canvas-wasm@0.4.2": {
@@ -198,17 +200,14 @@
     "@pkgjs/parseargs@0.11.0": {
       "integrity": "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
     },
-    "@preact/signals-core@1.5.1": {
-      "integrity": "sha512-dE6f+WCX5ZUDwXzUIWNMhhglmuLpqJhuy3X3xHrhZYI0Hm2LyQwOu0l9mdPiWrVNsE+Q7txOnJPgtIqHCYoBVA=="
-    },
     "@preact/signals-core@1.8.0": {
       "integrity": "sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA=="
     },
     "@preact/signals@1.2.2_preact@10.22.0": {
       "integrity": "sha512-ColCqdo4cRP18bAuIR4Oik5rDpiyFtPIJIygaYPMEAwTnl4buWkBOflGBSzhYyPyJfKpkwlekrvK+1pzQ2ldWw==",
       "dependencies": [
-        "@preact/signals-core@1.8.0",
-        "preact"
+        "@preact/signals-core",
+        "preact@10.22.0"
       ]
     },
     "@trysound/sax@0.2.0": {
@@ -959,6 +958,9 @@
     "preact@10.22.0": {
       "integrity": "sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw=="
     },
+    "preact@10.26.4": {
+      "integrity": "sha512-KJhO7LBFTjP71d83trW+Ilnjbo+ySsaAgCfXOXUlmGzJ4ygYPWmysm77yg4emwfmoz3b22yvH5IsVFHbhUaH5w=="
+    },
     "queue-microtask@1.2.3": {
       "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="
     },
@@ -1529,11 +1531,11 @@
       "jsr:@std/expect@^1.0.11",
       "jsr:@std/http@^1.0.12",
       "jsr:@std/testing@^1.0.9",
-      "npm:@preact/signals-core@1.5.1",
+      "npm:@preact/signals-core@1.8.0",
       "npm:@preact/signals@1.2.2",
       "npm:@types/delaunator@5",
       "npm:delaunator@^5.0.1",
-      "npm:preact@10.22.0",
+      "npm:preact@10.26.4",
       "npm:tailwindcss@3.4.1"
     ]
   }

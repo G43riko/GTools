@@ -55,25 +55,23 @@
             "exclude": ["no-explicit-any"]
         },
         "include": ["workspaces/**/src/**/*.ts"],
-        "exclude": ["srcOld", "utils", "docs", "coverage"]
+        "exclude": ["utils", "docs", "coverage"]
     },
     "publish": {
         "exclude": ["**/*.bench.ts"]
     },
     "test": {
-        "exclude": ["**/*.bench.ts", "srcOld"]
+        "exclude": ["**/*.bench.ts"]
     },
     "bench": {
-        "include": ["workspaces/**/src"],
-        "exclude": ["srcOld"]
+        "include": ["workspaces/**/src"]
     },
     "fmt": {
         "lineWidth": 120,
         "indentWidth": 4,
         "exclude": [
             "docs",
-            "coverage",
-            "srcOld"
+            "coverage"
         ]
     },
     "compilerOptions": {
@@ -96,10 +94,9 @@
         "@types/delaunator": "npm:@types/delaunator@^5.0.0",
         // fresh
         "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-
-        "preact": "npm:preact@10.22.0",
+        "preact": "npm:preact@10.26.4",
         "@preact/signals": "npm:@preact/signals@1.2.2",
-        "@preact/signals-core": "npm:@preact/signals-core@1.5.1",
+        "@preact/signals-core": "npm:@preact/signals-core@1.8.0",
         "tailwindcss": "npm:tailwindcss@3.4.1",
         "tailwindcss/": "npm:tailwindcss@3.4.1/",
         "tailwindcss/plugin": "npm:tailwindcss@3.4.1/plugin.js"
