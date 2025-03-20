@@ -141,7 +141,7 @@ export class SvgArcElementFactory extends SvgPathElementFactory {
     }
 
     public get outerRadius(): number {
-        return this._innerRadius;
+        return this._outerRadius;
     }
 
     public setRadius(r: number): this {

@@ -95,7 +95,7 @@ export class Rect implements MassAble2D {
             y: max.y - min.y,
         };
 
-        return new Rect(Object.assign({}, min), size);
+        return new Rect({ ...min }, size);
     }
 
     public constructor(

@@ -24,7 +24,10 @@ export class Grid2ObjectHolder<T> implements Grid2Holder<T> {
             return row[y];
         }
 
-        return row[y] = valueProvider();
+        const value = valueProvider();
+        row[y] = value;
+
+        return value;
     }
 
     public swap(ax: number, ay: number, bx: number, by: number): void {

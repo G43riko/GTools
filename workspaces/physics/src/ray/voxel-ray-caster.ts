@@ -25,7 +25,7 @@ export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimple
 
         do {
             // const fixedPosition = Vector3.mulNum(this.position, 1 / this.blockSize);
-            const fixedPosition = Object.assign({}, this.position);
+            const fixedPosition = { ...this.position };
 
             const block = this.world.getBlockByPosition(fixedPosition.x, fixedPosition.y, fixedPosition.z);
 

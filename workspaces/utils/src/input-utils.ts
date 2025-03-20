@@ -1,5 +1,7 @@
 import { Button, Keys, PointerType } from "@g43/enums";
 
+type InputEvent = TouchEvent | PointerEvent | MouseEvent;
+
 export function extractKeyFromEvent(event: any): Keys {
     return event.code as Keys;
 }
@@ -16,7 +18,7 @@ export function isPointerEvent(event: Event): event is PointerEvent {
     return "PointerEvent" in globalThis && event instanceof PointerEvent;
 }
 
-export function compareEventButton(event: TouchEvent | PointerEvent | MouseEvent, ...buttons: Button[]): boolean {
+export function compareEventButton(event: InputEvent, ...buttons: Button[]): boolean {
     return buttons.includes(extractButtonFromEvent(event));
 }
 
@@ -61,13 +63,13 @@ export function simplifyKey(key: Keys): string {
     }
 }
 
-export function extractButtonFromEvent(event: TouchEvent | PointerEvent | MouseEvent): Button;
+export function extractButtonFromEvent(event: InputEvent): Button;
 export function extractButtonFromEvent(
-    event: TouchEvent | PointerEvent | MouseEvent,
+    event: InputEvent,
     allowUndefined: true,
 ): Button | unknown;
 export function extractButtonFromEvent(
-    event: TouchEvent | PointerEvent | MouseEvent,
+    event: InputEvent,
     allowUndefined?: true,
 ): Button | unknown {
     if (isTouchEvent(event)) {

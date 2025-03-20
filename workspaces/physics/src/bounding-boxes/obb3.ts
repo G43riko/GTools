@@ -4,4 +4,5 @@
  * @see ObbShadowedBox
  */
 export class Obb3 {
+    // TODO imlement this
 }

@@ -92,10 +92,8 @@ export class Polygon2d implements MassAble2D {
                     return false;
                 }
                 orientation = angle > 0 ? 1 : -1;
-            } else {
-                if (orientation * angle <= 0) {
-                    return false;
-                }
+            } else if (orientation * angle <= 0) {
+                return false;
             }
             angleSum += angle;
         }

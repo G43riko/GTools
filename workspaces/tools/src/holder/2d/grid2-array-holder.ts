@@ -123,8 +123,9 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
             return existingItem;
         }
         const newItem = getValueFromProvider(provider);
+        this._data[index] = newItem;
 
-        return this._data[index] = newItem;
+        return newItem;
     }
 
     public getAroundData(x: number, y: number, size = 1): Grid2Block<T>[] {

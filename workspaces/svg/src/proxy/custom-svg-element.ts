@@ -44,14 +44,9 @@ export class CustomSvgElement implements SvgElementProxy {
         if (/^\.[a-zA-Z-]+$/.test(selector)) {
             const className = selector.slice(1);
             const foundElement = this.children.find((element) => {
-                if (element instanceof CustomSvgElement) {
-                    if (element.classList.contains(className)) {
-                        return true;
-                    }
-                } else if (element instanceof SVGElement) {
-                    if (element.classList.contains(className)) {
-                        return true;
-                    }
+                const isSvgElement = element instanceof CustomSvgElement || element instanceof SVGElement;
+                if (isSvgElement && element.classList.contains(className)) {
+                    return true;
                 }
             });
 
