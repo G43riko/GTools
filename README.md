@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/G43riko/GTools/blob/master/LICENSE)
-[![Vulnerabilities](https://github.com/G43riko/GTools/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/G43riko/GTools/actions)
+[![Actions status](https://github.com/G43riko/GTools/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/G43riko/GTools/actions)
 ![REPO SIZE](https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square)
 ![CODE SIZE](https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=coverage)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
@@ -8,7 +8,6 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
-
 
 <!--
 [![npm version](https://badge.fury.io/js/gtools.svg)](https://badge.fury.io/js/gtools)
