@@ -3,11 +3,11 @@ import { AbstractArrayHolder } from "./abstract-array-holder.ts";
 export type NibbleType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15;
 
 class NibbleUtils {
-    public static getLowerNibble = (byte: number): NibbleType => (byte & 0x0F) as NibbleType;
+    public static readonly getLowerNibble = (byte: number): NibbleType => (byte & 0x0F) as NibbleType;
 
-    public static getUpperNibble = (byte: number): NibbleType => ((byte & 0xF0) >> 4) as NibbleType;
+    public static readonly getUpperNibble = (byte: number): NibbleType => ((byte & 0xF0) >> 4) as NibbleType;
 
-    public static combineNibbles = (upper: NibbleType, lower: NibbleType): number => (upper << 4) | (lower & 0x0F);
+    public static readonly combineNibbles = (upper: NibbleType, lower: NibbleType): number => (upper << 4) | (lower & 0x0F);
 }
 
 export class ArrayNibbleHolder extends AbstractArrayHolder<NibbleType, number[]> {
