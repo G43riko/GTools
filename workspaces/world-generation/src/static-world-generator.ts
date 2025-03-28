@@ -45,10 +45,10 @@ export interface StaticWorldGeneratorOptions<Biome extends string = string> {
  *  2. generate heightMap using
  */
 export class StaticWorldGenerator<Cell extends MapAccessorCell, Biome extends string = string> {
-    private seed: number;
+    private readonly seed: number;
     private readonly random: Random;
-    private voronoi: VoronoiDataHolder;
-    private heightMap: (x: number, y: number) => number;
+    private readonly voronoi: VoronoiDataHolder;
+    private readonly heightMap: (x: number, y: number) => number;
 
     public constructor(
         private readonly options: StaticWorldGeneratorOptions<Biome>,
