@@ -59,7 +59,7 @@ export class StaticCanvasDrawer {
      * @param context
      * @param centerX
      * @param centerY
-     * @param text The text to be displayed in circular fashion
+     * @param texts The text to be displayed in circular fashion
      * @param diameter The diameter of the circle around which the text will be displayed (inside or outside)
      * @param startAngle In degrees, Where the text will be shown. 0 degrees if the top of the circle
      * @param align Positions text to left right or center of startAngle
@@ -71,7 +71,7 @@ export class StaticCanvasDrawer {
      */
     public static getCircularText(
         context: CanvasRenderingContext2D,
-        text: string,
+        texts: string,
         diameter: number,
         startAngle: number,
         textInside: boolean,
@@ -92,7 +92,7 @@ export class StaticCanvasDrawer {
         // calculate height of the font. Many ways to do this
         // you can replace with your own!
         const div = document.createElement("div");
-        div.innerHTML = text;
+        div.innerHTML = texts;
         div.style.position = "absolute";
         div.style.top = "-10000px";
         div.style.left = "-10000px";
@@ -118,7 +118,7 @@ export class StaticCanvasDrawer {
                 "center",
             ].indexOf(align) > -1) && inwardFacing) || (align === "right" && !inwardFacing)
         ) {
-            text = text.split("")
+            texts = texts.split("")
                 .reverse()
                 .join("");
         }
@@ -132,9 +132,9 @@ export class StaticCanvasDrawer {
 
         // rotate 50% of total angle for center alignment
         if (align === "center") {
-            for (let j = 0; j < text.length; j++) {
-                charWid = ctxRef.measureText(text[j]).width;
-                startAngle += ((charWid + (j === text.length - 1 ? 0 : kerning)) / (diameter / 2 - textHeight)) / 2 *
+            for (let j = 0; j < texts.length; j++) {
+                charWid = ctxRef.measureText(texts[j]).width;
+                startAngle += ((charWid + (j === texts.length - 1 ? 0 : kerning)) / (diameter / 2 - textHeight)) / 2 *
                     -clockwise;
             }
         }
@@ -143,13 +143,13 @@ export class StaticCanvasDrawer {
         ctxRef.rotate(startAngle);
 
         // Now for the fun bit: draw, rotate, and repeat
-        for (let j = 0; j < text.length; j++) {
-            charWid = ctxRef.measureText(text[j]).width; // half letter
+        for (const text of texts) {
+            charWid = ctxRef.measureText(text).width; // half letter
 
             ctxRef.rotate((charWid / 2) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
 
             // draw char at "top" if inward facing or "bottom" if outward
-            ctxRef.fillText(text[j], 0, (inwardFacing ? 1 : -1) * (0 - diameter / 2 + textHeight / 2));
+            ctxRef.fillText(text, 0, (inwardFacing ? 1 : -1) * (0 - diameter / 2 + textHeight / 2));
 
             ctxRef.rotate((charWid / 2 + kerning) / (diameter / 2 - textHeight) * clockwise); // rotate half letter
         }

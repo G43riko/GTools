@@ -52,18 +52,18 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         let minY = Infinity;
         let maxX = -Infinity;
         let maxY = -Infinity;
-        for (let i = 0; i < points.length; i++) {
-            if (points[i].x < minX) {
-                minX = points[i].x;
+        for (const point of points) {
+            if (point.x < minX) {
+                minX = point.x;
             }
-            if (points[i].x > maxX) {
-                maxX = points[i].x;
+            if (point.x > maxX) {
+                maxX = point.x;
             }
-            if (points[i].y < minY) {
-                minY = points[i].y;
+            if (point.y < minY) {
+                minY = point.y;
             }
-            if (points[i].y > maxY) {
-                maxY = points[i].y;
+            if (point.y > maxY) {
+                maxY = point.y;
             }
         }
 

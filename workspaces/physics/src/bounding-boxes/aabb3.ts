@@ -49,24 +49,24 @@ export class AABB3 implements AABB<AABB3, SimpleVector3, MinMax3D> {
         let maxX = -Infinity;
         let maxY = -Infinity;
         let maxZ = -Infinity;
-        for (let i = 0; i < points.length; i++) {
-            if (points[i].x < minX) {
-                minX = points[i].x;
+        for (const point of points) {
+            if (point.x < minX) {
+                minX = point.x;
             }
-            if (points[i].x > maxX) {
-                maxX = points[i].x;
+            if (point.x > maxX) {
+                maxX = point.x;
             }
-            if (points[i].y < minY) {
-                minY = points[i].y;
+            if (point.y < minY) {
+                minY = point.y;
             }
-            if (points[i].y > maxY) {
-                maxY = points[i].y;
+            if (point.y > maxY) {
+                maxY = point.y;
             }
-            if (points[i].z < minZ) {
-                minZ = points[i].z;
+            if (point.z < minZ) {
+                minZ = point.z;
             }
-            if (points[i].z > maxZ) {
-                maxZ = points[i].z;
+            if (point.z > maxZ) {
+                maxZ = point.z;
             }
         }
 
