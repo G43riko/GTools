@@ -22,8 +22,15 @@ export class Historgram<Key extends string = string> {
     }
 
 
-    public getSorted(sort: "ASC" | "DESC" = "DESC"): Record<Key, number> {
-        const entries = Array.from(this.data.entries());
+    public getSorted(sort: "ASC" | "DESC" = "DESC", { minOccurences = 0 } = {}): Record<Key, number> {
+        const entries = new Array<[key: Key, value: number]>();
+
+        for (const [key, count] of this.data) {
+            if (count >= minOccurences) {
+                entries.push([key, count]);
+            }
+        }
+
         entries.sort(sort === "ASC" ? (a, b) => a[1] - b[1] : (a, b) => b[1] - a[1]);
 
         return Object.fromEntries(entries) as Record<Key, number>;
