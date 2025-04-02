@@ -36,6 +36,10 @@ export class Histogram<Key extends string = string> {
         return Object.fromEntries(entries) as Record<Key, number>;
     }
 
+    public addAll(keys: readonly Key[]): void {
+        keys.forEach((key) => this.add(key));
+    }
+
     public add(key: Key): void {
         if (!key && !this.options.includeFalsyValues) {
             return;
