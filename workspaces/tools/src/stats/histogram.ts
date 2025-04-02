@@ -14,6 +14,9 @@
 export class Histogram<Key extends string = string> {
     public readonly data: Map<Key, number> = new Map();
 
+    public get length(): number {
+        return this.data.size;
+    }
     public constructor(private readonly options: { includeFalsyValues?: boolean } = {}) {
     }
 
