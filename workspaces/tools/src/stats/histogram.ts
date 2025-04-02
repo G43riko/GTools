@@ -21,8 +21,12 @@ export class Historgram<Key extends string = string> {
         this.data.clear();
     }
 
-    public getSorted(): Record<Key, number> {
-        return Object.fromEntries(Array.from(this.data.entries()).sort((a, b) => b[1] - a[1])) as Record<Key, number>;
+
+    public getSorted(sort: "ASC" | "DESC" = "DESC"): Record<Key, number> {
+        const entries = Array.from(this.data.entries());
+        entries.sort(sort === "ASC" ? (a, b) => a[1] - b[1] : (a, b) => b[1] - a[1]);
+
+        return Object.fromEntries(entries) as Record<Key, number>;
     }
 
     public add(key: Key): void {
