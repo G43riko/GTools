@@ -11,7 +11,7 @@
  * console.log(histogram); // {"ITEM_A": 2, "ITEM_B": 1}
  * ```
  */
-export class Historgram<Key extends string = string> {
+export class Histogram<Key extends string = string> {
     public readonly data: Map<Key, number> = new Map();
 
     public constructor(private readonly options: { includeFalsyValues?: boolean } = {}) {
