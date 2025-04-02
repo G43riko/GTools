@@ -13,7 +13,7 @@
  */
 export class BooleanCounter {
     private _totalValues = 0;
-    public _trueValues = 0;
+    private _trueValues = 0;
 
     public get trueValues(): number {
         return this._trueValues;

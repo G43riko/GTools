@@ -1,34 +1,40 @@
 /**
  * @example
  * ```ts
- * import {Historgram} from "@g43/tools";
+ * import { assertEquals } from "jsr:@std/assert/equals";
  *
- * const histogram = new Historgram();
+ * const histogram = new Histogram();
  * histogram.add("ITEM_A");
  * histogram.add("ITEM_B");
  * histogram.add("ITEM_A");
  *
- * console.log(histogram); // {"ITEM_A": 2, "ITEM_B": 1}
+ * assertEquals(histogram.getSorted(), {"ITEM_A": 2, "ITEM_B": 1});
+ * assertEquals(histogram.length, 2);
+ * assertEquals(histogram.totalLength, 3);
  * ```
  */
 export class Histogram<Key extends string = string> {
-    public readonly data: Map<Key, number> = new Map();
+    private _totalLength = 0
+    private readonly _data: Map<Key, number> = new Map();
 
+    public get totalLength(): number {
+        return this._totalLength;
+    }
     public get length(): number {
-        return this.data.size;
+        return this._data.size;
     }
     public constructor(private readonly options: { includeFalsyValues?: boolean } = {}) {
     }
 
     public reset(): void {
-        this.data.clear();
+        this._data.clear();
     }
 
 
     public getSorted(sort: "ASC" | "DESC" = "DESC", { minOccurences = 0 } = {}): Record<Key, number> {
         const entries = new Array<[key: Key, value: number]>();
 
-        for (const [key, count] of this.data) {
+        for (const [key, count] of this._data) {
             if (count >= minOccurences) {
                 entries.push([key, count]);
             }
@@ -47,7 +53,8 @@ export class Histogram<Key extends string = string> {
         if (!key && !this.options.includeFalsyValues) {
             return;
         }
-        this.data.set(key, (this.data.get(key) ?? 0) + 1);
+        this._totalLength++;
+        this._data.set(key, (this._data.get(key) ?? 0) + 1);
     }
 
     public toJSON(): Record<Key, number> {

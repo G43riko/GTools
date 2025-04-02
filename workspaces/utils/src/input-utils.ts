@@ -35,6 +35,7 @@ enum NativePointerButton {
  * @returns
  * ```ts
  * import {assertEquals} from "@std/assert";
+ * import { Keys } from "@g43/enums";
  *
  * assertEquals(simplifyKey(Keys.A), "A"); // KeyA => A
  * assertEquals(simplifyKey(Keys.DIGIT_1), "1"); // Digit1 => 1
