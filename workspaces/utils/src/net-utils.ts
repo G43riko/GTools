@@ -14,12 +14,13 @@ export interface PingParams {
      * Timeout in ms
      */
     readonly timeout?: number;
+    readonly silent?: boolean;
     readonly headers?: HeadersInit;
 }
 
 export async function ping(
     url: string,
-    { timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
+    { silent, timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
 ): Promise<PingResult> {
     const date = new Date();
     try {
@@ -36,11 +37,14 @@ export async function ping(
             status: response.ok,
         };
     } catch (error: any) {
-        if (error.name === "AbortError") {
-            console.error("Request timed out");
-        } else {
-            console.error("Request failed:", error);
+        if(!silent) {
+            if (error.name === "AbortError") {
+                console.error(`ping (${url}): Request timed out`);
+            } else {
+                console.error(`ping (${url}): Request failed`, error);
+            }
         }
+
         return {
             date: date.toISOString(),
             duration: Date.now() - date.getTime(),
