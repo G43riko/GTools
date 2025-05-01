@@ -2,7 +2,6 @@ import type { ReadonlyMinMax2D, ReadonlyPair, ReadonlySimpleVector2, SimpleVecto
 import type { Vector } from "./vector.ts";
 
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
-    public static readonly TMP: Vector2 = new Vector2();
     public static createEmpty(): Vector2 {
         return new Vector2(0, 0);
     }
@@ -17,17 +16,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     ) {
     }
 
-    public static average(points: ReadonlySimpleVector2[]): ReadonlySimpleVector2 {
-        const result = { x: 0, y: 0 };
-        points.forEach((point) => {
-            result.x += point.x;
-            result.y += point.y;
-        });
-        result.x /= points.length;
-        result.y /= points.length;
-
-        return result;
-    }
 
     public toReadonlyProxy(): ReadonlySimpleVector2 {
         // deno-lint-ignore no-this-alias
@@ -48,7 +36,10 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     /**
      * Check if this vector equals another vector.
      */
-    public equals(vector: any): boolean {
+    public equals(vector: unknown): boolean {
+        if(!Vector2.isVector(vector)) {
+            return false;
+        }
         return Vector2.equals(this, vector);
     }
     /**
@@ -97,7 +88,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      */
     public static rotate(angle: number, point: ReadonlySimpleVector2, anchor?: ReadonlySimpleVector2): Vector2 {
         const anchorX = anchor?.x ?? 0;
-        const anchorY = anchor?.x ?? 0;
+        const anchorY = anchor?.y ?? 0;
         const sinAngle = Math.sin(angle);
         const cosAngle = Math.cos(angle);
         const x = cosAngle * (point.x - anchorX) - sinAngle * (point.y - anchorY) + anchorX;
@@ -157,6 +148,24 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
+    /**
+     * @deprecated use {@link Vector2.center} instead
+     * @param points
+     */
+    public static average(points: ReadonlySimpleVector2[]): ReadonlySimpleVector2 {
+        if (points.length === 0) {
+            throw new Error("Cannot calculate average of empty array");
+        }
+        const result = { x: 0, y: 0 };
+        points.forEach((point) => {
+            result.x += point.x;
+            result.y += point.y;
+        });
+        result.x /= points.length;
+        result.y /= points.length;
+
+        return result;
+    }
     public static center<T extends SimpleVector2>(
         points: readonly ReadonlySimpleVector2[],
         result: T = new Vector2() as unknown as T,
@@ -228,7 +237,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * ```
      */
     public get avg(): number {
-        return this.sum / 2;
+        const sum = this.sum;
+        if (sum === 0) {
+            return 0;
+        }
+        return sum / 2;
     }
 
     /**
@@ -430,7 +443,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         );
     }
 
-    public static isVector(vec: any): vec is SimpleVector2 {
+    public static isVector(vec: unknown): vec is SimpleVector2 {
         return (
             vec !== null &&
             typeof vec === "object" &&
