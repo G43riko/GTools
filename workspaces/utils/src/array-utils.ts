@@ -28,10 +28,12 @@ export function pairwiseArray<T>(arr: ArrayLike<T>): [T, T][] {
         throw new Error("Array length must be even");
     }
 
-    const result = new Array<[T, T]>();
+    // Pre-allocate the result array with the correct size for better performance
+    const pairCount = arr.length / 2;
+    const result = new Array<[T, T]>(pairCount);
 
-    for (let i = 0; i < arr.length;) {
-        result.push([arr[i++], arr[i++]]);
+    for (let i = 0, j = 0; i < arr.length;) {
+        result[j++] = [arr[i++], arr[i++]];
     }
 
     return result;
@@ -103,15 +105,15 @@ export function partition<T>(
     array: readonly T[], 
     predicate: (value: T) => boolean
 ): readonly [pass: T[], fail: T[]] {
-    const pass: T[] = [];
-    const fail: T[] = [];
+        const pass: T[] = [];
+        const fail: T[] = [];
 
-    for (const item of array) {
-        (predicate(item) ? pass : fail).push(item);
+        for (const item of array) {
+            (predicate(item) ? pass : fail).push(item);
+        }
+
+        return [pass, fail];
     }
-
-    return [pass, fail];
-}
 
 /**
  * Creates a new array with the elements in random order.
@@ -121,18 +123,22 @@ export function partition<T>(
  * @returns A new array with elements in random order
  */
 export function shuffle<T>(array: readonly T[]): T[] {
-    const result = [...array];
-    let currentIndex = result.length;
+    // Pre-allocate the result array with the correct size for better performance
+    const length = array.length;
+    const result = new Array<T>(length);
 
-    // While there remain elements to shuffle
-    while (currentIndex > 0) {
-        // Pick a remaining element
-        const randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+    // Copy the array first (faster than spread for large arrays)
+    for (let i = 0; i < length; i++) {
+        result[i] = array[i];
+    }
 
-        // Swap it with the current element
-        [result[currentIndex], result[randomIndex]] = 
-        [result[randomIndex], result[currentIndex]];
+    // Fisher-Yates shuffle algorithm
+    for (let i = length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        // Swap elements using a temp variable (faster than destructuring for primitive types)
+        const temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
     }
 
     return result;
