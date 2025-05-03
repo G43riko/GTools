@@ -1,3 +1,23 @@
+/**
+ * @module @g43/utils
+ * 
+ * A collection of utility functions for common programming tasks.
+ * 
+ * This module provides a wide range of utility functions for working with:
+ * - Arrays and collections
+ * - Colors and color conversions
+ * - Directions and orientation
+ * - Geographic calculations
+ * - Image manipulation
+ * - Input handling
+ * - Iterators and generators
+ * - Mathematical operations
+ * - Network requests
+ * - Object manipulation
+ * - String formatting and parsing
+ * - Sorting algorithms
+ */
+
 export * from "./array-utils.ts";
 export * from "./color-utils.ts";
 export * from "./direction-utils.ts";

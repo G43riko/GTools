@@ -1,11 +1,14 @@
 import { toRadians } from "./math-utils.ts";
 
 /**
- * @return distance in km
- * @param lat1
- * @param lon1
- * @param lat2
- * @param lon2
+ * Calculates the great-circle distance between two points on the Earth's surface
+ * given their latitude and longitude using the haversine formula.
+ *
+ * @param {number} lat1 Latitude of the first point in decimal degrees.
+ * @param {number} lon1 Longitude of the first point in decimal degrees.
+ * @param {number} lat2 Latitude of the second point in decimal degrees.
+ * @param {number} lon2 Longitude of the second point in decimal degrees.
+ * @return {number} The great-circle distance between the two points in kilometers.
  */
 export function calcCrow(lat1: number, lon1: number, lat2: number, lon2: number): number {
     const R = 6371; // km

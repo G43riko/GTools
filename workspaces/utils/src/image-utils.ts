@@ -1,4 +1,5 @@
 import { getAverageColorFromArrayData } from "./color-utils.ts";
+
 /**
  * @throws error if getting context form canvas failed
  * @param image
@@ -50,6 +51,13 @@ export function pixelizeImage(
 
     return result;
 }
+/**
+ * Converts a canvas element to an image element.
+ *
+ * @param {HTMLCanvasElement} canvas - The canvas element to be converted to an image.
+ * @param {string} [format="image/png"] - The format of the output image, specified as a MIME type (e.g., "image/png", "image/jpeg").
+ * @return {HTMLImageElement} The generated image element with the content from the canvas.
+ */
 export function canvasToImage(canvas: HTMLCanvasElement, format = "image/png"): HTMLImageElement {
     const url = canvas.toDataURL(format);
     const image = loadImage(url);
@@ -85,6 +93,13 @@ export function getAverageColorFromImage(
     return getAverageColorFromArrayData(imageData.data, 4);
 }
 
+/**
+ * Loads an image from the given source and resolves with the HTMLImageElement once loaded.
+ * If the image fails to load, the promise will be rejected.
+ *
+ * @param {string} src - The source URL of the image to be loaded.
+ * @return {Promise<HTMLImageElement>} A promise that resolves with the loaded HTMLImageElement or rejects with an error event.
+ */
 export function imageAsPromise(src: string): Promise<HTMLImageElement> {
     return new Promise<HTMLImageElement>((success, reject) => {
         const image = document.createElement("img");
@@ -123,6 +138,12 @@ export function serializeImage(image: HTMLImageElement): string {
     return canvas.toDataURL("image/png");
 }
 
+/**
+ * Loads an image from the specified source URL and returns it as an HTMLImageElement.
+ *
+ * @param {string} src - The source URL of the image to load.
+ * @return {HTMLImageElement} The newly created image element with its source set to the provided URL.
+ */
 export function loadImage(src: string): HTMLImageElement {
     const originalImage = document.createElement("img");
     originalImage.src = src;
@@ -130,6 +151,13 @@ export function loadImage(src: string): HTMLImageElement {
     return originalImage;
 }
 
+/**
+ * Loads an image from the specified source and applies a transformation to it.
+ *
+ * @param {string} src - The source URL of the image to be loaded.
+ * @param {(image: HTMLImageElement) => HTMLImageElement} transform - A callback function that applies a transformation to the loaded image. This function receives the original image as input and should return a transformed image.
+ * @return {HTMLImageElement} The original image element with its `src` set to the transformed image.
+ */
 export function loadImageAnd(src: string, transform: (image: HTMLImageElement) => HTMLImageElement): HTMLImageElement {
     const originalImage = document.createElement("img");
     const callback = () => {
@@ -172,6 +200,14 @@ export function imageToContext(image: HTMLImageElement, params: {
     return ctx;
 }
 
+/**
+ * Converts an HTMLImageElement to an HTMLCanvasElement with optional transformations.
+ *
+ * @param {HTMLImageElement} image - The image element to be rendered onto the canvas.
+ * @param {Object} [params] - Optional parameters to modify the rendering.
+ * @param {number} [params.rotate] - The rotation angle in degrees to apply to the image.
+ * @return {HTMLCanvasElement} The resulting canvas element with the image drawn onto it.
+ */
 export function imageToCanvas(image: HTMLImageElement, params: {
     readonly rotate?: number;
 } = {}): HTMLCanvasElement {
