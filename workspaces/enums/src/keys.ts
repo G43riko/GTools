@@ -1,3 +1,19 @@
+/**
+ * Enum representing keyboard key codes.
+ * 
+ * This enum provides a set of constants for common keyboard keys,
+ * using the standard key codes as defined by the Web API's KeyboardEvent.code property.
+ * 
+ * @example
+ * ```ts
+ * // Check if a key press is the Enter key
+ * function handleKeyDown(event: KeyboardEvent) {
+ *   if (event.code === Keys.ENTER) {
+ *     // Handle Enter key press
+ *   }
+ * }
+ * ```
+ */
 export enum Keys {
     ARROW_UP = "ArrowUp",
     ARROW_DOWN = "ArrowDown",
@@ -58,7 +74,10 @@ export enum Keys {
 }
 
 /**
- * @deprecated
+ * A class containing constants for keyboard key codes using the older numeric values.
+ * 
+ * @deprecated Use the {@link Keys} enum instead, which uses the standard string codes
+ * from KeyboardEvent.code that are more reliable across different keyboard layouts.
  */
 export class KeysOld {
     public static readonly ENTER = 13;
