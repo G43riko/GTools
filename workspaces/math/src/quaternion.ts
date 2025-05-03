@@ -2,6 +2,31 @@ import type { ReadonlySimpleVector3 } from "@g43/types";
 import type { Mat4 } from "./mat4.ts";
 import { Vector4 } from "./vector4.ts";
 
+/**
+ * A quaternion class for representing 3D rotations.
+ * 
+ * Quaternions are a mathematical concept used to represent rotations in 3D space.
+ * They offer advantages over Euler angles (avoiding gimbal lock) and rotation matrices
+ * (more compact and numerically stable).
+ * 
+ * This class extends Vector4, where:
+ * - x, y, z components represent the vector part
+ * - w component represents the scalar part
+ * 
+ * @extends {Vector4} - Quaternions are represented as 4D vectors
+ * 
+ * @example
+ * ```ts
+ * // Create a quaternion from Euler angles (in degrees)
+ * const rotation = Quaternion.fromEuler(45, 0, 30);
+ * 
+ * // Convert back to Euler angles
+ * const euler = rotation.toEuler();
+ * 
+ * // Combine rotations using multiplication
+ * const combined = Quaternion.multiply(rotation1, rotation2);
+ * ```
+ */
 export class Quaternion extends Vector4 {
     public static fromRotationMatrix(rot: Mat4): Quaternion {
         const trace = rot.get(0, 0) + rot.get(1, 1) + rot.get(2, 2);

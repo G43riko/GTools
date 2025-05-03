@@ -1,6 +1,33 @@
 import type { ReadonlyMinMax2D, ReadonlyPair, ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
 import type { Vector } from "./vector.ts";
 
+/**
+ * A 2D vector class for mathematical operations.
+ * 
+ * This class provides a comprehensive set of methods for 2D vector operations,
+ * including addition, subtraction, multiplication, division, dot product, cross product,
+ * normalization, rotation, and more.
+ * 
+ * @implements {SimpleVector2} - Basic x,y interface
+ * @implements {Vector<SimpleVector2, Vector2>} - Vector interface
+ * 
+ * @example
+ * ```ts
+ * // Create a new vector
+ * const vec = new Vector2(3, 4);
+ * 
+ * // Calculate the length
+ * const length = vec.length(); // 5
+ * 
+ * // Normalize the vector
+ * const normalized = vec.getNormalized();
+ * 
+ * // Perform vector operations
+ * const vec2 = new Vector2(1, 2);
+ * const sum = vec.add(vec2); // Vector2(4, 6)
+ * const dot = vec.dot(vec2); // 11
+ * ```
+ */
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     public static createEmpty(): Vector2 {
         return new Vector2(0, 0);
