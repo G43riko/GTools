@@ -1,8 +1,8 @@
 /**
  * @module @g43/types
- * 
+ *
  * A collection of TypeScript type definitions for common data structures.
- * 
+ *
  * This module provides a variety of type definitions for vectors, sizes, positions,
  * alignment options, and other common structures used in TypeScript applications.
  * These types help ensure type safety and improve code readability.

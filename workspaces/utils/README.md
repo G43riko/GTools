@@ -31,11 +31,7 @@ import { clamp, hex2rgb, shuffle } from "jsr:@g43/utils";
 ## Usage
 
 ```typescript
-import { 
-  chunk, unique, shuffle,
-  hex2rgb, rgb2hex,
-  clamp, lerp, average
-} from "@g43/utils";
+import { average, chunk, clamp, hex2rgb, lerp, rgb2hex, shuffle, unique } from "@g43/utils";
 
 // Array utilities
 const chunks = chunk([1, 2, 3, 4, 5, 6], 2); // [[1, 2], [3, 4], [5, 6]]

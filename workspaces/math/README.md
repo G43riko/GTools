@@ -4,7 +4,8 @@
 
 # @g43/math
 
-A comprehensive math library for TypeScript applications, providing vector and matrix operations for 2D and 3D graphics, physics simulations, and computational geometry.
+A comprehensive math library for TypeScript applications, providing vector and matrix operations for 2D and 3D graphics,
+physics simulations, and computational geometry.
 
 ## Installation
 
@@ -27,7 +28,7 @@ import { Vector2, Vector3, Quaternion } from "jsr:@g43/math";
 ## Usage
 
 ```typescript
-import { Vector2, Vector3, Quaternion } from "@g43/math";
+import { Quaternion, Vector2, Vector3 } from "@g43/math";
 
 // 2D Vector operations
 const position = new Vector2(10, 20);

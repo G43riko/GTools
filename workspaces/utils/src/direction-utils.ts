@@ -111,7 +111,7 @@ export function getAdjacentPositionBy(
  * @param {Direction4} direction - The directional input, which can be one of the four cardinal directions: LEFT, RIGHT, UP, or DOWN.
  * @returns {Vector2} A 2D vector corresponding to the given direction.
  * @throws {Error} If the provided direction is not recognized.
- **/
+ */
 export function direction4ToVector2(direction: Direction4): Vector2 {
     switch (direction) {
         case Direction4.LEFT:

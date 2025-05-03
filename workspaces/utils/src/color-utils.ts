@@ -9,15 +9,15 @@ const HEX_COLOR = /^#?[a-fA-F0-9]{6}$/;
 
 /**
  * Linearly interpolates between two RGBA colors.
- * 
+ *
  * This function performs a linear interpolation between two colors represented as RGBA arrays.
  * The progress parameter determines the blend ratio between the colors.
- * 
+ *
  * @param fromColor - The starting color as an RGBA array [r, g, b, a] (values 0-255)
  * @param toColor - The ending color as an RGBA array [r, g, b, a] (values 0-255)
  * @param progress - The interpolation factor (0.0 to 1.0)
  * @returns A new RGBA color array representing the interpolated color
- * 
+ *
  * @example
  * ```ts
  * // Blend red and blue to create purple (50% blend)
@@ -46,15 +46,15 @@ export function lerpColor(
 
 /**
  * Linearly interpolates between two hexadecimal color strings.
- * 
+ *
  * This function performs a linear interpolation between two colors represented as hex strings.
  * The amount parameter determines the blend ratio between the colors.
- * 
+ *
  * @param a - The starting color as a hex string (e.g., "#FF0000")
  * @param b - The ending color as a hex string (e.g., "#0000FF")
  * @param amount - The interpolation factor (0.0 to 1.0)
  * @returns A new hex color string representing the interpolated color
- * 
+ *
  * @example
  * ```ts
  * // Blend red and blue to create purple (50% blend)

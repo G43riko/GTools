@@ -29,7 +29,7 @@ import { Days, Direction4, Keys } from "jsr:@g43/enums";
 ## Usage
 
 ```typescript
-import { Days, Direction4, Keys, HttpStatusCodes } from "@g43/enums";
+import { Days, Direction4, HttpStatusCodes, Keys } from "@g43/enums";
 
 // Using day constants
 const today = Days.MON;
@@ -37,31 +37,31 @@ console.log(`Today is ${today}`); // "Today is MON"
 
 // Using directions for movement
 function move(direction: Direction4) {
-  switch (direction) {
-    case Direction4.UP:
-      console.log("Moving up");
-      break;
-    case Direction4.DOWN:
-      console.log("Moving down");
-      break;
-    // Handle other directions...
-  }
+    switch (direction) {
+        case Direction4.UP:
+            console.log("Moving up");
+            break;
+        case Direction4.DOWN:
+            console.log("Moving down");
+            break;
+            // Handle other directions...
+    }
 }
 
 // Handling keyboard input
 function handleKeyPress(event: KeyboardEvent) {
-  if (event.code === Keys.SPACE) {
-    console.log("Space key pressed");
-  }
+    if (event.code === Keys.SPACE) {
+        console.log("Space key pressed");
+    }
 }
 
 // Working with HTTP status codes
 function handleResponse(statusCode: number) {
-  if (statusCode === HttpStatusCodes.OK) {
-    console.log("Request successful");
-  } else if (statusCode === HttpStatusCodes.NOT_FOUND) {
-    console.log("Resource not found");
-  }
+    if (statusCode === HttpStatusCodes.OK) {
+        console.log("Request successful");
+    } else if (statusCode === HttpStatusCodes.NOT_FOUND) {
+        console.log("Resource not found");
+    }
 }
 ```
 

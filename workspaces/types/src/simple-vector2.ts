@@ -1,8 +1,8 @@
 /**
  * Represents a simple 2D vector with x and y coordinates.
- * 
+ *
  * This interface provides a basic structure for representing points or vectors in 2D space.
- * 
+ *
  * @example
  * ```ts
  * const point: SimpleVector2 = { x: 10, y: 20 };
@@ -17,9 +17,9 @@ export interface SimpleVector2 {
 
 /**
  * A readonly version of SimpleVector2.
- * 
+ *
  * Use this type when you want to ensure the vector cannot be modified.
- * 
+ *
  * @example
  * ```ts
  * function calculateDistance(point: ReadonlySimpleVector2): number {

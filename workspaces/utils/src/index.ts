@@ -1,8 +1,8 @@
 /**
  * @module @g43/utils
- * 
+ *
  * A collection of utility functions for common programming tasks.
- * 
+ *
  * This module provides a wide range of utility functions for working with:
  * - Arrays and collections
  * - Colors and color conversions

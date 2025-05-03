@@ -29,27 +29,27 @@ import { SimpleVector2, MinMax3D, PartiallyOptional } from "jsr:@g43/types";
 ## Usage
 
 ```typescript
-import { SimpleVector2, MinMax3D, PartiallyOptional } from "@g43/types";
+import { MinMax3D, PartiallyOptional, SimpleVector2 } from "@g43/types";
 
 // Using vector types
 const point: SimpleVector2 = { x: 10, y: 20 };
 
 // Using bounding box types
 const boundingBox: MinMax3D = {
-  min: { x: 0, y: 0, z: 0 },
-  max: { x: 10, y: 20, z: 30 }
+    min: { x: 0, y: 0, z: 0 },
+    max: { x: 10, y: 20, z: 30 },
 };
 
 // Using utility types
 interface User {
-  id: number;
-  name: string;
-  email: string;
-  avatar: string;
+    id: number;
+    name: string;
+    email: string;
+    avatar: string;
 }
 
 // Only avatar is optional, everything else is required
-type NewUserForm = PartiallyOptional<User, 'avatar'>;
+type NewUserForm = PartiallyOptional<User, "avatar">;
 ```
 
 ## API Documentation

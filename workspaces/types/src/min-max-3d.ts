@@ -2,10 +2,10 @@ import type { ReadonlySimpleVector3, SimpleVector3 } from "./simple-vector3.ts";
 
 /**
  * Represents a 3D bounding box using individual min/max coordinates.
- * 
+ *
  * This interface defines a 3D bounding box using six separate properties for the minimum
  * and maximum coordinates along each axis.
- * 
+ *
  * @example
  * ```ts
  * const boundingBox: MinMaxFlat3D = {
@@ -31,17 +31,17 @@ export interface MinMaxFlat3D {
 
 /**
  * A readonly version of MinMaxFlat3D.
- * 
+ *
  * Use this type when you want to ensure the bounding box cannot be modified.
  */
 export type ReadonlyMinMaxFlat3D = Readonly<MinMaxFlat3D>;
 
 /**
  * Represents a 3D bounding box using min/max vectors.
- * 
+ *
  * This interface defines a 3D bounding box using two vectors: one for the minimum
  * corner and one for the maximum corner.
- * 
+ *
  * @example
  * ```ts
  * const boundingBox: MinMax3D = {
@@ -59,9 +59,9 @@ export interface MinMax3D {
 
 /**
  * A readonly version of MinMax3D.
- * 
+ *
  * Use this type when you want to ensure the bounding box cannot be modified.
- * 
+ *
  * @example
  * ```ts
  * function calculateVolume(box: ReadonlyMinMax3D): number {

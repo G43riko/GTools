@@ -1,9 +1,9 @@
 /**
  * Enum representing seven directions in 3D space.
- * 
+ *
  * This enum extends the six directions (up, down, left, right, front, back)
  * with an additional CENTER value, which is useful for representing a neutral or no-movement state.
- * 
+ *
  * @example
  * ```ts
  * // Set an object's direction based on input
@@ -29,15 +29,15 @@ export enum Direction7 {
 
 /**
  * A mapping of Direction7 values to bit flags.
- * 
+ *
  * This constant provides a bit representation for each direction in the Direction7 enum,
  * which is useful for efficiently storing and combining multiple directions.
- * 
+ *
  * @example
  * ```ts
  * // Check if a direction is included in a combined direction
  * const combinedDirections = Direction7Bit[Direction7.UP] | Direction7Bit[Direction7.RIGHT];
- * 
+ *
  * // Check if UP is included
  * const hasUpDirection = (combinedDirections & Direction7Bit[Direction7.UP]) !== 0;
  * ```
@@ -54,10 +54,10 @@ export const Direction7Bit: Readonly<Record<Direction7, number>> = Object.freeze
 
 /**
  * Enum representing six directions in 3D space.
- * 
+ *
  * This enum extends the four cardinal directions (up, down, left, right)
  * with two additional directions (front, back) for 3D navigation.
- * 
+ *
  * @example
  * ```ts
  * // Move an object in 3D space
@@ -85,10 +85,10 @@ export enum Direction6 {
 
 /**
  * Enum representing the four cardinal directions.
- * 
+ *
  * This enum provides constants for up, down, left, and right directions,
  * which are commonly used for navigation and movement in 2D space.
- * 
+ *
  * @example
  * ```ts
  * // Move a character based on direction
