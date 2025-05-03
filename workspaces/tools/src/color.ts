@@ -28,6 +28,11 @@ export interface IntColor {
 }
 
 /**
+ * A comprehensive color manipulation class with support for RGB, RGBA, HEX, and integer color formats.
+ * 
+ * This class provides methods for creating, converting, and manipulating colors in various formats.
+ * It includes predefined color constants, color transformation methods, and parsing utilities.
+ * 
  * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Color.ts
  * @see https://colorjs.io/
  */
@@ -53,6 +58,25 @@ export class Color implements HexColor, RgbColor, RgbaColor, IntColor {
     public static readonly SILVER: Color = new Color(192, 192, 192);
     public static readonly TRANSPARENT: Color = new Color(0, 0, 0, 0);
 
+    /**
+     * Generates a random color.
+     * 
+     * @param seedOrRandom - Optional seed number or Random instance to use for generation
+     * @returns A new Color instance with random RGB values
+     * 
+     * @example
+     * ```ts
+     * // Generate a completely random color
+     * const color1 = Color.random();
+     * 
+     * // Generate a random color with a specific seed
+     * const color2 = Color.random(42);
+     * 
+     * // Generate a random color using an existing Random instance
+     * const random = new Random(123);
+     * const color3 = Color.random(random);
+     * ```
+     */
     public static random(seedOrRandom?: number | Random): Color {
         if (typeof seedOrRandom === "number") {
             // return new Color(seed * 1515648 % 255, seed * 13518874 % 255, seed * 884141063 % 255);
@@ -75,10 +99,26 @@ export class Color implements HexColor, RgbColor, RgbaColor, IntColor {
         return new Color(Random.intBetween(0, 255), Random.intBetween(0, 255), Random.intBetween(0, 255));
     }
 
+    /**
+     * Creates a Color instance from an RGBA array.
+     * 
+     * @param data - An array containing red, green, blue, and alpha values (0-255)
+     * @returns A new Color instance with the specified RGBA values
+     * 
+     * @example
+     * ```ts
+     * const color = Color.fromRgbaArray([255, 0, 0, 128]); // Semi-transparent red
+     * ```
+     */
     public static fromRgbaArray(data: readonly [red: number, green: number, blue: number, alpha: number]): Color {
         return new Color(data[0], data[1], data[2], data[3]);
     }
 
+    /**
+     * Returns the color as a string in hexadecimal format.
+     * 
+     * @returns The color in hex format (e.g., "#ff0000" for red)
+     */
     public toString(): string {
         return this.hex;
     }

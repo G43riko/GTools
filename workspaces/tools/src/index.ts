@@ -1,3 +1,17 @@
+/**
+ * @module @g43/tools
+ * 
+ * A collection of utility tools for TypeScript applications.
+ * 
+ * This module provides various utilities for common programming tasks:
+ * - Color manipulation (RGB, RGBA, HEX, integer formats)
+ * - Random number generation and selection
+ * - 2D path handling
+ * - Extended Map implementation with additional utilities
+ * - Grid data structures for 2D applications
+ * - Statistics tracking utilities
+ */
+
 export * from "./g-map.ts";
 export * from "./path-2d.ts";
 export * from "./random.ts";
