@@ -1,8 +1,8 @@
 /**
  * @module @g43/tools
- * 
+ *
  * A collection of utility tools for TypeScript applications.
- * 
+ *
  * This module provides various utilities for common programming tasks:
  * - Color manipulation (RGB, RGBA, HEX, integer formats)
  * - Random number generation and selection

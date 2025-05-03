@@ -2,16 +2,16 @@ import type { ReadonlySimpleVector2 } from "@g43/types";
 
 /**
  * A class representing a 2D path made up of points (vectors).
- * 
+ *
  * This class provides methods to access parts of the path or specific points.
  * A path must contain at least 2 points.
- * 
+ *
  * @template T - The type of points in the path, must extend ReadonlySimpleVector2
  */
 export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
     /**
      * Creates a new Path2D instance.
-     * 
+     *
      * @param points - An array of points that make up the path
      * @throws {Error} If the points array contains fewer than 2 points
      */
@@ -23,7 +23,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets the first N points from the path.
-     * 
+     *
      * @param count - The number of points to retrieve
      * @returns An array containing the first N points
      */
@@ -33,7 +33,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets all points starting from the specified index.
-     * 
+     *
      * @param index - The starting index
      * @returns An array containing all points from the specified index to the end
      */
@@ -43,7 +43,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets the last N points from the path.
-     * 
+     *
      * @param count - The number of points to retrieve
      * @returns An array containing the last N points
      */
@@ -53,7 +53,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets the total number of points in the path.
-     * 
+     *
      * @returns The number of points
      */
     public get length(): number {
@@ -62,7 +62,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets the first point in the path.
-     * 
+     *
      * @returns The first point
      */
     public get first(): T {
@@ -71,7 +71,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets the last point in the path.
-     * 
+     *
      * @returns The last point
      */
     public get last(): T {
@@ -80,7 +80,7 @@ export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
 
     /**
      * Gets a specific point from the path by index.
-     * 
+     *
      * @param index - The index of the point to retrieve
      * @returns The point at the specified index
      */

@@ -7,7 +7,8 @@ class NibbleUtils {
 
     public static readonly getUpperNibble = (byte: number): NibbleType => ((byte & 0xF0) >> 4) as NibbleType;
 
-    public static readonly combineNibbles = (upper: NibbleType, lower: NibbleType): number => (upper << 4) | (lower & 0x0F);
+    public static readonly combineNibbles = (upper: NibbleType, lower: NibbleType): number =>
+        (upper << 4) | (lower & 0x0F);
 }
 
 export class ArrayNibbleHolder extends AbstractArrayHolder<NibbleType, number[]> {

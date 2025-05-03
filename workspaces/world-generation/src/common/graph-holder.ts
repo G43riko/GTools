@@ -1,5 +1,5 @@
-import { GMap, Color } from "@g43/tools";
 import type { CanvasDrawer } from "@g43/canvas";
+import { Color, GMap } from "@g43/tools";
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import type { DelaunatorHolder } from "./delaunator-holder.ts";
 

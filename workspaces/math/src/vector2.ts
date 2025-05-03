@@ -16,7 +16,6 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     ) {
     }
 
-
     public toReadonlyProxy(): ReadonlySimpleVector2 {
         // deno-lint-ignore no-this-alias
         const vec = this;
@@ -37,7 +36,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * Check if this vector equals another vector.
      */
     public equals(vector: unknown): boolean {
-        if(!Vector2.isVector(vector)) {
+        if (!Vector2.isVector(vector)) {
             return false;
         }
         return Vector2.equals(this, vector);

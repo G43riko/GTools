@@ -1,6 +1,7 @@
 import type { CanvasDrawer } from "@g43/canvas";
-import type { StaticWorldHolder, MapHolderCell } from "./static-world-holder.ts";
 import { VoronoiCanvasRenderer } from "./rendering/canvas/voronoi-canvas-renderer.ts";
+import type { MapHolderCell, StaticWorldHolder } from "./static-world-holder.ts";
+
 export class StaticWorldCanvasRenderer<Cell extends MapHolderCell = MapHolderCell, Biome extends string = string> {
     private readonly voronoiRenderer: VoronoiCanvasRenderer;
     public constructor(

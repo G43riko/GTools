@@ -37,7 +37,7 @@ export async function ping(
             status: response.ok,
         };
     } catch (error: any) {
-        if(!silent) {
+        if (!silent) {
             if (error.name === "AbortError") {
                 console.error(`ping (${url}): Request timed out`);
             } else {

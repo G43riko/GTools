@@ -6,7 +6,7 @@ import { SimpleMat3 } from "./simple-mat3.ts";
  */
 export class Mat3 extends SimpleMat3 {
     public static mul(a: SimpleMat3, b: SimpleMat3): SimpleMat3;
-    public static mul<T extends SimpleMat3>(a: SimpleMat3, b: SimpleMat3, out: T): T;/**
+    public static mul<T extends SimpleMat3>(a: SimpleMat3, b: SimpleMat3, out: T): T; /**
      * Multiplies two 3x3 matrices (b * a order)
      * @param a First matrix
      * @param b Second matrix

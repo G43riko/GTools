@@ -14,7 +14,7 @@
  * ```
  */
 export class Histogram<Key extends string = string> {
-    private _totalLength = 0
+    private _totalLength = 0;
     private readonly _data: Map<Key, number> = new Map();
 
     public get totalLength(): number {
@@ -29,7 +29,6 @@ export class Histogram<Key extends string = string> {
     public reset(): void {
         this._data.clear();
     }
-
 
     public getSorted(sort: "ASC" | "DESC" = "DESC", { minOccurences = 0 } = {}): Record<Key, number> {
         const entries = new Array<[key: Key, value: number]>();

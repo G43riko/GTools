@@ -101,7 +101,7 @@ describe("Array utils", () => {
             const result = groupBy([6.1, 4.2, 6.3], Math.floor);
             expect(result).toEqual({
                 4: [4.2],
-                6: [6.1, 6.3]
+                6: [6.1, 6.3],
             });
         });
 
@@ -113,17 +113,17 @@ describe("Array utils", () => {
             const users = [
                 { name: "John", age: 30 },
                 { name: "Jane", age: 25 },
-                { name: "John", age: 40 }
+                { name: "John", age: 40 },
             ];
             const result = groupBy(users, (user) => user.name);
             expect(result).toEqual({
                 John: [
                     { name: "John", age: 30 },
-                    { name: "John", age: 40 }
+                    { name: "John", age: 40 },
                 ],
                 Jane: [
-                    { name: "Jane", age: 25 }
-                ]
+                    { name: "Jane", age: 25 },
+                ],
             });
         });
     });
@@ -183,4 +183,4 @@ describe("Array utils", () => {
             expect(original).toEqual(originalCopy);
         });
     });
-})
+});

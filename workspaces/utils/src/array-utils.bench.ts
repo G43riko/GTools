@@ -48,7 +48,6 @@ Deno.bench("pairwiseArray current (large)", { group: "pairwiseArray" }, () => {
     pairwiseArray(largeArray);
 });
 
-
 // Old implementation of shuffle for benchmarking
 function shuffleOld<T>(array: readonly T[]): T[] {
     const result = [...array];
@@ -61,8 +60,7 @@ function shuffleOld<T>(array: readonly T[]): T[] {
         currentIndex--;
 
         // Swap it with the current element
-        [result[currentIndex], result[randomIndex]] = 
-        [result[randomIndex], result[currentIndex]];
+        [result[currentIndex], result[randomIndex]] = [result[randomIndex], result[currentIndex]];
     }
 
     return result;

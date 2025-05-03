@@ -4,7 +4,8 @@
 
 # @g43/tools
 
-A collection of utility tools for TypeScript applications, including color manipulation, random number generation, 2D path handling, and more.
+A collection of utility tools for TypeScript applications, including color manipulation, random number generation, 2D
+path handling, and more.
 
 ## Installation
 
@@ -28,7 +29,7 @@ import { Color, Random, Path2D, GMap } from "jsr:@g43/tools";
 ## Usage
 
 ```typescript
-import { Color, Random, Path2D, GMap } from "@g43/tools";
+import { Color, GMap, Path2D, Random } from "@g43/tools";
 
 // Color manipulation
 const color = new Color(255, 0, 0); // Red
