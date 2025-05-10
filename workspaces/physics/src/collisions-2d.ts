@@ -1,5 +1,5 @@
 import { SimpleVector } from "@g43/math";
-import type { Pair, SimpleVector2 } from "@g43/types";
+import type { Pair, ReadonlyPair, SimpleVector2 } from "@g43/types";
 import { distance2dPointPoint } from "./distances-2d.ts";
 
 export function circleRect2dCollision(
@@ -178,7 +178,7 @@ export function pointCircle2dCollision(
  * @param y
  * @param vs
  */
-export function pointPolygon2dCollision2(x: number, y: number, vs: Pair<number>[]): boolean {
+export function pointPolygon2dCollision2(x: number, y: number, vs: ReadonlyPair<number>[]): boolean {
     let inside = false;
     let i = 0;
     let j = vs.length - 1;

@@ -20,7 +20,6 @@ export class Capsule2D implements MassAble2D {
     ) {
     }
 
-
     /**
      * Gets the length of the capsule's central line segment
      */

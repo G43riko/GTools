@@ -1,13 +1,17 @@
-import { describe, it } from "@std/testing/bdd";
+import type { Pair } from "@g43/types";
 import { expect } from "@std/expect";
+import { describe, it } from "@std/testing/bdd";
 import {
     circleCircle2dCollision,
     circleRect2dCollision,
     lineLine2dCollision,
+    lineLine2dCollision2,
     lineRectangle2dCollision,
     pointCircle2dCollision,
     pointMultiPolygon2dCollision,
+    pointPolygon2dCollision2,
     pointRect2dCollision,
+    pointRectMinMax2dCollision,
     rectRect2dCollision,
 } from "./collisions-2d.ts";
 
@@ -175,7 +179,7 @@ describe("Collisions2d", () => {
     });
 
     describe("line-line", () => {
-        it("It should test point inside small rect hole in polygon", () => {
+        it("should detect intersection when lines cross", () => {
             /**
              * X-A-X-B-X
              */
@@ -201,7 +205,9 @@ describe("Collisions2d", () => {
              *   X
              */
             expect(lineLine2dCollision(5, 0, 5, 10, 0, 5, 10, 5)).toBeTruthy();
+        });
 
+        it("should not detect intersection when lines are parallel", () => {
             /**
              * X-A-X
              * X-B-X
@@ -216,6 +222,89 @@ describe("Collisions2d", () => {
              * XX
              */
             expect(lineLine2dCollision(0, 0, 0, 5, 1, 0, 1, 5)).toBeFalsy();
+        });
+    });
+
+    describe("line-line2", () => {
+        it("should detect intersection when lines cross", () => {
+            // Crossing lines
+            expect(lineLine2dCollision2(0, 0, 10, 10, 0, 10, 10, 0)).toBeTruthy();
+            expect(lineLine2dCollision2(0, 0, 10, 0, 5, -5, 5, 5)).toBeTruthy();
+        });
+
+        it("should not detect intersection when lines are parallel", () => {
+            // Parallel lines
+            expect(lineLine2dCollision2(0, 0, 10, 0, 0, 5, 10, 5)).toBeFalsy();
+            expect(lineLine2dCollision2(0, 0, 0, 10, 5, 0, 5, 10)).toBeFalsy();
+        });
+
+        it("should not detect intersection when lines don't intersect within their segments", () => {
+            // Lines would intersect if extended, but not within their segments
+            expect(lineLine2dCollision2(0, 0, 5, 5, 10, 0, 15, 5)).toBeFalsy();
+        });
+    });
+
+    describe("point-rect-minmax", () => {
+        it("should detect point inside rectangle", () => {
+            expect(pointRectMinMax2dCollision(5, 5, 0, 0, 10, 10)).toBeTruthy();
+            expect(pointRectMinMax2dCollision(0, 0, 0, 0, 10, 10)).toBeTruthy();
+            expect(pointRectMinMax2dCollision(10, 10, 0, 0, 10, 10)).toBeTruthy();
+        });
+
+        it("should not detect point outside rectangle", () => {
+            expect(pointRectMinMax2dCollision(-1, 5, 0, 0, 10, 10)).toBeFalsy();
+            expect(pointRectMinMax2dCollision(5, -1, 0, 0, 10, 10)).toBeFalsy();
+            expect(pointRectMinMax2dCollision(11, 5, 0, 0, 10, 10)).toBeFalsy();
+            expect(pointRectMinMax2dCollision(5, 11, 0, 0, 10, 10)).toBeFalsy();
+        });
+    });
+
+    describe("point-polygon2", () => {
+        it("should detect point inside polygon", () => {
+            const polygon = [
+                [0, 0],
+                [10, 0],
+                [10, 10],
+                [0, 10],
+            ] as Pair<number>[];
+
+            expect(pointPolygon2dCollision2(5, 5, polygon)).toBeTruthy();
+        });
+
+        it("should not detect point outside polygon", () => {
+            const polygon = [
+                [0, 0],
+                [10, 0],
+                [10, 10],
+                [0, 10],
+            ] as Pair<number>[];
+
+            expect(pointPolygon2dCollision2(-5, 5, polygon)).toBeFalsy();
+            expect(pointPolygon2dCollision2(15, 5, polygon)).toBeFalsy();
+            expect(pointPolygon2dCollision2(5, -5, polygon)).toBeFalsy();
+            expect(pointPolygon2dCollision2(5, 15, polygon)).toBeFalsy();
+        });
+
+        it("should handle complex polygons", () => {
+            // Star-like polygon
+            const polygon = [
+                [5, 0],
+                [4, 3],
+                [0, 3],
+                [3, 5],
+                [2, 9],
+                [5, 7],
+                [8, 9],
+                [7, 5],
+                [10, 3],
+                [6, 3],
+            ] as Pair<number>[];
+
+            // Point in the center of the star
+            expect(pointPolygon2dCollision2(5, 5, polygon)).toBeTruthy();
+
+            // Point outside the star
+            expect(pointPolygon2dCollision2(5, 10, polygon)).toBeFalsy();
         });
     });
 

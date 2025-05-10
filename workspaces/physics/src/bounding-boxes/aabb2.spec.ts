@@ -43,7 +43,7 @@ describe("AABB2", () => {
                 { x: 10, y: 20 },
                 { x: 30, y: 15 },
                 { x: 5, y: 25 },
-                { x: 15, y: 35 }
+                { x: 15, y: 35 },
             ]);
             expect(aabb.left).toBe(5);
             expect(aabb.top).toBe(15);
@@ -254,11 +254,11 @@ describe("AABB2", () => {
             const aabb = new AABB2(10, 20, 40, 60);
             const result = {
                 fraction: 0,
-                normal: new Vector2()
+                normal: new Vector2(),
             } as RaycastResult;
             const ray = {
                 from: { x: 0, y: 30 },
-                direction: { x: 1, y: 0 }
+                direction: { x: 1, y: 0 },
             } as RayCast2D;
             const hit = aabb.rayCast(result, ray);
             expect(hit).toBeTruthy();
@@ -271,11 +271,11 @@ describe("AABB2", () => {
             const aabb = new AABB2(10, 20, 40, 60);
             const result = {
                 fraction: 0,
-                normal: new Vector2()
+                normal: new Vector2(),
             } as RaycastResult;
             const ray = {
                 from: { x: 0, y: 10 },
-                direction: { x: 1, y: 0 }
+                direction: { x: 1, y: 0 },
             } as RayCast2D;
             const hit = aabb.rayCast(result, ray);
             expect(hit).toBeFalsy();
@@ -285,11 +285,11 @@ describe("AABB2", () => {
             const aabb = new AABB2(10, 20, 40, 60);
             const result = {
                 fraction: 0,
-                normal: new Vector2()
+                normal: new Vector2(),
             } as RaycastResult;
             const ray = {
                 from: { x: 20, y: 30 },
-                direction: { x: 1, y: 0 }
+                direction: { x: 1, y: 0 },
             } as RayCast2D;
             const hit = aabb.rayCast(result, ray);
             expect(hit).toBeFalsy();

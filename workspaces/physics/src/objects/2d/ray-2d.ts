@@ -56,9 +56,9 @@ export class RaycastResult {
     /** The body that was hit by the ray */
     public body?: any;
     /** The index of the face that was hit (-1 if no hit) */
-    public faceIndex                = -1;
+    public faceIndex = -1;
     /** The fraction of the ray length where the hit occurred (-1 if no hit) */
-    public fraction                 = -1;
+    public fraction = -1;
     /** Indicates if the raycast operation was manually stopped */
     public isStopped = false;
 
@@ -113,13 +113,13 @@ export class RayCast2D {
     /** Whether to check for collision responses */
     public checkCollisionResponse = true;
     /** Whether to skip intersections where the ray hits the back of a face */
-    public skipBackfaces          = false;
+    public skipBackfaces = false;
     /** Bitmask used for collision filtering */
-    public collisionMask          = -1;
+    public collisionMask = -1;
     /** Collision group identifier for filtering */
-    public collisionGroup         = -1;
+    public collisionGroup = -1;
     /** The mode determining how intersections are processed */
-    public mode: RayMode          = RayMode.ANY;
+    public mode: RayMode = RayMode.ANY;
     /** Optional callback function called for each intersection in ALL mode */
     public callback?: (arg: any) => any;
 
