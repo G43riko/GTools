@@ -1,4 +1,4 @@
-export class NumbericCounter {
+export class NumericCounter {
     private _min = Infinity;
     private _max = -Infinity;
     private _sum = 0;
