@@ -9,24 +9,34 @@ import type { RayCast2D, RaycastResult } from "./ray-2d.ts";
  * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/CircleCollider.ts
  */
 export class Circle implements MassAble2D {
+    /** Gets the circumference of the circle */
     public get circuit(): number {
         return 2 * Math.PI * this.radius;
     }
 
+    /** Gets the moment of inertia of the circle around its center */
     public get momentOfInertia(): number {
         const r = this.radius;
 
         return r * r / 2;
     }
 
+    /** Gets the radius of the smallest circle that completely contains this circle */
     public get boundingRadius(): number {
         return this.radius;
     }
 
+    /** Gets the area of the circle */
     public get area(): number {
         return Math.PI * this.radius * this.radius;
     }
 
+    /**
+     * Creates a circle from a bounding box
+     * @param param0 The minimum and maximum coordinates of the bounding box
+     * @param chooseSize Whether to use the minimum or maximum dimension for the circle's diameter
+     * @returns A new Circle instance
+     */
     public static fromMinMax({ min, max }: MinMax2D, chooseSize: "min" | "max" = "max"): Circle {
         const center = {
             x: (min.x + max.x) / 2,
@@ -41,15 +51,31 @@ export class Circle implements MassAble2D {
         return new Circle(radius, center);
     }
 
+    /**
+     * Creates a circle from position and size
+     * @param posSize The position and size parameters
+     * @param chooseSize Whether to use the minimum or maximum dimension for the circle's diameter
+     * @returns A new Circle instance
+     */
     public static fromPosSize(posSize: PosSize2D, chooseSize: "min" | "max" = "max"): Circle {
         return Circle.fromMinMax(convertPosSizeToMinMax2D(posSize), chooseSize);
     }
 
+    /**
+     * Creates a new Circle instance
+     * @param radius The radius of the circle
+     * @param center The center point of the circle
+     */
     public constructor(
         public readonly radius: number,
         public readonly center: SimpleVector2,
     ) {
     }
+
+    /**
+     * Converts the circle to its axis-aligned bounding box
+     * @returns The minimum and maximum coordinates of the bounding box
+     */
     public toMinMax(): MinMax2D {
         return {
             min: Vector2.sumNum(this.center, -this.radius),
@@ -57,6 +83,11 @@ export class Circle implements MassAble2D {
         };
     }
 
+    /**
+     * Calculates the intersection points between the circle and a ray
+     * @param result The object to store the raycast results
+     * @param ray The ray to test for intersection
+     */
     public raycast(result: RaycastResult, ray: RayCast2D): void {
         const from = ray.from;
         const to = ray.to;

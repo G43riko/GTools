@@ -1,7 +1,16 @@
 import { Vector2 } from "@g43/math";
 import type { ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
 
+/**
+ * Represents a 2D ray with an origin point, direction vector, and length
+ */
 export class Ray2D {
+    /**
+     * Creates a new Ray2D instance
+     * @param origin The starting point of the ray
+     * @param direction The normalized direction vector of the ray
+     * @param length The length of the ray (defaults to Infinity)
+     */
     public constructor(
         public readonly origin: ReadonlySimpleVector2,
         public readonly direction: ReadonlySimpleVector2,
@@ -36,12 +45,21 @@ export enum RayMode {
     ALL = "ALL",
 }
 
+/**
+ * Stores the result of a raycast operation including intersection details
+ */
 export class RaycastResult {
+    /** The normal vector at the point of intersection */
     public readonly normal: Vector2 = new Vector2();
+    /** The shape that was hit by the ray */
     public shape?: any;
+    /** The body that was hit by the ray */
     public body?: any;
-    public faceIndex = -1;
-    public fraction = -1;
+    /** The index of the face that was hit (-1 if no hit) */
+    public faceIndex                = -1;
+    /** The fraction of the ray length where the hit occurred (-1 if no hit) */
+    public fraction                 = -1;
+    /** Indicates if the raycast operation was manually stopped */
     public isStopped = false;
 
     public reset(): void {
@@ -88,12 +106,21 @@ export class RaycastResult {
     }
 }
 
+/**
+ * Performs raycast operations in 2D space with configurable collision detection
+ */
 export class RayCast2D {
+    /** Whether to check for collision responses */
     public checkCollisionResponse = true;
-    public skipBackfaces = false;
-    public collisionMask = -1;
-    public collisionGroup = -1;
-    public mode: RayMode = RayMode.ANY;
+    /** Whether to skip intersections where the ray hits the back of a face */
+    public skipBackfaces          = false;
+    /** Bitmask used for collision filtering */
+    public collisionMask          = -1;
+    /** Collision group identifier for filtering */
+    public collisionGroup         = -1;
+    /** The mode determining how intersections are processed */
+    public mode: RayMode          = RayMode.ANY;
+    /** Optional callback function called for each intersection in ALL mode */
     public callback?: (arg: any) => any;
 
     public get from(): SimpleVector2 {

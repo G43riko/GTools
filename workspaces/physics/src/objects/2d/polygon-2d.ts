@@ -5,7 +5,14 @@ import type { MassAble2D } from "./object-2d.ts";
 /**
  * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/PolygonCollider.ts
  */
+/**
+ * Represents a 2D polygon shape defined by a collection of points.
+ * Used for collision detection and physics calculations.
+ */
 export class Polygon2d implements MassAble2D {
+    /**
+     * Gets the radius of the smallest circle that completely contains the polygon
+     */
     public get boundingRadius(): number {
         throw new Error("Not implemented");
     }
@@ -31,6 +38,10 @@ export class Polygon2d implements MassAble2D {
         return numerator / denominator;
     }
 
+    /**
+     * Creates a new Polygon2d instance
+     * @param points An array of 2D vectors defining the polygon's vertices in counter-clockwise order
+     */
     public constructor(private readonly points: readonly ReadonlySimpleVector2[]) {
     }
 
@@ -38,12 +49,21 @@ export class Polygon2d implements MassAble2D {
      * @see https://stackoverflow.com/questions/16285134/calculating-polygon-area
      * @param mass
      */
+    /**
+     * Calculates the moment of inertia for the polygon with given mass
+     * @param mass The mass of the polygon
+     * @returns The moment of inertia value
+     */
     public getInertia(mass: number): number {
         return (mass / 6) * this.momentOfInertia;
     }
 
     /**
      * @see https://stackoverflow.com/questions/16285134/calculating-polygon-area
+     */
+    /**
+     * Gets the total area of the polygon
+     * Calculated using the shoelace formula (also known as surveyor's formula)
      */
     public get area(): number {
         const vertices = this.points;
@@ -62,6 +82,11 @@ export class Polygon2d implements MassAble2D {
         return Math.abs(total);
     }
 
+    /**
+     * Determines whether the polygon is convex
+     * A polygon is convex if all its interior angles are less than 180 degrees
+     * @returns true if the polygon is convex, false otherwise
+     */
     public isConvex(): boolean {
         // From SO: https://stackoverflow.com/a/45372025
         if (this.points.length < 3) {
@@ -104,10 +129,19 @@ export class Polygon2d implements MassAble2D {
     /**
      * @see https://github.com/excaliburjs/Excalibur/blob/57443406c943ceebc208d120ece978fc46297dc2/src/engine/Collision/Colliders/PolygonCollider.ts#L140
      */
+    /**
+     * Decomposes the polygon into triangles
+     * Used for complex collision detection and physics calculations
+     * @throws Error when the implementation is not available
+     */
     public triangulate(): void {
         throw new Error("Not implemented");
     }
 
+    /**
+     * Gets the perimeter length of the polygon
+     * Calculated as the sum of distances between consecutive vertices
+     */
     public get circuit(): number {
         let sum = 0;
         for (let i = 1; i < this.points.length; i++) {
@@ -119,6 +153,10 @@ export class Polygon2d implements MassAble2D {
         return sum + Vector2.dist(this.points[this.points.length - 1], this.points[0]);
     }
 
+    /**
+     * Converts the polygon to its axis-aligned bounding box
+     * @returns The minimum and maximum coordinates of the bounding box
+     */
     public toMinMax(): MinMax2D {
         return Vector2.createOutlineMinMax(this.points);
     }

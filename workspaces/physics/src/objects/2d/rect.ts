@@ -9,22 +9,27 @@ import type { Ray2D } from "./ray-2d.ts";
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
  */
 export class Rect implements MassAble2D {
+    /** Gets the area of the rectangle */
     public get area(): number {
         return this.size.x * this.size.y;
     }
 
+    /** Gets the moment of inertia of the rectangle around its center of mass */
     public get momentOfInertia(): number {
         return (this.size.x * this.size.x + this.size.y * this.size.y) / 12;
     }
 
+    /** Gets the radius of the smallest circle that completely contains the rectangle */
     public get boundingRadius(): number {
         return Math.sqrt(this.size.x * this.size.x + this.size.y * this.size.y) / 2;
     }
 
+    /** Gets the perimeter length of the rectangle */
     public get circuit(): number {
         return this.size.x + this.size.x + this.size.y + this.size.y;
     }
 
+    /** Gets the center point of the rectangle */
     public get center(): ReadonlySimpleVector2 {
         return {
             x: this.position.x + this.size.x / 2,
@@ -32,6 +37,11 @@ export class Rect implements MassAble2D {
         };
     }
 
+    /**
+     * Creates a rectangle that bounds the given circle
+     * @param params Circle parameters containing radius and center
+     * @returns A new rectangle instance
+     */
     public static fromSphere({ radius, center }: Pick<Circle, "radius" | "center">): Rect {
         return Rect.fromMinMax({
             min: {
@@ -45,6 +55,13 @@ export class Rect implements MassAble2D {
         });
     }
 
+    /**
+     * Creates a rectangle that bounds the given ray segment
+     * @param params Ray parameters containing origin, direction and length
+     * @param realLength Optional length override for the ray
+     * @returns A new rectangle instance
+     * @throws Error when the ray length is infinite
+     */
     public static fromRay({
         origin,
         direction,
@@ -70,6 +87,13 @@ export class Rect implements MassAble2D {
         });
     }
 
+    /**
+     * Creates a rectangle that bounds the given points
+     * @param points Array of 2D points
+     * @param offsetX Optional horizontal padding
+     * @param offsetY Optional vertical padding, defaults to offsetX
+     * @returns A new rectangle instance
+     */
     public static fromPoints(points: SimpleVector2[], offsetX = 0, offsetY = offsetX): Rect {
         const range = Vector2.createOutlineMinMax(points);
 
@@ -89,6 +113,11 @@ export class Rect implements MassAble2D {
         });
     }
 
+    /**
+     * Creates a rectangle from minimum and maximum coordinates
+     * @param params Object containing min and max coordinates
+     * @returns A new rectangle instance
+     */
     public static fromMinMax({ min, max }: MinMax2D): Rect {
         const size = {
             x: max.x - min.x,
@@ -98,11 +127,21 @@ export class Rect implements MassAble2D {
         return new Rect({ ...min }, size);
     }
 
+    /**
+     * Creates a new rectangle instance
+     * @param position The position of the rectangle's top-left corner
+     * @param size The width and height of the rectangle
+     */
     public constructor(
         public readonly position: ReadonlySimpleVector2,
         public readonly size: ReadonlySimpleVector2,
     ) {
     }
+
+    /**
+     * Converts the rectangle to its minimum and maximum coordinates
+     * @returns An object containing min and max coordinates
+     */
     public toMinMax(): MinMax2D {
         return convertPosSizeToMinMax2D(this);
     }

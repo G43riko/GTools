@@ -3,12 +3,20 @@ import type { MinMax2D, ReadonlySimpleVector2 } from "@g43/types";
 import type { Object2D } from "./object-2d.ts";
 
 /**
+ * Represents a 2D line segment defined by two points
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
 export class Line2D implements Object2D {
+    /** Array containing the two points that define the line segment */
     public readonly points: readonly [pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2];
+    /** Vector representing the direction from pointA to pointB */
     public readonly direction: ReadonlySimpleVector2;
 
+    /**
+     * Creates a new Line2D instance
+     * @param pointA The starting point of the line
+     * @param pointB The ending point of the line
+     */
     public constructor(
         public readonly pointA: ReadonlySimpleVector2,
         public readonly pointB: ReadonlySimpleVector2,
@@ -23,10 +31,15 @@ export class Line2D implements Object2D {
         ];
     }
 
+    /** Gets the length of the line segment */
     public get length(): number {
         return Vector2.dist(this.pointA, this.pointB);
     }
 
+    /**
+     * Calculates the angle of the line segment relative to the positive x-axis
+     * @returns The angle in radians
+     */
     public angle(): number {
         return Math.atan2(
             this.pointB.y - this.pointA.y,
@@ -34,14 +47,28 @@ export class Line2D implements Object2D {
         );
     }
 
+    /** Gets the radius of the smallest circle that contains the line segment */
     public get boundingRadius(): number {
         return this.length / 2;
     }
 
+    /**
+     * Creates a Line2D from an array of two points
+     * @param array Array containing start and end points
+     * @returns A new Line2D instance
+     */
     public static fromArray(array: [start: ReadonlySimpleVector2, end: ReadonlySimpleVector2]): Line2D {
         return new Line2D(array[0], array[1]);
     }
 
+    /**
+     * Creates a Line2D from coordinates of two points
+     * @param aX X-coordinate of the start point
+     * @param aY Y-coordinate of the start point
+     * @param bX X-coordinate of the end point
+     * @param bY Y-coordinate of the end point
+     * @returns A new Line2D instance
+     */
     public static fromPoints(aX: number, aY: number, bX: number, bY: number): Line2D {
         return new Line2D(
             {
@@ -86,6 +113,11 @@ export class Line2D implements Object2D {
         return new Line2D(results[0], results[1]);
     }
 
+    /**
+     * Checks if a point is below the line
+     * @param point The point to check
+     * @returns True if the point is below the line, false otherwise
+     */
     public below(point: ReadonlySimpleVector2): boolean {
         const above2 = (this.pointB.x - this.pointA.x) * (point.y - this.pointA.y) -
             (this.pointB.y - this.pointA.y) * (point.x - this.pointA.x);
@@ -93,22 +125,41 @@ export class Line2D implements Object2D {
         return above2 >= 0;
     }
 
+    /**
+     * Gets the direction vector of the line
+     * @param result Optional vector to store the result
+     * @returns The direction vector
+     */
     public getDirection(result: Vector2 = new Vector2()): Vector2 {
         return Vector2.sub(this.pointB, this.pointA, result);
     }
 
+    /**
+     * Gets an array containing the line's points
+     * @returns Array of the line's start and end points
+     */
     public getPoints(): ReadonlySimpleVector2[] {
         return [this.pointA, this.pointB];
     }
 
+    /**
+     * Gets the normal vector of the line
+     * @param result Optional vector to store the result
+     * @returns The normalized normal vector
+     */
     public getNormal(result: Vector2 = new Vector2()): Vector2 {
         return Vector2.normalize(this.getDirection(result).perpendicular(), result);
     }
 
+    /** Gets the moment of inertia of the line segment */
     public get momentOfInertia(): number {
         return this.length ** 2 / 12;
     }
 
+    /**
+     * Converts the line to its axis-aligned bounding box
+     * @returns The minimum and maximum coordinates of the bounding box
+     */
     public toMinMax(): MinMax2D {
         return {
             min: Vector2.min(this.pointA, this.pointB),

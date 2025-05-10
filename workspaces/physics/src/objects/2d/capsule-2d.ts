@@ -3,9 +3,16 @@ import type { MinMax2D, SimpleVector2 } from "@g43/types";
 import type { MassAble2D } from "./object-2d.ts";
 
 /**
+ * Represents a 2D capsule shape, which is a rectangle with semicircles at both ends.
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
  */
 export class Capsule2D implements MassAble2D {
+    /**
+     * Creates a new Capsule2D instance
+     * @param start The starting point of the capsule's central line segment
+     * @param end The ending point of the capsule's central line segment
+     * @param radius The radius of the capsule's semicircles
+     */
     public constructor(
         private readonly start: SimpleVector2,
         private readonly end: SimpleVector2,
@@ -13,22 +20,45 @@ export class Capsule2D implements MassAble2D {
     ) {
     }
 
+
+    /**
+     * Gets the length of the capsule's central line segment
+     */
+    public get length(): number {
+        return Vector2.dist(this.start, this.end);
+    }
+    /**
+     * Gets the radius of the smallest circle that completely contains the capsule
+     */
     public get boundingRadius(): number {
         return this.radius + this.length / 2;
     }
 
+    /**
+     * Gets the total area of the capsule (rectangle area + two semicircles)
+     */
     public get area(): number {
         return Math.PI * this.radius * this.radius + this.radius * 2 * this.length;
     }
 
+    /**
+     * Gets the perimeter length of the capsule
+     */
     public get circuit(): number {
         return 2 * Math.PI * this.radius + 2 * Vector2.dist(this.start, this.end);
     }
 
+    /**
+     * Converts the capsule to its axis-aligned bounding box
+     * @returns The minimum and maximum coordinates of the bounding box
+     */
     public toMinMax(): MinMax2D {
         throw new Error("Not implemented");
     }
 
+    /**
+     * Gets the moment of inertia of the capsule around its center of mass
+     */
     public get momentOfInertia(): number {
         // http://www.efunda.com/math/areas/rectangle.cfm
         const boxI = (w: number, h: number): number => w * h * (w ** 2 + h ** 2) / 12;
@@ -53,9 +83,5 @@ export class Capsule2D implements MassAble2D {
         const area = capsuleA(length, this.radius);
 
         return (area > 0) ? capsuleI(length, this.radius) / area : 0;
-    }
-
-    public get length(): number {
-        return Vector2.dist(this.start, this.end);
     }
 }
