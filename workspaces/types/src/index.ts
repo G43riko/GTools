@@ -12,6 +12,9 @@ export * from "./text-options.interface.ts";
 export * from "./round-data.ts";
 export * from "./shadow-options.ts";
 export * from "./partially.ts";
+export * from "./all-keys.ts";
+export * from "./object-key-paths.ts";
+export * from "./get-type.ts";
 
 export * from "./min-max-2d.ts";
 export * from "./min-max-3d.ts";
