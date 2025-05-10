@@ -129,7 +129,7 @@ export class RayCast2D {
                     fraction,
                     faceIndex,
                 );
-                this.callback && this.callback(result);
+                this.callback?.(result);
                 break;
 
             case RayMode.CLOSEST:

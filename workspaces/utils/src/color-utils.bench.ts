@@ -8,7 +8,7 @@ function hex2rgbOld(color: string, validate?: boolean): ReadonlyTrinity<number> 
         return null;
     }
 
-    const num = color[0] === "#" ? parseInt(color.slice(1), 16) : parseInt(color, 16);
+    const num = color.startsWith("#") ? parseInt(color.slice(1), 16) : parseInt(color, 16);
 
     return [num >> 16, num >> 8 & 0x00FF, num & 0x0000FF];
 }

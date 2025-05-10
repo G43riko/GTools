@@ -83,7 +83,7 @@ export function hex2rgb(color: string, validate?: boolean): ReadonlyTrinity<numb
     if (validate && !HEX_COLOR.test(color)) {
         return null;
     }
-    color = color[0] === "#" ? color.slice(1) : color;
+    color = color.startsWith("#") ? color.slice(1) : color;
     const num = parseInt(color, 16);
 
     return [
@@ -217,13 +217,10 @@ export function rgb2hsl(r: number, g: number, b: number): ReadonlyTrinity<number
     const delta = max - min;
 
     let h = 0;
-    let s;
+    let s = 0;
     const l = (max + min) / 2;
 
-    if (delta === 0) {
-        h = 0;
-        s = 0;
-    } else {
+    if (delta !== 0) {
         if (l < 0.5) {
             s = delta / (max + min);
         } else {

@@ -1,6 +1,5 @@
-import { createCanvas, EmulatedCanvas2D, type EmulatedCanvas2DContext } from "jsr:@gfx/canvas-wasm";
-import type { ReadonlySimpleVector2 } from "@g43/types";
 import { SvgElementProxy } from "@g43/svg";
+import type { ReadonlySimpleVector2 } from "@g43/types";
 
 export type CreateSvgExampleFn = (
     name: string,

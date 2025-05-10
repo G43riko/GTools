@@ -1,6 +1,7 @@
 import type { AdvancedPolygon2d } from "@g43/drawing";
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import { DrawerUtils } from "./drawer-utils.ts";
+
 /**
  * @param ctx
  * @param min
@@ -11,7 +12,7 @@ export function renderAdvancedPolygonAtPosition(
     ctx: CanvasRenderingContext2D,
     min: ReadonlySimpleVector2,
 ): void {
-    if (!(polygon.points && polygon.points.length)) {
+    if (!polygon.points?.length) {
         return;
     }
     ctx.beginPath();

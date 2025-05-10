@@ -85,9 +85,7 @@ export function groupBy<Value, Key extends string | number | symbol>(
 ): Record<Key, Value[]> {
     return array.reduce((result, value) => {
         const key = iteratee(value);
-        if (!result[key]) {
-            result[key] = [];
-        }
+        result[key] ??= [];
         result[key].push(value);
         return result;
     }, {} as Record<Key, Value[]>);
