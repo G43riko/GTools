@@ -7,7 +7,7 @@ const vec5_0 = new Vector2(5, 0);
 const vec0_5 = new Vector2(0, 5);
 const vec5_5 = new Vector2(5, 5);
 const vecm5_0 = new Vector2(-5, 0);
-const vec0_m5 = new Vector2(0, -5);
+const _vec0_m5 = new Vector2(0, -5);
 const vecm5_m5 = new Vector2(-5, -5);
 
 describe("Vector2", () => {

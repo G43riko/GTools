@@ -10,9 +10,7 @@
  * @template T The object type from which the property type is to be extracted.
  * @template K The key or nested path used to locate the property type.
  * @see https://github.com/type-challenges/type-challenges/issues/368
- **/
-export type GetType<T, K> = K extends keyof T
-    ? T[K]
-    : K extends `${infer First}.${infer Rest}`
-        ? GetType<GetType<T, First>, Rest>
-        : never
+ */
+export type GetType<T, K> = K extends keyof T ? T[K]
+    : K extends `${infer First}.${infer Rest}` ? GetType<GetType<T, First>, Rest>
+    : never;

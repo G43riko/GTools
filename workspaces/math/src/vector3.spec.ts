@@ -8,8 +8,8 @@ const vec0_5_0 = new Vector3(0, 5, 0);
 const vec0_0_5 = new Vector3(0, 0, 5);
 const vec5_5_5 = new Vector3(5, 5, 5);
 const vecm5_0_0 = new Vector3(-5, 0, 0);
-const vec0_m5_0 = new Vector3(0, -5, 0);
-const vec0_0_m5 = new Vector3(0, 0, -5);
+const _vec0_m5_0 = new Vector3(0, -5, 0);
+const _vec0_0_m5 = new Vector3(0, 0, -5);
 const vecm5_m5_m5 = new Vector3(-5, -5, -5);
 
 describe("Vector3", () => {
@@ -82,7 +82,7 @@ describe("Vector3", () => {
 
         it("avg", () => {
             assertEquals(vec0_0_0.avg, 0);
-            assertEquals(vec5_0_0.avg, 5/3);
+            assertEquals(vec5_0_0.avg, 5 / 3);
             assertEquals(vec5_5_5.avg, 5);
             assertEquals(vecm5_m5_m5.avg, -5);
         });
@@ -481,17 +481,23 @@ describe("Vector3", () => {
         });
 
         it("equalsApproximately", () => {
-            assertEquals(Vector3.equalsApproximately(
-                { x: 3, y: 4, z: 5 }, 
-                { x: 3.0001, y: 4.0001, z: 5.0001 }, 
-                0.001
-            ), true);
+            assertEquals(
+                Vector3.equalsApproximately(
+                    { x: 3, y: 4, z: 5 },
+                    { x: 3.0001, y: 4.0001, z: 5.0001 },
+                    0.001,
+                ),
+                true,
+            );
 
-            assertEquals(Vector3.equalsApproximately(
-                { x: 3, y: 4, z: 5 }, 
-                { x: 3.01, y: 4.01, z: 5.01 }, 
-                0.001
-            ), false);
+            assertEquals(
+                Vector3.equalsApproximately(
+                    { x: 3, y: 4, z: 5 },
+                    { x: 3.01, y: 4.01, z: 5.01 },
+                    0.001,
+                ),
+                false,
+            );
         });
     });
 });

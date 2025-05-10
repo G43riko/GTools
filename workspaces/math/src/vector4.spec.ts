@@ -9,9 +9,9 @@ const vec0_0_5_0 = new Vector4(0, 0, 5, 0);
 const vec0_0_0_5 = new Vector4(0, 0, 0, 5);
 const vec5_5_5_5 = new Vector4(5, 5, 5, 5);
 const vecm5_0_0_0 = new Vector4(-5, 0, 0, 0);
-const vec0_m5_0_0 = new Vector4(0, -5, 0, 0);
-const vec0_0_m5_0 = new Vector4(0, 0, -5, 0);
-const vec0_0_0_m5 = new Vector4(0, 0, 0, -5);
+const _vec0_m5_0_0 = new Vector4(0, -5, 0, 0);
+const _vec0_0_m5_0 = new Vector4(0, 0, -5, 0);
+const _vec0_0_0_m5 = new Vector4(0, 0, 0, -5);
 const vecm5_m5_m5_m5 = new Vector4(-5, -5, -5, -5);
 
 describe("Vector4", () => {
@@ -77,7 +77,7 @@ describe("Vector4", () => {
 
         it("avg", () => {
             assertEquals(vec0_0_0_0.avg, 0);
-            assertEquals(vec5_0_0_0.avg, 5/4);
+            assertEquals(vec5_0_0_0.avg, 5 / 4);
             assertEquals(vec5_5_5_5.avg, 5);
             assertEquals(vecm5_m5_m5_m5.avg, -5);
         });
@@ -389,8 +389,8 @@ describe("Vector4", () => {
     describe("static utility methods", () => {
         it("min", () => {
             const result = Vector4.min(
-                { x: 3, y: 4, z: 5, w: 6 }, 
-                { x: 1, y: 7, z: 4, w: 8 }
+                { x: 3, y: 4, z: 5, w: 6 },
+                { x: 1, y: 7, z: 4, w: 8 },
             );
             assertEquals(result.x, 1);
             assertEquals(result.y, 4);
@@ -400,8 +400,8 @@ describe("Vector4", () => {
 
         it("max", () => {
             const result = Vector4.max(
-                { x: 3, y: 4, z: 5, w: 6 }, 
-                { x: 1, y: 7, z: 4, w: 8 }
+                { x: 3, y: 4, z: 5, w: 6 },
+                { x: 1, y: 7, z: 4, w: 8 },
             );
             assertEquals(result.x, 3);
             assertEquals(result.y, 7);
@@ -417,17 +417,23 @@ describe("Vector4", () => {
         });
 
         it("equalsApproximately", () => {
-            assertEquals(Vector4.equalsApproximately(
-                { x: 3, y: 4, z: 5, w: 6 }, 
-                { x: 3.0001, y: 4.0001, z: 5.0001, w: 6.0001 }, 
-                0.001
-            ), true);
+            assertEquals(
+                Vector4.equalsApproximately(
+                    { x: 3, y: 4, z: 5, w: 6 },
+                    { x: 3.0001, y: 4.0001, z: 5.0001, w: 6.0001 },
+                    0.001,
+                ),
+                true,
+            );
 
-            assertEquals(Vector4.equalsApproximately(
-                { x: 3, y: 4, z: 5, w: 6 }, 
-                { x: 3.01, y: 4.01, z: 5.01, w: 6.01 }, 
-                0.001
-            ), false);
+            assertEquals(
+                Vector4.equalsApproximately(
+                    { x: 3, y: 4, z: 5, w: 6 },
+                    { x: 3.01, y: 4.01, z: 5.01, w: 6.01 },
+                    0.001,
+                ),
+                false,
+            );
         });
     });
 });

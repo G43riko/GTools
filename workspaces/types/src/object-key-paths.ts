@@ -1,5 +1,5 @@
-
-type GenNode<K extends string | number,IsRoot extends boolean> = IsRoot extends true? `${K}`: `.${K}` | (K extends number? `[${K}]` | `.[${K}]`:never)
+type GenNode<K extends string | number, IsRoot extends boolean> = IsRoot extends true ? `${K}`
+    : `.${K}` | (K extends number ? `[${K}]` | `.[${K}]` : never);
 
 /**
  * Represents the recursive key paths of an object type `T`.
@@ -15,8 +15,7 @@ type GenNode<K extends string | number,IsRoot extends boolean> = IsRoot extends 
 export type ObjectKeyPaths<
     T extends object,
     IsRoot extends boolean = true,
-    K extends keyof T = keyof T
-> =
-    K extends string | number ?
-        GenNode<K,IsRoot> | (T[K] extends object? `${GenNode<K,IsRoot>}${ObjectKeyPaths<T[K],false>}`:never)
-        :never;
+    K extends keyof T = keyof T,
+> = K extends string | number
+    ? GenNode<K, IsRoot> | (T[K] extends object ? `${GenNode<K, IsRoot>}${ObjectKeyPaths<T[K], false>}` : never)
+    : never;

@@ -11,8 +11,7 @@
  * @template T The object type for which the keys are retrieved.
  * @returns A union type of all keys at all levels of `T`.
  */
-export type AllKeys<T> = T extends object
-    ? {
+export type AllKeys<T> = T extends object ? {
         [K in keyof T]: K | (T[K] extends object ? AllKeys<T[K]> : never);
     }[keyof T]
     : never;
