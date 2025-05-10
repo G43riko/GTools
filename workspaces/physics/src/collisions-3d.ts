@@ -493,7 +493,7 @@ export function collision3dCylinderCylinder(
     bR: number,
     bH: number,
 ): boolean {
-    if (aY < bY + bH || aY + aH > bY) {
+    if (aY + aH < bY || bY + bH < aY) {
         return false;
     }
 

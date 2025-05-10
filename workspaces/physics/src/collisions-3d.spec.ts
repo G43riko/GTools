@@ -210,31 +210,54 @@ describe("Collisions3d", () => {
 
     describe("cylinder-cylinder", () => {
         it("should detect collision for overlapping cylinders", () => {
-            // The current implementation of collision3dCylinderCylinder has a logical error
-            // in the Y-axis overlap check. It returns false when cylinders overlap in Y.
-            // For testing purposes, we'll use cylinders that don't overlap in Y.
-            expect(collision3dCylinderCylinder(0, 30, 0, 10, 20, 0, 0, 0, 10, 20)).toBeFalsy();
+            // Fully overlapping in Y and XZ
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20, // cylinder A
+                5, 10, 0, 10, 20 // cylinder B (overlapping)
+            )).toBeTruthy();
 
-            // For cylinders that overlap in XZ but not in Y, we need to modify the test
-            // to match the current implementation
-            // The condition in the function is inverted, so we need to invert our expectations
-            expect(collision3dCylinderCylinder(0, 100, 0, 10, 20, 0, 50, 0, 10, 20)).toBeFalsy();
+            // Overlapping in Y, just touching in XZ
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20,
+                20, 10, 0, 10, 20
+            )).toBeTruthy(); // touching edges
 
-            // Test with cylinders that don't overlap in Y and are far apart in XZ
-            expect(collision3dCylinderCylinder(0, 100, 0, 10, 20, 30, 50, 0, 10, 20)).toBeFalsy();
+            // Overlapping in XZ and Y, partial overlap
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20,
+                15, 10, 0, 10, 20
+            )).toBeTruthy(); // partial XZ and Y overlap
         });
 
-        it("should detect collision for touching cylinders", () => {
-            // For cylinders touching in XZ but not overlapping in Y
-            // The condition in the function is inverted, so we need to invert our expectations
-            expect(collision3dCylinderCylinder(0, 100, 0, 10, 20, 20, 50, 0, 10, 20)).toBeFalsy();
+        it("should not detect collision if cylinders overlap in XZ but not in Y", () => {
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 10,
+                0, 20, 0, 10, 10 // above A, not overlapping in Y
+            )).toBeFalsy();
         });
 
-        it("should not detect collision for non-touching cylinders", () => {
-            expect(collision3dCylinderCylinder(0, 0, 0, 10, 20, 21, 0, 0, 10, 20)).toBeFalsy();
-            expect(collision3dCylinderCylinder(0, 30, 0, 10, 20, 0, 0, 0, 10, 20)).toBeFalsy();
+        it("should not detect collision if cylinders overlap in Y but not in XZ", () => {
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20,
+                30, 0, 0, 10, 20 // far in X
+            )).toBeFalsy();
+        });
+
+        it("should not detect collision if cylinders are completely separate", () => {
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20,
+                50, 50, 50, 10, 20
+            )).toBeFalsy();
+        });
+
+        it("should detect collision for cylinders perfectly aligned vertically and horizontally", () => {
+            expect(collision3dCylinderCylinder(
+                0, 0, 0, 10, 20,
+                0, 0, 0, 10, 20
+            )).toBeTruthy(); // identical cylinders
         });
     });
+
 
     describe("sphere-box", () => {
         it("should detect collision for sphere overlapping box", () => {
