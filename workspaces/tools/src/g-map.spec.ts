@@ -1,5 +1,6 @@
-import { beforeEach, describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
+import { beforeEach, describe, it } from "@std/testing/bdd";
+import { assertSpyCallArgs, assertSpyCalls, spy, } from "@std/testing/mock";
 import { GMap } from "./g-map.ts";
 
 // Mock the getValueFromProvider function
@@ -10,7 +11,58 @@ function mockGetValueFromProvider<T>(value: T): T {
 // Define the GMap test suite
 describe("GMap", () => {
     let gmap: GMap<string, number>;
+    describe('setAll', () => {
+        let instance: GMap<string, number>;
+        let setSpy: any;
+        beforeEach(() => {
+            instance = new GMap();
+            setSpy = spy(instance, 'set');
+        });
 
+        it('should set values from a Map', () => {
+            const input = new Map<string, number>([
+                ['a', 1],
+                ['b', 2],
+            ]);
+
+            instance.setAll(input);
+            assertSpyCallArgs(setSpy, 0, ['a', 1]);
+            assertSpyCallArgs(setSpy, 1, ['b', 2]);
+            assertSpyCalls(setSpy, 2);
+        });
+
+        it('should set values from a Record', () => {
+            const input = {
+                x: 10,
+                y: 20,
+            };
+
+            instance.setAll(input);
+
+            assertSpyCallArgs(setSpy, 0, ['x', 10]);
+            assertSpyCallArgs(setSpy, 1, ['y', 20]);
+            assertSpyCalls(setSpy, 2);
+        });
+
+        it('should handle empty Map', () => {
+            const input = new Map();
+            instance.setAll(input);
+
+            assertSpyCalls(setSpy, 0);
+        });
+
+        it('should handle empty Record', () => {
+            const input = {};
+            instance.setAll(input);
+
+            assertSpyCalls(setSpy, 0);
+        });
+
+        it('should return `this` for chaining', () => {
+            const result = instance.setAll({ key: 123 });
+            expect(result).toBe(instance);
+        });
+    });
     beforeEach(() => {
         gmap = new GMap<string, number>();
     });
