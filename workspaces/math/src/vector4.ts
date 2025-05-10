@@ -190,7 +190,7 @@ export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
 
     public static isVector(item: any): item is SimpleVector4 {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-member-access
-        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w);
+        return Boolean(item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z) && !isNaN(item.w));
     }
 
     public toArray(): [x: number, y: number, z: number, w: number] {

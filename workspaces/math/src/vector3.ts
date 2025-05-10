@@ -265,6 +265,10 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
         return String(vector);
     }
 
+    public toString(fixedSize?: number): string {
+        return Vector3.toString(this, fixedSize);
+    }
+
     public static createOutlineMinMax(points: readonly ReadonlySimpleVector3[]): ReadonlyMinMax3D {
         const min = {
             x: Infinity,
@@ -468,7 +472,7 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     }
 
     public static isVector<Item extends SimpleVector>(item: Item | any): item is SimpleVector3 {
-        return item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z);
+        return Boolean(item && !isNaN(item.x) && !isNaN(item.y) && !isNaN(item.z));
     }
 
     public toArray(): ReadonlyTrinity<number> {

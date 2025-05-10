@@ -99,6 +99,14 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return Vector2.angle(this, v);
     }
 
+    /**
+     * Creates a new Vector2 instance from a given angle.
+     * The angle is interpreted in radians and used to calculate the x and y components
+     * of the vector using the cosine and sine of the angle, respectively.
+     *
+     * @param angle - The angle in radians to calculate the vector's components.
+     * @return A new Vector2 instance representing the direction of the given angle.
+     */
     public static fromAngle(angle: number): Vector2 {
         return new Vector2(Math.cos(angle), Math.sin(angle));
     }
@@ -328,6 +336,13 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         return result;
     }
 
+    /**
+     * Calculates the scalar cross product (determinant) of two 2D vectors.
+     *
+     * @param {ReadonlySimpleVector2} vecA - The first vector operand.
+     * @param {ReadonlySimpleVector2} vecB - The second vector operand.
+     * @return {number} The scalar result of the cross product.
+     */
     public static cross(vecA: ReadonlySimpleVector2, vecB: ReadonlySimpleVector2): number {
         return vecA.x * vecB.y - vecA.y * vecB.x;
     }
