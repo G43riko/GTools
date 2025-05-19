@@ -36,6 +36,11 @@ export class Random {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
+    public static item<T>(array: readonly [T, ...T[]]): T;
+    public static item<T>(array: readonly T[]): T | undefined
+    public static item<T>(array: readonly T[]): T | undefined {
+        return array[Random.intBetween(0, array.length)];
+    }
     /**
      * Generates a random float between the specified minimum (inclusive) and maximum (exclusive).
      * @param min - The minimum value (inclusive).
