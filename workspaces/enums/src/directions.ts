@@ -17,15 +17,16 @@
  * }
  * ```
  */
-export enum Direction7 {
-    UP = "UP",
-    LEFT = "LEFT",
-    CENTER = "CENTER",
-    DOWN = "DOWN",
-    RIGHT = "RIGHT",
-    FRONT = "FRONT",
-    BACK = "BACK",
-}
+export const Direction7 = {
+    UP: "UP",
+    LEFT: "LEFT",
+    CENTER: "CENTER",
+    DOWN: "DOWN",
+    RIGHT: "RIGHT",
+    FRONT: "FRONT",
+    BACK: "BACK",
+};
+export type Direction7 = (typeof Direction7)[keyof typeof Direction7];
 
 /**
  * A mapping of Direction7 values to bit flags.
@@ -74,15 +75,16 @@ export const Direction7Bit: Readonly<Record<Direction7, number>> = Object.freeze
  * }
  * ```
  */
-export enum Direction6 {
-    UP = "UP",
-    LEFT = "LEFT",
-    DOWN = "DOWN",
-    RIGHT = "RIGHT",
-    FRONT = "FRONT",
-    BACK = "BACK",
-}
+export const Direction6 = {
+    UP: "UP",
+    LEFT: "LEFT",
+    DOWN: "DOWN",
+    RIGHT: "RIGHT",
+    FRONT: "FRONT",
+    BACK: "BACK",
+};
 
+export type Direction6 = (typeof Direction6)[keyof typeof Direction6];
 /**
  * Enum representing the four cardinal directions.
  *
@@ -105,22 +107,23 @@ export enum Direction6 {
  * }
  * ```
  */
-export enum Direction4 {
-    UP = "UP",
-    LEFT = "LEFT",
-    DOWN = "DOWN",
-    RIGHT = "RIGHT",
-}
+export const Direction4 = {
+    UP: "UP",
+    LEFT: "LEFT",
+    DOWN: "DOWN",
+    RIGHT: "RIGHT",
+};
+export type Direction4 = (typeof Direction4)[keyof typeof Direction4];
 
 /**
  * Contains UP, LEFT, DOWN, RIGHT, FRONT, BACK, CENTER
  */
-export const Directions7: readonly Direction7[] = Object.values(Direction7);
+export const Directions7: readonly Direction7[] = Object.freeze(Object.values(Direction7));
 /**
  * Contains UP, LEFT, DOWN, RIGHT, FRONT, BACK
  */
-export const Directions6: readonly Direction6[] = Object.values(Direction6);
+export const Directions6: readonly Direction6[] = Object.freeze(Object.values(Direction6));
 /**
  * Contains UP, LEFT, DOWN, RIGHT
  */
-export const Directions4: readonly Direction4[] = Object.values(Direction4);
+export const Directions4: readonly Direction4[] = Object.freeze(Object.values(Direction4));

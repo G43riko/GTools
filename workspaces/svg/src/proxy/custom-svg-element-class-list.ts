@@ -7,6 +7,20 @@ export class CustomSvgElementClassList implements DOMTokenList {
         return this.classNames.length;
     }
 
+    public entries(): ArrayIterator<[number, string]> {
+        return this.classNames.entries();
+    }
+
+    public values(): ArrayIterator<string> {
+        return this.classNames.values();
+    }
+
+    public [Symbol.iterator](): any {
+        return this.classNames[Symbol.iterator]();
+    }
+    public keys(): ArrayIterator<number> {
+        return this.classNames.keys();
+    }
     public contains(className: string): boolean {
         return this.classNames.includes(className);
     }

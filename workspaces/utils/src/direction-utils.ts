@@ -23,6 +23,8 @@ export function getOppositeDirection6(direction: Direction6): Direction6 {
             return Direction6.BACK;
         case Direction6.BACK:
             return Direction6.FRONT;
+        default:
+            throw new Error(`Invalid direction '${direction}'`);
     }
 }
 
@@ -42,6 +44,8 @@ export function getOppositeDirection4(direction: Direction4): Direction4 {
             return Direction4.LEFT;
         case Direction4.UP:
             return Direction4.DOWN;
+        default:
+            throw new Error(`Invalid direction '${direction}'`);
     }
 }
 

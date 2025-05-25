@@ -37,7 +37,7 @@ export class Random {
     }
 
     public static item<T>(array: readonly [T, ...T[]]): T;
-    public static item<T>(array: readonly T[]): T | undefined
+    public static item<T>(array: readonly T[]): T | undefined;
     public static item<T>(array: readonly T[]): T | undefined {
         return array[Random.intBetween(0, array.length)];
     }

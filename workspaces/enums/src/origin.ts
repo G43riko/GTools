@@ -13,31 +13,33 @@
  * - `BL` for Bottom-Left
  * - `CENTER` for the Center
  */
-export enum Origin {
+export const Origin = {
     /** Top-Right origin point */
-    TR = "TR",
+    TR: "TR",
 
     /** Center origin point */
-    CENTER = "CENTER",
+    CENTER: "CENTER",
 
     /** Top-Left origin point */
-    TL = "TL",
+    TL: "TL",
 
     /** Bottom-Right origin point */
-    BR = "BR",
+    BR: "BR",
 
     /** Bottom-Left origin point */
-    BL = "BL",
+    BL: "BL",
 
     /** Top origin point */
-    T = "T",
+    T: "T",
 
     /** Left origin point */
-    L = "L",
+    L: "L",
 
     /** Right origin point */
-    R = "R",
+    R: "R",
 
     /** Bottom origin point */
-    B = "B",
-}
+    B: "B",
+};
+
+export type Origin = (typeof Origin)[keyof typeof Origin];

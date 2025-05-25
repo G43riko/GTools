@@ -4,19 +4,20 @@
  * This enum provides a set of constants for the seven days of the week,
  * using three-letter abbreviations as both the enum member names and their string values.
  */
-export enum Days {
+export const Days = {
     /** Monday */
-    MON = "MON",
+    MON: "MON",
     /** Tuesday */
-    TUE = "TUE",
+    TUE: "TUE",
     /** Wednesday */
-    WED = "WED",
+    WED: "WED",
     /** Thursday */
-    THU = "THU",
+    THU: "THU",
     /** Friday */
-    FRI = "FRI",
+    FRI: "FRI",
     /** Saturday */
-    SAT = "SAT",
+    SAT: "SAT",
     /** Sunday */
-    SUN = "SUN",
-}
+    SUN: "SUN",
+};
+export type Days = (typeof Days)[keyof typeof Days];
