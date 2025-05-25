@@ -13,6 +13,8 @@ import type { Triangle3D } from "./triangle-3d.ts";
  */
 export class Sphere
     implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | "point" | "sphere">, DistanceAble3D<"sphere"> {
+    public readonly center: ReadonlySimpleVector3;
+    public readonly radius: number;
     public readonly collideWith = {
         cylinder: (cylinder: Cylinder): boolean => CollisionTable3d.sphereCylinder(this, cylinder),
         point: (point: ReadonlySimpleVector3): boolean => CollisionTable3d.spherePoint(this, point),
@@ -91,9 +93,11 @@ export class Sphere
     }
 
     public constructor(
-        public readonly center: ReadonlySimpleVector3,
-        public readonly radius: number,
+        center: ReadonlySimpleVector3,
+        radius: number,
     ) {
+        this.center = center;
+        this.radius = radius;
     }
 
     public equals(sphere: any): boolean {

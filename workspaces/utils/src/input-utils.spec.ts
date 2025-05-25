@@ -16,10 +16,12 @@ import {
 if (!globalThis.MouseEvent) {
     class MouseEvent {
         public readonly button?: string;
+        public readonly type: string;
         public constructor(
-            public readonly type: string,
+            type: string,
             { button }: { button?: string } = {},
         ) {
+            this.type = type;
             this.button = button;
         }
     }
@@ -28,10 +30,12 @@ if (!globalThis.MouseEvent) {
 if (!globalThis.PointerEvent) {
     class PointerEvent {
         public readonly pointerType?: string;
+        public readonly type: string;
         public constructor(
-            public readonly type: string,
+            type: string,
             { pointerType }: { pointerType?: string } = {},
         ) {
+            this.type = type;
             this.pointerType = pointerType;
         }
     }
@@ -40,9 +44,11 @@ if (!globalThis.PointerEvent) {
 
 if (!globalThis.MouseEvent) {
     class MouseEvent {
+        public readonly type: string;
         public constructor(
-            public readonly type: string,
+            type: string,
         ) {
+            this.type = type;
         }
     }
     Object.assign(globalThis, { MouseEvent });
@@ -50,9 +56,11 @@ if (!globalThis.MouseEvent) {
 
 if (!globalThis.TouchEvent) {
     class TouchEvent {
+        public readonly type: string;
         public constructor(
-            public readonly type: string,
+            type: string,
         ) {
+            this.type = type;
         }
     }
     Object.assign(globalThis, { TouchEvent });

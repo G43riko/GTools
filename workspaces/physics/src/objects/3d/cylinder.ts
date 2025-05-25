@@ -23,6 +23,9 @@ export class Cylinder implements VolumeAble3D, CollideAble3D<"minMax" | "cylinde
         line: (line: Line3D): ReadonlySimpleVector3 | undefined =>
             IntersectionTable3d.cylinderLine(this, line.pointA, line.pointB),
     };
+    public readonly position: ReadonlySimpleVector3;
+    public readonly radius: number;
+    public readonly height: number;
 
     /**
      * @param position - bottom center of cylinder
@@ -30,10 +33,13 @@ export class Cylinder implements VolumeAble3D, CollideAble3D<"minMax" | "cylinde
      * @param height - height of cylinder
      */
     public constructor(
-        public readonly position: ReadonlySimpleVector3,
-        public readonly radius: number,
-        public readonly height: number,
+        position: ReadonlySimpleVector3,
+        radius: number,
+        height: number,
     ) {
+        this.position = position;
+        this.radius = radius;
+        this.height = height;
     }
 
     public equals(cylinder: any): boolean {

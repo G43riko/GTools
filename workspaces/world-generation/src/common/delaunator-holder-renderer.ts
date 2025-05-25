@@ -4,9 +4,11 @@ import type { DelaunatorHolder } from "./delaunator-holder.ts";
 import type { GraphVertexId } from "./graph-holder.ts";
 
 export class DelaunatorHolderRenderer {
+    private readonly delaunatorHolder: DelaunatorHolder;
     public constructor(
-        private readonly delaunatorHolder: DelaunatorHolder,
+        delaunatorHolder: DelaunatorHolder,
     ) {
+        this.delaunatorHolder = delaunatorHolder;
     }
 
     public fillHalfEdges(context: CanvasRenderingContext2D, radius: number, color: string): void {

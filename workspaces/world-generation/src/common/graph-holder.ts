@@ -39,16 +39,23 @@ export class GraphHolder {
     public readonly cellVertices: readonly GraphVertexId[][];
     public readonly cellNeighbors: readonly GraphCellId[][];
 
+    public readonly vertices: readonly ReadonlySimpleVector2[];
+    public readonly edges: readonly [from: GraphVertexId, to: GraphVertexId][];
+    public readonly cellBorders: readonly GraphEdgeId[][];
     /**
      * @param vertices
      * @param edges
      * @param cellBorders
      */
     private constructor(
-        public readonly vertices: readonly ReadonlySimpleVector2[],
-        public readonly edges: readonly [from: GraphVertexId, to: GraphVertexId][],
-        public readonly cellBorders: readonly GraphEdgeId[][],
+        vertices: readonly ReadonlySimpleVector2[],
+        edges: readonly [from: GraphVertexId, to: GraphVertexId][],
+        cellBorders: readonly GraphEdgeId[][],
     ) {
+        this.vertices = vertices;
+        this.edges = edges;
+        this.cellBorders = cellBorders;
+
         this.vertexCells = Array.from({ length: this.vertices.length }, () => []);
         this.vertexEdges = Array.from({ length: this.vertices.length }, () => []);
         this.vertexNeighbors = Array.from({ length: this.vertices.length }, () => []);

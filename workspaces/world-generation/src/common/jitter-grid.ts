@@ -5,6 +5,8 @@ import { randomFloatBetween } from "@g43/utils";
 import { assertExists } from "@std/assert";
 
 export class JitterGrid {
+    public readonly gridSize: ReadonlySimpleVector2;
+    public readonly jitterSize: number;
     public readonly grid: Grid2Holder<ReadonlySimpleVector2>;
 
     public static createJitterGrid(
@@ -42,10 +44,12 @@ export class JitterGrid {
     }
 
     public constructor(
-        public readonly gridSize: ReadonlySimpleVector2,
-        public readonly jitterSize: number,
+        gridSize: ReadonlySimpleVector2,
+        jitterSize: number,
         seed = 1,
     ) {
+        this.gridSize = gridSize;
+        this.jitterSize = jitterSize;
         this.grid = JitterGrid.createGridHolder(gridSize, jitterSize, seed);
     }
 
@@ -98,13 +102,17 @@ export class JitterGrid {
 }
 
 export class JitterGridGeneric<T> {
+    private readonly gridSize: ReadonlySimpleVector2;
+    private readonly jitterSize: number;
     private readonly grid: Grid2Holder<{ center: ReadonlySimpleVector2; value: T }>;
 
     public constructor(
-        private readonly gridSize: ReadonlySimpleVector2,
-        private readonly jitterSize: number,
+        gridSize: ReadonlySimpleVector2,
+        jitterSize: number,
         provider: (x: number, y: number, center: ReadonlySimpleVector2) => T,
     ) {
+        this.gridSize = gridSize;
+        this.jitterSize = jitterSize;
         this.grid = JitterGridGeneric.createGridHolder(gridSize, jitterSize, provider);
     }
 

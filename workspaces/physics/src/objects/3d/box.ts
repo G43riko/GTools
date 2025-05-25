@@ -104,10 +104,14 @@ export class Box implements VolumeAble3D, CollideAble3D<"minMax" | "cylinder" | 
         return Box.fromMinMax(start, end, offset);
     }
 
+    public readonly position: ReadonlySimpleVector3;
+    public readonly size: ReadonlySimpleVector3;
     public constructor(
-        public readonly position: ReadonlySimpleVector3,
-        public readonly size: ReadonlySimpleVector3,
+        position: ReadonlySimpleVector3,
+        size: ReadonlySimpleVector3,
     ) {
+        this.position = position;
+        this.size = size;
     }
 
     public getCenter(): ReadonlySimpleVector3 {

@@ -2,9 +2,11 @@ import { Color } from "@g43/tools";
 import type { VoronoiDataHolder } from "../../common/voronoi/voronoi-data.ts";
 
 export class VoronoiCanvasRenderer {
+    private readonly voronoi: VoronoiDataHolder;
     public constructor(
-        private readonly voronoi: VoronoiDataHolder,
+        voronoi: VoronoiDataHolder,
     ) {
+        this.voronoi = voronoi;
     }
 
     public renderCells(_context: CanvasRenderingContext2D): void {

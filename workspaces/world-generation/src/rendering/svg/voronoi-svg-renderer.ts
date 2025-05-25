@@ -3,9 +3,11 @@ import { SvgElementProxy, SvgPolygonElementFactory } from "@g43/svg";
 import type { VoronoiDataHolder } from "../../common/voronoi/voronoi-data.ts";
 
 export class VoronoiSvgRenderer {
+    private readonly voronoi: VoronoiDataHolder;
     public constructor(
-        private readonly voronoi: VoronoiDataHolder,
+        voronoi: VoronoiDataHolder,
     ) {
+        this.voronoi = voronoi;
     }
 
     public renderCells(): SvgElementProxy {

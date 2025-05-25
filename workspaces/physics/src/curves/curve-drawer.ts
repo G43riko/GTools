@@ -2,14 +2,16 @@ import type { ReadonlySimpleVector2 } from "@g43/types";
 import type { Curve2D } from "./curve-2d.ts";
 
 export class CurveDrawer {
+    private readonly context: CanvasRenderingContext2D;
     public pointColor = "blue";
     public lineColor = "green";
     public lineWidth = 2;
     public pointSize = 5;
 
     public constructor(
-        private readonly context: CanvasRenderingContext2D,
+        context: CanvasRenderingContext2D,
     ) {
+        this.context = context;
     }
 
     public renderPoints(curve: Curve2D, context = this.context, color = this.pointColor, size = this.pointSize): void {

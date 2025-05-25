@@ -3,10 +3,12 @@ import { VoronoiCanvasRenderer } from "./rendering/canvas/voronoi-canvas-rendere
 import type { MapHolderCell, StaticWorldHolder } from "./static-world-holder.ts";
 
 export class StaticWorldCanvasRenderer<Cell extends MapHolderCell = MapHolderCell, Biome extends string = string> {
+    private readonly world: StaticWorldHolder<Cell, Biome>;
     private readonly voronoiRenderer: VoronoiCanvasRenderer;
     public constructor(
-        private readonly world: StaticWorldHolder<Cell, Biome>,
+        world: StaticWorldHolder<Cell, Biome>,
     ) {
+        this.world = world;
         this.voronoiRenderer = new VoronoiCanvasRenderer(world.voronoi);
     }
 

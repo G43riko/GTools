@@ -4,11 +4,13 @@ import { Ray3Iterable } from "./ray-3d-iterable.ts";
 import { VoxelRayData } from "./voxel-ray-data.ts";
 
 export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimpleVector3 }> extends Ray3Iterable {
+    private readonly world: { getBlockByPosition(x: number, y: number, z: number): T };
+    private readonly blockSize: number;
     protected block: SimpleVector3;
 
     public constructor(
-        private readonly world: { getBlockByPosition(x: number, y: number, z: number): T },
-        private readonly blockSize: number,
+        world: { getBlockByPosition(x: number, y: number, z: number): T },
+        blockSize: number,
         origin: ReadonlySimpleVector3,
         direction: ReadonlySimpleVector3,
     ) {
@@ -17,6 +19,8 @@ export class VoxelRayCaster<T extends { block: unknown; position: ReadonlySimple
             direction,
             100,
         );
+        this.world = world;
+        this.blockSize = blockSize;
         this.block = SimpleVector.create3(this.blockSize, this.blockSize, this.blockSize);
     }
 

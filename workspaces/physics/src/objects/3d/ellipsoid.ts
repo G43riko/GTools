@@ -6,11 +6,15 @@ export class Ellipsoid implements VolumeAble3D {
     public get volume(): number {
         return Math.PI * 4 / 3 * this.radius.x * this.radius.y * this.radius.z;
     }
+    public readonly center: ReadonlySimpleVector3;
+    public readonly radius: ReadonlySimpleVector3;
 
     public constructor(
-        public readonly center: ReadonlySimpleVector3,
-        public readonly radius: ReadonlySimpleVector3,
+        center: ReadonlySimpleVector3,
+        radius: ReadonlySimpleVector3,
     ) {
+        this.center = center;
+        this.radius = radius;
     }
 
     public getCenter(): ReadonlySimpleVector3 {

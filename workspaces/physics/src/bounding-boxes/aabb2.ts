@@ -70,12 +70,20 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         return new AABB2(minX, minY, maxX, maxY);
     }
 
+    public left: number;
+    public top: number;
+    public right: number;
+    public bottom: number;
     public constructor(
-        public left = 0,
-        public top = 0,
-        public right = 0,
-        public bottom = 0,
+        left = 0,
+        top = 0,
+        right = 0,
+        bottom = 0,
     ) {
+        this.left = left;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
     }
 
     public rayCast(result: RaycastResult, ray: RayCast2D, maxFraction = Infinity): boolean {

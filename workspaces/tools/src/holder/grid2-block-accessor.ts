@@ -3,10 +3,14 @@ import type { GridBlockItemFilter } from "./grid-filters.ts";
 import type { Grid2Holder } from "./2d/grid2-holder.ts";
 
 export class Grid2BlockAccessor<T> {
+    private readonly holder: Grid2Holder<T>;
+    private readonly position: SimpleVector2;
     public constructor(
-        private readonly holder: Grid2Holder<T>,
-        private readonly position: SimpleVector2,
+        holder: Grid2Holder<T>,
+        position: SimpleVector2,
     ) {
+        this.holder = holder;
+        this.position = position;
     }
 
     public check(filter: GridBlockItemFilter<T>): boolean {

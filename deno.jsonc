@@ -78,6 +78,7 @@
         "strict": true,
         "lib": ["es2019", "dom", "deno.ns"],
         "jsx": "react-jsx",
+        "erasableSyntaxOnly": true,
         "jsxImportSource": "preact"
     },
     "exclude": [

@@ -6,6 +6,9 @@ import { Cylinder } from "./cylinder.ts";
 import { Sphere } from "./sphere.ts";
 
 export class Capsule implements VolumeAble3D {
+    public readonly position: ReadonlySimpleVector3;
+    public readonly radius: number;
+    public readonly height: number;
     public static fromCylinder(cylinder: Cylinder): Capsule {
         return new Capsule(cylinder.position, cylinder.radius, cylinder.height);
     }
@@ -24,12 +27,14 @@ export class Capsule implements VolumeAble3D {
      * @param height - height from the bottom  of  bottom sphere to the top of the top sphere
      */
     public constructor(
-        public readonly position: ReadonlySimpleVector3,
-        public readonly radius: number,
-        public readonly height: number,
+        position: ReadonlySimpleVector3,
+        radius: number,
+        height: number,
     ) {
+        this.position = position;
+        this.radius = radius;
+        this.height = height;
     }
-
     public equals(capsule: any): boolean {
         if (!capsule) {
             return false;

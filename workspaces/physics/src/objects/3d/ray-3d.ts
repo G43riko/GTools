@@ -3,11 +3,17 @@ import type { MinMax3D, ReadonlySimpleVector3, SimpleVector3 } from "@g43/types"
 import { intersection3dLineMinMax, intersection3dLineSphere } from "../../intersects-3d.ts";
 
 export class Ray3D {
+    public readonly origin: ReadonlySimpleVector3;
+    public readonly direction: ReadonlySimpleVector3;
+    public readonly length: number;
     public constructor(
-        public readonly origin: ReadonlySimpleVector3,
-        public readonly direction: ReadonlySimpleVector3,
-        public readonly length: number = Infinity,
+        origin: ReadonlySimpleVector3,
+        direction: ReadonlySimpleVector3,
+        length: number = Infinity,
     ) {
+        this.origin = origin;
+        this.direction = direction;
+        this.length = length;
     }
 
     public get end(): SimpleVector3 {

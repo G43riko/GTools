@@ -2,11 +2,13 @@ import type { ReadonlySimpleVector2 } from "@g43/types";
 import { AbstractStaticMapGenerator } from "./static-map-generator.ts";
 
 export class SingleValueStaticMapGenerator<T> extends AbstractStaticMapGenerator<T> {
+    public readonly tile: T;
     public constructor(
         size: ReadonlySimpleVector2,
-        public readonly tile: T,
+        tile: T,
     ) {
         super(size);
+        this.tile = tile;
     }
 
     public override getTileFor(): T {

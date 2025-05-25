@@ -7,6 +7,8 @@ import type { Object2D } from "./object-2d.ts";
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Line.js
  */
 export class Line2D implements Object2D {
+    public readonly pointA: ReadonlySimpleVector2;
+    public readonly pointB: ReadonlySimpleVector2;
     /** Array containing the two points that define the line segment */
     public readonly points: readonly [pointA: ReadonlySimpleVector2, pointB: ReadonlySimpleVector2];
     /** Vector representing the direction from pointA to pointB */
@@ -18,9 +20,11 @@ export class Line2D implements Object2D {
      * @param pointB The ending point of the line
      */
     public constructor(
-        public readonly pointA: ReadonlySimpleVector2,
-        public readonly pointB: ReadonlySimpleVector2,
+        pointA: ReadonlySimpleVector2,
+        pointB: ReadonlySimpleVector2,
     ) {
+        this.pointA = pointA;
+        this.pointB = pointB;
         this.direction = SimpleVector.createReadonly2(
             this.pointB.x - this.pointA.x,
             this.pointB.y - this.pointA.y,

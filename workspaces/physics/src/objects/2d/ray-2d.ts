@@ -5,6 +5,9 @@ import type { ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
  * Represents a 2D ray with an origin point, direction vector, and length
  */
 export class Ray2D {
+    public readonly origin: ReadonlySimpleVector2;
+    public readonly direction: ReadonlySimpleVector2;
+    public readonly length: number;
     /**
      * Creates a new Ray2D instance
      * @param origin The starting point of the ray
@@ -12,10 +15,13 @@ export class Ray2D {
      * @param length The length of the ray (defaults to Infinity)
      */
     public constructor(
-        public readonly origin: ReadonlySimpleVector2,
-        public readonly direction: ReadonlySimpleVector2,
-        public readonly length: number = Infinity,
+        origin: ReadonlySimpleVector2,
+        direction: ReadonlySimpleVector2,
+        length: number = Infinity,
     ) {
+        this.origin = origin;
+        this.direction = direction;
+        this.length = length;
     }
 
     public get end(): SimpleVector2 {
@@ -30,20 +36,21 @@ export class Ray2D {
     }
 }
 
-export enum RayMode {
+export const RayMode = {
     /**
      * This raycasting mode will make the Ray2D stop when it finds the first intersection point.
      */
-    ANY = "ANY",
+    ANY: "ANY",
     /**
      * This raycasting mode will make the Ray2D traverse through all intersection points and only return the closest one.
      */
-    CLOSEST = "CLOSEST",
+    CLOSEST: "CLOSEST",
     /**
      * This raycasting mode will traverse all intersection points and executes a callback for each one.
      */
-    ALL = "ALL",
-}
+    ALL: "ALL",
+};
+export type RayMode = (typeof RayMode)[keyof typeof RayMode];
 
 /**
  * Stores the result of a raycast operation including intersection details

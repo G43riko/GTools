@@ -2,6 +2,7 @@ import { LabeledColorInput, LabeledRangeInput, LabeledSelectInput } from "@g43/f
 import { Signal, useSignal } from "@preact/signals";
 import { JSX, VNode } from "preact";
 
+// @ts-expect-error issue with conversion to const
 export enum PropertyType {
     RANGE = "RANGE",
     COLOR = "COLOR",

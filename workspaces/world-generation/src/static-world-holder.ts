@@ -13,11 +13,17 @@ export interface MapHolderCell extends MapAccessorCell {
     readonly centerHeight: number;
 }
 export class StaticWorldHolder<Cell extends MapHolderCell = MapHolderCell, Biome extends string = string> {
+    private readonly cells: readonly Cell[];
+    public readonly voronoi: VoronoiDataHolder;
+    private readonly options: StaticWorldHolderOptions<Biome>;
     public constructor(
-        private readonly cells: readonly Cell[],
-        public readonly voronoi: VoronoiDataHolder,
-        private readonly options: StaticWorldHolderOptions<Biome>,
+        cells: readonly Cell[],
+        voronoi: VoronoiDataHolder,
+        options: StaticWorldHolderOptions<Biome>,
     ) {
+        this.cells = cells;
+        this.voronoi = voronoi;
+        this.options = options;
     }
 
     private requireCell(cellOrIndex: number | Cell): Cell {

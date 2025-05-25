@@ -7,10 +7,12 @@ import { useEffect } from "preact/hooks";
 import { EmitValue, FormBuilder, useFormBuilder } from "../../../../components/hooks/form-builder.tsx";
 import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
 
-enum ShapeType {
-    CIRCLE = "circle",
-    RECT = "rectangle",
+const ShapeType = {
+    CIRCLE: "circle",
+    RECT: "rectangle",
 }
+type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
+
 const cursorShapes = [
     ShapeType.CIRCLE,
     ShapeType.RECT,

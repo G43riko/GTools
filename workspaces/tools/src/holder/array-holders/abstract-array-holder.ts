@@ -13,13 +13,15 @@ export abstract class AbstractArrayHolder<
     Item,
     Data extends Array<Item> | Array<number> | TypedArray, /* | BigInt64Array | BigUint64Array */
 > {
+    protected readonly data: Data;
     public get length(): number {
         return this.data.length;
     }
 
     protected constructor(
-        protected readonly data: Data,
+        data: Data,
     ) {
+        this.data = data;
     }
 
     public abstract toReadonlyArray(): readonly Item[];

@@ -10,6 +10,12 @@ import type { MassAble2D } from "./object-2d.ts";
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Convex.js
  */
 export class Triangle2D implements MassAble2D {
+    /** The first vertex of the triangle */
+    private readonly pointA: SimpleVector2;
+    /** The second vertex of the triangle */
+    private readonly pointB: SimpleVector2;
+    /** The third vertex of the triangle */
+    private readonly pointC: SimpleVector2;
     /**
      * Creates a new Triangle2D instance
      * @param pointA The first vertex of the triangle
@@ -18,12 +24,15 @@ export class Triangle2D implements MassAble2D {
      */
     public constructor(
         /** The first vertex of the triangle */
-        private readonly pointA: SimpleVector2,
+        pointA: SimpleVector2,
         /** The second vertex of the triangle */
-        private readonly pointB: SimpleVector2,
+        pointB: SimpleVector2,
         /** The third vertex of the triangle */
-        private readonly pointC: SimpleVector2,
+        pointC: SimpleVector2,
     ) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
     }
 
     /**

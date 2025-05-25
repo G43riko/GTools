@@ -8,6 +8,9 @@ import { VoronoiDataHolder } from "./voronoi-data.ts";
  */
 
 export class Voronoi extends VoronoiDataHolder {
+    private readonly delaunay: { triangles: Uint32Array; halfedges: Int32Array } | Delaunator<[number, number]>;
+    private readonly points: Pair<number>[];
+    private readonly pointsN: number;
     public static fromDelaunator(data: Delaunator<number[]>): Voronoi {
         return new Voronoi(data, pairwiseArray(data.coords), data.coords.length / 2);
     }
@@ -20,11 +23,14 @@ export class Voronoi extends VoronoiDataHolder {
      * @param {number} pointsN The number of points.
      */
     public constructor(
-        private readonly delaunay: { triangles: Uint32Array; halfedges: Int32Array } | Delaunator<[number, number]>,
-        private readonly points: Pair<number>[],
-        private readonly pointsN: number,
+        delaunay: { triangles: Uint32Array; halfedges: Int32Array } | Delaunator<[number, number]>,
+        points: Pair<number>[],
+        pointsN: number,
     ) {
         super();
+        this.delaunay = delaunay;
+        this.points = points;
+        this.pointsN = pointsN;
         // Half-edges are the indices into the delaunator outputs:
         // delaunay.triangles[e] gives the point ID where the half-edge starts
         // delaunay.halfedges[e] returns either the opposite half-edge in the adjacent triangle, or -1 if there's not an adjacent triangle.

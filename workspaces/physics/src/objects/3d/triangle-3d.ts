@@ -7,6 +7,9 @@ import type { Plane3D } from "./plane-3d.ts";
  * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Triangle.js
  */
 export class Triangle3D implements Object3D {
+    public readonly pointA: ReadonlySimpleVector3;
+    public readonly pointB: ReadonlySimpleVector3;
+    public readonly pointC: ReadonlySimpleVector3;
     public static area(v1: ReadonlySimpleVector3, v2: ReadonlySimpleVector3, v3: ReadonlySimpleVector3): number {
         const v1v2 = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
         const v1v3 = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
@@ -22,10 +25,13 @@ export class Triangle3D implements Object3D {
     }
 
     public constructor(
-        public readonly pointA: ReadonlySimpleVector3,
-        public readonly pointB: ReadonlySimpleVector3,
-        public readonly pointC: ReadonlySimpleVector3,
+        pointA: ReadonlySimpleVector3,
+        pointB: ReadonlySimpleVector3,
+        pointC: ReadonlySimpleVector3,
     ) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
     }
 
     public getNormal(): ReadonlySimpleVector3 {

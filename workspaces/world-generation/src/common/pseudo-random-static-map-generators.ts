@@ -8,16 +8,21 @@ import { AbstractStaticMapGenerator } from "./static-map-generator.ts";
  * Creates map with random values between 0 and 1
  */
 export class PerlinStaticMapGenerator extends AbstractStaticMapGenerator<number> {
+    public readonly frequency: number;
+    public readonly octaves: number;
+    public readonly seed: number;
     public readonly provider: (x: number, y: number) => number;
 
     public constructor(
         size: ReadonlySimpleVector2,
-        public readonly frequency = 0.01,
-        public readonly octaves = 2,
-        public readonly seed = 1,
+        frequency = 0.01,
+        octaves = 2,
+        seed = 1,
     ) {
         super(size);
-
+        this.frequency = frequency;
+        this.octaves = octaves;
+        this.seed = seed;
         this.provider = PerlinNoise.createDynamicProvider2(makeNoise2D(this.seed + 13874), { frequency, octaves });
     }
 

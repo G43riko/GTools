@@ -3,16 +3,32 @@ import type { ReadonlySimpleVector2 } from "@g43/types";
 const PI2 = Math.PI * 2;
 
 export class ArcCurve {
+    public readonly x: number;
+    public readonly y: number;
+    public readonly radiusX: number;
+    public readonly radiusY: number;
+    public readonly startAngle: number;
+    public readonly endAngle: number;
+    public readonly clockwise: boolean;
+    public readonly rotation: number;
     public constructor(
-        public readonly x = 0,
-        public readonly y = 0,
-        public readonly radiusX = 1,
-        public readonly radiusY = 1,
-        public readonly startAngle = 0,
-        public readonly endAngle = PI2,
-        public readonly clockwise = false,
-        public readonly rotation = 0,
+        x = 0,
+        y = 0,
+        radiusX = 1,
+        radiusY = 1,
+        startAngle = 0,
+        endAngle = PI2,
+        clockwise = false,
+        rotation = 0,
     ) {
+        this.x = x;
+        this.y = y;
+        this.radiusX = radiusX;
+        this.radiusY = radiusY;
+        this.startAngle = startAngle;
+        this.endAngle = endAngle;
+        this.clockwise = clockwise;
+        this.rotation = rotation;
     }
 
     public getPoint(t: number): ReadonlySimpleVector2 {

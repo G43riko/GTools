@@ -38,11 +38,13 @@ export class Plane3D {
     public readonly normal: ReadonlySimpleVector3;
 
     public readonly d: number;
+    public readonly point: ReadonlySimpleVector3;
 
     public constructor(
         normal: ReadonlySimpleVector3,
-        public readonly point: ReadonlySimpleVector3,
+        point: ReadonlySimpleVector3,
     ) {
+        this.point = point;
         this.normal = Vector3.normalize(normal);
         this.d = -Vector3.mul(this.normal, this.point, Vector3.TMP).sum;
     }
