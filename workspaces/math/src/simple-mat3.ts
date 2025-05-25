@@ -8,9 +8,11 @@ import type { SimpleVector2 } from "@g43/types";
 import { SimpleVector } from "./simple-vector.ts";
 
 export class SimpleMat3 {
+    public readonly data: number[];
     public constructor(
-        public readonly data: number[],
+        data: number[],
     ) {
+        this.data = data;
     }
 
     public set(x: number, y: number, value: number): void {

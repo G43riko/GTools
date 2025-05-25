@@ -29,6 +29,8 @@ import type { Vector } from "./vector.ts";
  * ```
  */
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
+    public x: number;
+    public y: number;
     public static createEmpty(): Vector2 {
         return new Vector2(0, 0);
     }
@@ -38,9 +40,11 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
 
     public constructor(
-        public x = 0,
-        public y = 0,
+        x = 0,
+        y = 0,
     ) {
+        this.x = x;
+        this.y = y;
     }
 
     public toReadonlyProxy(): ReadonlySimpleVector2 {

@@ -22,13 +22,14 @@ export function compareEventButton(event: InputEvent, ...buttons: Button[]): boo
     return buttons.includes(extractButtonFromEvent(event));
 }
 
-enum NativePointerButton {
-    NoButton = -1,
-    Left = 0,
-    Middle = 1,
-    Right = 2,
-    Unknown = 3,
-}
+const NativePointerButton = {
+    NoButton: -1,
+    Left: 0,
+    Middle: 1,
+    Right: 2,
+    Unknown: 3,
+};
+export type NativePointerButton = (typeof NativePointerButton)[keyof typeof NativePointerButton];
 
 /**
  * @param key

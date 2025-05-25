@@ -9,16 +9,18 @@ import type { ReadonlySimpleVector2 } from "@g43/types";
  * @template T - The type of points in the path, must extend ReadonlySimpleVector2
  */
 export class Path2D<T extends ReadonlySimpleVector2 = ReadonlySimpleVector2> {
+    protected readonly points: readonly T[];
     /**
      * Creates a new Path2D instance.
      *
      * @param points - An array of points that make up the path
      * @throws {Error} If the points array contains fewer than 2 points
      */
-    public constructor(protected readonly points: readonly T[]) {
+    public constructor(points: readonly T[]) {
         if (points.length < 2) {
             throw new Error("Cannot create path with less than 2 points");
         }
+        this.points = points;
     }
 
     /**

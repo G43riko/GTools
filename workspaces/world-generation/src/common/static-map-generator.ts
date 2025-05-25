@@ -7,9 +7,11 @@ export interface StaticMapGenerator<T> {
  * Generate map data for map with static size
  */
 export abstract class AbstractStaticMapGenerator<T> implements StaticMapGenerator<T> {
+    public readonly mapSize: ReadonlySimpleVector2;
     protected constructor(
-        public readonly mapSize: ReadonlySimpleVector2,
+        mapSize: ReadonlySimpleVector2,
     ) {
+        this.mapSize = mapSize;
     }
 
     public abstract getTileFor(x: number, y: number): T;

@@ -9,6 +9,8 @@ import type { Ray2D } from "./ray-2d.ts";
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Box.js
  */
 export class Rect implements MassAble2D {
+    public readonly position: ReadonlySimpleVector2;
+    public readonly size: ReadonlySimpleVector2;
     /** Gets the area of the rectangle */
     public get area(): number {
         return this.size.x * this.size.y;
@@ -126,16 +128,17 @@ export class Rect implements MassAble2D {
 
         return new Rect({ ...min }, size);
     }
-
     /**
      * Creates a new rectangle instance
      * @param position The position of the rectangle's top-left corner
      * @param size The width and height of the rectangle
      */
     public constructor(
-        public readonly position: ReadonlySimpleVector2,
-        public readonly size: ReadonlySimpleVector2,
+        position: ReadonlySimpleVector2,
+        size: ReadonlySimpleVector2,
     ) {
+        this.position = position;
+        this.size = size;
     }
 
     /**

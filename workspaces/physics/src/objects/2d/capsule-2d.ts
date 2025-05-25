@@ -7,6 +7,9 @@ import type { MassAble2D } from "./object-2d.ts";
  * @see https://github.com/schteppe/p2.js/blob/master/src/shapes/Capsule.js
  */
 export class Capsule2D implements MassAble2D {
+    private readonly start: SimpleVector2;
+    private readonly end: SimpleVector2;
+    private readonly radius: number;
     /**
      * Creates a new Capsule2D instance
      * @param start The starting point of the capsule's central line segment
@@ -14,10 +17,13 @@ export class Capsule2D implements MassAble2D {
      * @param radius The radius of the capsule's semicircles
      */
     public constructor(
-        private readonly start: SimpleVector2,
-        private readonly end: SimpleVector2,
-        private readonly radius: number,
+        start: SimpleVector2,
+        end: SimpleVector2,
+        radius: number,
     ) {
+        this.start = start;
+        this.end = end;
+        this.radius = radius;
     }
 
     /**

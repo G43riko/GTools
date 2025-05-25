@@ -11,10 +11,10 @@ export class AdvancedPolygon2d implements Polygon2d {
     public strokeColor = Color.BLACK;
     public strokeOpacity = 1;
     public strokeWidth = 1;
+    public readonly points: readonly ReadonlySimpleVector2[];
 
-    public constructor(
-        public readonly points: readonly ReadonlySimpleVector2[],
-    ) {
+    public constructor(points: readonly ReadonlySimpleVector2[]) {
+        this.points = points;
     }
 
     public getMin(): ReadonlySimpleVector2 {

@@ -16,13 +16,13 @@ function getCoordinates(index: number, width: number): ReadonlySimpleVector2 {
 }
 
 export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
+    public readonly size: ReadonlySimpleVector2;
+    private readonly _data: T[];
     public readonly data: readonly T[];
 
-    public constructor(
-        public readonly size: ReadonlySimpleVector2,
-        private readonly _data: T[],
-    ) {
-        this.data = _data;
+    public constructor(size: ReadonlySimpleVector2, _data: T[]) {
+        this.size = size;
+        this._data = this.data = _data;
     }
 
     public get maxSize(): number {
@@ -196,10 +196,11 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
      * TODO: add limit
      */
     public getNearest(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
-        enum Statuses {
-            ADDED,
-            FALSE,
-        }
+        const Statuses = {
+            ADDED: "ADDED",
+            FALSE: "FALSE",
+        };
+        type Statuses = (typeof Statuses)[keyof typeof Statuses];
 
         const data: { [index: number]: Statuses } = {};
 
@@ -228,10 +229,11 @@ export class Grid2ArrayHolder<T> implements Grid2Holder<T> {
     }
 
     public expandConditionally(x: number, y: number, condition: (item: T) => boolean): Grid2Block<T>[] {
-        enum Statuses {
-            ADDED,
-            FALSE,
-        }
+        const Statuses = {
+            ADDED: "ADDED",
+            FALSE: "FALSE",
+        };
+        type Statuses = (typeof Statuses)[keyof typeof Statuses];
 
         const data: { [index: number]: Statuses } = {};
         const current = [this.getIndex(x, y)];

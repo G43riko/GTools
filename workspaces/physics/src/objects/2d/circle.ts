@@ -9,6 +9,8 @@ import type { RayCast2D, RaycastResult } from "./ray-2d.ts";
  * @see https://github.com/excaliburjs/Excalibur/blob/main/src/engine/Collision/Colliders/CircleCollider.ts
  */
 export class Circle implements MassAble2D {
+    public readonly radius: number;
+    public readonly center: SimpleVector2;
     /** Gets the circumference of the circle */
     public get circuit(): number {
         return 2 * Math.PI * this.radius;
@@ -67,9 +69,11 @@ export class Circle implements MassAble2D {
      * @param center The center point of the circle
      */
     public constructor(
-        public readonly radius: number,
-        public readonly center: SimpleVector2,
+        radius: number,
+        center: SimpleVector2,
     ) {
+        this.radius = radius;
+        this.center = center;
     }
 
     /**

@@ -83,8 +83,12 @@ export class AABB3 implements AABB<AABB3, SimpleVector3, MinMax3D> {
             },
         );
     }
+    protected readonly min: SimpleVector3;
+    protected readonly max: SimpleVector3;
 
-    public constructor(protected readonly min: SimpleVector3, protected readonly max: SimpleVector3) {
+    public constructor(min: SimpleVector3, max: SimpleVector3) {
+        this.min = min;
+        this.max = max;
     }
 
     public expandByScalar(distance: number): void {

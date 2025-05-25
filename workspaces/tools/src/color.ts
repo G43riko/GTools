@@ -1,9 +1,11 @@
 import { hex2rgb, int2rgb, rgb2hex, rgb2int, rgba2hex } from "@g43/utils";
 import { Random } from "./random.ts";
 
-function checkColorValue(value: number): void {
+function checkColorValue(value: number): number {
     console.assert(value >= 0, `Color value must be greater than or equal to 0 but now is ${value}`);
     console.assert(value <= 255, `Color value must be less than or equal to 255 but now is ${value}`);
+
+    return value;
 }
 
 const MAXIMAL_INT_COLOR_VALUE = 16777215;
@@ -125,29 +127,33 @@ export class Color implements HexColor, RgbColor, RgbaColor, IntColor {
 
     public readonly hex: `#${string}`;
     public readonly hexAlpha: `#${string}`;
+    /**
+     * Red color value between 0 and 255
+     */
+    public readonly red: number;
+    /**
+     * Green color value between 0 and 255
+     */
+    public readonly green: number;
+    /**
+     * Blue color value between 0 and 255
+     */
+    public readonly blue: number;
+    /**
+     * Alpha color value between 0 and 255
+     */
+    public readonly alpha: number;
 
     public constructor(
-        /**
-         * Red color value between 0 and 255
-         */
-        public readonly red: number,
-        /**
-         * Green color value between 0 and 255
-         */
-        public readonly green: number,
-        /**
-         * Blue color value between 0 and 255
-         */
-        public readonly blue: number,
-        /**
-         * Alpha color value between 0 and 255
-         */
-        public readonly alpha = 255,
+        red: number,
+        green: number,
+        blue: number,
+        alpha = 255,
     ) {
-        checkColorValue(red);
-        checkColorValue(green);
-        checkColorValue(blue);
-        checkColorValue(alpha);
+        this.red = checkColorValue(red);
+        this.green = checkColorValue(green);
+        this.blue = checkColorValue(blue);
+        this.alpha = checkColorValue(alpha);
         this.hex = rgb2hex(Math.floor(this.red), Math.floor(this.green), Math.floor(this.blue));
         this.hexAlpha = rgba2hex(
             Math.floor(this.red),

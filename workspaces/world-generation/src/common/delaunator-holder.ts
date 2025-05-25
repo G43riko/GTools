@@ -5,6 +5,7 @@ import type { GraphCellId, GraphVertexId } from "./graph-holder.ts";
 import type { JitterGrid } from "./jitter-grid.ts";
 
 export class DelaunatorHolder {
+    public readonly delaunator: Delaunator<number[]>;
     public readonly hullIndices: readonly number[];
     public readonly triangleIndices: readonly number[];
     public readonly halfEdgeIndices: readonly number[];
@@ -24,8 +25,9 @@ export class DelaunatorHolder {
     }
 
     public constructor(
-        public readonly delaunator: Delaunator<number[]>,
+        delaunator: Delaunator<number[]>,
     ) {
+        this.delaunator = delaunator;
         this.hullIndices = Array.from(this.delaunator.hull);
         this.triangleIndices = Array.from(this.delaunator.triangles);
         this.halfEdgeIndices = Array.from(this.delaunator.halfedges);

@@ -8,6 +8,9 @@ import { Vector4 } from "./vector4.ts";
 
 // eslint-disable-next-line no-use-before-define
 export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
+    public x: number;
+    public y: number;
+    public z: number;
     public static readonly TMP: Vector3 = new Vector3();
 
     public static get UP(): Vector3 {
@@ -39,10 +42,13 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     }
 
     public constructor(
-        public x = 0,
-        public y = 0,
-        public z = 0,
+        x = 0,
+        y = 0,
+        z = 0,
     ) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     public toReadonlyProxy(): ReadonlySimpleVector3 {

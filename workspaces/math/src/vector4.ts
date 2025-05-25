@@ -3,6 +3,10 @@ import type { Vector } from "./vector.ts";
 
 // eslint-disable-next-line no-use-before-define
 export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
+    public x: number;
+    public y: number;
+    public z: number;
+    public w: number;
     public static readonly TMP: Vector4 = new Vector4();
 
     public static createEmpty(): Vector4 {
@@ -16,11 +20,15 @@ export class Vector4 implements SimpleVector4, Vector<SimpleVector4, Vector4> {
         return new Vector4(valA, valB, valC, valD);
     }
     public constructor(
-        public x = 0,
-        public y = 0,
-        public z = 0,
-        public w = 0,
+        x = 0,
+        y = 0,
+        z = 0,
+        w = 0,
     ) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
     }
     public toReadonlyProxy(): ReadonlySimpleVector4 {
         // deno-lint-ignore no-this-alias

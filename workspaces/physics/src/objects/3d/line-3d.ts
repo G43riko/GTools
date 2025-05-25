@@ -11,6 +11,8 @@ import type { Sphere } from "./sphere.ts";
  * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Line3.js
  */
 export class Line3D implements DistanceAble3D<"point"> {
+    public readonly pointA: ReadonlySimpleVector3;
+    public readonly pointB: ReadonlySimpleVector3;
     public readonly collideWith = {
         cylinder: (_cylinder: Cylinder): boolean => false,
         point: (point: ReadonlySimpleVector3, tolerance = 0.00001): boolean => this.distanceTo.point(point) < tolerance,
@@ -85,9 +87,11 @@ export class Line3D implements DistanceAble3D<"point"> {
         );
     }
     public constructor(
-        public readonly pointA: ReadonlySimpleVector3,
-        public readonly pointB: ReadonlySimpleVector3,
+        pointA: ReadonlySimpleVector3,
+        pointB: ReadonlySimpleVector3,
     ) {
+        this.pointA = pointA;
+        this.pointB = pointB;
     }
 
     public get vectorToPointA(): Vector3 {

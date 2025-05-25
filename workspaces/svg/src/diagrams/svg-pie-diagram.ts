@@ -6,17 +6,30 @@ import { randomIntBetween } from "@g43/utils";
 import type { SimpleVector2 } from "@g43/types";
 
 export class SvgPieDiagram extends SvgDiagram {
+    public readonly data: (
+        | number
+        | { value: number; label: string; color?: Color | string }
+    )[];
+    public readonly center: SimpleVector2;
+    public readonly outerRadius: number;
+    public readonly innerRadius: number;
+    public readonly padAngle: number;
     public constructor(
-        public readonly data: (
+        data: (
             | number
             | { value: number; label: string; color?: Color | string }
         )[],
-        public readonly center: SimpleVector2 = { x: 0, y: 0 },
-        public readonly outerRadius: number = 50,
-        public readonly innerRadius: number = NaN,
-        public readonly padAngle = 0,
+        center: SimpleVector2 = { x: 0, y: 0 },
+        outerRadius: number = 50,
+        innerRadius: number = NaN,
+        padAngle = 0,
     ) {
         super();
+        this.data = data;
+        this.center = center;
+        this.outerRadius = outerRadius;
+        this.innerRadius = innerRadius;
+        this.padAngle = padAngle;
     }
 
     public getWrapperProxy(): SvgElementProxy {

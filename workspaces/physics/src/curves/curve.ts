@@ -3,13 +3,14 @@
  * - add caching to size calculation
  */
 export abstract class Curve<T> {
-    public get length(): number {
-        return this.points.length;
-    }
+    public readonly points: readonly T[];
+    public readonly length: number;
 
     public constructor(
-        public readonly points: readonly T[],
+        points: readonly T[],
     ) {
+        this.points = points;
+        this.length = points.length;
     }
 
     public getPoint(index: number): T {

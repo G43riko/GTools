@@ -42,10 +42,12 @@ export class CanvasDrawer implements Drawer {
             this.context.fillStyle = DrawerUtils.extractColor(colorOrGradient);
         }
     }
+    public readonly context: CanvasRenderingContext2D;
 
     public constructor(
-        public readonly context: CanvasRenderingContext2D,
+        context: CanvasRenderingContext2D,
     ) {
+        this.context = context;
     }
 
     // Paths

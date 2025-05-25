@@ -50,12 +50,13 @@ export function collision3dLineSphere(
     return pointLine3dDistance(ax, ay, az, bx, by, bz, sx, sy, sz) < sr;
 }
 
-export enum IntersectionType {
-    OUTSIDE = "OUTSIDE",
-    INSIDE = "INSIDE",
-    ONE_INTERSECTION = "ONE_INTERSECTION",
-    TWO_INTERSECTION = "TWO_INTERSECTION",
-}
+export const IntersectionType = {
+    OUTSIDE: "OUTSIDE",
+    INSIDE: "INSIDE",
+    ONE_INTERSECTION: "ONE_INTERSECTION",
+    TWO_INTERSECTION: "TWO_INTERSECTION",
+};
+export type IntersectionType = (typeof IntersectionType)[keyof typeof IntersectionType];
 
 // tslint:disable-next-line:cyclomatic-complexity
 export function collision3dLineBox2(

@@ -71,11 +71,13 @@ export class SvgBarDiagram<T = unknown> extends SvgDiagram {
         width: 320,
         height: 240,
     };
+    public readonly position: SimpleVector2;
 
     public constructor(
-        public readonly position: SimpleVector2 = { x: 0, y: 0 },
+        position: SimpleVector2 = { x: 0, y: 0 },
     ) {
         super();
+        this.position = position;
     }
 
     public getWrapperProxy(): SvgElementProxy {
