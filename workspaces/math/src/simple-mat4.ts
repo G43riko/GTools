@@ -16,7 +16,9 @@ export type mat4type = number[];
  * 03 07 11 14
  */
 export class SimpleMat4 {
-    public constructor(public readonly data: mat4type) {
+    public readonly data: mat4type;
+    public constructor(data: mat4type) {
+        this.data = data;
     }
 
     public set(matrix: SimpleMat4): void {

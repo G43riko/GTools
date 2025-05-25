@@ -42,8 +42,9 @@ export class SvgHolder {
 
         return new SvgHolder(svgElement);
     }
-
-    public constructor(public readonly svg: SvgElementProxy) {
+    public readonly svg: SvgElementProxy;
+    public constructor(svg: SvgElementProxy) {
+        this.svg = svg;
     }
 
     public get getSvgElement(): SVGSVGElement | undefined {

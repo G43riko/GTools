@@ -10,6 +10,7 @@ import type { MassAble2D } from "./object-2d.ts";
  * Used for collision detection and physics calculations.
  */
 export class Polygon2d implements MassAble2D {
+    private readonly points: readonly ReadonlySimpleVector2[];
     /**
      * Gets the radius of the smallest circle that completely contains the polygon
      */
@@ -37,12 +38,12 @@ export class Polygon2d implements MassAble2D {
 
         return numerator / denominator;
     }
-
     /**
      * Creates a new Polygon2d instance
      * @param points An array of 2D vectors defining the polygon's vertices in counter-clockwise order
      */
-    public constructor(private readonly points: readonly ReadonlySimpleVector2[]) {
+    public constructor(points: readonly ReadonlySimpleVector2[]) {
+        this.points = points;
     }
 
     /**

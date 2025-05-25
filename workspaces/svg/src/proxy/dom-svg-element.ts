@@ -12,11 +12,12 @@ export class DOMSvgElement implements SvgElementProxy {
         this.element.textContent = text;
     }
 
+    public readonly element: SVGElement;
     public get parentElement(): SvgElementProxy | undefined {
         return this.element.parentElement ? new DOMSvgElement(this.element.parentNode as SVGElement) : undefined;
     }
-
-    public constructor(public readonly element: SVGElement) {
+    public constructor(element: SVGElement) {
+        this.element = element;
         this.classList = this.element.classList;
     }
     public addEventListener<K extends keyof SVGElementEventMap>(

@@ -26,8 +26,9 @@ export abstract class SvgElementFactory {
     private _hoverStyles = "";
     private _styles = "";
     private readonly _defs: string[] = [];
-
-    protected constructor(public readonly elementName: string) {
+    public readonly elementName: string;
+    protected constructor(elementName: string) {
+        this.elementName = elementName;
         this._element = SvgElementProxy.create(this.elementName);
         this.classList = this._element.classList;
     }

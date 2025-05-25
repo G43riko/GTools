@@ -135,7 +135,9 @@ export class RayCast2D {
         return this.ray.direction;
     }
 
-    public constructor(public readonly ray: Ray2D) {
+    public readonly ray: Ray2D;
+    public constructor(ray: Ray2D) {
+        this.ray = ray;
     }
 
     public reportIntersection(result: RaycastResult, fraction: number, normal: SimpleVector2, faceIndex: number): void {

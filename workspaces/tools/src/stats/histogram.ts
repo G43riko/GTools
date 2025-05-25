@@ -14,6 +14,7 @@
  * ```
  */
 export class Histogram<Key extends string = string> {
+    private readonly options: { includeFalsyValues?: boolean };
     private _totalLength = 0;
     private readonly _data: Map<Key, number> = new Map();
 
@@ -32,13 +33,13 @@ export class Histogram<Key extends string = string> {
     public get length(): number {
         return this._data.size;
     }
-
     /**
      * Creates a new instance of Histogram
      * @param options - Configuration options
      * @param options.includeFalsyValues - Whether to include falsy values in the histogram
      */
-    public constructor(private readonly options: { includeFalsyValues?: boolean } = {}) {
+    public constructor(options: { includeFalsyValues?: boolean } = {}) {
+        this.options = options;
     }
 
     /**

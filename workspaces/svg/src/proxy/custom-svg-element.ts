@@ -10,8 +10,9 @@ export class CustomSvgElement implements SvgElementProxy {
     public textContent = "";
 
     public readonly classList: CustomSvgElementClassList = new CustomSvgElementClassList();
-
-    public constructor(public readonly name: string) {
+    public readonly name: string;
+    public constructor(name: string) {
+        this.name = name;
     }
 
     public querySelector(selector: string): SvgElementProxy | undefined {

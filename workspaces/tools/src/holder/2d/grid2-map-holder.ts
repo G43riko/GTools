@@ -4,8 +4,9 @@ import type { Grid2Block, Grid2Holder } from "./grid2-holder.ts";
 
 export class Grid2MapHolder<T> implements Grid2Holder<T> {
     public readonly length: number;
-
-    public constructor(public readonly data: T[][]) {
+    public readonly data: T[][];
+    public constructor(data: T[][]) {
+        this.data = data;
         this.length = this.data.length * this.data[0].length;
     }
 
