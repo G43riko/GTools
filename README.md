@@ -2,6 +2,8 @@
 [![Actions status](https://github.com/G43riko/GTools/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/G43riko/GTools/actions)
 ![REPO SIZE](https://img.shields.io/github/repo-size/G43riko/GTools.svg?style=flat-square)
 ![CODE SIZE](https://img.shields.io/github/languages/code-size/G43riko/GTools.svg?style=flat-square)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/G43riko/GTools)](https://github.com/G43riko/GTools/pulse)
+[![GitHub last commit](https://img.shields.io/github/last-commit/G43riko/GTools)](https://github.com/G43riko/GTools/commits/main)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=coverage)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=G43riko_GTools&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=G43riko_GTools)
