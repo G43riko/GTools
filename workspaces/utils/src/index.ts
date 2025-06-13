@@ -19,6 +19,7 @@
  */
 
 export * from "./array-utils.ts";
+export * from "./format-utils.ts";
 export * from "./color-utils.ts";
 export * from "./direction-utils.ts";
 export * from "./geo-utils.ts";
