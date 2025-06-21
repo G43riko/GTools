@@ -14,13 +14,14 @@ export interface PingParams {
      * Timeout in ms
      */
     readonly timeout?: number;
+    readonly methods?: readonly ("GET" | "POST" | "HEAD" | "OPTIONS")[];
     readonly silent?: boolean;
     readonly headers?: HeadersInit;
 }
 
 export async function ping(
     url: string,
-    { silent, timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
+    { silent, methods = ["GET"], timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
 ): Promise<PingResult> {
     const date = new Date();
     try {
@@ -28,7 +29,12 @@ export async function ping(
         const signal = controller.signal;
         const timer = setTimeout(() => controller.abort(), timeout);
 
-        const response = await fetch(url, { method: "HEAD", signal, headers });
+        const response = await Promise.any(
+            methods.map(
+                (method) =>
+                    fetch(url, { method, signal, headers }).then((e) => e.ok ? e : Promise.reject("Invalid response")),
+            ),
+        );
         clearTimeout(timer);
 
         return {
