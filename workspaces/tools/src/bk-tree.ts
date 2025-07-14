@@ -2,197 +2,190 @@
  * Returns the minimum of three numbers.
  */
 function tripleMin(a: number, b: number, c: number): number {
-  return Math.min(a, b, c);
+    return Math.min(a, b, c);
 }
 
 /**
  * Basic Levenshtein distance (no transpositions).
  */
 function levenshteinDistance(a: string, b: string): number {
-  const m = a.length;
-  const n = b.length;
+    const m = a.length;
+    const n = b.length;
 
-  const dp: number[][] = Array.from({ length: m + 1 }, () =>
-    new Array(n + 1).fill(0)
-  );
+    const dp: number[][] = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
 
-  for (let i = 0; i <= m; i++) {
-    dp[i][0] = i
-  };
-  for (let j = 0; j <= n; j++) {
-    dp[0][j] = j
-};
-
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      if (a[i - 1] !== b[j - 1]) {
-        dp[i][j] = tripleMin(
-          dp[i - 1][j] + 1,     // deletion
-          dp[i][j - 1] + 1,     // insertion
-          dp[i - 1][j - 1] + 1  // substitution
-        );
-      } else {
-        dp[i][j] = dp[i - 1][j - 1];
-      }
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;
     }
-  }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;
+    }
 
-  return dp[m][n];
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (a[i - 1] !== b[j - 1]) {
+                dp[i][j] = tripleMin(
+                    dp[i - 1][j] + 1, // deletion
+                    dp[i][j - 1] + 1, // insertion
+                    dp[i - 1][j - 1] + 1, // substitution
+                );
+            } else {
+                dp[i][j] = dp[i - 1][j - 1];
+            }
+        }
+    }
+
+    return dp[m][n];
 }
 
 /**
  * Damerau–Levenshtein distance (supports adjacent transpositions).
  */
 function damerauLevenshteinDistance(a: string, b: string): number {
-  const m = a.length;
-  const n = b.length;
+    const m = a.length;
+    const n = b.length;
 
-  const dp: number[][] = Array.from({ length: m + 1 }, () =>
-    new Array(n + 1).fill(0)
-  );
+    const dp: number[][] = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
 
-  for (let i = 0; i <= m; i++) {
-    dp[i][0] = i
-  };
-  for (let j = 0; j <= n; j++) {
-    dp[0][j] = j
-  };
-
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-
-      dp[i][j] = Math.min(
-        dp[i - 1][j] + 1,     // deletion
-        dp[i][j - 1] + 1,     // insertion
-        dp[i - 1][j - 1] + cost // substitution
-      );
-
-      if (
-        i > 1 &&
-        j > 1 &&
-        a[i - 1] === b[j - 2] &&
-        a[i - 2] === b[j - 1]
-      ) {
-        dp[i][j] = Math.min(dp[i][j], dp[i - 2][j - 2] + 1); // transposition
-      }
+    for (let i = 0; i <= m; i++) {
+        dp[i][0] = i;
     }
-  }
+    for (let j = 0; j <= n; j++) {
+        dp[0][j] = j;
+    }
 
-  return dp[m][n];
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+
+            dp[i][j] = Math.min(
+                dp[i - 1][j] + 1, // deletion
+                dp[i][j - 1] + 1, // insertion
+                dp[i - 1][j - 1] + cost, // substitution
+            );
+
+            if (
+                i > 1 &&
+                j > 1 &&
+                a[i - 1] === b[j - 2] &&
+                a[i - 2] === b[j - 1]
+            ) {
+                dp[i][j] = Math.min(dp[i][j], dp[i - 2][j - 2] + 1); // transposition
+            }
+        }
+    }
+
+    return dp[m][n];
 }
 
 const MAX_WORD_LENGTH = 1024;
 
 class BKNode {
-  public word: string;
-  public readonly next: (number | null)[];
+    public word: string;
+    public readonly next: (number | null)[];
 
-  public constructor(word: string) {
-    this.word = word;
-    this.next = new Array(2 * MAX_WORD_LENGTH).fill(null);
-  }
+    public constructor(word: string) {
+        this.word = word;
+        this.next = new Array(2 * MAX_WORD_LENGTH).fill(null);
+    }
 
-  public setWord(word: string): void {
-    this.word = word;
-  }
+    public setWord(word: string): void {
+        this.word = word;
+    }
 }
 
 type DistanceType = "levenshtein" | "damerau-levenshtein";
 
 interface BKTreeOptions {
-  readonly maxWords: number;
-  readonly distance?: DistanceType;
+    readonly maxWords: number;
+    readonly distance?: DistanceType;
 }
 
 /**
  * BK-tree with configurable distance metric.
  */
 export class BKTree {
-  private readonly tree: BKNode[];
-  private readonly root: BKNode;
-  private ptr: number;
-  private readonly distanceFn: (a: string, b: string) => number;
+    private readonly tree: BKNode[];
+    private readonly root: BKNode;
+    private ptr: number;
+    private readonly distanceFn: (a: string, b: string) => number;
 
-  /**
-   * Creates a BK-tree instance.
-   * @param options - Configuration options.
-   */
-  public constructor(options: BKTreeOptions) {
-    const { maxWords, distance = "levenshtein" } = options;
+    /**
+     * Creates a BK-tree instance.
+     * @param options - Configuration options.
+     */
+    public constructor(options: BKTreeOptions) {
+        const { maxWords, distance = "levenshtein" } = options;
 
-    this.tree = new Array(maxWords).fill(null).map(() => new BKNode(""));
-    this.root = new BKNode("");
-    this.ptr = 0;
+        this.tree = new Array(maxWords).fill(null).map(() => new BKNode(""));
+        this.root = new BKNode("");
+        this.ptr = 0;
 
-    this.distanceFn =
-      distance === "damerau-levenshtein"
-        ? damerauLevenshteinDistance
-        : levenshteinDistance;
-  }
-
-  private _add(idx: number, node: BKNode): void {
-    if (this.root.word === "") {
-      this.root.setWord(node.word);
-      this.tree[0] = this.root;
-      return;
+        this.distanceFn = distance === "damerau-levenshtein" ? damerauLevenshteinDistance : levenshteinDistance;
     }
 
-    const dist = this.distanceFn(this.tree[idx].word, node.word);
-    const childIndex = this.tree[idx].next[dist];
+    private _add(idx: number, node: BKNode): void {
+        if (this.root.word === "") {
+            this.root.setWord(node.word);
+            this.tree[0] = this.root;
+            return;
+        }
 
-    if (childIndex === null) {
-      this.ptr++;
-      this.tree[this.ptr].setWord(node.word);
-      this.tree[idx].next[dist] = this.ptr;
-    } else {
-      this._add(childIndex, node);
-    }
-  }
+        const dist = this.distanceFn(this.tree[idx].word, node.word);
+        const childIndex = this.tree[idx].next[dist];
 
-  private _simWords(idx: number | null, word: string, tolerance: number): string[] {
-    if (idx === null || idx >= this.tree.length) return [];
-
-    const currentNode = this.tree[idx];
-    const dist = this.distanceFn(word, currentNode.word);
-
-    let results: string[] = [];
-    if (dist <= tolerance) {
-        results.push(currentNode.word)
-    };
-
-    const start = Math.max(1, dist - tolerance);
-    const end = dist + tolerance;
-
-    for (let d = start; d <= end; d++) {
-      const nextIdx = currentNode.next[d];
-      if (nextIdx !== null) {
-        results = results.concat(this._simWords(nextIdx, word, tolerance));
-      }
+        if (childIndex === null) {
+            this.ptr++;
+            this.tree[this.ptr].setWord(node.word);
+            this.tree[idx].next[dist] = this.ptr;
+        } else {
+            this._add(childIndex, node);
+        }
     }
 
-    return results;
-  }
+    private _simWords(idx: number | null, word: string, tolerance: number): string[] {
+        if (idx === null || idx >= this.tree.length) return [];
 
-  /**
-   * Add multiple words to the tree.
-   */
-  public add(words: string[]): void {
-    if (!Array.isArray(words)) {
-      throw new Error("Input must be an array of strings.");
+        const currentNode = this.tree[idx];
+        const dist = this.distanceFn(word, currentNode.word);
+
+        let results: string[] = [];
+        if (dist <= tolerance) {
+            results.push(currentNode.word);
+        }
+
+        const start = Math.max(1, dist - tolerance);
+        const end = dist + tolerance;
+
+        for (let d = start; d <= end; d++) {
+            const nextIdx = currentNode.next[d];
+            if (nextIdx !== null) {
+                results = results.concat(this._simWords(nextIdx, word, tolerance));
+            }
+        }
+
+        return results;
     }
 
-    for (const word of words) {
-      this._add(0, new BKNode(word));
-    }
-  }
+    /**
+     * Add multiple words to the tree.
+     */
+    public add(words: string[]): void {
+        if (!Array.isArray(words)) {
+            throw new Error("Input must be an array of strings.");
+        }
 
-  /**
-   * Find similar words in the tree.
-   * @param source - Input word.
-   * @param tolerance - Maximum edit distance allowed.
-   */
-  public simWords(source: string, tolerance: number): string[] {
-    return this._simWords(0, source, tolerance);
-  }
+        for (const word of words) {
+            this._add(0, new BKNode(word));
+        }
+    }
+
+    /**
+     * Find similar words in the tree.
+     * @param source - Input word.
+     * @param tolerance - Maximum edit distance allowed.
+     */
+    public simWords(source: string, tolerance: number): string[] {
+        return this._simWords(0, source, tolerance);
+    }
 }

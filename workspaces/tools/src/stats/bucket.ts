@@ -9,7 +9,7 @@ export class Bucket {
 
     public static createKeyMapper(
         bucket: Bucket,
-        valueMapper = (value: number) => value.toFixed(2),
+        valueMapper: (value: number) => string = (value: number) => value.toFixed(2),
     ): (index: unknown) => string {
         const step = bucket.calculateStep();
 

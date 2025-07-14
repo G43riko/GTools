@@ -52,11 +52,11 @@ export class Histogram<Key extends string | number = string | number> {
     }
 
     /**
-     * @param histogram 
-     * @param length 
-     * @param param2 
-     * @returns 
-     * 
+     * @param histogram
+     * @param length
+     * @param param2
+     * @returns
+     *
      * TODO: add maxOccurences
      */
     public printHist(

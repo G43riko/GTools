@@ -10,7 +10,7 @@ import { useCanvas } from "../../../../components/hooks/use-canvas.tsx";
 const ShapeType = {
     CIRCLE: "circle",
     RECT: "rectangle",
-}
+};
 type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
 
 const cursorShapes = [

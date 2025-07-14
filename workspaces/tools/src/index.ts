@@ -1,4 +1,3 @@
-
 /**
  * @module @g43/tools
  *
