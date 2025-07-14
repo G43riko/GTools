@@ -98,7 +98,7 @@ type DistanceType = "levenshtein" | "damerau-levenshtein";
 
 interface BKTreeOptions {
     readonly maxWords: number;
-    readonly distance?: DistanceType;
+    readonly distance?: DistanceType | ((a: string, b: string) => number);
 }
 
 /**
@@ -106,8 +106,8 @@ interface BKTreeOptions {
  */
 export class BKTree {
     private readonly tree: BKNode[];
-    private readonly root: BKNode;
-    private ptr: number;
+    private readonly root = new BKNode("");
+    private ptr = 0;
     private readonly distanceFn: (a: string, b: string) => number;
 
     /**
@@ -118,10 +118,11 @@ export class BKTree {
         const { maxWords, distance = "levenshtein" } = options;
 
         this.tree = new Array(maxWords).fill(null).map(() => new BKNode(""));
-        this.root = new BKNode("");
-        this.ptr = 0;
-
-        this.distanceFn = distance === "damerau-levenshtein" ? damerauLevenshteinDistance : levenshteinDistance;
+        if (typeof distance === "function") {
+            this.distanceFn = distance;
+        } else {
+            this.distanceFn = distance === "damerau-levenshtein" ? damerauLevenshteinDistance : levenshteinDistance;
+        }
     }
 
     private _add(idx: number, node: BKNode): void {
@@ -130,37 +131,39 @@ export class BKTree {
             this.tree[0] = this.root;
             return;
         }
-
-        const dist = this.distanceFn(this.tree[idx].word, node.word);
-        const childIndex = this.tree[idx].next[dist];
+        const current = this.tree[idx];
+        const dist = this.distanceFn(current.word, node.word);
+        const childIndex = current.next[dist];
 
         if (childIndex === null) {
             this.ptr++;
             this.tree[this.ptr].setWord(node.word);
-            this.tree[idx].next[dist] = this.ptr;
+            current.next[dist] = this.ptr;
         } else {
             this._add(childIndex, node);
         }
     }
 
     private _simWords(idx: number | null, word: string, tolerance: number): string[] {
-        if (idx === null || idx >= this.tree.length) return [];
+        if (idx === null || idx >= this.tree.length) {
+            return [];
+        }
 
-        const currentNode = this.tree[idx];
-        const dist = this.distanceFn(word, currentNode.word);
+        const current = this.tree[idx];
+        const dist = this.distanceFn(word, current.word);
 
-        let results: string[] = [];
+        const results: string[] = [];
         if (dist <= tolerance) {
-            results.push(currentNode.word);
+            results.push(current.word);
         }
 
         const start = Math.max(1, dist - tolerance);
         const end = dist + tolerance;
 
         for (let d = start; d <= end; d++) {
-            const nextIdx = currentNode.next[d];
+            const nextIdx = current.next[d];
             if (nextIdx !== null) {
-                results = results.concat(this._simWords(nextIdx, word, tolerance));
+                results.push(...this._simWords(nextIdx, word, tolerance));
             }
         }
 
