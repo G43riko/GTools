@@ -1,3 +1,4 @@
+
 /**
  * @module @g43/tools
  *
@@ -12,9 +13,11 @@
  * - Statistics tracking utilities
  */
 
+export * from "./bk-tree.ts";
 export * from "./g-map.ts";
 export * from "./path-2d.ts";
 export * from "./random.ts";
+export * from "./stats/bucket.ts";
 export * from "./color.ts";
 export * from "./holder/2d/grid2-holder.ts";
 export * from "./holder/2d/grid2-array-holder.ts";
