@@ -24,18 +24,23 @@ export async function ping(
     { silent, methods = ["GET"], timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
 ): Promise<PingResult> {
     const date = new Date();
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const timer = setTimeout(() => controller.abort("Request timed out"), timeout);
     try {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        const timer = setTimeout(() => controller.abort(), timeout);
-
         const response = await Promise.any(
             methods.map(
                 (method) =>
                     fetch(url, { method, signal, headers }).then((e) => e.ok ? e : Promise.reject("Invalid response")),
             ),
-        );
-        clearTimeout(timer);
+        ).catch((e) => {
+            if (controller.signal.aborted) {
+                throw new Error(controller.signal.reason);
+            }
+            throw e;
+        }).finally(() => {
+            clearTimeout(timer);
+        });
 
         return {
             date: date.toISOString(),
@@ -55,7 +60,7 @@ export async function ping(
             date: date.toISOString(),
             duration: Date.now() - date.getTime(),
             status: false,
-            error: error.name === "AbortError" ? "Request timed out" : error.message,
+            error: error.message === "All promises were rejected" ? undefined : error.message,
         };
     }
 }
