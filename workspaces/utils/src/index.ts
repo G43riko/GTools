@@ -18,6 +18,9 @@
  * - Sorting algorithms
  */
 
+export * from "./duration-utils.ts";
+export * from "./distance-utils.ts";
+
 export * from "./array-utils.ts";
 export * from "./format-utils.ts";
 export * from "./color-utils.ts";
