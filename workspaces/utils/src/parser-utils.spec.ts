@@ -109,6 +109,45 @@ describe("parserUtils", () => {
         });
     });
     describe("parseSize", () => {
+        it("parses bytes with no unit", () => {
+            expect(parseSize("100")).toBe(100);
+            expect(parseSize("0")).toBe(0);
+            expect(parseSize("123b")).toBe(123);
+        });
+
+        it("parses SI units (base 10)", () => {
+            expect(parseSize("1kb")).toBe(1000);
+            expect(parseSize("1mb")).toBe(1_000_000);
+            expect(parseSize("1gb")).toBe(1_000_000_000);
+            expect(parseSize("1tb")).toBe(1_000_000_000_000);
+            expect(parseSize("1pb")).toBe(1_000_000_000_000_000);
+        });
+
+        it("parses binary units (base 2)", () => {
+            expect(parseSize("1kib")).toBe(1024);
+            expect(parseSize("1mib")).toBe(1024 ** 2);
+            expect(parseSize("1gib")).toBe(1024 ** 3);
+            expect(parseSize("1tib")).toBe(1024 ** 4);
+            expect(parseSize("1pib")).toBe(1024 ** 5);
+        });
+
+        it("handles floats", () => {
+            expect(parseSize("1.5kb")).toBe(1500);
+            expect(parseSize("0.5mb")).toBe(500_000);
+            expect(parseSize("2.5mib")).toBe(2.5 * 1024 * 1024);
+        });
+
+        it("ignores spaces and is case-insensitive", () => {
+            expect(parseSize("  10 KB")).toBe(10_000);
+            expect(parseSize("2 GiB")).toBe(2 * 1024 ** 3);
+            expect(parseSize("0.1 mIb")).toBe(Math.round(0.1 * 1024 * 1024));
+        });
+
+        it("throws on invalid input", () => {
+            expect(() => parseSize("abc")).toThrow("Invalid string");
+            expect(() => parseSize("123zz")).toThrow("Invalid string");
+            expect(() => parseSize("")).toThrow("Invalid string");
+        });
         describe("parseSize - valid inputs", () => {
             it("parses plain bytes", () => {
                 expect(parseSize("123")).toBe(123);

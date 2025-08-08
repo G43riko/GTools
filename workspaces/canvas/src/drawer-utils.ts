@@ -1,7 +1,7 @@
-import type { Color } from "@g43/tools";
+import { Color } from "@g43/tools";
 import type { ReadonlyPair, ReadonlySimpleVector2, RoundData } from "@g43/types";
 
-export type ColorType = string | Color;
+export type ColorType = string | Color | CanvasGradient;
 export type SizeType = ReadonlySimpleVector2 | number;
 
 function extractRoundData(radius: RoundData): { tr: number; tl: number; br: number; bl: number } {
@@ -42,12 +42,18 @@ export class DrawerUtils {
         return [size.x, size.y];
     }
 
-    public static extractColor(color: ColorType): string {
+    public static extractColor(color: CanvasGradient): CanvasGradient;
+    public static extractColor(color: Color | string): string;
+    public static extractColor(color: ColorType): string | CanvasGradient | CanvasPattern;
+    public static extractColor(color: ColorType): string | CanvasGradient | CanvasPattern {
         if (typeof color === "string") {
             return color;
         }
+        if (color instanceof Color) {
+            return color.hex;
+        }
 
-        return color.hex;
+        return color;
     }
 
     public static createSilhouetteFrom(image: HTMLImageElement, size: number, color?: ColorType): HTMLCanvasElement {
@@ -61,7 +67,6 @@ export class DrawerUtils {
 
         const context = canvas.getContext("2d") as CanvasRenderingContext2D;
         const prevCompositeOperation = context.globalCompositeOperation;
-
         // fill canvas if it has background color
         if (color) {
             context.fillStyle = DrawerUtils.extractColor(color);
