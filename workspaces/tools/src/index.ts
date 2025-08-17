@@ -12,6 +12,9 @@
  * - Statistics tracking utilities
  */
 
+export * from "./nearest/spatial-hash-grid-fast.ts";
+export * from "./nearest/nearest-item.ts";
+export * from "./range.ts";
 export * from "./bk-tree.ts";
 export * from "./g-map.ts";
 export * from "./path-2d.ts";

@@ -1,4 +1,30 @@
 /**
+ * A flexible definition for representing numeric values or numeric ranges.
+ *
+ * This type allows APIs to accept either a single number or a range of numbers
+ * in different formats, making it convenient for random number generation or
+ * parameter definitions.
+ *
+ * It supports three forms:
+ * - **Single number (`T`)** → Represents a fixed value.
+ * - **Tuple `[min, max]`** → Represents a numeric range between `min` and `max`.
+ * - **Object `{ min, max }`** → Represents a numeric range in object form.
+ *
+ * ### Examples
+ * ```ts
+ * const a: RandomNumberDefinition<number> = 5;                 // fixed value
+ * const b: RandomNumberDefinition<number> = [1, 10];           // range as tuple
+ * const c: RandomNumberDefinition<number> = { min: 0, max: 5 } // range as object
+ * ```
+ *
+ * @typeParam T - Must extend `number`, typically `number`, `float`, or `int`.
+ */
+export type RandomNumberDefinition<T extends number> =
+    | T
+    | readonly [min: T, max: T]
+    | { readonly min: T; readonly max: T };
+
+/**
  * A utility class for generating random numbers and selecting random items.
  * Includes methods for seeded random number generation and weighted random selection.
  */
@@ -24,6 +50,69 @@ export class Random {
      */
     public constructor(seed?: number) {
         this.state = typeof seed === "number" ? seed : Math.floor(Math.random() * (Random.m - 1));
+    }
+
+    public static valueFromF(min: number, max: number): number;
+    public static valueFromF(data: readonly [min: number, max: number]): number;
+    public static valueFromF(value: number): number;
+    public static valueFromF<T extends number>(valueOrRange: RandomNumberDefinition<T>): number;
+    public static valueFromF<T extends number>(minOrRage: RandomNumberDefinition<T>, max?: number): number;
+    /**
+     * Returns a floating-point number based on flexible random range definitions.
+     *
+     * Accepts a single number (returns it as-is), a [min, max] tuple, a {min, max} object,
+     * or two numeric parameters (min, max). The method will generate a random float within
+     * the specified range if a range is provided, or return the number directly if not.
+     *
+     * ### Examples
+     * ```ts
+     * Random.valueFromF(5);                        // → 5
+     * Random.valueFromF(1, 10);                    // → random float between 1 and 10
+     * Random.valueFromF([2, 4]);                   // → random float between 2 and 4
+     * Random.valueFromF({ min: 0.5, max: 1.5 });   // → random float between 0.5 and 1.5
+     * ```
+     *
+     * @typeParam T - Must be a number type (float).
+     *
+     * @param valueOrMinOrRange - Defines the source of the value:
+     * - A single number → returns that number.
+     * - A tuple `[min, max]` → random float between `min` and `max`.
+     * - An object `{ min, max }` → random float between `min` and `max`.
+     * - Used with `max` param → random float between `valueOrMinOrRange` (min) and `max`.
+     *
+     * @param max - Optional maximum value, used when the first param is a minimum number.
+     *
+     * @returns A number, either directly from input or randomly generated within the range.
+     *
+     * @throws {Error} If the input does not match any supported form.
+     */
+    public static valueFromF<T extends number>(valueOrMinOrRange: RandomNumberDefinition<T>, max?: number): number {
+        if (typeof max === "number") {
+            if (typeof valueOrMinOrRange !== "number") {
+                throw new Error(`Invalid params Random.valueFrom(${valueOrMinOrRange}, ${max})`);
+            }
+            return Random.floatBetween(valueOrMinOrRange, max);
+        }
+
+        if (typeof valueOrMinOrRange === "number") {
+            return valueOrMinOrRange;
+        }
+        if (Array.isArray(valueOrMinOrRange)) {
+            return this.valueFromF(valueOrMinOrRange[0], valueOrMinOrRange[1]);
+        }
+        if ("min" in valueOrMinOrRange && "max" in valueOrMinOrRange) {
+            return this.valueFromF(valueOrMinOrRange.min, valueOrMinOrRange.max);
+        }
+        throw new Error(`Invalid params Random.valueFrom(${valueOrMinOrRange}, ${max})`);
+    }
+
+    public static valueFromI(min: number, max: number): number;
+    public static valueFromI(data: readonly [min: number, max: number]): number;
+    public static valueFromI(value: number): number;
+    public static valueFromI<T extends number>(valueOrRange: RandomNumberDefinition<T>): number;
+    public static valueFromI<T extends number>(minOrRage: RandomNumberDefinition<T>, max?: number): number;
+    public static valueFromI<T extends number>(valueOrMinOrRange: RandomNumberDefinition<T>, max?: number): number {
+        return Math.floor(Random.valueFromF(valueOrMinOrRange, max));
     }
 
     /**

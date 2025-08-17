@@ -9,6 +9,6 @@ const v2 = { x: 4, y: 5 };
 Deno.bench("dist new ", { group: "Vector2.dist" }, () => {
     distNew(v1, v2);
 });
-Deno.bench("dist old ", { group: "Vector2.dist" }, () => {
+Deno.bench("dist current ", { group: "Vector2.dist" }, () => {
     Vector2.dist(v1, v2);
 });
