@@ -53,3 +53,61 @@ export function hamming(hash1: string, hash2: string): number {
         0,
     );
 }
+
+/**
+ * Performs a case-insensitive fuzzy search to check if `pattern`
+ * exists as a subsequence within `str`.
+ *
+ * A subsequence means all characters of `pattern` must appear
+ * in order within `str`, but not necessarily contiguously.
+ *
+ * @param {string} pattern - The search pattern to look for.
+ * @param {string} str - The string to search within.
+ * @returns {boolean} `true` if `pattern` is found as a subsequence of `str`, otherwise `false`.
+ * @see fuzzySearchCaseSensitive
+ * @example
+ * fuzzySearch("cat", "concatenate"); // true
+ * fuzzySearch("ctn", "concatenate"); // true
+ * fuzzySearch("dog", "concatenate"); // false
+ */
+export function fuzzySearch(pattern: string, str: string): boolean {
+    return fuzzySearchCaseSensitive(pattern.toLowerCase(), str.toLowerCase());
+}
+
+/**
+ * Performs a case-sensitive fuzzy search to check if `pattern`
+ * exists as a subsequence within `str`.
+ *
+ * Characters must appear in order but do not need to be adjacent.
+ *
+ * @param {string} pattern - The search pattern to look for.
+ * @param {string} str - The string to search within.
+ * @returns {boolean} `true` if `pattern` is found as a subsequence of `str`, otherwise `false`.
+ *
+ * @example
+ * fuzzySearchCaseSensitive("cat", "concatenate"); // true
+ * fuzzySearchCaseSensitive("CAT", "concatenate"); // false
+ * fuzzySearchCaseSensitive("cne", "concatenate"); // true
+ */
+export function fuzzySearchCaseSensitive(
+    pattern: string,
+    str: string,
+): boolean {
+    let patternIdx = 0;
+    let strIdx = 0;
+    const patternLength = pattern.length;
+    const strLength = str.length;
+
+    while (patternIdx !== patternLength && strIdx !== strLength) {
+        const patternChar = pattern.charAt(patternIdx);
+        const strChar = str.charAt(strIdx);
+        if (patternChar === strChar) {
+            ++patternIdx;
+        }
+        ++strIdx;
+    }
+
+    return (
+        patternLength !== 0 && strLength !== 0 && patternIdx === patternLength
+    );
+}
