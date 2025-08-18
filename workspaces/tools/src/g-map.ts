@@ -34,13 +34,14 @@ export class GMap<Key, Value> extends Map<Key, Value> {
      * Throws an error if the key doesn't exist.
      *
      * @param {T} key - The key to look up in the map
+     * @param string message - Custom error message if the key is not found
      * @returns {S} The value associated with the key
      * @throws {Error} If the key doesn't exist in the map
      */
-    public require(key: Key): Value {
+    public require(key: Key, message: string = `Required key ${String(key)} not found in map`): Value {
         const result = super.get(key);
         if (typeof result === "undefined") {
-            throw new Error(`Required key ${String(key)} not found in map`);
+            throw new Error(message);
         }
 
         return result;
