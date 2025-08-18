@@ -29,6 +29,18 @@ export function formatElapsed(ms: number): string {
 
     return parts.join(" ");
 }
+
+const FILE_SIZE_UNITS      = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+const FILE_SIZE_UNITS_LONG = [
+    "Bytes",
+    "Kilobytes",
+    "Megabytes",
+    "Gigabytes",
+    "Pettabytes",
+    "Exabytes",
+    "Zettabytes",
+    "Yottabytes",
+];
 /**
  * Converts a byte size into a human-readable string with appropriate units.
  *
@@ -40,13 +52,19 @@ export function formatElapsed(ms: number): string {
  * formatBytes(1024);           // "1 KB"
  * formatBytes(123456789);      // "117.74 MB"
  */
-export function formatBytes(bytes: number, decimals = 2): string {
+export function formatBytes(bytes: number, decimalsOrOptions: number | {
+    readonly decimals?: number;
+    readonly long?: boolean;
+}): string {
+
+    const decimals = typeof decimalsOrOptions === "number" ? decimalsOrOptions : decimalsOrOptions.decimals ?? 2;
+    const long = typeof decimalsOrOptions === "object" ? decimalsOrOptions.long : false
+    const sizes = long ? FILE_SIZE_UNITS_LONG : FILE_SIZE_UNITS;
     if (bytes === 0) {
-        return "0 B";
+        return `0 ${sizes[0]}B`;
     }
 
     const k = 1024;
-    const sizes = ["B", "KB", "MB", "GB", "TB", "PB", "EB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     const size = bytes / Math.pow(k, i);
 
