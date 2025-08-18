@@ -11,6 +11,7 @@
 export * from "./text-options.interface.ts";
 export * from "./round-data.ts";
 export * from "./shadow-options.ts";
+export * from "./simple-lat-long.ts";
 export * from "./partially.ts";
 export * from "./all-keys.ts";
 export * from "./object-key-paths.ts";

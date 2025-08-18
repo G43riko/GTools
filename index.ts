@@ -8,4 +8,4 @@ import * as physics from "@g43/physics";
 import * as svg from "@g43/svg";
 import * as worldGeneration from "@g43/world-generation";
 
-console.log({worldGeneration, physics, math, canvas, drawing, svg, enums, utils, tools})
+console.log({ worldGeneration, physics, math, canvas, drawing, svg, enums, utils, tools });

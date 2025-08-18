@@ -10,7 +10,7 @@ import { Vector4 } from "./vector4.ts";
  * (more compact and numerically stable).
  *
  * This class extends Vector4, where:
- * - x, y, z components represent the vector part
+ * - x, y, z components represent the vector partbv
  * - w component represents the scalar part
  *
  * @extends {Vector4} - Quaternions are represented as 4D vectors
