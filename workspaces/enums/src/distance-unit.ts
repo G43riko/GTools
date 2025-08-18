@@ -15,3 +15,16 @@ export const DistanceUnit = {
 };
 
 export type DistanceUnit = (typeof DistanceUnit)[keyof typeof DistanceUnit];
+
+export const DistanceUnitGroups = {
+    metric: [DistanceUnit.MM, DistanceUnit.CM, DistanceUnit.M, DistanceUnit.KM],
+    imperial: [
+        DistanceUnit.IN,
+        DistanceUnit.FT,
+        DistanceUnit.YD,
+        DistanceUnit.MI,
+        DistanceUnit.FL,
+    ],
+    nautical: [DistanceUnit.NM],
+    astronomical: [DistanceUnit.LY, DistanceUnit.AU, DistanceUnit.PC],
+};
