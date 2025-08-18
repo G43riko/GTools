@@ -30,7 +30,9 @@ export function parseBooleanValue(stringValue: unknown): boolean {
 }
 
 export function parseDuration(input: string | number, outputUnit = DurationUnit.MS): number {
-    if (typeof input === "number") return input;
+    if (typeof input === "number") {
+        return input;
+    }
 
     const pattern = /(\d+)\s*(d|h|m(?!s)|s|ms)/gi;
     let match: RegExpExecArray | null;
