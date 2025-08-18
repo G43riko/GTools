@@ -126,9 +126,27 @@ export class Random {
     }
 
     public static item<T>(array: readonly [T, ...T[]]): T;
-    public static item<T>(array: readonly T[]): T | undefined;
-    public static item<T>(array: readonly T[]): T | undefined {
+    public static item<T>(array: ArrayLike<T>): T | undefined;
+    public static item<T>(array: ArrayLike<T>): T | undefined {
         return array[Random.intBetween(0, array.length)];
+    }
+
+    public static items<T>(args: readonly T[], count: number): T[] {
+        if (count > args.length) {
+            throw new Error("Count exceeds array length");
+        }
+        if (count <= 0) {
+            return [];
+        }
+        return args.toSorted(() => Math.random() - 0.5).slice(0, count);
+    }
+
+    public static itemRequired<T>(array: ArrayLike<T>): T {
+        if (array.length === 0) {
+            throw new Error("Array is empty");
+        }
+
+        return Random.item(array) as T;
     }
     /**
      * Generates a random float between the specified minimum (inclusive) and maximum (exclusive).

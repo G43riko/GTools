@@ -3,6 +3,6 @@
         "run-tests": "deno -A random-test.ts"
     },
     "name": "@g43/tools",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "exports": "./src/index.ts"
 }
