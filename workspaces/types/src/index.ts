@@ -16,6 +16,7 @@ export * from "./partially.ts";
 export * from "./all-keys.ts";
 export * from "./object-key-paths.ts";
 export * from "./get-type.ts";
+export * from "./simple-vector-xz.ts";
 
 export * from "./min-max-2d.ts";
 export * from "./min-max-3d.ts";

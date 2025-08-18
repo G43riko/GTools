@@ -16,7 +16,7 @@ export * from "./vector4.ts";
 export * from "./lat-long.ts";
 
 export * from "./simple-vector.ts";
-export * from "./simple-vector-xz.ts";
+export * from "./vector-xz.ts";
 
 export * from "./quaternion.ts";
 

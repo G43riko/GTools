@@ -1,11 +1,6 @@
-export interface SimpleVectorXZ {
-    x: number;
-    z: number;
-}
+import type { ReadonlySimpleVectorXZ, SimpleVectorXZ } from "@g43/types";
 
-export type ReadonlySimpleVectorXZ = Readonly<SimpleVectorXZ>;
-
-export const SimpleVectorXZ: {
+export const VectorXZ: {
     isEqual(vecA: ReadonlySimpleVectorXZ, vecB: ReadonlySimpleVectorXZ): boolean;
     isVectorXZ(vec: any): vec is SimpleVectorXZ;
 } = {

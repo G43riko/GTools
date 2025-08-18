@@ -2,11 +2,12 @@ import type {
     ReadonlySimpleVector2,
     ReadonlySimpleVector3,
     ReadonlySimpleVector4,
+    ReadonlySimpleVectorXZ,
     SimpleVector2,
     SimpleVector3,
     SimpleVector4,
+    SimpleVectorXZ,
 } from "@g43/types";
-import type { ReadonlySimpleVectorXZ, SimpleVectorXZ } from "./simple-vector-xz.ts";
 
 export class SimpleVector {
     public static readonly TMP2: SimpleVector2 = SimpleVector.create2(0, 0);
