@@ -54,12 +54,12 @@ const FILE_SIZE_UNITS_LONG = [
  */
 export function formatBytes(
     bytes: number,
-    decimalsOrOptions: number | {
+    decimalsOrOptions?: number | {
         readonly decimals?: number;
         readonly long?: boolean;
     },
 ): string {
-    const decimals = typeof decimalsOrOptions === "number" ? decimalsOrOptions : decimalsOrOptions.decimals ?? 2;
+    const decimals = typeof decimalsOrOptions === "number" ? decimalsOrOptions : decimalsOrOptions?.decimals ?? 2;
     const long = typeof decimalsOrOptions === "object" ? decimalsOrOptions.long : false;
     const sizes = long ? FILE_SIZE_UNITS_LONG : FILE_SIZE_UNITS;
     if (bytes === 0) {

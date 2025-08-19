@@ -165,15 +165,62 @@ export class Random {
     public static angleInRadians(): number {
         return this.floatBetween(0, Math.PI * 2);
     }
-
+    /**
+     * Generates a random int angle in degrees between 0 and 360.
+     * @returns A random angle in degrees.
+     */
+    public static angleInDegrees(): number {
+        return this.intBetween(0, 360);
+    }
+    /**
+     * Returns a boolean value (`true` or `false`) based on the given probability.
+     *
+     * The method uses `Math.random()` internally, which generates a floating-point
+     * number between 0 (inclusive) and 1 (exclusive). If the generated number is
+     * less than the provided probability, the function returns `true`; otherwise, `false`.
+     *
+     * @param {number} [probability=0.5] - A number between 0 and 1 representing
+     * the probability of returning `true`. Defaults to 0.5 (50% chance).
+     * @returns {boolean} - `true` with the given probability, `false` otherwise.
+     *
+     * @example
+     * // 50% chance of true
+     * MyClass.chance();
+     *
+     * @example
+     * // 20% chance of true
+     * MyClass.chance(0.2);
+     *
+     * @example
+     * // Always false
+     * MyClass.chance(0);
+     *
+     * @example
+     * // Always true
+     * MyClass.chance(1);
+     */
+    public static chance(probability: 1): true;
+    public static chance(probability: 0): false;
+    public static chance(probability?: number): boolean;
+    public static chance(probability = 0.5): boolean {
+        return Math.random() < probability;
+    }
     /**
      * Generates a random integer based on a seed.
      * @param seed - The seed for the random number generator.
      * @returns A random integer.
      */
-    public static randomInt(seed: number): number {
+    public static int(seed: number): number {
         Random.instance.state = seed;
         return Random.instance.nextInt();
+    }
+    /**
+     * @deprecated Use {@link Random.int} instead.
+     * @param seed
+     * @returns 
+     */
+    public static randomInt(seed: number): number {
+        return Random.int(seed)
     }
 
     /**

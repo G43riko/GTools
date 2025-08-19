@@ -4,6 +4,7 @@ export interface SimpleWrapper {
 }
 /**
  * @deprecated use {@link Historgram} instead
+ * It is not used anywhere so it is safe to remove.
  */
 export class KeyValueCounter {
     private readonly data: { [key: string]: number } = {};
