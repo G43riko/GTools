@@ -1,5 +1,6 @@
 export { occurrences } from "./occurences.ts";
 export * from "./levenshtein.ts";
+export * from "./jaro-winkler.ts";
 export { removeAccentedCharacters } from "./remove-accented-characters.ts";
 
 /**
