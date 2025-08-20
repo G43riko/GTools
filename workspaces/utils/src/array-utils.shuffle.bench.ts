@@ -1,6 +1,5 @@
-import {BENCH_ARRAY_ENTRIES} from "../../../utils/bench-data.ts"
+import { BENCH_ARRAY_ENTRIES } from "../../../utils/bench-data.ts";
 import { shuffle } from "./array-utils.ts";
-
 
 // Old implementation of shuffle for benchmarking
 function shuffleOld<T>(array: readonly T[]): T[] {
@@ -30,7 +29,6 @@ BENCH_ARRAY_ENTRIES.forEach(([name, array]) => {
         shuffle(array);
     });
 });
-
 
 BENCH_ARRAY_ENTRIES.forEach(([name, array]) => {
     // Benchmark shuffle implementations

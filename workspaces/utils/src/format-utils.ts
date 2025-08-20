@@ -23,14 +23,14 @@ export function formatElapsed(ms: number): string {
 
     const parts: string[] = [];
     if (days) {
-        parts.push(`${days}d`)
-    };
+        parts.push(`${days}d`);
+    }
     if (hours || parts.length) {
-        parts.push(`${hours}h`)
-    };
+        parts.push(`${hours}h`);
+    }
     if (minutes || parts.length) {
-        parts.push(`${minutes}m`)
-    };
+        parts.push(`${minutes}m`);
+    }
     parts.push(`${seconds}s`);
 
     return parts.join(" ");
@@ -69,7 +69,7 @@ export function formatBytes(
     const long = typeof decimalsOrOptions === "object" ? decimalsOrOptions.long : false;
     const sizes = long ? FILE_SIZE_UNITS_LONG : FILE_SIZE_UNITS;
     if (bytes === 0) {
-        return `0 ${sizes[0]}B`;
+        return `0 ${sizes[0]}`;
     }
 
     const k = 1024;

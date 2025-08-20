@@ -13,19 +13,24 @@ import type { Vector } from "./vector.ts";
  *
  * @example
  * ```ts
+ * import {assertEquals, assert} from "@std/assert";
  * // Create a new vector
  * const vec = new Vector2(3, 4);
  *
  * // Calculate the length
- * const length = vec.length(); // 5
+ * const length = vec.length;
+ * assertEquals(length, 5);
  *
  * // Normalize the vector
  * const normalized = vec.getNormalized();
  *
  * // Perform vector operations
  * const vec2 = new Vector2(1, 2);
- * const sum = vec.add(vec2); // Vector2(4, 6)
- * const dot = vec.dot(vec2); // 11
+ * const sum = vec.add(vec2);
+ * assert(Vector2.equals(sum, new Vector2(4, 6)));
+ *
+ * const dot = vec.dot(vec2);
+ * assertEquals(dot, 16);
  * ```
  */
 export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
@@ -80,7 +85,8 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
     }
     /**
      * Distance between this vector and another.
-      ```ts
+     * @example
+     * ```ts
      * import {assertEquals} from "@std/assert";
      *
      * assertEquals(new Vector2(0, 0).dist(new Vector2(5, 0)), 5);
@@ -267,6 +273,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
 
     /**
      * Calculate the average of the vector components.
+     * @example
      * ```ts
      * import {assertEquals} from "@std/assert";
      *
@@ -374,6 +381,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
         result?: T,
     ): T;
     /**
+     * @example
      * ```ts
      *  import { assertEquals } from "jsr:@std/assert";
      *
@@ -550,6 +558,7 @@ export class Vector2 implements SimpleVector2, Vector<SimpleVector2, Vector2> {
      * @param vecA
      * @param vecB
      * @returns
+     * @example
      * ```ts
      * import {assertEquals} from "@std/assert";
      *

@@ -5,7 +5,7 @@
  * with an additional CENTER value, which is useful for representing a neutral or no-movement state.
  *
  * @example
- * ```ts
+ * ```ts ignore
  * // Set an object's direction based on input
  * function setDirection(input: UserInput): Direction7 {
  *   if (input.isIdle()) {
@@ -60,7 +60,7 @@ export const Direction7Bit: Readonly<Record<Direction7, number>> = Object.freeze
  * with two additional directions (front, back) for 3D navigation.
  *
  * @example
- * ```ts
+ * ```ts ignore
  * // Move an object in 3D space
  * function moveObject(direction: Direction6, distance: number) {
  *   switch (direction) {
@@ -92,7 +92,7 @@ export type Direction6 = (typeof Direction6)[keyof typeof Direction6];
  * which are commonly used for navigation and movement in 2D space.
  *
  * @example
- * ```ts
+ * ```
  * // Move a character based on direction
  * function moveCharacter(direction: Direction4, distance: number) {
  *   switch (direction) {

@@ -16,7 +16,7 @@ import { Vector4 } from "./vector4.ts";
  * @extends {Vector4} - Quaternions are represented as 4D vectors
  *
  * @example
- * ```ts
+ * ```ts ignore
  * // Create a quaternion from Euler angles (in degrees)
  * const rotation = Quaternion.fromEuler(45, 0, 30);
  *

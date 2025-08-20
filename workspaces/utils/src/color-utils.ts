@@ -20,15 +20,18 @@ const HEX_COLOR = /^#?[a-fA-F0-9]{6}$/;
  *
  * @example
  * ```ts
+ * import {assertEquals} from "@std/assert";
+ *
  * // Blend red and blue to create purple (50% blend)
- * const red = [255, 0, 0, 255];
- * const blue = [0, 0, 255, 255];
- * const purple = lerpColor(red, blue, 0.5); // [127, 0, 127, 255]
+ * const red = [255, 0, 0, 255] as const;
+ * const blue = [0, 0, 255, 255] as const;
+ * const purple = lerpColor(red, blue, 0.5);
+ * assertEquals(purple, [127.5, 0, 127.5, 255]);
  * ```
  */
 export function lerpColor(
-    fromColor: [number, number, number, number],
-    toColor: [number, number, number, number],
+    fromColor: readonly [number, number, number, number],
+    toColor: readonly [number, number, number, number],
     progress: number,
 ): [number, number, number, number] {
     const red = progress * fromColor[0] + (1 - progress) * toColor[0];

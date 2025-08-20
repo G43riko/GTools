@@ -1,5 +1,5 @@
 import { BENCH_ARRAY_ENTRIES } from "../../../utils/bench-data.ts";
-import {  pairwiseArray} from "./array-utils.ts";
+import { pairwiseArray } from "./array-utils.ts";
 
 // Old implementation of pairwiseArray for benchmarking
 function pairwiseArrayOld<T>(arr: ArrayLike<T>): [T, T][] {
@@ -28,5 +28,4 @@ BENCH_ARRAY_ENTRIES.forEach(([name, array]) => {
     Deno.bench(`pairwiseArray current (${name})`, { group: `pairwiseArray-${name}` }, () => {
         pairwiseArray(array);
     });
-
 });

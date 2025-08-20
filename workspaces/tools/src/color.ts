@@ -68,6 +68,7 @@ export class Color implements HexColor, RgbColor, RgbaColor, IntColor {
      *
      * @example
      * ```ts
+     * import {Random} from "@g43/tools";
      * // Generate a completely random color
      * const color1 = Color.random();
      *

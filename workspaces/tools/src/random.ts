@@ -10,7 +10,7 @@
  * - **Tuple `[min, max]`** → Represents a numeric range between `min` and `max`.
  * - **Object `{ min, max }`** → Represents a numeric range in object form.
  *
- * ### Examples
+ * @example
  * ```ts
  * const a: RandomNumberDefinition<number> = 5;                 // fixed value
  * const b: RandomNumberDefinition<number> = [1, 10];           // range as tuple
@@ -64,7 +64,7 @@ export class Random {
      * or two numeric parameters (min, max). The method will generate a random float within
      * the specified range if a range is provided, or return the number directly if not.
      *
-     * ### Examples
+     * @example
      * ```ts
      * Random.valueFromF(5);                        // → 5
      * Random.valueFromF(1, 10);                    // → random float between 1 and 10
@@ -172,6 +172,9 @@ export class Random {
     public static angleInDegrees(): number {
         return this.intBetween(0, 360);
     }
+    public static chance(probability: 1): true;
+    public static chance(probability: 0): false;
+    public static chance(probability?: number): boolean;
     /**
      * Returns a boolean value (`true` or `false`) based on the given probability.
      *
@@ -185,23 +188,22 @@ export class Random {
      *
      * @example
      * // 50% chance of true
-     * MyClass.chance();
+     * Random.chance();
      *
      * @example
+     * ```ts
      * // 20% chance of true
-     * MyClass.chance(0.2);
+     * Random.chance(0.2);
+     * ```
      *
-     * @example
+     * ```ts
+     * import {assertEquals} from "@std/assert";
      * // Always false
-     * MyClass.chance(0);
-     *
-     * @example
+     * assertEquals(Random.chance(0), false);
+     * assertEquals(Random.chance(1), true);
      * // Always true
-     * MyClass.chance(1);
+     * Random.chance(1);
      */
-    public static chance(probability: 1): true;
-    public static chance(probability: 0): false;
-    public static chance(probability?: number): boolean;
     public static chance(probability = 0.5): boolean {
         return Math.random() < probability;
     }
@@ -217,10 +219,10 @@ export class Random {
     /**
      * @deprecated Use {@link Random.int} instead.
      * @param seed
-     * @returns 
+     * @returns
      */
     public static randomInt(seed: number): number {
-        return Random.int(seed)
+        return Random.int(seed);
     }
 
     /**

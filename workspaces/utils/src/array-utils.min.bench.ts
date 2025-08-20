@@ -28,7 +28,6 @@ Deno.bench("Math.min (small)", { group: "array-utils.min" }, () => {
     Math.min(...smallArray);
 });
 
-
 Deno.bench("min old (small)", { group: "array-utils.min" }, () => {
     minOld(smallArray);
 });
