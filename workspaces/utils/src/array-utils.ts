@@ -10,7 +10,13 @@ export function min(array: readonly number[]): number {
         return NaN;
     }
 
-    return array.reduce((a, b) => a < b ? a : b);
+    let minVal = array[0];
+    for (let i = 1; i < array.length; i++) {
+        const v = array[i];
+        if (v < minVal) minVal = v;
+    }
+
+    return minVal;
 }
 
 /**
@@ -83,12 +89,18 @@ export function groupBy<Value, Key extends string | number | symbol>(
     array: readonly Value[],
     iteratee: (value: Value) => Key,
 ): Record<Key, Value[]> {
-    return array.reduce((result, value) => {
+    const result = {} as Record<Key, Value[]>;
+    for (let i = 0; i < array.length; i++) {
+        const value = array[i] as Value;
         const key = iteratee(value);
-        result[key] ??= [];
-        result[key].push(value);
-        return result;
-    }, {} as Record<Key, Value[]>);
+        const bucket = result[key];
+        if (bucket === undefined) {
+            result[key] = [value];
+        } else {
+            bucket.push(value);
+        }
+    }
+    return result;
 }
 
 /**

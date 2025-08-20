@@ -22,9 +22,15 @@ export function formatElapsed(ms: number): string {
     const seconds = sec % 60;
 
     const parts: string[] = [];
-    if (days) parts.push(`${days}d`);
-    if (hours || parts.length) parts.push(`${hours}h`);
-    if (minutes || parts.length) parts.push(`${minutes}m`);
+    if (days) {
+        parts.push(`${days}d`)
+    };
+    if (hours || parts.length) {
+        parts.push(`${hours}h`)
+    };
+    if (minutes || parts.length) {
+        parts.push(`${minutes}m`)
+    };
     parts.push(`${seconds}s`);
 
     return parts.join(" ");
