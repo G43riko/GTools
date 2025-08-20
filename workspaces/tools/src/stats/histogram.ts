@@ -52,12 +52,26 @@ export class Histogram<Key extends string | number = string | number> {
     }
 
     /**
-     * @param histogram
-     * @param length
-     * @param param2
-     * @returns
+     * Renders a simple textual bar histogram for numeric-like keys (e.g., years).
+     *
+     * This utility is intended for quick inspection in logs/CLI. It scales each bar
+     * proportionally to the maximum bucket count and returns either a flat array of
+     * formatted strings or a key/value object of padded labels to bar strings.
+     *
+     * Note: When fillEmpty is true, the function will include missing keys between
+     * the minimal and maximal observed keys. Missing keys get count 0. Keys are
+     * treated as strings but coerced via Number(...) to determine range bounds.
      *
      * TODO: add maxOccurences
+     *
+     * @param histogram - Source histogram (typically built with numeric keys such as years)
+     * @param length - Maximum number of '#' chars for the bucket with the highest count
+     * @param options - Rendering options
+     * @param options.minOccurences - Buckets with occurrences below this threshold are ignored
+     * @param options.fillEmpty - Whether to print entries for missing keys between min and max
+     * @param options.appendValue - Whether to append the raw count after the bar
+     * @param options.flat - When true returns an array of 'label: bar [count]'; when false an object
+     * @returns Flat array of lines when flat=true; otherwise a mapping of label->bar
      */
     public printHist(
         histogram: Histogram,
