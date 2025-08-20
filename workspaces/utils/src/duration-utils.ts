@@ -1,5 +1,18 @@
 import { DurationUnit } from "@g43/enums";
 
+/**
+ * Converts a duration between two units.
+ *
+ * Supported source units: milliseconds (MS), seconds (S), minutes (M).
+ * Supported target units: milliseconds (MS), seconds (S), minutes (M), hours (H).
+ *
+ * If value is undefined or 0, returns 0. For unsupported combinations, throws an Error.
+ *
+ * @param value - Numeric duration to convert (undefined or 0 returns 0).
+ * @param from - Source duration unit.
+ * @param to - Target duration unit.
+ * @returns Converted numeric duration.
+ */
 export const convertDuration = (value: number | undefined, from: DurationUnit, to: DurationUnit): number => {
     if (!value) {
         return 0;

@@ -1,5 +1,15 @@
 import { DistanceUnit } from "@g43/enums";
 
+/**
+ * Converts a numeric distance from the specified unit to meters.
+ *
+ * Supported units are defined in {@link DistanceUnit}. If an unsupported unit is passed,
+ * an Error will be thrown.
+ *
+ * @param value - Numeric value to convert.
+ * @param unit - Unit of the input value.
+ * @returns The equivalent distance in meters.
+ */
 export function toMeters(value: number, unit: DistanceUnit): number {
     switch (unit) {
         case DistanceUnit.MM:
@@ -37,6 +47,25 @@ export function toMeters(value: number, unit: DistanceUnit): number {
     }
 }
 
+/**
+ * Converts a distance between two units.
+ *
+ * Supported target units via generic conversion path:
+ * - to meters (M)
+ * - to kilometers (KM)
+ * - to centimeters (CM)
+ *
+ * Additionally supports converting from kilometers to miles (KM -> MI).
+ *
+ * If value is undefined or 0, returns 0. For unsupported combinations, throws an Error.
+ *
+ * Note: The set of supported conversions is intentionally limited.
+ *
+ * @param value - Numeric distance to convert (undefined or 0 returns 0).
+ * @param from - Source unit.
+ * @param to - Target unit.
+ * @returns Converted numeric distance.
+ */
 export const convertDistance = (value: number | undefined, from: DistanceUnit, to: DistanceUnit): number => {
     if (!value) {
         return 0;
