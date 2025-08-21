@@ -28,7 +28,7 @@ export const convertDuration = (value: number | undefined, from: DurationUnit, t
             case DurationUnit.H:
                 return value / 3_600_000; //60_000 * 60;
             default:
-                throw new Error(`Unsupported duration unit '${to}'`);
+                throw new Error(`Unsupported duration conversion '${from}' => '${to}'`);
         }
     }
     if (from === DurationUnit.M) {
@@ -42,7 +42,7 @@ export const convertDuration = (value: number | undefined, from: DurationUnit, t
             case DurationUnit.H:
                 return value / 60;
             default:
-                throw new Error(`Unsupported duration unit '${to}'`);
+                throw new Error(`Unsupported duration conversion '${from}' => '${to}'`);
         }
     }
     if (from === DurationUnit.S) {
@@ -56,8 +56,8 @@ export const convertDuration = (value: number | undefined, from: DurationUnit, t
             case DurationUnit.H:
                 return value / 3600; // 60 * 60;
             default:
-                throw new Error(`Unsupported duration unit '${to}'`);
+                throw new Error(`Unsupported duration conversion '${from}' => '${to}'`);
         }
     }
-    throw new Error(`Unsupported duration unit '${from}'`);
+    throw new Error(`Unsupported duration conversion '${from}' => '${to}'`);
 };
