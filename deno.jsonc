@@ -11,6 +11,7 @@
         "./workspaces/physics",
         "./workspaces/svg",
         "./workspaces/drawing",
+        "./workspaces/html",
         "./workspaces/playground",
         "./workspaces/world-generation"
     ],
