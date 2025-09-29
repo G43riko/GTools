@@ -16,29 +16,46 @@ export interface PingParams {
     readonly timeout?: number;
     readonly methods?: readonly ("GET" | "POST" | "HEAD" | "OPTIONS")[];
     readonly silent?: boolean;
+    readonly errorLogger?: (...params: unknown[]) => void;
     readonly headers?: HeadersInit;
 }
 
 export async function ping(
     url: string,
-    { silent, methods = ["GET"], timeout = DEFAULT_PING_TIMEOUT_MS, headers = undefined }: PingParams = {},
+    {
+        silent = true,
+        errorLogger = console.error.bind(console),
+        methods = ["GET"],
+        timeout = DEFAULT_PING_TIMEOUT_MS,
+        headers = undefined,
+    }: PingParams = {},
 ): Promise<PingResult> {
     const date = new Date();
+    const startedAt = date.getTime();
+
+    if (!methods || methods.length === 0) {
+        return {
+            date: date.toISOString(),
+            duration: Date.now() - startedAt,
+            status: false,
+            error: "No HTTP methods provided",
+        };
+    }
+
     const controller = new AbortController();
     const signal = controller.signal;
-    const timer = setTimeout(() => controller.abort("Request timed out"), timeout);
+    const timer = setTimeout(() => controller.abort(), timeout);
     try {
-        const response = await Promise.any(
-            methods.map(
-                (method) =>
-                    fetch(url, { method, signal, headers }).then((e) => e.ok ? e : Promise.reject("Invalid response")),
-            ),
-        ).catch((e) => {
-            if (controller.signal.aborted) {
-                throw new Error(controller.signal.reason);
-            }
-            throw e;
-        }).finally(() => {
+        const attempts = methods.map((method) =>
+            fetch(url, { method, signal, headers }).then((res) => {
+                if (res.ok) {
+                    return res;
+                }
+                // reject with an Error — don't use raw strings
+                return Promise.reject(new Error(`HTTP ${res.status}`));
+            })
+        );
+        const response = await Promise.any(attempts).finally(() => {
             clearTimeout(timer);
         });
 
@@ -47,12 +64,29 @@ export async function ping(
             duration: Date.now() - date.getTime(),
             status: response.ok,
         };
-    } catch (error: any) {
+    } catch (rawError: any) {
+        // normalize error message (works if rawError is Error, string, AggregateError, etc.)
+        let message: string | undefined;
+        if (typeof rawError === "string") {
+            message = rawError;
+        } else if (rawError instanceof AggregateError && Array.isArray((rawError as any).errors)) {
+            // combine inner errors' messages (best-effort)
+            const parts = (rawError as any).errors.map((e: any) => typeof e === "string" ? e : e?.message ?? String(e))
+                .filter(Boolean);
+            message = parts.length ? parts.join("; ") : rawError.message;
+        } else {
+            message = rawError?.message ?? String(rawError);
+        }
+
+        const timedOut = !!signal.aborted;
+        if (timedOut) {
+            message = "Request timed out";
+        }
         if (!silent) {
-            if (error.name === "AbortError") {
-                console.error(`ping (${url}): Request timed out`);
+            if (timedOut) {
+                errorLogger(`ping (${url}): Request timed out`);
             } else {
-                console.error(`ping (${url}): Request failed`, error);
+                errorLogger(`ping (${url}): Request failed`, rawError);
             }
         }
 
@@ -60,7 +94,7 @@ export async function ping(
             date: date.toISOString(),
             duration: Date.now() - date.getTime(),
             status: false,
-            error: error.message === "All promises were rejected" ? undefined : error.message,
+            error: message,
         };
     }
 }

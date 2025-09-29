@@ -55,7 +55,7 @@ describe("NetUtils", () => {
         it("should return failure when the request fails", async () => {
             mockFetch(500, 50, false);
             const result = await ping("https://example.com");
-            expect(result).toEqual(mockPingResult({ status: false, duration: expect.any(Number) }));
+            expect(result).toEqual(mockPingResult({ status: false, error: "HTTP 500", duration: expect.any(Number) }));
         });
 
         it("should timeout if the request takes too long", async () => {
