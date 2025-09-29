@@ -1,4 +1,11 @@
-import type { ReadonlySimpleVector2, ReadonlySimpleVector3, ReadonlySimpleVector4, SimpleVector2, SimpleVector3, SimpleVector4, } from "@g43/types";
+import type {
+    ReadonlySimpleVector2,
+    ReadonlySimpleVector3,
+    ReadonlySimpleVector4,
+    SimpleVector2,
+    SimpleVector3,
+    SimpleVector4,
+} from "@g43/types";
 import { randomFloatBetween, randomIntBetween } from "@g43/utils";
 import { Color } from "./color.ts";
 import type { RandomNumberDefinition } from "./random.ts";

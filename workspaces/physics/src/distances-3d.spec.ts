@@ -2,13 +2,13 @@ import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import { Vector3 } from "@g43/math";
 import {
-    pointPointSqr3dDistance,
+    pointLine3dDistance,
+    pointNormalPlane3dDistance,
     pointPoint3dDistance,
+    pointPointSqr3dDistance,
     pointSphereDistance,
     sphereSphereDistance,
     vectorPoint3dDistance,
-    pointLine3dDistance,
-    pointNormalPlane3dDistance,
 } from "./distances-3d.ts";
 
 describe("Distances3d", () => {
@@ -21,10 +21,10 @@ describe("Distances3d", () => {
         it("should calculate squared distance correctly", () => {
             // Distance from origin to (3, 4, 0) should be 5^2 = 25
             expect(pointPointSqr3dDistance(0, 0, 0, 3, 4, 0)).toEqual(25);
-            
+
             // Distance from origin to (1, 1, 1) should be sqrt(3)^2 = 3
             expect(pointPointSqr3dDistance(0, 0, 0, 1, 1, 1)).toEqual(3);
-            
+
             // Distance from (1, 2, 3) to (4, 6, 8) should be (3^2 + 4^2 + 5^2) = 50
             expect(pointPointSqr3dDistance(1, 2, 3, 4, 6, 8)).toEqual(50);
         });
@@ -44,10 +44,10 @@ describe("Distances3d", () => {
         it("should calculate distance correctly", () => {
             // Distance from origin to (3, 4, 0) should be 5
             expect(pointPoint3dDistance(0, 0, 0, 3, 4, 0)).toEqual(5);
-            
+
             // Distance from origin to (1, 1, 1) should be sqrt(3)
             expect(pointPoint3dDistance(0, 0, 0, 1, 1, 1)).toBeCloseTo(Math.sqrt(3), 10);
-            
+
             // Distance from (1, 2, 3) to (4, 6, 8) should be sqrt(50)
             expect(pointPoint3dDistance(1, 2, 3, 4, 6, 8)).toBeCloseTo(Math.sqrt(50), 10);
         });
@@ -62,7 +62,7 @@ describe("Distances3d", () => {
         it("should return negative distance for points inside sphere", () => {
             // Point at center of sphere with radius 5
             expect(pointSphereDistance(0, 0, 0, 0, 0, 0, 5)).toEqual(-5);
-            
+
             // Point 3 units from center of sphere with radius 5
             expect(pointSphereDistance(3, 0, 0, 0, 0, 0, 5)).toEqual(-2);
         });
@@ -76,7 +76,7 @@ describe("Distances3d", () => {
         it("should return positive distance for points outside sphere", () => {
             // Point 10 units from center of sphere with radius 5
             expect(pointSphereDistance(10, 0, 0, 0, 0, 0, 5)).toEqual(5);
-            
+
             // Point at (6, 8, 0) from center at origin with radius 5
             // Distance is 10, so distance from sphere is 5
             expect(pointSphereDistance(6, 8, 0, 0, 0, 0, 5)).toEqual(5);
@@ -93,7 +93,7 @@ describe("Distances3d", () => {
         it("should return negative distance for overlapping spheres", () => {
             // Two spheres at same center
             expect(sphereSphereDistance(0, 0, 0, 5, 0, 0, 0, 3)).toEqual(-8);
-            
+
             // Overlapping spheres
             expect(sphereSphereDistance(0, 0, 0, 5, 3, 0, 0, 5)).toEqual(-7);
         });
@@ -101,7 +101,7 @@ describe("Distances3d", () => {
         it("should return 0 for touching spheres", () => {
             // Spheres touching externally (sum of radii = distance between centers)
             expect(sphereSphereDistance(0, 0, 0, 5, 10, 0, 0, 5)).toEqual(0);
-            
+
             // Another external touching case
             expect(sphereSphereDistance(0, 0, 0, 3, 8, 0, 0, 5)).toEqual(0);
         });
@@ -109,7 +109,7 @@ describe("Distances3d", () => {
         it("should return positive distance for separated spheres", () => {
             // Spheres 5 units apart
             expect(sphereSphereDistance(0, 0, 0, 2, 10, 0, 0, 3)).toEqual(5);
-            
+
             // Spheres in 3D space
             expect(sphereSphereDistance(0, 0, 0, 1, 3, 4, 0, 1)).toEqual(3); // distance 5, radii 1+1 = 2, so 3
         });
@@ -119,10 +119,10 @@ describe("Distances3d", () => {
         it("should calculate distance from point to line correctly", () => {
             // Point on the line should have distance 0
             expect(vectorPoint3dDistance(0, 0, 0, 10, 0, 0, 5, 0, 0)).toEqual(0);
-            
+
             // Point perpendicular to line
             expect(vectorPoint3dDistance(0, 0, 0, 10, 0, 0, 5, 5, 0)).toEqual(5);
-            
+
             // Point in 3D space
             expect(vectorPoint3dDistance(0, 0, 0, 0, 0, 10, 0, 5, 0)).toEqual(5);
         });
@@ -130,7 +130,7 @@ describe("Distances3d", () => {
         it("should handle diagonal lines", () => {
             // Line from (0,0,0) to (1,1,1), point at (1,0,0)
             const distance = vectorPoint3dDistance(0, 0, 0, 1, 1, 1, 1, 0, 0);
-            expect(distance).toBeCloseTo(Math.sqrt(2/3), 10);
+            expect(distance).toBeCloseTo(Math.sqrt(2 / 3), 10);
         });
 
         it("should handle zero-length vectors gracefully", () => {
@@ -143,7 +143,7 @@ describe("Distances3d", () => {
         it("should return distance to line endpoints when point projects outside segment", () => {
             // Point projects before start of line segment
             expect(pointLine3dDistance(0, 0, 0, 10, 0, 0, -5, 5, 0)).toBeCloseTo(Math.sqrt(50), 10);
-            
+
             // Point projects after end of line segment
             expect(pointLine3dDistance(0, 0, 0, 10, 0, 0, 15, 5, 0)).toBeCloseTo(Math.sqrt(50), 10);
         });
@@ -151,7 +151,7 @@ describe("Distances3d", () => {
         it("should return perpendicular distance when point projects onto segment", () => {
             // Point perpendicular to middle of line segment
             expect(pointLine3dDistance(0, 0, 0, 10, 0, 0, 5, 5, 0)).toEqual(5);
-            
+
             // Point perpendicular to line in 3D
             expect(pointLine3dDistance(0, 0, 0, 0, 10, 0, 0, 5, 5)).toEqual(5);
         });
@@ -174,7 +174,7 @@ describe("Distances3d", () => {
             const normal = new Vector3(0, 0, 1); // XY plane
             const planePoint = new Vector3(0, 0, 0);
             const testPoint = new Vector3(5, 5, 0); // Point on XY plane
-            
+
             expect(pointNormalPlane3dDistance(normal, planePoint, testPoint)).toEqual(0);
         });
 
@@ -182,7 +182,7 @@ describe("Distances3d", () => {
             const normal = new Vector3(0, 0, 1); // XY plane normal
             const planePoint = new Vector3(0, 0, 0); // Origin on plane
             const testPoint = new Vector3(0, 0, 5); // Point 5 units above plane
-            
+
             expect(pointNormalPlane3dDistance(normal, planePoint, testPoint)).toEqual(5);
         });
 
@@ -190,7 +190,7 @@ describe("Distances3d", () => {
             const normal = new Vector3(1, 1, 1).getNormalized(); // Diagonal plane
             const planePoint = new Vector3(0, 0, 0);
             const testPoint = new Vector3(1, 1, 1);
-            
+
             const expectedDistance = Math.sqrt(3); // Distance along normal
             expect(pointNormalPlane3dDistance(normal, planePoint, testPoint)).toBeCloseTo(expectedDistance, 10);
         });
@@ -200,7 +200,7 @@ describe("Distances3d", () => {
             const planePoint = new Vector3(0, 0, 0);
             const testPointAbove = new Vector3(0, 0, 3);
             const testPointBelow = new Vector3(0, 0, -3);
-            
+
             expect(pointNormalPlane3dDistance(normal, planePoint, testPointAbove)).toEqual(3);
             expect(pointNormalPlane3dDistance(normal, planePoint, testPointBelow)).toEqual(3);
         });
@@ -209,7 +209,7 @@ describe("Distances3d", () => {
             const normal = new Vector3(0, 0, 2); // Non-unit normal
             const planePoint = new Vector3(0, 0, 0);
             const testPoint = new Vector3(0, 0, 4);
-            
+
             expect(pointNormalPlane3dDistance(normal, planePoint, testPoint)).toEqual(4);
         });
     });

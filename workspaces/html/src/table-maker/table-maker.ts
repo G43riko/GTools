@@ -22,18 +22,18 @@ export class TableMaker<T> {
 
         return rowData[rowName] as string | number ?? "";
     }
-    
+
     public constructor(config: TableConfig<T>) {
         this.config = config;
     }
     public render(
-    	data: readonly T[], 
-        { 
-        	useTailwind 
-        }: { useTailwind?: boolean } = {}
+        data: readonly T[],
+        {
+            useTailwind,
+        }: { useTailwind?: boolean } = {},
     ): string {
         const tableId = `g43-table-${Date.now() + Math.random()}`.replace(".", "_");
-        const tableHeader = this.renderHeader({useTailwind});
+        const tableHeader = this.renderHeader({ useTailwind });
 
         const hasAnyData = data.length;
         const tableBody = hasAnyData ? this.renderBody(data) : "";
@@ -55,9 +55,10 @@ export class TableMaker<T> {
             ["row-hover-color", this.config.rowHoverColor],
             ["background-color", this.config.backgroundColor],
         ];
-        const styleVariables = customAttributes.filter(([_, value]) => !!value).map(([key, value]) => `--${key}: ${value}`);
+        const styleVariables = customAttributes.filter(([_, value]) => !!value).map(([key, value]) =>
+            `--${key}: ${value}`
+        );
         const styleVariablesHtml = styleVariables.length ? `style="${styleVariables.join(";")}"` : "";
-
 
         return `
         ${tableStyles}
@@ -77,10 +78,9 @@ export class TableMaker<T> {
         tableId: string,
         {
             bgColor = "white",
-            rowHoverColor = "rgba(0, 0, 0, 0.1)"
-        } = {}
+            rowHoverColor = "rgba(0, 0, 0, 0.1)",
+        } = {},
     ): string {
-
         return `<style>
             .${tableId} {
                 width: 100%;
@@ -90,14 +90,15 @@ export class TableMaker<T> {
                     background: var(--row-hover-color, ${rowHoverColor});
                 }
 
-                ${this.config.stickyHeader
+                ${
+            this.config.stickyHeader
                 ? ` > thead > tr {
                     position: sticky; 
                     top: 0; 
                     background: var(--background-color, ${bgColor});
                 }`
                 : ""
-            }
+        }
                 
             }
         </style>`;
@@ -114,7 +115,6 @@ export class TableMaker<T> {
                     throw new Error("Sorting is not supported for rendered table");
                 }
             }).filter((e) => !!e).map((e) => `<th>${e}</th>`);
-
 
             if (useTailwind) {
                 return `<tr class="top-0 sticky bg-${bgColor}">${columns.join("")}</tr>`;
