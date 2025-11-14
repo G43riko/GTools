@@ -34,6 +34,7 @@ export * from "./origin-utils.ts";
 export * from "./parser-utils.ts";
 export * from "./net-utils.ts";
 export * from "./random-utils.ts";
+export * from "./filter-utils.ts";
 export * from "./object-utils.ts";
 export * from "./string-utils/index.ts";
 

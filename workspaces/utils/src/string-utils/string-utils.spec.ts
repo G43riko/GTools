@@ -11,8 +11,8 @@ describe("StringUtils", () => {
     });
 
     it("removeAccentedCharacters", () => {
-        const testString = "ąàáäâãåæăćčĉęèéëêĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
-        const resultString = "aaaaaaaaaccceeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
+        const testString =   "ąàáäâãåæăćčĉďęèéëeeĝĥìíïîĵłľńňòóöőôõðøśșşšŝťțţŭùúüűûñÿýçżźž";
+        const resultString = "aaaaaaaaacccdeeeeeeghiiiijllnnoooooooossssstttuuuuuunyyczzz";
 
         const finalTestString = testString + testString.toUpperCase();
         const finalResultString = resultString + resultString.toUpperCase();
