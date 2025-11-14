@@ -8,6 +8,36 @@ export function getOrSetProperty<S, T extends keyof S>(obj: S, index: T, value: 
     return value;
 }
 
+export function getNestedPropertyArray(object: any, propertyPath: string | string[], separator = "."): any {
+   if (typeof propertyPath === "string") {
+        return getNestedPropertyArray(object, propertyPath.split(separator), separator);
+    }
+
+    const [head, ...rest] = propertyPath;
+
+    if (head === "*") {
+        if (!Array.isArray(object)) {
+            return undefined
+        };
+
+        // Flatten results from all items under this wildcard
+        const results = object
+            .map((item) => getNestedPropertyArray(item, rest, separator))
+            .flat();
+
+        return results;
+    }
+
+    if (object == null) {
+        return undefined
+    };
+
+    // Continue normally
+    const next = object[head];
+    return rest.length
+        ? getNestedPropertyArray(next, rest, separator)
+        : next;
+}
 export function getNestedProperty(object: any, propertyPath: string | string[], separator = "."): any {
     if (typeof propertyPath === "string") {
         return getNestedProperty(object, propertyPath.split(separator));
