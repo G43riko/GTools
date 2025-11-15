@@ -9,7 +9,7 @@ export function getOrSetProperty<S, T extends keyof S>(obj: S, index: T, value: 
 }
 
 export function getNestedPropertyArray(object: any, propertyPath: string | string[], separator = "."): any {
-   if (typeof propertyPath === "string") {
+    if (typeof propertyPath === "string") {
         return getNestedPropertyArray(object, propertyPath.split(separator), separator);
     }
 
@@ -17,8 +17,8 @@ export function getNestedPropertyArray(object: any, propertyPath: string | strin
 
     if (head === "*") {
         if (!Array.isArray(object)) {
-            return undefined
-        };
+            return undefined;
+        }
 
         // Flatten results from all items under this wildcard
         const results = object
@@ -29,14 +29,12 @@ export function getNestedPropertyArray(object: any, propertyPath: string | strin
     }
 
     if (object == null) {
-        return undefined
-    };
+        return undefined;
+    }
 
     // Continue normally
     const next = object[head];
-    return rest.length
-        ? getNestedPropertyArray(next, rest, separator)
-        : next;
+    return rest.length ? getNestedPropertyArray(next, rest, separator) : next;
 }
 export function getNestedProperty(object: any, propertyPath: string | string[], separator = "."): any {
     if (typeof propertyPath === "string") {
