@@ -27,6 +27,8 @@ export const convertDuration = (value: number | undefined, from: DurationUnit, t
                 return value / 60_000;
             case DurationUnit.H:
                 return value / 3_600_000; //60_000 * 60;
+            case DurationUnit.D:
+                return value / 86_400_000; //3_600_000 * 24;
             default:
                 throw new Error(`Unsupported duration conversion '${from}' => '${to}'`);
         }
