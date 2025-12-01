@@ -1,3 +1,7 @@
+export interface HistogramQueryParams {
+    readonly minOccurences?: number;
+}
+
 /**
  * @example
  * ```ts
@@ -107,7 +111,7 @@ export class Histogram<Key extends string | number = string | number> {
         });
 
         const createEntry = (year: number | string, count: number) => {
-            const value = Math.floor(count / maxCount * length);
+            const value = Math.floor((count / maxCount) * length);
             const key = String(year).padEnd(maxKeyLength);
             if (appendValue) {
                 return [key, `${"#".repeat(value)} ${count}`.trim()];
@@ -144,7 +148,10 @@ export class Histogram<Key extends string | number = string | number> {
      * TODO: add maxOccurences
      * TODO: add maxNumber
      */
-    public getSorted(sort: "ASC" | "DESC" = "DESC", { minOccurences = 0 } = {}): Record<Key, number> {
+    public getSorted(
+        sort: "ASC" | "DESC" = "DESC",
+        { minOccurences = 0 }: HistogramQueryParams = {},
+    ): Record<Key, number> {
         const entries = new Array<[key: Key, value: number]>();
 
         for (const [key, count] of this._data) {
@@ -153,7 +160,9 @@ export class Histogram<Key extends string | number = string | number> {
             }
         }
         // TODO: fix issue with sorting if key is number
-        entries.sort(sort === "ASC" ? (a, b) => a[1] - b[1] : (a, b) => b[1] - a[1]);
+        entries.sort(
+            sort === "ASC" ? (a, b) => a[1] - b[1] : (a, b) => b[1] - a[1],
+        );
 
         return Object.fromEntries(entries) as Record<Key, number>;
     }
@@ -181,8 +190,12 @@ export class Histogram<Key extends string | number = string | number> {
     /**
      * Creates a JSON representation of the histogram
      * @returns An object with keys and their counts, sorted in descending order
+     * TODO: add same params as `getSorted`
      */
-    public toJSON(): Record<Key, number> {
-        return this.getSorted();
+    public toJSON(
+        order?: "ASC" | "DESC",
+        params?: HistogramQueryParams,
+    ): Record<Key, number> {
+        return this.getSorted(order, params);
     }
 }

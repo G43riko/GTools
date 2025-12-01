@@ -57,6 +57,10 @@ export class Bucket {
     }
     private calculateBucketIndexValue(value: number): number {
         const step = this.calculateStep();
+        // Clamp max to last bucket
+        if (value === this.#options.max) {
+            return this.#values.length - 1;
+        }
         const index = Math.floor((value - this.#options.min) / step);
         if (index < 0 || index >= this.#values.length) {
             throw new Error(`Invalid bucket index: ${index} for value ${value}`);
