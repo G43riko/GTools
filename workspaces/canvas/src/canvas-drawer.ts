@@ -829,8 +829,8 @@ export class CanvasDrawer implements Drawer {
         globalThis.open(this.context.canvas.toDataURL(format), "_blank");
     }
 
-    public clear(resetTransform = true): void {
-        StaticCanvasDrawer.clear(this.context, resetTransform);
+    public clear(resetTransform = true, color: string | undefined = undefined): void {
+        StaticCanvasDrawer.clear(this.context, resetTransform, color);
     }
 
     public toUrl(format = "image/png"): string {
