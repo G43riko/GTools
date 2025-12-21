@@ -1,7 +1,7 @@
 import { Random } from "@g43/tools";
 import type { ReadonlySimpleVector2 } from "@g43/types";
 import type { VoronoiTextureData } from "./voronoi-texture-data.ts";
-import { randomInt } from "../../../../utils/src/random-utils.ts";
+import { randomInt } from "@g43/utils";
 
 export class VoronoiTexture {
     /**
