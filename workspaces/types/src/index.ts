@@ -7,7 +7,8 @@
  * alignment options, and other common structures used in TypeScript applications.
  * These types help ensure type safety and improve code readability.
  */
-
+export * from "./type.ts";
+export * from "./value-of.ts";
 export * from "./text-options.interface.ts";
 export * from "./round-data.ts";
 export * from "./shadow-options.ts";
