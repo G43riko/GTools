@@ -743,7 +743,7 @@ export class QuadBoxWithRect extends QuadBox {
 /**
  * @see https://gamedev.stackexchange.com/questions/20607/quad-tree-with-a-lot-of-moving-objects
  */
-class QuadTreeWithRect<T extends MinMax2D> {
+export class QuadTreeWithRect<T extends MinMax2D> {
     private readonly map = new WeakMap<T, QuadTreeWithRect<T>>();
     private children?: [QuadTreeWithRect<T>, QuadTreeWithRect<T>, QuadTreeWithRect<T>, QuadTreeWithRect<T>];
     private readonly values = new Array<T>();
@@ -782,7 +782,7 @@ class QuadTreeWithRect<T extends MinMax2D> {
         this.children?.forEach((child) => child.iterateValues(callback));
     }
 
-    public query(box: MinMax2D, result = new Array<T>()): readonly T[] {
+    public query(box: MinMax2D, result: T[] = []): readonly T[] {
         result.push(
             ...this.filterValues(box),
         );
