@@ -1,3 +1,4 @@
+export * from "./quad-tree/quad-tree.ts";
 export * from "./collision-table-2d.ts";
 export * from "./intersection-table-3d.ts";
 export * from "./intersection-table-2d.ts";
