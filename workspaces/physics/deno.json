@@ -1,5 +1,5 @@
 {
     "name": "@g43/physics",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "exports": "./src/index.ts"
 }

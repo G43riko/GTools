@@ -1,6 +1,6 @@
 import { SimpleVector, Vector2 } from "@g43/math";
 import { pointRectMinMax2dCollision } from "@g43/physics";
-import type { ReadonlySimpleVector2 } from "@g43/types";
+import type { MinMax2D, ReadonlySimpleVector2 } from "@g43/types";
 
 /**
  * generalized box class, defined by two points with lessThan (lte) and greaterThan (gte) functions
@@ -657,5 +657,255 @@ export class QuadTreeWithPointProvider<T> {
     public clear(): void {
         this.children = null;
         this.value = [];
+    }
+}
+/**
+ * TODO: use som external function
+ * @param a
+ * @param b
+ * @returns
+ */
+const intersects = function (a: MinMax2D, b: MinMax2D) {
+    return !(
+        a.max.x < b.min.x ||
+        a.max.y < b.min.y ||
+        a.min.x > b.max.x ||
+        a.min.y > b.max.y
+    );
+};
+export class QuadBoxWithRect extends QuadBox {
+    public readonly center: ReadonlySimpleVector2;
+    public constructor(low: ReadonlySimpleVector2, high: ReadonlySimpleVector2) {
+        super(low, high);
+
+        this.center = SimpleVector.create((low.x + high.x) / 2, (low.y + high.y) / 2);
+    }
+
+    /**
+     * return array of children
+     */
+    public override split(): [QuadBoxWithRect, QuadBoxWithRect, QuadBoxWithRect, QuadBoxWithRect] {
+        const centerX = (this.low.x + this.high.x) / 2;
+        const centerY = (this.low.y + this.high.y) / 2;
+
+        return [
+            new QuadBoxWithRect(this.low, SimpleVector.create2(centerX, centerY)),
+            new QuadBoxWithRect(
+                SimpleVector.create2(centerX, this.low.y),
+                SimpleVector.create2(this.high.x, centerY),
+            ),
+            new QuadBoxWithRect(SimpleVector.create2(centerX, centerY), this.high),
+            new QuadBoxWithRect(
+                SimpleVector.create2(this.low.x, centerY),
+                SimpleVector.create2(centerX, this.high.y),
+            ),
+        ];
+    }
+    public overlapsMinMax(box: MinMax2D): boolean {
+        if (this.high.x < box.min.x) {
+            return false;
+        } // a is left of b
+        if (this.low.x > box.max.x) {
+            return false;
+        } // a is right of b
+        if (this.high.y < box.min.y) {
+            return false;
+        } // a is above b
+        if (this.low.y > box.max.y) {
+            return false;
+        } // a is below b
+
+        return true;
+    }
+    /**
+     * return true if the box contains the box provided as argument.
+     */
+    public containsMinMax(box: MinMax2D): boolean {
+        return this.contains(box.min) && this.contains(box.max);
+    }
+    public isOnlyOneQuarter(box: MinMax2D): null | "TL" | "TR" | "BR" | "BL" {
+        const left = box.min.x <= this.center.x;
+        const top = box.min.y <= this.center.y;
+
+        const sameQuarter = (left === box.max.x <= this.center.x) &&
+            (top === box.max.y <= this.center.y);
+
+        if (!sameQuarter) {
+            return null;
+        }
+
+        if (left) {
+            return top ? "TL" : "BL";
+        }
+        return top ? "TR" : "BR";
+    }
+}
+/**
+ * @see https://gamedev.stackexchange.com/questions/20607/quad-tree-with-a-lot-of-moving-objects
+ */
+class QuadTreeWithRect<T extends MinMax2D> {
+    private readonly map = new WeakMap<T, QuadTreeWithRect<T>>();
+    private children?: [QuadTreeWithRect<T>, QuadTreeWithRect<T>, QuadTreeWithRect<T>, QuadTreeWithRect<T>];
+    private readonly values = new Array<T>();
+
+    private readonly box: QuadBoxWithRect;
+    private readonly maxDepth: number;
+    private readonly parent?: QuadTreeWithRect<T>;
+
+    private readonly depth: number;
+    private readonly root: QuadTreeWithRect<T>;
+
+    public constructor(
+        box: QuadBoxWithRect,
+        maxDepth = 10,
+        parent?: QuadTreeWithRect<T>,
+    ) {
+        this.box = box;
+        this.maxDepth = maxDepth;
+        this.parent = parent;
+        this.depth = this.parent ? this.parent.depth + 1 : 0;
+        this.root = this.parent ? this.parent.root : this;
+    }
+
+    private filterValues(box: MinMax2D): readonly T[] {
+        return this.values.filter((value) => intersects(box, value));
+    }
+
+    public iterateBoxesUpside(callback: (value: QuadBoxWithRect) => unknown): void {
+        callback(this.box);
+
+        this.parent?.iterateBoxesUpside(callback);
+    }
+    public iterateValues(callback: (value: T) => unknown): void {
+        this.values.forEach(callback);
+
+        this.children?.forEach((child) => child.iterateValues(callback));
+    }
+
+    public query(box: MinMax2D, result = new Array<T>()): readonly T[] {
+        result.push(
+            ...this.filterValues(box),
+        );
+        if (!this.children) {
+            return result;
+        }
+
+        if (box.min.x <= this.box.center.x) {
+            if (box.min.y <= this.box.center.y) {
+                // TL
+                this.children[0].query(box, result);
+            }
+            if (box.max.y >= this.box.center.y) {
+                // BL
+                this.children[3].query(box, result);
+            }
+        }
+        if (box.max.x >= this.box.center.x) {
+            if (box.min.y <= this.box.center.y) {
+                //TR
+                this.children[1].query(box, result);
+            }
+            if (box.max.y >= this.box.center.y) {
+                // BR
+                this.children[2].query(box, result);
+            }
+        }
+
+        return result;
+    }
+
+    private getQuadBackward(box: T): QuadTreeWithRect<T> {
+        if (!this.parent) {
+            return this;
+        }
+        if (this.box.containsMinMax(box)) {
+            return this;
+        }
+
+        return this.parent.getQuadBackward(box);
+    }
+
+    public move(oldBox: T, newBox: T): QuadTreeWithRect<T> {
+        const result = this.moveInternally(oldBox, newBox);
+
+        result.root.map.set(newBox, result);
+
+        return result;
+    }
+    public moveInternally(oldBox: T, newBox: T): QuadTreeWithRect<T> {
+        const oldTree = this.root.map.get(oldBox);
+        if (!oldTree) {
+            throw new Error("Box is missing");
+        }
+
+        if (oldTree.box.containsMinMax(newBox)) {
+            const quarter = this.box.isOnlyOneQuarter(newBox);
+            if (quarter) {
+                const index = oldTree.values.indexOf(oldBox);
+                oldTree.values.splice(index, 1);
+
+                return this.getChildren(quarter).addInternally(newBox);
+            }
+        } else {
+            const index = oldTree.values.indexOf(oldBox);
+            oldTree.values.splice(index, 1);
+
+            return this.getQuadBackward(newBox).addInternally(newBox);
+        }
+
+        return this;
+    }
+
+    public add(box: T): QuadTreeWithRect<T> {
+        const result = this.addInternally(box);
+
+        this.root.map.set(box, result);
+
+        return result;
+    }
+
+    private getChildren(quarter: "TL" | "TR" | "BR" | "BL"): QuadTreeWithRect<T> {
+        if (!this.children) {
+            this.children = this.box.split()
+                .map((child) => new QuadTreeWithRect<T>(child, this.maxDepth, this)) as [
+                    QuadTreeWithRect<T>,
+                    QuadTreeWithRect<T>,
+                    QuadTreeWithRect<T>,
+                    QuadTreeWithRect<T>,
+                ];
+        }
+
+        switch (quarter) {
+            case "TL":
+                return this.children[0];
+            case "TR":
+                return this.children[1];
+            case "BR":
+                return this.children[2];
+            case "BL":
+                return this.children[3];
+        }
+    }
+
+    private addInternally(box: T): QuadTreeWithRect<T> {
+        if (!this.box.overlapsMinMax(box)) {
+            throw new Error("Box outside of range");
+        }
+
+        // if we are in max depth then push to this quarter
+        if (this.depth === this.maxDepth) {
+            this.values.push(box);
+
+            return this;
+        }
+
+        const quarter = this.box.isOnlyOneQuarter(box);
+        // push to this quarter
+        if (!quarter) {
+            this.values.push(box);
+
+            return this;
+        }
+        return this.getChildren(quarter).addInternally(box);
     }
 }
