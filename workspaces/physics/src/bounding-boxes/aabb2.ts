@@ -1,4 +1,4 @@
-import { SimpleVector, Vector2 } from "@g43/math";
+import { SimpleVector } from "@g43/math";
 import type { MinMax2D, ReadonlySimpleVector2, SimpleVector2 } from "@g43/types";
 import type { RayCast2D, RaycastResult } from "../objects/2d/ray-2d.ts";
 import type { AABB } from "./aabb.ts";
@@ -12,24 +12,22 @@ import type { AABB } from "./aabb.ts";
 export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
     public static fromPosAndSize(pos: ReadonlySimpleVector2, size: ReadonlySimpleVector2): AABB2 {
         return new AABB2(
+            pos.x,
             pos.y,
             pos.x + size.x,
             pos.y + size.y,
-            pos.x,
         );
     }
 
     public static fromCenterAndSize(center: ReadonlySimpleVector2, size: ReadonlySimpleVector2): AABB2 {
-        const halfSize = {
-            x: size.x / 2,
-            y: size.y / 2,
-        };
+        const halfSizeX = size.x / 2;
+        const halfSizeY = size.y / 2;
 
         return new AABB2(
-            center.y - halfSize.y,
-            center.x + halfSize.x,
-            center.y + halfSize.y,
-            center.x - halfSize.x,
+            center.x - halfSizeX,
+            center.y - halfSizeY,
+            center.x + halfSizeX,
+            center.y + halfSizeY,
         );
     }
 
@@ -94,46 +92,79 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
 
         const p = ray.from;
         const d = ray.direction;
-        const absD = Vector2.getAbs(d);
 
-        const normal = Vector2.ZERO;
+        let normalX = 0;
+        let normalY = 0;
 
-        const { min, max } = this.getMinMax();
+        // X axis
+        if (Math.abs(d.x) < Number.EPSILON) {
+            // Parallel.
+            if (p.x < this.left || this.right < p.x) {
+                return false;
+            }
+        } else {
+            const invD = 1 / d.x;
+            let t1 = (this.left - p.x) * invD;
+            let t2 = (this.right - p.x) * invD;
 
-        for (let f: "x" | "y" | null = "x"; f !== null; f = f === "x" ? "y" : null) {
-            if (absD.x < Number.EPSILON) {
-                // Parallel.
-                if (p[f] < min[f] || max[f] < p[f]) {
-                    return false;
-                }
-            } else {
-                const invD = 1 / d[f];
-                let t1 = (min[f] - p[f]) * invD;
-                let t2 = (max[f] - p[f]) * invD;
+            // Sign of the normal vector.
+            let s = -1;
 
-                // Sign of the normal vector.
-                let s = -1;
+            if (t1 > t2) {
+                const temp = t1;
+                t1 = t2;
+                t2 = temp;
+                s = 1;
+            }
 
-                if (t1 > t2) {
-                    const temp = t1;
-                    t1 = t2;
-                    t2 = temp;
-                    s = 1;
-                }
+            // Push the min up
+            if (t1 > tmin) {
+                normalX = s;
+                normalY = 0;
+                tmin = t1;
+            }
 
-                // Push the min up
-                if (t1 > tmin) {
-                    normal.setData(0, 0);
-                    normal[f] = s;
-                    tmin = t1;
-                }
+            // Pull the max down
+            tmax = Math.min(tmax, t2);
 
-                // Pull the max down
-                tmax = Math.min(tmax, t2);
+            if (tmin > tmax) {
+                return false;
+            }
+        }
 
-                if (tmin > tmax) {
-                    return false;
-                }
+        // Y axis
+        if (Math.abs(d.y) < Number.EPSILON) {
+            // Parallel.
+            if (p.y < this.top || this.bottom < p.y) {
+                return false;
+            }
+        } else {
+            const invD = 1 / d.y;
+            let t1 = (this.top - p.y) * invD;
+            let t2 = (this.bottom - p.y) * invD;
+
+            // Sign of the normal vector.
+            let s = -1;
+
+            if (t1 > t2) {
+                const temp = t1;
+                t1 = t2;
+                t2 = temp;
+                s = 1;
+            }
+
+            // Push the min up
+            if (t1 > tmin) {
+                normalX = 0;
+                normalY = s;
+                tmin = t1;
+            }
+
+            // Pull the max down
+            tmax = Math.min(tmax, t2);
+
+            if (tmin > tmax) {
+                return false;
             }
         }
 
@@ -144,7 +175,7 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         }
 
         result.fraction = tmin;
-        result.normal.set(normal);
+        result.normal.setData(normalX, normalY);
 
         return true;
     }
@@ -177,21 +208,63 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
     }
 
     public rotate(angle: number, anchor: ReadonlySimpleVector2 = SimpleVector.ZERO_2): this {
-        const points = this.getPoints().map((p) => Vector2.rotate(angle, p, anchor));
+        const sin = Math.sin(angle);
+        const cos = Math.cos(angle);
 
-        const range = Vector2.createOutlineMinMax(points);
-        this.left = range.min.x;
-        this.top = range.min.y;
-        this.right = range.max.x;
-        this.bottom = range.max.y;
+        const x1 = this.left - anchor.x;
+        const y1 = this.top - anchor.y;
+        const x2 = this.right - anchor.x;
+        const y2 = this.bottom - anchor.y;
+
+        const cornersX = [
+            x1 * cos - y1 * sin + anchor.x,
+            x2 * cos - y1 * sin + anchor.x,
+            x2 * cos - y2 * sin + anchor.x,
+            x1 * cos - y2 * sin + anchor.x,
+        ];
+        const cornersY = [
+            x1 * sin + y1 * cos + anchor.y,
+            x2 * sin + y1 * cos + anchor.y,
+            x2 * sin + y2 * cos + anchor.y,
+            x1 * sin + y2 * cos + anchor.y,
+        ];
+
+        this.left = Math.min(...cornersX);
+        this.top = Math.min(...cornersY);
+        this.right = Math.max(...cornersX);
+        this.bottom = Math.max(...cornersY);
 
         return this;
     }
 
     public getRotated(angle: number, anchor: ReadonlySimpleVector2 = SimpleVector.ZERO_2): AABB2 {
-        const points = this.getPoints().map((p) => Vector2.rotate(angle, p, anchor));
+        const sin = Math.sin(angle);
+        const cos = Math.cos(angle);
 
-        return AABB2.fromPoints(points);
+        const x1 = this.left - anchor.x;
+        const y1 = this.top - anchor.y;
+        const x2 = this.right - anchor.x;
+        const y2 = this.bottom - anchor.y;
+
+        const cornersX = [
+            x1 * cos - y1 * sin + anchor.x,
+            x2 * cos - y1 * sin + anchor.x,
+            x2 * cos - y2 * sin + anchor.x,
+            x1 * cos - y2 * sin + anchor.x,
+        ];
+        const cornersY = [
+            x1 * sin + y1 * cos + anchor.y,
+            x2 * sin + y1 * cos + anchor.y,
+            x2 * sin + y2 * cos + anchor.y,
+            x1 * sin + y2 * cos + anchor.y,
+        ];
+
+        return new AABB2(
+            Math.min(...cornersX),
+            Math.min(...cornersY),
+            Math.max(...cornersX),
+            Math.max(...cornersY),
+        );
     }
 
     public translateVec(pos: ReadonlySimpleVector2): this {
@@ -252,7 +325,14 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         this.bottom += distance;
     }
 
-    public getCenter(): ReadonlySimpleVector2 {
+    public getCenter(result?: SimpleVector2): ReadonlySimpleVector2 {
+        if (result) {
+            result.x = (this.right + this.left) / 2;
+            result.y = (this.bottom + this.top) / 2;
+
+            return result;
+        }
+
         return {
             x: (this.right + this.left) / 2,
             y: (this.bottom + this.top) / 2,
@@ -267,17 +347,22 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         return this.bottom - this.top;
     }
 
-    public getSize(): ReadonlySimpleVector2 {
+    public getSize(result?: SimpleVector2): ReadonlySimpleVector2 {
+        if (result) {
+            result.x = this.right - this.left;
+            result.y = this.bottom - this.top;
+
+            return result;
+        }
+
         return {
-            x: this.width,
-            y: this.height,
+            x: this.right - this.left,
+            y: this.bottom - this.top,
         };
     }
 
     public getVolume(): number {
-        const size = this.getSize();
-
-        return size.x * size.y;
+        return (this.right - this.left) * (this.bottom - this.top);
     }
 
     public moveByVector(vec: ReadonlySimpleVector2): void {
@@ -287,7 +372,16 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         this.bottom += vec.y;
     }
 
-    public getMinMax(): MinMax2D {
+    public getMinMax(result?: MinMax2D): MinMax2D {
+        if (result) {
+            result.min.x = this.left;
+            result.min.y = this.top;
+            result.max.x = this.right;
+            result.max.y = this.bottom;
+
+            return result;
+        }
+
         return {
             min: {
                 x: this.left,
@@ -300,7 +394,14 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
         };
     }
 
-    public getPosition(): ReadonlySimpleVector2 {
+    public getPosition(result?: SimpleVector2): ReadonlySimpleVector2 {
+        if (result) {
+            result.x = this.left;
+            result.y = this.top;
+
+            return result;
+        }
+
         return {
             x: this.left,
             y: this.top,
@@ -308,14 +409,12 @@ export class AABB2 implements AABB<AABB2, SimpleVector2, MinMax2D> {
     }
 
     public moveCenterTo(center: ReadonlySimpleVector2): void {
-        const offset = {
-            x: center.x - (this.right + this.left) / 2,
-            y: center.y - (this.bottom + this.top) / 2,
-        };
+        const offsetX = center.x - (this.right + this.left) / 2;
+        const offsetY = center.y - (this.bottom + this.top) / 2;
 
-        this.left += offset.x;
-        this.top += offset.y;
-        this.right += offset.x;
-        this.bottom += offset.y;
+        this.left += offsetX;
+        this.top += offsetY;
+        this.right += offsetX;
+        this.bottom += offsetY;
     }
 }

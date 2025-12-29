@@ -6,7 +6,7 @@ import { AABB2 } from "./aabb2.ts";
 
 describe("AABB2", () => {
     describe("construction", () => {
-        it.skip("should create from position and size", () => {
+        it("should create from position and size", () => {
             const aabb = AABB2.fromPosAndSize({ x: 10, y: 20 }, { x: 30, y: 40 });
             expect(aabb.left).toBe(10);
             expect(aabb.top).toBe(20);
@@ -14,7 +14,7 @@ describe("AABB2", () => {
             expect(aabb.bottom).toBe(60); // 20 + 40
         });
 
-        it.skip("should create from center and size", () => {
+        it("should create from center and size", () => {
             const aabb = AABB2.fromCenterAndSize({ x: 50, y: 60 }, { x: 30, y: 40 });
             expect(aabb.left).toBe(35); // 50 - 30/2
             expect(aabb.top).toBe(40); // 60 - 40/2
@@ -102,6 +102,44 @@ describe("AABB2", () => {
             expect(points[1]).toEqual({ x: 40, y: 20 }); // top-right
             expect(points[2]).toEqual({ x: 40, y: 60 }); // bottom-right
             expect(points[3]).toEqual({ x: 10, y: 60 }); // bottom-left
+        });
+
+        it("should support result parameter in getCenter", () => {
+            const aabb = new AABB2(10, 20, 40, 60);
+            const result = { x: 0, y: 0 };
+            const returned = aabb.getCenter(result);
+            expect(returned).toBe(result);
+            expect(result.x).toBe(25);
+            expect(result.y).toBe(40);
+        });
+
+        it("should support result parameter in getSize", () => {
+            const aabb = new AABB2(10, 20, 40, 60);
+            const result = { x: 0, y: 0 };
+            const returned = aabb.getSize(result);
+            expect(returned).toBe(result);
+            expect(result.x).toBe(30);
+            expect(result.y).toBe(40);
+        });
+
+        it("should support result parameter in getPosition", () => {
+            const aabb = new AABB2(10, 20, 40, 60);
+            const result = { x: 0, y: 0 };
+            const returned = aabb.getPosition(result);
+            expect(returned).toBe(result);
+            expect(result.x).toBe(10);
+            expect(result.y).toBe(20);
+        });
+
+        it("should support result parameter in getMinMax", () => {
+            const aabb = new AABB2(10, 20, 40, 60);
+            const result = { min: { x: 0, y: 0 }, max: { x: 0, y: 0 } };
+            const returned = aabb.getMinMax(result);
+            expect(returned).toBe(result);
+            expect(result.min.x).toBe(10);
+            expect(result.min.y).toBe(20);
+            expect(result.max.x).toBe(40);
+            expect(result.max.y).toBe(60);
         });
     });
 
