@@ -160,25 +160,25 @@ export function pointRectMinMax2dCollision(
         pointY >= minY &&
         pointX <= maxX &&
         pointY <= maxY;
-    }
+}
 
-    export function minMaxMinMax2dCollision(
-        minAX: number,
-        minAY: number,
-        maxAX: number,
-        maxAY: number,
-        minBX: number,
-        minBY: number,
-        maxBX: number,
-        maxBY: number,
-    ): boolean {
-        return (
-            minAX <= maxBX &&
-            maxAX >= minBX &&
-            minAY <= maxBY &&
-            maxAY >= minBY
-        );
-    }
+export function minMaxMinMax2dCollision(
+    minAX: number,
+    minAY: number,
+    maxAX: number,
+    maxAY: number,
+    minBX: number,
+    minBY: number,
+    maxBX: number,
+    maxBY: number,
+): boolean {
+    return (
+        minAX <= maxBX &&
+        maxAX >= minBX &&
+        minAY <= maxBY &&
+        maxAY >= minBY
+    );
+}
 
 export function pointCircle2dCollision(
     pointX: number,

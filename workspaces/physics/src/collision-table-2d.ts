@@ -1,4 +1,10 @@
-import type { MinMax2D, ReadonlyMinMax2D, ReadonlyMinMaxFlat2D, ReadonlyPosSize2D, ReadonlySimpleVector2 } from "@g43/types";
+import type {
+    MinMax2D,
+    ReadonlyMinMax2D,
+    ReadonlyMinMaxFlat2D,
+    ReadonlyPosSize2D,
+    ReadonlySimpleVector2,
+} from "@g43/types";
 import {
     circleRect2dCollision,
     minMaxMinMax2dCollision,
@@ -43,7 +49,7 @@ export class CollisionTable2d {
             minMaxB.min.y,
             minMaxB.max.x,
             minMaxB.max.y,
-        )
+        );
     }
 
     public static pointCircle(
