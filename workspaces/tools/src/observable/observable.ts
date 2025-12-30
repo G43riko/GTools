@@ -1,4 +1,4 @@
-import { Listener, Observer } from "./observable-types.ts";
+import type { Listener, Observer } from "./observable-types.ts";
 
 /**
  * Single event Observable

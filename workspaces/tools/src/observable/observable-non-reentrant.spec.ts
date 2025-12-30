@@ -1,8 +1,8 @@
-import { describe, it, beforeEach } from "@std/testing/bdd";
+import { beforeEach, describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 
 import { ObservableNonReentrant } from "./observable-non-reentrant.ts";
-import type { Observer, Listener } from "./observable-types.ts";
+import type { Listener, Observer } from "./observable-types.ts";
 
 describe("ObservableNonReentrant", () => {
     let observable: ObservableNonReentrant<number>;
@@ -58,10 +58,11 @@ describe("ObservableNonReentrant", () => {
                 },
             };
 
-            observable.register(observer);
+            const off = observable.register(observer);
 
             expect(() => observable.notifyAll(1)).toThrow("boom");
 
+            off();
             // Must not remain locked
             observable.subscribe(() => {
                 called = true;
@@ -102,6 +103,7 @@ describe("ObservableNonReentrant", () => {
         });
 
         it("throws when unregister is called during notify", () => {
+            // deno-lint-ignore prefer-const
             let unregister!: () => void;
 
             const observer: Observer<number> = {
@@ -118,6 +120,7 @@ describe("ObservableNonReentrant", () => {
         });
 
         it("throws when unsubscribe is called during notify", () => {
+            // deno-lint-ignore prefer-const
             let unsubscribe!: () => void;
 
             const listener: Listener<number> = () => {

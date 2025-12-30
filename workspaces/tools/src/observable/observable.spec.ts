@@ -1,8 +1,8 @@
-import { describe, it, beforeEach } from "@std/testing/bdd";
+import { beforeEach, describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 
 import { Observable } from "./observable.ts";
-import type { Observer, Listener } from "./observable-types.ts";
+import type { Listener, Observer } from "./observable-types.ts";
 
 describe("Observable", () => {
     let observable: Observable<number>;
