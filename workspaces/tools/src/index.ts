@@ -13,6 +13,8 @@
  */
 
 export * from "./nearest/spatial-hash-grid-fast.ts";
+export * from "./observable/observable.ts";
+export * from "./observable/observable-non-reentrant.ts";
 export * from "./nearest/nearest-item.ts";
 export * from "./range.ts";
 export * from "./bk-tree.ts";
