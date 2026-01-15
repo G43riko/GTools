@@ -1,3 +1,4 @@
+
 /**
  * @module @g43/tools
  *
@@ -12,6 +13,7 @@
  * - Statistics tracking utilities
  */
 
+export * from "./units.ts";
 export * from "./nearest/spatial-hash-grid-fast.ts";
 export * from "./observable/observable.ts";
 export * from "./observable/observable-non-reentrant.ts";
