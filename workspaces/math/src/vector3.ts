@@ -259,7 +259,7 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
 
     public static toString(vector?: unknown, fixedSize?: number): string {
         if (this.isVector(vector)) {
-            if (fixedSize) {
+            if (typeof fixedSize === "number") {
                 return `[${vector.x.toFixed(fixedSize)}, ${vector.y.toFixed(fixedSize)}, ${
                     vector.z.toFixed(fixedSize)
                 }]`;
@@ -469,10 +469,15 @@ export class Vector3 implements SimpleVector3, Vector<SimpleVector3, Vector3> {
     public static normalize<T extends ReadonlySimpleVector3>(vec: ReadonlySimpleVector3, result: T): T;
     public static normalize<T extends SimpleVector3>(vec: T): T;
     public static normalize<T extends SimpleVector3>(vec: T, result: T = vec): T {
+        
         const length = Math.sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+        if (length === 0) { 
+            result.x = result.y = result.z = 0; 
+        }  else {
         result.x = vec.x / length;
         result.y = vec.y / length;
         result.z = vec.z / length;
+        }
 
         return result;
     }
