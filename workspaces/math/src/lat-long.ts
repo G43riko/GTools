@@ -83,7 +83,7 @@ export class LatLong {
      * @param latLong - The coordinate to clone.
      */
     public static cloneSimple(latLong: ReadonlySimpleLatLong): SimpleLatLong {
-        return { lat: latLong.lat, long: latLong.lat };
+        return { lat: latLong.lat, long: latLong.long };
     }
 
     /**
@@ -92,7 +92,7 @@ export class LatLong {
      * @param latLong - The coordinate to clone.
      */
     public static cloneReadonlySimple(latLong: ReadonlySimpleLatLong): ReadonlySimpleLatLong {
-        return { lat: latLong.lat, long: latLong.lat };
+        return { lat: latLong.lat, long: latLong.long };
     }
 
     /**

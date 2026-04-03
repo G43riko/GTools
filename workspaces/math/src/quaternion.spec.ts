@@ -46,8 +46,9 @@ describe("Quaternion", () => {
             assertAlmostEquals(copy.z, q.z, 0.0001);
             assertAlmostEquals(copy.w, q.w, 0.0001);
             // Mutating original should not affect the clone
+            const savedX = copy.x;
             q.x = 999;
-            assertAlmostEquals(copy.x, copy.x, 0.0001);
+            assertAlmostEquals(copy.x, savedX, 0.0001);
         });
     });
 
