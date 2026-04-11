@@ -81,26 +81,28 @@ describe("fixSphere", () => {
     it("clamps center.x when the sphere extends past the left edge", () => {
         const circle = new Circle(10, { x: 3, y: 50 });
         const result = fixSphere(bounds, circle);
-        // halfRadius = 5, center.x - halfRadius = -2 < 0 => result.x = 0 + 5 = 5
+        // halfRadius = 10/2 = 5; center.x(3) - halfRadius(5) = -2 < min.x(0), so result.x = min.x + halfRadius = 5
         expect(result.x).toBe(5);
     });
 
     it("clamps center.x when the sphere extends past the right edge", () => {
         const circle = new Circle(10, { x: 97, y: 50 });
         const result = fixSphere(bounds, circle);
-        // halfRadius = 5, center.x + halfRadius = 102 > 100 => result.x = 100 - 5 = 95
+        // halfRadius = 10/2 = 5; center.x(97) + halfRadius(5) = 102 > max.x(100), so result.x = max.x - halfRadius = 95
         expect(result.x).toBe(95);
     });
 
     it("clamps center.y when the sphere extends past the top edge", () => {
         const circle = new Circle(10, { x: 50, y: 3 });
         const result = fixSphere(bounds, circle);
+        // halfRadius = 5; center.y(3) - halfRadius(5) = -2 < min.y(0), so result.y = min.y + halfRadius = 5
         expect(result.y).toBe(5);
     });
 
     it("clamps center.y when the sphere extends past the bottom edge", () => {
         const circle = new Circle(10, { x: 50, y: 97 });
         const result = fixSphere(bounds, circle);
+        // halfRadius = 5; center.y(97) + halfRadius(5) = 102 > max.y(100), so result.y = max.y - halfRadius = 95
         expect(result.y).toBe(95);
     });
 });

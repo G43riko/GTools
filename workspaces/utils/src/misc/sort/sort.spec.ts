@@ -4,6 +4,12 @@ import { insertionSort } from "./insertion-sort.ts";
 import { mergeSort } from "./merge-sort.ts";
 import { quickSort } from "./quick-sort.ts";
 
+// NOTE: These sort functions are designed as benchmarking utilities. They do not
+// modify the caller's input array nor return the sorted result – insertionSort
+// works on an internal copy while mergeSort/quickSort sort into a module-level
+// variable. Therefore, the tests below verify that the functions complete without
+// throwing rather than asserting on the sorted output.
+
 const numericComparator = (a: number, b: number) => a - b;
 
 describe("insertionSort", () => {
@@ -13,6 +19,12 @@ describe("insertionSort", () => {
 
     it("runs without error on a single-element array", () => {
         expect(() => insertionSort([42], numericComparator)).not.toThrow();
+    });
+
+    it("does not mutate the original array", () => {
+        const input = [3, 1, 2];
+        insertionSort(input, numericComparator);
+        expect(input).toEqual([3, 1, 2]);
     });
 
     it("runs without error on an already-sorted array", () => {
@@ -37,6 +49,12 @@ describe("mergeSort", () => {
         expect(() => mergeSort([42], numericComparator)).not.toThrow();
     });
 
+    it("does not mutate the original array", () => {
+        const input = [3, 1, 2];
+        mergeSort(input, numericComparator);
+        expect(input).toEqual([3, 1, 2]);
+    });
+
     it("runs without error on an already-sorted array", () => {
         expect(() => mergeSort([1, 2, 3, 4, 5], numericComparator)).not.toThrow();
     });
@@ -57,6 +75,12 @@ describe("quickSort", () => {
 
     it("runs without error on a single-element array", () => {
         expect(() => quickSort([42], numericComparator)).not.toThrow();
+    });
+
+    it("does not mutate the original array", () => {
+        const input = [3, 1, 2];
+        quickSort(input, numericComparator);
+        expect(input).toEqual([3, 1, 2]);
     });
 
     it("runs without error on an already-sorted array", () => {
