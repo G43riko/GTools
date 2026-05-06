@@ -126,3 +126,125 @@ export function formatDateAgo(input: number | string | Date): string {
 
     return "Just now"; // fallback
 }
+
+/**
+ * Formats a date/time value into a human-readable relative string (e.g. "2h ago", "in 5m").
+ *
+ * Converts absolute times to relative descriptions for the current moment or a custom reference time.
+ * Supports past and future times, multiple input types (ISO string, timestamp, Date), and customizable
+ * output format (short vs. long labels and custom suffixes/prefixes).
+ *
+ * @param iso - Date input (ISO 8601 string, millisecond timestamp, or Date object), or null/undefined.
+ * @param options - Formatting options.
+ *
+ * @returns A human-readable relative time string, or `"—"` if input is invalid.
+ *
+ * @example
+ * ```ts
+ * import { formatRelative } from "./render-utils.ts";
+ *
+ * // Relative to current time: "2h ago"
+ * formatRelative(new Date(Date.now() - 7_200_000));
+ * // → "2h ago" (short format)
+ *
+ * // Future time: "in 1h"
+ * formatRelative(new Date(Date.now() + 3_600_000));
+ * // → "in 1h"
+ *
+ * // Just now for recent changes
+ * formatRelative(Date.now() - 2_000);
+ * // → "just now"
+ * ```
+ *
+ * @example
+ * ```ts
+ * import { formatRelative } from "./render-utils.ts";
+ *
+ * // Long format with full words
+ * formatRelative(new Date(Date.now() - 86_400_000), { short: false });
+ * // → "1 day ago"
+ *
+ * // Custom reference time
+ * const refTime = new Date("2026-05-06T12:00:00Z").getTime();
+ * formatRelative("2026-05-06T10:00:00Z", { now: refTime });
+ * // → "2h ago"
+ * ```
+ */
+export function formatRelative(    iso: string | number | Date | null | undefined,
+    options: {
+        now?: number; // override current time
+        justNowThresholdMs?: number; // default: 5s
+        suffixPast?: string; // default: "ago"
+        prefixFuture?: string; // default: "in"
+        short?: boolean; // short format (e.g. 5m vs 5 min)
+    } = {},
+): string {
+    if (!iso) {
+        return "—";
+    }
+
+    const {
+        now = Date.now(),
+        justNowThresholdMs = 5_000,
+        suffixPast = "ago",
+        prefixFuture = "in",
+        short = true,
+    } = options;
+
+    const time = new Date(iso).getTime();
+    if (Number.isNaN(time)) {
+        return "—";
+    }
+
+    const diff = now - time;
+    const abs = Math.abs(diff);
+
+    const isPast = diff >= 0;
+
+    if (abs < justNowThresholdMs) {
+        return "just now";
+    }
+
+    const units = [
+        { label: "year", short: "y", ms: 365 * 24 * 60 * 60 * 1000 },
+        { label: "month", short: "mo", ms: 30 * 24 * 60 * 60 * 1000 },
+        { label: "week", short: "w", ms: 7 * 24 * 60 * 60 * 1000 },
+        { label: "day", short: "d", ms: 24 * 60 * 60 * 1000 },
+        { label: "hour", short: "h", ms: 60 * 60 * 1000 },
+        { label: "minute", short: "m", ms: 60 * 1000 },
+        { label: "second", short: "s", ms: 1000 },
+    ];
+
+    for (const unit of units) {
+        if (abs >= unit.ms) {
+            const value = Math.floor(abs / unit.ms);
+
+            if (short) {
+                return isPast ? `${value}${unit.short} ${suffixPast}` : `${prefixFuture} ${value}${unit.short}`;
+            }
+
+            const plural = value === 1 ? "" : "s";
+            const label = `${unit.label}${plural}`;
+
+            return isPast ? `${value} ${label} ${suffixPast}` : `${prefixFuture} ${value} ${label}`;
+        }
+    }
+
+    return "just now";
+}
+
+/**
+ * Pretty-print JSON. Returns original string on parse error.
+ * @param value 
+ */
+export function formatJson(value: unknown): string {
+    try {
+        return JSON.stringify(
+            typeof value === "string" ? JSON.parse(value) : value,
+            null,
+            2,
+        );
+    } catch {
+        return String(value);
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="deno test" tests="5" failures="0" errors="0" time="0.006">
+    <testsuite name="./format-utils.spec.ts" tests="5" disabled="5" errors="0" failures="0">
+        <testcase name="formatElapsed" classname="./format-utils.spec.ts" line="6" col="1">
+            <skipped/>
+        </testcase>
+        <testcase name="formatBytes" classname="./format-utils.spec.ts" line="36" col="1">
+            <skipped/>
+        </testcase>
+        <testcase name="formatDateAgo" classname="./format-utils.spec.ts" line="58" col="1">
+            <skipped/>
+        </testcase>
+        <testcase name="formatRelative" classname="./format-utils.spec.ts" line="84" col="1">
+            <skipped/>
+        </testcase>
+        <testcase name="compareFormatRelativeAndFormatDateAgo" classname="./format-utils.spec.ts" line="190" col="1">
+            <skipped/>
+        </testcase>
+    </testsuite>
+</testsuites>
