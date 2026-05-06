@@ -5,15 +5,16 @@ import { SimpleMat3 } from "./simple-mat3.ts";
  * @see https://github.com/mrdoob/three.js/blob/dev/src/math/Matrix3.js
  */
 export class Mat3 extends SimpleMat3 {
-    public static mul(a: SimpleMat3, b: SimpleMat3): SimpleMat3;
-    public static mul<T extends SimpleMat3>(a: SimpleMat3, b: SimpleMat3, out: T): T; /**
-     * Multiplies two 3x3 matrices (b * a order)
-     * @param a First matrix
-     * @param b Second matrix
-     * @param out Optional output matrix, will be created if not provided
-     * @returns The product matrix
-     * @throws {Error} If matrices are invalid
+    /**
+     * Multiplies two 3×3 matrices in `b × a` order.
+     *
+     * @param a - First matrix (right-hand operand).
+     * @param b - Second matrix (left-hand operand).
+     * @param out - Optional output matrix. A new identity matrix is created when omitted.
+     * @returns The product matrix stored in `out`.
      */
+    public static mul(a: SimpleMat3, b: SimpleMat3): SimpleMat3;
+    public static mul<T extends SimpleMat3>(a: SimpleMat3, b: SimpleMat3, out: T): T;
 
     public static mul<T extends SimpleMat3>(a: SimpleMat3, b: SimpleMat3, out = SimpleMat3.create()): T {
         const a00 = a.data[0];
@@ -47,6 +48,15 @@ export class Mat3 extends SimpleMat3 {
         return out as T;
     }
 
+    /**
+     * Transforms a 2D vector by the upper-left 2×2 portion of the matrix plus
+     * the translation stored in column 2 (data indices 6 and 7).
+     *
+     * @param a - The input vector to transform.
+     * @param m - The transformation matrix.
+     * @param out - Optional output object. A new `{x, y}` object is created when omitted.
+     * @returns The transformed vector stored in `out`.
+     */
     public static getTranslatedVector(a: SimpleVector2, m: SimpleMat3): SimpleVector2;
     public static getTranslatedVector<T extends SimpleVector2>(a: SimpleVector2, m: SimpleMat3, out: T): T;
     public static getTranslatedVector<T extends SimpleVector2>(a: SimpleVector2, m: SimpleMat3, out = {
