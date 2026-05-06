@@ -2,7 +2,8 @@
  * Formats an elapsed time duration given in milliseconds into a human-readable string.
  * - For durations < 1s, it returns milliseconds with decimal precision.
  * - For durations ≥ 1s, it returns a breakdown like "1d 3h 15m 42s".
- *
+ * @todo
+ *  TODO: formatEllapsed() // should be "1d" and not "1d 0h 0m 0s"
  * @param ms - The elapsed time in milliseconds.
  * @returns A human-readable string representing the duration.
  *
@@ -34,6 +35,150 @@ export function formatElapsed(ms: number): string {
     parts.push(`${seconds}s`);
 
     return parts.join(" ");
+}
+
+const INTERVALS = {
+    year: { short: "y", ms: 365 * 24 * 60 * 60 * 1000 },
+    month: { short: "mo", ms: 30 * 24 * 60 * 60 * 1000 },
+    week: { short: "w", ms: 7 * 24 * 60 * 60 * 1000 },
+    day: { short: "d", ms: 24 * 60 * 60 * 1000 },
+    hour: { short: "h", ms: 60 * 60 * 1000 },
+    minute: { short: "m", ms: 60 * 1000 },
+    second: { short: "s", ms: 1000 },
+} as const;
+
+const INTERVAL_ENTRIES = Object.entries(INTERVALS).map(
+    ([label, { short, ms }]) => ({ label, short, ms }),
+);
+
+/**
+ * Options for {@link formatElapsed}.
+ */
+export interface FormatElapsedOptions {
+    /**
+     * Number of decimal places for milliseconds.
+     *
+     * @default 2
+     */
+    msDecimals?: number;
+
+    /**
+     * Maximum number of units to display.
+     *
+     * @example
+     * 1 → "2h"
+     * 2 → "2h 5m"
+     *
+     * @default Infinity
+     */
+    maxUnits?: number;
+
+    /**
+     * Include zero-value units between non-zero ones.
+     *
+     * @example
+     * true  → "1h 0m 5s"
+     * false → "1h 5s"
+     *
+     * @default true
+     */
+    includeZero?: boolean;
+
+    /**
+     * Trim trailing spaces/units aggressively.
+     *
+     * @default true
+     */
+    trim?: boolean;
+}
+
+/**
+ * Formats a duration (in milliseconds) into a human-readable string.
+ *
+ * Uses millisecond precision for sub-second values and compact units for larger durations.
+ *
+ * @example
+ * ```ts
+ * formatElapsed(250);
+ * // → "250 ms"
+ * ```
+ *
+ * @example
+ * ```ts
+ * formatElapsed(1_234);
+ * // → "1s"
+ * ```
+ *
+ * @example
+ * ```ts
+ * formatElapsed(90_000);
+ * // → "1m 30s"
+ * ```
+ *
+ * @example
+ * ```ts
+ * formatElapsed(3_600_000 + 5_000);
+ * // → "1h 0m 5s"
+ * ```
+ *
+ * @param ms - Duration in milliseconds.
+ * @param options - Formatting options.
+ *
+ * @returns Human-readable elapsed time string.
+ */
+export function formatElapsedNew(
+    ms: number,
+    options: FormatElapsedOptions = {},
+): string {
+    const {
+        msDecimals = 2,
+        maxUnits = Infinity,
+        includeZero = true,
+        trim = true,
+    } = options;
+
+    if (!Number.isFinite(ms)) {
+        return String(ms);
+    }
+
+    const sign = ms < 0 ? "-" : "";
+    let remaining = Math.abs(ms);
+
+    // Sub-second formatting
+    if (remaining < 1000) {
+        let value: string;
+
+        if (remaining < 1) {
+            value = remaining.toFixed(msDecimals);
+        } else if (remaining < 10) {
+            value = remaining.toFixed(Math.min(msDecimals, 1));
+        } else {
+            value = Math.round(remaining).toString();
+        }
+
+        return `${sign}${value} ms`;
+    }
+
+    const parts: string[] = [];
+
+    for (const unit of INTERVAL_ENTRIES) {
+        if (parts.length >= maxUnits) break;
+
+        const value = Math.floor(remaining / unit.ms);
+        remaining %= unit.ms;
+
+        if (value > 0 || (includeZero && parts.length > 0)) {
+            parts.push(`${value}${unit.short}`);
+        }
+    }
+
+    let result = parts.join(" ");
+
+    if (trim) {
+        result = result.trim();
+    }
+
+    return sign + (result || "0s");
 }
 
 const FILE_SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
@@ -81,23 +226,11 @@ export function formatBytes(
     return `${parseFloat(size.toFixed(decimals))} ${sizes[i]}`;
 }
 
-const intervals = {
-    year: { short: "y", ms: 365 * 24 * 60 * 60 * 1000 },
-    month: { short: "mo", ms: 30 * 24 * 60 * 60 * 1000 },
-    week: { short: "w", ms: 7 * 24 * 60 * 60 * 1000 },
-    day: { short: "d", ms: 24 * 60 * 60 * 1000 },
-    hour: { short: "h", ms: 60 * 60 * 1000 },
-    minute: { short: "m", ms: 60 * 1000 },
-    second: { short: "s", ms: 1000 },
-} as const;
-
-const intervalEntries = Object.entries(intervals).map(
-    ([label, { short, ms }]) => ({ label, short, ms }),
-);
-
 /**
  * Returns a human-readable relative time string for the given date or timestamp.
  * For example: "2 hours ago", "5 minutes ago", "Just now".
+ *
+ * Use {@link formatRelative } if you want full names, time in future, custom "now" time, or custom "just now" threshold
  *
  * @param input - A date input (Date object, ISO string, or timestamp).
  * @returns A formatted string indicating how long ago the date was.
@@ -123,7 +256,7 @@ export function formatDateAgo(input: number | string | Date): string {
         return "Just now";
     }
 
-    for (const { label, ms } of intervalEntries) {
+    for (const { label, ms } of INTERVAL_ENTRIES) {
         if (diffMs >= ms) {
             const count = Math.floor(diffMs / ms);
             if (count > 0) {
@@ -214,7 +347,7 @@ export function formatRelative(
         return "just now";
     }
 
-    for (const unit of intervalEntries) {
+    for (const unit of INTERVAL_ENTRIES) {
         if (abs >= unit.ms) {
             const value = Math.floor(abs / unit.ms);
 

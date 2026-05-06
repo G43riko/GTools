@@ -1,7 +1,7 @@
 import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 
-import { formatBytes, formatDateAgo, formatElapsed, formatRelative } from "./format-utils.ts";
+import { formatBytes, formatDateAgo, formatElapsed, formatElapsedNew, formatRelative } from "./format-utils.ts";
 
 describe("formatElapsed", () => {
     it("formats milliseconds below 1 ms", () => {
@@ -20,6 +20,9 @@ describe("formatElapsed", () => {
         expect(formatElapsed(1234)).toBe("1s");
     });
 
+    it("formats one day", () => {
+        expect(formatElapsed(1000 * 60 * 60 * 24)).toBe("1d 0h 0m 0s");
+    });
     it("formats minutes and seconds", () => {
         expect(formatElapsed(65_000)).toBe("1m 5s");
     });
@@ -30,6 +33,32 @@ describe("formatElapsed", () => {
 
     it("formats days, hours, minutes, seconds", () => {
         expect(formatElapsed(172_800_000 + 3661_000)).toBe("2d 1h 1m 1s");
+    });
+});
+
+describe("formatElapsedNew", () => {
+    it("formats sub-second values with millisecond precision", () => {
+        expect(formatElapsedNew(0.123)).toBe("0.12 ms");
+    });
+
+    it("formats seconds and larger durations", () => {
+        expect(formatElapsedNew(9_654_321)).toBe("2h 40m 54s");
+    });
+
+    it("supports maxUnits to limit displayed units", () => {
+        expect(formatElapsedNew(3_661_000, { maxUnits: 2 })).toBe("1h 1m");
+    });
+
+    it("omits zero-value units when includeZero is false", () => {
+        expect(formatElapsedNew(3_605_000, { includeZero: false })).toBe("1h 5s");
+    });
+
+    it("formats negative durations with a leading sign", () => {
+        expect(formatElapsedNew(-65_000)).toBe("-1m 5s");
+    });
+
+    it("returns a string for non-finite values", () => {
+        expect(formatElapsedNew(Infinity)).toBe("Infinity");
     });
 });
 
@@ -163,12 +192,16 @@ describe("formatRelative", () => {
 
     it("uses custom suffix for past", () => {
         const time = now - 120_000; // 2 minutes ago
-        expect(formatRelative(time, { now, suffixPast: "before" })).toBe("2m before");
+        expect(formatRelative(time, { now, suffixPast: "before" })).toBe(
+            "2m before",
+        );
     });
 
     it("uses custom prefix for future", () => {
         const time = now + 120_000; // 2 minutes in future
-        expect(formatRelative(time, { now, prefixFuture: "later" })).toBe("later 2m");
+        expect(formatRelative(time, { now, prefixFuture: "later" })).toBe(
+            "later 2m",
+        );
     });
 
     it("handles Date object input", () => {
@@ -183,20 +216,59 @@ describe("formatRelative", () => {
 
     it("respects justNowThresholdMs", () => {
         const time = now - 10_000; // 10 seconds ago
-        expect(formatRelative(time, { now, justNowThresholdMs: 15_000 })).toBe("just now");
+        expect(formatRelative(time, { now, justNowThresholdMs: 15_000 })).toBe(
+            "just now",
+        );
     });
 });
 
 describe("compareFormatRelativeAndFormatDateAgo", () => {
-    const values = [1, Date.now(), Date.now() - 1000 * 60 * 60, Date.now() - 1000 * 60 * 60 * 24 * 365 * 5];
+    const values = [
+        1,
+        Date.now(),
+        Date.now() - 1000 * 60 * 60,
+        Date.now() - 1000 * 60 * 60 * 24 * 365 * 5,
+    ];
 
     values.forEach((i) => {
         it(`Should compare ${i}`, () => {
-            const formatRelativeResult = formatRelative(i, { short: false }).toLowerCase();
+            const formatRelativeResult = formatRelative(i, {
+                short: false,
+            }).toLowerCase();
             const formatDateAgoResult = formatDateAgo(i).toLowerCase();
             const isEqual = formatRelativeResult === formatDateAgoResult;
             if (!isEqual) {
                 console.log({ formatRelativeResult, formatDateAgoResult });
+            }
+            expect(isEqual).toBeTruthy();
+        });
+    });
+});
+describe("compareFormatElapsedAndFormatElapsedNew", () => {
+    const values = [
+        1,
+        1000,
+        1000 * 60,
+        1000 * 60 + 1,
+        1000 * 60 * 60,
+        1000 * 60 * 60 + 1,
+        1000 * 60 * 60 * 24,
+        1000 * 60 * 60 * 24 + 1,
+        //Date.now(),
+        // Date.now() - 1000 * 60 * 60,
+        // Date.now() - 1000 * 60 * 60 * 24 * 365 * 5,
+    ];
+
+    values.forEach((i) => {
+        it(`Should compare ${i}`, () => {
+            const formatElapsedResult = formatElapsed(i);
+            const formatElapsedNewResult = formatElapsedNew(i);
+            const isEqual = formatElapsedResult === formatElapsedNewResult;
+            if (!isEqual) {
+                console.log({
+                    formatElapsedResult,
+                    formatElapsedNewResult,
+                });
             }
             expect(isEqual).toBeTruthy();
         });
