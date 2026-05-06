@@ -35,7 +35,7 @@ export class LatLong {
      * @param item - Value to test.
      */
     public static isLatLong<Item extends ReadonlySimpleLatLong>(item: Item | any): item is Item {
-        return item && !isNaN(item.lat) && !isNaN(item.long);
+        return Boolean(item && !isNaN(item.lat) && !isNaN(item.long));
     }
 
     /**

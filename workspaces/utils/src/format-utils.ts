@@ -60,12 +60,14 @@ const FILE_SIZE_UNITS_LONG = [
  */
 export function formatBytes(
     bytes: number,
-    decimalsOrOptions?: number | {
-        readonly decimals?: number;
-        readonly long?: boolean;
-    },
+    decimalsOrOptions?:
+        | number
+        | {
+            readonly decimals?: number;
+            readonly long?: boolean;
+        },
 ): string {
-    const decimals = typeof decimalsOrOptions === "number" ? decimalsOrOptions : decimalsOrOptions?.decimals ?? 2;
+    const decimals = typeof decimalsOrOptions === "number" ? decimalsOrOptions : (decimalsOrOptions?.decimals ?? 2);
     const long = typeof decimalsOrOptions === "object" ? decimalsOrOptions.long : false;
     const sizes = long ? FILE_SIZE_UNITS_LONG : FILE_SIZE_UNITS;
     if (bytes === 0) {
@@ -80,18 +82,18 @@ export function formatBytes(
 }
 
 const intervals = {
-    "year": 31536000,
-    "month": 2592000,
-    "week": 604800,
-    "day": 86400,
-    "hour": 3600,
-    "minute": 60,
-    "second": 1,
+    year: { short: "y", ms: 365 * 24 * 60 * 60 * 1000 },
+    month: { short: "mo", ms: 30 * 24 * 60 * 60 * 1000 },
+    week: { short: "w", ms: 7 * 24 * 60 * 60 * 1000 },
+    day: { short: "d", ms: 24 * 60 * 60 * 1000 },
+    hour: { short: "h", ms: 60 * 60 * 1000 },
+    minute: { short: "m", ms: 60 * 1000 },
+    second: { short: "s", ms: 1000 },
 } as const;
 
-type IntervalKey = keyof typeof intervals;
-
-const intervalEntries = Object.entries(intervals) as [IntervalKey, number][];
+const intervalEntries = Object.entries(intervals).map(
+    ([label, { short, ms }]) => ({ label, short, ms }),
+);
 
 /**
  * Returns a human-readable relative time string for the given date or timestamp.
@@ -111,16 +113,22 @@ export function formatDateAgo(input: number | string | Date): string {
     if (isNaN(then)) {
         return String(input);
     }
-
-    const seconds = Math.floor((now - then) / 1000);
-    if (seconds < 30) {
+    const diffMs = now - then;
+    // Handle future dates (optional: adjust wording if needed)
+    if (diffMs < 0) {
         return "Just now";
     }
 
-    for (const [unit, sec] of intervalEntries) {
-        const count = Math.floor(seconds / sec);
-        if (count > 0) {
-            return `${count} ${unit}${count > 1 ? "s" : ""} ago`;
+    if (diffMs < 30_000) {
+        return "Just now";
+    }
+
+    for (const { label, ms } of intervalEntries) {
+        if (diffMs >= ms) {
+            const count = Math.floor(diffMs / ms);
+            if (count > 0) {
+                return `${count} ${label}${count > 1 ? "s" : ""} ago`;
+            }
         }
     }
 
@@ -170,7 +178,8 @@ export function formatDateAgo(input: number | string | Date): string {
  * // → "2h ago"
  * ```
  */
-export function formatRelative(    iso: string | number | Date | null | undefined,
+export function formatRelative(
+    iso: string | number | Date | null | undefined,
     options: {
         now?: number; // override current time
         justNowThresholdMs?: number; // default: 5s
@@ -205,17 +214,7 @@ export function formatRelative(    iso: string | number | Date | null | undefine
         return "just now";
     }
 
-    const units = [
-        { label: "year", short: "y", ms: 365 * 24 * 60 * 60 * 1000 },
-        { label: "month", short: "mo", ms: 30 * 24 * 60 * 60 * 1000 },
-        { label: "week", short: "w", ms: 7 * 24 * 60 * 60 * 1000 },
-        { label: "day", short: "d", ms: 24 * 60 * 60 * 1000 },
-        { label: "hour", short: "h", ms: 60 * 60 * 1000 },
-        { label: "minute", short: "m", ms: 60 * 1000 },
-        { label: "second", short: "s", ms: 1000 },
-    ];
-
-    for (const unit of units) {
+    for (const unit of intervalEntries) {
         if (abs >= unit.ms) {
             const value = Math.floor(abs / unit.ms);
 
@@ -235,7 +234,7 @@ export function formatRelative(    iso: string | number | Date | null | undefine
 
 /**
  * Pretty-print JSON. Returns original string on parse error.
- * @param value 
+ * @param value
  */
 export function formatJson(value: unknown): string {
     try {

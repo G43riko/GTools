@@ -192,15 +192,13 @@ describe("compareFormatRelativeAndFormatDateAgo", () => {
 
     values.forEach((i) => {
         it(`Should compare ${i}`, () => {
-            const formatRelativeResult = formatRelative(i, {short: false}).toLowerCase();
+            const formatRelativeResult = formatRelative(i, { short: false }).toLowerCase();
             const formatDateAgoResult = formatDateAgo(i).toLowerCase();
             const isEqual = formatRelativeResult === formatDateAgoResult;
-            if(!isEqual) {
-                console.log({formatRelativeResult, formatDateAgoResult})
+            if (!isEqual) {
+                console.log({ formatRelativeResult, formatDateAgoResult });
             }
-            expect(isEqual).toBeTruthy()
+            expect(isEqual).toBeTruthy();
         });
-
-
-    })
-})
+    });
+});
