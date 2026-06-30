@@ -1,4 +1,4 @@
-import { formatBytes, formatElapsed } from "./format-utils.ts";
+import { formatBytes, formatElapsed, formatElapsedNew } from "./format-utils.ts";
 
 // ---------------------------------------------------------------------------
 // formatElapsed — optimised variant
@@ -91,6 +91,9 @@ for (const ms of elapsedSamples) {
     });
     Deno.bench(`formatElapsedFast ${label}`, { group: label, baseline: true }, () => {
         formatElapsedFast(ms);
+    });
+    Deno.bench(`formatElapsedNew ${label}`, { group: label, baseline: true }, () => {
+        formatElapsedNew(ms);
     });
 }
 
